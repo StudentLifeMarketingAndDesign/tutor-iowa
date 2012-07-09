@@ -8,7 +8,7 @@ class HomePage extends Page {
    );
    static $has_one = array(
    );
-   static $defaults = array ('ProvideComments' => '1',
+   static $defaults = array ('ProvideComments' => '1'
     
    
     
