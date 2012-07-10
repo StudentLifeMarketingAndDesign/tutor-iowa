@@ -36,6 +36,27 @@ class Page_Controller extends ContentController {
 
 	public function init() {
 		parent::init();
+		
+		if (isset($_GET['setTheme'])) {
+      if (Director::isDev() || Permission::check('ADMIN')) {
+        Session::set('theme', $_GET['setTheme']);
+      } else {
+        Security::permissionFailure(null,
+          'Please log in as an administrator to switch theme.');
+      }
+    }
+ 
+    if (isset($_GET['theme'])) {
+      if (Director::isDev() || Permission::check('ADMIN')) {
+        SSViewer::set_theme($_GET['theme']);
+      } else {
+        Security::permissionFailure(null,
+          'Please log in as an administrator to set the theme.');
+      }
+ 
+    } elseif (Session::get('theme')) {
+      SSViewer::set_theme(Session::get('theme'));
+    }
 
 		// Note: you should use SS template require tags inside your templates 
 		// instead of putting Requirements calls here.  However these are 
