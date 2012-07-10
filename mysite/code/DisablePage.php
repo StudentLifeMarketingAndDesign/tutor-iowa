@@ -107,11 +107,15 @@ class DisablePage_Controller extends Page_Controller {
         return $this->request->getVar('saved');
     }
     
+    //Used to check on DisablePage if user has been published yet -- if not, the disable page form should not appear
     function notPublished()
+    
     {
+    	
     	$member = Member::CurrentMember();
     	$IDMember = $member->ID;
-    	
-	    return is_null(DataObject::get_one("TutorPage", "MemberID = $IDMember"));
+    	$TutorPage = DataObject::get_one("TutorPage", "MemberID = $IDMember");
+    	$notTutorPage = !($TutorPage instanceof TutorPage); 
+	    return $notTutorPage;
     }
 }
