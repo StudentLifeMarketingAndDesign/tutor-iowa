@@ -4,7 +4,7 @@
    	<% end_control %>
    	<% if CurrentMember %>
    		<li>
-   			<a href="Security/logout" title="Logout">Logout</a>
+   			<a href="home/logout" title="Logout">Logout</a>
    		</li>
    	<% else %>
    		<li>
