@@ -16,7 +16,7 @@ class ArticlePage extends Page {
    public function getCMSFields() {
         $fields = parent::getCMSFields();
      
-        $fields->addFieldToTab('Root.Content.Main', $dateField = new DateField('Date','Article Date (for example: 20/12/2010)'), 'Content');
+        $fields->addFieldToTab('Root.Content.Main', $dateField = new DateField('Date','Article Date (for example: 1/20/2010)'), 'Content');
         $dateField->setConfig('showcalendar', true);
         $dateField->setConfig('dateformat', 'dd/MM/YYYY');
      
