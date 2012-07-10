@@ -36,6 +36,7 @@ class TutorPage extends Page {
              */
              
              static $defaults = array ('ProvideComments' => '1',
+             'Disabled' => '0',
              //Hi
     
    );
@@ -96,11 +97,7 @@ class TutorPage extends Page {
 		    $email->setBody($body); 
 		    $email->send(); 
 	    }
-	         
-	   $this->Approved = 1;
-	   $this->Disabled = 0; //should default to zero
 	   
-	   $this->write();  
 	   
 	   /*
 	   $MemberID = $this->MemberID;
