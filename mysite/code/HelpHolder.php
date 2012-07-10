@@ -1,5 +1,7 @@
 <?php
- 
+
+//test comment
+
 class HelpHolder extends Page {
   static $db = array(
    );
