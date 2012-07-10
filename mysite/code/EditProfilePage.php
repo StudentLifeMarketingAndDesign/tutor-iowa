@@ -77,9 +77,8 @@ class EditProfilePage_Controller extends Page_Controller
 	         if ($Tutor instanceof TutorPage){	 //Tutor is published        	
 	         	$Form->loadDataFrom($Tutor->data());   
 	         }
-	         else { //Not published (disabled and unapproved users).  The concatenation used to get the current URL def isn't how I'm supposed to do this
-	         	
-		        return 'You must be confirmed as a user by our administrator to edit your profile.  If you have disabled your account, please <a href="'. Director::baseURL() . $this->URLSegment . '?enable=1' . '">contact</a> our administrator to have your account re-enabled.';
+	         else { //Not published (disabled and unapproved users).  The enable function is at at the bottom and handles sending the emails 	         	
+		        return 'You must be confirmed as a user by our administrator to edit your profile.  If you have disabled your account, please click <a href="'. Director::baseURL() . $this->URLSegment . '?enable=1' . '">here</a> to have your account re-enabled.';
 		     }
 	      
 	        //Return the form
@@ -216,9 +215,9 @@ class EditProfilePage_Controller extends Page_Controller
 		    foreach ($emailArray as $recip){ //$emailArray defined in EmailArray.php
 	        	
 	        	        	
-	        	$subject = "User has requested their account be disabled"; 
+	        	$subject = "User has requested their account be enabled"; 
 	        	      	
-	        	$body = $Member->FirstName . " " . $Member->LastName . " has requested their account be enabled.  You can find their account quickly by searching for a Tutor Page in the TutorIowa tab of the CMS with their first and last name as the page name to search for." . "Disable account  <a href='" . Director::absoluteBaseURL() .  "admin" . "'>here</a/>";        	
+	        	$body = $CurrentMember->FirstName . " " . $CurrentMember->Surname . " has requested their account be enabled.  You can find their account quickly by searching for a Tutor Page in the TutorIowa tab of the CMS with their first and last name as the page name to search for." . "Disable account  <a href='" . Director::absoluteBaseURL() .  "admin" . "'>here</a/>";        	
 	        	//$headers = "From: Tutor Iowa";       	
 		        //mail($recip->Email, $subject, $body);
 		      	        
