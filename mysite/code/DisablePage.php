@@ -116,6 +116,7 @@ class DisablePage_Controller extends Page_Controller {
     	$IDMember = $member->ID;
     	$TutorPage = DataObject::get_one("TutorPage", "MemberID = $IDMember");
     	$notTutorPage = !($TutorPage instanceof TutorPage); 
-	    return $notTutorPage;
+    	return $notTutorPage;
+    	
     }
 }
