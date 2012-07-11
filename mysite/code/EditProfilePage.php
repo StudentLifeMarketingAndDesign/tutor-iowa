@@ -49,7 +49,8 @@ class EditProfilePage_Controller extends Page_Controller
 	            new TextField('HourlyRate', 'Hourly Rate'),
 	            new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
 	            new TextareaField('MetaKeywords', 'Tags'),
-	            new CheckboxField('Disabled', 'Disable your page (will no longer be returned as a search result on TutorIowa)')
+	            //This does not sync with database (database field is 'Disabled')
+	            new CheckboxField('Disable', 'Request to disable your page (will no longer be returned as a search result on TutorIowa)')
 	
 	            
 	        );
@@ -73,6 +74,7 @@ class EditProfilePage_Controller extends Page_Controller
 	        //Information must be loaded from both tutor and member because member stores a member/tutor's password
 	         $Form->loadDataFrom($Member->data());
 	         
+	       
 	         ///$Check if user is published yet
 	         if ($Tutor instanceof TutorPage){	 //Tutor is published        	
 	         	$Form->loadDataFrom($Tutor->data());   
@@ -118,24 +120,17 @@ class EditProfilePage_Controller extends Page_Controller
             	
                 $formData = $form->getData();
       
-                $formDisabled = $formData["Disabled"];
-                $tutorDisabled = $Tutor->Disabled;
-                
-                $returned = "DIDN'T ENTER IF " . "Form = " . $formDisabled . "Tutor = " . $tutorDisabled;
-                
-                $disableAcct=0;
-                
-                //$Tutor is a TutorPage              
-                if ($formDisabled != $tutorDisabled){
-	                if ($formDisabled == 1){
-		                $Tutor->doUnpublish('Stage', 'Live');
-		                $returned = "unpublished " . "Form = " . $formDisabled . "Tutor = " . $tutorDisabled;
-		                $disableAcct = 1;
+                $formDisabled = $formData["Disable"];
+                /*
+	            if ($formDisabled == 1){
+		        	$Tutor->doUnpublish('Stage', 'Live');
+		            $returned = "unpublished " . "Form = " . $formDisabled . "Tutor = " . $tutorDisabled;
+		            $disableAcct = 1;
 		                
 		       
 		               
-	                }
-	                /*
+	             }
+	                
 	                elseif ($formDisabled == 0) {
 	                
 		                $Tutor->doPublish('Stage', 'Live');
@@ -147,7 +142,7 @@ class EditProfilePage_Controller extends Page_Controller
 		                
 		            }
 		            */
-                }
+                
 
             	
                 $form->saveInto($Tutor); 
@@ -160,7 +155,7 @@ class EditProfilePage_Controller extends Page_Controller
                  
                 $CurrentMember->write();
                 
-                if ($disableAcct){
+                if ($formDisabled){//If user checked disable page box
                 	
 	                if($DisablePage = DataObject::get_one('DisablePage'))
 	                	{
