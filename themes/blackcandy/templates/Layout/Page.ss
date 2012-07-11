@@ -16,7 +16,7 @@
 		 <% if CurrentMember %>
 		 
 		 <% else %>
-		 	<a href="/registration-page" title="Register">Register</a>
+		 	<a href="/tutoriowa/registration-page" title="Register">Register</a>
 		 <% end_if %>
 		$PageComments
 	<% if Menu(2) %>
