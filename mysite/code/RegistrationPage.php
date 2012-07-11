@@ -26,7 +26,9 @@ class RegistrationPage_Controller extends Page_Controller {
     function RegistrationForm()
     {
         $fields = new FieldSet(
-            new TextField('Name', '<span>*</span> Name'),
+            //new TextField('Name', '<span>*</span> Name'),
+            new TextField('FirstName', '<span>*</span> First Name'),
+            new TextField('Surname', '<span>*</span> Last Name'),
             new EmailField('Email', '<span>*</span> Email'),
             new ConfirmedPasswordField('Password', '<span>*</span> Password'),
             new TextField('UniversityID', 'University ID'),
