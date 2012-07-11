@@ -85,10 +85,13 @@ class TutorPage extends Page {
         	
          
         	
-			$subject = "Confirmation email";
-		    $body = "Congratulations -- your registration for Tutor Iowa has been confirmed! You can edit your details now <a href='" . Director::absoluteBaseURL() . "edit-profile-page'>here</a/><br>
+			$subject = "TutorIowa approval confirmation";
+		    $body = "Congratulations -- you have been approved as a tutor on Tutor Iowa.  You now have full
+		    access to edit your profile.  Please check out this  <a href='http://tutor.uiowa.edu/for-tutors'>link</a> to learn how to effectively use tags and efficiently use the website.  
 		    "; 
-		         	
+		    
+		    
+		    ////You can edit your details now <a href='" . Director::absoluteBaseURL() . "edit-profile-page'>here</a/><br>     	
 		    //$headers = "From: Tutor Iowa";       	
 		    //mail($recip->Email, $subject, $body);
 		    
@@ -102,8 +105,8 @@ class TutorPage extends Page {
 		    $email->send(); 
 	   // }
 	    
-	    $this->Approved = 1;
-	    $this->write();
+	    //$this->Approved = 1;
+	    //$this->write();
 	   
 	   
 	   /*
