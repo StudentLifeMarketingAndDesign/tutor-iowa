@@ -134,9 +134,10 @@ class RegistrationPage_Controller extends Page_Controller {
             
         foreach ($emailArray as $recip){ //emailArray defined in EmailArray.php
         	
-        	$subject = "A new Tutor Iowa user has registered";
-        	$body = "User email: " . $userEmail . "
-        	Confirm user <a href='" . Director::absoluteBaseURL() . "admin/show/" . $TutorPage->ID . "'>here </a/>";  
+        	$subject = "TutorIowa Application Notification";
+        	$body = "Administrator,<br><br>The following individual has registered to be a tutor on Tutor Iowa:<br><br>" . "Name: " . $Member->FirstName . " " . $Member->Surname . 
+        	"<br> Email: " . $TutorPage->Email . "<br> University ID: " . $TutorPage->UniversityID . "<br>Major: " . $TutorPage->Major . "        	
+        	<br><br>Confirm user <a href='" . Director::absoluteBaseURL() . "admin/show/" . $TutorPage->ID . "'>here </a/>";  
         	
         	
         	//Confirm user  <a href='http://localhost/admin/show/". $TutorPage->ID . "'>here </a/>";      	
@@ -154,8 +155,13 @@ class RegistrationPage_Controller extends Page_Controller {
 	         	         
 	    }
 	    
-	    $subject = "Your Tutor Iowa registration is pending";
-	    $body = "Once you receive your confirmation email, you will be filled to the brim with an ecstatic joy."; 
+	    $subject = "TutorIowa Application Confirmation";
+	    $body = "Thank you for registering to be a tutor on Tutor Iowa. <br><br>  You will soon receive an email regarding further approval procedures and training sessions. <br><br>
+	    
+	    As a reminder, you will not receive full access to edit your profile until you have been approved as a tutor.<br><br>
+	    
+	    Best, <br>
+	    The Tutor Iowa Team"; 
 	    
         $email = new Email(); 
 	    $email->setTo($Member->Email); 
