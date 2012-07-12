@@ -4,7 +4,7 @@
 ID: $ID <br>
 FirstName: $FirstName <br>
 LastName: $LastName	<br>
-Bio: $Bio <br>
+Bio: $Content <br>
 Hours: $Hours <br>
 Phone: $PhoneNo <br>
 Tags: $TagColl <br> 
