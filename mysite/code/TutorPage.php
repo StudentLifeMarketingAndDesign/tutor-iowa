@@ -19,7 +19,9 @@ class TutorPage extends Page {
                 "HourlyRate" => 'Text',
                 "MeetingPreference" => 'Text',
                 "AcademicStatus" => 'Text',
-                                
+                "UniversityID" => 'Int',
+                "Major" => 'Text',
+                                    
                 );
                 
                            
@@ -36,6 +38,8 @@ class TutorPage extends Page {
              */
              
              static $defaults = array ('ProvideComments' => '1',
+             'Disabled' => '0',
+             'Approved' => '0',
              //Hi
     
    );
@@ -77,13 +81,17 @@ class TutorPage extends Page {
 
 	 	
 	 	//Only want onAfterPublish to send a confirmation email the first time            
-	    if ($approved==0){ 	
+	   //if ($approved==0){ 	
         	
          
         	
-			$subject = "Confirmation email";
-		    $body = "Congratulations -- your registration for Tutor Iowa has been confirmed! You can edit your details now <a href='" . Director::absoluteBaseURL() . "edit-profile-page'>here</a/> "; 
-		         	
+			$subject = "TutorIowa approval confirmation";
+		    $body = "Congratulations -- you have been approved as a tutor on Tutor Iowa.  You now have full
+		    access to edit your profile.  Please check out this  <a href='http://tutor.uiowa.edu/for-tutors'>link</a> to learn how to effectively use tags and efficiently use the website.  
+		    "; 
+		    
+		    
+		    ////You can edit your details now <a href='" . Director::absoluteBaseURL() . "edit-profile-page'>here</a/><br>     	
 		    //$headers = "From: Tutor Iowa";       	
 		    //mail($recip->Email, $subject, $body);
 		    
@@ -95,12 +103,11 @@ class TutorPage extends Page {
 		    $email->setSubject($subject); 
 		    $email->setBody($body); 
 		    $email->send(); 
-	    }
-	         
-	   $this->Approved = 1;
-	   $this->Disabled = 0; //should default to zero
+	   // }
+	    
+	    //$this->Approved = 1;
+	    //$this->write();
 	   
-	   $this->write();  
 	   
 	   /*
 	   $MemberID = $this->MemberID;
@@ -111,14 +118,32 @@ class TutorPage extends Page {
 	   $isDisabled->write();  
 	   */
      }
+     
+     //Doesn't run
+     function onBeforeUnpublish(){
+     
+	     print "<script>alert('THIS IS GETTING CALLED');</script>";
+	     
+	     $subject = "Your Tutor Iowa page has been disabled";
+		 $body = "You can request your details be edited <a href='" . Director::absoluteBaseURL() . "edit-profile-page'>here</a/> "; 
+		         	 
+		 $email = new Email(); 
+		 $email->setTo($this->Email); 
+		 $email->setFrom(Email::getAdminEmail()); 
+		 $email->setSubject($subject); 
+		 $email->setBody($body);
+		 $email->send(); 
+		 
+		 $this->Approved = 0;
+	     $this->write();
+		 
+		 $test = DataObject::get("Member", "Surname='Clashman'");
+		 $test->Surname = "alacabash";
+		 $test->write();
+	}
           
     
-    /*
-    public function getTags(){
-	    //return this->extraStatics->Tags();
-    }
-    */
-    
+
     //This function is no longer being used
     function populateTemplate() {
 	 if (isset($_GET['ID'])){

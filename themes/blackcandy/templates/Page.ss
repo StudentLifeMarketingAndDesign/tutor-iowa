@@ -43,7 +43,7 @@
 	   			
 	    	<p>$SiteConfig.Tagline</p>
 		</div>
-		
+		<!--Nav handles top tab set-->
 		<div id="Navigation">
 			<% include Navigation %>
 	  	</div>

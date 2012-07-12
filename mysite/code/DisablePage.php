@@ -1,7 +1,9 @@
 
 <?php
 /**
- * Defines the HomePage page type
+ * 
+ 
+ It is my assumption that Disable Page can only be reached from the EditProfilePage and hence there is no checking for whether there is a current member on this page (it's assumed since you have to be logged in to access the Edit Profile Page)
  */
  
 class DisablePage extends Page {
@@ -55,7 +57,7 @@ class DisablePage_Controller extends Page_Controller {
 	    
 	    $userEmail = $CurrentMember->Email;
 	    
-	  	    
+	  	//Sends disable account emails to appropriate security group(s)    
 	    foreach ($emailArray as $recip){ //$emailArray defined in EmailArray.php
         	
         	        	
@@ -79,6 +81,7 @@ class DisablePage_Controller extends Page_Controller {
 	         
 	    }
 	    
+	    //Sends disable message to user
 	    $subject = "The disabling of your Tutor Iowa registration is pending";
 	    $body = "We'll disable this ASAP, I swear."; 
 	    
@@ -92,22 +95,21 @@ class DisablePage_Controller extends Page_Controller {
 	    return Director::redirect($this->Link('?saved=1'));   
     }
    
-    //I will replace this ASAP
-    public function getEmails(){
-	    return DataObject::get("MemberManagement");
-    }
+  
     
+    //Not in use
     public function ID()
     {
         return $this->request->getVar('ID');
     }
     
+    //Displays message specified in template if disable page request successful
       function Saved()
     {
         return $this->request->getVar('saved');
     }
     
-    //Used to check on DisablePage if user has been published yet -- if not, the disable page form should not appear
+    //Used to check on DisablePage if user has been published yet -- if user has not been published, the disable page form should not appear
     function notPublished()
     
     {
@@ -116,6 +118,7 @@ class DisablePage_Controller extends Page_Controller {
     	$IDMember = $member->ID;
     	$TutorPage = DataObject::get_one("TutorPage", "MemberID = $IDMember");
     	$notTutorPage = !($TutorPage instanceof TutorPage); 
-	    return $notTutorPage;
+    	return $notTutorPage;
+    	
     }
 }

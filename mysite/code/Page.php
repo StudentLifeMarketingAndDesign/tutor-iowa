@@ -69,6 +69,11 @@ class Page_Controller extends ContentController {
 	 */
 	public static $allowed_actions = array (
 	);
+	
+	function logout() { 
+		Security::logout(false); 
+		Director::redirect("home/"); 
+	}
 
 	public function init() {
 		parent::init();
