@@ -58,8 +58,16 @@ class TutorPage extends Page {
         $fields->addFieldToTab( 'Root.Content.Main', new TextField("Email"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("MetaKeywords", "Tags"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("Bio", "Biography"));
-        $fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("Notes", "Notes (used for internal purposes, not visible on site):"));
+        $fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("Notes", "Notes (used for internal purposes, not visible on site)"));
+        $fields->addFieldToTab( 'Root.Content.Main', new TextField("StartDate", "Date you plan to start tutoring"));
+        $fields->addFieldToTab( 'Root.Content.Main', new TextField("EndDate", "Date you expect to stop tutoring"));
+        $fields->addFieldToTab( 'Root.Content.Main', new TextField("HourlyRate", "Hourly rate"));
+        $fields->addFieldToTab( 'Root.Content.Main', new TextField("MeetingPreference", "Meeting preference (on-campus or off-campus)"));
+        $fields->addFieldToTab( 'Root.Content.Main', new TextField("UniversityID", "University ID"));
+        $fields->addFieldToTab( 'Root.Content.Main', new TextField("Major"));
+        $fields->addFieldToTab( 'Root.Content.Main', new TextField("AcademicStatus", "Academic Status"));
         
+      
       
        
        
