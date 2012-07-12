@@ -38,9 +38,9 @@ class EditProfilePage_Controller extends Page_Controller
 	     
 	        $fields = new FieldSet(
 	            new TextField('Name', '<span>*</span> Name (or Nickname)'),
-	            new EmailField('Email', '<span>*</span> Email'),
+	            new CustomEmailField('Email', '<span>*</span> Email'),
 	            new ConfirmedPasswordField('Password', 'New Password'),
-	            new TextareaField('Bio', 'Bio'),
+	            new TextareaField('Bio', 'Biography'),
 	            new TextField('Hours'),
 	            new DateField('StartDate', 'Date you would like to start tutoring'),
 	            new DateField('EndDate', 'Date you expect to stop tutoring'),
@@ -48,6 +48,8 @@ class EditProfilePage_Controller extends Page_Controller
 	            new TextField('MeetingPreference', 'Meeting preference (on and/or off-campus)'),
 	            new TextField('HourlyRate', 'Hourly Rate'),
 	            new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
+	            new TextField('Major'),
+	            new UniversityIDField('UniversityID', 'University ID'),
 	            new TextareaField('MetaKeywords', 'Tags'),
 	            //This does not sync with database (database field is 'Disabled')
 	            new CheckboxField('Disable', 'Request to disable your page (will no longer be returned as a search result on TutorIowa)')
