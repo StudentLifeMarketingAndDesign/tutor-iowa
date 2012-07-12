@@ -1,0 +1,34 @@
+<?php
+
+class UniversityIDField extends TextField 
+{ 
+   function validate($validator){ 
+      parent::validate($validator);
+      if(!empty ($this->value)){ 
+      
+        $testValue = $this->value;
+        $LenTestValue = strlen($testValue);
+        if ($LenTestValue != 8){
+	        $validator->validationError( 
+               $this->name, 
+               "University ID must be eight digits", 
+               "validation", 
+               false 
+               ); 
+	        
+        }
+        else {
+	        return true;
+        }
+      }
+      else {
+	       $validator->validationError( 
+               $this->name, 
+               "Please enter a University ID", 
+               "validation", 
+               false 
+               ); 
+      } 
+      
+   } 
+}
