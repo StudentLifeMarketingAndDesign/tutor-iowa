@@ -148,10 +148,16 @@ class EditProfilePage_Controller extends Page_Controller
 
             	
                 $form->saveInto($Tutor); 
+                
+                //return ($Tutor->canPublish()==0);
                                 
-                $Tutor->write();
+                //$Tutor->write();
+                
                                 
-               
+                $Tutor->writeToStage("Stage");
+                $Tutor->publish("Stage","Live");
+                
+                //$Tutor->writeToStage('Stage');
                 
                 $form->saveInto($CurrentMember); 
                  
@@ -168,6 +174,7 @@ class EditProfilePage_Controller extends Page_Controller
 		                }
 		            
 		        }
+		        
  
                 return Director::redirect($this->Link('?saved=1'));                              
             }
