@@ -40,7 +40,7 @@ class EditProfilePage_Controller extends Page_Controller
 	            new TextField('Name', '<span>*</span> Name (or Nickname)'),
 	            new CustomEmailField('Email', '<span>*</span> Email'),
 	            new ConfirmedPasswordField('Password', 'New Password'),
-	            new TextareaField('Bio', 'Biography'),
+	            new TextareaField('Content', 'Biography'),
 	            new TextField('Hours'),
 	            new DateField('StartDate', 'Date you would like to start tutoring'),
 	            new DateField('EndDate', 'Date you expect to stop tutoring'),
