@@ -111,6 +111,13 @@ class RegistrationPage_Controller extends Page_Controller {
         //Place "foreign key" from member into tutor page
         $insertMemberID = $Member->ID;        
         $TutorPage->MemberID = $insertMemberID;
+        
+        //Set default start and end date
+        $StartDate = date("m.d.y"); //today's date in MM/DD/YYY format
+        $TutorPage->StartDate = $StartDate;
+        
+        $EndDate  = mktime(0, 0, 0, date("m"),   date("d"),   date("Y")+1);
+        $TutorPage->EndDate = $EndDate;
       
          
         
