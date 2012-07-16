@@ -216,15 +216,15 @@ class TutorPage_Controller extends Page_Controller {
     function doContactTutor($data,$form){
 	    
 	    $subject = "A student has requested you as a tutor";
-	    $body = "Sent by " . $data["Email"] . "<br><br>" . $data["Body"];
+	    //$body = "Sent by " . $data["Email"] . "<br><br>" . $data["Body"];
+	    
 	    $from = $data["Email"];
+	    $body = $data["Body"];
 		         	 
 	    $email = new Email(); 
 	    $email->setTo($this->Email); 
-	    
-	    //Not working presently 
-	    $email->setFrom(Email::getAdminEmail());
-	  	$email->setSubject($subject); 
+	    $email->setSubject($subject); 
+	  	$email->setFrom($from);
 	    $email->setBody($body);
 	    $email->send(); 
 	    	
