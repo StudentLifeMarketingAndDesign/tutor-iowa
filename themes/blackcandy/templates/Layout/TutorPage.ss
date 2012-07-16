@@ -8,6 +8,14 @@ Bio: $Content <br>
 Hours: $Hours <br>
 Phone: $PhoneNo <br>
 Tags: $MetaKeywords <br> 
+StartDate: $StartDate.format(m)/$StartDate.format(d)/$StartDate.format(y)<br>
+EndDate: $EndDate<br>
+
+<% if Saved %>
+	Your Tutor has been emailed!
+<% else %>
+	$ContactTutor
+<% end_if %>
 	
 
 	
