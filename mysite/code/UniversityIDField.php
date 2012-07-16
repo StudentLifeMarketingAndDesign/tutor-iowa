@@ -22,13 +22,7 @@ class UniversityIDField extends TextField
         }
       }
       else {
-	       $validator->validationError( 
-               $this->name, 
-               "Please enter a University ID", 
-               "validation", 
-               false 
-               ); 
-      } 
-      
+	       return true;    
+	  }  
    } 
 }
