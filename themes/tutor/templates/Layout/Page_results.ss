@@ -96,7 +96,6 @@
 						
 					</div>
 				<% end_if %><%-- end if SuppInstructions --%>
-				
 				<% if Tutors %>
 					<div class="tutor_results">
 						<% control Tutors %>

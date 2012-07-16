@@ -65,7 +65,25 @@ class TutorPage extends Page {
        
         return $fields;
         
-     } 
+     }
+     
+    public function SplitKeywords(){
+	    $keywords = $this->MetaKeywords;
+	    
+	    if($keywords){
+		   $splitKeywords = explode(',', $keywords); 
+	    }
+	    
+	    if($splitKeywords){
+			$keywordsList = new DataObjectSet(); 
+			foreach($splitKeywords as $data) { 
+				$do=new DataObject(); 
+				$do->Keyword = $data; 
+				$keywordsList->push($do); 
+			} 
+			return $keywordsList; 
+			}
+    }
      
     public function getEmails(){
 	    return DataObject::get("MemberManagement");
