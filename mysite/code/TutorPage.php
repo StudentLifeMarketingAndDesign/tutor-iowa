@@ -11,7 +11,8 @@ class TutorPage extends Page {
                 "Hours" => 'Varchar',
                 "Disabled" => 'Boolean',
                 "Approved" => 'Boolean',
-                "Name" => "Text",
+                "FirstName" => "Text",
+                "Surname" => "Text",
                 "StartDate" => 'Date',
                 "EndDate" => "Date",
                 "Email" => 'Text',
@@ -40,6 +41,7 @@ class TutorPage extends Page {
              static $defaults = array ('ProvideComments' => '1',
              'Disabled' => '0',
              'Approved' => '0',
+             
              //Hi
     
    );
@@ -53,14 +55,15 @@ class TutorPage extends Page {
              
         $fields->removeFieldFromTab('Root.Content.Metadata', "Keywords"); 
         $fields->removeFieldFromTab('Root.Content.Main', "Content");
-        $fields->addFieldToTab( 'Root.Content.Main', new TextField("Name", "Tutor name (Tutor name and Page name can be the same)"));
+        $fields->addFieldToTab( 'Root.Content.Main', new TextField("FirstName", "First name of tutor"));
+        $fields->addFieldToTab( 'Root.Content.Main', new TextField("Surname", "Last name of tutor"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextField("PhoneNo", "Phone Number"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextField("Email"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("MetaKeywords", "Tags"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("Content", "Biography"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("Notes", "Notes (used for internal purposes, not visible on site)"));
-        $fields->addFieldToTab( 'Root.Content.Main', new TextField("StartDate", "Date you plan to start tutoring"));
-        $fields->addFieldToTab( 'Root.Content.Main', new TextField("EndDate", "Date you expect to stop tutoring"));
+        $fields->addFieldToTab( 'Root.Content.Main', new DateField("StartDate", "Date you plan to start tutoring"));
+        $fields->addFieldToTab( 'Root.Content.Main', new DateField("EndDate", "Date you expect to stop tutoring"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextField("HourlyRate", "Hourly rate"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextField("MeetingPreference", "Meeting preference (on-campus or off-campus)"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextField("UniversityID", "University ID"));
