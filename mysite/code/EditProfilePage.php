@@ -8,6 +8,7 @@ class EditProfilePage extends Page {
    		'Test' => 'Text',
    );
    static $has_one = array(
+   
    );
    
    static $defaults = array ('ProvideComments' => '1',
@@ -37,7 +38,8 @@ class EditProfilePage_Controller extends Page_Controller
 	        $Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
 	     
 	        $fields = new FieldSet(
-	            new TextField('Name', '<span>*</span> Name (or Nickname)'),
+	            new TextField('FirstName', '<span>*</span> First Name'),
+	            new TextField('Surname', '<span>*</span> Last Name'),
 	            new CustomEmailField('Email', '<span>*</span> Email'),
 	            new ConfirmedPasswordField('Password', 'New Password'),
 	            new TextareaField('Content', 'Biography'),
@@ -63,7 +65,7 @@ class EditProfilePage_Controller extends Page_Controller
 	        );
 	         
 	        // Create action
-	        $validator = new RequiredFields('FirstName', 'Email');
+	        $validator = new RequiredFields('FirstName', 'LastName', 'Email');
 	        
 	       //Create form
 	        $Form = new Form($this, 'EditProfileForm', $fields, $actions, $validator);
@@ -155,6 +157,7 @@ class EditProfilePage_Controller extends Page_Controller
                 
                                 
                 $Tutor->writeToStage("Stage");
+               
                 $Tutor->publish("Stage","Live");
                 
                 //$Tutor->writeToStage('Stage');
