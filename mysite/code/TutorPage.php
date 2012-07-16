@@ -8,7 +8,7 @@ class TutorPage extends Page {
             static $db = array(
                 "Bio" => "Text",
                 "PhoneNo" => 'Varchar',
-                "Hours" => 'Varchar',
+                "Hours" => 'Text',
                 "Disabled" => 'Boolean',
                 "Approved" => 'Boolean',
                 "FirstName" => "Text",
@@ -61,6 +61,8 @@ class TutorPage extends Page {
         $fields->addFieldToTab( 'Root.Content.Main', new TextField("Email"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("MetaKeywords", "Tags"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("Content", "Biography"));
+        $fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("Hours", "Availability"));
+
         $fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("Notes", "Notes (used for internal purposes, not visible on site)"));
         $fields->addFieldToTab( 'Root.Content.Main', new DateField("StartDate", "Date you plan to start tutoring"));
         $fields->addFieldToTab( 'Root.Content.Main', new DateField("EndDate", "Date you expect to stop tutoring"));
