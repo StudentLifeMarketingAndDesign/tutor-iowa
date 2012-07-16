@@ -1,7 +1,9 @@
-Rendered with TutorHolder.ss
+Rendered with TutorHolder.ss!!
 <% control Children %>
+
+	hi
 	<br>
-	<a href="{$Link}">$Name</a>
+	<a href="{$Link}">$FirstName $Surname</a>
 <% end_control %> 
 
 	
