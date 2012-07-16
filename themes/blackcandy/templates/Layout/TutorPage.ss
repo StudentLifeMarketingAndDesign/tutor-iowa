@@ -7,7 +7,7 @@ LastName: $LastName	<br>
 Bio: $Content <br>
 Hours: $Hours <br>
 Phone: $PhoneNo <br>
-Tags: $TagColl <br> 
+Tags: $MetaKeywords <br> 
 	
 
 	
