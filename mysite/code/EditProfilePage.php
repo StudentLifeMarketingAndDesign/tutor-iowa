@@ -203,6 +203,7 @@ class EditProfilePage_Controller extends Page_Controller
         return $this->request->getVar('success');
     }
     
+ 
     function Enable(){
     
     	if ($this->request->getVar('enable') == 1){
