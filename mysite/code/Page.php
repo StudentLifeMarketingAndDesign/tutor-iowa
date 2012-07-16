@@ -12,10 +12,46 @@ class Page extends SiteTree {
    
     
     );
+    
+
 
 }
 class Page_Controller extends ContentController {
+ function results($data, $form){
 
+      $results = $form->getResults();
+      
+      $supplementalInstructions = new DataObjectSet();
+      $tutors = new DataObjectSet();
+      $helpLabs = new DataObjectSet();
+      
+      foreach($results AS $result) { 
+      
+         if($result->ClassName == "SupplementalInstruction") {
+         	$supplementalInstructions->push($result);
+          }
+          
+         if($result->ClassName == "TutorPage") {
+         	$tutors->push($result);
+         	print_r($result);
+          }
+          
+         if($result->ClassName == "HelpLab") {
+         	$helpLabs->push($result);
+          }                  
+          
+      }
+       $data = array( 
+       'Results' => $results, 
+       'Tutors' => $tutors,
+       'SupplementalInstructions' => $supplementalInstructions,
+       'HelpLabs' => $helpLabs,
+       'Query' => $form->getSearchQuery(), 
+       'Title' => 'Search Results!!' 
+       );
+
+       return $this->customise($data)->renderWith(array('Page_results', 'Page')); 
+   }
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
 	 * permissions or conditions required to allow the user to access it.
@@ -63,12 +99,7 @@ class Page_Controller extends ContentController {
       SSViewer::set_theme(Session::get('theme'));
     }
 
-		// Note: you should use SS template require tags inside your templates 
-		// instead of putting Requirements calls here.  However these are 
-		// included so that our older themes still work
-		Requirements::themedCSS('layout'); 
-		Requirements::themedCSS('typography'); 
-		Requirements::themedCSS('form'); 
+
 	}
 	/*
 	public function getDisabled() { //This is used to check whether the user's account is disabled.  If it is, a link to enable the account should appear
