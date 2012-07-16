@@ -172,9 +172,8 @@ class TutorPage extends Page {
 		 $test->Surname = "alacabash";
 		 $test->write();
 	}
-          
     
-
+  
     //This function is no longer being used
     function populateTemplate() {
 	 if (isset($_GET['ID'])){
@@ -186,10 +185,60 @@ class TutorPage extends Page {
 	 }
   }
   
+   
+  
 }
 
 
 class TutorPage_Controller extends Page_Controller { 
+
+    function ContactTutor(){
+     
+     	
+	   	$fields = new FieldSet(
+	   	new TextField('Email', '<span>*</span> Email'),
+	   	new TextAreaField('Body',  '<span>*</span> Body')
+	   
+	   	);
+	   	
+	   	$actions = new FieldSet(
+            new FormAction('doContactTutor', 'Contact Tutor')
+            
+        );
+        
+        $validator = new RequiredFields('Email');
+        
+        return new Form($this, 'ContactTutor', $fields, $actions, $validator);
+        
+	   
+    }
+    
+    function doContactTutor($data,$form){
+	    
+	    $subject = "A student has requested you as a tutor";
+	    $body = "Sent by " . $data["Email"] . "<br><br>" . $data["Body"];
+	    $from = $data["Email"];
+		         	 
+	    $email = new Email(); 
+	    $email->setTo($this->Email); 
+	    
+	    //Not working presently 
+	    $email->setFrom(Email::getAdminEmail());
+	  	$email->setSubject($subject); 
+	    $email->setBody($body);
+	    $email->send(); 
+	    	
+	    return Director::redirect($this->Link('?saved=1'));   
+	    	
+	    
+    }
+
+
+function Saved()
+    {
+        return $this->request->getVar('saved');
+    }
+  
 		
     
 } 
