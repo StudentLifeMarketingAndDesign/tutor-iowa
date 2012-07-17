@@ -2,7 +2,7 @@
 class CustomEmailField extends EmailField 
 { 
    function validate($validator){ 
-      parent::validate($validator);
+      parent::validate($validator); //I have verified this still takes care of the standard valid email checking
       if(!empty ($this->value)){ 
       
         $testValue = $this->value;
