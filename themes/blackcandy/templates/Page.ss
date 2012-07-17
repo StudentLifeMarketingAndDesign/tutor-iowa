@@ -36,7 +36,7 @@
 	   		 		Logged in as <a href="edit-profile-page">$Email</a> <br>
 	   		 	<% end_control %>
 	   		 <% else %>
-	   		 	<a href="/registration-page" title="Register">Register</a>
+	   		 	<a href="/tutoriowa/register" title="Register">Register</a>
 	   		 <% end_if %>
 	   	
 	   			
