@@ -13,11 +13,7 @@
 	
 		$Content
 		$Form
-		 <% if CurrentMember %>
 		 
-		 <% else %>
-		 	<a href="/tutoriowa/registration-page" title="Register">Register</a>
-		 <% end_if %>
 		$PageComments
 	<% if Menu(2) %>
 		</div>
