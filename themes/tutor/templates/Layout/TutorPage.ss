@@ -3,7 +3,7 @@
 					<div id="breadcrumbs"><a href="index_test.html">Home</a> > <a href="search_test.html">Find a Tutor</a> > <span class="current">$Title</span></div>
 					<div id="tutor_card">
 						<h1>$Title</h1>
-						<span id="mp">Meeting Preference: </span><span id="meeting_preference">On Campus</span>
+						<% if MeetingPreference %><span id="mp">Meeting Preference: </span><span id="meeting_preference">{$MeetingPreference}</span><% end_if %>
 						<div class="clearfix"></div>
 						<div class="button">Contact</div>
 						<h2>Bio</h2>
@@ -32,8 +32,8 @@
 					
 						<div id="availability">
 							
-								<div class="highlighted">Availability</div><br />
-								$Hours
+								<div class="highlighted">Availability</div>
+								<p>$Hours</p>
 						</div>
 					
 					<% end_if %>

@@ -33,8 +33,10 @@ class Page_Controller extends ContentController {
           }
           
          if($result->ClassName == "TutorPage") {
-         	$tutors->push($result);
-         	print_r($result);
+         
+         	$tutorObject = DataObject::get_by_id("TutorPage", $result->ID);
+         	$tutors->push($tutorObject);
+         	//print_r($result);
           }
           
          if($result->ClassName == "HelpLab") {
@@ -42,13 +44,14 @@ class Page_Controller extends ContentController {
           }                  
           
       }
+      //print_r($tutors);
        $data = array( 
        'Results' => $results, 
        'Tutors' => $tutors,
        'SupplementalInstructions' => $supplementalInstructions,
        'HelpLabs' => $helpLabs,
        'Query' => $form->getSearchQuery(), 
-       'Title' => 'Search Results!!' 
+       'Title' => 'Search Results' 
        );
 
        return $this->customise($data)->renderWith(array('Page_results', 'Page')); 

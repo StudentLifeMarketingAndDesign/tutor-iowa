@@ -41,7 +41,7 @@ h4 a:hover, h3 a:hover, h2 a:hover{
 	color: #7d9dff;
 }
 p{
-	float: left;
+	/*float: left;*/
 }
 #availability{
 	float: right;
@@ -49,6 +49,12 @@ p{
 	line-height: 24px;
 	margin: 20px 0 0 0;
 }
+
+#availability p {
+	font-size: 1.4em;
+	
+}
+
 #background
 {
 	background: url('../images/oi-back1.jpg') fixed;
@@ -122,6 +128,40 @@ p{
 .chl, .sli, .tutor{
 	float: left;
 }
+
+.tutor-result {
+	border: 1px dashed #a2b9ff;
+	padding: 10px;
+	margin-top: 10px;
+	background: #f6f9f2;
+	
+}
+
+.tutor-result .button {
+	
+	margin: 10px 0;
+}
+
+.tutor-result.first {
+	margin-top: 25px;
+	
+}
+
+.tutor-result h3 {
+	margin: 5px 0;
+	
+}
+
+.tutor-result p{
+	margin: 10px 0;
+}
+
+.tutor-result p.tags{
+	margin-top: 10px;
+	
+}
+
+
 .chl_results{
 	background: rgb(240,247,255); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(240,247,255,1) 0%, rgba(230,243,255,1) 100%); /* FF3.6+ */
@@ -153,6 +193,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffdf0', end
 	height: 100px;
 	background: url('../images/sli.png');
 	margin: -60px 0 0 0;
+}
+
+.sli_result.first {
+	margin-top: 50px;
+	
+}
+
+.sli_result {
+	border: 1px dashed #ddd;
+	margin: 10px 0;
+	padding: 10px;
+	background: #fffdf3;
+	
 }
 .tutor_results{
 background: rgb(245,249,240); /* Old browsers */
@@ -186,6 +239,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f9f0', end
 	width: 841px;
 	position: relative;
 	z-index: 100;
+	display:block;
 }
 #fg_wrapper
 {
@@ -246,6 +300,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f9f0', end
 	min-width: 142px;
 	min-height: 42px;
 }
+
+#availability .highlighted {
+	float: none;
+	
+}
+
 #login
 {
 	background: #ffe2e2;
@@ -291,7 +351,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f9f0', end
 }
 #nav
 {
-	float: right;
+	float: left;
 	width: 680px;
 }
 #nav ul
@@ -306,6 +366,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f9f0', end
 	margin-top: -10px;
 	color: #fff;
 }
+
+#nav ul li.first {
+	padding-left: 0;
+	
+}
+
+
 #nav ul li a{
 	color: #fff;
 }
@@ -390,7 +457,7 @@ color: #FFFBC6;
 }
 #uiowa
 {
-	float: left;
+	float: right;
 	height: 30px;
 	margin-top: 3px;
 	width: 185px;
@@ -460,6 +527,7 @@ color: #FFFBC6;
 	height: 16px;
 	padding: 4px 10px 14px 10px;
 	margin: 0 0 2px 20px;
+	text-align: center;
 }
 
 .tab:hover{
@@ -494,14 +562,15 @@ padding: 6px 10px 12px 10px;
 	margin: 20px 0 0 0;
 }
 #tags h2{
-	margin-bottom: -50px;
+	/*margin-bottom: -50px;*/
 }
 .tape_right{
 	width: 164px;
 	height: 108px;
 	background: url('../images/tape_right.png');
 	float: right;
-	margin: -60px -60px 0 0;
+	position:absolute;
+	margin: -60px 670px 0;
 }
 .third {
 	width: 33%;
@@ -624,6 +693,12 @@ form .button:active{
 	clear: both;
 	line-height: normal;
 }
+
+.button a {
+	color: white;
+	
+}
+
 
 .button:active{
 	width: 159px;

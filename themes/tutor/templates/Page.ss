@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
 <head>
-<title>Tutor Iowa Demo</title>
+<title>$Title - Tutor Iowa: Find Academic at Help at The University of Iowa</title>
 
 <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Short+Stack|Gloria+Hallelujah|Oswald|Bevan' rel='stylesheet' type='text/css' />
 
@@ -19,26 +19,33 @@
 		<div id="fg_wrapper">
 			<div id="navbar">
 				<div class="nav_wrapper">
-					<div id="uiowa"><img src="{$ThemeDir}/images/uiowa.png" /></div>
+					
 					<div id="nav">
 						<ul>
 						<% control Menu(1) %>
-						<a href="$Link"><li>$MenuTitle</li></a>
+						<a href="$Link"><li class="$FirstLast">$MenuTitle</li></a>
 						<% end_control %>
 						</ul>
 					</div>
+					<div id="uiowa"><a href="http://www.uiowa.edu"><img src="{$ThemeDir}/images/uiowa.png" /></a></div>
 				</div>
 			</div>
 			<div class="nav_wrapper">
-				<a href="#"><div class="tab short">Tutor Sign-Up</div></a>
-				<a href="#"><div class="tab short">Tutor Sign-In</div></a>
-				<a href="#"><div class="tab long">Sign up for E-mail updates!</div></a>
+				<% if CurrentMember %>
+			<a href="{$BaseHref}/edit-profile"><div class="tab short">Edit Profile</div></a>
+
+				<a href="{$BaseHref}Security/logout"><div class="tab short">Sign Out</div></a>
+				<% else %>
+				<a href="{$BaseHref}register/"><div class="tab short">Tutor Sign-Up</div></a>
+				<a href="{$BaseHref}Security/login/"><div class="tab short">Tutor Sign-In</div></a>
+				<% end_if %>
+				<a href="{$BaseHref}newsletter-signup/"><div class="tab long">Sign up for E-mail updates!</div></a>
 			</div>
 			<div id="foreground">
 				
 				
 <div id="clip_wrapper">
-	<div id="cliphead"></div>
+	<a id="cliphead" href="{$BaseHref}"></a>
 	<div id="board_top"></div>
 	<div id="board_shadow_mid">
 		<div id="board_mid">
