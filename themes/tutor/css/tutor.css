@@ -4,7 +4,7 @@ body
 	background-color: #2a2a2a;
 	font-family: 'Short Stack', sans-serif;
 	margin: 0;
-	color: #333;
+	color: #444;
 }
 a{
 	text-decoration: none;
@@ -362,7 +362,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f9f0', end
 {
 	float: left;
 	list-style: none;
-	padding: 10px 40px 10px 40px;
+	padding: 10px 25px 10px 25px;
 	margin-top: -10px;
 	color: #fff;
 }
@@ -716,6 +716,11 @@ form .button:active{
 	width: 375px;
 	height: 45px;
 	margin-right: 10px;
+}
+
+#page-content .fieldHolder{
+	margin-bottom: 0;
+	
 }
 
 .textInput

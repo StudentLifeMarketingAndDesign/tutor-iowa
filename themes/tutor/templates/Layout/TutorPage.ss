@@ -1,6 +1,6 @@
 
 				<div class="board_content">
-					<div id="breadcrumbs"><a href="index_test.html">Home</a> > <a href="search_test.html">Find a Tutor</a> > <span class="current">$Title</span></div>
+					<div id="breadcrumbs"><a href="{$BaseHref}">Home</a> > <a href="{$BaseHref}find-help/">Find Help</a> > <span class="current">$Title</span></div>
 					<div id="tutor_card">
 						<h1>$Title</h1>
 						<% if MeetingPreference %><span id="mp">Meeting Preference: </span><span id="meeting_preference">{$MeetingPreference}</span><% end_if %>
@@ -16,6 +16,7 @@
 										<div class="white_thin">
 											<p>
 											$Content
+										
 											</p>
 										</div>
 									</div>
@@ -55,6 +56,7 @@
 						<div class="clearfix"></div>
 				</div>
 				<% end_if %>
+				$ContactForm
 				
 				
 			

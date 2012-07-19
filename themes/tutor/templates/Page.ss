@@ -17,29 +17,34 @@
 <div id="background">
 	<div id="midground">
 		<div id="fg_wrapper">
-			<div id="navbar">
-				<div class="nav_wrapper">
-					
-					<div id="nav">
-						<ul>
-						<% control Menu(1) %>
-						<a href="$Link"><li class="$FirstLast">$MenuTitle</li></a>
-						<% end_control %>
-						</ul>
+			<div id="navigation">
+				<div id="navbar">
+					<div class="nav_wrapper">
+						
+						<div id="nav">
+							<ul>
+							<% control Menu(1) %>
+							<a href="$Link"><li class="$FirstLast">$MenuTitle</li></a>
+							<% end_control %>
+							</ul>
+						</div>
+						<div id="uiowa"><a href="http://www.uiowa.edu"><img src="{$ThemeDir}/images/uiowa.png" /></a></div>
 					</div>
-					<div id="uiowa"><a href="http://www.uiowa.edu"><img src="{$ThemeDir}/images/uiowa.png" /></a></div>
 				</div>
-			</div>
-			<div class="nav_wrapper">
-				<% if CurrentMember %>
-			<a href="{$BaseHref}/edit-profile"><div class="tab short">Edit Profile</div></a>
+				<div class="nav_wrapper">
+					<% if CurrentMember %>
+					<a href="$currentMemberPage.Link"><div class="tab">View Profile</div></a>
+						<a href="{$BaseHref}/edit-profile"><div class="tab short">Edit Profile</div></a>
+					<% else %>
+						<a href="{$BaseHref}register/"><div class="tab long">Apply to be Tutor</div></a>
+						<a href="{$BaseHref}Security/login/"><div class="tab short">Tutor Sign-In</div></a>
+					<% end_if %>
+					<a href="{$BaseHref}newsletter-signup/"><div class="tab long">Sign up for E-mail updates!</div></a>
+					<% if CurrentMember %>
+					<a href="{$BaseHref}Security/logout"><div class="tab short">Sign Out</div></a>
+					<% end_if %>
 
-				<a href="{$BaseHref}Security/logout"><div class="tab short">Sign Out</div></a>
-				<% else %>
-				<a href="{$BaseHref}register/"><div class="tab short">Tutor Sign-Up</div></a>
-				<a href="{$BaseHref}Security/login/"><div class="tab short">Tutor Sign-In</div></a>
-				<% end_if %>
-				<a href="{$BaseHref}newsletter-signup/"><div class="tab long">Sign up for E-mail updates!</div></a>
+				</div>
 			</div>
 			<div id="foreground">
 				
@@ -64,7 +69,7 @@
 </div>
 				
 			</div>
-			<div class="nav_wrapper"><div id="login">Tutor Log In</div></div>
+			<!--<div class="nav_wrapper"><div id="login">Tutor Log In</div></div>-->
 		</div>
 	</div>
 </div>
@@ -85,9 +90,9 @@
 		<div class="third">
 			<h2>Site Map</h2>
 			<ul>
-				<li><a href="#">I dunno</a></li>
-				<li><a href="#">I dunno</a></li>
-				<li><a href="#">I dunno</a></li>
+				<% control Menu(1) %>
+				<li><a href="$Link">$Title</a></li>
+				<% end_control %>
 			</ul>
 		</div>
 	</div>

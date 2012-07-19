@@ -1,45 +1,18 @@
 				<div class="board_content">
 					<div id="search_top">			
-						<form>
-					<div class="fieldHolder">
-							<input type="text" name="Search" class="textInput" />
-						</div>
-							<input type="submit" name="action_results" class="button" value="Find Tutors" />
-							<div id="search_help">example searches: <a href="/home/SearchForm?Search=bio&action_results=Find+Tutors">bio</a>,<a href="/home/SearchForm?Search=chem&action_results=Find+Tutors">chem</a>, <a href="/home/SearchForm?Search=002:001&action_results=Find+Tutors">002:001</a>, etc.</div>
-						</form>
+						<% include SearchForm %>
 					</div>
 
 					<div class="clearfix"></div>
 					
+			
+					
+			<% if Query %>
 					<h1>Search Results</h1>
-					<p>Your results for <strong>'{$Query}'</strong>:</p>
-					
-					
+					<p>Your results for <strong>'{$Query}'</strong></p>	
 			<% if Results %>		
 			<div id="talktota"><img src="{$ThemeDir}/images/talktota.png" /></div>
-			
-			<% if Tutors %>
-					<div class="tutor_results">
-						<div class="tutor"></div>
-						<div class="tape_right"></div>
-						
-							<% control Tutors %>
-								<div class="tutor-result $FirstLast">
-									<h3><a href="$Link">$Title</a></h3>
-									<p>$Content.Summary(20) <a href="$Link">[...]</a></p>
-									<% if MetaKeywords %>
-									<p class="tags"><strong>tags:</strong> <% control SplitKeywords %>
-							<a href="{$BaseHref}home/SearchForm?Search={$Keyword}&action_results=Find+Tutors">$Keyword</a><% if Last %><% else %>, <% end_if %> 
-						<% end_control %></p>
-						<% end_if %>
-									
-									<div class="button"><a href="$Link">view profile</a></div>
-									<div class="clearfix"></div>
 
-								</div>
-							<% end_control %>
-					</div>
-				<% end_if %><%-- end if Tutors --%>
 			
 			<% if HelpLabs %>
 					<div class="chl_results">
@@ -79,5 +52,35 @@
 					</div>
 				<% end_if %><%-- end if SuppInstructions --%>
 				
+							
+			<% if Tutors %>
+					<div class="tutor_results">
+						<div class="tutor"></div>
+						<div class="tape_right"></div>
+						
+							<% control Tutors %>
+								<div class="tutor-result $FirstLast">
+									<h3><a href="$Link">$Title</a></h3>
+									<p>$Content.Summary(20) <a href="$Link">[...]</a></p>
+									<% if MetaKeywords %>
+									<p class="tags"><strong>tags:</strong> <% control SplitKeywords %>
+							<a href="{$BaseHref}home/SearchForm?Search={$Keyword}&action_results=Find+Tutors">$Keyword</a><% if Last %><% else %>, <% end_if %> 
+						<% end_control %></p>
+						<% end_if %>
+									
+									<div class="button"><a href="$Link">view profile</a></div>
+									<div class="clearfix"></div>
+
+								</div>
+							<% end_control %>
+					</div>
+				<% end_if %><%-- end if Tutors --%>
+				
 			<% end_if %> <%-- end if Results --%>
-					
+			<% else %>
+			<% control Page(find-help) %>
+				$Content
+			
+			<% end_control %>				
+			
+			<% end_if %> <%-- end if Query --%>	

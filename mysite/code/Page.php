@@ -18,6 +18,31 @@ class Page extends SiteTree {
 }
 
 class Page_Controller extends ContentController {
+
+public function currentMemberPage(){
+	$currentMember = Member::currentUser();
+	$currentMemberID = $currentMember->ID;
+	
+	
+	$tutorPage = DataObject::get_one("TutorPage", "MemberID = ".$currentMemberID);
+	
+	//print_r($tutorPage);
+	
+	if(isset($tutorPage)){
+		return $tutorPage;
+		
+	}
+	
+	
+}
+
+public function News($number=3){
+	$articles = DataObject::get("ArticlePage", $filter = null, $sort = "Date DESC", $join = null, $limit = $number);
+	if($articles)
+		return $articles;
+	
+}
+
  function results($data, $form){
 
       $results = $form->getResults();
