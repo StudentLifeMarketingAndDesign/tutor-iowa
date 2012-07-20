@@ -104,7 +104,7 @@ class TutorPage extends Page {
      
      function onAfterPublish(){
      
-     	//Currently all emails go to me (Drew Parker)
+     	user_error("breakpoint", E_USER_ERROR);
 	 	
 	 	$approved =  $this->Approved;
 	 	
@@ -151,15 +151,17 @@ class TutorPage extends Page {
      }
      
      //Doesn't run
-     function onBeforeUnpublish(){
+     function onAfterUnpublish(){
      
+     	user_error("breakpoint", E_USER_ERROR);
+     	
 	     print "<script>alert('THIS IS GETTING CALLED');</script>";
 	     
 	     $subject = "Your Tutor Iowa page has been disabled";
 		 $body = "You can request your details be edited <a href='" . Director::absoluteBaseURL() . "edit-profile-page'>here</a/> "; 
 		         	 
 		 $email = new Email(); 
-		 $email->setTo($this->Email); 
+		 $email->setTo("andrew-parker-1@uiowa.edu"); 
 		 $email->setFrom(Email::getAdminEmail()); 
 		 $email->setSubject($subject); 
 		 $email->setBody($body);
