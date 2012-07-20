@@ -11,4 +11,5 @@
 
 $emailArray = DataObject::get('Member', "ID in (select MemberID from Group_Members where GroupID = (select ID from `Group` where title='Content Authors'))");
 
+
 ?>
