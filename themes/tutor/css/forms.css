@@ -1,0 +1,103 @@
+form{
+	clear: both;
+}
+
+form div.rowElem{
+	clear:both;
+	padding:4px 0px;
+	margin-bottom: 10px;
+}
+
+.textInput
+{
+	width: 361px;
+	height: 42px;
+	background: none;
+	border: none;
+	color: #000000;
+	padding: 3px 7px 0px 7px;
+	font-family: "Lucida Grande", "Helvetica Neue", "Helvetica", sans-serif;
+	font-family: 'Gloria Hallelujah';
+	font-size: 23px;
+	font-size: 17px;
+	outline: none;
+	background: url('../images/search.png') no-repeat;
+	font-weight: lighter;
+}
+.textInput:focus{
+	background: url('../images/search.png') no-repeat;
+	background-position: bottom;
+}
+
+.smallTextInput
+{
+	width: 275px;
+	height: 34px;
+	background: none;
+	border: none;
+	color: #000000;
+	padding: 0px 4px 0px 4px;
+	font-family: 'Gloria Hallelujah';
+	font-size: 16px;
+	outline: none;
+	background: url('../images/search_small.png') no-repeat;
+	font-weight: lighter;
+}
+.smallTextInput:focus{
+	background: url('../images/search_small.png') no-repeat;
+	background-position: bottom;
+}
+
+textarea.area{
+	width: 600px;
+	height: 120px;
+	border: 0;
+	padding: 5px;
+	font-family: 'Gloria Hallelujah';
+	font-size: 16px;
+	resize: none;
+	outline: none;
+	background-color: rgba(255,255,255,.6);
+}
+
+textarea.area:focus{
+	background-color: rgba(255,249,215,.6);
+}
+
+form .white{
+	padding: 0;
+	width: 100%;
+	background-color: transparent;
+}
+
+
+.has-js .label_check,
+.has-js .label_radio { padding-left: 34px; }
+.has-js .label_radio { background: url(../images/radio-off.png) no-repeat; }
+.has-js .label_check { background: url(../images/check-off.png) no-repeat; }
+.has-js label.c_on { background: url(../images/check-on.png) no-repeat; }
+.has-js label.r_on { background: url(../images/radio-on.png) no-repeat; }
+.has-js .label_check input,
+.has-js .label_radio input { position: absolute; left: -9999px; }
+
+fieldset{
+	border: 0;
+	padding: 0;
+}
+
+.styled-select select {
+   width: 268px;
+   padding: 0 0 5px 5px;
+   font-size: 16px;
+   border: 0;
+   height: 34px;
+   outline: none;
+   background: transparent;
+   font-family: 'Gloria Hallelujah';
+}
+.styled-select {
+   width: 248px;
+   height: 34px;
+   overflow: hidden;
+   background: url(../images/dropdown.png) no-repeat right #fff;
+}

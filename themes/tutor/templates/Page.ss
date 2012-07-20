@@ -8,6 +8,7 @@
 
 <% base_tag %>
 <link href='{$ThemeDir}/css/tutor.css' rel='stylesheet' type='text/css' />
+<link href='{$ThemeDir}/css/forms.css' rel='stylesheet' type='text/css' />
 
 </head>
 
@@ -36,7 +37,7 @@
 					<a href="$currentMemberPage.Link"><div class="tab">View Profile</div></a>
 						<a href="{$BaseHref}/edit-profile"><div class="tab short">Edit Profile</div></a>
 					<% else %>
-						<a href="{$BaseHref}register/"><div class="tab long">Apply to be Tutor</div></a>
+						<a href="{$BaseHref}register/"><div class="tab long">Apply to be a Tutor</div></a>
 						<a href="{$BaseHref}Security/login/"><div class="tab short">Tutor Sign-In</div></a>
 					<% end_if %>
 					<a href="{$BaseHref}newsletter-signup/"><div class="tab long">Sign up for E-mail updates!</div></a>
