@@ -76,22 +76,7 @@ class RegistrationPage_Controller extends Page_Controller {
         $Member->write();
         $Member->login();
          
-        //Code to put users into user groups
-        
-        /*
-        if(!$userGroup = DataObject::get_one('Group', "Code = 'page-3'"))
-        {
-        	$userGroup = new Group();
-            $userGroup->Code = "users";
-            $userGroup->Title = "Users";
-            $userGroup->Write();
-            $userGroup->Members()->add($Member);
-        }
-        
-        $userGroup->Members()->add($Member);
-        */
-        
-        
+          
         $TutorPage = new TutorPage();
         
         $tutorParent = DataObject::get_one('TutorHolder'); //There's only one tutor holder in DB
