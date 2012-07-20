@@ -194,7 +194,10 @@ class TutorPage extends Page {
 
 class TutorPage_Controller extends Page_Controller { 
 
-    function ContactTutor(){
+
+
+
+    function ContactForm(){
      
      	
 	   	$fields = new FieldSet(
