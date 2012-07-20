@@ -69,8 +69,7 @@ class DisablePage_Controller extends Page_Controller {
          
         
         	Disable account  <a href='" . Director::absoluteBaseURL() .  "admin/show/" . $Tutor->ID . "'>here</a/>";        	
-        	//$headers = "From: Tutor Iowa";       	
-	        //mail($recip->Email, $subject, $body);
+        
 	      	        
 	         $email = new Email(); 
 	         $email->setTo($recip->Email); 
