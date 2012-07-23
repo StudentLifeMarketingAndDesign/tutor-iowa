@@ -26,80 +26,12 @@ class EditProfilePage_Controller extends Page_Controller
         'EditProfileForm'
     );
  
-    public function EditProfileForm()
+    function EditProfileForm()
     {	
-   
-	    Director::redirect('home');
-	    	    
 	     $Member = Member::CurrentMember();
+	     	     
 	     
-	     //If the member is associated with managing a help lab, we want to return a different form.  We get the Members associated with Help Labs to check 
-	     
-	     $memberLabs = DataObject::get('Member', "ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
-	      
-	     $MemberIDArray = array();
-	     
-	     array_push($MemberIDArray, $Member->ID);    
-	     
-	     /*Test code
-	     $MemberHelpLabs = DataObject::get_one("YourHelpLabs"); 
-		 
-		     
-		 return Director::redirect($MemberHelpLabs->Link());
-		 End test code */
-	     
-	     if (($Member) && ($memberLabs->containsIDs($MemberIDArray))){
-	     
-	     	if ($this->Redirect()){
-	     	
-	     	
-		     	$fields = new FieldSet (
-		     	new TextareaField('Description'),
-		     	new Textareafield('MetaKeywords', 'Tags')
-		        );
-		     
-		        $actions = new FieldSet(
-	            new FormAction('HelpLabSaveProfile', 'Save')
-	            );
-	            
-	            $Form = new Form($this, 'EditProfileForm', $fields, $actions);
-	            
-	            $HelpLabID = $this->Redirect();
-	            
-	            $DisplayedHelpLab = DataObject::get_one("HelpLab", "HelpLab_Live.ID = $HelpLabID");
-	            
-	            $Form->loadDataFrom($DisplayedHelpLab->data());
-
-	            return $Form;
-	         
-		     	
-	     	}
-	     	
-	     	else { 	
-	     	
-	         $MemberHelpLabs = DataObject::get_one("YourHelpLabs");
-		     
-		     #Debug::show($MemberHelpLabs);
-		     
-		     Director::redirectBack(); 
-		     
-		     Director::redirect('home');
-
-		     Director::redirect($MemberHelpLabs->Link());
-		     
-		     		     
-		     //return Director::redirectBack(); 
-		     		     		     
-		     //return Director::redirect($MemberHelpLabs->Link());
-		     		    
-		    }
-		     
-	     }
-	          
-	     
-	     elseif ($Member){
-	     
-	     	
+	     if ($Member){	
 	        //User shouldn't be able to access EditProfileForm unless they're logged in.  If they're not logged in, provide links so that they can login (or register if need be).  
 	        	        
 	        $IDMember = $Member->ID;
@@ -257,11 +189,7 @@ class EditProfilePage_Controller extends Page_Controller
         }
         
         
-    }   
-    
-    function HelpLabSaveProfile($data, $form){
-    
-    }    
+    }       
     
     //Check for just saved
     function Saved()
@@ -273,11 +201,6 @@ class EditProfilePage_Controller extends Page_Controller
     function Success()
     {
         return $this->request->getVar('success');
-    }
-    
-     function Redirect()
-    {
-        return $this->request->getVar('redirect');
     }
     
  
