@@ -8,7 +8,7 @@ class HelpHolder extends Page {
   static $has_one = array(
    );
    
-  static $allowed_children = array('AcademicHelp');
+  static $allowed_children = array('HelpLab');
 
   static $defaults = array ('ProvideComments' => '1',
     
