@@ -30,14 +30,14 @@
 										<% end_control %>
 										
 										<% control Page(help-labs) %>
-										<h4><a href="search_test.html">Campus Help Labs</a></h4>
+										<h4><a href="$Link">Campus Help Labs</a></h4>
 										<p>
 											<div class="thumb">
 												<div class="tape"></div>
 											</div>
 											$Content.Summary(20)
 										</p>
-										<div class="button">See More</div>
+										<div class="button"><a href="$Link">See More</a></div>
 										<% end_control %>
 									</div>
 								</div>
