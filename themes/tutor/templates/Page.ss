@@ -34,15 +34,19 @@
 				</div>
 				<div class="nav_wrapper">
 					<% if CurrentMember %>
-					<a href="$currentMemberPage.Link"><div class="tab">View Profile</div></a>
-						<a href="{$BaseHref}/edit-profile"><div class="tab short">Edit Profile</div></a>
+						<a href="$currentMemberPage.Link"><div class="tab">View Profile</div></a>
+						<% if isHelpLab %>
+							<a href="{$BaseHref}personal-help-labs"><div class="tab short">Edit Profile</div></a>
+						<% else %>
+							<a href="{$BaseHref}edit-profile"><div class="tab short">Edit Profile</div></a>
+						<% end_if %>
 					<% else %>
 						<a href="{$BaseHref}register/"><div class="tab long">Apply to be a Tutor</div></a>
 						<a href="{$BaseHref}Security/login/"><div class="tab short">Tutor Sign-In</div></a>
 					<% end_if %>
 					<a href="{$BaseHref}newsletter-signup/"><div class="tab long">Sign up for E-mail updates!</div></a>
 					<% if CurrentMember %>
-					<a href="{$BaseHref}Security/logout"><div class="tab short">Sign Out</div></a>
+					<a href="{$LogoutLink}"><div class="tab short">Sign Out</div></a>
 					<% end_if %>
 
 				</div>
