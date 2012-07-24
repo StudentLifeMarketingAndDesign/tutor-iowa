@@ -36,6 +36,33 @@ public function currentMemberPage(){
 	
 }
 
+public function getHelpLab(){
+	if ($this->isHelpLab()){
+		$HelpLab = DataObject::get_one("YourHelpLabs");		
+		return $HelpLab;	
+	}
+}
+
+public function isHelpLab(){
+
+	$memberLabs = DataObject::get('Member', "ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
+		      
+	$MemberIDArray = array();
+	
+	$Member = Member::CurrentMember(); 
+		     
+	array_push($MemberIDArray, $Member->ID);    
+		     	     
+	 if ($memberLabs->containsIDs($MemberIDArray)){
+		 return true;
+     }
+     else {
+	     return false;
+     }
+	 
+}
+
+
 public function News($number=3){
 	$articles = DataObject::get("ArticlePage", $filter = null, $sort = "Date DESC", $join = null, $limit = $number);
 	if($articles)
@@ -99,11 +126,18 @@ public function News($number=3){
 	public static $allowed_actions = array (
 	);
 	
+	
+	//I want logout to redirect to the home page
+	
 	function logout() { 
 		Security::logout(false); 
 		Director::redirect("home/"); 
 	}
 
+	function LogoutLink() { 
+		return $this->Link('logout');
+	}
+	
 	public function init() {
 		parent::init();
 		
