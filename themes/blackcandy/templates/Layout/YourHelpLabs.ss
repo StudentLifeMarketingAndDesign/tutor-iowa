@@ -2,7 +2,7 @@
 Rendered with YourHelpLabs.ss
 
 <% control getHelpLabs %>
-	<a href="edit-profile-page/?redirect=$ID">$Name</a>
+	<a href="helplabeditprofile/?ID=$ID">$Name</a>
 	Hi
 <% end_control %> 
 
