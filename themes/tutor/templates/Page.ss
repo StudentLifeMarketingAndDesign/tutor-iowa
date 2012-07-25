@@ -35,7 +35,7 @@
 				<div class="nav_wrapper">
 					<% if CurrentMember %>
 						<a href="$currentMemberPage.Link"><div class="tab">View Profile</div></a>
-						<% if isHelpLab %>
+						<$<% if isHelpLab %>
 							<a href="{$BaseHref}personal-help-labs"><div class="tab short">Edit Profile</div></a>
 						<% else %>
 							<a href="{$BaseHref}edit-profile"><div class="tab short">Edit Profile</div></a>
