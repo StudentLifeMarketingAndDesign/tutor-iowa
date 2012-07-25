@@ -29,8 +29,7 @@ class RegistrationPage_Controller extends Page_Controller {
             //new TextField('Name', '<span>*</span> Name'),
             new TextField('FirstName', '<span>*</span> First Name'),
             new TextField('Surname', '<span>*</span> Last Name'),
-            new EmailField('Email'),
-            //new CustomEmailField('Email', '<span>*</span> UIowa Email Address'),
+            new CustomEmailField('Email', '<span>*</span> UIowa Email Address'),
             new ConfirmedPasswordField('Password', '<span>*</span> Password'),
             new UniversityIDField('UniversityID', 'University ID'),
             new TextField('Major')
@@ -52,6 +51,57 @@ class RegistrationPage_Controller extends Page_Controller {
     public function getEmails(){
 	    return DataObject::get("MemberManagement");
     }
+    
+    //This function sets the default start and end dates (when they intend to stop tutoring) to be the semester the tutor is currently in (or if the semester is over, the upcoming semester)
+    
+     function getStartEndDates(){
+	     
+	    $TodayDate = date("m.d.y");
+	    //$TodayTimestamp = strtotime($TodayDate); 
+	    $TodayTimestamp = strtotime($TodayDate);
+
+	    $DateArray = array();
+	    
+	   	$DateArray[strtotime("8/20/2012")] = strtotime("12/14/2012");
+	    $DateArray[strtotime("1/22/2013")] = strtotime("5/17/2013");
+	    $DateArray[strtotime("8/26/2013")] = strtotime("12/13/2013");
+	    $DateArray[strtotime("1/21/2014")] = strtotime("5/16/2014");
+	    $DateArray[strtotime("8/25/2014")] = strtotime("12/19/2014");
+	    $DateArray[strtotime("1/20/2015")] = strtotime("5/15/2015");
+	    
+	  
+	    
+	    $StartDate = strtotime("8/20/2012");
+	    $EndDate = strtotime("12/14/2012");
+	    
+	    $iter = 0; 
+	    
+	    foreach($DateArray as $DateKey=>$DateValue){
+	    	
+	    	if (($TodayTimestamp > $DateKey) && ($TodayTimestamp > $DateValue)){
+	    		$iter++;
+	    		continue;
+	    	}	
+			else {
+				$StartDate = $DateKey;
+				$EndDate = $DateValue;
+				break;
+			 }
+		    
+		        
+		} 
+	    
+	    $FStartDate = date("y-m-d", $StartDate);
+	    $FEndDate = date("y-m-d", $EndDate);
+	    
+	    $returnArray = Array();
+	    $returnArray["start"] = $FStartDate;
+	    $returnArray["end"] = $FEndDate;
+	    
+	    return $returnArray;
+	   
+    }
+
     
     //Submit the registration form
     function doRegister($data,$form)
@@ -98,18 +148,20 @@ class RegistrationPage_Controller extends Page_Controller {
         $insertMemberID = $Member->ID;        
         $TutorPage->MemberID = $insertMemberID;
         
-        //Set default start and end date
-        $StartDate = date("m.d.y"); //today's date in MM/DD/YYY format
-        $TutorPage->StartDate = $StartDate;
+        //This function provides semester start and end dates relative to the current date up to Spring 2015
+        $tempDates = $this->getStartEndDates();
+               
+        $TutorPage->StartDate = $tempDates["start"];
+        $TutorPage->EndDate = $tempDates["end"];
         
-        $EndDate  = mktime(0, 0, 0, date("m"),   date("d"),   date("Y")+1);
-        $TutorPage->EndDate = $EndDate;
-      
-         
         
-       
+        
         $TutorPage->URLSegment = $TutorPage->ID;  
-        $TutorPage->writeToStage('Stage'); //Kate handles publishing
+        $TutorPage->writeToStage('Stage'); 
+                  
+       
+
+        //Kate handles publishing
         //$TutorPage->publish('Stage'); //
         
     
