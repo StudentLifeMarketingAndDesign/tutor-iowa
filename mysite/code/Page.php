@@ -117,6 +117,7 @@ public function News($number=3){
 	 * @var array
 	 */
 	public static $allowed_actions = array (
+	'logout'
 	);
 	
 	
