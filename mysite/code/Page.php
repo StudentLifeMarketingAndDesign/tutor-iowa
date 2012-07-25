@@ -45,20 +45,13 @@ public function getHelpLab(){
 
 public function isHelpLab(){
 
-	$memberLabs = DataObject::get('Member', "ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
-		      
-	$MemberIDArray = array();
+	$Member = Member::CurrentMember();
+	$IDMember = $Member->ID;
+	#$memberLabs = DataObject::get('Member', "ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
 	
-	$Member = Member::CurrentMember(); 
-		     
-	array_push($MemberIDArray, $Member->ID);    
-		     	     
-	 if ($memberLabs->containsIDs($MemberIDArray)){
-		 return true;
-     }
-     else {
-	     return false;
-     }
+	$memberLabs = DataObject::get('Member', "ID=$IDMember and ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
+	
+	return $memberLabs;
 	 
 }
 
