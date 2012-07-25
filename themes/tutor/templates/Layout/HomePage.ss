@@ -55,9 +55,9 @@
 										<% control News %>
 										<h4><a href="$Link">$Title</a></h4>
 										<p>$Content.Summary(20)</p>
-										<div class="button">See More</div>
+										<div class="button"><a href="$Link">See More</a></div>
 										<% end_control %>
-										<a href="search_test.html"><div id="more"></div></a>
+										<a href="{$BaseHref}news"><div id="more"></div></a>
 									</div>
 								</div>
 							</div>
