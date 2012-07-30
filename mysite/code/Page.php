@@ -155,7 +155,8 @@ public function News($number=3){
 	
 	public function init() {
 		parent::init();
-		
+		Requirements::block('/cms/css/layout.css'); 
+
 		if (isset($_GET['setTheme'])) {
       if (Director::isDev() || Permission::check('ADMIN')) {
         Session::set('theme', $_GET['setTheme']);
@@ -179,6 +180,7 @@ public function News($number=3){
 
 
 	}
+	
 	/*
 	public function getDisabled() { //This is used to check whether the user's account is disabled.  If it is, a link to enable the account should appear
 		$Member = Member::CurrentMember();
