@@ -26,32 +26,11 @@ class SupplementalInstruction extends Page {
     
     //Also want pages to be created under a SuppHolder by default
     static $defaults = array ('ProvideComments' => '1',
-    
-   
-    
+     
     );
-   //'ParentID' => '85'
-   //'ParentID' => DataObject::get_one("SuppHolder")->ID
-   /*
-   function SupplementalInstruction(){
-	  parent::__construct();
-	  $holder = DataObject::get_one("SuppHolder");
-	  $this->setParent($holder);
-   }
-   */
-   /*
-   public function __construct(){
-	  parent::__construct();
-	  $this->Disabled = 0;
-	  $this->SessionLeader = "DREW TEST";
-	  $this->write();
-   }
-   */	
-   	
+
     function getTags() {
-     	//$test = "getTags";
-	     //return $test;
-	     return $this->Tags();
+     	return $this->Tags();
      }
      
      
@@ -76,11 +55,5 @@ class SupplementalInstruction extends Page {
 }
  
 class SupplementalInstruction_Controller extends Page_Controller {
-	/*	
-	public function init(){
-	  parent::init();
-	  $holder = DataObject::get_one("SuppHolder");
-	  $this->setParent($holder);
-   }
-   */
+	
 }
