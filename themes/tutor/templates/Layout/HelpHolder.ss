@@ -4,7 +4,7 @@
 						<h1>$Title</h1>
 						<% include SearchForm %>
 						$Content
-						
+						<% control ChildrenOf(Staff-Holder) %>
 					</div>
 						
 						<div class="clearfix"></div>
