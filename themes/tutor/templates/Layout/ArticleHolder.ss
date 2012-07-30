@@ -8,6 +8,7 @@
 	<p>$Content.Summary(20)</p>
 	<div class="button"><a href="$Link">See More</a></div>
 <% end_control %>
+<br><br><br>
 </div>
 </div>
 
