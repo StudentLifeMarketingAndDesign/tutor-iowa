@@ -24,8 +24,8 @@ class DisablePage extends Page {
 class DisablePage_Controller extends Page_Controller {
      
      static $allowed_actions = array(
-        'DisableForm'
-    );
+        'DisableForm',
+     );
     
    
      
@@ -48,50 +48,62 @@ class DisablePage_Controller extends Page_Controller {
 	    
 	    $CurrentMember = Member::CurrentMember();
 	    
-	    $IDMember = $CurrentMember->ID;
-            	
-        $Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
+	  
 	    
-	    include 'EmailArray.php'; //Gets members of security group that should be notified about user registration 
+	    if ($Member){
 	    
-	    
-	    $userEmail = $CurrentMember->Email;
-	    
-	  	//Sends disable account emails to appropriate security group(s)    
-	    foreach ($emailArray as $recip){ //$emailArray defined in EmailArray.php
-        	
-        	        	
-        	$subject = "User has requested their account be disabled"; 
-        	      	
-        	$body = "User email: " . $userEmail . "
-        	
-        
-         
-        
-        	Disable account  <a href='" . Director::absoluteBaseURL() .  "admin/show/" . $Tutor->ID . "'>here</a/>";        	
-        
-	      	        
-	         $email = new Email(); 
-	         $email->setTo($recip->Email); 
-	         $email->setFrom(Email::getAdminEmail()); 
-	         $email->setSubject($subject); 
-	         $email->setBody($body); 
-	         $email->send(); 
+		    $IDMember = $CurrentMember->ID;
+	            	
+	        $Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
+		    
+		    include 'EmailArray.php'; //Gets members of security group that should be notified about user registration 
+		    
+		    
+		    $userEmail = $CurrentMember->Email;
+		    
+		  	    
+		    foreach ($emailArray as $recip){ //$emailArray defined in EmailArray.php
+	        	
+	        	        	
+	        	$subject = "User has requested their account be disabled"; 
+	        	      	
+	        	$body = "User email: " . $userEmail . "
+	        	
+	        
 	         
-	    }
-	    
-	    //Sends disable message to user
-	    $subject = "The disabling of your Tutor Iowa registration is pending";
-	    $body = "We'll disable this ASAP, I swear."; 
-	    
-        $email = new Email(); 
-	    $email->setTo($CurrentMember->Email); 
-	    $email->setFrom(Email::getAdminEmail()); 
-	    $email->setSubject($subject); 
-	    $email->setBody($body); 
-	    $email->send();
+	        
+	        	Disable account  <a href='" . Director::absoluteBaseURL() .  "admin/show/" . $Tutor->ID . "'>here</a/>";        	
+	        	//$headers = "From: Tutor Iowa";       	
+		        //mail($recip->Email, $subject, $body);
+		      	        
+		         $email = new Email(); 
+		         $email->setTo($recip->Email); 
+		         $email->setFrom(Email::getAdminEmail()); 
+		         $email->setSubject($subject); 
+		         $email->setBody($body); 
+		         $email->send(); 
+		         
+		    }
+		    
+		    $subject = "The disabling of your Tutor Iowa registration is pending";
+		    $body = "We'll disable this ASAP, I swear."; 
+		    
+	        $email = new Email(); 
+		    $email->setTo($CurrentMember->Email); 
+		    $email->setFrom(Email::getAdminEmail()); 
+		    $email->setSubject($subject); 
+		    $email->setBody($body); 
+		    $email->send();
+	
+		    return Director::redirect($this->Link('?saved=1'));   
+		 }
+	  
+	  else {
+		  $message = "You must be <a href='/Security/login'>logged</a> in to edit your profile!";
+		  return $message;
+		  
+	  }
 
-	    return Director::redirect($this->Link('?saved=1'));   
     }
    
   
