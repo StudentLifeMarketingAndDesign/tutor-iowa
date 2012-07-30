@@ -39,8 +39,7 @@ class TutorPage extends Page {
              */
              
              static $defaults = array ('ProvideComments' => '1',
-             'Disabled' => '0',
-             'Approved' => '0',
+            
              
              //Hi
     
@@ -104,8 +103,7 @@ class TutorPage extends Page {
      
      function onAfterPublish(){
      
-     	user_error("breakpoint", E_USER_ERROR);
-	 	
+     		 	
 	 	$approved =  $this->Approved;
 	 	
 	    
@@ -151,6 +149,7 @@ class TutorPage extends Page {
      }
      
      //Doesn't run
+     /*
      function onAfterUnpublish(){
      
      	user_error("breakpoint", E_USER_ERROR);
@@ -174,21 +173,8 @@ class TutorPage extends Page {
 		 $test->Surname = "alacabash";
 		 $test->write();
 	}
-    
-  
-    //This function is no longer being used
-    function populateTemplate() {
-	 if (isset($_GET['ID'])){
-	 	$ID = $_GET['ID'];
-	 	if (is_int(intval($ID))){
-	  		$templateInfo = DataObject::get_by_id("SupplementalInstruction", $ID);
-	  		return $templateInfo;
-	  	}
-	 }
-  }
-  
-   
-  
+   */ 
+        
 }
 
 
