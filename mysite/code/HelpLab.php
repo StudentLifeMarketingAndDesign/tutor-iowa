@@ -11,7 +11,9 @@ class HelpLab extends Page {
     "Hours" => 'Varchar',
     'Enabled' => 'Boolean',
     'EndDate' => 'Date', 
-
+    'Link' => 'Text',
+    'PhoneNo' => 'Text',
+   
    );
    
    static $has_one = array( 
@@ -35,6 +37,10 @@ class HelpLab extends Page {
     	$fields->addFieldToTab( 'Root.Content.Main', new TextField("Location"));
     	$fields->removeFieldFromTab('Root.Content.Metadata', "Keywords"); 
     	$fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("MetaKeywords", "Tags"));
+    	
+    	$fields->addFieldToTab('Root.Content.Main', new TextField("Link"));
+    	$fields->addFieldToTab('Root.Content.Main', new TextField("PhoneNo", "Phone Number"));
+    	
     	
     	$memberArray = DataObject::get('Member', "ID in (select MemberID from Group_Members where GroupID = (select ID from `Group` where title='Content Authors'))");
     	

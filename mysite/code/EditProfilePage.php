@@ -17,7 +17,6 @@ class EditProfilePage extends Page {
     
     );
    
-
 }
  
 class EditProfilePage_Controller extends Page_Controller 
@@ -91,7 +90,7 @@ class EditProfilePage_Controller extends Page_Controller
 	        return $Form;
 	     }
 	     else {
-	     	//Insert not logged in page stuff here
+	     	//Shouldn't happen with current design unless user tries to navigate there directly (there is no link to edit profile when you're not logged in)
 	     	$message = "You must be <a href='/Security/login'>logged</a> in to edit your profile.  If you do not have an account, register <a href='registration-page'>here.</a>";
 	     	return $message;
 	     }
@@ -119,52 +118,19 @@ class EditProfilePage_Controller extends Page_Controller
             	$IDMember = $CurrentMember->ID;
             	
             	$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
-            	
-            	//The purpose of this coming block is to unpublish a user's page 
-            	
-                $formData = $form->getData();
-      
-                $formDisabled = $formData["Disable"];
-                /*
-	            if ($formDisabled == 1){
-		        	$Tutor->doUnpublish('Stage', 'Live');
-		            $returned = "unpublished " . "Form = " . $formDisabled . "Tutor = " . $tutorDisabled;
-		            $disableAcct = 1;
-		                
-		       
-		               
-	             }
-	                
-	                elseif ($formDisabled == 0) {
-	                
-		                $Tutor->doPublish('Stage', 'Live');
-		                
-		                $returned = "published " . "Form = " . $formDisabled . "Tutor = " . $tutorDisabled;
-		                //if (is_null($formData)){
-		                	//return "TOTALLY NULL";
-		                //}
-		                
-		            }
-		            */
-                
-
-            	
-                $form->saveInto($Tutor); 
-                
-                //return ($Tutor->canPublish()==0);
-                                
-                //$Tutor->write();
-                
-                                
+            	            	           	
+                $form->saveInto($Tutor);                               
+                                                
                 $Tutor->writeToStage("Stage");
                
                 $Tutor->publish("Stage","Live");
-                
-                //$Tutor->writeToStage('Stage');
-                
+                                           
                 $form->saveInto($CurrentMember); 
                  
                 $CurrentMember->write();
+                
+                $formData = $form->getData();
+                $formDisabled = $formData['Disable'];
                 
                 if ($formDisabled){//If user checked disable page box
                 	
@@ -197,7 +163,7 @@ class EditProfilePage_Controller extends Page_Controller
         return $this->request->getVar('saved');
     }
      
-    //Check for success status
+    //Check if user succesfully registered (they are redirected to this page from RegistrationPage.php if registration was successful)
     function Success()
     {
         return $this->request->getVar('success');
@@ -209,17 +175,11 @@ class EditProfilePage_Controller extends Page_Controller
     	if ($this->request->getVar('enable') == 1){
     	
 		    $CurrentMember = Member::CurrentMember();
-		    
-		    //$IDMember = $CurrentMember->ID;
-	            	
-	        //$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
-		    
+
 		    include 'EmailArray.php'; //Gets members of security group that should be notified about user registration 
-		    
-		    
+		    		    
 		    $userEmail = $CurrentMember->Email;
-		    
-		  	    
+		    		  	    
 		    foreach ($emailArray as $recip){ //$emailArray defined in EmailArray.php
 	        	
 	        	        	

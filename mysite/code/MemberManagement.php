@@ -2,9 +2,6 @@
 
 
 //No longer used
-
-
-
 class MemberManagement extends DataObject {
     static $db = array(
     "Name" => "Text",

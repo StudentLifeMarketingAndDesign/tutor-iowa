@@ -758,3 +758,39 @@ form .white{
 	width: 100%;
 	background-color: transparent;
 }
+
+/*Added by Drew*/
+
+.action{
+	width: 161px;
+	height: 37px;
+	background: url('../images/button.png') no-repeat;
+	border: 0;
+	font-family: 'Gloria Hallelujah', sans-serif;
+	font-size: 18px;
+	color: #fff;
+	padding: 3px 0px 5px 0px;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	clear: both;
+	line-height: normal;
+}
+/*
+.action a {
+	color: white;
+	
+}
+
+
+.action:active{
+	width: 159px;
+	height: 39px;
+	background: url('../images/button.png');
+	background-position: bottom;
+	border: 0;
+	padding: 6px 2px 0px 0px;
+}
+*/

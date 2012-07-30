@@ -30,7 +30,11 @@ class HelpLabEditProfile_Controller extends Page_Controller {
 	function HelpEditProfileForm(){
 	   $fields = new FieldSet (
 		  	new TextareaField('Description'),
-		    new Textareafield('MetaKeywords', 'Tags')
+		    new Textareafield('MetaKeywords', 'Tags'),
+		    new TextField('Location'),
+		    new TextField('Link'),
+		    new TextField('PhoneNo', 'Phone Number')
+		    
 		       );
 		        
 		    
@@ -73,7 +77,10 @@ class HelpLabEditProfile_Controller extends Page_Controller {
        
     function getLabID()
     {
-        return $this->request->getVar('ID');
+        $temp = $this->request->getVar('ID');
+        if ($temp){
+        	return Convert::raw2sql($temp); //This sanitizes the database input
+        }
     }
     
     function Saved()

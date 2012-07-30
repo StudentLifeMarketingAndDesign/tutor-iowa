@@ -26,7 +26,7 @@ class RegistrationPage_Controller extends Page_Controller {
     function RegistrationForm()
     {
         $fields = new FieldSet(
-            //new TextField('Name', '<span>*</span> Name'),
+            
             new TextField('FirstName', '<span>*</span> First Name'),
             new TextField('Surname', '<span>*</span> Last Name'),
             new CustomEmailField('Email', '<span>*</span> UIowa Email Address'),
@@ -52,7 +52,7 @@ class RegistrationPage_Controller extends Page_Controller {
 	    return DataObject::get("MemberManagement");
     }
     
-    //This function sets the default start and end dates (when they intend to stop tutoring) to be the semester the tutor is currently in (or if the semester is over, the upcoming semester)
+    //This function sets the default start and end dates (when they intend to stop tutoring) to be the semester the tutor is currently in (or if the semester is over, the upcoming semester).  
     
      function getStartEndDates(){
 	     
@@ -74,12 +74,10 @@ class RegistrationPage_Controller extends Page_Controller {
 	    $StartDate = strtotime("8/20/2012");
 	    $EndDate = strtotime("12/14/2012");
 	    
-	    $iter = 0; 
-	    
 	    foreach($DateArray as $DateKey=>$DateValue){
 	    	
 	    	if (($TodayTimestamp > $DateKey) && ($TodayTimestamp > $DateValue)){
-	    		$iter++;
+	    		
 	    		continue;
 	    	}	
 			else {
@@ -106,7 +104,7 @@ class RegistrationPage_Controller extends Page_Controller {
     //Submit the registration form
     function doRegister($data,$form)
     {
-        //Check for existing member email address
+        //Check for existing member email address, use raw2sql to sanitize email form input
         if($member = DataObject::get_one("Member", "`Email` = '". Convert::raw2sql($data['Email']) . "'")) 
         {
             //Set error message
@@ -136,9 +134,10 @@ class RegistrationPage_Controller extends Page_Controller {
         
         //Flesh out page info
         $TutorPage->Title = $Member->Name;
-  
+        
+        //Some or all of these are not necessary
         $TutorPage->MetaTitle = $Member->Name;
-        $TutorPage->ShowInSearch = 1; //not necessary, default is 1
+        $TutorPage->ShowInSearch = 1; 
         $TutorPage->MetaKeywords = $Member->Name;
         $TutorPage->ProvideComments = 1;
         
@@ -157,22 +156,8 @@ class RegistrationPage_Controller extends Page_Controller {
         
         
         $TutorPage->URLSegment = $TutorPage->ID;  
-        $TutorPage->writeToStage('Stage'); 
+        $TutorPage->writeToStage('Stage'); //Publishing handled by Tutor Iowa staff
                   
-       
-
-        //Kate handles publishing
-        //$TutorPage->publish('Stage'); //
-        
-    
-        
-        //DataObject::get_one('Group', "Code = 'page-3'")
-        
-       
-        
-       
-        //Change title at far-right of statement to change group that gets notifications of users registering
-        //select * from Member where ID in (select MemberID from Group_Members where GroupID = (select ID from `Group` where title='Content Authors'))
         //$emailArray = DataObject::get('Member', "ID in (select MemberID from Group_Members where GroupID = (select ID from `Group` where title='Content Authors'))");
         
         include 'EmailArray.php'; //Gets members of security group that should be notified about user registration 

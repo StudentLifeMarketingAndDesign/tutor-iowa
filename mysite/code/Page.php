@@ -50,11 +50,32 @@ public function isHelpLab(){
 	#$memberLabs = DataObject::get('Member', "ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
 	
 	$memberLabs = DataObject::get('Member', "ID=$IDMember and ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
+	/*
+	
+	Might not need other functions -- can refer to session variables directly with <% ifHelpLabSession %> without needing another function
+	Session::set("isHelpLabCached", 1);
+	
+	if ($memberLabs){
+		Session::set("isHelpLabSession", 1);
+	}
+	else {
+		Session::set("isHelpLabSession", 0);
+	}
+	*/
 	
 	return $memberLabs;
 	 
 }
 
+/*
+public function isHelpLabCached(){
+	return (Session::get("isHelpLabCached") == 1);
+}
+
+public function isHelpLabSession(){
+	return (Session::get("isHelpLabSession") == 1);
+}
+*/
 
 public function News($number=3){
 	$articles = DataObject::get("ArticlePage", $filter = null, $sort = "Date DESC", $join = null, $limit = $number);
