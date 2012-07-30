@@ -1,9 +1,7 @@
 <?php
  
  
- //Not in use
- 
- 
+ //NOT IN USE 
 class IsDisabled extends DataObject {
    static $db = array(
    'Disabled' => 'Boolean'
