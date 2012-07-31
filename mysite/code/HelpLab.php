@@ -11,7 +11,7 @@ class HelpLab extends Page {
     "Hours" => 'Varchar',
     'Enabled' => 'Boolean',
     'EndDate' => 'Date', 
-    'Link' => 'Text',
+    'ExtrnlLink' => 'Text',
     'PhoneNo' => 'Text',
    
    );
@@ -37,8 +37,7 @@ class HelpLab extends Page {
     	$fields->addFieldToTab( 'Root.Content.Main', new TextField("Location"));
     	$fields->removeFieldFromTab('Root.Content.Metadata', "Keywords"); 
     	$fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("MetaKeywords", "Tags"));
-    	
-    	$fields->addFieldToTab('Root.Content.Main', new TextField("Link"));
+    	$fields->addFieldToTab('Root.Content.Main', new TextField("ExtrnlLink", "External link to help lab homepage"));
     	$fields->addFieldToTab('Root.Content.Main', new TextField("PhoneNo", "Phone Number"));
     	
     	
