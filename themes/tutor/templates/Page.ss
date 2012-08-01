@@ -9,6 +9,7 @@
 <% base_tag %>
 <link href='{$ThemeDir}/css/tutor.css' rel='stylesheet' type='text/css' />
 <link href='{$ThemeDir}/css/forms.css' rel='stylesheet' type='text/css' />
+<link href='{$ThemeDir}/scripts/fancybox/jquery.fancybox.css' rel='stylesheet' type='text/css' />
 
 </head>
 
@@ -100,6 +101,9 @@
 				<% end_control %>
 			</ul>
 		</div>
+		
+		<div class="clearfix"></div>
+		
 	</div>
 </div>
       
@@ -107,19 +111,29 @@
       
 
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+<script type="text/javascript" src="{$ThemeDir}/scripts/fancybox/jquery.fancybox.pack.js"></script>
+
 <script type="text/javascript" src="{$ThemeDir}/scripts/jquery.parallax-1.1.js"></script>
 <script type="text/javascript" src="{$ThemeDir}/scripts/jquery.localscroll-1.2.7-min.js"></script>
 <script type="text/javascript" src="{$ThemeDir}/scripts/jquery.scrollTo-1.4.2-min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	$('.fancybox').fancybox();
 	$('#nav').localScroll(800);
-	
+
+			
+
 	RepositionNav();
 	
 	$(window).resize(function(){
 		RepositionNav();
+		
+	
 	});	
+	
+
 	
 	//.parallax(xPosition, adjuster, inertia, outerHeight) options:
 	//xPosition - Horizontal position of the element

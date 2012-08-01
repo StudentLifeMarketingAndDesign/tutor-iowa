@@ -7,7 +7,13 @@ body
 	color: #444;
 }
 a{
+	color: #3769FF;
 	text-decoration: none;
+}
+
+strong, bold {
+	color: black;
+	
 }
 h1, h2, h3, h4, h5
 {
@@ -78,7 +84,7 @@ p{
 {
 	background: url('../images/board_bottom.png');
 	height: 38px;
-	margin-left: 15px;
+	margin-left: 16px;
 	width: 1000px;
 }
 .board_content
@@ -778,6 +784,59 @@ form .white{
 	clear: both;
 	line-height: normal;
 }
+
+/* Help Lab Styles */
+
+
+.help-labs {
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	
+}
+.help-labs li{
+	list-style-type: none;
+	display: block;
+	margin: 10px 0;
+	padding: 10px;
+	border: 1px dashed #DDD;
+	background-color: #FFFDF3;
+}
+
+
+
+.help-labs li h2 {
+	font-family: "Lucida Grande", "Helvetica Neue", "Helvetica", sans-serif;
+	font-size: 20px;
+	color: #2547ad;
+}
+
+.external-link {
+	background-image: url(../images/external_link.png);
+	background-position: center right;
+	background-repeat: no-repeat;
+	padding-right: 13px;
+	
+}
+
+/* Tagging Help Styles */
+
+.tag-example {
+	
+	display: block;
+	padding: 5px;
+	font-family: 'Gloria Hallelujah';
+	font-size: 16px;
+	resize: none;
+	outline: none;
+	background-color: rgba(255,255,255,.6);
+	border-image: url(../images/area.png) 4 repeat;
+	-webkit-border-image: url(../images/area.png) 4 repeat;
+	-moz-border-image: url(../images/area.png) 4 repeat;
+	border-width: 3px;
+	
+}
+
 /*
 .action a {
 	color: white;

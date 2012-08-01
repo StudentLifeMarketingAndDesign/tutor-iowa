@@ -5,7 +5,7 @@
 						<h1>$Title</h1>
 						<% if MeetingPreference %><span id="mp">Meeting Preference: </span><span id="meeting_preference">{$MeetingPreference}</span><% end_if %>
 						<div class="clearfix"></div>
-						<div class="button">Contact</div>
+						<div class="button"><a href="#contact-form-inline" class="fancybox">Contact</a></div>
 						<h2>Bio</h2>
 					
 						<div class="box-left">
@@ -56,7 +56,10 @@
 						<div class="clearfix"></div>
 				</div>
 				<% end_if %>
+				
+				<div id="contact-form-inline" style="display: none;"> 
 				$ContactForm
+				</div>
 				
 				
 			

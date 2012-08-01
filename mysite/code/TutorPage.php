@@ -187,8 +187,8 @@ class TutorPage_Controller extends Page_Controller {
      
      	
 	   	$fields = new FieldSet(
-	   	new TextField('Email', '<span>*</span> Email'),
-	   	new TextAreaField('Body',  '<span>*</span> Body')
+	   	new TextField('Email', '<span>*</span> Your Email Address'),
+	   	new TextAreaField('Body',  '<span>*</span> Your Message to '.$this->Member()->FirstName)
 	   
 	   	);
 	   	
