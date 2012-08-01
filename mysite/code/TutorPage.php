@@ -97,15 +97,14 @@ class TutorPage extends Page {
     public function getEmails(){
 	    return DataObject::get("MemberManagement");
     }
-     
+  
      function onAfterPublish(){
      
      		 	
 	 	$approved =  $this->Approved;
 	 	
-	    
-
-	 	
+	  
+	    	 	
 	 	//Only want onAfterPublish to send a confirmation email the first time            
 	   //if ($approved==0){ 	
         	
