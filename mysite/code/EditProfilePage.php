@@ -35,7 +35,7 @@ class EditProfilePage_Controller extends Page_Controller
 	        	        
 	        $IDMember = $Member->ID;
 	        $Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
-	     
+	        $tagsLabel = '<p>Read the <a href="for-tutors/">For Tutors page</a> to learn more about tags and promoting yourself on Tutor Iowa!</p>';
 	        $fields = new FieldSet(
 	            new TextField('FirstName', '<span>*</span> First Name'),
 	            new TextField('Surname', '<span>*</span> Last Name'),
@@ -51,7 +51,11 @@ class EditProfilePage_Controller extends Page_Controller
 	            new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
 	            new TextField('Major'),
 	            new UniversityIDField('UniversityID', 'University ID'),
+	            new LiteralField('TagsHelpLabel', $tagsLabel),
+
 	            new TextareaField('MetaKeywords', 'Tags'),
+	            
+	            
 	            //This does not sync with database (database field is 'Disabled')
 	            new CheckboxField('Disable', 'Request to disable your page (will no longer be returned as a search result on TutorIowa)')
 	

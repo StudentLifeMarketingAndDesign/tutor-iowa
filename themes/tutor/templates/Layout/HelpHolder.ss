@@ -3,19 +3,21 @@
 					<div id="page-content">
 						<h1>$Title</h1>
 						<% include SearchForm %>
-						<ul>
+						$Content
+						<ul class="help-labs">
 						
 						<% control ChildrenOf(help-labs) %>
-						  	<% if ExtrnlLink %>
-								<li><a href="{$ExtrnlLink}">$Name</a>
-							<% else %>
-								<li>$Name
-							<% end_if %>
-							<li>$Location
+						<li>
+						  	
+						<h2><a href="$Link" target="_blank">$Name</a></h2>
+						<p>$Location</p>
 						    <% if PhoneNo %>
-								<li>$PhoneNo
+								<p>$PhoneNo</p>
 							<% end_if %>
-							<br><br>
+							<% if ExtrnlLink %>
+							<p><a href="$ExtrnlLink" class="external-link">visit website</a></p>
+							<% end_if %>
+						</li>
 						<% end_control %>
 						
 					</div>
