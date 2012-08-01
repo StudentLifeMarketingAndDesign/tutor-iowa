@@ -177,10 +177,10 @@ class RegistrationPage_Controller extends Page_Controller {
 	        //mail($recip->Email, $subject, $body);
 	        
 	         $email = new Email(); 
-	       
+	         $from = "Tutor Iowa";
 	         $email->setTo($recip->Email); 
 	         
-	         $email->setFrom(Email::getAdminEmail()); 
+	         $email->setFrom($from); 
 	         $email->setSubject($subject); 
 	         $email->setBody($body); 
 	         $email->send(); 

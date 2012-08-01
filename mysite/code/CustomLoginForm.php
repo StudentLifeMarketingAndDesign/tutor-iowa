@@ -9,7 +9,7 @@ class CustomLoginForm extends MemberLoginForm
         
         			$tutorPage = DataObject::get_one("TutorPage","MemberID = '".$member->ID."'");
         			
-        			print_r($tutorPage);
+        			//print_r($tutorPage);
         			
         			if($tutorPage){
 	        		Director::redirect($tutorPage->Link());

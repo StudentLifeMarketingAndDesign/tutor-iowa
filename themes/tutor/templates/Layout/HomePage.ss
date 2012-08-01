@@ -4,7 +4,7 @@
 					</div>
 					<div id="splext">
 						<span>
-							<div class="highlighted">Tutor Iowa</div> is the best spot to find help and personal mentoring for your University of Iowa classes! <div class="button"><a href="about">Read More</a></div>
+							<div class="highlighted">Tutor Iowa</div> is the best spot to find help and personal mentoring for your University of Iowa classes! <div class="button"><a href="about/">Read More</a></div>
 
 						</span>
 					</div>
