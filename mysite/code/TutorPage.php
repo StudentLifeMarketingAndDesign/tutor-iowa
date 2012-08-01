@@ -70,10 +70,7 @@ class TutorPage extends Page {
         $fields->addFieldToTab( 'Root.Content.Main', new TextField("UniversityID", "University ID"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextField("Major"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextField("AcademicStatus", "Academic Status"));
-        
-      
-      
-       
+                                              
        
         return $fields;
         
