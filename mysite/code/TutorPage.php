@@ -39,11 +39,15 @@ class TutorPage extends Page {
              */
              
              static $defaults = array ('ProvideComments' => '1',
-            
+             
+           
              
              //Hi
     
    );
+   
+   			 //static $test = 5;
+             
        
     //Add form fields to CMS
     
@@ -75,6 +79,11 @@ class TutorPage extends Page {
         return $fields;
         
      }
+     /*
+     static function getTest(){
+	     return $test;
+     }
+     */
      
     public function SplitKeywords(){
 	    $keywords = $this->MetaKeywords;
@@ -145,7 +154,7 @@ class TutorPage extends Page {
      }
      
      //Doesn't run
-     /*
+     
      function onAfterUnpublish(){
      
      	user_error("breakpoint", E_USER_ERROR);
@@ -164,12 +173,13 @@ class TutorPage extends Page {
 		 
 		 $this->Approved = 0;
 	     $this->write();
-		 
+		 /*
 		 $test = DataObject::get("Member", "Surname='Clashman'");
 		 $test->Surname = "alacabash";
 		 $test->write();
+		 */
 	}
-   */ 
+   
         
 }
 
@@ -213,7 +223,9 @@ class TutorPage_Controller extends Page_Controller {
 	    $email->setSubject($subject); 
 	  	$email->setFrom($from);
 	    $email->setBody($body);
-	    $email->send(); 
+	    $email->send();
+	    
+	    $GLOBALS['TutorRequestCount'] = $GLOBALS['TutorRequestCount'] + 1; 
 	    	
 	    return Director::redirect($this->Link('?saved=1'));   
 	    	

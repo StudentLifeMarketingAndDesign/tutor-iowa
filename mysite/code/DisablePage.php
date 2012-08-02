@@ -1,5 +1,5 @@
-
 <?php
+
 /**
  * 
  
@@ -25,6 +25,7 @@ class DisablePage_Controller extends Page_Controller {
      
      static $allowed_actions = array(
         'DisableForm',
+        
      );
     
    

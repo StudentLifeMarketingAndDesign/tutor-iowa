@@ -202,8 +202,8 @@ class EditProfilePage_Controller extends Page_Controller
 		         
 		    }
 		    
-		    $subject = "The disabling of your Tutor Iowa registration is pending";
-		    $body = "This will be disabled ASAP, I swear."; 
+		    $subject = "The enabling of your Tutor Iowa account is pending";
+		    $body = "You will receive another email once your account has been enabled by one of our administrators."; 
 		    
 	        $email = new Email(); 
 		    $email->setTo($CurrentMember->Email); 
