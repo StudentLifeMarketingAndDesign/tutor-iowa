@@ -36,11 +36,12 @@ class EditProfilePage_Controller extends Page_Controller
 	        $IDMember = $Member->ID;
 	        $Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
 	        $tagsLabel = '<p>Read the <a href="for-tutors/">For Tutors page</a> to learn more about tags and promoting yourself on Tutor Iowa!</p>';
+	        $changePassLabel = '<p><a href="Security/ChangePassword">Reset your password</a></p>';
 	        $fields = new FieldSet(
 	            new TextField('FirstName', '<span>*</span> First Name'),
 	            new TextField('Surname', '<span>*</span> Last Name'),
 	            new EmailField('Email', '<span>*</span> Email'),
-	            new ConfirmedPasswordField('Password', 'New Password'),
+	            new LiteralField('ChangePassword', $changePassLabel),
 	            new TextareaField('Content', 'Biography'),
 	            new TextField('Hours'),
 	            new DateField('StartDate', 'Date you would like to start tutoring'),
