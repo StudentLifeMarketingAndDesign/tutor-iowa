@@ -700,6 +700,24 @@ form .button:active{
 	line-height: normal;
 }
 
+.fancybox-button {
+	width: 161px;
+	height: 37px;
+	background: url('../images/button.png') no-repeat;
+	border: 0;
+	font-family: 'Gloria Hallelujah', sans-serif;
+	font-size: 18px;
+	color: #fff;
+	padding: 3px 0px 5px 0px;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	clear: both;
+	line-height: normal;
+}
+
 .button a {
 	color: white;
 	

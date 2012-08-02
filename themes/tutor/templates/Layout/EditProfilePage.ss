@@ -27,7 +27,7 @@
 						        <% end_if %>  
 						         
 						        $EditProfileForm
-						     
+						       
 						    <% end_if %>
 						 <% else %>
 						 	You must be <a href='/Security/login'>logged</a> in to edit your profile.  If you do not have an account, register <a href='{$BaseHref}registration-page'>here.</a>

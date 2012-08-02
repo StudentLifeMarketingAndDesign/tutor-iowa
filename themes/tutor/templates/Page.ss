@@ -115,13 +115,15 @@
 
 <script type="text/javascript" src="{$ThemeDir}/scripts/fancybox/jquery.fancybox.pack.js"></script>
 
-<script type="text/javascript" src="{$ThemeDir}/scripts/jquery.parallax-1.1.js"></script>
+<!--<script type="text/javascript" src="{$ThemeDir}/scripts/jquery.parallax-1.1.js"></script>
 <script type="text/javascript" src="{$ThemeDir}/scripts/jquery.localscroll-1.2.7-min.js"></script>
-<script type="text/javascript" src="{$ThemeDir}/scripts/jquery.scrollTo-1.4.2-min.js"></script>
+<script type="text/javascript" src="{$ThemeDir}/scripts/jquery.scrollTo-1.4.2-min.js"></script>-->
 <script type="text/javascript">
 $(document).ready(function(){
-	$('.fancybox').fancybox();
-	$('#nav').localScroll(800);
+	$('.fancybox').fancybox({
+		 type: 'inline',
+	});
+	/*$('#nav').localScroll(800);
 
 			
 
@@ -131,7 +133,7 @@ $(document).ready(function(){
 		RepositionNav();
 		
 	
-	});	
+	});	*/
 	
 
 	
@@ -140,7 +142,7 @@ $(document).ready(function(){
 	//adjuster - y position to start from
 	//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
 	//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
-	$('#background').parallax("50%",$("#foreground").height() + 88, 0.5, true);
+	/*$('#background').parallax("50%",$("#foreground").height() + 88, 0.5, true);*/
 
 })
 </script>

@@ -51,6 +51,9 @@ class TutorPage extends Page {
     {
     
     	$fields = parent::getCMSFields();
+    	
+    	$members = DataObject::get("Member");
+    	$membersDropdownSource = $members->toDropDownMap('ID','Email');
              
         $fields->removeFieldFromTab('Root.Content.Metadata', "Keywords"); 
         $fields->removeFieldFromTab('Root.Content.Main', "Content");
@@ -70,11 +73,13 @@ class TutorPage extends Page {
         $fields->addFieldToTab( 'Root.Content.Main', new TextField("UniversityID", "University ID"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextField("Major"));
         $fields->addFieldToTab( 'Root.Content.Main', new TextField("AcademicStatus", "Academic Status"));
-                                              
+        $fields->addFieldToTab('Root.Content.Advanced', new DropdownField("MemberID", "Associated User", $membersDropdownSource));                                   
        
         return $fields;
         
      }
+     
+     
      
     public function SplitKeywords(){
 	    $keywords = $this->MetaKeywords;
