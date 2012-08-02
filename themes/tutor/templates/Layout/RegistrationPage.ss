@@ -3,8 +3,10 @@
 					<div id="page-content">
 						<h1>$Title</h1>
 						
-						$Content
+					
 						$RegistrationForm
+						<br><br><br>
+						$Content
 						
 					</div>
 						
