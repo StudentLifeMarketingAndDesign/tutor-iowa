@@ -22,6 +22,7 @@ class TutorPage extends Page {
                 "AcademicStatus" => 'Text',
                 "UniversityID" => 'Int',
                 "Major" => 'Text',
+                
                                     
                 );
                 
@@ -143,10 +144,11 @@ class TutorPage extends Page {
 		    $email->setBody($body); 
 		    $email->send(); 
 	   // }
-	    
-	    //$this->Approved = 1;
-	    //$this->write();
-	   
+	    /*
+	    $this->Approved = 1;
+	    $this->writeToStage('Stage'); 
+	    $this->publish("Stage", "Live");
+	    */	   	   
 	   
 	   /*
 	   $MemberID = $this->MemberID;
@@ -159,7 +161,7 @@ class TutorPage extends Page {
      }
      
      //Doesn't run
-     
+     /*
      function onAfterUnpublish(){
      
      	user_error("breakpoint", E_USER_ERROR);
@@ -182,8 +184,9 @@ class TutorPage extends Page {
 		 $test = DataObject::get("Member", "Surname='Clashman'");
 		 $test->Surname = "alacabash";
 		 $test->write();
-		 */
+		 
 	}
+	*/
    
         
 }
@@ -210,7 +213,7 @@ class TutorPage_Controller extends Page_Controller {
         
         $validator = new RequiredFields('Email');
         
-        return new Form($this, 'ContactTutor', $fields, $actions, $validator);
+        return new Form($this, 'ContactForm', $fields, $actions, $validator);
         
 	   
     }
@@ -230,8 +233,15 @@ class TutorPage_Controller extends Page_Controller {
 	    $email->setBody($body);
 	    $email->send();
 	    
-	    $GLOBALS['TutorRequestCount'] = $GLOBALS['TutorRequestCount'] + 1; 
-	    	
+	    $statspage = DataObject::get_one('StatsPage');
+	    $temp = $statspage->TutorRequestCount;
+	    $temp++;
+	   
+	    $statspage->TutorRequestCount = $temp;
+	    //return Debug::show($statspage);
+	    $statspage->writeToStage('Stage'); 
+	    $statspage->publish("Stage", "Live");	    
+	        	
 	    return Director::redirect($this->Link('?saved=1'));   
 	    	
 	    

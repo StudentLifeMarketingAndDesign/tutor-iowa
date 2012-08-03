@@ -1,15 +1,21 @@
 <?php
 class StatsPage extends Page {
 
- 
-    
+ 	static $db = array( 
+ 	'TutorRequestCount' => 'Int',
+ 	);
+ 	/*
+ 	static $defaults = array(
+ 	'TutorRequestCount' => '0'
+ 	);
+    */
     
    public function getCMSFields() {
         $fields = parent::getCMSFields();
         
         $fields->removeFieldFromTab('Root.Content.Main', "Content");
-        $fields->addFieldToTab('Root.Content.Main', $tutorCount = new TextField('Placeholder1', 'Number of tutors in database'));
-        $fields->addFieldToTab('Root.Content.Main', $tutorRequestCount = new TextField('Placeholder2', 'Number of tutor requests made'));
+        $fields->addFieldToTab('Root.Content.Main', $tutorCount = new ReadonlyField('Placeholder1', 'Number of tutors in database'));
+        $fields->addFieldToTab('Root.Content.Main', $tutorRequestCount = new ReadonlyField('TutorRequestCount', 'Number of tutor requests made'));
               
         $set = DataObject::get("TutorPage");
         $count = $set->Count();
@@ -19,7 +25,8 @@ class StatsPage extends Page {
         //$tutor = DataObject::get_one("TutorPage");
         //$requestCount = $tutor::getTest();
         //$tutorRequestCount->setValue($_TUTOR_REQUEST_COUNT);
-        $tutorRequestCount->setValue($GLOBALS['TutorRequestCount']);
+        
+        //$tutorRequestCount->setValue($this->TutorRequestCount);
         
                
         return $fields;

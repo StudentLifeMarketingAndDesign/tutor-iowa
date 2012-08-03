@@ -148,8 +148,8 @@ class EditProfilePage_Controller extends Page_Controller
 		                }
 		            
 		        }
-		        
- 
+		        $ID = 92;
+		        $test = DataObject::get_by_id('TutorPage', $ID);
                 return Director::redirect($this->Link('?saved=1'));                              
             }
         }
