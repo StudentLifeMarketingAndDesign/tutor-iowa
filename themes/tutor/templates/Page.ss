@@ -45,7 +45,7 @@
 						<a href="{$BaseHref}register/"><div class="tab long">Apply to be a Tutor</div></a>
 						<a href="{$BaseHref}Security/login/"><div class="tab short">Tutor Sign-In</div></a>
 					<% end_if %>
-					<a href="{$BaseHref}newsletter-signup/"><div class="tab long">Sign up for E-mail updates!</div></a>
+					<a href="#newsletter-signup-form" class="newsletter-signup-link"><div class="tab long">Sign up for E-mail updates!</div></a>
 					<% if CurrentMember %>
 					<a href="{$LogoutLink}"><div class="tab short">Sign Out</div></a>
 					<% end_if %>
@@ -107,7 +107,9 @@
 	</div>
 </div>
       
-      
+<div id="newsletter-signup-form" style="display: none">
+$NewsletterSignUpForm
+</div>
       
 
 
@@ -115,15 +117,21 @@
 
 <script type="text/javascript" src="{$ThemeDir}/scripts/fancybox/jquery.fancybox.pack.js"></script>
 
-<!--<script type="text/javascript" src="{$ThemeDir}/scripts/jquery.parallax-1.1.js"></script>
+<script type="text/javascript" src="{$ThemeDir}/scripts/jquery.parallax-1.1.js"></script>
 <script type="text/javascript" src="{$ThemeDir}/scripts/jquery.localscroll-1.2.7-min.js"></script>
-<script type="text/javascript" src="{$ThemeDir}/scripts/jquery.scrollTo-1.4.2-min.js"></script>-->
+<script type="text/javascript" src="{$ThemeDir}/scripts/jquery.scrollTo-1.4.2-min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+
+	$('.newsletter-signup-link').fancybox({
+		 type: 'inline',
+		 maxWidth: '400'
+	});
+
 	$('.fancybox').fancybox({
 		 type: 'inline',
 	});
-	/*$('#nav').localScroll(800);
+	$('#nav').localScroll(800);
 
 			
 
@@ -133,7 +141,7 @@ $(document).ready(function(){
 		RepositionNav();
 		
 	
-	});	*/
+	});	
 	
 
 	
@@ -142,7 +150,7 @@ $(document).ready(function(){
 	//adjuster - y position to start from
 	//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
 	//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
-	/*$('#background').parallax("50%",$("#foreground").height() + 88, 0.5, true);*/
+	$('#background').parallax("50%",$("#foreground").height() + 88, 0.5, true);
 
 })
 </script>

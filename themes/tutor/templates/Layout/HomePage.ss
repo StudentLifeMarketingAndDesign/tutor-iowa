@@ -1,6 +1,9 @@
 	<div class="board_content">
+	<% if NewsletterSignedUp %>
+	<p class="message">Thanks for signing up for our newsletter!</p>
+	<% end_if %>
 					<div id="splimage">
-						<span></span><img src="{$ThemeDir}/images/testimage.jpg" />
+						<span></span>$MainImage.SetRatioSize(499,216)
 					</div>
 					<div id="splext">
 						<span>
@@ -22,7 +25,12 @@
 										<% control Page(supplemental-instructions) %>
 										<h4><a href="$Link">$Title</a></h4>
 										<p>
-											<div class="thumb">
+											<div class="thumb" style="background-image: 
+											
+											url(<% control Image %> 
+											<% control SetRatioSize(135,135) %> $URL <% end_control %>
+											<% end_control %>); background-repeat: no-repeat;">
+											
 												<div class="tape"></div>
 											</div>
 											$Content.Summary(40)
@@ -33,7 +41,12 @@
 										<% control Page(help-labs) %>
 										<h4><a href="$Link">Campus Help Labs</a></h4>
 										<p>
-											<div class="thumb">
+											<div class="thumb" style="background-image: 
+											
+											url(<% control Image %> 
+											<% control SetRatioSize(135,135) %> $URL <% end_control %>
+											<% end_control %>); background-repeat: no-repeat;">
+											
 												<div class="tape"></div>
 											</div>
 											$Content.Summary(20)

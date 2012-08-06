@@ -6,16 +6,19 @@ class HelpHolder extends Page {
   static $db = array(
    );
   static $has_one = array(
+  	"Image" => "Image"
    );
    
   static $allowed_children = array('HelpLab');
 
-  static $defaults = array ('ProvideComments' => '1',
-    
-   
-    
-    );
- 
+  static $defaults = array ('ProvideComments' => '1');
+  
+   public function getCMSFields() {
+        $fields = parent::getCMSFields();
+    	$fields->addFieldToTab("Root.Content.Main", new ImageField("Image", "Image"));
+    	
+    	return $fields;   
+   }
 }
  
 class HelpHolder_Controller extends Page_Controller {

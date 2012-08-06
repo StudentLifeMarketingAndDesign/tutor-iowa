@@ -43,6 +43,40 @@ public function getHelpLab(){
 	}
 }
 
+public function NewsletterSignUpForm(){
+		$emailLabelText = '<p>Enter your email address below to keep up-to-date with TutorIowa. We\'ll occasionally
+		send you a newsletter with tips on finding help this academic year!</p>';
+	    $fields = new FieldSet(
+          	new LiteralField('EmailLabel', $emailLabelText),
+            new EmailField('EmailAddress', 'Your Email Address')
+                     
+        );
+        
+        $actions = new FieldSet(
+            new FormAction('doNewsletterSignup', 'Sign Up!')
+        );
+        // Create action
+        $validator = new RequiredFields('Email');
+ 
+        return new Form($this, 'NewsletterSignUpForm', $fields, $actions, $validator);      
+	
+}
+
+public function doNewsletterSignup($data, $form){
+	$newsletterPerson = new NewsletterPerson;
+	$form->saveInto($newsletterPerson); 
+	
+	$newsletterPerson->write();
+	
+	Director::redirect("home/?signup=1");
+
+
+	
+}
+
+
+
+
 public function isHelpLab(){
 
 	$Member = Member::CurrentMember();
