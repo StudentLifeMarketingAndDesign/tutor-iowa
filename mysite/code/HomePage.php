@@ -9,8 +9,12 @@ class HomePage extends Page {
    
    );
    static $has_one = array(
+<<<<<<< HEAD
       	"MainImage" => "Image"
 
+=======
+   'FeaturedShow' => 'Show'
+>>>>>>> 993d9cede572417d43b4ca6f0995610dad63e6c0
    );
    static $defaults = array ('ProvideComments' => '1'
     

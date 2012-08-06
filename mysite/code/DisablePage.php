@@ -48,8 +48,12 @@ class DisablePage_Controller extends Page_Controller {
     function doDisablePage(){
 	    
 	    $CurrentMember = Member::CurrentMember();
-	    
-	  
+	    /*
+	    Versioned::set_reading_mode('stage');
+	    $ID = 92;
+		$test = DataObject::get_by_id('TutorPage', $ID);
+		return Debug::show($test);
+		*/
 	    
 	    if ($Member){
 	    
