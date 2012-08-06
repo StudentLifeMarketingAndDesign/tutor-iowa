@@ -7,6 +7,7 @@ class HomePage extends Page {
    static $db = array(
    );
    static $has_one = array(
+   'FeaturedShow' => 'Show'
    );
    static $defaults = array ('ProvideComments' => '1'
     

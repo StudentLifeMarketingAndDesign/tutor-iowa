@@ -53,7 +53,7 @@ class HelpLab extends Page {
          'getCMSFields_forPopup'
       );
       
-    	$fields->addFieldToTab('Root.Content.Main', $MemberTableField);
+    	$fields->addFieldToTab('Root.Content.HelpLabEditors', $MemberTableField);
        
         return $fields;
         
