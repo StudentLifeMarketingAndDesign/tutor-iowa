@@ -55,7 +55,7 @@ class DisablePage_Controller extends Page_Controller {
 		return Debug::show($test);
 		*/
 	    
-	    if ($Member){
+	    if ($CurrentMember){
 	    
 		    $IDMember = $CurrentMember->ID;
 	            	
@@ -90,8 +90,11 @@ class DisablePage_Controller extends Page_Controller {
 		         
 		    }
 		    
-		    $subject = "The disabling of your Tutor Iowa registration is pending";
-		    $body = "We'll disable this ASAP, I swear."; 
+		    $subject = "The disabling of your Tutor Iowa page is pending";
+		    $body = "We will remove you as a tutor from the Tutor Iowa website as soon as possible.  If you want to enable your account again, you can log in to the Tutor Iowa website and click on the Edit Profile Page at the top of the screen.  That page will have a link to request to enable your account.<br><br>
+		    
+		    Best, <br>
+		    The Tutor Iowa Team<br>"; 
 		    
 	        $email = new Email(); 
 		    $email->setTo($CurrentMember->Email); 
@@ -104,7 +107,7 @@ class DisablePage_Controller extends Page_Controller {
 		 }
 	  
 	  else {
-		  $message = "You must be <a href='/Security/login'>logged</a> in to edit your profile!";
+		  $message = "You must be <a href='" . Director::baseURL() . "/Security/login'>logged</a> in to edit your profile!";
 		  return $message;
 		  
 	  }

@@ -22,6 +22,7 @@ class TutorPage extends Page {
                 "AcademicStatus" => 'Text',
                 "UniversityID" => 'Int',
                 "Major" => 'Text',
+                "GPA" => 'Text',
                 
                                     
                 );
@@ -128,7 +129,10 @@ class TutorPage extends Page {
 			$subject = "TutorIowa approval confirmation";
 		    $body = "Congratulations -- you have been approved as a tutor on Tutor Iowa.  You now have full
 		    access to edit your profile.  Please check out this  <a href='http://tutor.uiowa.edu/for-tutors'>link</a> to learn how to effectively use tags and efficiently use the website.  
-		    "; 
+		    br><br>
+		    
+		    Best, <br>
+		    The Tutor Iowa Team<br>"; 
 		    
 		    
 		    ////You can edit your details now <a href='" . Director::absoluteBaseURL() . "edit-profile-page'>here</a/><br>     	

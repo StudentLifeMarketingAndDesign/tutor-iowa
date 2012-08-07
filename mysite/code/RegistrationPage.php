@@ -32,7 +32,11 @@ class RegistrationPage_Controller extends Page_Controller {
             new EmailField('Email', '<span>*</span> UIowa Email Address'),
             new ConfirmedPasswordField('Password', '<span>*</span> Password'),
             new UniversityIDField('UniversityID', 'University ID'),
-            new TextField('Major')
+            new TextField('Major'),
+            new TextField('GPA'),
+            new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
+            new LiteralField('Terms', $this->Content),
+            new CheckboxField('AgreeToConditions', 'Checking this box confirms that you have reviewed our Terms and Conditions below.')
                      
         );
         
@@ -113,7 +117,15 @@ class RegistrationPage_Controller extends Page_Controller {
             Session::set("FormInfo.Form_RegistrationForm.data", $data);     
             //Return back to form
             return Director::redirectBack();;          
-        }   
+        }
+        elseif (!isset($data['AgreeToConditions'])){
+	        $form->AddErrorMessage('AgreeToConditions', "You must indicate that you've read our Terms and Conditions before registering.", 'bad');
+	        //Set form data from submitted values
+            Session::set("FormInfo.Form_RegistrationForm.data", $data);     
+            //Return back to form
+            $url = 'http://hulk.imu.uiowa.edu/tutoriowa/tutor-application/#AgreeToConditions';
+            return Director::redirect($url);;  
+        }
  
         //Otherwise create new member and log them in
         $Member = new Member();

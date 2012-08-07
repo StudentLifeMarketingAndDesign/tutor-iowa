@@ -6,14 +6,19 @@
 class HomePage extends Page {
    static $db = array(
    );
-   static $has_one = array(
-   'FeaturedShow' => 'Show'
-   );
+ 
    static $defaults = array ('ProvideComments' => '1'
+   );  
+   static $has_one = array ('MainImage' => 'Image');
     
-   
+    public function getCMSFields() 
+    {
+    $fields = parent::getCMSFields();
+
+    $fields->addFieldToTab('Root.Content.Main', new ImageField('MainImage', 'Main Image'));
     
-    );
+    return $fields;
+    }
 }
  
 class HomePage_Controller extends Page_Controller {

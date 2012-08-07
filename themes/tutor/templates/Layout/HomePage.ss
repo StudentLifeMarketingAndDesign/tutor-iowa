@@ -1,10 +1,12 @@
 	<div class="board_content">
 					<div id="splimage">
-						<span></span><img src="{$ThemeDir}/images/testimage.jpg" />
+					<% control MainImage %>
+						<span></span><img src="{$Link}" />
+					<% end_control %>
 					</div>
 					<div id="splext">
 						<span>
-							<div class="highlighted">Tutor Iowa</div> is the best spot to find help and personal mentoring for your University of Iowa classes! <div class="button"><a href="about/">Read More</a></div>
+							<div class="highlighted">Tutor Iowa</div> is the best place to find help and personal mentoring for your University of Iowa classes! <div class="button"><a href="about/">Read More</a></div>
 
 						</span>
 					</div>
@@ -23,6 +25,7 @@
 										<h4><a href="$Link">$Title</a></h4>
 										<p>
 											<div class="thumb">
+											$Image 
 												<div class="tape"></div>
 											</div>
 											$Content.Summary(40)
@@ -34,6 +37,7 @@
 										<h4><a href="$Link">Campus Help Labs</a></h4>
 										<p>
 											<div class="thumb">
+											$Image
 												<div class="tape"></div>
 											</div>
 											$Content.Summary(20)

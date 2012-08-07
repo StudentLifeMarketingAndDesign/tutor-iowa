@@ -85,8 +85,9 @@ public function News($number=3){
 }
 
  function results($data, $form){
-
+	  $form->setPageLength(99999); //Makeshift way of disabling pagination for results
       $results = $form->getResults();
+      
       
       $supplementalInstructions = new DataObjectSet();
       $tutors = new DataObjectSet();

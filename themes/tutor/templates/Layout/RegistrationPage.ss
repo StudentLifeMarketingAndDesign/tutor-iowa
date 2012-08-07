@@ -6,7 +6,6 @@
 					
 						$RegistrationForm
 						<br><br><br>
-						$Content
 						
 					</div>
 						

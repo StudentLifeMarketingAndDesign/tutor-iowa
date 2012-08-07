@@ -50,6 +50,7 @@ class EditProfilePage_Controller extends Page_Controller
 	            new TextField('MeetingPreference', 'Meeting preference (on and/or off-campus)'),
 	            new TextField('HourlyRate', 'Hourly Rate'),
 	            new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
+	            new TextField('GPA'),
 	            new TextField('Major'),
 	            new UniversityIDField('UniversityID', 'University ID'),
 	            new LiteralField('TagsHelpLabel', $tagsLabel),
@@ -110,7 +111,7 @@ class EditProfilePage_Controller extends Page_Controller
             //Check for another member with the same email address
             if($member = DataObject::get_one("Member", "Email = '". Convert::raw2sql($data['Email']) . "' AND ID != " . $CurrentMember->ID)) 
             {
-                $form->addErrorMessage("Name", 'Sorry, that Name already exists.', "bad");
+                $form->addErrorMessage("Name", 'Sorry, an account with that Email address already exists.', "bad");
                      
                 Session::set("FormInfo.Form_EditProfileForm.data", $data);
                      
@@ -180,17 +181,32 @@ class EditProfilePage_Controller extends Page_Controller
     	if ($this->request->getVar('enable') == 1){
     	
 		    $CurrentMember = Member::CurrentMember();
+		    
+		    $IDMember = $CurrentMember->ID;
 
 		    include 'EmailArray.php'; //Gets members of security group that should be notified about user registration 
 		    		    
-		    $userEmail = $CurrentMember->Email;
-		    		  	    
+		    $userEmail = $CurrentMember->Email;		    
+		    
+		    $Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
+		    
+		    //return Debug::show($IDMember);
+		    
+		    
+		    if (!$Tutor){
+			    Versioned::reading_stage('Stage');
+			    $Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
+		    }		    		  
+		    	  	    
 		    foreach ($emailArray as $recip){ //$emailArray defined in EmailArray.php
 	        	
 	        	        	
 	        	$subject = "User has requested their account be enabled"; 
 	        	      	
-	        	$body = $CurrentMember->FirstName . " " . $CurrentMember->Surname . " has requested their account be enabled.  You can find their account quickly by searching for a Tutor Page in the TutorIowa tab of the CMS with their first and last name as the page name to search for." . "Disable account  <a href='" . Director::absoluteBaseURL() .  "admin" . "'>here</a/>";        	
+	        	$body = $CurrentMember->FirstName . " " . $CurrentMember->Surname . " has requested their account be enabled. " . "Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/show/" . $Tutor->ID . "'>here</a/>br><br>
+		    
+		    Best, <br>
+		    The Tutor Iowa Team<br>";        	
 	        	//$headers = "From: Tutor Iowa";       	
 		        //mail($recip->Email, $subject, $body);
 		      	        
@@ -204,7 +220,10 @@ class EditProfilePage_Controller extends Page_Controller
 		    }
 		    
 		    $subject = "The enabling of your Tutor Iowa account is pending";
-		    $body = "You will receive another email once your account has been enabled by one of our administrators."; 
+		    $body = "You will receive another email once your account has been enabled by one of our administrators.<br><br>
+		    
+		    Best, <br>
+		    The Tutor Iowa Team<br>"; 
 		    
 	        $email = new Email(); 
 		    $email->setTo($CurrentMember->Email); 
@@ -212,6 +231,8 @@ class EditProfilePage_Controller extends Page_Controller
 		    $email->setSubject($subject); 
 		    $email->setBody($body); 
 		    $email->send();
+		    		    
+		    Versioned::reading_stage('Live');	
 	}   
 	    return $this->request->getVar('enable');
     }     
