@@ -28,7 +28,8 @@ class EditProfilePage_Controller extends Page_Controller
     function EditProfileForm()
     {	
 	     $Member = Member::CurrentMember();
-	     	     
+	     
+	     Session::set('Saved', 2); //Used on template, indicates no action has been taken yet with form  
 	     
 	     if ($Member){	
 	        //User shouldn't be able to access EditProfileForm unless they're logged in.  If they're not logged in, provide links so that they can login (or register if need be).  
@@ -70,7 +71,7 @@ class EditProfilePage_Controller extends Page_Controller
 	        );
 	         
 	        // Create action
-	        $validator = new RequiredFields('FirstName', 'LastName', 'Email');
+	        $validator = new RequiredFields('FirstName', 'Surname', 'Email');
 	        
 	       //Create form
 	        $Form = new Form($this, 'EditProfileForm', $fields, $actions, $validator);
@@ -92,6 +93,8 @@ class EditProfilePage_Controller extends Page_Controller
 		        return 'You must be confirmed as a user by our administrator to edit your profile.  If you have disabled your account, please click <a href="'. Director::baseURL() . $this->URLSegment . '?enable=1' . '">here</a> to have your account re-enabled.';
 		     }
 	      
+	      
+		    
 	        //Return the form
 	        return $Form;
 	     }
@@ -105,21 +108,28 @@ class EditProfilePage_Controller extends Page_Controller
     //Save profile
     function SaveProfile($data, $form)
     {
+    	
+    	
         //Check for a logged in member
         if($CurrentMember = Member::CurrentMember())
         {
             //Check for another member with the same email address
             if($member = DataObject::get_one("Member", "Email = '". Convert::raw2sql($data['Email']) . "' AND ID != " . $CurrentMember->ID)) 
             {
-                $form->addErrorMessage("Name", 'Sorry, an account with that Email address already exists.', "bad");
+                $form->addErrorMessage("Email", 'Sorry, an account with that Email address already exists.', "bad");
+                
+                Session::set('Saved', 0); //Used on template
                      
                 Session::set("FormInfo.Form_EditProfileForm.data", $data);
                      
-                return Director::redirectBack();
+                return Director::redirect($this->Link());
+            
             }
             //Otherwise check that user IDs match and save
             else
             {
+            
+            	Session::set('Saved', 1); //Used on template
             
             	$IDMember = $CurrentMember->ID;
             	
@@ -151,7 +161,18 @@ class EditProfilePage_Controller extends Page_Controller
 		        }
 		        $ID = 92;
 		        $test = DataObject::get_by_id('TutorPage', $ID);
-                return Director::redirect($this->Link('?saved=1'));                              
+		        /*
+		        $notSaved = Session::get('ValidationError');
+		        Debug::show($notSaved);
+		        
+		        if ($notSaved){
+		        	$form->addErrorMessage("Name", 'An error occurred with one or more fields.', "bad");
+		        	Session::set('ValidationError', false);
+		        	Session::set("FormInfo.Form_EditProfileForm.data", $data);
+			        return Director::redirect($this->Link());
+		        }
+		        */
+                return Director::redirect($this->Link());                              
             }
         }
         //If not logged in then return a permission error
@@ -163,10 +184,30 @@ class EditProfilePage_Controller extends Page_Controller
         
     }       
     
-    //Check for just saved
+    //Check for just saved 
+    
     function Saved()
     {
-        return $this->request->getVar('saved');
+    	$saved = Session::get('Saved');
+    	if ($saved == 1){
+	        return true;
+        }
+        else {
+	        return false;
+        }
+        
+    }
+    
+    //Check if there was error while saving
+    function notSaved()
+    {
+    	$saved = Session::get('Saved');
+        if ($saved == 0){
+	        return true;
+        }
+        else {
+	        return false;
+        }
     }
      
     //Check if user succesfully registered (they are redirected to this page from RegistrationPage.php if registration was successful)
@@ -203,7 +244,7 @@ class EditProfilePage_Controller extends Page_Controller
 	        	        	
 	        	$subject = "User has requested their account be enabled"; 
 	        	      	
-	        	$body = $CurrentMember->FirstName . " " . $CurrentMember->Surname . " has requested their account be enabled. " . "Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/show/" . $Tutor->ID . "'>here</a/>br><br>
+	        	$body = $CurrentMember->FirstName . " " . $CurrentMember->Surname . " has requested their account be enabled. " . "Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/show/" . $Tutor->ID . "'>here</a/><br><br>
 		    
 		    Best, <br>
 		    The Tutor Iowa Team<br>";        	

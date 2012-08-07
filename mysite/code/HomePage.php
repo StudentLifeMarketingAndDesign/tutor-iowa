@@ -5,7 +5,7 @@
  
 class HomePage extends Page {
    static $db = array(
-   
+   'FrontPageBlurb' => 'Text'
    
    );
 
@@ -20,19 +20,8 @@ class HomePage extends Page {
 
    static $defaults = array ('ProvideComments' => '1'
    );  
-   static $has_one = array ('MainImage' => 'Image');
-    
-    public function getCMSFields() 
-    {
-    $fields = parent::getCMSFields();
 
-    $fields->addFieldToTab('Root.Content.Main', new ImageField('MainImage', 'Main Image'));
-    
-
-    return $fields;
-
-
-    
+          
     public function getCMSFields() {
     
     	$fields = parent::getCMSFields();
@@ -46,6 +35,7 @@ class HomePage extends Page {
 			'getCMSFields_forPopup'
 		));
 		
+		$fields->addFieldToTab("Root.Content.Main", new TextField("FrontPageBlurb", "Front Page Blurb"));
 		$fields->addFieldToTab("Root.Content.Main", new ImageField("MainImage", "Main Image"));
 
     

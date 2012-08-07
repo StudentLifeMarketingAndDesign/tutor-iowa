@@ -23,6 +23,8 @@
 						        <% if Saved %>
 						             
 						            <p class="savedMessage">Your profile has been saved!</p>
+						         <% else_if notSaved %>
+						            <span class="message validation">There was an error with your changes (see below).</span>
 						         
 						        <% end_if %>  
 						         

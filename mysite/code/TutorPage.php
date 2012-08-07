@@ -128,8 +128,8 @@ class TutorPage extends Page {
         	
 			$subject = "TutorIowa approval confirmation";
 		    $body = "Congratulations -- you have been approved as a tutor on Tutor Iowa.  You now have full
-		    access to edit your profile.  Please check out this  <a href='http://tutor.uiowa.edu/for-tutors'>link</a> to learn how to effectively use tags and efficiently use the website.  
-		    br><br>
+		    access to edit your profile.  Please check out this  <a href='" . Director::baseURL() . "for-tutors'>link</a> to learn how to effectively use tags and efficiently use the website.  
+		    <br><br>
 		    
 		    Best, <br>
 		    The Tutor Iowa Team<br>"; 

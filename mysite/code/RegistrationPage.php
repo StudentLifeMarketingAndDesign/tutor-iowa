@@ -36,7 +36,7 @@ class RegistrationPage_Controller extends Page_Controller {
             new TextField('GPA'),
             new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
             new LiteralField('Terms', $this->Content),
-            new CheckboxField('AgreeToConditions', 'Checking this box confirms that you have reviewed our Terms and Conditions below.')
+            new CheckboxField('AgreeToConditions', 'Checking this box confirms that you have reviewed our Terms and Conditions above.')
                      
         );
         
@@ -47,7 +47,7 @@ class RegistrationPage_Controller extends Page_Controller {
             new FormAction('doRegister', 'Register')
         );
         // Create action
-        $validator = new RequiredFields('FirstName', 'Email', 'Password');
+        $validator = new RequiredFields('FirstName', 'Surname', 'Email', 'Password');
  
         return new Form($this, 'RegistrationForm', $fields, $actions, $validator);      
     }

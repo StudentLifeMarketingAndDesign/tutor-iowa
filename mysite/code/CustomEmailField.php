@@ -11,6 +11,8 @@ class CustomEmailField extends EmailField
 	        $afterAt = $testArray[1];
 	        $afterAt = substr($afterAt, 0, 9);
 	        
+	        Session::set('Saved', 0);
+	        
 	        if ($afterAt != "uiowa.edu"){
 	         $validator->validationError( 
                $this->name, 
@@ -21,6 +23,7 @@ class CustomEmailField extends EmailField
 	        }
         }
         else {
+        	Session::set('Saved', 0);
 	        $validator->validationError( 
                $this->name, 
                "Email must have an @ symbol present to be valid.", 

@@ -9,12 +9,16 @@ class UniversityIDField extends TextField
         $testValue = $this->value;
         $LenTestValue = strlen($testValue);
         if ($LenTestValue != 8){
+        	
+        	Session::set('Saved', 0);
+        	
 	        $validator->validationError( 
                $this->name, 
                "University ID must be eight digits", 
                "validation", 
                false 
                ); 
+            
 	        
         }
         else {
