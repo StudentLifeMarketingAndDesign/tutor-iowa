@@ -11,13 +11,25 @@ class CustomLoginForm extends MemberLoginForm
         			
         			//print_r($tutorPage);
         			
+        			
+        	
+        			
         			if($tutorPage){
-	        		Director::redirect($tutorPage->Link());
-
-	        			
+        				if(Permission::check("ADMIN")){
+	        				Director::redirect("admin/");
+	        			}else{
+        			
+			        		Director::redirect($tutorPage->Link());
+			        	}
+	        		
         			}else{
         			
-                    Director::redirect(Director::baseURL());
+        				if(Permission::check("ADMIN")){
+	        				Director::redirect("admin/");
+	        			}else{
+	        			       			
+		        			Director::redirect(Director::baseURL());
+		        		}
                    }
         } else {
             if($badLoginURL = Session::get("BadLoginURL")) {

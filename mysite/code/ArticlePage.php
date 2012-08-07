@@ -6,6 +6,10 @@ class ArticlePage extends Page {
         'Author' => 'Text'
     );
     
+ static $has_one = array( 
+ 	'Image'=> 'Image'
+ 
+ );
  static $defaults = array ('ProvideComments' => '1',
     
    
@@ -19,7 +23,7 @@ class ArticlePage extends Page {
         $fields->addFieldToTab('Root.Content.Main', $dateField = new DateField('Date','Article Date (for example: 1/20/2010)'), 'Content');
         $dateField->setConfig('showcalendar', true);
         $dateField->setConfig('dateformat', 'dd/MM/YYYY');
-     
+        $fields->addFieldToTab('Root.Content.Main', new ImageField('Image', 'Image'));
         $fields->addFieldToTab('Root.Content.Main', new TextField('Author','Author Name'), 'Content');
      
         return $fields;
