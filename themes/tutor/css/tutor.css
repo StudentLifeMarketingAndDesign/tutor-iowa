@@ -856,6 +856,32 @@ form .white{
 	
 }
 
+#ForgotPassword {
+	float: left;
+	margin-top: 30px;
+	margin-left: 10px;
+	
+}
+
+	
+	.action#MemberLoginForm_LostPasswordForm_action_forgotPassword, .action#CustomLoginForm_LoginForm_action_logout{
+		width: auto;
+		height: auto;
+		padding: 5px;
+		/*font-size: 12px;*/
+		background-image: none;
+		background-color: #3a75f9;
+		
+	}
+	
+/* Article Holder Page Type */
+
+.news-item {
+	
+	background: #F0F7FF;
+}
+
+
 /*
 .action a {
 	color: white;
