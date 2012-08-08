@@ -6,6 +6,8 @@ class CustomLoginForm extends MemberLoginForm
         if($this->performLogin($data)) {
         
         			$member = Member::currentUser();
+        			
+        			Session::clear('Saved'); 
         
         			$tutorPage = DataObject::get_one("TutorPage","MemberID = '".$member->ID."'");
         			
