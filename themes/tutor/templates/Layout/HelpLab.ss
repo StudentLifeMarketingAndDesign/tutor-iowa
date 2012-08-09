@@ -1,11 +1,22 @@
 
 				<div class="board_content">
-					<div id="breadcrumbs"><a href="{$BaseHref}">Home</a> > <a href="{$BaseHref}find-help/">Find Help</a> > <span class="current">$Title</span></div>
+					<div id="breadcrumbs"><a href="{$BaseHref}">Home</a> > <a href="{$BaseHref}find-help/">Find Help</a> > <a href="{$BaseHref}help-labs/">Help Labs</a> > <span class="current">$Title</span></div>
 					<div id="help_card">
 						<h1>$Title</h1>
-						<% if MeetingPreference %><span id="mp">Meeting Preference: </span><span id="meeting_preference">{$MeetingPreference}</span><% end_if %>
+						<% if PhoneNo %>
+							<p>Phone: $PhoneNo</p>
+						<% end_if %>
+						<% if Location %>
+						<h3>Location</h3>
+							$Location
+						<% end_if %>
+						<% if ExtrnlLink %>
+						<p><a href="$ExtrnlLink" class="external-link" target="_blank">visit website</a></p>
+						<% end_if %>
+						<p>
 						<div class="clearfix"></div>
-						<div class="button">Contact</div>
+						<!--<div class="button">Contact</div>-->
+						<% if Description %>
 						<h2>Description</h2>
 					
 						<div class="box-left">
@@ -15,7 +26,7 @@
 									<div class="left_edge">
 										<div class="white_thin">
 											<p>
-											$Content
+											$Description
 										
 											</p>
 										</div>
@@ -23,7 +34,8 @@
 								</div>
 							</div>
 						</div>
-						
+						<% end_if %>
+		
 						<div class="clearfix"></div>
 					
 					</div>
@@ -36,24 +48,15 @@
 								<div class="highlighted">Availability</div>
 								<p>$Hours</p>
 						</div>
+						
+						<% if MetaKeywords %>
+							<% include Tags %>
+						<% end_if %>
 					
 					<% end_if %>
 					
-				<% if MetaKeywords %>
-				<div id="tags">
-						<h2>Tags</h2>
-						<div class="pclip"></div>
-						<p>
-						<% control SplitKeywords %>
-							<a href="{$BaseHref}home/SearchForm?Search={$Keyword}&action_results=Find+Tutors">$Keyword</a>, 
-						<% end_control %>
-						
-						</p>
-						<div class="clearfix"></div>
-				</div>
-				<% end_if %>
+
 					</div>	
-						<div id="stain"></div>
 						<div class="clearfix"></div>
 				</div>
 				

@@ -18,7 +18,23 @@ class Page extends SiteTree {
 }
 
 class Page_Controller extends ContentController {
-
+    public function SplitKeywords(){
+	    $keywords = $this->MetaKeywords;
+	    
+	    if($keywords){
+		   $splitKeywords = explode(',', $keywords); 
+	    }
+	    
+	    if($splitKeywords){
+			$keywordsList = new DataObjectSet(); 
+			foreach($splitKeywords as $data) { 
+				$do=new DataObject(); 
+				$do->Keyword = $data; 
+				$keywordsList->push($do); 
+			} 
+			return $keywordsList; 
+			}
+    }
 public function currentMemberPage(){
 	$currentMember = Member::currentUser();
 	$currentMemberID = $currentMember->ID;

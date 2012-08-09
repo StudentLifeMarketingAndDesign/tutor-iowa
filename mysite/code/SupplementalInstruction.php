@@ -10,6 +10,7 @@ class SupplementalInstruction extends Page {
     'Disabled' => 'Boolean',
     'Misc' => 'Text',
     'EndDate' => 'Date',
+    'Schedule' => 'HTMLText'
     
    );
    
@@ -46,6 +47,8 @@ class SupplementalInstruction extends Page {
     	$fields->addFieldToTab('Root.Content.Main', new TextField("Hours"));
     	$fields->addFieldToTab('Root.Content.Main', new TextField("SessionLeader", "Session Leader"));
     	$fields->addFieldToTab('Root.Content.Main', new TextAreaField("Content", "Describe the supplemental instruction here"));
+    	$fields->addFieldToTab('Root.Content.Main', new HTMLEditorField("Schedule", "Schedule"));
+
     	
        
         return $fields;

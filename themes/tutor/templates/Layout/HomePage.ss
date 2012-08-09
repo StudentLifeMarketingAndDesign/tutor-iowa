@@ -11,7 +11,7 @@
 					</div>
 					<div id="splext">
 						<span>
-							<div class="highlighted">Tutor Iowa</div> $FrontPageBlurb <div class="button"><a href="about/">Read More</a></div>
+							$Content
 
 						</span>
 					</div>

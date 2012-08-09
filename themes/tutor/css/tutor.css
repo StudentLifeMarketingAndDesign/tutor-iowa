@@ -28,11 +28,13 @@ h1{
 h2{
 	font-size: 33px;
 	margin: 5px 0 7px 0;
+	color: #4a5379;
 }
 h3{
 	font-family: 'Short Stack', sans-serif;
 	font-size: 30px;
 	margin: 0 0 17px 0;
+	color: #1d3a6a;
 }
 h4{
 	font-family: 'Short Stack', sans-serif;
@@ -607,6 +609,15 @@ padding: 6px 10px 12px 10px;
 	width: 450px;
 	float: right;
 }
+
+/* Help Labs */
+
+#help_card #tags{
+	margin-top: 0;
+	
+	
+}
+
 /* Pencil Boxes */
 
 
@@ -879,8 +890,50 @@ form .white{
 .news-item {
 	
 	background: #F0F7FF;
+	padding: 10px;
+	margin-top: 10px;
 }
 
+.message {
+	
+	display: block;
+}
+
+.supp_info{
+	
+	
+}
+
+
+.content-box{
+	font-family: 'Gloria Hallelujah';
+	font-size: 16px;
+	resize: none;
+	outline: none;
+	background-color: rgba(255,255,255,.6);
+	border-image: url(../images/area.png) 4 repeat;
+	-webkit-border-image: url(../images/area.png) 4 repeat;
+	-moz-border-image: url(../images/area.png) 4 repeat;
+	padding: 5px;	
+}
+
+.schedule-container table{
+	float: none;
+	display: block;
+	border-spacing: 0;
+		border-image: url(../images/area.png) 4 repeat;
+	-webkit-border-image: url(../images/area.png) 4 repeat;
+	-moz-border-image: url(../images/area.png) 4 repeat;
+	border-collapse:collapse;
+	width: 350px;
+	background-color: white;
+	height: auto !important;
+}
+
+.schedule-container table td{
+	padding: 15px;
+	
+}
 
 /*
 .action a {
