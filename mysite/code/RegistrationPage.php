@@ -29,7 +29,7 @@ class RegistrationPage_Controller extends Page_Controller {
             
             new TextField('FirstName', '<span>*</span> First Name'),
             new TextField('Surname', '<span>*</span> Last Name'),
-            new EmailField('Email', '<span>*</span> UIowa Email Address'),
+            new CustomEmailField('Email', '<span>*</span> UIowa Email Address'),
             new ConfirmedPasswordField('Password', '<span>*</span> Password'),
             new UniversityIDField('UniversityID', 'University ID'),
             new TextField('Major'),
@@ -152,6 +152,8 @@ class RegistrationPage_Controller extends Page_Controller {
         $TutorPage->ShowInSearch = 1; 
         $TutorPage->MetaKeywords = $Member->Name;
         $TutorPage->ProvideComments = 1;
+        $TutorPage->GPA = null;
+        $TutorPage->UniversityID = null;
         
         $form->saveInto($TutorPage); 
         
@@ -189,10 +191,8 @@ class RegistrationPage_Controller extends Page_Controller {
 	        //mail($recip->Email, $subject, $body);
 	        
 	         $email = new Email(); 
-	         $from = "Tutor Iowa";
-	         $email->setTo($recip->Email); 
-	         
-	         $email->setFrom($from); 
+	         $email->setTo($recip->Email); 	         
+	         $email->setFrom(Email::getAdminEmail()); 
 	         $email->setSubject($subject); 
 	         $email->setBody($body); 
 	         $email->send(); 

@@ -20,7 +20,7 @@ class TutorPage extends Page {
                 "HourlyRate" => 'Text',
                 "MeetingPreference" => 'Text',
                 "AcademicStatus" => 'Text',
-                "UniversityID" => 'Int',
+                "UniversityID" => 'Text',
                 "Major" => 'Text',
                 "GPA" => 'Text',
                 
@@ -41,6 +41,8 @@ class TutorPage extends Page {
              */
              
              static $defaults = array ('ProvideComments' => '1',
+             'UniversityID' => null,
+             'GPA' => null
              
            
              

@@ -1,6 +1,7 @@
 				<div class="board_content">
 					<!--<div id="breadcrumbs"><a href="index_test.html">Home</a> > <a href="search_test.html">Find a Tutor</a> > <span class="current">Phil McTutor</span></div>-->
 					<div id="page-content">
+						
 						<% if CurrentMember %>
 							<div id="breadcrumbs"><a href="{$BaseHref}">Home</a> > <a href="$currentMemberPage.Link">Your profile</a> > <span class="current">Edit your profile</span></div>
 						
@@ -22,9 +23,9 @@
 						     
 						        <% if Saved %>
 						             
-						            <p class="savedMessage">Your profile has been saved!</p>
+						            <p class="savedMessage">Your profile has been saved! </p>
 						         <% else_if notSaved %>
-						            <span class="message validation">There was an error with your changes (see below).</span>
+						            <span class="message validation">There was an error with your changes (see below). </span>
 						         
 						        <% end_if %>  
 						         

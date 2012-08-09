@@ -16,20 +16,29 @@ class EditProfilePage extends Page {
    
     
     );
+    
+     function getSavedSession(){
+    	$returning = '' . Session::get('Saved');
+	    return $returning;
+    }
    
 }
  
 class EditProfilePage_Controller extends Page_Controller 
 {
     static $allowed_actions = array(
-        'EditProfileForm'
+        'EditProfileForm',
+        'getSavedSession'
     );
+    
+     
+ 
  
     function EditProfileForm()
     {	
 	     $Member = Member::CurrentMember();
-	     
-	     Session::set('Saved', 2); //Used on template, indicates no action has been taken yet with form  
+	   
+	     Session::clear('Saved'); //Session variable that tracks whether changes were successfully saved 	     
 	     
 	     if ($Member){	
 	        //User shouldn't be able to access EditProfileForm unless they're logged in.  If they're not logged in, provide links so that they can login (or register if need be).  
@@ -41,7 +50,7 @@ class EditProfilePage_Controller extends Page_Controller
 	        $fields = new FieldSet(
 	            new TextField('FirstName', '<span>*</span> First Name'),
 	            new TextField('Surname', '<span>*</span> Last Name'),
-	            new EmailField('Email', '<span>*</span> Email'),
+	            new CustomEmailField('Email', '<span>*</span> Email'),
 	            new LiteralField('ChangePassword', $changePassLabel),
 	            new TextareaField('Content', 'Biography'),
 	            new TextField('Hours'),
@@ -93,7 +102,7 @@ class EditProfilePage_Controller extends Page_Controller
 		        return 'You must be confirmed as a user by our administrator to edit your profile.  If you have disabled your account, please click <a href="'. Director::baseURL() . $this->URLSegment . '?enable=1' . '">here</a> to have your account re-enabled.';
 		     }
 	      
-	      
+		     
 		    
 	        //Return the form
 	        return $Form;
@@ -118,7 +127,7 @@ class EditProfilePage_Controller extends Page_Controller
             {
                 $form->addErrorMessage("Email", 'Sorry, an account with that Email address already exists.', "bad");
                 
-                Session::set('Saved', 0); //Used on template
+                Session::set('Saved', false); //Display error message
                      
                 Session::set("FormInfo.Form_EditProfileForm.data", $data);
                      
@@ -129,7 +138,7 @@ class EditProfilePage_Controller extends Page_Controller
             else
             {
             
-            	Session::set('Saved', 1); //Used on template
+            	Session::set('Saved', true); //Changes saved
             
             	$IDMember = $CurrentMember->ID;
             	
@@ -189,7 +198,7 @@ class EditProfilePage_Controller extends Page_Controller
     function Saved()
     {
     	$saved = Session::get('Saved');
-    	if ($saved == 1){
+    	if ($saved === true){
 	        return true;
         }
         else {
@@ -202,13 +211,13 @@ class EditProfilePage_Controller extends Page_Controller
     function notSaved()
     {
     	$saved = Session::get('Saved');
-        if ($saved == 0){
+        if ($saved === false){
 	        return true;
         }
         else {
 	        return false;
         }
-    }
+    }   
      
     //Check if user succesfully registered (they are redirected to this page from RegistrationPage.php if registration was successful)
     function Success()

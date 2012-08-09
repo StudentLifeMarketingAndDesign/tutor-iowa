@@ -10,7 +10,7 @@ class UniversityIDField extends TextField
         $LenTestValue = strlen($testValue);
         if ($LenTestValue != 8){
         	
-        	Session::set('Saved', 0);
+        	Session::set('Saved', false);
         	
 	        $validator->validationError( 
                $this->name, 

@@ -8,7 +8,8 @@ class CustomLoginForm extends MemberLoginForm
         			$member = Member::currentUser();
         			
         			Session::clear('Saved'); 
-        
+        			
+        			Versioned::reading_stage('Live');
         			$tutorPage = DataObject::get_one("TutorPage","MemberID = '".$member->ID."'");
         			
         			//print_r($tutorPage);
@@ -20,8 +21,13 @@ class CustomLoginForm extends MemberLoginForm
         				if(Permission::check("ADMIN")){
 	        				Director::redirect("admin/");
 	        			}else{
-        			
-			        		Director::redirect($tutorPage->Link());
+		        			if ($tutorPage){
+		        				
+			        			Director::redirect($tutorPage->Link());
+			        		}
+			        		else {
+				        		Director::redirect(Director::getAbsoluteBaseURL());
+			        		}
 			        	}
 	        		
         			}else{
