@@ -40,9 +40,9 @@
 						
 						<% control SupplementalInstructions %>
 						<div class="sli_result $FirstLast">
-							<h3><a href="tutor_test.html">$Title</a></h3>
+							<h3><a href="$Link">$Title</a></h3>
 							<p>$Content.Summary(40)</p>
-							<div class="button">See More</div>
+							<div class="button"><a href="$Link">See More</a></div>
 							<div class="clearfix"></div>
 
 						</div>
