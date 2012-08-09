@@ -1,4 +1,12 @@
+#PageComments_holder
+{
+	padding: 10px 10px 10px 10px;
+}
 
+#CommentsRSSFeed
+{
+	display: none;
+}
 body
 {
 	background-color: #2a2a2a;
@@ -890,7 +898,7 @@ form .white{
 .news-item {
 	
 	background: #F0F7FF;
-	padding: 10px;
+	padding: 10px 20px 68px 20px;
 	margin-top: 10px;
 }
 

@@ -54,7 +54,7 @@
 			</div>
 			<div id="foreground">
 				
-				
+			
 <div id="clip_wrapper">
 	<a id="cliphead" href="{$BaseHref}"></a>
 	<div id="board_top"></div>

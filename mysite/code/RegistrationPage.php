@@ -135,7 +135,8 @@ class RegistrationPage_Controller extends Page_Controller {
                    
         $Member->write();
         $Member->login();
-         
+        
+        Session::clear("Saved"); //Make sure edit profile works properly 
           
         $TutorPage = new TutorPage();
         

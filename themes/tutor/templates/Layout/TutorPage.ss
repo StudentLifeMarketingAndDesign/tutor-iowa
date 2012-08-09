@@ -16,7 +16,7 @@
 										<div class="white_thin">
 											<p>
 											$Content
-										
+											
 											</p>
 										</div>
 									</div>
@@ -27,7 +27,10 @@
 						<div class="clearfix"></div>
 					
 					</div>
+					
 					<div id="tutor_stats">
+					
+					
 					
 					<% if Hours %>
 					
@@ -44,6 +47,7 @@
 					<% include Tags %>
 				<% end_if %>
 				
+				$PageComments
 				<div id="contact-form-inline" style="display: none;"> 
 				$ContactForm
 				</div>
