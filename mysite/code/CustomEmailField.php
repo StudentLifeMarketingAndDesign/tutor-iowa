@@ -3,6 +3,7 @@ class CustomEmailField extends EmailField
 { 
    function validate($validator){ 
       parent::validate($validator); //I have verified this still takes care of the standard valid email checking
+              
       if(!empty ($this->value)){ 
       
         $testValue = $this->value;
@@ -11,7 +12,7 @@ class CustomEmailField extends EmailField
 	        $afterAt = $testArray[1];
 	        $afterAt = substr($afterAt, 0, 9);
 	        
-	        Session::set('Saved', 0);
+	           Session::set('Saved', false);
 	        
 	        if ($afterAt != "uiowa.edu"){
 	         $validator->validationError( 
@@ -23,7 +24,8 @@ class CustomEmailField extends EmailField
 	        }
         }
         else {
-        	Session::set('Saved', 0);
+        	Session::set('Saved', false);
+        	   
 	        $validator->validationError( 
                $this->name, 
                "Email must have an @ symbol present to be valid.", 
