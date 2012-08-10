@@ -48,8 +48,12 @@ class RegistrationPage_Controller extends Page_Controller {
         );
         // Create action
         $validator = new RequiredFields('FirstName', 'Surname', 'Email', 'Password');
- 
-        return new Form($this, 'RegistrationForm', $fields, $actions, $validator);      
+        $form = new Form($this, 'RegistrationForm', $fields, $actions, $validator);
+        
+        $protector = SpamProtectorManager::update_form($form, 'Message', null, "Please enter the following words");
+
+        
+        return $form;      
     }
     
     public function getEmails(){
@@ -123,7 +127,7 @@ class RegistrationPage_Controller extends Page_Controller {
 	        //Set form data from submitted values
             Session::set("FormInfo.Form_RegistrationForm.data", $data);     
             //Return back to form
-            $url = 'http://hulk.imu.uiowa.edu/tutoriowa/tutor-application/#AgreeToConditions';
+            $url = Director::absoluteBaseURL.'/tutor-application/#AgreeToConditions';
             return Director::redirect($url);;  
         }
  
@@ -193,7 +197,7 @@ class RegistrationPage_Controller extends Page_Controller {
 	        
 	         $email = new Email(); 
 	         $email->setTo($recip->Email); 	         
-	         $email->setFrom(Email::getAdminEmail()); 
+	         $email->setFrom("tutoriowa@uiowa.edu"); 
 	         $email->setSubject($subject); 
 	         $email->setBody($body); 
 	         $email->send(); 

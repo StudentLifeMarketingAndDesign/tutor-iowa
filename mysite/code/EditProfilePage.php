@@ -109,7 +109,7 @@ class EditProfilePage_Controller extends Page_Controller
 	     }
 	     else {
 	     	//Shouldn't happen with current design unless user tries to navigate there directly (there is no link to edit profile when you're not logged in)
-	     	$message = "You must be <a href='/Security/login'>logged</a> in to edit your profile.  If you do not have an account, register <a href='registration-page'>here.</a>";
+	     	$message = "You must be <a href='Security/login'>logged</a> in to edit your profile.  If you do not have an account, register <a href='registration-page'>here.</a>";
 	     	return $message;
 	     }
     }

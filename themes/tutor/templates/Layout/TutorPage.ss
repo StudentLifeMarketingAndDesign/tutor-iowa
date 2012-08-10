@@ -1,11 +1,13 @@
 
 				<div class="board_content">
 					<div id="breadcrumbs"><a href="{$BaseHref}">Home</a> > <a href="{$BaseHref}find-help/">Find Help</a> > <span class="current">$Title</span></div>
-					<div id="supp_info">
+					<div id="tutor_card">
 						<h1>$FirstName $Surname</h1>
 						<% if MeetingPreference %><span id="mp">Meeting Preference: </span><span id="meeting_preference">{$MeetingPreference}</span><% end_if %>
 						<div class="clearfix"></div>
 						<a href="#contact-form-inline" class="fancybox-button fancybox">Contact</a>
+						
+						<% if Content %>
 						<h2>Bio</h2>
 					
 						<div class="box-left">
@@ -23,6 +25,7 @@
 								</div>
 							</div>
 						</div>
+						<% end_if %>
 						
 						<div class="clearfix"></div>
 					

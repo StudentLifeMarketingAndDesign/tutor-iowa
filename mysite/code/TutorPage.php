@@ -145,7 +145,7 @@ class TutorPage extends Page {
 	        
 		    $email = new Email(); 
 		    $email->setTo($this->Email); 
-		    $email->setFrom(Email::getAdminEmail()); 
+		    $email->setFrom("tutoriowa@uiowa.edu"); 
 		    $email->setSubject($subject); 
 		    $email->setBody($body); 
 		    $email->send(); 
@@ -200,9 +200,6 @@ class TutorPage extends Page {
 
 class TutorPage_Controller extends Page_Controller { 
 
-
-
-
     function ContactForm(){
      
      	
@@ -218,8 +215,10 @@ class TutorPage_Controller extends Page_Controller {
         );
         
         $validator = new RequiredFields('Email');
-        
-        return new Form($this, 'ContactForm', $fields, $actions, $validator);
+        $form = new Form($this, 'ContactForm', $fields, $actions, $validator);
+        $protector = SpamProtectorManager::update_form($form, 'Message');
+
+        return $form;
         
 	   
     }
@@ -254,9 +253,8 @@ class TutorPage_Controller extends Page_Controller {
     }
 
 
-function Saved()
-    {
-        return $this->request->getVar('saved');
+function Saved(){
+	return $this->request->getVar('saved');
     }
   
 		

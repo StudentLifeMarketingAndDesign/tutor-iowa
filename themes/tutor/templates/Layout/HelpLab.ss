@@ -56,12 +56,9 @@
 					<% end_if %>
 					
 
-					</div>	
-						<div class="clearfix"></div>
-				</div>
-				
-
+				<div id="contact-form-inline" style="display: none;"> 
 				$ContactForm
-				
-				
+				</div>
+					</div>
+					<div class="clearfix"></div>
 			

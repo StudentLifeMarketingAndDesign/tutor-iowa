@@ -73,8 +73,12 @@ public function NewsletterSignUpForm(){
         );
         // Create action
         $validator = new RequiredFields('Email');
+        
+        $form = new Form($this, 'NewsletterSignUpForm', $fields, $actions, $validator);
+        
+        $protector = SpamProtectorManager::update_form($form, 'Message');
  
-        return new Form($this, 'NewsletterSignUpForm', $fields, $actions, $validator);      
+        return $form;      
 	
 }
 

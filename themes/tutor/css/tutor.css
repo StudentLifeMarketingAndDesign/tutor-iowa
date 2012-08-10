@@ -517,13 +517,17 @@ color: #FFFBC6;
 	float: right;
 	margin: 60px 10px 10px 0;
 }
+
 #talktota{
 	width: 207px;
 	height: 61px;
 	float: right;
 	margin-top: -100px;
-	opacity: .66;
-}
+	position: relative;
+	z-index: 100;
+} 
+
+
 .tab
 {
 	background-color: #000; /* for ie below version 9*/
@@ -595,19 +599,26 @@ padding: 6px 10px 12px 10px;
 	padding: 15px;
 }
 .thumb{
+
 	width: 135px;
 	height: 135px;
 	/*background-color: #666;*/
 	float: right;
 	margin: 0;
 	display: inline;
-	margin: 20px 0 5px 0;
+	margin: 10px 0 5px 10px;
+
 }
+
 .thumb .tape{
+
 	width: 160px;
 	height: 40px;
 	background: url('../images/th_tape.png');
-	margin: -20px 0 0 -14px;
+	margin: -20px 0 0 -8px;
+	position: relative;
+	z-index: 100;
+
 }
 #tutor_card{
 	width: 390px;
@@ -618,14 +629,25 @@ padding: 6px 10px 12px 10px;
 	float: right;
 }
 
-/* Help Labs */
 
+
+/* Help Labs */
+#help_card {
+	width: 390px;
+	float: left;
+	
+}
 #help_card #tags{
 	margin-top: 0;
 	
 	
 }
 
+#help_stats {
+	width: 450px;
+	float: right;
+	
+}
 /* Pencil Boxes */
 
 
@@ -767,6 +789,11 @@ form .button:active{
 	
 }
 
+#page-content {
+	margin-top: 25px;
+	
+}
+
 .textInput
 {
 	width: 361px;
@@ -806,22 +833,33 @@ form .white{
 /*Added by Drew*/
 
 .action{
+
 	width: 161px;
-	height: 37px;
-	background: url('../images/button.png') no-repeat;
+	height: 45px;
+	background: url('../images/button.png');
 	border: 0;
 	font-family: 'Gloria Hallelujah', sans-serif;
 	font-size: 18px;
 	color: #fff;
-	padding: 3px 0px 5px 0px;
+	padding: 0 0 5px 5px;
 	float: left;
 	text-align: center;
 	cursor: pointer;
 	margin-top: 10px;
 	margin-bottom: 20px;
-	clear: both;
-	line-height: normal;
 }
+.action:active{
+
+	width: 161px;
+	height: 45px;
+	background: url('../images/button.png');
+	background-position: bottom;
+	border: 0;
+	padding: 0 0 0px 2px;
+
+}
+
+
 
 /* Help Lab Styles */
 
@@ -907,8 +945,9 @@ form .white{
 	display: block;
 }
 
-.supp_info{
-	
+#supp_instruction_info{
+	float: left;
+	width: 390px;
 	
 }
 

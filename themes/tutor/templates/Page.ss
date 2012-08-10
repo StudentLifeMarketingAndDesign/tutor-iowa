@@ -90,7 +90,7 @@
 		<div class="third">
 			<h2>Contact Us</h2>
 			<ul>
-				<li><a href="#">Send us an email</a></li>
+				<li><a href="mailto:tutoriowa@uiowa.edu">Send us an email</a></li>
 			</ul>
 		</div>
 		<div class="third">
@@ -121,7 +121,7 @@ $NewsletterSignUpForm
 <script type="text/javascript" src="{$ThemeDir}/scripts/jquery.localscroll-1.2.7-min.js"></script>
 <script type="text/javascript" src="{$ThemeDir}/scripts/jquery.scrollTo-1.4.2-min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
+jQuery(document).ready(function(){
 
 	$('.newsletter-signup-link').fancybox({
 		 type: 'inline',

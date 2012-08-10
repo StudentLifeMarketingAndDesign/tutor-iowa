@@ -33,7 +33,7 @@
 						       
 						    <% end_if %>
 						 <% else %>
-						 	You must be <a href='/Security/login'>logged</a> in to edit your profile.  If you do not have an account, register <a href='{$BaseHref}registration-page'>here.</a>
+						 	You must be <a href='{$BaseHref}Security/login'>logged</a> in to edit your profile.  If you do not have an account, register <a href='{$BaseHref}registration-page'>here.</a>
 						 <% end_if %>
 					 
 					</div>
