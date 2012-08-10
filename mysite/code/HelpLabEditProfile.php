@@ -33,8 +33,8 @@ class HelpLabEditProfile_Controller extends Page_Controller {
 		    new Textareafield('MetaKeywords', 'Tags'),
 		    new TextField('Location'),
 		    new TextField('Link'),
-		    new TextField('PhoneNo', 'Phone Number')
-		    
+		    new TextField('PhoneNo', 'Phone Number'),
+		    new TextField('Hours', 'Availability')
 		       );
 		        
 		    
