@@ -31,14 +31,18 @@ class HelpLab extends Page {
     {
     
     	$fields = parent::getCMSFields();
-    	
+    	  $fields->removeFieldFromTab('Root.Content.Main', "Content"); 
+
     	$fields->addFieldToTab( 'Root.Content.Main', new TextField("Name", "Help Lab name (can be the same as Page name)"));
+
     	$fields->addFieldToTab( 'Root.Content.Main', new TextField("Hours"));
     	$fields->addFieldToTab( 'Root.Content.Main', new TextField("Location"));
     	$fields->removeFieldFromTab('Root.Content.Metadata', "Keywords"); 
     	$fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("MetaKeywords", "Tags"));
     	$fields->addFieldToTab('Root.Content.Main', new TextField("ExtrnlLink", "External link to help lab homepage"));
     	$fields->addFieldToTab('Root.Content.Main', new TextField("PhoneNo", "Phone Number"));
+    	$fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("Description", "Description"));
+
     	
     	
     	$memberArray = DataObject::get('Member', "ID in (select MemberID from Group_Members where GroupID = (select ID from `Group` where title='Content Authors'))");

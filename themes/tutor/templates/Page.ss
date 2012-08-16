@@ -128,12 +128,11 @@ jQuery(document).ready(function(){
 		 maxWidth: '400'
 	});
 
-	$('.fancybox').fancybox({
-		 type: 'inline',
+	$('.contact-button').fancybox({
+		 type: 'iframe',
+		 minHeight: 500
 	});
 	$('#nav').localScroll(800);
-
-			
 
 	RepositionNav();
 	
