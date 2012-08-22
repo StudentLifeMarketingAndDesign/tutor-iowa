@@ -30,11 +30,12 @@ class RegistrationPage_Controller extends Page_Controller {
             new TextField('FirstName', '<span>*</span> First Name'),
             new TextField('Surname', '<span>*</span> Last Name'),
             new CustomEmailField('Email', '<span>*</span> UIowa Email Address'),
-            new ConfirmedPasswordField('Password', '<span>*</span> Password'),
+            new ConfirmedPasswordField('Password', '<span>*</span>Choose a Password'),
             new UniversityIDField('UniversityID', 'University ID'),
             new TextField('Major'),
             new TextField('GPA'),
             new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
+            new TextareaField('Notes', 'Give us a brief summary of what you would like to tutor'),
             new LiteralField('Terms', $this->Content),
             new CheckboxField('AgreeToConditions', 'Checking this box confirms that you have reviewed our Terms and Conditions above.')
                      
@@ -49,8 +50,8 @@ class RegistrationPage_Controller extends Page_Controller {
         // Create action
         $validator = new RequiredFields('FirstName', 'Surname', 'Email', 'Password');
         $form = new Form($this, 'RegistrationForm', $fields, $actions, $validator);
-        
-        $protector = SpamProtectorManager::update_form($form, 'Message', null, "Please enter the following words");
+        /*We'll disable the spam protection for now and hopefully assume that providing the @uiowa.edu email address will be enough to protect against spam.*/
+        //$protector = SpamProtectorManager::update_form($form, 'Message', null, "Please enter the following words");
 
         
         return $form;      
@@ -205,9 +206,11 @@ class RegistrationPage_Controller extends Page_Controller {
 	    }
 	    
 	    $subject = "TutorIowa Application Confirmation";
-	    $body = "Thank you for registering to be a tutor on Tutor Iowa.<br>
+	    $body = "Thank you for registering to be a tutor on Tutor Iowa.<br> <br>
 
-In order to be approved as a tutor and be published on the Tutor Iowa website, you must attend a Tutor Iowa Orientation (if you have not already done so). Here is a list of dates and locations for these orientations:<br><br>
+ 
+
+In order to be approved as a tutor and be published on the Tutor Iowa website, you must attend one 50-minute Tutor Iowa Orientation workshop.  Here is a list of dates and locations for these orientations:<br><br>
 
  
 
@@ -243,21 +246,19 @@ Tuesday, October 16 (3:30-4:20 p.m.)                     E224 CB<br>
 
 Monday, October 22 (1:30-2:20 p.m.)                     114 BHC<br>
 
-Tuesday, October 30 (3:30-4:20 p.m.)                     E224 CB<br>
-<br>
- 
-
-You may soon receive an email regarding further approval procedures.<br>
+Tuesday, October 30 (3:30-4:20 p.m.)                     E224 CB<br><br>
 
  
 
-As a reminder, you will not receive full access to edit your profile until you have been approved as a tutor.<br><br>
+You will soon receive an email regarding further approval procedures.<br>
+
+ As a reminder, you will not receive full access to edit your profile until you have been approved as a tutor.<br>
 
  
 
-Best,<br>
+ Best,<br>
 
-The Tutor Iowa Team"; 
+The Tutor Iowa Team<br>"; 
 	    
         $email = new Email(); 
 	    $email->setTo($Member->Email); 
