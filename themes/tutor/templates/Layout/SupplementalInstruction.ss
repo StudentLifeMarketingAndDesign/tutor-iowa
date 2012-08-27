@@ -23,18 +23,27 @@
 							
 						</div>
 					<% end_if %>
-					
+										
 					<% if Schedule %> 
-					
+													
 					<div class="schedule-container">
 						<h2>Schedule</h2>
 						$Schedule 
-
+						
+							<div class="suppLink">
+								<h2>About Supplemental Instruction</h2>
+								<p>Supplemental Instruction (SI) are free study group sessions that are open to UI students who are enrolled in the course. Sessions are informal and lead by peer students who have performed well in the course. <a href="{$AbsoluteBaseURL}supplemental-instructions">Learn more about supplemental instruction.</a></p>
+							</div>
+						
 					</div>
+					
 					<% end_if %>
+					
+					
 												
 						<div class="clearfix"></div>
 					
+				
 					</div>
 					<div id="tutor_stats">
 					
@@ -51,7 +60,8 @@
 				<% if MetaKeywords %>
 					<% include Tags %>
 				<% end_if %>
-				$ContactForm
 				
+				$ContactForm
+		
 				
 			

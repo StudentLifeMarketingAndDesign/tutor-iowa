@@ -5,7 +5,7 @@
 						<% include SearchForm %>
 						$Content
 						
-						<h2>List of our current Supplemental Instructions</h2>
+						<h2>About Supplemental Instruction:</h2>
 						<ul>
 							<% control Children %>
 								<li><a href="$Link">$Title</a></li>
