@@ -26,8 +26,9 @@
 									<div class="left_edge">
 										<div class="white_thin">
 											<p>
-											$Description
-										
+											<% if Description %>
+												$Description
+											<% end_if %>
 											</p>
 										</div>
 									</div>
@@ -41,19 +42,23 @@
 					</div>
 					<div id="tutor_stats">
 					
-					<% if Hours %>
+				
 					
 						<div id="availability">
 							
 								<div class="highlighted">Availability</div>
-								<p>$Hours</p>
+								<% if Hours %>
+									<p>$Hours</p>
+								<% else %>
+									<p>Not provided</p>
+								<% end_if %>
 						</div>
 						
 						<% if MetaKeywords %>
 							<% include Tags %>
 						<% end_if %>
 					
-					<% end_if %>
+				
 					
 
 				<div id="contact-form-inline" style="display: none;"> 

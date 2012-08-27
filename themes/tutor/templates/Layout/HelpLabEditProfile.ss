@@ -12,7 +12,7 @@
   <% end_if %>  
          
    $HelpEditProfileForm
-     
+   <br><br>  
 </div>
 </div>    
 </div>
