@@ -49,6 +49,7 @@ class RegistrationPage_Controller extends Page_Controller {
         );
         // Create action
         $validator = new RequiredFields('FirstName', 'Surname', 'Email', 'Password');
+        
         $form = new Form($this, 'RegistrationForm', $fields, $actions, $validator);
         /*We'll disable the spam protection for now and hopefully assume that providing the @uiowa.edu email address will be enough to protect against spam.*/
         //$protector = SpamProtectorManager::update_form($form, 'Message', null, "Please enter the following words");
@@ -123,15 +124,16 @@ class RegistrationPage_Controller extends Page_Controller {
             //Return back to form
             return Director::redirectBack();;          
         }
+        
         elseif (!isset($data['AgreeToConditions'])){
 	        $form->AddErrorMessage('AgreeToConditions', "You must indicate that you've read our Terms and Conditions before registering.", 'bad');
 	        //Set form data from submitted values
             Session::set("FormInfo.Form_RegistrationForm.data", $data);     
             //Return back to form
-            $url = Director::absoluteBaseURL.'/tutor-application/#AgreeToConditions';
+            $url = Director::absoluteBaseURL() .'/tutor-application/#AgreeToConditions';
             return Director::redirect($url);;  
         }
- 
+        
         //Otherwise create new member and log them in
         $Member = new Member();
         $form->saveInto($Member); 
@@ -183,27 +185,30 @@ class RegistrationPage_Controller extends Page_Controller {
         include 'EmailArray.php'; //Gets members of security group that should be notified about user registration 
         
         $userEmail = $Member->Email; //used in body of email, not really necessary
+        
+        if (isset($emailArray)){
             
-        foreach ($emailArray as $recip){ //emailArray defined in EmailArray.php
-        	
-        	$subject = "TutorIowa Application Notification";
-        	$body = "Administrator,<br><br>The following individual has registered to be a tutor on Tutor Iowa:<br><br>" . "Name: " . $Member->FirstName . " " . $Member->Surname . 
-        	"<br> Email: " . $TutorPage->Email . "<br> University ID: " . $TutorPage->UniversityID . "<br>Major: " . $TutorPage->Major . "        	
-        	<br><br>Confirm user <a href='" . Director::absoluteBaseURL() . "admin/show/" . $TutorPage->ID . "'>here </a/>";  
-        	
-        	
-        	//Confirm user  <a href='http://localhost/admin/show/". $TutorPage->ID . "'>here </a/>";      	
-        	//$headers = "From: Tutor Iowa";       	
-	        //mail($recip->Email, $subject, $body);
-	        
-	         $email = new Email(); 
-	         $email->setTo($recip->Email); 	         
-	         $email->setFrom("tutoriowa@uiowa.edu"); 
-	         $email->setSubject($subject); 
-	         $email->setBody($body); 
-	         $email->send(); 
-	         	         
-	    }
+	        foreach ($emailArray as $recip){ //emailArray defined in EmailArray.php
+	        	
+	        	$subject = "TutorIowa Application Notification";
+	        	$body = "Administrator,<br><br>The following individual has registered to be a tutor on Tutor Iowa:<br><br>" . "Name: " . $Member->FirstName . " " . $Member->Surname . 
+	        	"<br> Email: " . $TutorPage->Email . "<br> University ID: " . $TutorPage->UniversityID . "<br>Major: " . $TutorPage->Major . "        	
+	        	<br><br>Confirm user <a href='" . Director::absoluteBaseURL() . "admin/show/" . $TutorPage->ID . "'>here </a/>";  
+	        	
+	        	
+	        	//Confirm user  <a href='http://localhost/admin/show/". $TutorPage->ID . "'>here </a/>";      	
+	        	//$headers = "From: Tutor Iowa";       	
+		        //mail($recip->Email, $subject, $body);
+		        
+		         $email = new Email(); 
+		         $email->setTo($recip->Email); 	         
+		         $email->setFrom("tutoriowa@uiowa.edu"); 
+		         $email->setSubject($subject); 
+		         $email->setBody($body); 
+		         $email->send(); 
+		         	         
+		    }
+		}
 	    
 	    $subject = "TutorIowa Application Confirmation";
 	    $body = "Thank you for registering to be a tutor on Tutor Iowa.<br> <br>
