@@ -14,9 +14,10 @@
 						    <% if PhoneNo %>
 								<p>$PhoneNo</p>
 							<% end_if %>
+							<!--
 							<% if ExtrnlLink %>
 							<p><a href="$ExtrnlLink" class="external-link">visit website</a></p>
-							<% end_if %>
+							<% end_if %>-->
 						</li>
 						<% end_control %>
 						
