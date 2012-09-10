@@ -13,7 +13,7 @@
 	<body class="contact-form-page">
 	
 		<div class="contact-page-container">
-			
+			<p>test</p>
 				$ContactForm
 			
 		</div>

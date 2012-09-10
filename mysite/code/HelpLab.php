@@ -8,7 +8,7 @@ class HelpLab extends Page {
     'Name' => 'Text',
     'Description' => 'Text',
     'Location' => 'Text',
-    "Hours" => 'Varchar',
+    "Hours" => 'Text',
     'Enabled' => 'Boolean',
     'EndDate' => 'Date', 
     'ExtrnlLink' => 'Text',

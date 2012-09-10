@@ -13,6 +13,8 @@ class ContactFormPage extends Page {
     
     static $many_many = array(
    );
+   
+   static $allowed_actions = array( "ContactForm", "doContactTutor");
  
     
    static $defaults = array ('ProvideComments' => '1');
@@ -31,7 +33,7 @@ class ContactFormPage extends Page {
  
 class ContactFormPage_Controller extends Page_Controller {
 
-  function ContactForm(){
+  public function ContactForm(){
   
 
      	  
@@ -63,9 +65,10 @@ class ContactFormPage_Controller extends Page_Controller {
 	   
     }
     
-    function doContactTutor($data,$form){
+    public function doContactTutor($data,$form){
 	    
-	    $tutor = DataObject::get_by_id("TutorPage", $data['TutorID']);
+	    	echo "!!!";
+	    /*$tutor = DataObject::get_by_id("TutorPage", $data['TutorID']);
 	    $subject = "A student has requested you as a tutor";
 	    //$body = "Sent by " . $data["Email"] . "<br><br>" . $data["Body"];
 	    
@@ -86,9 +89,9 @@ class ContactFormPage_Controller extends Page_Controller {
 	    $statspage->TutorRequestCount = $temp;
 	    //return Debug::show($statspage);
 	    $statspage->writeToStage('Stage'); 
-	    $statspage->publish("Stage", "Live");	    
+	    $statspage->publish("Stage", "Live");	*/    
 	        	
-	    return Director::redirect($this->Link('?saved=1'));   
+	    //return Director::redirect($this->Link('?saved=1'));   
 	    	
 	    
     }

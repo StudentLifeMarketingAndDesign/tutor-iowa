@@ -233,7 +233,7 @@ class TutorPage_Controller extends Page_Controller {
     
     function doContactTutor($data,$form){
 	    
-	    $subject = "A student has requested you as a tutor";
+	    $subject = "Tutor Iowa - A student has requested you as a tutor";
 	    //$body = "Sent by " . $data["Email"] . "<br><br>" . $data["Body"];
 	    
 	    $from = $data["Email"];
@@ -255,11 +255,15 @@ class TutorPage_Controller extends Page_Controller {
 	    $statspage->writeToStage('Stage'); 
 	    $statspage->publish("Stage", "Live");	    
 	        	
-	    return Director::redirect($this->Link('?saved=1'));   
+	    return Director::redirect($this->Link('?sent=1'));   
 	    	
 	    
     }
 
+function Sent(){
+	return $this->request->getVar('sent');
+	
+}
 
 function Saved(){
 	return $this->request->getVar('saved');
