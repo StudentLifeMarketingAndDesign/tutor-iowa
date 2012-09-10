@@ -11,6 +11,14 @@
 <link href='{$ThemeDir}/css/forms.css' rel='stylesheet' type='text/css' />
 <link href='{$ThemeDir}/scripts/fancybox/jquery.fancybox.css' rel='stylesheet' type='text/css' />
 
+<!--[if IE 7]>
+	<link href='{$ThemeDir}/css/ie7.css' rel='stylesheet' type='text/css' />
+<![endif]-->
+
+<!--[if IE 8]>
+	<link href='{$ThemeDir}/css/ie8.css' rel='stylesheet' type='text/css' />
+<![endif]-->
+
 </head>
 
 <body>

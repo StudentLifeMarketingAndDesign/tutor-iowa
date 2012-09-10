@@ -570,7 +570,7 @@ color: #FFFBC6;
 
 .tab
 {
-	background-color: black; /* for ie below version 9*/
+	background-color: #3d4950; /* for ie below version 9*/
 	background-color: rgba(0,0,0,.66);
 	border: 4px solid rgba(246,199,47,.8);
 	border-bottom-left-radius: 10px;
