@@ -340,6 +340,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f9f0', end
 #footer-wrapper ul li a:hover{
 	margin-left: 5px;
 }
+
+.footer_content {
+	width: 1000px;
+	margin: auto;
+	
+}
+
+.footer-info {
+	width: 250px;
+	float: right;
+	padding: 10px;
+}
+
+.footer-info img {
+	display: block;
+	margin: 7px 0;
+	
+}
+
+.footer-info p {
+	text-align: right;
+	margin: 2px 0;
+	
+}
+
 #foreground
 {
 	background: fixed;

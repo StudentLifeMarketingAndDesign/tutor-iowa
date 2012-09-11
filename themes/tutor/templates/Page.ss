@@ -94,7 +94,7 @@
   
 
 <div id="footer-wrapper">
-	<div class="board_content">
+	<div class="footer_content">
 		<div class="third">
 			<h2>Contact Us</h2>
 			<ul>
@@ -108,6 +108,18 @@
 				<li><a href="$Link">$Title</a></li>
 				<% end_control %>
 			</ul>
+		</div>
+		
+		<div class="footer-info">
+			<a href="{$BaseHref}"><img src="{$ThemeDir}/images/footer_logo.png" /></a>
+			<a href="http://uc.uiowa.edu/swat"><img src="{$ThemeDir}/images/footer_swat.png" /></a>
+			<p>&copy; $Now.Year <a href="http://www.uiowa.edu/" target="_blank" >The University of Iowa</a></p>
+			<p><a href="mailto:tutoriowa@uiowa.edu">tutoriowa@uiowa.edu</a></p>
+		</div>
+		<div class="clearfix"></div>
+		<div class="disability-statement">
+		<p>Individuals with disabilities are encouraged to attend all University of Iowa events. If you are a person with a disability and require an accommodation in order to participate in this event, please contact the SWAT Program / Tutor Iowa at 319-335-1733.</p>
+		
 		</div>
 		
 		<div class="clearfix"></div>
