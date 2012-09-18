@@ -251,7 +251,12 @@ Tuesday, October 16 (3:30-4:20 p.m.)                     E224 CB<br>
 
 Monday, October 22 (1:30-2:20 p.m.)                     114 BHC<br>
 
-Tuesday, October 30 (3:30-4:20 p.m.)                     E224 CB<br><br>
+Tuesday, October 30 (3:30-4:20 p.m.)                     E224 CB<br>
+
+Monday, Sept. 24 (4:30-5:20 p.m.), 134 BHC <br>
+
+Tuesday, Sept 25 (2-2:50 p.m.), 134 BHC<br>
+<br>
 
  
 
