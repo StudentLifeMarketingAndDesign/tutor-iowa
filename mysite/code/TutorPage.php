@@ -143,6 +143,9 @@ If you have any questions please email tutoriowa@uiowa.edu.<br>
 Best,<br>
 
 The Tutor Iowa Team"; 
+
+			$emailHolder = DataObject::get_one("EmailHolder");
+			$body = $emailHolder->RegistrationRequest;
 		    
 		    
 		    ////You can edit your details now <a href='" . Director::absoluteBaseURL() . "edit-profile-page'>here</a/><br>     	

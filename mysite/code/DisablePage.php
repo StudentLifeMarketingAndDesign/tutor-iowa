@@ -66,45 +66,51 @@ class DisablePage_Controller extends Page_Controller {
 		    
 		    $userEmail = $CurrentMember->Email;
 		    
-		  	    
-		    foreach ($emailArray as $recip){ //$emailArray defined in EmailArray.php
-	        	
-	        	        	
-	        	$subject = "User has requested their account be disabled"; 
-	        	      	
-	        	$body = "User email: " . $userEmail . "
-	        	
-	        
-	         
-	        
-	        	Disable account  <a href='" . Director::absoluteBaseURL() .  "admin/show/" . $Tutor->ID . "'>here</a/>";        	
-	        	//$headers = "From: Tutor Iowa";       	
-		        //mail($recip->Email, $subject, $body);
-		      	        
-		         $email = new Email(); 
-		         $email->setTo($recip->Email); 
-		         $email->setFrom(Email::getAdminEmail()); 
-		         $email->setSubject($subject); 
-		         $email->setBody($body); 
-		         $email->send(); 
+		  	  if (isset($emailArray)){   
+			    foreach ($emailArray as $recip){ //$emailArray defined in EmailArray.php
+		        	
+		        	        	
+		        	$subject = "User has requested their account be disabled"; 
+		        	      	
+		        	$body = "User email: " . $userEmail . "
+		        	
+		        
 		         
-		    }
-		    
-		    $subject = "The disabling of your Tutor Iowa page is pending";
-		    $body = "We will remove you as a tutor from the Tutor Iowa website as soon as possible.  If you want to enable your account again, you can log in to the Tutor Iowa website and click on the Edit Profile Page at the top of the screen.  That page will have a link to request to enable your account.<br><br>
-		    
-		    Best, <br>
-		    The Tutor Iowa Team<br>"; 
-		    
-	        $email = new Email(); 
-		    $email->setTo($CurrentMember->Email); 
-		    $email->setFrom(Email::getAdminEmail()); 
-		    $email->setSubject($subject); 
-		    $email->setBody($body); 
-		    $email->send();
-	
-		    return Director::redirect($this->Link('?saved=1'));   
-		 }
+		        
+		        	Disable account  <a href='" . Director::absoluteBaseURL() .  "admin/show/" . $Tutor->ID . "'>here</a/>";        	
+		        	//$headers = "From: Tutor Iowa";       	
+			        //mail($recip->Email, $subject, $body);
+			      	        
+			         $email = new Email(); 
+			         $email->setTo($recip->Email); 
+			         $email->setFrom(Email::getAdminEmail()); 
+			         $email->setSubject($subject); 
+			         $email->setBody($body); 
+			         $email->send(); 
+			         
+			    }
+			  }
+			    
+			    $subject = "The disabling of your Tutor Iowa page is pending";
+			    $body = "We will remove you as a tutor from the Tutor Iowa website as soon as possible.  If you want to enable your account again, you can log in to the Tutor Iowa website and click on the Edit Profile Page at the top of the screen.  That page will have a link to request to enable your account.<br><br>
+			    
+			    Best, <br>
+			    The Tutor Iowa Team<br>"; 
+			    
+			    $emailHolder = DataObject::get_one("EmailHolder");
+			    $body = $emailHolder->RegistrationConfirm;
+			    
+		        $email = new Email(); 
+			    $email->setTo($CurrentMember->Email); 
+			    $email->setFrom(Email::getAdminEmail()); 
+			    $email->setSubject($subject); 
+			    $email->setBody($body); 
+			    $email->send();
+		
+			    return Director::redirect($this->Link('?saved=1'));
+			 }
+			  
+		
 	  
 	  else {
 		  $message = "You must be <a href='" . Director::baseURL() . "/Security/login'>logged</a> in to edit your profile!";

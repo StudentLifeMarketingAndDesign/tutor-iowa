@@ -20,6 +20,8 @@
 						         
 						     
 						    <% else %>
+						    
+						    	 $EditProfileForm
 						     
 						        <% if Saved %>
 						             
@@ -29,7 +31,7 @@
 						         
 						        <% end_if %>  
 						         
-						        $EditProfileForm
+						  
 						       
 						    <% end_if %>
 						 <% else %>

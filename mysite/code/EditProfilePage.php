@@ -270,10 +270,14 @@ class EditProfilePage_Controller extends Page_Controller
 		    }
 		    
 		    $subject = "The enabling of your Tutor Iowa account is pending";
+		    
 		    $body = "You will receive another email once your account has been enabled by one of our administrators.<br><br>
 		    
 		    Best, <br>
 		    The Tutor Iowa Team<br>"; 
+		    
+		    $emailHolder = DataObject::get_one("EmailHolder");
+		    $body = $emailHolder->RegistrationRequest;
 		    
 	        $email = new Email(); 
 		    $email->setTo($CurrentMember->Email); 

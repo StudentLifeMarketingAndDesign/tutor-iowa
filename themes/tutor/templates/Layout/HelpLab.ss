@@ -1,5 +1,4 @@
-
-				<div class="board_content">
+<div class="board_content">
 					<div id="breadcrumbs"><a href="{$BaseHref}">Home</a> > <a href="{$BaseHref}find-help/">Find Help</a> > <a href="{$BaseHref}help-labs/">Help Labs</a> > <span class="current">$Title</span></div>
 					<div id="help_card">
 						<h1>$Title</h1>
@@ -35,11 +34,14 @@
 								</div>
 							</div>
 						</div>
+						
+				
 						<% end_if %>
 		
-						<div class="clearfix"></div>
-					
+				
 					</div>
+					
+
 					<div id="tutor_stats">
 					
 				
@@ -52,17 +54,21 @@
 								<% else %>
 									<p>Not provided</p>
 								<% end_if %>
+							
 						</div>
 						
 						<% if MetaKeywords %>
 							<% include Tags %>
 						<% end_if %>
+							
 					
 				
 					
 
-				<div id="contact-form-inline" style="display: none;"> 
-				$ContactForm
+					<div id="contact-form-inline" style="display: none;"> 
+					$ContactForm
+					</div>
+				
 				</div>
 					
 					<div class="clearfix"></div>

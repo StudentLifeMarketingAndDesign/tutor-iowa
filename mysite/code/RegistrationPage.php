@@ -269,6 +269,9 @@ You will soon receive an email regarding further approval procedures.<br>
  Best,<br>
 
 The Tutor Iowa Team<br>"; 
+
+		$emailHolder = DataObject::get_one("EmailHolder");
+		$body = $emailHolder->RegistrationRequest;
 	    
         $email = new Email(); 
 	    $email->setTo($Member->Email); 
