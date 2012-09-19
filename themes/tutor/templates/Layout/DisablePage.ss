@@ -16,7 +16,7 @@
 <% else %>
 	You must be <a href='/security/login'>logged in</a> to request to disable your tutor page. 
 <% end_if %>
-$PageComments
+
 	
 </div>
 </div>

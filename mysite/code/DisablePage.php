@@ -98,7 +98,7 @@ class DisablePage_Controller extends Page_Controller {
 			    The Tutor Iowa Team<br>"; 
 			    
 			    $emailHolder = DataObject::get_one("EmailHolder");
-			    $body = $emailHolder->RegistrationConfirm;
+			    $body = $emailHolder->DisablePage;
 			    
 		        $email = new Email(); 
 			    $email->setTo($CurrentMember->Email); 

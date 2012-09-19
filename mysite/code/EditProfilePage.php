@@ -277,7 +277,7 @@ class EditProfilePage_Controller extends Page_Controller
 		    The Tutor Iowa Team<br>"; 
 		    
 		    $emailHolder = DataObject::get_one("EmailHolder");
-		    $body = $emailHolder->RegistrationRequest;
+		    $body = $emailHolder->EnablePage;
 		    
 	        $email = new Email(); 
 		    $email->setTo($CurrentMember->Email); 

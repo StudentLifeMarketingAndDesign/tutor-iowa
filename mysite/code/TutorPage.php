@@ -145,7 +145,7 @@ Best,<br>
 The Tutor Iowa Team"; 
 
 			$emailHolder = DataObject::get_one("EmailHolder");
-			$body = $emailHolder->RegistrationRequest;
+			$body = $emailHolder->RegistrationConfirm;
 		    
 		    
 		    ////You can edit your details now <a href='" . Director::absoluteBaseURL() . "edit-profile-page'>here</a/><br>     	
