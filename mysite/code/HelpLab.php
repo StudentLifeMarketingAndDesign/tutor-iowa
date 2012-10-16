@@ -12,6 +12,9 @@ class HelpLab extends Page {
     'Enabled' => 'Boolean',
     'EndDate' => 'Date', 
     'ExtrnlLink' => 'Text',
+    'ExternalScheduleLink' => 'Text',
+    'ContactName' => 'Text',
+    'ContactEmail' => 'Text',
     'PhoneNo' => 'Text',
    
    );
@@ -40,6 +43,10 @@ class HelpLab extends Page {
     	$fields->removeFieldFromTab('Root.Content.Metadata', "Keywords"); 
     	$fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("MetaKeywords", "Tags"));
     	$fields->addFieldToTab('Root.Content.Main', new TextField("ExtrnlLink", "External link to help lab homepage"));
+       	$fields->addFieldToTab('Root.Content.Main', new TextField("ContactName", "Contact's Name"));
+       	$fields->addFieldToTab('Root.Content.Main', new TextField("ContactEmail", "Contact's Email Address"));
+       	$fields->addFieldToTab('Root.Content.Main', new TextField("ExternalScheduleLink", "External Schedule Link"));
+
     	$fields->addFieldToTab('Root.Content.Main', new TextField("PhoneNo", "Phone Number"));
     	$fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("Description", "Description"));
 

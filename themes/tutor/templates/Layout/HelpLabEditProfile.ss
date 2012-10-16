@@ -4,6 +4,7 @@
 <div class="typography">
      
     <h2>Help Lab Edit Profile Page</h2>
+    <p><a href="$Lab.Link" target="_blank">View the Help Lab</a></p>
  
   <% if Saved %>
              

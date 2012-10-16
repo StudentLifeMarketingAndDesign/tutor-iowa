@@ -33,7 +33,12 @@ class HelpLabEditProfile_Controller extends Page_Controller {
 		    new Textareafield('MetaKeywords', 'Tags'),
 		    new TextField('Location'),
 		    new TextField('Link'),
+		    new TextField('ContactName', 'Contact Person\'s Name'),
+		    new TextField('ContactEmail', 'Contact Person\'s Email'),
+
 		    new TextField('PhoneNo', 'Phone Number'),
+		    new TextField('ExternalScheduleLink', 'Optional link to the lab\'s schedule on another site'),
+
 		    new TextField('Hours', 'Availability')
 		       );
 		        
@@ -83,6 +88,17 @@ class HelpLabEditProfile_Controller extends Page_Controller {
         }
     }
     
+   function Lab()
+    {
+        $temp = $this->request->getVar('ID');
+        $id = intval($temp);
+        
+        $lab = DataObject::get_by_id("HelpLab", $id);
+        
+        return $lab;
+ 
+    }   
+     
     function Saved()
     {
         return $this->request->getVar('saved');

@@ -5,6 +5,17 @@
 						<% if PhoneNo %>
 							<p>Phone: $PhoneNo</p>
 						<% end_if %>
+						
+						<% if ContactEmail %>
+						<p>Contact: 
+							<% if ContactName %>
+								<a href="mailto:$ContactEmail">$ContactName</a>
+							<% else %>
+								<a href="mailto:$ContactEmail">$ContactEmail</a>
+							<% end_if %>
+						</p>
+						<% end_if %>
+						
 						<% if Location %>
 						<h3>Location</h3>
 							$Location
@@ -49,10 +60,18 @@
 						<div id="availability">
 							
 								<div class="highlighted">Availability</div>
+								
+
+								
 								<% if Hours %>
 									<p>$Hours</p>
 								<% else %>
 									<p>Not provided</p>
+								<% end_if %>
+								
+																
+								<% if ExternalScheduleLink %>
+									<p><a href="$ExternalScheduleLink" target="_blank" class="external-link">View full schedule</a></p>
 								<% end_if %>
 							
 						</div>
