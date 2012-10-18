@@ -4,9 +4,10 @@
 <div class="typography">
      
     <h2>Help Lab Edit Profile Page</h2>
-    <p><a href="$Lab.Link" target="_blank">View the Help Lab</a></p>
- 
-         
+    	    <% if HelpLabSaved %>
+				<p class="savedMessage">Your changes have been saved!  <br><br>
+			<% end_if %> 
+	<p><a href="$Link" target="_blank">View the Help Lab</a></p>
    $HelpEditProfileForm
    <br><br>  
 </div>

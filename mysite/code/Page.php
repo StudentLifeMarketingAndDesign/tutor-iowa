@@ -236,6 +236,17 @@ public function News($number=3){
 
 	}
 	
+  function getHelpLabs(){
+     $Member = Member::CurrentMember();
+     if ($Member){
+     	$IDMember = $Member->ID;    
+     	$memberLabs = DataObject::get('HelpLab', "HelpLab_Live.ID in (SELECT DISTINCT HelpLabID from  `HelpLab_Members` where MemberID = $IDMember)");
+     	if ($memberLabs) {
+     		return $memberLabs;
+     	}
+     }
+   }
+	
 	/*
 	public function getDisabled() { //This is used to check whether the user's account is disabled.  If it is, a link to enable the account should appear
 		$Member = Member::CurrentMember();

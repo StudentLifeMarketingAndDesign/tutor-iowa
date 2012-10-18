@@ -23,7 +23,10 @@
 						<% if ExtrnlLink %>
 						<p><a href="$ExtrnlLink" class="external-link" target="_blank">visit website</a></p>
 						<% end_if %>
-						<p><a href="{$Link}Edit">Edit this Help Lab</a></p>
+						<% if canUserEditHelpLab %>
+							<p><a href="{$Link}Edit">Edit this Help Lab</a></p>
+						<% end_if %>
+						
 						<p>
 						<div class="clearfix"></div>
 						<!--<div class="button">Contact</div>-->
@@ -84,12 +87,8 @@
 						
 				
 					
-
-					<div id="contact-form-inline" style="display: none;"> 
-					$ContactForm
-					</div>
 				
-				</div>
+		
 					
 					<div class="clearfix"></div>
 			

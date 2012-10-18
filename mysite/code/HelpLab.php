@@ -174,11 +174,47 @@ class HelpLab_Controller extends Page_Controller {
                
          $MemberLab->publish("Stage","Live");
                     
-         return Director::redirect($this->Link('/Edit'));  
+         return Director::redirect($this->Link('/Edit/?saved=1'));  
          
    }
-
-	
-
-
+   
+   function canUserEditHelpLab(){
+	   $helplabs = $this->getHelpLabs();
+	   $labID = $this->ID;
+	   if ($helplabs){
+		   foreach($helplabs as $lab){
+		   		$checkID = $lab->ID;
+		   		if ($labID == $checkID){
+			   		return true;
+		   		}
+		   }
+	   }
+	   else {
+		   return false;
+	   }
+	   return false;
+	   
+   }
+   
+    function Lab()
+    {
+        $temp = $this->request->getVar('ID');
+        $id = intval($temp);
+        
+        $lab = DataObject::get_by_id("HelpLab", $id);
+        
+        return $lab;
+ 
+    }   
+   
+   function helpLabSaved(){
+   		/*
+	   	$params = Director::getURLParams();
+	   	if ($params['saved']){
+		   	return true;
+	   	}
+	   	return false;
+	   	*/
+	   	return $this->request->getVar('saved');
+   }
 }
