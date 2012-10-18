@@ -2,6 +2,10 @@ form{
 	clear: both;
 }
 
+.topForm {
+	display: inline;
+}
+
 form div.rowElem{
 	clear:both;
 	padding:4px 0px;
@@ -24,6 +28,31 @@ input.text
 	outline: none;
 	font-weight: lighter;
 }
+
+input.topSearch
+
+{
+	width: 60%;
+	height: 20px;
+	color: #000000;
+	padding: 3px 7px 3px 7px;
+	position: relative;
+	float: right;
+	font-family: "Lucida Grande", "Helvetica Neue", "Helvetica", sans-serif;
+	font-family: 'Gloria Hallelujah';
+	font-size: 23px;
+	font-size: 14px;
+	border-image: url(../images/area.png) 4 repeat;
+	-webkit-border-image: url(../images/area.png) 4 repeat;
+	-moz-border-image: url(../images/area.png) 4 repeat;
+	outline: none;
+	font-weight: lighter;
+	margin-left: 50px;
+	margin-right: -10px;
+	z-index: 10;
+	
+}
+
 .text:focus{
 	background-color: #fcffd8;
 }

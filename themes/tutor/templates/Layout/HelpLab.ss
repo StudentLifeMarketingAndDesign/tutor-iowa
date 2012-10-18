@@ -23,6 +23,7 @@
 						<% if ExtrnlLink %>
 						<p><a href="$ExtrnlLink" class="external-link" target="_blank">visit website</a></p>
 						<% end_if %>
+						<p><a href="{$Link}Edit">Edit this Help Lab</a></p>
 						<p>
 						<div class="clearfix"></div>
 						<!--<div class="button">Contact</div>-->
@@ -80,7 +81,7 @@
 							<% include Tags %>
 						<% end_if %>
 							
-					
+						
 				
 					
 

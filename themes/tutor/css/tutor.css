@@ -807,6 +807,27 @@ form .button:active{
 	line-height: normal;
 }
 
+.topButton {
+	width: 35px;
+	height: 37px;
+	background: url('http://studenthealth.uiowa.edu/sites/all/themes/shs/images/search.png') no-repeat;
+	border: 0;
+	
+	float: right;
+	font-family: 'Gloria Hallelujah', sans-serif;
+	font-size: 18px;
+	color: #fff;
+	padding: 3px 0px 5px 0px;
+	position: relative;
+	text-align: center;
+	cursor: pointer;
+	margin-bottom: 20px;
+
+	line-height: normal;
+	z-index: 100;
+
+}
+
 .fancybox-button {
 	width: 161px;
 	height: 37px;
@@ -1063,3 +1084,9 @@ form .white{
 	padding: 6px 2px 0px 0px;
 }
 */
+
+#topRightSearch {
+	float: right;
+	display: inline;
+	margin-top: 5px;
+}
