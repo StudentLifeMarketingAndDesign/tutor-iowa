@@ -125,56 +125,73 @@ class HelpLab_Controller extends Page_Controller {
    
    
 	function HelpEditProfileForm(){
-	   $fields = new FieldSet (
-		  	new TextareaField('Description'),
-		    new Textareafield('MetaKeywords', 'Tags'),
-		    new TextField('Location'),
-		    new TextField('Link'),
-		    new TextField('ContactName', 'Contact Person\'s Name'),
-		    new TextField('ContactEmail', 'Contact Person\'s Email'),
-
-		    new TextField('PhoneNo', 'Phone Number'),
-		    new TextField('ExternalScheduleLink', 'Optional link to the lab\'s schedule on another site'),
-
-		    new TextField('Hours', 'Availability')
-		       );
-		        
-		    
-		    
-		  
-		     
-		    $actions = new FieldSet(
-	        new FormAction('HelpLabSaveProfile', 'Save Page')
-	         );
-	            
-	        $form = new Form($this, 'HelpEditProfileForm', $fields, $actions);
-	            
-	        $HelpLabID = $this->ID;
-	            
-	        $DisplayedHelpLab = DataObject::get_one("HelpLab", "HelpLab_Live.ID = $HelpLabID");
-	            
-	        $form->loadDataFrom($DisplayedHelpLab->data());
-
-	        return $form;
-   }
+	   $canUserEdit = $this->canUserEditHelpLab();
+	   if ($canUserEdit){
+		   $fields = new FieldSet (
+			  	new TextareaField('Description'),
+			    new Textareafield('MetaKeywords', 'Tags'),
+			    new TextField('Location'),
+			    new TextField('Link'),
+			    new TextField('ContactName', 'Contact Person\'s Name'),
+			    new TextField('ContactEmail', 'Contact Person\'s Email'),
+	
+			    new TextField('PhoneNo', 'Phone Number'),
+			    new TextField('ExternalScheduleLink', 'Optional link to the lab\'s schedule on another site'),
+	
+			    new TextField('Hours', 'Availability')
+			       );
+			        
+			    
+			    
+			  
+			     
+			    $actions = new FieldSet(
+		        new FormAction('HelpLabSaveProfile', 'Save Page')
+		         );
+		            
+		        $form = new Form($this, 'HelpEditProfileForm', $fields, $actions);
+		            
+		        $HelpLabID = $this->ID;
+		            
+		        $DisplayedHelpLab = DataObject::get_one("HelpLab", "HelpLab_Live.ID = $HelpLabID");
+		            
+		        $form->loadDataFrom($DisplayedHelpLab->data());
+	
+		        return $form;
+		 }
+		 else {
+		 	return Security::PermissionFailure($this->controller, 'You do not have permission to edit this profile.');
+		 }
+	  }
 
    
    function HelpLabSaveProfile($data, $form){
     
+    	 $canUserEdit = $this->canUserEditHelpLab();
+    	 
+    	 if ($canUserEdit){
     	    	
-	     $labID = $this->ID;
-	     	   
-	     $MemberLab = DataObject::get_one('HelpLab', "HelpLab_Live.ID=$labID");
-    	 
-    	 //return Debug::show($MemberLab);
-    	 
-    	 $form->saveInto($MemberLab); 
-    	 
-    	 $MemberLab->writeToStage("Stage");
-               
-         $MemberLab->publish("Stage","Live");
-                    
-         return Director::redirect($this->Link('/Edit/?saved=1'));  
+		     $labID = $this->ID;
+		     	   
+		     $MemberLab = DataObject::get_one('HelpLab', "HelpLab_Live.ID=$labID");
+	    	 
+	    	 //return Debug::show($MemberLab);
+	    	 
+	    	 $form->saveInto($MemberLab); 
+	    	 
+	    	 $MemberLab->writeToStage("Stage");
+	               
+	         $MemberLab->publish("Stage","Live");
+	                    
+	         return Director::redirect($this->Link('/Edit/?saved=1'));  
+	      
+	     }
+	     
+	     else {
+		
+		 	return Security::PermissionFailure($this->controller, 'You do not have permission to edit this profile.');
+		 
+	     }
          
    }
    
@@ -196,16 +213,7 @@ class HelpLab_Controller extends Page_Controller {
 	   
    }
    
-    function Lab()
-    {
-        $temp = $this->request->getVar('ID');
-        $id = intval($temp);
-        
-        $lab = DataObject::get_by_id("HelpLab", $id);
-        
-        return $lab;
- 
-    }   
+   
    
    function helpLabSaved(){
    		/*

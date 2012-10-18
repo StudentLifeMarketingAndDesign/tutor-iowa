@@ -810,7 +810,7 @@ form .button:active{
 .topButton {
 	width: 35px;
 	height: 37px;
-	background: url('http://studenthealth.uiowa.edu/sites/all/themes/shs/images/search.png') no-repeat;
+	background: url('../images/searchglass.png') no-repeat;
 	border: 0;
 	
 	float: right;

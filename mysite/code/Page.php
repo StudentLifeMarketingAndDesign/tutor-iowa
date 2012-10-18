@@ -100,24 +100,33 @@ public function doNewsletterSignup($data, $form){
 public function isHelpLab(){
 
 	$Member = Member::CurrentMember();
-	$IDMember = $Member->ID;
-	#$memberLabs = DataObject::get('Member', "ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
 	
-	$memberLabs = DataObject::get('Member', "ID=$IDMember and ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
-	/*
+	if ($Member){
+		
+		$IDMember = $Member->ID;
 	
-	Might not need other functions -- can refer to session variables directly with <% ifHelpLabSession %> without needing another function
-	Session::set("isHelpLabCached", 1);
 	
-	if ($memberLabs){
-		Session::set("isHelpLabSession", 1);
-	}
-	else {
-		Session::set("isHelpLabSession", 0);
-	}
-	*/
+		#$memberLabs = DataObject::get('Member', "ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
+		
+		$memberLabs = DataObject::get('Member', "ID=$IDMember and ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
+		/*
+		
+		Might not need other functions -- can refer to session variables directly with <% ifHelpLabSession %> without needing another function
+		Session::set("isHelpLabCached", 1);
+		
+		if ($memberLabs){
+			Session::set("isHelpLabSession", 1);
+		}
+		else {
+			Session::set("isHelpLabSession", 0);
+		}
+		*/
+		
+		return $memberLabs;
+		
+    }
 	
-	return $memberLabs;
+	return false;
 	 
 }
 

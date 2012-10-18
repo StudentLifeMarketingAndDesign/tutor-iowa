@@ -65,10 +65,18 @@
 							<% include Tags %>
 							
 					<% end_if %>
+	
+					<div class="clearfix"></div>
+				
+		</div></div>
 					<div id="contact-container">
 					<h2>Contact this tutor!</h2>
 					$ContactForm
 					</div>
+	
+		</div>
+		<div class="clearfix"></div>
+					
 				
 				
 				

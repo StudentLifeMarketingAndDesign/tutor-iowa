@@ -9,7 +9,4 @@
 		</p>
 		<div class="clearfix"></div>
 		</div>
-	</div>	
-		<div id="stain"></div>
-		<div class="clearfix"></div>
-</div>
+	
