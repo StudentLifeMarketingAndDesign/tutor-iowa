@@ -1,4 +1,8 @@
 <?php
+/*
+This class is no longer being used
+*/
+
 class HelpLabEditProfile extends Page {
   static $db = array(
    "TempID" => "Text"

@@ -1,7 +1,5 @@
 <?php
-/**
- * Defines the HomePage page type
- */
+
  
 class HelpLab extends Page {
    static $db = array(
