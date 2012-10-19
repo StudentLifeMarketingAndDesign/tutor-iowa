@@ -85,8 +85,8 @@
 						<% end_if %>
 							
 						</div>	
-
+						
+						<div id="stain"></div>
 		<div class="clearfix"></div>
 	
-				
 			

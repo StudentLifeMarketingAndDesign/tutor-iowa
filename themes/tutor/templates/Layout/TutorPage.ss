@@ -67,8 +67,9 @@
 					<% end_if %>
 	
 					<div class="clearfix"></div>
-				
+							<div id="stain"></div>
 		</div></div>
+				
 					<div id="contact-container">
 					<h2>Contact this tutor!</h2>
 					$ContactForm

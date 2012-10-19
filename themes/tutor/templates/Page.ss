@@ -77,9 +77,9 @@
 		<div id="board_mid">
 			<div id="paper">
 			$Layout
-					
-			</div>
 				
+			</div>
+	
 				
 			
 		</div>
