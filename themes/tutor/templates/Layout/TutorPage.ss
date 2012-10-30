@@ -10,7 +10,7 @@
 						
 						<% if MeetingPreference %><span id="mp">Meeting Preference: </span><span id="meeting_preference">{$MeetingPreference}</span><% end_if %>
 						<div class="clearfix"></div>
-						<a href="#contact-container" class="button">Contact</a>
+						<a href="#contact" class="button">Contact</a>
 						
 						<% if Content %>
 						<h2>Bio</h2>
@@ -71,7 +71,7 @@
 		</div></div>
 				
 					<div id="contact-container">
-					<h2>Contact this tutor!</h2>
+					<h2 id="contact">Contact this tutor!</h2>
 					$ContactForm
 					</div>
 	

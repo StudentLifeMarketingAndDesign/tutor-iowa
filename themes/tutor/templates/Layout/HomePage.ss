@@ -44,7 +44,7 @@
 											</div>
 											$Content.Summary(40)
 										</p>
-										<div class="button"><a href="$Link">See More</a></div>
+										<p><a href="$Link">Learn more about supplemental instruction.</a></p>
 										<% end_control %>
 										
 										<% control Page(help-labs) %>
@@ -63,7 +63,7 @@
 											</div>
 											$Content.Summary(20)
 										</p>
-										<div class="button"><a href="$Link">See More</a></div>
+										<p><a href="$Link">Learn more about campus help labs.</a></p>
 										<% end_control %>
 									</div>
 								</div>

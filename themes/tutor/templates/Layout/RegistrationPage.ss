@@ -3,8 +3,12 @@
 					<div id="page-content">
 						<h1>$Title</h1>
 						
-					
+						<% if Disabled %>
+						$Content
+						<% else %>
 						$RegistrationForm
+						<% end_if %>
+						
 						<br><br><br>
 						
 					</div>

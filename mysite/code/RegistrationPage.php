@@ -3,6 +3,7 @@
  
 class RegistrationPage extends Page {
    static $db = array(
+   	'Disabled' => 'Boolean'
    );
    static $has_one = array(
    );
@@ -12,6 +13,16 @@ class RegistrationPage extends Page {
    
     
     );
+   
+    public function getCMSFields() {
+    
+		$fields = parent::getCMSFields();
+		$fields->removeFieldFromTab("Root.Content.Main", "Content");
+		$fields->addFieldToTab( 'Root.Content.Main', new CheckboxField("Disabled", "Disable the registration form (temporarily)"));
+		$fields->addFieldToTab( 'Root.Content.Main', new HTMLEditorField("Content", "Content"));		
+		return $fields;
+        
+     } 
    
 }
  
