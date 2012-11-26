@@ -60,7 +60,6 @@
 				<% if MetaKeywords %>
 					<% include Tags %>
 				<% end_if %>
-				
 				$ContactForm
 		
 				
