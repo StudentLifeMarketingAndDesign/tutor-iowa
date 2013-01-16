@@ -46,7 +46,6 @@ class RegistrationPage_Controller extends Page_Controller {
             new TextField('Major'),
             new TextField('GPA'),
             new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
-            new TextareaField('Notes', 'Give us a brief summary of what you would like to tutor'),
             new LiteralField('Terms', $this->Content),
             new CheckboxField('AgreeToConditions', 'Checking this box confirms that you have reviewed our Terms and Conditions above.')
                      
@@ -158,7 +157,7 @@ class RegistrationPage_Controller extends Page_Controller {
           
         $TutorPage = new TutorPage();
         
-        $tutorParent = DataObject::get_one('TutorHolder'); //There's only one tutor holder in DB
+        $tutorParent = DataObject::get_one('TutorHolder', "Title = 'Provisional Tutors'"); 
         $TutorPage->setParent($tutorParent); //Sets the tutor holder to hold new tutor pages
         
       

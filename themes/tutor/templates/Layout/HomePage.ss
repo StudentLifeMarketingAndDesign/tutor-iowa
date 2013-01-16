@@ -65,7 +65,30 @@
 										</p>
 										<p><a href="$Link">Learn more about campus help labs.</a></p>
 										<% end_control %>
-									</div>
+										
+										<% if Page(resources) %>
+											<% control Page(resources) %>
+											<h4><a href="$Link">Resources</a></h4>
+												<p>
+													<div class="thumb" style="background-image: 
+													
+													url(<% control Image %> 
+													<% control SetRatioSize(135,135) %> $URL <% end_control %>
+													<% end_control %>); background-repeat: no-repeat;">
+													
+		
+													<div class="tape"></div>
+													
+													</div>
+													$Content.Summary(20)											
+												</p>
+											
+											<p><a href="$Link">Learn more about resources.</a></p>
+											
+											<% end_control %>
+										<% end_if %>
+										
+										</div>
 								</div>
 							</div>
 						</div>
@@ -91,3 +114,5 @@
 					</div>
 				
 				<div class="clearfix"></div>
+				
+				

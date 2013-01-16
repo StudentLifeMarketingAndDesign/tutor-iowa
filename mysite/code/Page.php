@@ -2,10 +2,12 @@
 class Page extends SiteTree {
 
 	public static $db = array(
+	
 	);
 
-	public static $has_one = array(
-	);
+	static $has_one = array(
+  	"Image" => "Image"
+   );
 	
 	static $defaults = array ('ProvideComments' => '1',
     
@@ -13,7 +15,12 @@ class Page extends SiteTree {
     
     );
     
-
+   public function getCMSFields() 
+    {
+    	$fields = parent::getCMSFields();
+    	$fields->addFieldToTab("Root.Content.Main", new ImageField("Image", "Image"));
+    	return $fields;
+	}
 
 }
 
@@ -270,4 +277,13 @@ public function News($number=3){
 		return $TutorDisabled;
 	}
 	*/
+	
+	function getTest(){	
+		 $tutorParent = DataObject::get_one('TutorHolder', "Title = 'Private Tutors'");
+		 Debug::show($tutorParent);
+		 $title = $tutorParent->Title;
+		 return "HI!!!";
+	 }
+	 
 }
+

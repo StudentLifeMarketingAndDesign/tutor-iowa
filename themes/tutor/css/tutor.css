@@ -1090,3 +1090,13 @@ form .white{
 	display: inline;
 	margin-top: 5px;
 }
+
+.generic-image-wrapper {
+	float: right;
+	margin: 25px;
+}
+
+.generic-text-wrapper {
+	float: left;
+	
+}
