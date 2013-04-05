@@ -4,7 +4,7 @@
 class HelpLab extends Page {
    static $db = array(
     'Name' => 'Text',
-    'Description' => 'Text',
+    'Description' => 'HTMLText',
     'Location' => 'Text',
     "Hours" => 'Text',
     'Enabled' => 'Boolean',
@@ -46,7 +46,7 @@ class HelpLab extends Page {
        	$fields->addFieldToTab('Root.Content.Main', new TextField("ExternalScheduleLink", "External Schedule Link"));
 
     	$fields->addFieldToTab('Root.Content.Main', new TextField("PhoneNo", "Phone Number"));
-    	$fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("Description", "Description"));
+    	$fields->addFieldToTab( 'Root.Content.Main', new HTMLEditorField("Description", "Description"));
 
     	
     	
