@@ -7,9 +7,9 @@ global $databaseConfig;
 $databaseConfig = array(
 	"type" => 'MySQLDatabase',
 	"server" => 'localhost',
-	"username" => 'tutoriowa',
-	"password" => 'Sparrowhawk1!*',
-	"database" => 'tutoriowa',
+	"username" => 'tutor',
+	"password" => 'nimlok86',
+	"database" => 'tutor',
 	"path" => '',
 );
 
