@@ -72,33 +72,17 @@
 			
 <div id="clip_wrapper">
 	<a id="cliphead" href="{$BaseHref}"></a>
-	<div id="board_top"></div>
-	<div id="board_shadow_mid">
-		<div id="board_mid">
-			<div id="paper">
+				<div id="paper">
 			$Layout
 				
 			</div>
-	
-				<div class="clearfix"></div>
-			
-		</div>
 	</div>
-	<div id="board_shadow_bottom">
-		<div id="board_bottom"></div>
-	</div>
-</div>
 				
 			</div>
 			<!--<div class="nav_wrapper"><div id="login">Tutor Log In</div></div>-->
 		</div>
 	</div>
 </div>
-
-
-
-  
-  
 
 <div id="footer-wrapper">
 	<div class="footer_content">
@@ -176,7 +160,7 @@ jQuery(document).ready(function(){
 	//adjuster - y position to start from
 	//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
 	//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
-	$('#background').parallax("50%",$("#foreground").height() + 88, 0.5, true);
+	/*$('#background').parallax("50%",$("#foreground").height() + 88, 0.5, true);*/
 
 })
 </script>

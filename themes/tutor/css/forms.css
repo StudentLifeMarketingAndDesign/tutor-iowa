@@ -32,7 +32,7 @@ input.text
 input.topSearch
 
 {
-	width: 60%;
+	width: 75%;
 	height: 20px;
 	color: #000000;
 	padding: 3px 7px 3px 7px;
@@ -47,7 +47,6 @@ input.topSearch
 	-moz-border-image: url(../images/area.png) 4 repeat;
 	outline: none;
 	font-weight: lighter;
-	margin-left: 50px;
 	margin-right: -10px;
 	z-index: 10;
 	
