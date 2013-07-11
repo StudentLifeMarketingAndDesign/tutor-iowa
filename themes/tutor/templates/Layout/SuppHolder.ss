@@ -4,14 +4,15 @@
 						<h1>$Title</h1>
 						<% include SearchForm %>
 						$Content
+						<% if Children %>
 						
-						<h2>About Supplemental Instruction:</h2>
+						<h2>Currently available supplemental instructions :</h2>
 						<ul>
 							<% control Children %>
 								<li><a href="$Link">$Title</a></li>
 							<% end_control %>
 						</ul>
-						
+						<% end_if %>
 					</div>
 						
 						<div class="clearfix"></div>
