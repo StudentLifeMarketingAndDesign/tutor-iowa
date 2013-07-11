@@ -12,6 +12,18 @@
 	padding: 15px 5px 5px 0px;
 }
 
+/* Date Stamp for news supplement styling */ 
+.news-details {	
+	margin-top: -18px;
+	margin-bottom: 35px; 
+	font-size: 13px;  
+}
+.news-details-Hpage {	
+	margin-top: -18px;
+	margin-bottom: 15px; 
+	font-size: 13px;  
+}
+
 .suppLink p {
 	
 }

@@ -53,7 +53,7 @@
 						<a href="{$BaseHref}register/"><div class="tab long">Apply to be a Tutor</div></a>
 						<a href="{$BaseHref}Security/login/"><div class="tab short">Tutor Sign-In</div></a>
 					<% end_if %>
-					<a href="#newsletter-signup-form" class="newsletter-signup-link"><div class="tab long">Sign up for E-mail updates!</div></a>
+					<!--<a href="#newsletter-signup-form" class="newsletter-signup-link"><div class="tab long">Sign up for E-mail updates!</div></a>-->
 	
 					<% if CurrentMember %>
 					<a href="{$LogoutLink}"><div class="tab short">Sign Out</div></a>
@@ -109,7 +109,7 @@
 		</div>
 		<div class="clearfix"></div>
 		<div class="disability-statement">
-		<p>Individuals with disabilities are encouraged to attend all University of Iowa events. If you are a person with a disability and require an accommodation in order to participate in this event, please contact the SWAT Program / Tutor Iowa at 319-335-1733.</p>
+		<p>Individuals with disabilities are encouraged to attend all University of Iowa events. If you are a person with a disability and require an accommodation in order to participate in this event, please contact the SWAT Program / Tutor Iowa at 319-353-2747.</p>
 		
 		</div>
 		
