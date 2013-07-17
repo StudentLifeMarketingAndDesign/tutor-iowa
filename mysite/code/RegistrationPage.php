@@ -17,9 +17,9 @@ class RegistrationPage extends Page {
     public function getCMSFields() {
     
 		$fields = parent::getCMSFields();
-		$fields->removeFieldFromTab("Root.Content.Main", "Content");
-		$fields->addFieldToTab( 'Root.Content.Main', new CheckboxField("Disabled", "Disable the registration form (temporarily)"));
-		$fields->addFieldToTab( 'Root.Content.Main', new HTMLEditorField("Content", "Content"));		
+		$fields->removeFieldFromTab("Root.Main", "Content");
+		$fields->addFieldToTab( 'Root.Main', new CheckboxField("Disabled", "Disable the registration form (temporarily)"));
+		$fields->addFieldToTab( 'Root.Main', new HTMLEditorField("Content", "Content"));		
 		return $fields;
         
      } 

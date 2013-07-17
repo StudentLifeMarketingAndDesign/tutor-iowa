@@ -18,7 +18,7 @@ class Page extends SiteTree {
    public function getCMSFields() 
     {
     	$fields = parent::getCMSFields();
-    	$fields->addFieldToTab("Root.Content.Main", new ImageField("Image", "Image"));
+    	$fields->addFieldToTab("Root.Main", new ImageField("Image", "Image"));
     	return $fields;
 	}
 
@@ -33,7 +33,7 @@ class Page_Controller extends ContentController {
 	    }
 	    
 	    if($splitKeywords){
-			$keywordsList = new DataObjectSet(); 
+			$keywordsList = new ArrayList(); 
 			foreach($splitKeywords as $data) { 
 				$do=new DataObject(); 
 				$do->Keyword = $data; 
@@ -95,7 +95,7 @@ public function doNewsletterSignup($data, $form){
 	
 	$newsletterPerson->write();
 	
-	Director::redirect("home/?signup=1");
+	Controller::curr()->redirect("home/?signup=1");
 
 
 	
@@ -159,9 +159,9 @@ public function News($number=3){
       $results = $form->getResults();
       
       
-      $supplementalInstructions = new DataObjectSet();
-      $tutors = new DataObjectSet();
-      $helpLabs = new DataObjectSet();
+      $supplementalInstructions = new ArrayList();
+      $tutors = new ArrayList();
+      $helpLabs = new ArrayList();
       
       foreach($results AS $result) { 
       
@@ -217,7 +217,7 @@ public function News($number=3){
 	
 	function logout() { 
 		Security::logout(false); 
-		Director::redirect("home/"); 
+		Controller::curr()->redirect("home/"); 
 	}
 
 	function LogoutLink() { 
