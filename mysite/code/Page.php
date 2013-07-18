@@ -18,7 +18,7 @@ class Page extends SiteTree {
    public function getCMSFields() 
     {
     	$fields = parent::getCMSFields();
-    	$fields->addFieldToTab("Root.Main", new ImageField("Image", "Image"));
+    	$fields->addFieldToTab("Root.Main", new UploadField("Image", "Image"));
     	return $fields;
 	}
 
@@ -47,7 +47,8 @@ public function currentMemberPage(){
 	$currentMemberID = $currentMember->ID;
 	
 	
-	$tutorPage = DataObject::get_one("TutorPage", "MemberID = ".$currentMemberID);
+	//$tutorPage = DataObject::get_one("TutorPage", "MemberID = ".$currentMemberID);
+	$tutorPage = TutorPage::get("TutorPage")->where("MemberID = ".$currentMemberID)->First();
 	
 	//print_r($tutorPage);
 	
@@ -61,7 +62,8 @@ public function currentMemberPage(){
 
 public function getHelpLab(){
 	if ($this->isHelpLab()){
-		$HelpLab = DataObject::get_one("YourHelpLabs");		
+		//$HelpLab = DataObject::get_one("YourHelpLabs");	
+	    $HelpLab = YourHelpLabs::get("YourHelpLabs")->First();	
 		return $HelpLab;	
 	}
 }
@@ -69,13 +71,13 @@ public function getHelpLab(){
 public function NewsletterSignUpForm(){
 		$emailLabelText = '<p>Enter your email address below to keep up-to-date with TutorIowa. We\'ll occasionally
 		send you a newsletter with tips on finding help this academic year!</p>';
-	    $fields = new FieldSet(
+	    $fields = new FieldList(
           	new LiteralField('EmailLabel', $emailLabelText),
             new EmailField('EmailAddress', 'Your Email Address')
                      
         );
         
-        $actions = new FieldSet(
+        $actions = new FieldList(
             new FormAction('doNewsletterSignup', 'Sign Up!')
         );
         // Create action
@@ -106,7 +108,7 @@ public function doNewsletterSignup($data, $form){
 
 public function isHelpLab(){
 
-	$Member = Member::CurrentMember();
+	$Member = Member::currentUser();
 	
 	if ($Member){
 		
@@ -115,19 +117,9 @@ public function isHelpLab(){
 	
 		#$memberLabs = DataObject::get('Member', "ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
 		
-		$memberLabs = DataObject::get('Member', "ID=$IDMember and ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
-		/*
-		
-		Might not need other functions -- can refer to session variables directly with <% ifHelpLabSession %> without needing another function
-		Session::set("isHelpLabCached", 1);
-		
-		if ($memberLabs){
-			Session::set("isHelpLabSession", 1);
-		}
-		else {
-			Session::set("isHelpLabSession", 0);
-		}
-		*/
+		//$memberLabs = DataObject::get('Member', "ID=$IDMember and ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
+		$memberLabs = Member::get()->where("ID=$IDMember and ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
+	
 		
 		return $memberLabs;
 		
@@ -148,7 +140,9 @@ public function isHelpLabSession(){
 */
 
 public function News($number=3){
-	$articles = DataObject::get("ArticlePage", $filter = null, $sort = "Date DESC", $join = null, $limit = $number);
+	//$articles = DataObject::get("ArticlePage", $filter = null, $sort = "Date DESC", $join = null, $limit = $number);
+	$articles = ArticlePage::get()->sort('Date DESC');
+	
 	if($articles)
 		return $articles;
 	
@@ -170,8 +164,9 @@ public function News($number=3){
           }
           
          if($result->ClassName == "TutorPage") {
-         
-         	$tutorObject = DataObject::get_by_id("TutorPage", $result->ID);
+           
+         	//$tutorObject = DataObject::get_by_id("TutorPage", $result->ID);
+         	$tutorObject = TutorPage::get()->byID($result->ID);
          	$tutors->push($tutorObject);
          	//print_r($result);
           }
@@ -256,7 +251,8 @@ public function News($number=3){
      $Member = Member::CurrentMember();
      if ($Member){
      	$IDMember = $Member->ID;    
-     	$memberLabs = DataObject::get('HelpLab', "HelpLab_Live.ID in (SELECT DISTINCT HelpLabID from  `HelpLab_Members` where MemberID = $IDMember)");
+     	//$memberLabs = DataObject::get('HelpLab', "HelpLab_Live.ID in (SELECT DISTINCT HelpLabID from  `HelpLab_Members` where MemberID = $IDMember)");
+     	$memberLabs = HelpLab::get("HelpLab_Live.ID in (SELECT DISTINCT HelpLabID from  `HelpLab_Members` where MemberID = $IDMember)");
      	if ($memberLabs) {
      		return $memberLabs;
      	}

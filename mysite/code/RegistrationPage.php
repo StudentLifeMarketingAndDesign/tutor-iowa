@@ -36,7 +36,7 @@ class RegistrationPage_Controller extends Page_Controller {
     //Generate the registration form
     function RegistrationForm()
     {
-        $fields = new FieldSet(
+        $fields = new FieldList(
             
             new TextField('FirstName', '<span>*</span> First Name'),
             new TextField('Surname', '<span>*</span> Last Name'),
@@ -54,7 +54,7 @@ class RegistrationPage_Controller extends Page_Controller {
       
          
         // Create action
-        $actions = new FieldSet(
+        $actions = new FieldList(
             new FormAction('doRegister', 'Register')
         );
         // Create action

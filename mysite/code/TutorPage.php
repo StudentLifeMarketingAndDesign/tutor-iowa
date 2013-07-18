@@ -251,13 +251,13 @@ class TutorPage_Controller extends Page_Controller {
     function ContactForm(){
      
      	
-	   	$fields = new FieldSet(
+	   	$fields = new FieldList(
 	   	new TextField('Email', '<span>*</span> Your Email Address'),
 	   	new TextAreaField('Body',  '<span>*</span> Your Message to '.$this->Member()->FirstName)
 	   
 	   	);
 	   	
-	   	$actions = new FieldSet(
+	   	$actions = new FieldList(
             new FormAction('doContactTutor', 'Contact Tutor')
             
         );
