@@ -33,9 +33,9 @@
 						
 						<div id="nav">
 							<ul>
-							<% control Menu(1) %>
+							<% loop Menu(1) %>
 							<a href="$Link"><li class="$FirstLast">$MenuTitle</li></a>
-							<% end_control %>
+							<% end_loop %>
 							</ul>
 						</div>
 						<div id="uiowa"><a href="http://www.uiowa.edu"><img src="{$ThemeDir}/images/uiowa.png" /></a></div>
@@ -95,9 +95,9 @@
 		<div class="third">
 			<h2>Site Map</h2>
 			<ul>
-				<% control Menu(1) %>
+				<% loop Menu(1) %>
 				<li><a href="$Link">$Title</a></li>
-				<% end_control %>
+				<% end_loop %>
 			</ul>
 		</div>
 		

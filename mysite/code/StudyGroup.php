@@ -24,11 +24,11 @@ class StudyGroup extends Page {
     
     	$fields = parent::getCMSFields();
     	
-    	$fields->addFieldToTab( 'Root.Content.Main', new TextField("Name", "Study Group name (can be the same as Page name)"));
-    	$fields->addFieldToTab( 'Root.Content.Main', new TextField("Hours"));
-    	$fields->addFieldToTab( 'Root.Content.Main', new TextField("Location"));
-    	$fields->removeFieldFromTab('Root.Content.Metadata', "Keywords"); 
-    	$fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("MetaKeywords", "Tags"));
+    	$fields->addFieldToTab( 'Root.Main', new TextField("Name", "Study Group name (can be the same as Page name)"));
+    	$fields->addFieldToTab( 'Root.Main', new TextField("Hours"));
+    	$fields->addFieldToTab( 'Root.Main', new TextField("Location"));
+    	$fields->removeFieldFromTab('Root.Metadata', "Keywords"); 
+    	$fields->addFieldToTab( 'Root.Main', new TextAreaField("MetaKeywords", "Tags"));
     	
        
         return $fields;

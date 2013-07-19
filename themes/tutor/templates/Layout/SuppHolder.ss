@@ -8,9 +8,9 @@
 						
 						<h2>Currently available supplemental instructions :</h2>
 						<ul>
-							<% control Children %>
+							<% loop Children %>
 								<li><a href="$Link">$Title</a></li>
-							<% end_control %>
+							<% end_loop %>
 						</ul>
 						<% end_if %>
 					</div>

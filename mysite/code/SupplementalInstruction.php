@@ -39,15 +39,15 @@ class SupplementalInstruction extends Page {
     {
     
     	$fields = parent::getCMSFields();
-    	$fields->removeFieldFromTab('Root.Content.Metadata', "Keywords"); 
-    	$fields->removeFieldFromTab('Root.Content.Main', "Content");
-    	$fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("MetaKeywords", "Tags"));
-    	$fields->addFieldToTab( 'Root.Content.Main', new TextField("Name", "Supplemental Instruction name (can be the same as page name)"));
-    	$fields->addFieldToTab('Root.Content.Main', new TextField("Location"));
-    	$fields->addFieldToTab('Root.Content.Main', new TextField("Hours"));
-    	$fields->addFieldToTab('Root.Content.Main', new TextField("SessionLeader", "Session Leader"));
-    	$fields->addFieldToTab('Root.Content.Main', new TextAreaField("Content", "Describe the supplemental instruction here"));
-    	$fields->addFieldToTab('Root.Content.Main', new HTMLEditorField("Schedule", "Schedule"));
+    	$fields->removeFieldFromTab('Root.Metadata', "Keywords"); 
+    	$fields->removeFieldFromTab('Root.Main', "Content");
+    	$fields->addFieldToTab( 'Root.Main', new TextAreaField("MetaKeywords", "Tags"));
+    	$fields->addFieldToTab( 'Root.Main', new TextField("Name", "Supplemental Instruction name (can be the same as page name)"));
+    	$fields->addFieldToTab('Root.Main', new TextField("Location"));
+    	$fields->addFieldToTab('Root.Main', new TextField("Hours"));
+    	$fields->addFieldToTab('Root.Main', new TextField("SessionLeader", "Session Leader"));
+    	$fields->addFieldToTab('Root.Main', new TextAreaField("Content", "Describe the supplemental instruction here"));
+    	$fields->addFieldToTab('Root.Main', new HTMLEditorField("Schedule", "Schedule"));
 
     	
        

@@ -35,6 +35,7 @@ class HomePage extends Page {
 			'getCMSFields_forPopup'
 		));
 		
+		
 		$fields->addFieldToTab("Root.Content.Main", new TextField("FrontPageBlurb", "Front Page Blurb"));
 		$fields->addFieldToTab("Root.Content.Main", new ImageField("MainImage", "Main Image"));
 

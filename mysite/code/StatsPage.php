@@ -13,11 +13,12 @@ class StatsPage extends Page {
    public function getCMSFields() {
         $fields = parent::getCMSFields();
         
-        $fields->removeFieldFromTab('Root.Content.Main', "Content");
-        $fields->addFieldToTab('Root.Content.Main', $tutorCount = new ReadonlyField('Placeholder1', 'Number of tutors in database'));
-        $fields->addFieldToTab('Root.Content.Main', $tutorRequestCount = new ReadonlyField('TutorRequestCount', 'Number of tutor requests made'));
+        $fields->removeFieldFromTab('Root.Main', "Content");
+        $fields->addFieldToTab('Root.Main', $tutorCount = new ReadonlyField('Placeholder1', 'Number of tutors in database'));
+        $fields->addFieldToTab('Root.Main', $tutorRequestCount = new ReadonlyField('TutorRequestCount', 'Number of tutor requests made'));
               
-        $set = DataObject::get("TutorPage");
+        //$set = DataObject::get("TutorPage");
+        $set = TutorPage::get(); 
         $count = $set->Count();
         $tutorCount->setValue($count);
                 

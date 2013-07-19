@@ -61,28 +61,29 @@ class TutorPage extends Page {
     
     	$fields = parent::getCMSFields();
     	
-    	$members = DataObject::get("Member");
+    	//$members = DataObject::get("Member");
+    	$members = Member::get(); 
     	$membersDropdownSource = $members->toDropDownMap('ID','Email');
              
-        $fields->removeFieldFromTab('Root.Content.Metadata', "Keywords"); 
-        $fields->removeFieldFromTab('Root.Content.Main', "Content");
-        $fields->addFieldToTab( 'Root.Content.Main', new TextField("FirstName", "First name of tutor"));
-        $fields->addFieldToTab( 'Root.Content.Main', new TextField("Surname", "Last name of tutor"));
-        $fields->addFieldToTab( 'Root.Content.Main', new TextField("PhoneNo", "Phone Number"));
-        $fields->addFieldToTab( 'Root.Content.Main', new TextField("Email"));
-        $fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("MetaKeywords", "Tags"));
-        $fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("Content", "Biography"));
-        $fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("Hours", "Availability"));
+        $fields->removeFieldFromTab('Root.Metadata', "Keywords"); 
+        $fields->removeFieldFromTab('Root.Main', "Content");
+        $fields->addFieldToTab( 'Root.Main', new TextField("FirstName", "First name of tutor"));
+        $fields->addFieldToTab( 'Root.Main', new TextField("Surname", "Last name of tutor"));
+        $fields->addFieldToTab( 'Root.Main', new TextField("PhoneNo", "Phone Number"));
+        $fields->addFieldToTab( 'Root.Main', new TextField("Email"));
+        $fields->addFieldToTab( 'Root.Main', new TextAreaField("MetaKeywords", "Tags"));
+        $fields->addFieldToTab( 'Root.Main', new TextAreaField("Content", "Biography"));
+        $fields->addFieldToTab( 'Root.Main', new TextAreaField("Hours", "Availability"));
 
-        $fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("Notes", "Approved Courses And Notes"));
-        $fields->addFieldToTab( 'Root.Content.Main', new DateField("StartDate", "Date you plan to start tutoring"));
-        $fields->addFieldToTab( 'Root.Content.Main', new DateField("EndDate", "Date you expect to stop tutoring"));
-        $fields->addFieldToTab( 'Root.Content.Main', new TextField("HourlyRate", "Hourly rate"));
-        $fields->addFieldToTab( 'Root.Content.Main', new TextField("MeetingPreference", "Meeting preference (on-campus or off-campus)"));
-        $fields->addFieldToTab( 'Root.Content.Main', new TextField("UniversityID", "University ID"));
-        $fields->addFieldToTab( 'Root.Content.Main', new TextField("Major"));
-        $fields->addFieldToTab( 'Root.Content.Main', new TextField("AcademicStatus", "Academic Status"));
-        $fields->addFieldToTab('Root.Content.Advanced', new DropdownField("MemberID", "Associated User", $membersDropdownSource));                                   
+        $fields->addFieldToTab( 'Root.Main', new TextAreaField("Notes", "Approved Courses And Notes"));
+        $fields->addFieldToTab( 'Root.Main', new DateField("StartDate", "Date you plan to start tutoring"));
+        $fields->addFieldToTab( 'Root.Main', new DateField("EndDate", "Date you expect to stop tutoring"));
+        $fields->addFieldToTab( 'Root.Main', new TextField("HourlyRate", "Hourly rate"));
+        $fields->addFieldToTab( 'Root.Main', new TextField("MeetingPreference", "Meeting preference (on-campus or off-campus)"));
+        $fields->addFieldToTab( 'Root.Main', new TextField("UniversityID", "University ID"));
+        $fields->addFieldToTab( 'Root.Main', new TextField("Major"));
+        $fields->addFieldToTab( 'Root.Main', new TextField("AcademicStatus", "Academic Status"));
+        $fields->addFieldToTab('Root.Advanced', new DropdownField("MemberID", "Associated User", $membersDropdownSource));                                   
        
         return $fields;
         
@@ -103,7 +104,7 @@ class TutorPage extends Page {
 	    }
 	    
 	    if($splitKeywords){
-			$keywordsList = new DataObjectSet(); 
+			$keywordsList = new ArrayList(); 
 			foreach($splitKeywords as $data) { 
 				$do=new DataObject(); 
 				$do->Keyword = $data; 
@@ -114,7 +115,8 @@ class TutorPage extends Page {
     }
      
     public function getEmails(){
-	    return DataObject::get("MemberManagement");
+	    //return DataObject::get("MemberManagement");
+	    return MemberManagement::get(); 
     }
     
     
@@ -123,7 +125,8 @@ class TutorPage extends Page {
     	    //When a user registers, the tutor is put under the "Provisional Tutors" TutorHolder in the CMS.  When the tutor is published, they are moved to the "Private Tutors" TutorHolder.  changeParent handles the moving of the tutorpage. 
     	    
     
-		 $tutorParent = DataObject::get_one('TutorHolder', "Title = 'Private Tutors'"); 
+		 //$tutorParent = DataObject::get_one('TutorHolder', "Title = 'Private Tutors'"); 
+		 $tutorParent = TutorHolder::get()->filter(array('Title' => 'Private Tutors'));
 		 
 		 //$parent = $this->getParent();
 		 
@@ -178,7 +181,8 @@ Best,<br>
 
 The Tutor Iowa Team"; 
 
-			$emailHolder = DataObject::get_one("EmailHolder");
+			//$emailHolder = DataObject::get_one("EmailHolder");
+			$emailHolder = EmailHolder::get()->first(); 
 			$body = $emailHolder->RegistrationConfirm;
 		    
 		    
@@ -251,13 +255,13 @@ class TutorPage_Controller extends Page_Controller {
     function ContactForm(){
      
      	
-	   	$fields = new FieldSet(
+	   	$fields = new FieldList(
 	   	new TextField('Email', '<span>*</span> Your Email Address'),
 	   	new TextAreaField('Body',  '<span>*</span> Your Message to '.$this->Member()->FirstName)
 	   
 	   	);
 	   	
-	   	$actions = new FieldSet(
+	   	$actions = new FieldList(
             new FormAction('doContactTutor', 'Contact Tutor')
             
         );
@@ -305,7 +309,8 @@ class TutorPage_Controller extends Page_Controller {
 		    $email->setBody($body);
 		    $email->send();
 		    
-		    $statspage = DataObject::get_one('StatsPage');
+		    //$statspage = DataObject::get_one('StatsPage');
+		    $statspage = StatsPage::get()->first(); 
 		    $temp = $statspage->TutorRequestCount;
 		    $temp++;
 		   
