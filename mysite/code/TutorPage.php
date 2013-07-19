@@ -63,7 +63,7 @@ class TutorPage extends Page {
     	
     	//$members = DataObject::get("Member");
     	$members = Member::get(); 
-    	$membersDropdownSource = $members->toDropDownMap('ID','Email');
+    	$membersDropdownSource = $members->Map('ID','Email');
              
         $fields->removeFieldFromTab('Root.Metadata', "Keywords"); 
         $fields->removeFieldFromTab('Root.Main', "Content");
