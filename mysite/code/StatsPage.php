@@ -17,7 +17,8 @@ class StatsPage extends Page {
         $fields->addFieldToTab('Root.Main', $tutorCount = new ReadonlyField('Placeholder1', 'Number of tutors in database'));
         $fields->addFieldToTab('Root.Main', $tutorRequestCount = new ReadonlyField('TutorRequestCount', 'Number of tutor requests made'));
               
-        $set = DataObject::get("TutorPage");
+        //$set = DataObject::get("TutorPage");
+        $set = TutorPage::get(); 
         $count = $set->Count();
         $tutorCount->setValue($count);
                 

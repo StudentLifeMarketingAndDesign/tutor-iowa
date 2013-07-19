@@ -61,7 +61,8 @@ class TutorPage extends Page {
     
     	$fields = parent::getCMSFields();
     	
-    	$members = DataObject::get("Member");
+    	//$members = DataObject::get("Member");
+    	$members = Member::get(); 
     	$membersDropdownSource = $members->toDropDownMap('ID','Email');
              
         $fields->removeFieldFromTab('Root.Metadata', "Keywords"); 
@@ -114,7 +115,8 @@ class TutorPage extends Page {
     }
      
     public function getEmails(){
-	    return DataObject::get("MemberManagement");
+	    //return DataObject::get("MemberManagement");
+	    return MemberManagement::get(); 
     }
     
     
@@ -123,7 +125,8 @@ class TutorPage extends Page {
     	    //When a user registers, the tutor is put under the "Provisional Tutors" TutorHolder in the CMS.  When the tutor is published, they are moved to the "Private Tutors" TutorHolder.  changeParent handles the moving of the tutorpage. 
     	    
     
-		 $tutorParent = DataObject::get_one('TutorHolder', "Title = 'Private Tutors'"); 
+		 //$tutorParent = DataObject::get_one('TutorHolder', "Title = 'Private Tutors'"); 
+		 $tutorParent = TutorHolder::get()->filter(array('Title' => 'Private Tutors'));
 		 
 		 //$parent = $this->getParent();
 		 
@@ -178,7 +181,8 @@ Best,<br>
 
 The Tutor Iowa Team"; 
 
-			$emailHolder = DataObject::get_one("EmailHolder");
+			//$emailHolder = DataObject::get_one("EmailHolder");
+			$emailHolder = EmailHolder::get()->first(); 
 			$body = $emailHolder->RegistrationConfirm;
 		    
 		    
@@ -305,7 +309,8 @@ class TutorPage_Controller extends Page_Controller {
 		    $email->setBody($body);
 		    $email->send();
 		    
-		    $statspage = DataObject::get_one('StatsPage');
+		    //$statspage = DataObject::get_one('StatsPage');
+		    $statspage = StatsPage::get()->first(); 
 		    $temp = $statspage->TutorRequestCount;
 		    $temp++;
 		   

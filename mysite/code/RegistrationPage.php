@@ -69,7 +69,8 @@ class RegistrationPage_Controller extends Page_Controller {
     }
     
     public function getEmails(){
-	    return DataObject::get("MemberManagement");
+	    //return DataObject::get("MemberManagement");
+	    return MemberManagement::get(); 
     }
     
     //This function sets the default start and end dates (when they intend to stop tutoring) to be the semester the tutor is currently in (or if the semester is over, the upcoming semester).  
@@ -157,7 +158,8 @@ class RegistrationPage_Controller extends Page_Controller {
           
         $TutorPage = new TutorPage();
         
-        $tutorParent = DataObject::get_one('TutorHolder', "Title = 'Provisional Tutors'"); 
+        //$tutorParent = DataObject::get_one('TutorHolder', "Title = 'Provisional Tutors'"); 
+        $tutorParent = TutorHolder::get()->filter(array('Title' => 'Provisional Tutors'))->first();
         $TutorPage->setParent($tutorParent); //Sets the tutor holder to hold new tutor pages
         
       
@@ -280,7 +282,8 @@ You will soon receive an email regarding further approval procedures.<br>
 
 The Tutor Iowa Team<br>"; 
 
-		$emailHolder = DataObject::get_one("EmailHolder");
+		//$emailHolder = DataObject::get_one("EmailHolder");
+		$emailHolder = EmailHolder::get()->first();
 		$body = $emailHolder->RegistrationRequest;
 	    
         $email = new Email(); 
@@ -293,7 +296,7 @@ The Tutor Iowa Team<br>";
 	    
             
         
-         if($ProfilePage = DataObject::get_one('EditProfilePage'))
+         if($ProfilePage = EditProfilePage::get()->first()) //$ProfilePage = DataObject::get_one('EditProfilePage'))
         {
 	         return Director::redirect($ProfilePage->Link('?success=1'));
         }
