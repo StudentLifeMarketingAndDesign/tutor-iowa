@@ -33,11 +33,11 @@ class DisablePage_Controller extends Page_Controller {
      function DisableForm(){
      
      	
-	   	$fields = new FieldSet(
+	   	$fields = new FieldList(
 	   
 	   	);
 	   	
-	   	$actions = new FieldSet(
+	   	$actions = new FieldList(
             new FormAction('doDisablePage', 'Disable Page')
         );
         
@@ -59,8 +59,8 @@ class DisablePage_Controller extends Page_Controller {
 	    
 		    $IDMember = $CurrentMember->ID;
 	            	
-	        $Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
-		    
+	        //$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
+		    $Tutor = TutorPage::get()->filter(array('MemberID' => '$IDMember'));
 		    include 'EmailArray.php'; //Gets members of security group that should be notified about user registration 
 		    
 		    
@@ -97,7 +97,8 @@ class DisablePage_Controller extends Page_Controller {
 			    Best, <br>
 			    The Tutor Iowa Team<br>"; 
 			    
-			    $emailHolder = DataObject::get_one("EmailHolder");
+			    //$emailHolder = DataObject::get_one("EmailHolder");
+			    $emailHolder = EmailHolder::get()->First(); 
 			    $body = $emailHolder->DisablePage;
 			    
 		        $email = new Email(); 
@@ -141,7 +142,8 @@ class DisablePage_Controller extends Page_Controller {
     	
     	$member = Member::CurrentMember();
     	$IDMember = $member->ID;
-    	$TutorPage = DataObject::get_one("TutorPage", "MemberID = $IDMember");
+    	//$TutorPage = DataObject::get_one("TutorPage", "MemberID = $IDMember");
+    	$TutorPage = TutorPage::get()->filter(array('MemberId' => '$IDMember'))->First();
     	$notTutorPage = !($TutorPage instanceof TutorPage); 
     	return $notTutorPage;
     	

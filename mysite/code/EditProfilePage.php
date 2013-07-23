@@ -44,10 +44,11 @@ class EditProfilePage_Controller extends Page_Controller
 	        //User shouldn't be able to access EditProfileForm unless they're logged in.  If they're not logged in, provide links so that they can login (or register if need be).  
 	        	        
 	        $IDMember = $Member->ID;
-	        $Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
+	        //$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
+	        $Tutor = TutorPage::get()->filter(array('MemberID' => '$IDMember'));
 	        $tagsLabel = '<p>Read the <a href="for-tutors/">For Tutors page</a> to learn more about tags and promoting yourself on Tutor Iowa!</p>';
 	        $changePassLabel = '<p><a href="Security/ChangePassword">Reset your password</a></p>';
-	        $fields = new FieldSet(
+	        $fields = new FieldList(
 	            new TextField('FirstName', '<span>*</span> First Name'),
 	            new TextField('Surname', '<span>*</span> Last Name'),
 	            new CustomEmailField('Email', '<span>*</span> Email'),
@@ -75,7 +76,7 @@ class EditProfilePage_Controller extends Page_Controller
 	        );
 	         
 	        // Create action
-	        $actions = new FieldSet(
+	        $actions = new FieldList(
 	            new FormAction('SaveProfile', 'Save')
 	        );
 	         
@@ -142,7 +143,8 @@ class EditProfilePage_Controller extends Page_Controller
             
             	$IDMember = $CurrentMember->ID;
             	
-            	$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
+            	//$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
+            	$Tutor = TutorPage::get()->filter(array('MemberID' => '$IDMember'));
             	            	           	
                 $form->saveInto($Tutor);                               
                                                 
@@ -159,7 +161,7 @@ class EditProfilePage_Controller extends Page_Controller
                 
                 if ($formDisabled){//If user checked disable page box
                 	
-	                if($DisablePage = DataObject::get_one('DisablePage'))
+	                if($DisablePage= DisablePage::get()->First()) //$DisablePage = DataObject::get_one('DisablePage'))
 	                	{
 	                		
 	                		$parameter = '?ID=' . $Tutor->ID;
@@ -169,7 +171,8 @@ class EditProfilePage_Controller extends Page_Controller
 		            
 		        }
 		        $ID = 92;
-		        $test = DataObject::get_by_id('TutorPage', $ID);
+		        //$test = DataObject::get_by_id('TutorPage', $ID);
+		        $test = TutorPage::get()->byID($ID);
 		        /*
 		        $notSaved = Session::get('ValidationError');
 		        Debug::show($notSaved);
@@ -238,14 +241,15 @@ class EditProfilePage_Controller extends Page_Controller
 		    		    
 		    $userEmail = $CurrentMember->Email;		    
 		    
-		    $Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
-		    
+		    //$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
+		    $Tutor = TutorPage::get()->filter(array('MemberID' => '$IDMember'))->First();
 		    //return Debug::show($IDMember);
 		    
 		    
 		    if (!$Tutor){
 			    Versioned::reading_stage('Stage');
-			    $Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
+			    //$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");
+			    $Tutor = TutorPage::get()->filter(array('MemberID' => '$IDMember'))->First(); 
 		    }		    		  
 		    	  	    
 		    foreach ($emailArray as $recip){ //$emailArray defined in EmailArray.php
@@ -276,7 +280,8 @@ class EditProfilePage_Controller extends Page_Controller
 		    Best, <br>
 		    The Tutor Iowa Team<br>"; 
 		    
-		    $emailHolder = DataObject::get_one("EmailHolder");
+		    //$emailHolder = DataObject::get_one("EmailHolder");
+		    $emailHolder = EmailHolder::get()->first(); 
 		    $body = $emailHolder->EnablePage;
 		    
 	        $email = new Email(); 

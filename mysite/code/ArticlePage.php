@@ -20,11 +20,11 @@ class ArticlePage extends Page {
    public function getCMSFields() {
         $fields = parent::getCMSFields();
      
-        $fields->addFieldToTab('Root.Content.Main', $dateField = new DateField('Date','Article Date (for example: 1/20/2010)'), 'Content');
+        $fields->addFieldToTab('Root.Main', $dateField = new DateField('Date','Article Date (for example: 1/20/2010)'), 'Content');
         $dateField->setConfig('showcalendar', true);
         $dateField->setConfig('dateformat', 'dd/MM/YYYY');
-        $fields->addFieldToTab('Root.Content.Main', new ImageField('Image', 'Image'));
-        $fields->addFieldToTab('Root.Content.Main', new TextField('Author','Author Name'), 'Content');
+        $fields->addFieldToTab('Root.Main', new UploadField('Image', 'Image'));
+        $fields->addFieldToTab('Root.Main', new TextField('Author','Author Name'), 'Content');
      
         return $fields;
     }

@@ -10,8 +10,8 @@ class CustomLoginForm extends MemberLoginForm
         			Session::clear('Saved'); 
         			
         			Versioned::reading_stage('Live');
-        			$tutorPage = DataObject::get_one("TutorPage","MemberID = '".$member->ID."'");
-        			
+        			//$tutorPage = DataObject::get_one("TutorPage","MemberID = '".$member->ID."'");
+        			$tutorPage = TutorPage::get()->filter(array('MemberID' => '$member->ID'))->First();
         			//print_r($tutorPage);
         			
         			

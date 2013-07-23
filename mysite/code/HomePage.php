@@ -26,18 +26,30 @@ class HomePage extends Page {
     
     	$fields = parent::getCMSFields();
     	
-    	$fields->addFieldToTab("Root.Content.EmailSignups", 
+    	$config = GridFieldConfig_RelationEditor::create();
+		$config->getComponentByType('GridFieldDataColumns')->setDisplayFields(array(
+			'EmailAddress'=>'EmailAddress'
+			//'Artist.Title' => 'Artist'
+		)); 
+		$NewsletterPerson = new GridField(
+			'NewsletterPersons',
+			'NewsletterPerson',
+			$this->Members(), 
+			$config
+		);
+		
+    	/*$fields->addFieldToTab("Root.EmailSignups", 
     		 new DataObjectManager(
 			$this,
 			'NewsletterPersons',
 			'NewsletterPerson',
 			array('EmailAddress'=>'EmailAddress'),
 			'getCMSFields_forPopup'
-		));
+		));*/
 		
-		
-		$fields->addFieldToTab("Root.Content.Main", new TextField("FrontPageBlurb", "Front Page Blurb"));
-		$fields->addFieldToTab("Root.Content.Main", new ImageField("MainImage", "Main Image"));
+		$fields->addFieldToTab("Root.EmailSignups", $NewsletterPerson); 
+		$fields->addFieldToTab("Root.Main", new TextField("FrontPageBlurb", "Front Page Blurb"));
+		$fields->addFieldToTab("Root.Main", new UploadField("MainImage", "Main Image"));
 
     
     	return $fields;
@@ -47,8 +59,10 @@ class HomePage extends Page {
  
 class HomePage_Controller extends Page_Controller {
      function LatestNews($num=5) {
-	     $news = DataObject::get_one("ArticleHolder");
-	     return ($news) ? DataObject::get("ArticlePage", "ParentID = $news->ID", "Date DESC", "", $num) : false;
+	     //$news = DataObject::get_one("ArticleHolder");
+	     $news = ArticleHolder::get()->first(); 
+	     //return ($news) ? DataObject::get("ArticlePage", "ParentID = $news->ID", "Date DESC", "", $num) : false;
+	     return ($news) ? AritclePage::get()->filter(array('ParentID' => '$news->ID'))->sort('Date DESC') : false; 
 	  }
 	  
 	  public function NewsletterSignedUp(){

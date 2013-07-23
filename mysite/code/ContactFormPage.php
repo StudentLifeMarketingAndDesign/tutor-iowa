@@ -38,19 +38,20 @@ class ContactFormPage_Controller extends Page_Controller {
 
      	  
      	$tutorID = intval($this->request->getVar('tutor-id'));
-     	$tutor = DataObject::get_by_id("TutorPage", $tutorID);
+     	//$tutor = DataObject::get_by_id("TutorPage", $tutorID);
+     	$tutor = TutorPage::get()->byID($tutorID);
      	
      	
      	if($tutor){
      	
-		   	$fields = new FieldSet(
+		   	$fields = new FieldList(
 		   	new TextField('Email', '<span>*</span> Your Email Address'),
 		   	new TextAreaField('Body',  '<span>*</span> Your Message to '.$tutor->FirstName),
 		   	new HiddenField("TutorID", $tutor->ID)
 		   
 		   	);
 		   	
-		   	$actions = new FieldSet(
+		   	$actions = new FieldList(
 	            new FormAction('doContactTutor', 'Contact Tutor')
 	            
 	        );

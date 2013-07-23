@@ -32,27 +32,40 @@ class HelpLab extends Page {
     {
     
     	$fields = parent::getCMSFields();
-    	  $fields->removeFieldFromTab('Root.Content.Main', "Content"); 
+    	$fields->removeFieldFromTab('Root.Main', "Content"); 
 
-    	$fields->addFieldToTab( 'Root.Content.Main', new TextField("Name", "Help Lab name (can be the same as Page name)"));
+    	$fields->addFieldToTab( 'Root.Main', new TextField("Name", "Help Lab name (can be the same as Page name)"));
 
-    	$fields->addFieldToTab( 'Root.Content.Main', new TextField("Hours"));
-    	$fields->addFieldToTab( 'Root.Content.Main', new TextField("Location"));
-    	$fields->removeFieldFromTab('Root.Content.Metadata', "Keywords"); 
-    	$fields->addFieldToTab( 'Root.Content.Main', new TextAreaField("MetaKeywords", "Tags"));
-    	$fields->addFieldToTab('Root.Content.Main', new TextField("ExtrnlLink", "External link to help lab homepage"));
-       	$fields->addFieldToTab('Root.Content.Main', new TextField("ContactName", "Contact's Name"));
-       	$fields->addFieldToTab('Root.Content.Main', new TextField("ContactEmail", "Contact's Email Address"));
-       	$fields->addFieldToTab('Root.Content.Main', new TextField("ExternalScheduleLink", "External Schedule Link"));
+    	$fields->addFieldToTab( 'Root.Main', new TextField("Hours"));
+    	$fields->addFieldToTab( 'Root.Main', new TextField("Location"));
+    	$fields->removeFieldFromTab('Root.Metadata', "Keywords"); 
+    	$fields->addFieldToTab( 'Root.Main', new TextAreaField("MetaKeywords", "Tags"));
+    	$fields->addFieldToTab('Root.Main', new TextField("ExtrnlLink", "External link to help lab homepage"));
+       	$fields->addFieldToTab('Root.Main', new TextField("ContactName", "Contact's Name"));
+       	$fields->addFieldToTab('Root.Main', new TextField("ContactEmail", "Contact's Email Address"));
+       	$fields->addFieldToTab('Root.Main', new TextField("ExternalScheduleLink", "External Schedule Link"));
 
-    	$fields->addFieldToTab('Root.Content.Main', new TextField("PhoneNo", "Phone Number"));
-    	$fields->addFieldToTab( 'Root.Content.Main', new HTMLEditorField("Description", "Description"));
+    	$fields->addFieldToTab('Root.Main', new TextField("PhoneNo", "Phone Number"));
+    	$fields->addFieldToTab( 'Root.Main', new HTMLEditorField("Description", "Description"));
 
     	
     	
     	$memberArray = DataObject::get('Member', "ID in (select MemberID from Group_Members where GroupID = (select ID from `Group` where title='Content Authors'))");
     	
-    	$MemberTableField = new ManyManyDataObjectManager(
+    	
+    	$config = GridFieldConfig_RelationEditor::create();
+    	$config->getComponentByType('GridFieldDataColumns')->setDisplayFields(array(
+			'Email'=>'Email'
+			//'Artist.Title' => 'Artist'
+		)); 
+		
+		$MemberTableField = new GridField(
+			'Members',
+			'Member',
+			$this->Members(), 
+			$config
+		);
+    	/*$MemberTableField = new ManyManyDataObjectManager(
          $this,
          'Members',
          'Member',
@@ -60,9 +73,9 @@ class HelpLab extends Page {
         'Email' => 'Email'
          ),
          'getCMSFields_forPopup'
-      );
+      );*/
       
-    	$fields->addFieldToTab('Root.Content.HelpLabEditors', $MemberTableField);
+    	$fields->addFieldToTab('Root.HelpLabEditors', $MemberTableField);
        
         return $fields;
         
@@ -125,7 +138,7 @@ class HelpLab_Controller extends Page_Controller {
 	function HelpEditProfileForm(){
 	   $canUserEdit = $this->canUserEditHelpLab();
 	   if ($canUserEdit){
-		   $fields = new FieldSet (
+		   $fields = new FieldList (
 			  	new TextareaField('Description'),
 			    new Textareafield('MetaKeywords', 'Tags'),
 			    new TextField('Location'),
@@ -143,7 +156,7 @@ class HelpLab_Controller extends Page_Controller {
 			    
 			  
 			     
-			    $actions = new FieldSet(
+			    $actions = new FieldList(
 		        new FormAction('HelpLabSaveProfile', 'Save Page')
 		         );
 		            
@@ -151,8 +164,9 @@ class HelpLab_Controller extends Page_Controller {
 		            
 		        $HelpLabID = $this->ID;
 		            
-		        $DisplayedHelpLab = DataObject::get_one("HelpLab", "HelpLab_Live.ID = $HelpLabID");
-		            
+		        //$DisplayedHelpLab = DataObject::get_one("HelpLab", "HelpLab_Live.ID = $HelpLabID");
+		        $DisplayedHelpLab = HelpLab::get()->filter(array('HelpLab_Live.ID' => '$HelpLabID'))->first(); 
+		        
 		        $form->loadDataFrom($DisplayedHelpLab->data());
 	
 		        return $form;
@@ -171,8 +185,8 @@ class HelpLab_Controller extends Page_Controller {
     	    	
 		     $labID = $this->ID;
 		     	   
-		     $MemberLab = DataObject::get_one('HelpLab', "HelpLab_Live.ID=$labID");
-	    	 
+		     //$MemberLab = DataObject::get_one('HelpLab', "HelpLab_Live.ID=$labID");
+	    	 $MemberLab = HelpLab::get()->filter(array('HelpLab_Live.ID' => '$labID'))->first();
 	    	 //return Debug::show($MemberLab);
 	    	 
 	    	 $form->saveInto($MemberLab); 

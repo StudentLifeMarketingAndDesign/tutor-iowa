@@ -32,7 +32,7 @@ class HelpLabEditProfile_Controller extends Page_Controller {
 	}	
 
 	function HelpEditProfileForm(){
-	   $fields = new FieldSet (
+	   $fields = new FieldList (
 		  	new TextareaField('Description'),
 		    new Textareafield('MetaKeywords', 'Tags'),
 		    new TextField('Location'),
@@ -50,7 +50,7 @@ class HelpLabEditProfile_Controller extends Page_Controller {
 		    
 		  
 		     
-		    $actions = new FieldSet(
+		    $actions = new FieldList(
 	        new FormAction('HelpLabSaveProfile', 'Save Page')
 	         );
 	            
@@ -58,7 +58,8 @@ class HelpLabEditProfile_Controller extends Page_Controller {
 	            
 	        $HelpLabID = Session::get("LabID");
 	            
-	        $DisplayedHelpLab = DataObject::get_one("HelpLab", "HelpLab_Live.ID = $HelpLabID");
+	        //$DisplayedHelpLab = DataObject::get_one("HelpLab", "HelpLab_Live.ID = $HelpLabID");
+	        $DisplayedHelpLab = HelpLab::get()->filter(array('HelpLab_Live.ID' => '$HelpLabID'))->first();
 	            
 	        $form->loadDataFrom($DisplayedHelpLab->data());
 
@@ -70,8 +71,8 @@ class HelpLabEditProfile_Controller extends Page_Controller {
     	    	
 	     $labID = Session::get("LabID");
 	   
-	     $MemberLab = DataObject::get_one('HelpLab', "HelpLab_Live.ID=$labID");
-    	 
+	     //$MemberLab = DataObject::get_one('HelpLab', "HelpLab_Live.ID=$labID");
+    	 $DisplayedHelpLab = HelpLab::get()->filter(array('HelpLab_Live.ID' => '$labID'))->first();
     	 //return Debug::show($MemberLab);
     	 
     	 $form->saveInto($MemberLab); 
@@ -97,7 +98,8 @@ class HelpLabEditProfile_Controller extends Page_Controller {
         $temp = $this->request->getVar('ID');
         $id = intval($temp);
         
-        $lab = DataObject::get_by_id("HelpLab", $id);
+        //$lab = DataObject::get_by_id("HelpLab", $id);
+        $lab = HelpLab::get()->byID($id);
         
         return $lab;
  

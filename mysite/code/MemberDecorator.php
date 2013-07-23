@@ -4,7 +4,7 @@
 
 //MemberDecorator is not used on the current site
 
-class MemberDecorator extends DataObjectDecorator {
+class MemberDecorator extends DataExtension {
  	
  	
     //Add extra database fields
