@@ -29,12 +29,11 @@ class HomePage extends Page {
     	$config = GridFieldConfig_RelationEditor::create();
 		$config->getComponentByType('GridFieldDataColumns')->setDisplayFields(array(
 			'EmailAddress'=>'EmailAddress'
-			//'Artist.Title' => 'Artist'
 		)); 
 		$NewsletterPerson = new GridField(
 			'NewsletterPersons',
 			'NewsletterPerson',
-			$this->Members(), 
+			NewsletterPerson::get(), 
 			$config
 		);
 		
