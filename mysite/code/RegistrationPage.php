@@ -40,7 +40,7 @@ class RegistrationPage_Controller extends Page_Controller {
             
             new TextField('FirstName', '<span>*</span> First Name'),
             new TextField('Surname', '<span>*</span> Last Name'),
-            new CustomEmailField('Email', '<span>*</span> UIowa Email Address'),
+            new TextField('Email', '<span>*</span> UIowa Email Address'),
             new ConfirmedPasswordField('Password', '<span>*</span>Choose a Password'),
             new UniversityIDField('UniversityID', 'University ID'),
             new TextField('Major'),

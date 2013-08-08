@@ -36,7 +36,7 @@ class EditProfilePage_Controller extends Page_Controller
  
     function EditProfileForm()
     {	
-	     $Member = Member::CurrentMember();
+	     $Member = Member::CurrentUser();
 	   
 	     Session::clear('Saved'); //Session variable that tracks whether changes were successfully saved 	     
 	     
@@ -87,7 +87,7 @@ class EditProfilePage_Controller extends Page_Controller
 	        $Form = new Form($this, 'EditProfileForm', $fields, $actions, $validator);
 	 
 	        //Get current member
-	        $Member = Member::CurrentMember();
+	        $Member = Member::CurrentUser();
 	              
 	        //Get tutor dataobject to populate form with tutor info (stuff like bio that's stored in tutor table)
 	       	        	        
@@ -121,7 +121,7 @@ class EditProfilePage_Controller extends Page_Controller
     	
     	
         //Check for a logged in member
-        if($CurrentMember = Member::CurrentMember())
+        if($CurrentMember = Member::CurrentUser())
         {
             //Check for another member with the same email address
             if($member = DataObject::get_one("Member", "Email = '". Convert::raw2sql($data['Email']) . "' AND ID != " . $CurrentMember->ID)) 
@@ -233,7 +233,7 @@ class EditProfilePage_Controller extends Page_Controller
     
     	if ($this->request->getVar('enable') == 1){
     	
-		    $CurrentMember = Member::CurrentMember();
+		    $CurrentMember = Member::CurrentUser();
 		    
 		    $IDMember = $CurrentMember->ID;
 
