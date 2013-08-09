@@ -8,13 +8,13 @@
 						     
 						    <h1>$Title</h1>
 						 
-						    <% if Success %>
+						    <% if $Success %>
 						     
 						        <p class="savedMessage">You have successfully registered!  <br><br>
 						        
 						        You will become visible on the Tutor Iowa website after you receive your confirmation email. You must wait for a confirmation email to edit your profile.  </p>
 						        
-						    <% else_if Enable %>
+						    <% else_if $Enable %>
 						    
 						    	We have sent a request to the administrator to enable your account.
 						         
@@ -23,10 +23,10 @@
 						    
 						    	 $EditProfileForm
 						     
-						        <% if Saved %>
+						        <% if $Saved %>
 						             
 						            <p class="savedMessage">Your profile has been saved! </p>
-						         <% else_if notSaved %>
+						         <% else_if $notSaved %>
 						            <span class="message validation">There was an error with your changes (see below). </span>
 						         
 						        <% end_if %>  

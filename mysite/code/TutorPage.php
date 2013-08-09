@@ -126,7 +126,7 @@ class TutorPage extends Page {
     	    
     
 		 //$tutorParent = DataObject::get_one('TutorHolder', "Title = 'Private Tutors'"); 
-		 $tutorParent = TutorHolder::get()->filter(array('Title' => 'Private Tutors'));
+		 $tutorParent = TutorHolder::get()->filter(array('Title' => 'Private Tutors'))->first();
 		 
 		 //$parent = $this->getParent();
 		 

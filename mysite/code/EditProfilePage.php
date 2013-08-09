@@ -44,14 +44,17 @@ class EditProfilePage_Controller extends Page_Controller
 	        //User shouldn't be able to access EditProfileForm unless they're logged in.  If they're not logged in, provide links so that they can login (or register if need be).  
 	        	        
 	        $IDMember = $Member->ID;
+
 	        //$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
-	        $Tutor = TutorPage::get()->filter(array('MemberID' => '$IDMember'));
+	        $Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
+
+	        
 	        $tagsLabel = '<p>Read the <a href="for-tutors/">For Tutors page</a> to learn more about tags and promoting yourself on Tutor Iowa!</p>';
 	        $changePassLabel = '<p><a href="Security/ChangePassword">Reset your password</a></p>';
 	        $fields = new FieldList(
 	            new TextField('FirstName', '<span>*</span> First Name'),
 	            new TextField('Surname', '<span>*</span> Last Name'),
-	            new CustomEmailField('Email', '<span>*</span> Email'),
+	            new TextField('Email', '<span>*</span> Email'),
 	            new LiteralField('ChangePassword', $changePassLabel),
 	            new TextareaField('Content', 'Biography'),
 	            new TextField('Hours'),
@@ -94,7 +97,7 @@ class EditProfilePage_Controller extends Page_Controller
 	        //Information must be loaded from both tutor and member because member stores a member/tutor's password
 	         $Form->loadDataFrom($Member->data());
 	         
-	       
+	         
 	         ///$Check if user is published yet
 	         if ($Tutor instanceof TutorPage){	 //Tutor is published        	
 	         	$Form->loadDataFrom($Tutor->data());   
@@ -119,20 +122,33 @@ class EditProfilePage_Controller extends Page_Controller
     function SaveProfile($data, $form)
     {
     	
+    
     	
         //Check for a logged in member
-        if($CurrentMember = Member::CurrentUser())
+        if($CurrentMember = Member::CurrentUser())      
         {
+        
+        	
+        	        	
             //Check for another member with the same email address
-            if($member = DataObject::get_one("Member", "Email = '". Convert::raw2sql($data['Email']) . "' AND ID != " . $CurrentMember->ID)) 
+            
+            $email = Convert::raw2sql($data['Email']);
+            
+            if($member = DataObject::get_one("Member", "Email = '". Convert::raw2sql($data['Email']) . "' AND ID != " . $CurrentMember->ID))
+             
             {
+            
+            	
+            	
                 $form->addErrorMessage("Email", 'Sorry, an account with that Email address already exists.', "bad");
                 
                 Session::set('Saved', false); //Display error message
+                
+                
                      
                 Session::set("FormInfo.Form_EditProfileForm.data", $data);
                      
-                return Director::redirect($this->Link());
+                return $this->redirect($this->Link());
             
             }
             //Otherwise check that user IDs match and save
@@ -140,11 +156,13 @@ class EditProfilePage_Controller extends Page_Controller
             {
             
             	Session::set('Saved', true); //Changes saved
+            	
+
             
             	$IDMember = $CurrentMember->ID;
             	
             	//$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
-            	$Tutor = TutorPage::get()->filter(array('MemberID' => '$IDMember'));
+            	$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
             	            	           	
                 $form->saveInto($Tutor);                               
                                                 
@@ -166,7 +184,7 @@ class EditProfilePage_Controller extends Page_Controller
 	                		
 	                		$parameter = '?ID=' . $Tutor->ID;
 	                		
-		                	return Director::redirect($DisablePage->Link($parameter));
+		                	return $this->redirect($DisablePage->Link($parameter));
 		                }
 		            
 		        }
@@ -184,7 +202,12 @@ class EditProfilePage_Controller extends Page_Controller
 			        return Director::redirect($this->Link());
 		        }
 		        */
-                return Director::redirect($this->Link());                              
+		        
+		        //$savedValue = Session::get('Saved');
+		        //print_r('Saved ' . $savedValue);
+		        //user_error("breakpoint", E_USER_ERROR);
+		
+                return $this->redirect($this->Link());                              
             }
         }
         //If not logged in then return a permission error
@@ -199,7 +222,8 @@ class EditProfilePage_Controller extends Page_Controller
     //Check for just saved 
     
     function Saved()
-    {
+	{
+		
     	$saved = Session::get('Saved');
     	if ($saved === true){
 	        return true;
@@ -234,6 +258,7 @@ class EditProfilePage_Controller extends Page_Controller
     	if ($this->request->getVar('enable') == 1){
     	
 		    $CurrentMember = Member::CurrentUser();
+
 		    
 		    $IDMember = $CurrentMember->ID;
 
@@ -248,15 +273,16 @@ class EditProfilePage_Controller extends Page_Controller
 		    
 		    if (!$Tutor){
 			    Versioned::reading_stage('Stage');
-			    //$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");
-			    $Tutor = TutorPage::get()->filter(array('MemberID' => '$IDMember'))->First(); 
+			    $Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");
+			    //$Tutor = TutorPage::get()->filter(array('MemberID' => '$IDMember'))->First(); 
 		    }		    		  
 		    	  	    
 		    foreach ($emailArray as $recip){ //$emailArray defined in EmailArray.php
 	        	
 	        	        	
 	        	$subject = "User has requested their account be enabled"; 
-	        	      	
+	        	
+	        		
 	        	$body = $CurrentMember->FirstName . " " . $CurrentMember->Surname . " has requested their account be enabled. " . "Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/show/" . $Tutor->ID . "'>here</a/><br><br>
 		    
 		    Best, <br>

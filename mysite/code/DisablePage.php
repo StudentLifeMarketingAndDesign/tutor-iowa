@@ -25,6 +25,7 @@ class DisablePage_Controller extends Page_Controller {
      
      static $allowed_actions = array(
         'DisableForm',
+        'notPublished'
         
      );
     
@@ -47,7 +48,7 @@ class DisablePage_Controller extends Page_Controller {
     
     function doDisablePage(){
 	    
-	    $CurrentMember = Member::CurrentMember();
+	    $CurrentMember = Member::CurrentUser();
 	    /*
 	    Versioned::set_reading_mode('stage');
 	    $ID = 92;
@@ -136,16 +137,22 @@ class DisablePage_Controller extends Page_Controller {
     }
     
     //Used to check on DisablePage if user has been published yet -- if user has not been published, the disable page form should not appear
-    function notPublished()
+    public function notPublished()
     
     {
     	
-    	$member = Member::CurrentMember();
+    	$member = Member::CurrentUser();
     	$IDMember = $member->ID;
     	//$TutorPage = DataObject::get_one("TutorPage", "MemberID = $IDMember");
-    	$TutorPage = TutorPage::get()->filter(array('MemberId' => '$IDMember'))->First();
-    	$notTutorPage = !($TutorPage instanceof TutorPage); 
-    	return $notTutorPage;
+    	$TutorPage = TutorPage::get()->filter(array('MemberID' => $IDMember))->First();
+
+    	if ($TutorPage instanceof TutorPage){
+    		return false;
+    	}
+    	else {
+	    	return true;
+    	}
+		
     	
     }
 }
