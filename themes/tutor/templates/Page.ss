@@ -74,8 +74,7 @@
 	<a id="cliphead" href="{$BaseHref}"></a>
 				<div id="paper">
 			$Layout
-				
-			</div>
+							</div>
 	</div>
 				
 			</div>

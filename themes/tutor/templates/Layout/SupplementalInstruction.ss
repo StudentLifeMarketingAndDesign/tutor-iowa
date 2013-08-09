@@ -44,24 +44,32 @@
 					
 					
 												
-						<div class="clearfix"></div>
 					
 				
 					</div>
-					<div id="tutor_stats">
+					
 					
 					<% if Hours %>
-					
+					<div id="tutor_stats">
 						<!--<div id="availability">
 							
 								<div class="highlighted">Availability</div>
 								<p>$Hours</p>
 						</div>-->
-					
+					</div>
 					<% end_if %>
 					
+<<<<<<< HEAD
 				
+=======
+					
+				   
+					<div class="clearfix"></div>
+					
+				<% if MetaKeywords %>
+					<% include Tags %>
+				<% end_if %>
+>>>>>>> ed3e78eeab8bd190ee187fb935c87012f036a6b5
 				$ContactForm
-		
 				
 			

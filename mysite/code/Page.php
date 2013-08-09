@@ -248,11 +248,11 @@ public function News($number=3){
 	}
 	
   function getHelpLabs(){
-     $Member = Member::CurrentMember();
+     $Member = Member::CurrentUser();
      if ($Member){
      	$IDMember = $Member->ID;    
      	//$memberLabs = DataObject::get('HelpLab', "HelpLab_Live.ID in (SELECT DISTINCT HelpLabID from  `HelpLab_Members` where MemberID = $IDMember)");
-     	$memberLabs = HelpLab::get("HelpLab_Live.ID in (SELECT DISTINCT HelpLabID from  `HelpLab_Members` where MemberID = $IDMember)");
+     	$memberLabs = HelpLab::get()->where("HelpLab_Live.ID in (SELECT DISTINCT HelpLabID from  `HelpLab_Members` where MemberID = $IDMember)");
      	if ($memberLabs) {
      		return $memberLabs;
      	}
