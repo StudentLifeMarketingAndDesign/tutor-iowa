@@ -142,7 +142,7 @@ class RegistrationPage_Controller extends Page_Controller {
             Session::set("FormInfo.Form_RegistrationForm.data", $data);     
             //Return back to form
             $url = Director::absoluteBaseURL() .'/tutor-application/#AgreeToConditions';
-            return Director::redirect($url);;  
+            return Controller->redirect($url);;  
         }
         
         //Otherwise create new member and log them in
