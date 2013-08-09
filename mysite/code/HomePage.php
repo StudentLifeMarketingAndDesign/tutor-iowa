@@ -33,7 +33,7 @@ class HomePage extends Page {
 		$NewsletterPerson = new GridField(
 			'NewsletterPersons',
 			'NewsletterPerson',
-			NewsletterPerson::get(), 
+			 NewsletterPerson::get(), 
 			$config
 		);
 		
