@@ -321,7 +321,7 @@ class TutorPage_Controller extends Page_Controller {
 		    		    
 	    } 
 	        	
-	    return Director::redirect($this->Link('?sent=1'));   
+	    return $this->redirect($this->Link('?sent=1'));   
 	    	
 	    
     }
