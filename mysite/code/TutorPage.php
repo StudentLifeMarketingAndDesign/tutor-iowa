@@ -5,7 +5,7 @@ class TutorPage extends Page {
  	
     //Add extra database fields
     
-            static $db = array(
+            public static $db = array(
                 "Bio" => "Text",
                 "PhoneNo" => 'Varchar',
                 "Hours" => 'Text',
@@ -35,6 +35,10 @@ class TutorPage extends Page {
              	'Member' => 'Member',
              	'AcademicHelp' => 'AcademicHelp',
              );
+             
+              static $has_many = array(
+		 'FeedbackItems' => 'FeedbackItem'
+   );
              /*
              static $defaults = array(
                 'Disabled' => 'False'
@@ -83,7 +87,12 @@ class TutorPage extends Page {
         $fields->addFieldToTab( 'Root.Main', new TextField("UniversityID", "University ID"));
         $fields->addFieldToTab( 'Root.Main', new TextField("Major"));
         $fields->addFieldToTab( 'Root.Main', new TextField("AcademicStatus", "Academic Status"));
-        $fields->addFieldToTab('Root.Advanced', new DropdownField("MemberID", "Associated User", $membersDropdownSource));                                   
+        $fields->addFieldToTab('Root.Advanced', new DropdownField("MemberID", "Associated User", $membersDropdownSource)); 
+        
+        $gridFieldConfigFeedbackItems = GridFieldConfig_RecordEditor::create(); 
+		$gridfield = new GridField("FeedbackItem", "Feedback Items", $this->FeedbackItems(), $gridFieldConfigFeedbackItems);	
+		$fields->addFieldToTab('Root.FeedbackItems', $gridfield);
+                                  
        
         return $fields;
         
@@ -221,36 +230,40 @@ The Tutor Iowa Team";
      
      //Doesn't run
      /*
-     function onAfterUnpublish(){
-     
-     	user_error("breakpoint", E_USER_ERROR);
-     	
-	     print "<script>alert('THIS IS GETTING CALLED');</script>";
+     function onBeforeUnpublish(){
+          	
+	    // print "<script>alert('THIS IS GETTING CALLED');</script>";
+	    
+	     user_error("breakpoint", E_USER_ERROR);
+	     print_r("HIIIIIIIIIIII");
 	     
 	     $subject = "Your Tutor Iowa page has been disabled";
 		 $body = "You can request your details be edited <a href='" . Director::absoluteBaseURL() . "edit-profile-page'>here</a/> "; 
 		         	 
 		 $email = new Email(); 
-		 $email->setTo("andrew-parker-1@uiowa.edu"); 
-		 $email->setFrom(Email::getAdminEmail()); 
-		 $email->setSubject($subject); 
+		 $email->setTo($this->Email); 
+	     $email->setFrom("tutoriowa@uiowa.edu"); 
+	     $email->setSubject($subject); 
 		 $email->setBody($body);
 		 $email->send(); 
 		 
 		 $this->Approved = 0;
 	     $this->write();
-		 /*
-		 $test = DataObject::get("Member", "Surname='Clashman'");
-		 $test->Surname = "alacabash";
-		 $test->write();
+		 
+		 //$test = DataObject::get("Member", "Surname='Clashman'");
+		 //$test->Surname = "alacabash";
+		 //$test->write();
 		 
 	}
 	*/
+
      
 }
 
 
 class TutorPage_Controller extends Page_Controller { 
+
+	
 
     function ContactForm(){
      
@@ -334,7 +347,13 @@ function Sent(){
 function Saved(){
 	return $this->request->getVar('saved');
     }
-  
+
+function getFeedbackLink(){
+	$linkPage = FeedbackPage::get()->First();
+	$tutorID = $this->ID;
+	$linkText = $linkPage->Link() . '?TutorID=' . $tutorID;
+	return $linkText;
+}  
 		
     
 } 

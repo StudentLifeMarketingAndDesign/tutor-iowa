@@ -953,6 +953,11 @@ form .white{
 	margin-top: 10px;
 	margin-bottom: 20px;
 }
+
+#Form_EditProfileForm .action, #Form_FeedbackForm .action
+{
+float: none;
+}
 .action:active{
 
 	width: 161px;

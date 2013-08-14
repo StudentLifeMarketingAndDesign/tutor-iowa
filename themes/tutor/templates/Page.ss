@@ -10,6 +10,7 @@
 <link href='{$ThemeDir}/css/tutor.css' rel='stylesheet' type='text/css' />
 <link href='{$ThemeDir}/css/forms.css' rel='stylesheet' type='text/css' />
 <link href='{$ThemeDir}/scripts/fancybox/jquery.fancybox.css' rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
 <!--[if IE 7]>
 	<link href='{$ThemeDir}/css/ie7.css' rel='stylesheet' type='text/css' />
@@ -123,8 +124,6 @@ $NewsletterSignUpForm
       
 
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
 <script type="text/javascript" src="{$ThemeDir}/scripts/fancybox/jquery.fancybox.pack.js"></script>
 
 <script type="text/javascript" src="{$ThemeDir}/scripts/jquery.parallax-1.1.js"></script>
@@ -151,6 +150,8 @@ jQuery(document).ready(function(){
 		
 	
 	});	
+	
+	
 	
 
 	

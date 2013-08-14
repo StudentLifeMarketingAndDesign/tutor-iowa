@@ -5,6 +5,7 @@
 						<% if CurrentMember %>
 							<div id="breadcrumbs"><a href="{$BaseHref}">Home</a> > <a href="$currentMemberPage.Link">Your profile</a> > <span class="current">Edit your profile</span></div>
 						
+						    
 						     
 						    <h1>$Title</h1>
 						 
@@ -24,16 +25,28 @@
 						    	 $EditProfileForm
 						     
 						        <% if $Saved %>
-						             
-						            <p class="savedMessage">Your profile has been saved! </p>
+						          <script type="text/javascript">
+						             $('<p class="savedMessage">Your profile has been saved! </p>').insertBefore('#FirstName');
+						           </script>
+
 						         <% else_if $notSaved %>
-						            <span class="message validation">There was an error with your changes (see below). </span>
+						            <script type="text/javascript">
+							            
+							            $('<span class="message validation">There was an error with your changes (see below). </span>').insertBefore('#FirstName');
+							          
+						            </script>
+
+
+						           
+						            <!--<span class="message validation">There was an error with your changes (see below). </span>-->
 						         
 						        <% end_if %>  
 						         
 						  
 						       
 						    <% end_if %>
+						    
+						     $ClearSession
 						 <% else %>
 						 	You must be <a href='{$BaseHref}Security/login'>logged</a> in to edit your profile.  If you do not have an account, register <a href='{$BaseHref}registration-page'>here.</a>
 						 <% end_if %>
@@ -41,5 +54,10 @@
 					</div>
 					<div class="clearfix"></div>
 					
+					
+					
 </div>
 					
+  
+							           
+							        

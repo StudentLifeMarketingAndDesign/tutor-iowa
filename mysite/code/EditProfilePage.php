@@ -38,7 +38,8 @@ class EditProfilePage_Controller extends Page_Controller
     {	
 	     $Member = Member::CurrentUser();
 	   
-	     Session::clear('Saved'); //Session variable that tracks whether changes were successfully saved 	     
+	     //chromephp::log('EditProfileForm start' . Session::get('saved'));
+	       
 	     
 	     if ($Member){	
 	        //User shouldn't be able to access EditProfileForm unless they're logged in.  If they're not logged in, provide links so that they can login (or register if need be).  
@@ -54,7 +55,7 @@ class EditProfilePage_Controller extends Page_Controller
 	        $fields = new FieldList(
 	            new TextField('FirstName', '<span>*</span> First Name'),
 	            new TextField('Surname', '<span>*</span> Last Name'),
-	            new TextField('Email', '<span>*</span> Email'),
+	            new CustomEmailField('Email', '<span>*</span> Email'),
 	            new LiteralField('ChangePassword', $changePassLabel),
 	            new TextareaField('Content', 'Biography'),
 	            new TextField('Hours'),
@@ -65,8 +66,8 @@ class EditProfilePage_Controller extends Page_Controller
 	            new TextField('HourlyRate', 'Hourly Rate'),
 	            new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
 	            new TextField('GPA'),
-	            new TextField('Major'),
 	            new UniversityIDField('UniversityID', 'University ID'),
+	            new TextField('Major'),
 	            new LiteralField('TagsHelpLabel', $tagsLabel),
 
 	            new TextareaField('MetaKeywords', 'Tags'),
@@ -82,6 +83,9 @@ class EditProfilePage_Controller extends Page_Controller
 	        $actions = new FieldList(
 	            new FormAction('SaveProfile', 'Save')
 	        );
+	        
+	      
+	
 	         
 	        // Create action
 	        $validator = new RequiredFields('FirstName', 'Surname', 'Email');
@@ -97,12 +101,13 @@ class EditProfilePage_Controller extends Page_Controller
 	        //Information must be loaded from both tutor and member because member stores a member/tutor's password
 	         $Form->loadDataFrom($Member->data());
 	         
-	         
+	       
 	         ///$Check if user is published yet
 	         if ($Tutor instanceof TutorPage){	 //Tutor is published        	
 	         	$Form->loadDataFrom($Tutor->data());   
 	         }
-	         else { //Not published (disabled and unapproved users).  The enable function is at at the bottom and handles sending the emails 	         	
+	         else { //Not published (disabled and unapproved users).  The enable function is at at the bottom and handles sending the emails
+	         		         	
 		        return 'You must be confirmed as a user by our administrator to edit your profile.  If you have disabled your account, please click <a href="'. Director::baseURL() . $this->URLSegment . '?enable=1' . '">here</a> to have your account re-enabled.';
 		     }
 	      
@@ -121,13 +126,14 @@ class EditProfilePage_Controller extends Page_Controller
     //Save profile
     function SaveProfile($data, $form)
     {
-    	
-    
+    	Session::clear('Saved'); 
+    	//chromephp::log('Enters save profile');
     	
         //Check for a logged in member
         if($CurrentMember = Member::CurrentUser())      
         {
         
+        	//chromephp::log('Current member entered');
         	
         	        	
             //Check for another member with the same email address
@@ -138,16 +144,18 @@ class EditProfilePage_Controller extends Page_Controller
              
             {
             
+            	Session::set('Saved', 0); //Display error message
+                //chromephp::log('After Email error ' . Session::get('saved'));
+                
+               
             	
-            	
-                $form->addErrorMessage("Email", 'Sorry, an account with that Email address already exists.', "bad");
+                $form->addErrorMessage("Email", 'Sorry, an account with that Email address already exists', "bad");
                 
-                Session::set('Saved', false); //Display error message
-                
-                
+                                
                      
                 Session::set("FormInfo.Form_EditProfileForm.data", $data);
-                     
+                
+               
                 return $this->redirect($this->Link());
             
             }
@@ -155,9 +163,10 @@ class EditProfilePage_Controller extends Page_Controller
             else
             {
             
-            	Session::set('Saved', true); //Changes saved
-            	
-
+            	Session::set('Saved', 1); //Changes saved
+            	//chromephp::log('After successful validation ');
+            	//chromephp::log(Session::get('Saved'));
+            	//chromephp::log(Session::get_all());
             
             	$IDMember = $CurrentMember->ID;
             	
@@ -206,7 +215,8 @@ class EditProfilePage_Controller extends Page_Controller
 		        //$savedValue = Session::get('Saved');
 		        //print_r('Saved ' . $savedValue);
 		        //user_error("breakpoint", E_USER_ERROR);
-		
+		        
+		        
                 return $this->redirect($this->Link());                              
             }
         }
@@ -223,9 +233,10 @@ class EditProfilePage_Controller extends Page_Controller
     
     function Saved()
 	{
-		
     	$saved = Session::get('Saved');
-    	if ($saved === true){
+    	//chromephp::log('When Saved gets called ');
+    	//chromephp::log($saved);
+    	if ($saved == 1){
 	        return true;
         }
         else {
@@ -238,13 +249,19 @@ class EditProfilePage_Controller extends Page_Controller
     function notSaved()
     {
     	$saved = Session::get('Saved');
-        if ($saved === false){
+    	//chromephp::log('When notSaved gets called ');
+    	//chromephp::log($saved);
+        if ($saved === 0){
 	        return true;
         }
         else {
 	        return false;
         }
     }   
+    
+    public function ClearSession(){
+	    Session::clear('Saved');
+    }
      
     //Check if user succesfully registered (they are redirected to this page from RegistrationPage.php if registration was successful)
     function Success()

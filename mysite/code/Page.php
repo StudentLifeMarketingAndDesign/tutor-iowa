@@ -25,6 +25,9 @@ class Page extends SiteTree {
 }
 
 class Page_Controller extends ContentController {
+
+
+	
     public function SplitKeywords(){
 	    $keywords = $this->MetaKeywords;
 	    
@@ -221,6 +224,7 @@ public function News($number=3){
 	
 	public function init() {
 		parent::init();
+		//require_once '/Applications/MAMP/htdocs/tutoriowa3/ChromePhp.php';
 		Requirements::block('/cms/css/layout.css'); 
 
 		if (isset($_GET['setTheme'])) {

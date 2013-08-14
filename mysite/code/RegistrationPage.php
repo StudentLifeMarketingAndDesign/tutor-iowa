@@ -62,7 +62,7 @@ class RegistrationPage_Controller extends Page_Controller {
         
         $form = new Form($this, 'RegistrationForm', $fields, $actions, $validator);
         /*We'll disable the spam protection for now and hopefully assume that providing the @uiowa.edu email address will be enough to protect against spam.*/
-        //$protector = SpamProtectorManager::update_form($form, 'Message', null, "Please enter the following words");
+        $protector = SpamProtectorManager::update_form($form, 'Message', null, "Please enter the following words");
 
         
         return $form;      
@@ -133,7 +133,7 @@ class RegistrationPage_Controller extends Page_Controller {
             //Set form data from submitted values
             Session::set("FormInfo.Form_RegistrationForm.data", $data);     
             //Return back to form
-            return Director::redirectBack();;          
+            return $this->redirectBack();          
         }
         
         elseif (!isset($data['AgreeToConditions'])){
@@ -142,7 +142,7 @@ class RegistrationPage_Controller extends Page_Controller {
             Session::set("FormInfo.Form_RegistrationForm.data", $data);     
             //Return back to form
             $url = Director::absoluteBaseURL() .'/tutor-application/#AgreeToConditions';
-            return Controller->redirect($url);;  
+            return $this->redirect($url);;  
         }
         
         //Otherwise create new member and log them in
@@ -298,7 +298,7 @@ The Tutor Iowa Team<br>";
         
          if($ProfilePage = EditProfilePage::get()->first()) //$ProfilePage = DataObject::get_one('EditProfilePage'))
         {
-	         return Director::redirect($ProfilePage->Link('?success=1'));
+	         return $this->redirect($ProfilePage->Link('?success=1'));
         }
         
     }  

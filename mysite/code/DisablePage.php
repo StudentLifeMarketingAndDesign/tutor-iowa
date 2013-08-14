@@ -109,7 +109,7 @@ class DisablePage_Controller extends Page_Controller {
 			    $email->setBody($body); 
 			    $email->send();
 		
-			    return Director::redirect($this->Link('?saved=1'));
+			    return $this->redirect($this->Link('?saved=1'));
 			 }
 			  
 		

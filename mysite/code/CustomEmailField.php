@@ -1,5 +1,6 @@
 <?php 
 class CustomEmailField extends EmailField 
+//Validation errors don't redirect to the specific field b/c I don't know how to do that with a SilverStripe validation error
 { 
    function validate($validator){ 
       parent::validate($validator); //I have verified this still takes care of the standard valid email checking

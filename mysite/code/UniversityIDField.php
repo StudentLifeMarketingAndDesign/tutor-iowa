@@ -2,6 +2,10 @@
 
 class UniversityIDField extends TextField 
 { 
+
+   //adds 'text' class for display purposes on front-end -- not sure why SilverStripe is making me do this 
+   protected $extraClasses = array('text');
+   
    function validate($validator){ 
       parent::validate($validator);
       if(!empty ($this->value)){ 
@@ -10,7 +14,7 @@ class UniversityIDField extends TextField
         $LenTestValue = strlen($testValue);
         if ($LenTestValue != 8){
         	
-        	Session::set('Saved', false);
+        	Session::set('Saved', 0);
         	
 	        $validator->validationError( 
                $this->name, 
