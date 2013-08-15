@@ -32,24 +32,24 @@ class FeedbackPage_Controller extends Page_Controller {
    	  		$tutorID = $getVars['TutorID'];
    	  		$tutorPage = TutorPage::get()->byID($tutorID);
    	  		$firstName = $tutorPage->FirstName;
-   	  		$lastName = $tutorPage->Surname;
+   	  		$surname = $tutorPage->Surname;
    	  		   	  		
    	    }
    	    else {
 	   	    $tutorID = 0;
 	   	    $firstName = '';
-	   	    $lastName = '';
+	   	    $surname = '';
    	    }	  
    	  
 	   	  
 	  $fields = new FieldList(
 	   
 	   //new LabelField("label", "Enter first and last name if your feedback concerns a specific tutor.  If your feedback does not concern a specific person, ignore these fields."),
-	   new TextField('Name'),
-	   new TextField('Email', 'Email Address'),
-	   new TextAreaField('Feedback', '<span>*</span>Feedback'),
-	   new TextField('FirstName', 'First Name (if your feedback is applicable to a specific tutor)', $firstName),
-	   new TextField('Surname', 'Last Name (if your feedback is applicable to a specific tutor)', $lastName),
+	   new TextField('Name', 'Your Name'),
+	   new EmailField('Email', 'Your Email Address'),
+	   new TextAreaField('Feedback', '<span>*</span>Your Feedback'),
+	   new TextField('FirstName', 'Tutor First Name (if your feedback is applicable to a specific tutor)', $firstName), //TUTOR FIRST NAME
+	   new TextField('Surname', 'Tutor Last Name (if your feedback is applicable to a specific tutor)', $surname), //TUTOR SURNAME
 	   new HiddenField('TutorID', 'TutorID',  $tutorID)
 	   );
 	   
@@ -59,12 +59,12 @@ class FeedbackPage_Controller extends Page_Controller {
 	     );
          
         // Create action
-        $validator = new RequiredFields('Feedback');
+        $validator = new RequiredFields('Name', 'Email', 'Feedback');
         
        //Create form
         $Form = new Form($this, 'FeedbackForm', $fields, $actions, $validator);
         
-        //$protector = SpamProtectorManager::update_form($form, 'Message', null, "Please enter the following words");
+        $protector = SpamProtectorManager::update_form($Form, 'Message', null, "Please enter the following words");
         
        
         
@@ -88,24 +88,32 @@ class FeedbackPage_Controller extends Page_Controller {
    	    
    	    $feedback->write();
    	    
-   	    /*print_r($data);
-   	    print_r('TutorID = ' . $data['TutorID']);
-   	    
-   	    user_error("breakpoint", E_USER_ERROR);*/
-
-   	    //For some reason $data['TutorID']
+   	   
    	    if ($data['TutorID'] != 0){
 	    
    	  		$tutorPage = TutorPage::get()->byID($data['TutorID']);
    	  		$tutorPageFeedbackItems = $tutorPage->FeedbackItems();
    	  	   	  		
-   	  		//Think I just need to add to the many side of the one-to-many relationship, but I'm not positive
+   	  		
    	  		$tutorPageFeedbackItems->add($feedback); 
-   	  		//print_r($tutorPageFeedbackItems);
-   	  		//user_error("breakpoint", E_USER_ERROR);
+   	  	
    	  		$tutorPage->write();
 
    	  		
+   	    }
+  	    //If user goes straight to feedback page and wants to give feedback on a specific tutor, try to do that based on Tutor First Name and LastName
+   	    elseif (($data["FirstName"] != '') && ($data["Surname"] != '')){
+   	    	$firstName = $data["FirstName"];
+   	    	$surname = $data["Surname"];
+	   	    $desiredTutor = TutorPage::get()->filter(array('FirstName' => $firstName,
+	   	    												'Surname' => $surname))->First();
+	   	    //print_r($desiredTutor);	
+	   	    if ($desiredTutor){
+	   	    	$tutorPageFeedbackItems = $desiredTutor->FeedbackItems();		
+	   	    	$tutorPageFeedbackItems->add($feedback); 
+	   	    	$desiredTutor->write();
+		   	    
+	   	    }
    	    }
    	    
    	    Session::set('Saved', 1);

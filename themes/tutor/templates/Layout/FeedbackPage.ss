@@ -14,7 +14,10 @@
 						$FeedbackForm
 						
 						<% if $Saved %>
-							<p class="savedMessage">Your profile has been saved! </p>
+							<script type="text/javascript">
+						             $('<p class="savedMessage">Your feedback has been submitted! </p>').insertBefore('#Name');
+						    </script>
+
 						<% end_if %>
 						
 						$ClearSession

@@ -285,5 +285,7 @@ public function News($number=3){
 		 return "HI!!!";
 	 }
 	 
+	
+	 
 }
 

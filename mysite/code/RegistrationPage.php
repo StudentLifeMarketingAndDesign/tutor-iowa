@@ -40,7 +40,7 @@ class RegistrationPage_Controller extends Page_Controller {
             
             new TextField('FirstName', '<span>*</span> First Name'),
             new TextField('Surname', '<span>*</span> Last Name'),
-            new TextField('Email', '<span>*</span> UIowa Email Address'),
+            new CustomEmailField('Email', '<span>*</span> UIowa Email Address'),
             new ConfirmedPasswordField('Password', '<span>*</span>Choose a Password'),
             new UniversityIDField('UniversityID', 'University ID'),
             new TextField('Major'),
@@ -62,7 +62,7 @@ class RegistrationPage_Controller extends Page_Controller {
         
         $form = new Form($this, 'RegistrationForm', $fields, $actions, $validator);
         /*We'll disable the spam protection for now and hopefully assume that providing the @uiowa.edu email address will be enough to protect against spam.*/
-        $protector = SpamProtectorManager::update_form($form, 'Message', null, "Please enter the following words");
+        //$protector = SpamProtectorManager::update_form($form, 'Message', null, "Please enter the following words");
 
         
         return $form;      
@@ -130,6 +130,7 @@ class RegistrationPage_Controller extends Page_Controller {
         {
             //Set error message
             $form->AddErrorMessage('Email', "Sorry, that email address already exists. Please choose another.", 'bad');
+            //$form->sessionMessage('There was a problem with your registration submission.', 'bad');
             //Set form data from submitted values
             Session::set("FormInfo.Form_RegistrationForm.data", $data);     
             //Return back to form
@@ -195,6 +196,7 @@ class RegistrationPage_Controller extends Page_Controller {
         //$emailArray = DataObject::get('Member', "ID in (select MemberID from Group_Members where GroupID = (select ID from `Group` where title='Content Authors'))");
         
         include 'EmailArray.php'; //Gets members of security group that should be notified about user registration 
+        
         
         $userEmail = $Member->Email; //used in body of email, not really necessary
         
@@ -293,7 +295,7 @@ The Tutor Iowa Team<br>";
 	    $email->setBody($body); 
 	    $email->send();  
 	    
-	    
+	    Session::set('Saved', 1);
             
         
          if($ProfilePage = EditProfilePage::get()->first()) //$ProfilePage = DataObject::get_one('EditProfilePage'))
@@ -302,6 +304,8 @@ The Tutor Iowa Team<br>";
         }
         
     }  
+    
+    
     
    
    

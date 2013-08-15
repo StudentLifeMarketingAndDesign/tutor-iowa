@@ -9,6 +9,7 @@
 						$RegistrationForm
 						<% end_if %>
 						
+						
 						<br><br><br>
 						
 					</div>
