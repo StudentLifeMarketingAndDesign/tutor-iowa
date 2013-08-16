@@ -124,8 +124,8 @@ class RecaptchaField extends SpamProtectorField {
 		'tr',
 	);
 	
-	function __construct($name, $title = null, $value = null, $form = null, $rightTitle = null) {
-		parent::__construct($name, $title, $value, $form, $rightTitle);
+	function __construct($name, $title = null, $value = null) {
+		parent::__construct($name, $title, $value);
 		
 		$this->jsOptions = self::$js_options;
 		
@@ -134,7 +134,7 @@ class RecaptchaField extends SpamProtectorField {
 		if(in_array($lang, self::$valid_languages)) $this->jsOptions['lang'] = $lang;
 	}
 	
-	public function Field() {
+	public function Field($properties=array()) {
 		if(empty(self::$public_api_key) || empty(self::$private_api_key)) {
 			user_error('RecaptchaField::FieldHolder() Please specify valid Recaptcha Keys', E_USER_ERROR);
 		}
@@ -148,9 +148,9 @@ class RecaptchaField extends SpamProtectorField {
 				. "var RecaptchaOptions = " . $this->getJsOptionsString()
 				. "//]]></script>";
 		}
-		
-		$previousError = Session::get("FormField.{$this->form->FormName()}.{$this->Name()}.error");
-		Session::clear("FormField.{$this->form->FormName()}.{$this->Name()}.error");
+
+		$previousError = Session::get("FormField.{$this->form->FormName()}.{$this->getName()}.error");
+		Session::clear("FormField.{$this->form->FormName()}.{$this->getName()}.error");
 
 		// iframe (fallback)
 		$iframeURL = ($this->useSSL) ? 'https://' : 'http://';
@@ -171,7 +171,7 @@ class RecaptchaField extends SpamProtectorField {
 				<script type="text/javascript">
 					//<![CDATA[
 					Recaptcha.create("' . self::$public_api_key . '",
-					"' . $this->Name() . '", {
+					"' . $this->getName() . '", {
 					   callback: Recaptcha.focus_response_field
 					});
 				//]]>
@@ -195,7 +195,7 @@ class RecaptchaField extends SpamProtectorField {
 		return $html;
 	}
 	
-	function FieldHolder() {
+	function FieldHolder($properties=array()) {
 		$Title = $this->XML_val('Title');
 		$Message = $this->XML_val('Message');
 		$MessageType = $this->XML_val('MessageType');
@@ -251,7 +251,6 @@ HTML;
 				_t(
 					'RecaptchaField.EMPTY', 
 					"Please answer the captcha question",
-					PR_MEDIUM,
 					"Recaptcha (http://recaptcha.net) provides two words in an image, and expects a user to type them in a textfield"
 				), 
 				"validation", 
@@ -268,7 +267,6 @@ HTML;
 				_t(
 					'RecaptchaField.NORESPONSE',
 					"The recaptcha service gave no response. Please try again later.",
-					PR_MEDIUM,
 					"Recaptcha (http://recaptcha.net) provides two words in an image, and expects a user to type them in a textfield"
 				), 
 				"validation", 
@@ -281,19 +279,20 @@ HTML;
 		list($isValid, $error) = explode("\n", $response, 2);
 
 		if($isValid != 'true') {
-			if(trim($error) != 'incorrect-captcha-sol') {
+			// Count some errors as "user level", meaning they raise a validation error rather than a system error
+			$userLevelErrors = array('incorrect-captcha-sol', 'invalid-request-cookie');
+			if(!in_array(trim($error), $userLevelErrors)) {
 				user_error("RecatpchaField::validate(): Recaptcha-service error: '{$error}'", E_USER_ERROR);
 				return false;
 			} else {
 				// Internal error-string returned by recaptcha, e.g. "incorrect-captcha-sol". 
 				// Used to generate the new iframe-url/js-url after form-refresh.
-				Session::set("FormField.{$this->form->FormName()}.{$this->Name()}.error", trim($error)); 
+				Session::set("FormField.{$this->form->FormName()}.{$this->getName()}.error", trim($error)); 
 				$validator->validationError(
 					$this->name, 
 					_t(
 						'RecaptchaField.VALIDSOLUTION', 
 						"Your answer didn't match the captcha words, please try again",
-						PR_MEDIUM,
 						"Recaptcha (http://recaptcha.net) provides two words in an image, and expects a user to type them in a textfield"
 					), 
 					"validation", 

@@ -30,6 +30,28 @@ FulltextSearchable::enable();
 
 Director::set_environment_type("dev");
 
-PageComment::enableModeration();
+// Set the site locale
+i18n::set_locale('en_US');
+
+// enable nested URLs for this site (e.g. page/sub-page/)
+SiteTree::enable_nested_urls();
+
+//Added by Drew
+FulltextSearchable::enable();
+
+Director::set_environment_type("dev");
+
+error_reporting(E_ALL);
+
+Security::setDefaultAdmin('admin', 'nimlok');
+
+
+
+//Object::add_extension('EmailField', 'CustomEmailField');
+SpamProtectorManager::set_spam_protector("RecaptchaProtector");
+
+RecaptchaField::$public_api_key = '6LcjsAgAAAAAAD6MXE7QNLusIBMajgpfK_EWjL3C';
+RecaptchaField::$private_api_key = '6LcjsAgAAAAAAJNAXp7BiEvEas6scIeWzQdaS87c';
+
 
 //Object::add_extension('Member', 'MemberDecorator');
