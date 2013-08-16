@@ -302,7 +302,7 @@ class EditProfilePage_Controller extends Page_Controller
 	        	$subject = "User has requested their account be enabled"; 
 	        	
 	        		
-	        	$body = $CurrentMember->FirstName . " " . $CurrentMember->Surname . " has requested their account be enabled. " . "Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/show/" . $Tutor->ID . "'>here</a/><br><br>
+	        	$body = $CurrentMember->FirstName . " " . $CurrentMember->Surname . " has requested their account be enabled. " . "Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/pages/edit/show/" . $Tutor->ID . "'>here</a/><br><br>
 		    
 		    Best, <br>
 		    The Tutor Iowa Team<br>";        	

@@ -207,10 +207,10 @@ class RegistrationPage_Controller extends Page_Controller {
 	        	$subject = "TutorIowa Application Notification";
 	        	$body = "Administrator,<br><br>The following individual has registered to be a tutor on Tutor Iowa:<br><br>" . "Name: " . $Member->FirstName . " " . $Member->Surname . 
 	        	"<br> Email: " . $TutorPage->Email . "<br> University ID: " . $TutorPage->UniversityID . "<br>Major: " . $TutorPage->Major . "        	
-	        	<br><br>Confirm user <a href='" . Director::absoluteBaseURL() . "admin/show/" . $TutorPage->ID . "'>here </a/>";  
+	        	<br><br>Confirm user <a href='" . Director::absoluteBaseURL() . "admin/pages/edit/show/" . $TutorPage->ID . "'>here </a/>";  
 	        	
 	        	
-	        	//Confirm user  <a href='http://localhost/admin/show/". $TutorPage->ID . "'>here </a/>";      	
+	        	//Confirm user  <a href='http://localhost/admin/pages/edit/show/". $TutorPage->ID . "'>here </a/>";      	
 	        	//$headers = "From: Tutor Iowa";       	
 		        //mail($recip->Email, $subject, $body);
 		        
