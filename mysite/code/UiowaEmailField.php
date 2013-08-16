@@ -1,5 +1,5 @@
 <?php 
-class CustomEmailField extends EmailField 
+class UiowaEmailField extends EmailField 
 //Validation errors don't redirect to the specific field b/c I don't know how to do that with a SilverStripe validation error
 { 
    function validate($validator){ 

@@ -34,15 +34,15 @@ class RegistrationPage_Controller extends Page_Controller {
     );
      
     //Generate the registration form
-    function RegistrationForm()
+    public function RegistrationForm()
     {
         $fields = new FieldList(
             
             new TextField('FirstName', '<span>*</span> First Name'),
             new TextField('Surname', '<span>*</span> Last Name'),
-            new CustomEmailField('Email', '<span>*</span> UIowa Email Address'),
+            new EmailField('Email', '<span>*</span> UIowa Email Address'),
             new ConfirmedPasswordField('Password', '<span>*</span>Choose a Password'),
-            new UniversityIDField('UniversityID', 'University ID'),
+            new UniversityIDField('UniversityID', '<span>*</span>University ID'),
             new TextField('Major'),
             new TextField('GPA'),
             new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
@@ -58,11 +58,11 @@ class RegistrationPage_Controller extends Page_Controller {
             new FormAction('doRegister', 'Register')
         );
         // Create action
-        $validator = new RequiredFields('FirstName', 'Surname', 'Email', 'Password');
+        $validator = new RequiredFields('FirstName', 'Surname', 'Email', 'Password', 'UniversityID');
         
         $form = new Form($this, 'RegistrationForm', $fields, $actions, $validator);
         /*We'll disable the spam protection for now and hopefully assume that providing the @uiowa.edu email address will be enough to protect against spam.*/
-        //$protector = SpamProtectorManager::update_form($form, 'Message', null, "Please enter the following words");
+        $protector = SpamProtectorManager::update_form($form, 'Message', null, "Please enter the following words");
 
         
         return $form;      
