@@ -55,7 +55,7 @@ class EditProfilePage_Controller extends Page_Controller
 	        $fields = new FieldList(
 	            new TextField('FirstName', '<span>*</span> First Name'),
 	            new TextField('Surname', '<span>*</span> Last Name'),
-	            new CustomEmailField('Email', '<span>*</span> Email'),
+	            new EmailField('Email', '<span>*</span> Email'),
 	            new LiteralField('ChangePassword', $changePassLabel),
 	            new TextareaField('Content', 'Biography'),
 	            new TextField('Hours'),
