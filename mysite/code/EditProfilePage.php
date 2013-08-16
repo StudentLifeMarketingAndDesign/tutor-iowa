@@ -171,11 +171,13 @@ class EditProfilePage_Controller extends Page_Controller
             	$IDMember = $CurrentMember->ID;
             	
             	//$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember"); 
+            	
             	$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
-            	            	           	
-                $form->saveInto($Tutor);                               
+            
+                $form->saveInto($Tutor);  
+                                          
                                                 
-                $Tutor->writeToStage("Stage");
+                $Tutor->write();
                
                 $Tutor->publish("Stage","Live");
                                            
