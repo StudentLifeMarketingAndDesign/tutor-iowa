@@ -29,20 +29,6 @@ SiteTree::enable_nested_urls();
 FulltextSearchable::enable();
 
 Director::set_environment_type("dev");
-
-// Set the site locale
-i18n::set_locale('en_US');
-
-// enable nested URLs for this site (e.g. page/sub-page/)
-SiteTree::enable_nested_urls();
-
-//Added by Drew
-FulltextSearchable::enable();
-
-Director::set_environment_type("dev");
-
-error_reporting(E_ALL);
-
 Security::setDefaultAdmin('admin', 'nimlok');
 
 
