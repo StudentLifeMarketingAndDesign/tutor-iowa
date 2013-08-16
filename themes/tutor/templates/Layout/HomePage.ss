@@ -29,10 +29,6 @@
 										<% control Page(supplemental-instructions) %>
 										<h4><a href="$Link">$Title</a></h4>
 										<p>
-
-											
-										 
-
 											<div class="thumb" style="background-image: 
 											
 											url(<% control Image %> 
@@ -103,7 +99,7 @@
 										<div id="news"></div>
 										<% control News %>
 										<h4><a href="$Link">$Title</a></h4>
-										<p class = "news-details-Hpage">Posted on: $Date.Nice</p> 
+										<!--<p class = "news-details-Hpage">Posted on: $Date.Nice</p>-->
 										<p>$Content.Summary(20)</p>
 										<div class="button"><a href="$Link">See More</a></div>
 										<% end_control %>
