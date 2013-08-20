@@ -175,11 +175,25 @@ class EditProfilePage_Controller extends Page_Controller
             	$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
             
                 $form->saveInto($Tutor);  
-                                          
-                                                
+                
+                /*Preserve this code, for it works the magic of SilverStripe 3 publishing*/
+                Versioned::reading_stage('stage');
+                
+                $Tutor->writeToStage('Stage');
+              
+                $Tutor->publish("Stage", "Live");
+                
+                Versioned::reading_stage('Live');
+                
                 $Tutor->write();
-               
-                $Tutor->publish("Stage","Live");
+                
+                
+                //$Tutor->write();	
+                
+                
+                //$Tutor->doPublish();
+                
+           
                                            
                 $form->saveInto($CurrentMember); 
                  
