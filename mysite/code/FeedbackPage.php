@@ -160,14 +160,19 @@ class FeedbackPage_Controller extends Page_Controller {
           	
     	//$headers = "From: Tutor Iowa";       	
         //mail($recip->Email, $subject, $body);
-      	        
-         $email = new Email(); 
-         $email->setTo('drewmpark@gmail.com'); 
-         $email->setFrom($userEmail); 
-         $email->setSubject($subject); 
-         $email->setBody($body); 
-         $email->send(); 
-
+        
+         include 'EmailArray.php';
+         
+        foreach ($emailArray as $recip){ //emailArray defined in EmailArray.php
+	      	        
+	         $email = new Email(); 
+	         $email->setTo($recip->Email); 
+	         $email->setFrom($userEmail); 
+	         $email->setSubject($subject); 
+	         $email->setBody($body); 
+	         $email->send(); 
+	        
+         }
             	    
    	    Session::set('Saved', 1);
    	    
