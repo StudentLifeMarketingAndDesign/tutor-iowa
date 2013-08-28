@@ -225,64 +225,6 @@ class RegistrationPage_Controller extends Page_Controller {
 		}
 	    
 	    $subject = "TutorIowa Application Confirmation";
-	    $body = "Thank you for registering to be a tutor on Tutor Iowa.<br> <br>
-
- 
-
-In order to be approved as a tutor and be published on the Tutor Iowa website, you must attend one 50-minute Tutor Iowa Orientation workshop.  Here is a list of dates and locations for these orientations:<br><br>
-
- 
-
-Tuesday, August 21 (5-5:50 p.m.)                              114 BHC<br>
-
-Thursday, August 23 (5-5:50 p.m.)                            E224 CB<br>
-
-Sunday, August 26 (6-6:50 p.m.)                                114 BHC<br>
-
-Monday, August 27 (10:30-11:20 a.m.)                   C10 PC<br>
-
-Wednesday, August 29 (12:30-1:20 p.m.)               E224 CB<br>
-
-Wednesday, September 5 (4:30-5:20 p.m.)          114 BHC<br>
-
-Thursday, September 6 (2-2:50 p.m.)                      C139 PC<br>
-
-Monday, September 10 (3:30-4:20 p.m.)               215 NH<br>
-
-Tuesday, September 11 (3:30-4:20 p.m.)               114 BHC<br>
-
-Friday, September 14 (12:30-1:20 p.m.)                 E224 CB<br>
-
-Tuesday, September 18 (12:30-1:20 p.m.)             114 BHC<br>
-
-Wednesday, October 3 (11:30-12:20 p.m.)            114 BHC<br>
-
-Thursday, October 4 (3:30-4:20 p.m.)                      224 NH<br>
-
-Monday, October 8 (1:30-2:20 p.m.)                        114 BHC<br>
-
-Tuesday, October 16 (3:30-4:20 p.m.)                     E224 CB<br>
-
-Monday, October 22 (1:30-2:20 p.m.)                     114 BHC<br>
-
-Tuesday, October 30 (3:30-4:20 p.m.)                     E224 CB<br>
-
-Monday, Sept. 24 (4:30-5:20 p.m.), 134 BHC <br>
-
-Tuesday, Sept 25 (2-2:50 p.m.), 134 BHC<br>
-<br>
-
- 
-
-You will soon receive an email regarding further approval procedures.<br>
-
- As a reminder, you will not receive full access to edit your profile until you have been approved as a tutor.<br>
-
- 
-
- Best,<br>
-
-The Tutor Iowa Team<br>"; 
 
 		//$emailHolder = DataObject::get_one("EmailHolder");
 		$emailHolder = EmailHolder::get()->first();

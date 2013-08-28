@@ -97,7 +97,7 @@
 								<div class="left_edge">
 									<div class="white">
 										<div id="news"></div>
-										<% control News %>
+										<% control LatestNews %>
 										<h4><a href="$Link">$Title</a></h4>
 										<!--<p class = "news-details-Hpage">Posted on: $Date.Nice</p>-->
 										<p>$Content.Summary(20)</p>

@@ -59,9 +59,10 @@ class HomePage extends Page {
 class HomePage_Controller extends Page_Controller {
      function LatestNews($num=5) {
 	     //$news = DataObject::get_one("ArticleHolder");
-	     $news = ArticleHolder::get()->first(); 
+	     $news = ArticlePage::get()->sort('Date DESC')->limit($num); 
 	     //return ($news) ? DataObject::get("ArticlePage", "ParentID = $news->ID", "Date DESC", "", $num) : false;
-	     return ($news) ? ArticlePage::get()->filter(array('ParentID' => '$news->ID'))->sort('Date DESC') : false; 
+	     return $news; 
+
 	  }
 	  
 	  public function NewsletterSignedUp(){
