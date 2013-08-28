@@ -175,11 +175,25 @@ class EditProfilePage_Controller extends Page_Controller
             	$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
             
                 $form->saveInto($Tutor);  
-                                          
-                                                
+                
+                /*Preserve this code, for it works the magic of SilverStripe 3 publishing*/
+                Versioned::reading_stage('stage');
+                
+                $Tutor->writeToStage('Stage');
+              
+                $Tutor->publish("Stage", "Live");
+                
+                Versioned::reading_stage('Live');
+                
                 $Tutor->write();
-               
-                $Tutor->publish("Stage","Live");
+                
+                
+                //$Tutor->write();	
+                
+                
+                //$Tutor->doPublish();
+                
+           
                                            
                 $form->saveInto($CurrentMember); 
                  
@@ -302,7 +316,7 @@ class EditProfilePage_Controller extends Page_Controller
 	        	$subject = "User has requested their account be enabled"; 
 	        	
 	        		
-	        	$body = $CurrentMember->FirstName . " " . $CurrentMember->Surname . " has requested their account be enabled. " . "Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/show/" . $Tutor->ID . "'>here</a/><br><br>
+	        	$body = $CurrentMember->FirstName . " " . $CurrentMember->Surname . " has requested their account be enabled. " . "Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/pages/edit/show/" . $Tutor->ID . "'>here</a/><br><br>
 		    
 		    Best, <br>
 		    The Tutor Iowa Team<br>";        	

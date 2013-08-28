@@ -91,7 +91,8 @@ class FeedbackPage_Controller extends Page_Controller {
    	   
    	    if ($data['TutorID'] != 0){
 	    
-   	  		$tutorPage = TutorPage::get()->byID($data['TutorID']);
+	    	$tutorID = Convert::raw2sql($data['TutorID']);
+   	  		$tutorPage = TutorPage::get()->byID($tutorID);
    	  		$tutorPageFeedbackItems = $tutorPage->FeedbackItems();
    	  	   	  		
    	  		
@@ -103,8 +104,8 @@ class FeedbackPage_Controller extends Page_Controller {
    	    }
   	    //If user goes straight to feedback page and wants to give feedback on a specific tutor, try to do that based on Tutor First Name and LastName
    	    elseif (($data["FirstName"] != '') && ($data["Surname"] != '')){
-   	    	$firstName = $data["FirstName"];
-   	    	$surname = $data["Surname"];
+   	    	$firstName = Convert::raw2sql($data['FirstName']);
+   	    	$surname = Convert::raw2sql($data['Surname']);
 	   	    $desiredTutor = TutorPage::get()->filter(array('FirstName' => $firstName,
 	   	    												'Surname' => $surname))->First();
 	   	    //print_r($desiredTutor);	
@@ -116,6 +117,63 @@ class FeedbackPage_Controller extends Page_Controller {
 	   	    }
    	    }
    	    
+   	            	
+    	$subject = "Feedback submitted"; 
+    	
+    	$name = Convert::raw2sql($data['Name']);
+    	$userEmail = Convert::raw2sql($data['Email']);
+    	$feedback = Convert::raw2sql($data['Feedback']);
+    	$tutorFirstName = Convert::raw2sql($data['FirstName']);
+    	$tutorLastName = Convert::raw2sql($data['LastName']);
+
+		
+    	$body = '' . $name . " has submitted feedback. " . "<br><br>Feedback:" . $feedback;
+    	
+    	if (($tutorFirstName != '') || ($tutorLastName != '')){
+        	$body .= '<br><br>' . 'Tutor First Name: ' . $tutorFirstName . '<br><br>' . 'Tutor Last Name :' . $tutorLastName;
+    	}
+    	
+    	if (isset($tutorPage))
+    	{
+    	   if ($tutorPage){
+	    	   $tutorID = $tutorPage->ID;        	   
+	    	   $body .= "<br><br> View tutor account <a href='" . Director::absoluteBaseURL() .  "admin/pages/edit/show/" . $tutorID . "'>here</a/><br><br>";
+	       }
+    	}
+    	elseif (isset($desiredTutor)){
+			 if ($desiredTutor){
+		    	$tutorID = $desiredTutor->ID;        	   
+	    	    $body .= "<br><br> View tutor account <a href='" . Director::absoluteBaseURL() .  "admin/pages/edit/show/" . $tutorID . "'>here</a/><br><br>";
+	    	 }
+    	}
+    	else {
+    	   $feedbackPage = FeedbackPage::get()->First();
+    	       if ($feedbackPage){
+	        	   $feedbackID = $feedbackPage->ID;
+		           $body .= "<br><br>All Tutor Feedback can be viewed in the CMS <a href='" . Director::absoluteBaseURL() .  "admin/pages/edit/show/" . $feedbackID . "'>here</a/><br><br>";
+		       }
+    	}
+    	
+    	
+    	//"Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/pages/edit/show/" . $Tutor->ID . "'>here</a/><br><br>
+    
+          	
+    	//$headers = "From: Tutor Iowa";       	
+        //mail($recip->Email, $subject, $body);
+        
+         include 'EmailArray.php';
+         
+        foreach ($emailArray as $recip){ //emailArray defined in EmailArray.php
+	      	        
+	         $email = new Email(); 
+	         $email->setTo($recip->Email); 
+	         $email->setFrom($userEmail); 
+	         $email->setSubject($subject); 
+	         $email->setBody($body); 
+	         $email->send(); 
+	        
+         }
+            	    
    	    Session::set('Saved', 1);
    	    
    	    return $this->redirect($this->Link());   

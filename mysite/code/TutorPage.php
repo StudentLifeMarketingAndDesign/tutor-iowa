@@ -85,6 +85,7 @@ class TutorPage extends Page {
         $fields->addFieldToTab( 'Root.Main', new TextField("HourlyRate", "Hourly rate"));
         $fields->addFieldToTab( 'Root.Main', new TextField("MeetingPreference", "Meeting preference (on-campus or off-campus)"));
         $fields->addFieldToTab( 'Root.Main', new TextField("UniversityID", "University ID"));
+        $fields->addFieldToTab( 'Root.Main', new TextField("GPA", "GPA"));
         $fields->addFieldToTab( 'Root.Main', new TextField("Major"));
         $fields->addFieldToTab( 'Root.Main', new TextField("AcademicStatus", "Academic Status"));
         $fields->addFieldToTab('Root.Advanced', new DropdownField("MemberID", "Associated User", $membersDropdownSource)); 
@@ -329,8 +330,15 @@ class TutorPage_Controller extends Page_Controller {
 		   
 		    $statspage->TutorRequestCount = $temp;
 		    //return Debug::show($statspage);
-		    $statspage->writeToStage('Stage'); 
-		    $statspage->publish("Stage", "Live");	    
+		    Versioned::reading_stage('stage');
+                
+            $statspage->writeToStage('Stage');
+          
+            $statspage->publish("Stage", "Live");
+            
+            Versioned::reading_stage('Live');
+            
+            $statspage->write();	    
 		    		    
 	    } 
 	        	

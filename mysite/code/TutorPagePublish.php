@@ -1,4 +1,5 @@
 <?php
+/*
 class TutorPagePublish extends SiteTreeDecorator { 
 
    static $allowed_actions = array(
@@ -29,5 +30,5 @@ class TutorPagePublish_Controller extends Page_Controller {
 			    
 	    	   
 	}
-	*/
-}
+	
+}*/
