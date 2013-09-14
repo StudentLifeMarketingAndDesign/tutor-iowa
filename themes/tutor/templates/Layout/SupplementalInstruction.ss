@@ -1,4 +1,3 @@
-
 				<div class="board_content">
 					<div id="breadcrumbs"><a href="{$BaseHref}">Home</a> > <a href="{$BaseHref}find-help/">Find Help</a> > <a href="{$BaseHref}supplemental-instructions/">Supplemental Instructions</a> > <span class="current">$Title</span></div>
 				<% if MetaKeywords %>
@@ -58,18 +57,13 @@
 						</div>-->
 					</div>
 					<% end_if %>
-					
-<<<<<<< HEAD
-				
-=======
-					
 				   
 					<div class="clearfix"></div>
 					
 				<% if MetaKeywords %>
 					<% include Tags %>
 				<% end_if %>
->>>>>>> ed3e78eeab8bd190ee187fb935c87012f036a6b5
+
 				$ContactForm
 				
 			
