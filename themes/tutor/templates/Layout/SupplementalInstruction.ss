@@ -59,10 +59,7 @@
 					<% end_if %>
 				   
 					<div class="clearfix"></div>
-					
-				<% if MetaKeywords %>
-					<% include Tags %>
-				<% end_if %>
+
 
 				$ContactForm
 				
