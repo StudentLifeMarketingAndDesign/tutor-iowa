@@ -649,6 +649,10 @@ margin: 0 0 0 20px;
 padding: 6px 10px 12px 10px;
 }
 
+.tab a {
+	color: #F6C72F;
+}
+
 #tags{
 	width: 390px;
 	padding: 10px 20px;;

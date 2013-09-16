@@ -40,13 +40,22 @@ class FeedbackPage_Controller extends Page_Controller {
 	   	    $firstName = '';
 	   	    $surname = '';
    	    }	  
-   	  
-	   	  
+
+      if( Member::currentUserID()) {
+        $member = Member::currentUser();
+        $memberName = $member->FirstName.' '.$member->Surname;
+        $memberEmail = $member->Email;
+	     } else{
+        $memberName = '';
+        $memberEmail = '';
+       }
+
+    
 	  $fields = new FieldList(
 	   
 	   //new LabelField("label", "Enter first and last name if your feedback concerns a specific tutor.  If your feedback does not concern a specific person, ignore these fields."),
-	   new TextField('Name', '<span>*</span>Your Name'),
-	   new EmailField('Email', '<span>*</span>Your Email Address'),
+	   new TextField('Name', '<span>*</span>Your Name',$memberName),
+     new EmailField('Email', '<span>*</span>Your Email Address', $memberEmail),
 	   new TextAreaField('Feedback', '<span>*</span>Your Feedback'),
 	   new TextField('FirstName', 'Tutor First Name (if your feedback is applicable to a specific tutor)', $firstName), //TUTOR FIRST NAME
 	   new TextField('Surname', 'Tutor Last Name (if your feedback is applicable to a specific tutor)', $surname), //TUTOR SURNAME

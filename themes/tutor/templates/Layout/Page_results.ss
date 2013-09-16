@@ -63,10 +63,15 @@
 									<h3><a href="$Link">$Title</a></h3>
 									<p>$Content.Summary(20) <a href="$Link">[...]</a></p>
 									<% if MetaKeywords %>
-									<p class="tags"><strong>tags:</strong> <% control SplitKeywords %>
-							<a href="{$BaseHref}home/SearchForm?Search={$Keyword}&action_results=Find+Tutors">$Keyword</a><% if Last %><% else %>, <% end_if %> 
-						<% end_control %></p>
-						<% end_if %>
+										<p class="tags"><strong>tags:</strong> 
+										<% control SplitKeywords %>
+											<a href="{$BaseHref}home/SearchForm?Search={$Keyword}&action_results=Find+Tutors">$Keyword</a><% if Last %><% else %>, <% end_if %> 
+										<% end_control %></p>
+									<% end_if %>
+
+									<% if $HourlyRate %>
+										<p><strong>rate:</strong> $HourlyRate</p>
+									<% end_if %>
 									
 									<div class="button"><a href="$Link">view profile</a></div>
 									<div class="clearfix"></div>
