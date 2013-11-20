@@ -57,7 +57,9 @@ class HelpLab extends Page {
     	$config->getComponentByType('GridFieldDataColumns')->setDisplayFields(array(
 			'Email'=>'Email'
 			//'Artist.Title' => 'Artist'
-		)); 
+		));
+		
+		$config->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('FirstName', 'Surname'))->setResultsFormat('$FirstName $Surname'); 
 		
 		$MemberTableField = new GridField(
 			'Members',

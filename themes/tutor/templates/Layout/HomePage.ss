@@ -62,9 +62,9 @@
 										<p><a href="$Link">Learn more about campus help labs.</a></p>
 										<% end_control %>
 										
-										<% if Page(resources) %>
-											<% control Page(resources) %>
-											<h4><a href="$Link">Resources</a></h4>
+										<% if Page(academic-success) %>
+											<% control Page(academic-success) %>
+											<h4><a href="$Link">$Title</a></h4>
 												<p>
 													<div class="thumb" style="background-image: 
 													
@@ -79,7 +79,7 @@
 													$Content.Summary(20)											
 												</p>
 											
-											<p><a href="$Link">Learn more about resources.</a></p>
+											<p><a href="$Link">Learn more about $Title</a></p>
 											
 											<% end_control %>
 										<% end_if %>
