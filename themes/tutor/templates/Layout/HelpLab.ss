@@ -2,6 +2,9 @@
 					<div id="breadcrumbs"><a href="{$BaseHref}">Home</a> > <a href="{$BaseHref}find-help/">Find Help</a> > <a href="{$BaseHref}help-labs/">Help Labs</a> > <span class="current">$Title</span></div>
 					<div id="help_card">
 						<h1>$Title</h1>
+						<% if canUserEditHelpLab %>
+								<p><a href="{$Link}Edit">Edit this Help Lab</a></p>
+						<% end_if %>
 						<% if PhoneNo %>
 							<p>Phone: $PhoneNo</p>
 						<% end_if %>
@@ -23,9 +26,7 @@
 						<% if ExtrnlLink %>
 						<p><a href="$ExtrnlLink" class="external-link" target="_blank">visit website</a></p>
 						<% end_if %>
-						<% if canUserEditHelpLab %>
-							<p><a href="{$Link}Edit">Edit this Help Lab</a></p>
-						<% end_if %>
+	
 						
 						<p>
 						<div class="clearfix"></div>

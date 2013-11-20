@@ -167,7 +167,7 @@ class HelpLab_Controller extends Page_Controller {
 		        $HelpLabID = $this->ID;
 		            
 		        //$DisplayedHelpLab = DataObject::get_one("HelpLab", "HelpLab_Live.ID = $HelpLabID");
-		        $DisplayedHelpLab = HelpLab::get()->filter(array('HelpLab_Live.ID' => '$HelpLabID'))->first(); 
+		        $DisplayedHelpLab = HelpLab::get()->filter(array('ID' => $HelpLabID))->first(); 
 		        
 		        $form->loadDataFrom($DisplayedHelpLab->data());
 	
@@ -188,7 +188,7 @@ class HelpLab_Controller extends Page_Controller {
 		     $labID = $this->ID;
 		     	   
 		     //$MemberLab = DataObject::get_one('HelpLab', "HelpLab_Live.ID=$labID");
-	    	 $MemberLab = HelpLab::get()->filter(array('HelpLab_Live.ID' => '$labID'))->first();
+	    	 $MemberLab = HelpLab::get()->filter(array('ID' => $labID))->first();
 	    	 //return Debug::show($MemberLab);
 	    	 
 	    	 $form->saveInto($MemberLab); 

@@ -59,7 +59,7 @@ class HelpLabEditProfile_Controller extends Page_Controller {
 	        $HelpLabID = Session::get("LabID");
 	            
 	        //$DisplayedHelpLab = DataObject::get_one("HelpLab", "HelpLab_Live.ID = $HelpLabID");
-	        $DisplayedHelpLab = HelpLab::get()->filter(array('HelpLab_Live.ID' => '$HelpLabID'))->first();
+	        $DisplayedHelpLab = HelpLab::get()->filter(array('ID' => $HelpLabID))->first();
 	            
 	        $form->loadDataFrom($DisplayedHelpLab->data());
 
@@ -72,7 +72,7 @@ class HelpLabEditProfile_Controller extends Page_Controller {
 	     $labID = Session::get("LabID");
 	   
 	     //$MemberLab = DataObject::get_one('HelpLab', "HelpLab_Live.ID=$labID");
-    	 $DisplayedHelpLab = HelpLab::get()->filter(array('HelpLab_Live.ID' => '$labID'))->first();
+    	 $DisplayedHelpLab = HelpLab::get()->filter(array('ID' => $labID))->first();
     	 //return Debug::show($MemberLab);
     	 
     	 $form->saveInto($MemberLab); 

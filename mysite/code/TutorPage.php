@@ -271,6 +271,7 @@ class TutorPage_Controller extends Page_Controller {
      	
 	   	$fields = new FieldList(
 	   	new TextField('Email', '<span>*</span> Your Email Address'),
+	   	new TextField('Name', '<span>*</span> Your First and Last Name'),
 	   	new TextAreaField('Body',  '<span>*</span> Your Message to '.$this->Member()->FirstName)
 	   
 	   	);
@@ -290,20 +291,22 @@ class TutorPage_Controller extends Page_Controller {
     }
     
     function doContactTutor($data,$form){
-	    
-	    $subject = "Tutor Iowa - A student has requested you as a tutor";
+    
+		$from = $data["Email"];
+	    $name = $data["Name"];	    
+	    $body = $data["Body"];
+	        
+	    $subject = "[Tutor Iowa] ".$name." has contacted you.";
 	    //$body = "Sent by " . $data["Email"] . "<br><br>" . $data["Body"];
 	    
-	    $from = $data["Email"];	    
-	    $body = $data["Body"];
-	    
+
 	    //Emails from TutorUniverse.com should fail silently and a notification of the contact attempt should be sent to tutoriowa@uiowa.edu 
 	    $fromSubstring = stripos($from, 'TutorUniverse.com');
 	    
 
 	    if (!(($fromSubstring == false) || ($fromSubstring == ''))){
 			$email = new Email(); 
-			$email->setTo('drewmpark@gmail.com; tutoriowa@uiowa.edu; AntoninScaliaLovesYou@yahoo.com;');
+			$email->setTo('dustin-quam@uiowa.edu; tutoriowa@uiowa.edu;');
 			//$email->setTo('tutoriowa@uiowa.edu');
 			$email->setSubject('TutorUniverse email blocked');
 			$email->setFrom($from);
@@ -320,7 +323,7 @@ class TutorPage_Controller extends Page_Controller {
 		    $email->setTo($toString); 
 		    $email->setSubject($subject); 
 		  	$email->setFrom($from);
-		    $email->setBody($body);
+		    $email->setBody($name.' has contacted you. Read their message below: <br />'.$body);
 		    $email->send();
 		    
 		    //$statspage = DataObject::get_one('StatsPage');
