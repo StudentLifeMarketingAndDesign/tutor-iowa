@@ -1,4 +1,5 @@
-
+cms/
 recaptcha/
-
 spamprotection/
+framework/
+vendor/composer
