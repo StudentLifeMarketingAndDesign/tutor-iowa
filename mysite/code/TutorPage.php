@@ -264,9 +264,9 @@ The Tutor Iowa Team";
 
 class TutorPage_Controller extends Page_Controller { 
 
-	
+	public static $allowed_actions = array('ContactForm');
 
-    function ContactForm(){
+    public function ContactForm(){
      
      	
 	   	$fields = new FieldList(
@@ -326,6 +326,16 @@ class TutorPage_Controller extends Page_Controller {
 		    $email->setBody($name.' has contacted you. Read their message below: <br />'.$body);
 		    $email->send();
 		    
+		    $message = new Message();
+		    
+		    $message->SenderName = $name;
+		    $message->SenderEmail = $from;
+		    $message->MessageBody = $body;
+		    $message->RecipientID = $this->Member()->ID;
+		    $message->RecipientName = $this->Member()->FirstName.' '.$this->Member()->Surname;		    
+		    
+		    $message->write();
+		    
 		    //$statspage = DataObject::get_one('StatsPage');
 		    $statspage = StatsPage::get()->first(); 
 		    $temp = $statspage->TutorRequestCount;
@@ -344,6 +354,11 @@ class TutorPage_Controller extends Page_Controller {
             $statspage->write();	    
 		    		    
 	    } 
+	    
+	    
+	    
+	    
+	    
 	        	
 	    return $this->redirect($this->Link('?sent=1'));   
 	    	

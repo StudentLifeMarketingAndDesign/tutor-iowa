@@ -1,6 +1,6 @@
 				<div class="board_content">
 					<div id="search_top">			
-						<% include SearchForm %>
+						<% include HomePageSearchForm %>
 					</div>
 
 					<div class="clearfix"></div>

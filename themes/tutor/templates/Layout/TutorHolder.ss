@@ -3,7 +3,7 @@
 					<div id="page-content">
 						<h1>$Title</h1>
 						
-						<% include SearchForm %>
+						<% include HomePageSearchForm %>
 				<div class="clearfix"></div>
 
 						$Content
