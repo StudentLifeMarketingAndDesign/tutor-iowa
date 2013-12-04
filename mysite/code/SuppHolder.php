@@ -1,15 +1,15 @@
 <?php
  
 class SuppHolder extends Page {
-  static $db = array(
+  private static $db = array(
    );
-  static $has_one = array(
+  private static $has_one = array(
   	"Image" => "Image"
    );
    
-  static $allowed_children = array('SupplementalInstruction');
+  private static $allowed_children = array('SupplementalInstruction');
   
-  static $defaults = array ('ProvideComments' => '1',);
+  private static $defaults = array ('ProvideComments' => '1',);
   
       
    public function getCMSFields() {

@@ -1,13 +1,13 @@
 <?php
 class TutorHolder extends Page {
-    static $db = array(
+    private static $db = array(
     );
-    static $has_one = array(
+    private static $has_one = array(
     );
     
-    static $allowed_children = array('TutorPage');
+    private static $allowed_children = array('TutorPage');
     
-    static $defaults = array ('ProvideComments' => '1',
+    private static $defaults = array ('ProvideComments' => '1',
     
    
     

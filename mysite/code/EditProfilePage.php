@@ -4,14 +4,14 @@
  */
  
 class EditProfilePage extends Page {
-   static $db = array(
+   private static $db = array(
    		'Test' => 'Text',
    );
-   static $has_one = array(
+   private static $has_one = array(
    
    );
    
-   static $defaults = array ('ProvideComments' => '1',
+   private static $defaults = array ('ProvideComments' => '1',
     
    
     
@@ -26,7 +26,7 @@ class EditProfilePage extends Page {
  
 class EditProfilePage_Controller extends Page_Controller 
 {
-    static $allowed_actions = array(
+    public static $allowed_actions = array(
         'EditProfileForm',
         'getSavedSession'
     );
@@ -316,10 +316,11 @@ class EditProfilePage_Controller extends Page_Controller
 	        	$subject = "User has requested their account be enabled"; 
 	        	
 	        		
-	        	$body = $CurrentMember->FirstName . " " . $CurrentMember->Surname . " has requested their account be enabled. " . "Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/pages/edit/show/" . $Tutor->ID . "'>here</a/><br><br>
+	        $body = Controller::curr()->FirstName . " " . Controller::curr()->Surname . " has requested their account be enabled. " . "Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/pages/edit/show/" . Controller::curr()->ID . "'>here</a/><br><br>
+	      
 		    
 		    Best, <br>
-		    The Tutor Iowa Team<br>";        	
+		    The Tutor Iowa Team<br>";     //changed $IDmember nd $tutor to Controller::curr()    	
 	        	//$headers = "From: Tutor Iowa";       	
 		        //mail($recip->Email, $subject, $body);
 		      	        
@@ -331,6 +332,7 @@ class EditProfilePage_Controller extends Page_Controller
 		         $email->send(); 
 		         
 		    }
+		    
 		    
 		    $subject = "The enabling of your Tutor Iowa account is pending";
 		    

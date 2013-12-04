@@ -3,11 +3,11 @@
 
 //No longer used
 class MemberManagement extends DataObject {
-    static $db = array(
+    private static $db = array(
     "Name" => "Text",
     "Email" => "Text"
     );
-    static $has_one = array(
+    private static $has_one = array(
     );
     
   }

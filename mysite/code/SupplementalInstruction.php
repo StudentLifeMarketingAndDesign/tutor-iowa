@@ -2,7 +2,7 @@
 
  
 class SupplementalInstruction extends Page {
-   static $db = array(
+   private static $db = array(
     'Name' => 'Text',
     'Location' => 'Text',
     'SessionLeader' => 'Text',
@@ -15,18 +15,18 @@ class SupplementalInstruction extends Page {
    );
    
    
-      static $has_one = array( 
+     private static $has_one = array( 
     'AcademicHelp' => 'AcademicHelp',
     );
     
-      static $many_many = array(
+     private static $many_many = array(
       'Tags' => 'Tag', 
     );
     
     //Comments enabled by default
     
     //Also want pages to be created under a SuppHolder by default
-    static $defaults = array ('ProvideComments' => '1',
+   private static $defaults = array ('ProvideComments' => '1',
      
     );
 

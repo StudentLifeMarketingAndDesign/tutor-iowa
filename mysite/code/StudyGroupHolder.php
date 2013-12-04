@@ -1,13 +1,13 @@
 <?php
 class StudyGroupHolder extends Page {
-    static $db = array(
+    private static $db = array(
     );
-    static $has_one = array(
+    private static $has_one = array(
     );
     
-    static $allowed_children = array('StudyGroup');
+    private static $allowed_children = array('StudyGroup');
     
-    static $defaults = array ('ProvideComments' => '1',
+    private static $defaults = array ('ProvideComments' => '1',
     
    
     

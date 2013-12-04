@@ -3,13 +3,13 @@
 <h1>$Title</h1>
 <div id="News">
 
-<% control News %>
+<% loop News %>
 <div class="news-item">
 	<h4><a href="$Link">$Title</a></h4>
 	<p>$Content.Summary(20)</p>
 	<div class="button"><a href="$Link">See More</a></div>
 </div>
-<% end_control %>
+<% end_loop %>
 <br><br><br>
 </div>
 </div>

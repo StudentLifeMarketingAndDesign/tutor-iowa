@@ -4,14 +4,14 @@
  */
  
 class HomePage extends Page {
-   static $db = array(
+   private static $db = array(
    'FrontPageBlurb' => 'Text'
    
    );
 
  
 
-   static $has_one = array(
+   private static $has_one = array(
 
       	"MainImage" => "Image"
 

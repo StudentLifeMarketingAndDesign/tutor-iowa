@@ -6,7 +6,7 @@
 						$Content
 						<ul class="help-labs">
 						
-						<% control ChildrenOf(help-labs) %>
+						<% loop ChildrenOf(help-labs) %>
 						<li>
 						  	
 						<h2><a href="$Link" target="_blank">$Name</a></h2>
@@ -19,7 +19,7 @@
 							<p><a href="$ExtrnlLink" class="external-link">visit website</a></p>
 							<% end_if %>-->
 						</li>
-						<% end_control %>
+						<% end_loop %>
 						
 					</div>
 						

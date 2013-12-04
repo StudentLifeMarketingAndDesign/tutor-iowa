@@ -2,13 +2,13 @@
 
  
 class RegistrationPage extends Page {
-   static $db = array(
+   private static $db = array(
    	'Disabled' => 'Boolean'
    );
-   static $has_one = array(
+   private static $has_one = array(
    );
    
-   static $defaults = array ('ProvideComments' => '1',
+   private static $defaults = array ('ProvideComments' => '1',
     
    
     
@@ -29,7 +29,7 @@ class RegistrationPage extends Page {
 class RegistrationPage_Controller extends Page_Controller {
 
     //Allow our form as an action
-    static $allowed_actions = array(
+    public static $allowed_actions = array(
         'RegistrationForm'
     );
      

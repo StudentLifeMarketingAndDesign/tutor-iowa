@@ -1,16 +1,16 @@
 <?php
 class ArticlePage extends Page {
 
- static $db = array(
+ private static $db = array(
         'Date' => 'Date',
         'Author' => 'Text'
     );
     
- static $has_one = array( 
+ private static $has_one = array( 
  	'Image'=> 'Image'
  
  );
- static $defaults = array ('ProvideComments' => '1',
+ private static $defaults = array ('ProvideComments' => '1',
     
    
     

@@ -4,7 +4,7 @@
  */
  
 class StudyGroup extends Page {
-   static $db = array(
+   private static $db = array(
     'Name' => 'Text',
    	'Location' => 'Text',
    	"Hours" => 'Varchar',
@@ -13,11 +13,11 @@ class StudyGroup extends Page {
     
    );
    
-    static $has_one = array( 
+    private static $has_one = array( 
     'AcademicHelp' => 'AcademicHelp',
     );
     
-    static $defaults = array ('ProvideComments' => '1');
+    private static $defaults = array ('ProvideComments' => '1');
     
     public function getCMSFields() 
     {

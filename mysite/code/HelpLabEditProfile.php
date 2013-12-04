@@ -4,13 +4,13 @@ This class is no longer being used
 */
 
 class HelpLabEditProfile extends Page {
-  static $db = array(
+  private static $db = array(
    "TempID" => "Text"
    );
-  static $has_one = array(
+  private static $has_one = array(
    );
 
-  static $defaults = array ('ProvideComments' => '1',
+  private static $defaults = array ('ProvideComments' => '1',
     
    
     

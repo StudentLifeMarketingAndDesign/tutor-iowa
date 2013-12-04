@@ -1,8 +1,8 @@
 <?php
 class ArticleHolder extends Page {
-    static $allowed_children = array('ArticlePage');
+    public static $allowed_children = array('ArticlePage');
     
-    static $defaults = array ('ProvideComments' => '1',
+    public static $defaults = array ('ProvideComments' => '1',
     
    
     

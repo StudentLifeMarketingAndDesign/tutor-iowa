@@ -1,7 +1,7 @@
 <?php
 class StatsPage extends Page {
 
- 	static $db = array( 
+ 	private static $db = array( 
  	'TutorRequestCount' => 'Int',
  	);
  	/*

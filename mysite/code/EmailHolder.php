@@ -1,7 +1,7 @@
 <?php
 class EmailHolder extends Page {
 
-   static $db = array(
+   private static $db = array(
    'RegistrationRequest' => 'HTMLText',
    'RegistrationConfirm' => 'HTMLText',
    //'RequestTutor' => 'Text',
@@ -10,9 +10,9 @@ class EmailHolder extends Page {
    
    );
 
-    static $allowed_children = array();
+    private static $allowed_children = array();
     
-    static $defaults = array (
+    private static $defaults = array (
     
    
     

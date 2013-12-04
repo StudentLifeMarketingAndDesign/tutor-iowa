@@ -2,7 +2,7 @@
 
  
 class HelpLab extends Page {
-   static $db = array(
+   private static $db = array(
     'Name' => 'Text',
     'Description' => 'HTMLText',
     'Location' => 'Text',
@@ -17,16 +17,16 @@ class HelpLab extends Page {
    
    );
    
-   static $has_one = array( 
+   private static $has_one = array( 
     'AcademicHelp' => 'AcademicHelp',
     );
     
-    static $many_many = array(
+   private static $many_many = array(
       'Members' => 'Member'
    );
  
     
-   static $defaults = array ('ProvideComments' => '1');
+   private static $defaults = array ('ProvideComments' => '1');
    
       public function getCMSFields() 
     {

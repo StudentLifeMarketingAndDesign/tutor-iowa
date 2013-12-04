@@ -3,10 +3,10 @@
  
  //NOT IN USE 
 class IsDisabled extends DataObject {
-   static $db = array(
+   private static $db = array(
    'Disabled' => 'Boolean'
    );
-   static $has_one = array(
+   private static $has_one = array(
    'Member' => 'Member'
    );
    /*

@@ -4,20 +4,20 @@
  */
  
 class ContactFormPage extends Page {
-   static $db = array(
+   private static $db = array(
       
    );
    
-   static $has_one = array( 
+   private static $has_one = array( 
     );
     
-    static $many_many = array(
+   private static $many_many = array(
    );
    
-   static $allowed_actions = array( "ContactForm", "doContactTutor");
+   public static $allowed_actions = array( "ContactForm", "doContactTutor");
  
     
-   static $defaults = array ('ProvideComments' => '1');
+   private static $defaults = array ('ProvideComments' => '1');
    
       public function getCMSFields() 
     {

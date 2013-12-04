@@ -7,12 +7,12 @@
  */
  
 class DisablePage extends Page {
-   static $db = array(
+   private static $db = array(
    );
-   static $has_one = array(
+   private static $has_one = array(
    );
    
-   static $defaults = array ('ProvideComments' => '1',
+   private static $defaults = array ('ProvideComments' => '1',
     
    
     
@@ -23,7 +23,7 @@ class DisablePage extends Page {
  
 class DisablePage_Controller extends Page_Controller {
      
-     static $allowed_actions = array(
+     public static $allowed_actions = array(
         'DisableForm',
         'notPublished'
         

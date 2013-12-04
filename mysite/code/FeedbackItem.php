@@ -4,19 +4,19 @@
  */
  
 class FeedbackItem extends DataObject {
-   public static $db = array(
+   private static $db = array(
    'Feedback' => 'Text',
    'Name' => 'Varchar',
    'Email' => 'Varchar'
    );
    
-   public static $has_one = array(
+   private static $has_one = array(
    'TutorPage' => 'TutorPage'
    );
    
-   static $searchable_fields = array('ID', 'Feedback', 'Name');
+   private static $searchable_fields = array('ID', 'Feedback', 'Name');
   
-   static $summary_fields = array('ID', 'Feedback', 'Name');
+   private static $summary_fields = array('ID', 'Feedback', 'Name');
    
    	            
 

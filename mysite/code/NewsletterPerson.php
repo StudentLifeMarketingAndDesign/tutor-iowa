@@ -2,11 +2,11 @@
 
 class NewsletterPerson extends DataObject {
 	
-		public static $db = array (
+		private static $db = array (
 			"EmailAddress" => "Varchar(255)"
 		);
 		
-		public static $has_one = array(
+		private static $has_one = array(
 		);	
 	
 }

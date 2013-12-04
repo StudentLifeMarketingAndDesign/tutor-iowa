@@ -3,12 +3,12 @@
 //test comment
 
 class YourHelpLabs extends Page {
-  static $db = array(
+  private static $db = array(
    );
-  static $has_one = array(
+  private static $has_one = array(
    );
 
-  static $defaults = array ('ProvideComments' => '1',
+  private static $defaults = array ('ProvideComments' => '1',
     
    
     

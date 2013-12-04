@@ -19,14 +19,14 @@
 						<div class="chl"></div>
 						<div class="tape_right"></div>
 						
-							<% control HelpLabs %>
+							<% loop HelpLabs %>
 							<div class="chl_result">
 								<h3><a href="$Link">$Title</a></h3>
 								<p>$Content.Summary(40)
 								</p>
 								<div class="button"><a href="$Link">See More</a></div>
 								</div>
-								<% end_control %><%-- end control HelpLabs --%>
+								<% end_loop %><%-- end loop HelpLabs --%>
 
 								<div class="clearfix"></div>
 							
@@ -38,7 +38,7 @@
 						<div class="sli"></div>
 						<div class="tape_right"></div>
 						
-						<% control SupplementalInstructions %>
+						<% loop SupplementalInstructions %>
 						<div class="sli_result $FirstLast">
 							<h3><a href="$Link">$Title</a></h3>
 							<p>$Content.Summary(40)</p>
@@ -46,7 +46,7 @@
 							<div class="clearfix"></div>
 
 						</div>
-							<% end_control %><%-- end control SuppInstructions --%>
+							<% end_loop %><%-- end loop SuppInstructions --%>
 					
 						
 					</div>
@@ -58,15 +58,15 @@
 						<div class="tutor"></div>
 						<div class="tape_right"></div>
 						
-							<% control Tutors %>
+							<% loop Tutors %>
 								<div class="tutor-result $FirstLast">
 									<h3><a href="$Link">$Title</a></h3>
 									<p>$Content.Summary(20) <a href="$Link">[...]</a></p>
 									<% if MetaKeywords %>
 										<p class="tags"><strong>tags:</strong> 
-										<% control SplitKeywords %>
+										<% loop SplitKeywords %>
 											<a href="{$BaseHref}home/SearchForm?Search={$Keyword}&action_results=Find+Tutors">$Keyword</a><% if Last %><% else %>, <% end_if %> 
-										<% end_control %></p>
+										<% end_loop %></p>
 									<% end_if %>
 
 									<% if $HourlyRate %>
@@ -77,15 +77,15 @@
 									<div class="clearfix"></div>
 
 								</div>
-							<% end_control %>
+							<% end_loop %>
 					</div>
 				<% end_if %><%-- end if Tutors --%>
 				
 			<% end_if %> <%-- end if Results --%>
 			<% else %>
-			<% control Page(find-help) %>
+			<% loop Page(find-help) %>
 				$Content
 			
-			<% end_control %>				
+			<% end_loop %>				
 			
 			<% end_if %> <%-- end if Query --%>	

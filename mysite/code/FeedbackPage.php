@@ -4,7 +4,7 @@
  */
  
 class FeedbackPage extends Page {
-   public static $db = array(
+   private static $db = array(
    
    );
    
@@ -22,6 +22,7 @@ class FeedbackPage extends Page {
 }
  
 class FeedbackPage_Controller extends Page_Controller {
+	 static $allowed_actions = array('FeedbackForm'); //added in 3.1
 	
 	 public function FeedbackForm(){
    
