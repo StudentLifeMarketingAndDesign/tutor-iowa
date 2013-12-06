@@ -19,7 +19,13 @@ class Message extends DataObject {
   
    private static $summary_fields = array('SenderEmail', 'SenderName', 'MessageBody', 'RecipientName');
    
-   	            
-
+   
+   public function canEdit($member = null) {
+	   return false;
+   }
+       public function canCreate($member = null) {
+        return false;
+   }
+ 
 }
  
