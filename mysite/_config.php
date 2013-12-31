@@ -44,4 +44,5 @@ Object::useCustomClass('MemberLoginForm', 'CustomLoginForm');
 //Object::add_extension('Member', 'MemberDecorator');
 Security::setDefaultAdmin('Admin','nimlok');
 Object::add_extension("TutorPage", "TutorPageExtension");
+Object::add_extension("SiteTree", "SiteTreeFieldExtension");
 /* ---- */

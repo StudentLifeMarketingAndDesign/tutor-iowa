@@ -86,6 +86,9 @@ class HelpLab extends Page {
 }
  
 class HelpLab_Controller extends Page_Controller {
+
+	private static $allowed_actions = array("Edit", "HelpLabSaveProfile", "canUserEditHelpLab", "helpLabSaved", "HelpEditProfileForm" );
+
 	public function Edit(){
 			/*
 	 			
@@ -137,7 +140,7 @@ class HelpLab_Controller extends Page_Controller {
    }
    
    
-	function HelpEditProfileForm(){
+	public function HelpEditProfileForm(){
 	   $canUserEdit = $this->canUserEditHelpLab();
 	   if ($canUserEdit){
 		   $fields = new FieldList (
@@ -189,15 +192,12 @@ class HelpLab_Controller extends Page_Controller {
 		     	   
 		     //$MemberLab = DataObject::get_one('HelpLab', "HelpLab_Live.ID=$labID");
 	    	 $MemberLab = HelpLab::get()->filter(array('ID' => $labID))->first();
-	    	 //return Debug::show($MemberLab);
+
 	    	 
 	    	 $form->saveInto($MemberLab); 
 	    	 
-	    	 $MemberLab->writeToStage("Stage");
-	               
-	         $MemberLab->publish("Stage","Live");
-	                    
-	         return Director::redirect($this->Link('/Edit/?saved=1'));  
+	         $MemberLab->doPublish();
+	         return $this->redirect($this->Link('/Edit/?saved=1'));  
 	      
 	     }
 	     

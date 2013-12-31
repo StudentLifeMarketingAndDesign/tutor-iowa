@@ -4,3 +4,6 @@ spamprotection/
 framework/
 vendor/composer
 themes/simple
+vendor/autoload.php
+
+vendor/autoload.php

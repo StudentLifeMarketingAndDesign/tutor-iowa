@@ -6,7 +6,7 @@ class Page extends SiteTree {
 	);
 
 	private $has_one = array(
-  	"Image" => "Image"
+  	"Image" => "Image",
    );
 	
 	private static $defaults = array ('ProvideComments' => '1',
@@ -151,6 +151,99 @@ public function News($number=3){
 	
 }
 
+/**
+   * Process and render search results.
+   *
+   * !! NOTE
+   * _config.php includes:
+   * 
+   * FulltextSearchable::enable();
+   * Object::add_extension('ExtendedPage', "FulltextSearchable('HeadlineText')");
+   * Object::add_extension('NewsStory', "FulltextSearchable('Name,Content')");
+   * !!
+   * 
+   * @param array $data The raw request data submitted by user
+   * @param Form $form The form instance that was submitted
+   * @param SS_HTTPRequest $request Request generated for this action
+   */
+function results($data, $form, $request)
+  {	
+    $keyword = trim($request->requestVar('Search'));
+    $keyword = Convert::raw2sql($keyword);
+    $keywordHTML = htmlentities($keyword, ENT_NOQUOTES, 'UTF-8');    
+        
+    $pages = new ArrayList();
+    $news = new ArrayList();
+    $files = new ArrayList();
+    
+    $mode = ' IN BOOLEAN MODE';
+    //$mode = ' WITH QUERY EXPANSION';
+    //$mode = '';
+        
+    $siteTreeClasses = array('TutorPage', 'SupplementalInstruction', 'HelpLab'); //add in an classes that extend Page or SiteTree
+    $siteTreeMatch = "MATCH( Title, MenuTitle, Content, MetaKeywords) AGAINST ('$keyword'$mode)
+                    + MATCH( Title, MenuTitle, Content, MetaKeywords) AGAINST ('$keywordHTML'$mode)";
+    
+    
+    /*
+     * Standard pages
+     * SiteTree Classes with the default search MATCH
+     */
+    foreach ( $siteTreeClasses as $c )
+    {
+      $query = DataList::create($c)
+        ->where($siteTreeMatch);
+      $query = $query->dataQuery()->query();
+      $query->addSelect(array('Relevance' => $siteTreeMatch));
+      
+      $records = DB::query($query->sql());
+      $objects = array();
+      foreach( $records as $record )
+      {
+        if ( in_array($record['ClassName'], $siteTreeClasses) )
+          $objects[] = new $record['ClassName']($record);
+      }
+      $pages->merge($objects);
+    }
+
+    /* ** */    
+    $pages->sort(array(
+      'Relevance' => 'DESC',
+      'Title' => 'ASC'
+    ));
+    
+    $data = array(
+      'Tutors' => $pages->filter(array('ClassName' => 'TutorPage')),
+      'SupplementalInstructions' => $pages->filter(array('ClassName' => 'SupplementalInstruction')),
+      'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')),
+	  'Query' => $keyword,
+	  'Title' => 'Search Results'
+		); 
+    /*
+
+           $data = array( 
+       'Results' => $results, 
+       'Tutors' => $tutors,
+       'SupplementalInstructions' => $supplementalInstructions,
+       'HelpLabs' => $helpLabs,
+       'Query' => $form->getSearchQuery(), 
+       'Title' => 'Search Results' 
+       );*/
+    
+    if ( $pages->count() == 0 
+      && $news->count() == 0
+      && $files->count() == 0 )
+    {
+    	$data['NoResults'] =1;
+    }else{
+    	
+    }
+    
+    return $this->customise($data)->renderWith(array('Page_results', 'Page')); 
+}
+
+/* Old Results Function For Reference Only */
+/*
  function results($data, $form){
 	  $form->setPageLength(99999); //Makeshift way of disabling pagination for results
       $results = $form->getResults();
@@ -190,7 +283,9 @@ public function News($number=3){
        );
 
        return $this->customise($data)->renderWith(array('Page_results', 'Page')); 
-   }
+   }*/
+
+
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
 	 * permissions or conditions required to allow the user to access it.
@@ -206,7 +301,7 @@ public function News($number=3){
 	 *
 	 * @var array
 	 */
-	public static $allowed_actions = array (
+	private static $allowed_actions = array (
 	'logout'
 	);
 	
