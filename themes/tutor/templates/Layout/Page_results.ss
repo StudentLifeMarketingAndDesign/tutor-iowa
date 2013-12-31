@@ -10,7 +10,7 @@
 			<% if Query %>
 					<h1>Search Results</h1>
 					<p>Your results for <strong>'{$Query}'</strong></p>	
-			<% if Results %>		
+			<% if not NoResults %>		
 			<div id="talktota"><img src="{$ThemeDir}/images/talktota.png" /></div>
 
 			

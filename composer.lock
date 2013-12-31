@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "c582dfd22e226d969ecffa6bb2db1b18e6b52845"
+                "reference": "c87cfc35882eb50df3eef1734bfa52fbcd6c782c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/c582dfd22e226d969ecffa6bb2db1b18e6b52845",
-                "reference": "c582dfd22e226d969ecffa6bb2db1b18e6b52845",
+                "url": "https://api.github.com/repos/composer/installers/zipball/c87cfc35882eb50df3eef1734bfa52fbcd6c782c",
+                "reference": "c87cfc35882eb50df3eef1734bfa52fbcd6c782c",
                 "shasum": ""
             },
             "replace": {
@@ -61,6 +61,7 @@
                 "codeigniter",
                 "concrete5",
                 "drupal",
+                "elgg",
                 "fuelphp",
                 "installer",
                 "joomla",
@@ -77,7 +78,7 @@
                 "wordpress",
                 "zend"
             ],
-            "time": "2013-12-02 16:11:03"
+            "time": "2013-12-24 18:04:46"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -214,19 +215,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/chillu/silverstripe-recaptcha.git",
-                "reference": "7824a7c1105f9b7d89a984771bc7125af1747f77"
+                "reference": "13f24e9b9d25f97154739c2b012ecd3ae17f4b81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chillu/silverstripe-recaptcha/zipball/7824a7c1105f9b7d89a984771bc7125af1747f77",
-                "reference": "7824a7c1105f9b7d89a984771bc7125af1747f77",
+                "url": "https://api.github.com/repos/chillu/silverstripe-recaptcha/zipball/13f24e9b9d25f97154739c2b012ecd3ae17f4b81",
+                "reference": "13f24e9b9d25f97154739c2b012ecd3ae17f4b81",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/framework": "3.*",
+                "silverstripe/framework": "~3.1",
                 "silverstripe/spamprotection": "*"
             },
             "type": "silverstripe-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
@@ -241,7 +247,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2013-07-04 12:59:00"
+            "time": "2013-12-19 19:18:36"
         },
         {
             "name": "silverstripe/spamprotection",

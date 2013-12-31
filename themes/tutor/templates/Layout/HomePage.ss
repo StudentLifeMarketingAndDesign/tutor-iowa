@@ -42,7 +42,8 @@
 										</p>
 										<p><a href="$Link">Learn more about supplemental instruction.</a></p>
 										<% end_loop %>
-										
+										<hr />
+
 										<% loop Page(help-labs) %>
 										<h4><a href="$Link">Campus Help Labs</a></h4>
 										<p>
@@ -61,7 +62,7 @@
 										</p>
 										<p><a href="$Link">Learn more about campus help labs.</a></p>
 										<% end_loop %>
-										
+										<hr />
 										<% if Page(academic-success) %>
 											<% loop Page(academic-success) %>
 											<h4><a href="$Link">$Title</a></h4>
@@ -101,7 +102,8 @@
 										<h4><a href="$Link">$Title</a></h4>
 										<!--<p class = "news-details-Hpage">Posted on: $Date.Nice</p>-->
 										<p>$Content.Summary(20)</p>
-										<div class="button"><a href="$Link">See More</a></div>
+										<a href="$Link">continue...</a>
+										<hr />
 										<% end_loop %>
 										<a href="{$BaseHref}news"><div id="more"></div></a>
 									</div>

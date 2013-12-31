@@ -1,38 +1,10 @@
-#PageComments_holder
-{
-	padding: 10px 10px 10px 10px;
-}
 
-#CommentsRSSFeed
-{
-	display: none;
-}
-
-.suppLink {
-	padding: 15px 5px 5px 0px;
-}
-
-/* Date Stamp for news supplement styling */ 
-.news-details {	
-	margin-top: -18px;
-	margin-bottom: 35px; 
-	font-size: 13px;  
-}
-.news-details-Hpage {	
-	margin-top: -18px;
-	margin-bottom: 15px; 
-	font-size: 13px;  
-}
-
-.suppLink p {
-	
-}
 body
 {
 	background-color: #2a2a2a;
-	font-family: 'Short Stack', sans-serif;
+	font-family: "Lucida Grande", "Helvetica Neue", "Helvetica", sans-serif;
 	margin: 0;
-	color: #444;
+	color: #555;
 }
 
 body.contact-form-page {
@@ -58,32 +30,32 @@ strong, bold {
 }
 h1, h2, h3, h4, h5
 {
-	font-family: 'Permanent Marker', sans-serif;
+	
 	font-weight: lighter;
 	clear: both;
 }
 h1{
-	font-size: 48px;
-	margin: 0px 0 20px 0;
+	font-size: 60px;
+	font-family: 'Permanent Marker', sans-serif;
+	margin: 10px 0;
+	text-align: center;
 }
 h2{
 	font-size: 33px;
-	margin: 5px 0 7px 0;
-	color: #4a5379;
+	margin: 15px 0;
+	color: #5D768B;
 }
 h3{
-	font-family: 'Short Stack', sans-serif;
-	font-size: 30px;
-	margin: 0 0 17px 0;
+	font-size: 26px;
+	margin: 15px 0;
 	color: #1d3a6a;
 }
 h4{
-	font-family: 'Short Stack', sans-serif;
 	font-size: 22px;
-	margin: 15px 0 15px 0;
+	margin: 15px 0;
 }
 h4 a, h3 a, h2 a{
-	color: #3769ff;
+	color: #3A59B4;
 	text-decoration: none;
 }
 h4 a:hover, h3 a:hover, h2 a:hover{
@@ -91,6 +63,12 @@ h4 a:hover, h3 a:hover, h2 a:hover{
 }
 p{
 	/*float: left;*/
+}
+
+hr {
+	height: 2px;
+	border: 0;
+	border-top: 1px solid #ccc;
 }
 #availability{
 	float: right;
@@ -132,7 +110,6 @@ p{
 	width: 100%;
 }
 #breadcrumbs, #breadcrumbs a{
-	font-family: 'Gloria Hallelujah', sans-serif;
 	margin-bottom: 20px;
 	color: #777;
 }
@@ -151,9 +128,7 @@ p{
 }
 .board_content
 {
-	margin: auto;
-	width: 840px;
-	margin-top: 20px;
+	padding: 25px;
 }
 #board_mid
 {
@@ -302,12 +277,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f9f0', end
 #cliphead
 {
 	background: url('../images/cliphead.png');
-	height: 309px;
+	height: 180px;
 	margin: auto;
-	width: 841px;
+	width: 550px;
 	position: relative;
 	z-index: 100;
 	display:block;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: 50% 10%;
+	margin-top: 30px;
 }
 #fg_wrapper
 {
@@ -316,7 +295,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f9f0', end
 }
 #footer-wrapper
 {
-	font-family: 'Oswald';
+
 	margin-top: 80px;
 	background-color: #1A1A1A;
 	background-image: url(assets/fye-footer.png);
@@ -329,7 +308,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f9f0', end
 	font-size: 16px;
 }
 #footer-wrapper h2{
-	font-family: 'Bevan';
 	color: #F6C72F;
 	font-weight: lighter;
 	font-size: 16px;
@@ -381,7 +359,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f9f0', end
 {
 	background: fixed;
 	margin: 0 auto;
-	margin-top: 45px;
+	margin-top: 0;
 	width: 1028px;
 }
 .highlighted{
@@ -416,7 +394,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f9f0', end
 	display: none;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffe2e2', endColorstr='#ffc2b5',GradientType=0 );
 	float: right;
-	font-family: 'gloria hallelujah';
 	font-size: 14px;
 	height: 24px;
 	margin-right: 65px;
@@ -449,13 +426,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f9f0', end
 }
 #nav ul
 {
+	margin: 0;
+	padding: 0;
 	margin-top: 6px;
+	padding-left: 0;
 }
 #nav ul li
 {
 	float: left;
 	list-style: none;
-	padding: 10px 25px 10px 25px;
+	padding: 13px 20px;
 	margin-top: -10px;
 	color: #fff;
 }
@@ -478,6 +458,8 @@ background: -ms-radial-gradient(center, ellipse cover,  rgba(163,150,32,1) 0%,rg
 background: radial-gradient(center, ellipse cover,  rgba(163,150,32,1) 0%,rgba(163,150,32,0) 62%,rgba(163,150,32,0) 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a39620', endColorstr='#00a39620',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 color: #FFFBC6;
+-webkit-transition: all .2s ease-in;
+
 }
 #navbar
 {
@@ -487,7 +469,6 @@ color: #FFFBC6;
 	-moz-box-shadow: 0px 2px 9px rgba(0,0,0,1);
 	-webkit-shadow: 0px 2px 9px rgba(0,0,0,1);
 	color: #fff;
-	font-family: 'Permanent Marker', sans-serif;
 	font-size: 18px;
 	height: 40px;
 	opacity: 0.8;
@@ -503,10 +484,9 @@ color: #FFFBC6;
 {
 	background: url('../images/bg_926.png');
 	margin: auto;
-	padding: 55px 0 40px 0;
 	width: 926px;
-	margin-top: -195px;
-	border-top: 90px solid #B27C54;
+	margin-top: -90px;
+	border-top: 70px solid #B27C54;
 	border-bottom: 30px solid #B27C54;
 	border-left: 30px solid #B27C54;
 	border-right: 30px solid #B27C54;
@@ -515,7 +495,6 @@ color: #FFFBC6;
 	box-shadow:0px 0px 25px 8px rgba(0,0,0,0.2);
 }
 #search_help{
-	font-family: 'Short Stack', sans-serif;
 	font-size: 13px;
 	height: 45px;
 	width: 220px;
@@ -530,10 +509,9 @@ color: #FFFBC6;
 	float: left;
 	height: 270px;
 	margin-top: 30px;
-	width: 280px;
-	font-size: 17px;
+	width: 315px;
+	font-size: 24px;
 	color: #333;
-	line-height: 42px;
 }
 #splimage
 {
@@ -575,7 +553,6 @@ color: #FFFBC6;
 	font-size: 24px;
 }
 #meeting_preference{
-	font-family: 'Gloria Hallelujah', sans-serif;
 	font-size: 24px;
 }
 .nav_wrapper
@@ -627,12 +604,15 @@ color: #FFFBC6;
 	-webkit-shadow: inset 2px 2px 5px rgba(0,0,0,1);
 	color: white;
 	float: left;
-	font-family: 'gloria hallelujah';
 	font-size: 12px;
 	height: 16px;
-	padding: 4px 10px 14px 10px;
+	padding: 8px;
 	margin: 0 0 2px 20px;
 	text-align: center;
+}
+
+.tab.first{
+	margin-left: 0;
 }
 
 .tab:hover{
@@ -645,8 +625,9 @@ background: -ms-radial-gradient(center, ellipse cover,  #a39620 0%,#776a2c 100%)
 background: radial-gradient(center, ellipse cover,  #a39620 0%,#776a2c 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a39620', endColorstr='#776a2c',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 height: 18px;
-margin: 0 0 0 20px;
-padding: 6px 10px 12px 10px;
+-webkit-transition: all .2s ease-out;
+
+
 }
 
 .tab a {
@@ -777,7 +758,6 @@ margin-right: 4px;
 margin-top: 4px;
 margin-bottom: 4px;
 padding: 15px 20px;
-font-family: 'Short Stack';
 font-size: 14px;
 line-height: 26px;
 width: 350px;
@@ -789,9 +769,6 @@ width: 310px;
 /*search*/
 
 form .button{
-	width: 161px;
-	height: 45px;
-	background: url('../images/button.png');
 	border: 0;
 	font-family: 'Gloria Hallelujah', sans-serif;
 	font-size: 18px;
@@ -804,31 +781,29 @@ form .button{
 }
 
 form .button:active{
-	width: 161px;
-	height: 45px;
-	background: url('../images/button.png');
 	background-position: bottom;
 	border: 0;
 	padding: 0 0 0px 2px;
 }
 
 .button{
-	width: 161px;
-	height: 37px;
-	background: url('../images/button.png') no-repeat;
+	background: #427AF9;
 	border: 0;
 	font-family: 'Gloria Hallelujah', sans-serif;
 	font-size: 18px;
 	color: #fff;
-	padding: 3px 0px 5px 0px;
+	padding: 7px 10px;
 	float: left;
 	text-align: center;
 	cursor: pointer;
-	margin-top: 10px;
-	margin-bottom: 20px;
+	margin: 10px 0;
 	clear: both;
 	line-height: normal;
 }
+
+
+
+
 
 .topButton {
 	width: 35px;
@@ -854,7 +829,7 @@ form .button:active{
 .fancybox-button {
 	width: 161px;
 	height: 37px;
-	background: url('../images/button.png') no-repeat;
+	background: #427AF9 no-repeat;
 	border: 0;
 	font-family: 'Gloria Hallelujah', sans-serif;
 	font-size: 18px;
@@ -878,10 +853,14 @@ form .button:active{
 .button:active{
 	width: 159px;
 	height: 39px;
-	background: url('../images/button.png');
 	background-position: bottom;
 	border: 0;
 	padding: 6px 2px 0px 0px;
+}
+
+.action:hover, .button:hover {
+	background: #2e6cf9;
+	-webkit-transition: all .2s ease-out;
 }
 
 .fieldHolder
@@ -905,22 +884,17 @@ form .button:active{
 
 .textInput
 {
-	width: 361px;
-	height: 42px;
-	background: none;
-	border: none;
+	background: white;
+	border: 1px solid #ccc;
 	color: #000000;
-	padding: 3px 7px 0px 7px;
-	font-family: "Lucida Grande", "Helvetica Neue", "Helvetica", sans-serif;
-	font-family: 'Gloria Hallelujah';
+	padding: 10px;
 	font-size: 23px;
 	font-size: 17px;
 	outline: none;
-	background: url('../images/search.png') no-repeat;
 	font-weight: lighter;
+	min-width: 360px;
 }
 .textInput:focus{
-	background: url('../images/search.png') no-repeat;
 	background-position: bottom;
 }
 
@@ -929,7 +903,6 @@ textarea.area{
 	height: 120px;
 	border: 0;
 	padding: 5px;
-	font-family: 'Gloria Hallelujah';
 	font-size: 17px;
 }
 
@@ -945,7 +918,7 @@ form .white{
 
 	width: 161px;
 	height: 45px;
-	background: url('../images/button.png');
+	background: #427AF9;
 	border: 0;
 	font-family: 'Gloria Hallelujah', sans-serif;
 	font-size: 18px;
@@ -958,6 +931,12 @@ form .white{
 	margin-bottom: 20px;
 }
 
+.action:hover {
+	background: #2e6cf9;
+	margin-top: 8px;
+	-webkit-transition: all .2s ease-out;
+}
+
 #Form_EditProfileForm .action, #Form_FeedbackForm .action
 {
 float: none;
@@ -966,7 +945,7 @@ float: none;
 
 	width: 161px;
 	height: 45px;
-	background: url('../images/button.png');
+	background: #427AF9;
 	background-position: bottom;
 	border: 0;
 	padding: 0 0 0px 2px;
@@ -1015,15 +994,11 @@ float: none;
 	
 	display: block;
 	padding: 5px;
-	font-family: 'Gloria Hallelujah';
 	font-size: 16px;
 	resize: none;
 	outline: none;
 	background-color: rgba(255,255,255,.6);
-	border-image: url(../images/area.png) 4 repeat;
-	-webkit-border-image: url(../images/area.png) 4 repeat;
-	-moz-border-image: url(../images/area.png) 4 repeat;
-	border-width: 3px;
+	border: 1px solid #ccc;
 	
 }
 
@@ -1052,6 +1027,7 @@ float: none;
 	background: #F0F7FF;
 	padding: 10px 20px 68px 20px;
 	margin-top: 10px;
+	border: 1px solid #ccc;
 }
 
 .message {
@@ -1128,5 +1104,36 @@ float: none;
 
 .generic-text-wrapper {
 	float: left;
+	
+}
+
+
+#PageComments_holder
+{
+	padding: 10px 10px 10px 10px;
+}
+
+#CommentsRSSFeed
+{
+	display: none;
+}
+
+.suppLink {
+	padding: 15px 5px 5px 0px;
+}
+
+/* Date Stamp for news supplement styling */ 
+.news-details {	
+	margin-top: -18px;
+	margin-bottom: 35px; 
+	font-size: 13px;  
+}
+.news-details-Hpage {	
+	margin-top: -18px;
+	margin-bottom: 15px; 
+	font-size: 13px;  
+}
+
+.suppLink p {
 	
 }

@@ -44,7 +44,7 @@
 				</div>
 				<div class="nav_wrapper">
 					<% if CurrentMember %>
-						<div class="tab">Hi, <a href="$currentMemberPage.Link">$CurrentMember.FirstName $CurrentMember.Surname</a>!</div>
+						<div class="tab first">Hi, <a href="$currentMemberPage.Link">$CurrentMember.FirstName $CurrentMember.Surname</a>!</div>
 						<% if isHelpLab %>
 							<a href="{$BaseHref}personal-help-labs"><div class="tab short">Edit Help Labs</div></a>
 						<% else %>
