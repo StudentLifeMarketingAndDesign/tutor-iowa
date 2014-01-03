@@ -26,40 +26,52 @@
 							<div class="right_edge">
 								<div class="left_edge">
 									<div class="white">
-										<% with Page("supplemental-instructions") %>
+										<% loop Page(supplemental-instructions) %>
 										<h4><a href="$Link">$Title</a></h4>
 										<p>
 											<div class="thumb" style="background-image: 
-												url(<% with Image.SetRatioSize(135,135) %>$URL<% end_with %>); background-repeat: no-repeat;">
+											
+											url(<% loop Image %> 
+											<% loop SetRatioSize(135,135) %> $URL <% end_loop %>
+											<% end_loop %>); background-repeat: no-repeat;">
+											
+
 												<div class="tape"></div>
 											</div>
 											$Content.Summary(40)
 										</p>
 										<p><a href="$Link">Learn more about supplemental instruction.</a></p>
-										<% end_with %>
-										
-										<% with Page("help-labs") %>
+										<% end_loop %>
+										<hr />
+
+										<% loop Page(help-labs) %>
 										<h4><a href="$Link">Campus Help Labs</a></h4>
 										<p>
 
 											
 											<div class="thumb" style="background-image: 
 											
-											url($Image.URL); background-repeat: no-repeat;">
+											url(<% loop Image %> 
+											<% loop SetRatioSize(135,135) %> $URL <% end_loop %>
+											<% end_loop %>); background-repeat: no-repeat;">
+											
+
 												<div class="tape"></div>
 											</div>
 											$Content.Summary(20)
 										</p>
 										<p><a href="$Link">Learn more about campus help labs.</a></p>
-										<% end_with %>
-										
-										<% if Page("academic-success") %>
-											<% with Page("academic-success") %>
+										<% end_loop %>
+										<hr />
+										<% if Page(academic-success) %>
+											<% loop Page(academic-success) %>
 											<h4><a href="$Link">$Title</a></h4>
 												<p>
 													<div class="thumb" style="background-image: 
 													
-													url(<% with Image.SetRatioSize(135,135) %>$URL<% end_with %>); background-repeat: no-repeat;">
+													url(<% loop Image %> 
+													<% loop SetRatioSize(135,135) %> $URL <% end_loop %>
+													<% end_loop %>); background-repeat: no-repeat;">
 													
 		
 													<div class="tape"></div>
@@ -70,7 +82,7 @@
 											
 											<p><a href="$Link">Learn more about $Title</a></p>
 											
-											<% end_with %>
+											<% end_loop %>
 										<% end_if %>
 										
 										</div>
@@ -90,7 +102,8 @@
 										<h4><a href="$Link">$Title</a></h4>
 										<!--<p class = "news-details-Hpage">Posted on: $Date.Nice</p>-->
 										<p>$Content.Summary(20)</p>
-										<div class="button"><a href="$Link">See More</a></div>
+										<a href="$Link">continue...</a>
+										<hr />
 										<% end_loop %>
 										<a href="{$BaseHref}news"><div id="more"></div></a>
 									</div>

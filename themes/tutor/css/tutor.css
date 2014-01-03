@@ -92,6 +92,11 @@ h4 a:hover, h3 a:hover, h2 a:hover{
 p{
 	/*float: left;*/
 }
+hr {
+   height: 2px;
+   border: 0;
+   border-top: 1px solid #ccc;
+}
 #availability{
 	float: right;
 	width: 320px;
@@ -1057,6 +1062,15 @@ float: none;
 .message {
 	
 	display: block;
+}
+
+.message, .savedMessage {
+   margin: 15px 0;
+   padding: 5px;
+   width: 92%;
+   color: black;
+   border: 2px solid #8BA1E2;
+   background: #C9E1F6;
 }
 
 #supp_instruction_info{

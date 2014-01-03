@@ -17,7 +17,7 @@ class Page extends SiteTree {
    public function getCMSFields() 
     {
     	$fields = parent::getCMSFields();
-    	$fields->addFieldToTab("Root.Main", new UploadField("MainImage", "Image"));
+    	$fields->addFieldToTab("Root.Main", new UploadField("Image", "Image"));
     	return $fields;
 	}
 
