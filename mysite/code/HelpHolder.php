@@ -6,7 +6,6 @@ class HelpHolder extends Page {
   private static $db = array(
    );
   private static $has_one = array(
-  	"Image" => "Image"
    );
    
   private static $allowed_children = array('HelpLab');

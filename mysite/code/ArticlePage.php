@@ -7,7 +7,6 @@ class ArticlePage extends Page {
     );
     
  private static $has_one = array( 
- 	'Image'=> 'Image'
  
  );
  private static $defaults = array ('ProvideComments' => '1',

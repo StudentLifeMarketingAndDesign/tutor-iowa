@@ -5,5 +5,5 @@ framework/
 vendor/composer
 themes/simple
 vendor/autoload.php
-
-vendor/autoload.php
+.DS_Store
+assets/

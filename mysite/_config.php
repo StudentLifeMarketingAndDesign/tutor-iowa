@@ -3,17 +3,12 @@
 global $project;
 $project = 'mysite';
 
-global $databaseConfig;
-$databaseConfig = array(
-	"type" => 'MySQLDatabase',
-	"server" => 'localhost',
-	"username" => 'root',
-	"password" => 'omega',
-	"database" => 'tutor',
-	"path" => '',
-);
+global $database;
+$database = 'tutor';
 
 MySQLDatabase::set_connection_charset('utf8');
+// Use _ss_environment.php file for configuration
+require_once("conf/ConfigureFromEnv.php");
 
 // This line set's the current theme. More themes can be
 // downloaded from http://www.silverstripe.org/themes/
@@ -35,14 +30,11 @@ FulltextSearchable::enable();
 //Validator::set_javascript_validation_handler('none');
 //SpamProtectorManager::set_spam_protector("RecaptchaProtector");
 
-Director::set_environment_type('dev');
 Email::setAdminEmail("tutoriowa@uiowa.edu");
 //error_reporting(E_ALL);
 Object::useCustomClass('MemberLoginForm', 'CustomLoginForm');
 //Object::add_extension('TutorPage', 'TutorPagePublish');
 
-//Object::add_extension('Member', 'MemberDecorator');
-Security::setDefaultAdmin('Admin','nimlok');
 Object::add_extension("TutorPage", "TutorPageExtension");
 Object::add_extension("SiteTree", "SiteTreeFieldExtension");
 /* ---- */

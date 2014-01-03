@@ -2,11 +2,10 @@
 class Page extends SiteTree {
 
 	private static $db = array(
-	
 	);
 
-	private $has_one = array(
-  	"Image" => "Image",
+	private static $has_one = array(
+    "Image" => "Image"
    );
 	
 	private static $defaults = array ('ProvideComments' => '1',
@@ -18,7 +17,7 @@ class Page extends SiteTree {
    public function getCMSFields() 
     {
     	$fields = parent::getCMSFields();
-    	$fields->addFieldToTab("Root.Main", new UploadField("Image", "Image"));
+    	$fields->addFieldToTab("Root.Main", new UploadField("MainImage", "Image"));
     	return $fields;
 	}
 
