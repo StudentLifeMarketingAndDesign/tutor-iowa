@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "2b2f973f5936d9e95f53677a18b66828",
+    "hash": "662eb31edb20f45fbd25e3c82d6decf0",
     "packages": [
         {
             "name": "composer/installers",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "c582dfd22e226d969ecffa6bb2db1b18e6b52845"
+                "reference": "26d37e307f9aa6e2e81806a6525666f8ab5ba0ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/c582dfd22e226d969ecffa6bb2db1b18e6b52845",
-                "reference": "c582dfd22e226d969ecffa6bb2db1b18e6b52845",
+                "url": "https://api.github.com/repos/composer/installers/zipball/26d37e307f9aa6e2e81806a6525666f8ab5ba0ff",
+                "reference": "26d37e307f9aa6e2e81806a6525666f8ab5ba0ff",
                 "shasum": ""
             },
             "replace": {
@@ -53,31 +53,41 @@
             "description": "A multi-framework Composer library installer",
             "homepage": "http://composer.github.com/installers/",
             "keywords": [
-                "TYPO3 CMS",
-                "TYPO3 Flow",
-                "TYPO3 Neos",
+                "Craft",
+                "Hurad",
+                "MODX Evo",
+                "OXID",
+                "WolfCMS",
                 "agl",
+                "annotatecms",
                 "cakephp",
                 "codeigniter",
                 "concrete5",
+                "croogo",
                 "drupal",
+                "elgg",
                 "fuelphp",
                 "installer",
                 "joomla",
                 "kohana",
                 "laravel",
-                "li3",
                 "lithium",
+                "magento",
                 "mako",
+                "mediawiki",
                 "modulework",
                 "phpbb",
+                "piwik",
                 "ppi",
+                "shopware",
                 "silverstripe",
                 "symfony",
+                "typo3",
                 "wordpress",
-                "zend"
+                "zend",
+                "zikula"
             ],
-            "time": "2013-12-02 16:11:03"
+            "time": "2014-04-09 16:12:43"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -117,16 +127,16 @@
         },
         {
             "name": "silverstripe/cms",
-            "version": "3.1.2",
+            "version": "3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-cms.git",
-                "reference": "e2fa3b7f2c208af4a33e7176c1a950396d423f19"
+                "reference": "7adbf81c74c6483d071d72c4359ac4903ee65db3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/e2fa3b7f2c208af4a33e7176c1a950396d423f19",
-                "reference": "e2fa3b7f2c208af4a33e7176c1a950396d423f19",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/7adbf81c74c6483d071d72c4359ac4903ee65db3",
+                "reference": "7adbf81c74c6483d071d72c4359ac4903ee65db3",
                 "shasum": ""
             },
             "require": {
@@ -160,20 +170,20 @@
                 "cms",
                 "silverstripe"
             ],
-            "time": "2013-11-07 23:59:07"
+            "time": "2014-03-31 19:36:16"
         },
         {
             "name": "silverstripe/framework",
-            "version": "3.1.2",
+            "version": "3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-framework.git",
-                "reference": "054b35ded7674f13ccad4cec8fe38372e2a001df"
+                "reference": "81b14b43528d52a8219856f64454f7942ea60254"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/054b35ded7674f13ccad4cec8fe38372e2a001df",
-                "reference": "054b35ded7674f13ccad4cec8fe38372e2a001df",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/81b14b43528d52a8219856f64454f7942ea60254",
+                "reference": "81b14b43528d52a8219856f64454f7942ea60254",
                 "shasum": ""
             },
             "require": {
@@ -206,7 +216,7 @@
                 "framework",
                 "silverstripe"
             ],
-            "time": "2013-11-12 18:43:44"
+            "time": "2014-04-08 04:19:19"
         },
         {
             "name": "silverstripe/recaptcha",
@@ -214,19 +224,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/chillu/silverstripe-recaptcha.git",
-                "reference": "7824a7c1105f9b7d89a984771bc7125af1747f77"
+                "reference": "ac7db259142dba769a76541fc156ef57b82f2970"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chillu/silverstripe-recaptcha/zipball/7824a7c1105f9b7d89a984771bc7125af1747f77",
-                "reference": "7824a7c1105f9b7d89a984771bc7125af1747f77",
+                "url": "https://api.github.com/repos/chillu/silverstripe-recaptcha/zipball/ac7db259142dba769a76541fc156ef57b82f2970",
+                "reference": "ac7db259142dba769a76541fc156ef57b82f2970",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/framework": "3.*",
+                "silverstripe/framework": "~3.1",
                 "silverstripe/spamprotection": "*"
             },
             "type": "silverstripe-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
@@ -241,7 +256,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2013-07-04 12:59:00"
+            "time": "2014-02-18 21:11:57"
         },
         {
             "name": "silverstripe/spamprotection",
@@ -249,12 +264,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-spamprotection.git",
-                "reference": "645b435ceacbebd66de1a80127384ba7b253c2f3"
+                "reference": "39f7f0be454af5f67f2789c6e7691221896fa313"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/645b435ceacbebd66de1a80127384ba7b253c2f3",
-                "reference": "645b435ceacbebd66de1a80127384ba7b253c2f3",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/39f7f0be454af5f67f2789c6e7691221896fa313",
+                "reference": "39f7f0be454af5f67f2789c6e7691221896fa313",
                 "shasum": ""
             },
             "require": {
@@ -278,7 +293,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2013-09-02 09:44:06"
+            "time": "2014-03-07 07:38:25"
         }
     ],
     "packages-dev": [
