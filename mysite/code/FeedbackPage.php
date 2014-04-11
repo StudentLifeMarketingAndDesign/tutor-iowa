@@ -75,7 +75,7 @@ class FeedbackPage_Controller extends Page_Controller {
         $Form = new Form($this, 'FeedbackForm', $fields, $actions, $validator);
         
         //$protector = SpamProtectorManager::update_form($Form, 'Message', null, "Please enter the following words");
-        $Form->enableSpamProtection();
+        //$Form->enableSpamProtection();
        
         
         
