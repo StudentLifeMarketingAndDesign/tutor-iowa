@@ -306,17 +306,17 @@ class EditProfilePage_Controller extends Page_Controller
 		    
 		    if (!$Tutor){
 			    Versioned::reading_stage('Stage');
-			    $Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");
-			    //$Tutor = TutorPage::get()->filter(array('MemberID' => '$IDMember'))->First(); 
+			    //$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");
+			    $Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->First(); 
 		    }		    		  
 		    	  	    
 		    foreach ($emailArray as $recip){ //$emailArray defined in EmailArray.php
 	        	
 	        	        	
-	        	$subject = "User has requested their account be enabled"; 
+	        	$subject = $CurrentMember->FirstName." ".$CurrentMember->Surname." has requested their account be enabled"; 
 	        	
 	        		
-	        $body = Controller::curr()->FirstName . " " . Controller::curr()->Surname . " has requested their account be enabled. " . "Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/pages/edit/show/" . Controller::curr()->ID . "'>here</a/><br><br>
+	        $body = $CurrentMember->FirstName." ".$CurrentMember->Surname." has requested their account be enabled. " . "Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/pages/'>in the content management system here.</a/><br><br>
 	      
 		    
 		    Best, <br>

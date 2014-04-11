@@ -4,7 +4,7 @@ class SuppHolder extends Page {
   private static $db = array(
    );
   private static $has_one = array(
-  	"Image" => "Image"
+    
    );
    
   private static $allowed_children = array('SupplementalInstruction');
@@ -14,7 +14,6 @@ class SuppHolder extends Page {
       
    public function getCMSFields() {
         $fields = parent::getCMSFields();
-    	$fields->addFieldToTab("Root.Main", new UploadField("Image", "Image"));
     	
     	return $fields;   
    }

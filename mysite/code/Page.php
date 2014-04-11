@@ -2,11 +2,10 @@
 class Page extends SiteTree {
 
 	private static $db = array(
-	
 	);
 
-	private $has_one = array(
-  	"Image" => "Image",
+	private static $has_one = array(
+    "Image" => "Image"
    );
 	
 	private static $defaults = array ('ProvideComments' => '1',
