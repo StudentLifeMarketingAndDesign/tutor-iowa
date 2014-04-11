@@ -7,3 +7,4 @@ themes/simple
 vendor/autoload.php
 .DS_Store
 assets/
+recaptchaKeys.php
