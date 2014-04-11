@@ -23,6 +23,7 @@ SiteTree::enable_nested_urls();
 //Added by Drew
 FulltextSearchable::enable();
 
+include("recaptchaKeys.php");
 //Director::set_environment_type("live");
 
 //PageComment::enableModeration();
