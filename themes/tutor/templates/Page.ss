@@ -117,11 +117,6 @@
 		
 	</div>
 </div>
-      
-<div id="newsletter-signup-form" style="display: none">
-$NewsletterSignUpForm
-</div>
-      
 
 
 <script type="text/javascript" src="{$ThemeDir}/scripts/fancybox/jquery.fancybox.pack.js"></script>
