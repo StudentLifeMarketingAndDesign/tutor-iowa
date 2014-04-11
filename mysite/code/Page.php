@@ -86,8 +86,8 @@ public function NewsletterSignUpForm(){
         $validator = new RequiredFields('Email');
         
         $form = new Form($this, 'NewsletterSignUpForm', $fields, $actions, $validator);
-        
-        $protector = SpamProtectorManager::update_form($form, 'Message');
+        $form->enableSpamProtection();
+        //$protector = SpamProtectorManager::update_form($form, 'Message');
  
         return $form;      
 	
