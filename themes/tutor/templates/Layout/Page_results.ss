@@ -10,7 +10,7 @@
 			<% if Query %>
 					<h1>Search Results</h1>
 					<p>Your results for <strong>'{$Query}'</strong></p>	
-			<% if Results %>		
+					
 			<div id="talktota"><img src="{$ThemeDir}/images/talktota.png" /></div>
 
 			
@@ -81,7 +81,6 @@
 					</div>
 				<% end_if %><%-- end if Tutors --%>
 				
-			<% end_if %> <%-- end if Results --%>
 			<% else %>
 			<% loop Page(find-help) %>
 				$Content
