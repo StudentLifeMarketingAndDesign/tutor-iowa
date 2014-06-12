@@ -318,12 +318,11 @@ class TutorPage_Controller extends Page_Controller {
 		else {       
 		   	 
 		    $email = new Email(); 
-		    //$toString = $this->Email . 'benjamind@gmail.com; benjamin-lewis@uiowa.edu; drewmpark@gmail.com; andrew-parker-1@uiowa.edu;';
 		    $toString = $this->Email;
 		    $email->setTo($toString); 
 		    $email->setSubject($subject); 
 		  	$email->setFrom($from);
-		    $email->setBody($name.' has contacted you. Read their message below: <br />'.$body);
+		    $email->setBody($name.' has contacted you. Read their message below. You may reply to their message directly by replying to this email. <br />'.$body);
 		    $email->send();
 		    
 		    $message = new Message();
@@ -354,12 +353,7 @@ class TutorPage_Controller extends Page_Controller {
             $statspage->write();	    
 		    		    
 	    } 
-	    
-	    
-	    
-	    
-	    
-	        	
+	      	
 	    return $this->redirect($this->Link('?sent=1'));   
 	    	
 	    
