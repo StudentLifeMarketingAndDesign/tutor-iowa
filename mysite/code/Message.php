@@ -17,8 +17,15 @@ class Message extends DataObject {
    
    //private static $searchable_fields = array('ID', 'Feedback', 'Name');
   
-   private static $summary_fields = array('SenderEmail', 'SenderName', 'MessageBody', 'RecipientName');
-   
+   private static $summary_fields = array('SenderName', 'SenderEmail', 'RecipientName', 'MessageBody', 'Created');
+
+   private static $field_labels = array(
+      'Created' => 'Sent on',
+      'SenderName' => 'Requester Name',
+      'SenderEmail' => 'Requester Email',
+      'RecipientName' => 'Tutor Name'
+
+   );
    
    public function canEdit($member = null) {
 	   return false;
