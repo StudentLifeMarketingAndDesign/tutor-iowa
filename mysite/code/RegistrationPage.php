@@ -62,8 +62,8 @@ class RegistrationPage_Controller extends Page_Controller {
         
         $form = new Form($this, 'RegistrationForm', $fields, $actions, $validator);
         /*We'll disable the spam protection for now and hopefully assume that providing the @uiowa.edu email address will be enough to protect against spam.*/
-        $protector = SpamProtectorManager::update_form($form, 'Message', null, "Please enter the following words");
-
+        //$protector = SpamProtectorManager::update_form($form, 'Message', null, "Please enter the following words");
+        $form->enableSpamProtection();
         
         return $form;      
     }
@@ -187,11 +187,14 @@ class RegistrationPage_Controller extends Page_Controller {
                
         $TutorPage->StartDate = $tempDates["start"];
         $TutorPage->EndDate = $tempDates["end"];
-        
-        
-        
-        $TutorPage->URLSegment = $TutorPage->ID;  
-        $TutorPage->writeToStage('Stage'); //Publishing handled by Tutor Iowa staff
+        $TutorPage->URLSegment = $TutorPage->ID;
+
+        $TutorPage->write();
+        $TutorPage->writeToStage("Stage");
+
+        $TutorPage->publish("Stage", "Live");
+
+        $TutorPage->deleteFromStage('Live');
                   
         //$emailArray = DataObject::get('Member', "ID in (select MemberID from Group_Members where GroupID = (select ID from `Group` where title='Content Authors'))");
         
