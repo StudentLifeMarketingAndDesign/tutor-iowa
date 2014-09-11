@@ -33,7 +33,7 @@ input.topSearch
 
 {
 	width: 75%;
-	height: 20px;
+	height: 22px;
 	color: #000000;
 	padding: 3px 7px 3px 7px;
 	position: relative;
@@ -42,9 +42,7 @@ input.topSearch
 	font-family: 'Gloria Hallelujah';
 	font-size: 23px;
 	font-size: 14px;
-	border-image: url(../images/area.png) 4 repeat;
-	-webkit-border-image: url(../images/area.png) 4 repeat;
-	-moz-border-image: url(../images/area.png) 4 repeat;
+	border: 1px solid #ddd;
 	outline: none;
 	font-weight: lighter;
 	margin-right: -10px;
