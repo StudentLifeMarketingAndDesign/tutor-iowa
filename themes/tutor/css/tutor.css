@@ -511,14 +511,14 @@ color: #FFFBC6;
 {
 	background: url('../images/bg_926.png');
 	margin: auto;
-	padding: 55px 0 40px 0;
+	padding: 55px 0 70px 0;
 	width: 926px;
 	margin-top: -195px;
 	border-top: 90px solid #B27C54;
 	border-bottom: 30px solid #B27C54;
 	border-left: 30px solid #B27C54;
 	border-right: 30px solid #B27C54;
-	
+	min-height: 700px;
 	border-radius: 20px;
 	box-shadow:0px 0px 25px 8px rgba(0,0,0,0.2);
 }

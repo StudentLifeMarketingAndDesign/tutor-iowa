@@ -357,29 +357,6 @@ function results($data, $form, $request)
      }
    }
 	
-	/*
-	public function getDisabled() { //This is used to check whether the user's account is disabled.  If it is, a link to enable the account should appear
-		$Member = Member::CurrentMember();
-		
-		$IDMember = $Member->ID;
-		$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");
-		if ($Tutor){
-			$TutorDisabled = $Tutor->Disabled;
-		else {
-			return false;
-		}
-		return $TutorDisabled;
-	}
-	*/
-	
-	function getTest(){	
-		 $tutorParent = DataObject::get_one('TutorHolder', "Title = 'Private Tutors'");
-		 Debug::show($tutorParent);
-		 $title = $tutorParent->Title;
-		 return "HI!!!";
-	 }
-	 
-	
 	 
 }
 
