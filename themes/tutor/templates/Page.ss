@@ -62,7 +62,7 @@
 					<form action="{$BaseHref}home/SearchForm" class="topForm">
 						<div id="topRightSearch">
 							<input type="submit" name="action_results" class="topButton" value="">	
-							<label for="SearchForm" style="display:none;"</label><input type="text" name="Search" class="topSearch" id="SearchForm" placeholder="Find a tutor here!">
+							<label for="SearchForm" style="display:none;"></label><input type="text" name="Search" class="topSearch" id="SearchForm" placeholder="Find a tutor here!">
 							
 						</div>
 					</form>
