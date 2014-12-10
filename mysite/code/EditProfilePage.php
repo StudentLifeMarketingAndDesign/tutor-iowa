@@ -58,7 +58,7 @@ class EditProfilePage_Controller extends Page_Controller
 	            new EmailField('Email', '<span>*</span> Email'),
 	            new LiteralField('ChangePassword', $changePassLabel),
 	            new TextareaField('Content', 'Biography'),
-	            new TextField('Hours'),
+	            new TextareaField('Hours', 'Availability'),
 	            new DateField('StartDate', 'Date you would like to start tutoring'),
 	            new DateField('EndDate', 'Date you expect to stop tutoring'),
 	            new TextField('PhoneNo', 'Phone Number'),
