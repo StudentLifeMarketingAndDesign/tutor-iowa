@@ -39,7 +39,7 @@
 							<% end_loop %>
 							</ul>
 						</div>
-						<div id="uiowa"><a href="http://www.uiowa.edu"><img src="{$ThemeDir}/images/uiowa.png" /></a></div>
+						<div id="uiowa"><a href="http://www.uiowa.edu"><img src="{$ThemeDir}/images/uiowa.png" alt="The University of Iowa"/></a></div>
 					</div>
 				</div>
 				<div class="nav_wrapper">
@@ -62,7 +62,7 @@
 					<form action="{$BaseHref}home/SearchForm" class="topForm">
 						<div id="topRightSearch">
 							<input type="submit" name="action_results" class="topButton" value="">	
-							<input type="text" name="Search" class="topSearch" id="SearchForm" placeholder="Find a tutor here!">
+							<label for="SearchForm" style="display:none;"</label><input type="text" name="Search" class="topSearch" id="SearchForm" placeholder="Find a tutor here!">
 							
 						</div>
 					</form>
@@ -102,8 +102,8 @@
 		</div>
 		
 		<div class="footer-info">
-			<a href="{$BaseHref}"><img src="{$ThemeDir}/images/footer_logo.png" /></a>
-			<a href="http://uc.uiowa.edu/swat"><img src="{$ThemeDir}/images/footer_swat.png" /></a>
+			<a href="{$BaseHref}"><img src="{$ThemeDir}/images/footer_logo.png" alt="Tutor Iowa Logo"/></a>
+			<a href="http://uc.uiowa.edu/swat"><img src="{$ThemeDir}/images/footer_swat.png" alt="SWAT Logo"/></a>
 			<p>&copy; $Now.Year <a href="http://www.uiowa.edu/" target="_blank" >The University of Iowa</a></p>
 			<p><a href="mailto:tutoriowa@uiowa.edu">tutoriowa@uiowa.edu</a></p>
 		</div>
