@@ -61,7 +61,7 @@
 					<% end_if %>
 					<form action="{$BaseHref}home/SearchForm" class="topForm">
 						<div id="topRightSearch">
-							<input type="submit" name="action_results" class="topButton" value="">	
+							<input type="submit" name="action_results" class="topButton" value="Search" style="text-indent:-9999px;">	
 							<label for="SearchForm" style="display:none;"></label><input type="text" name="Search" class="topSearch" id="SearchForm" placeholder="Find a tutor here!">
 							
 						</div>
@@ -72,7 +72,7 @@
 				
 			
 <div id="clip_wrapper">
-	<a id="cliphead" href="{$BaseHref}"></a>
+	<a id="cliphead" href="{$BaseHref}" style="text-indent:-9999px;">Tutor Iowa</a>
 				<div id="paper">
 			$Layout
 							</div>
