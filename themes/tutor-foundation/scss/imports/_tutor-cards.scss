@@ -1,0 +1,18 @@
+.tutor-card-list{
+
+	@include block-grid(
+		$per-row: 2,
+		$spacing: rem-calc(12)
+	);
+
+	li img{
+		display: block;
+	}
+
+	@media #{$large-up}{
+		@include block-grid(
+			$per-row: 3
+		);
+	}
+
+}

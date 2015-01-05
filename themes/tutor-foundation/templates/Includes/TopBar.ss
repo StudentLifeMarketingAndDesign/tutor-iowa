@@ -38,7 +38,7 @@
 			<li class="has-form">
 			  <div class="row collapse">
 			    <div class="large-8 small-9 columns">
-			      <input type="text" placeholder="Find Stuff">
+			      <input type="search" id="top-search" placeholder="Find Stuff">
 			    </div>
 			    <div class="large-4 small-3 columns">
 			      <a href="#" class="button expand">Search</a>

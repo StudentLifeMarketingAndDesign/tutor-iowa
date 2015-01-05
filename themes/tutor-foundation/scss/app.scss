@@ -1,6 +1,9 @@
 @import "imports/settings";
-@import "imports/homepage";
 @import "foundation";
+
+@import "imports/homepage";
+@import "imports/tutor-cards";
+
 @import "../../../division-bar/scss/_division-bar-foundation.scss";
 
 .main {
@@ -10,6 +13,10 @@
 
 .top-bar{
 	h1{
-		max-width: 200px;
+		max-width: 300px;
+	}
+
+	#top-search{
+		border-radius: 20px;
 	}
 }
