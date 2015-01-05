@@ -8,3 +8,8 @@ vendor/autoload.php
 .DS_Store
 assets/
 recaptchaKeys.php
+.sass-cache
+node_modules
+ac-json-events/
+
+division-bar/

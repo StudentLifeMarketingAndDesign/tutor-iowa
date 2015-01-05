@@ -1,0 +1,15 @@
+@import "imports/settings";
+@import "imports/homepage";
+@import "foundation";
+@import "../../../division-bar/scss/_division-bar-foundation.scss";
+
+.main {
+	padding-top: 32px;
+	min-height: 320px;
+}
+
+.top-bar{
+	h1{
+		max-width: 200px;
+	}
+}

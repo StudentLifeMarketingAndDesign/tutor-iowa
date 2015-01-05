@@ -7,10 +7,22 @@
 		"silverstripe/framework": "3.1.6",
 		"silverstripe-themes/simple": "*",
 		"silverstripe/spamprotection": "*",
-		"silverstripe/recaptcha" : "*"
+		"silverstripe/recaptcha" : "*",
+		"md/division-bar" : "*",
+		"md/ac-json-events" : "*"
 	},
 	"config": {
 		"process-timeout": 600	
 	},
-	"minimum-stability": "dev"
+	"minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events"
+        }
+    ]
 }

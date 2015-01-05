@@ -8,7 +8,7 @@ $database = 'tutor';
 
 MySQLDatabase::set_connection_charset('utf8');
 // Use _ss_environment.php file for configuration
-require_once("conf/ConfigureFromEnv.php");
+require_once "conf/ConfigureFromEnv.php";
 
 // This line set's the current theme. More themes can be
 // downloaded from http://www.silverstripe.org/themes/
@@ -23,7 +23,7 @@ SiteTree::enable_nested_urls();
 //Added by Drew
 FulltextSearchable::enable();
 
-include("recaptchaKeys.php");
+//include("recaptchaKeys.php");
 //Director::set_environment_type("live");
 
 //PageComment::enableModeration();

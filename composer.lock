@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0aececd0b039526e6ad4f2c0ad21bd8b",
+    "hash": "da1139bfd12d7a399c768071c8e97336",
     "packages": [
         {
             "name": "composer/installers",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "74fb0a7a1a23696d9c8cc2fba5903f6711cdd067"
+                "reference": "89d77bfbee79e16653f7162c86e602cc188471db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/74fb0a7a1a23696d9c8cc2fba5903f6711cdd067",
-                "reference": "74fb0a7a1a23696d9c8cc2fba5903f6711cdd067",
+                "url": "https://api.github.com/repos/composer/installers/zipball/89d77bfbee79e16653f7162c86e602cc188471db",
+                "reference": "89d77bfbee79e16653f7162c86e602cc188471db",
                 "shasum": ""
             },
             "replace": {
@@ -59,6 +59,7 @@
                 "Hurad",
                 "MODX Evo",
                 "OXID",
+                "Thelia",
                 "WolfCMS",
                 "agl",
                 "annotatecms",
@@ -68,9 +69,11 @@
                 "codeigniter",
                 "concrete5",
                 "croogo",
+                "dokuwiki",
                 "drupal",
                 "elgg",
                 "fuelphp",
+                "grav",
                 "installer",
                 "joomla",
                 "kohana",
@@ -94,7 +97,71 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-08-18 20:00:12"
+            "time": "2014-11-29 01:29:17"
+        },
+        {
+            "name": "md/ac-json-events",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
+                "reference": "05313a3eb585dd32d5530438a3173acc5dbd980c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/05313a3eb585dd32d5530438a3173acc5dbd980c",
+                "reference": "05313a3eb585dd32d5530438a3173acc5dbd980c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "silverstripe/cms": "3.*",
+                "silverstripe/framework": "3.*"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "description": "After Class JSON Display Module",
+            "support": {
+                "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
+                "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
+            },
+            "time": "2014-11-10 19:01:47"
+        },
+        {
+            "name": "md/division-bar",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar.git",
+                "reference": "65257b10cf6a5352146dc1697b43c923856d9b92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/65257b10cf6a5352146dc1697b43c923856d9b92",
+                "reference": "65257b10cf6a5352146dc1697b43c923856d9b92",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "silverstripe/cms": "3.*",
+                "silverstripe/framework": "3.*"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "description": "The University of Iowa Division of Student Life Bar",
+            "support": {
+                "source": "https://github.com/StudentLifeMarketingAndDesign/division-bar/tree/master",
+                "issues": "https://github.com/StudentLifeMarketingAndDesign/division-bar/issues"
+            },
+            "time": "2014-12-11 17:54:52"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -234,12 +301,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/chillu/silverstripe-recaptcha.git",
-                "reference": "ac7db259142dba769a76541fc156ef57b82f2970"
+                "reference": "02a53f235c4965e79198c3934b8b27ce33abb9fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chillu/silverstripe-recaptcha/zipball/ac7db259142dba769a76541fc156ef57b82f2970",
-                "reference": "ac7db259142dba769a76541fc156ef57b82f2970",
+                "url": "https://api.github.com/repos/chillu/silverstripe-recaptcha/zipball/02a53f235c4965e79198c3934b8b27ce33abb9fc",
+                "reference": "02a53f235c4965e79198c3934b8b27ce33abb9fc",
                 "shasum": ""
             },
             "require": {
@@ -256,9 +323,7 @@
             "authors": [
                 {
                     "name": "Ingo Schommer",
-                    "email": "ingo@silverstripe.com",
-                    "homepage": "http://chillu.com",
-                    "role": "tech-lead"
+                    "email": "ingo@silverstripe.com"
                 }
             ],
             "description": "Provides a form field which allows form to validate for non-bot submissions by giving them a challenge to decrypt an image.",
@@ -266,7 +331,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2014-02-18 21:11:57"
+            "time": "2014-12-11 10:38:25"
         },
         {
             "name": "silverstripe/spamprotection",
@@ -274,12 +339,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-spamprotection.git",
-                "reference": "39f7f0be454af5f67f2789c6e7691221896fa313"
+                "reference": "c1a8a83011e10e238afbd6f4804e9ba1df5d56f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/39f7f0be454af5f67f2789c6e7691221896fa313",
-                "reference": "39f7f0be454af5f67f2789c6e7691221896fa313",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/c1a8a83011e10e238afbd6f4804e9ba1df5d56f9",
+                "reference": "c1a8a83011e10e238afbd6f4804e9ba1df5d56f9",
                 "shasum": ""
             },
             "require": {
@@ -294,8 +359,7 @@
                 },
                 {
                     "name": "Will Rossiter",
-                    "email": "will@fullscreen.io",
-                    "homepage": "http://wilr.github.com"
+                    "email": "will@fullscreen.io"
                 }
             ],
             "description": "Spam protection module for SilverStripe.",
@@ -303,7 +367,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2014-03-07 07:38:25"
+            "time": "2014-12-05 02:18:33"
         }
     ],
     "packages-dev": [],
