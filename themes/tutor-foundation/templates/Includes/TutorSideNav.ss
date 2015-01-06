@@ -1,6 +1,10 @@
 <div class="side-nav">
 	<ul class="button-group stack">
-  		<li><a href="{$getFeedbackLink}" class="button">Give Feedback About $FirstName</a></li>
+		<% if $currentMemberPage.ID == $ID %>
+			<li><a href="edit-profile/" class="button success radius">Edit Your Page</a></li>
+		<% else %>
+  			<li><a href="{$getFeedbackLink}" class="button radius">Give Feedback About $FirstName</a></li>
+  		<% end_if %>
 	</ul>
 	<hr />
 	<h3><span>Related Campus Resources:</span></h3>

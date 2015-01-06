@@ -1,9 +1,16 @@
+
+<!--<div class="page-bg"></div>-->
 <div class="gradient">
+
 	<div class="main typography" role="main">
+	
 		<div class="row" data-equalizer>
 			<div class="large-8 columns content" data-equalizer-watch>
+				
 				<div class="white-cover"></div>
+
 				<div class="row">
+
 					<article class="large-10 columns">
 
 						<h1>$Title</h1>

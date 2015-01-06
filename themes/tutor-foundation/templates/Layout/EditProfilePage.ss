@@ -13,7 +13,12 @@
 				</div>
 			</div>
 			<div class="large-4 columns end" data-equalizer-watch>
-					<% include SideNav %>
+				<div class="side-nav">
+				<ul class="button-group stack">
+					<li><a href="edit-profile/" class="button secondary radius">View Profile</a></li>
+				</ul>
+				</div>
+				<% include SideNav %>
 			</div>
 		
 		</div>

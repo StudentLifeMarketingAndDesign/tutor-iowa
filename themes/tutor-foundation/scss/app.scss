@@ -3,6 +3,7 @@
 
 @import "imports/uiowa-bar";
 @import "imports/homepage";
+@import "imports/tutor-page";
 @import "imports/tutor-cards";
 @import "imports/side-nav";
 @import "imports/footer";
@@ -21,6 +22,12 @@
 		margin-top: 10px;
 	}
 
+}
+
+.page-bg{
+	min-height: 300px;
+	background: red;
+	position: relative;
 }
 
 .gradient {
@@ -78,4 +85,9 @@
 			background: #666;
 		}
 	}
+}
+
+
+.profile-image img{
+	border-radius: 50%;
 }

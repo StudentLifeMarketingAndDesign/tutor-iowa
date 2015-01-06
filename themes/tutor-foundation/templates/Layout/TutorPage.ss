@@ -1,7 +1,8 @@
 <div class="gradient">
 	<div class="main typography" role="main">
-		
+			
 			<div class="row" data-equalizer>
+				<div class="page-bg"></div>
 				<div class="large-8 columns content" data-equalizer-watch>
 					<div class="white-cover"></div>
 					<article>
@@ -18,7 +19,7 @@
 								</p>
 							</div>
 							<div class="medium-3 columns">
-								<img src="{$ThemeDir}/images/placeholder.jpg" />
+								<div class="profile-image"><img src="{$ThemeDir}/images/placeholder.jpg" /></div>
 							</div>
 						</div>
 						$Content
