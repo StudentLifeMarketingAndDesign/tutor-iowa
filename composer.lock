@@ -1,23 +1,73 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
-        "This file is @generated automatically"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "0aececd0b039526e6ad4f2c0ad21bd8b",
+    "hash": "aef86fd719f5828e280a0930028f5ea9",
     "packages": [
+        {
+            "name": "briceburg/silverstripe-pageholder",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/briceburg/silverstripe-pageholder.git",
+                "reference": "25f25234c1df4bc8b2e4ed404995ea181db94f94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/briceburg/silverstripe-pageholder/zipball/25f25234c1df4bc8b2e4ed404995ea181db94f94",
+                "reference": "25f25234c1df4bc8b2e4ed404995ea181db94f94",
+                "shasum": ""
+            },
+            "require": {
+                "micschk/silverstripe-excludechildren": "*",
+                "silverstripe/framework": "~3.0"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "pageholder",
+                "screenshots": [
+                    "docs/screenshots/pageholder.png",
+                    "docs/screenshots/pageholder_edit.png"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Brice Burgess",
+                    "email": "briceburg@gmail.com"
+                }
+            ],
+            "description": "Hide children from the CMS sitetree and allow management through a Versioned GridField. Think _BlogHolder_ but flexible and for any page type.",
+            "homepage": "https://github.com/briceburg/silverstripe-pageholder",
+            "keywords": [
+                "children",
+                "cms",
+                "gridfield",
+                "hide",
+                "manage",
+                "silverstripe",
+                "sitetree",
+                "subpages",
+                "versioned"
+            ],
+            "time": "2014-12-05 19:44:47"
+        },
         {
             "name": "composer/installers",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "74fb0a7a1a23696d9c8cc2fba5903f6711cdd067"
+                "reference": "89d77bfbee79e16653f7162c86e602cc188471db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/74fb0a7a1a23696d9c8cc2fba5903f6711cdd067",
-                "reference": "74fb0a7a1a23696d9c8cc2fba5903f6711cdd067",
+                "url": "https://api.github.com/repos/composer/installers/zipball/89d77bfbee79e16653f7162c86e602cc188471db",
+                "reference": "89d77bfbee79e16653f7162c86e602cc188471db",
                 "shasum": ""
             },
             "replace": {
@@ -59,6 +109,7 @@
                 "Hurad",
                 "MODX Evo",
                 "OXID",
+                "Thelia",
                 "WolfCMS",
                 "agl",
                 "annotatecms",
@@ -68,9 +119,11 @@
                 "codeigniter",
                 "concrete5",
                 "croogo",
+                "dokuwiki",
                 "drupal",
                 "elgg",
                 "fuelphp",
+                "grav",
                 "installer",
                 "joomla",
                 "kohana",
@@ -94,7 +147,42 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-08-18 20:00:12"
+            "time": "2014-11-29 01:29:17"
+        },
+        {
+            "name": "micschk/silverstripe-excludechildren",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/micschk/silverstripe-excludechildren.git",
+                "reference": "2777dc855185c49358e63862eb8a89e9ea58c0e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/micschk/silverstripe-excludechildren/zipball/2777dc855185c49358e63862eb8a89e9ea58c0e2",
+                "reference": "2777dc855185c49358e63862eb8a89e9ea58c0e2",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.0"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "excludechildren"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "micschk"
+                }
+            ],
+            "description": "Provides an extension to limit subpages shown in sitetree",
+            "keywords": [
+                "excludechildren",
+                "silverstripe",
+                "sitetree"
+            ],
+            "time": "2014-12-11 09:12:27"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -234,12 +322,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/chillu/silverstripe-recaptcha.git",
-                "reference": "ac7db259142dba769a76541fc156ef57b82f2970"
+                "reference": "02a53f235c4965e79198c3934b8b27ce33abb9fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chillu/silverstripe-recaptcha/zipball/ac7db259142dba769a76541fc156ef57b82f2970",
-                "reference": "ac7db259142dba769a76541fc156ef57b82f2970",
+                "url": "https://api.github.com/repos/chillu/silverstripe-recaptcha/zipball/02a53f235c4965e79198c3934b8b27ce33abb9fc",
+                "reference": "02a53f235c4965e79198c3934b8b27ce33abb9fc",
                 "shasum": ""
             },
             "require": {
@@ -256,9 +344,7 @@
             "authors": [
                 {
                     "name": "Ingo Schommer",
-                    "email": "ingo@silverstripe.com",
-                    "homepage": "http://chillu.com",
-                    "role": "tech-lead"
+                    "email": "ingo@silverstripe.com"
                 }
             ],
             "description": "Provides a form field which allows form to validate for non-bot submissions by giving them a challenge to decrypt an image.",
@@ -266,7 +352,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2014-02-18 21:11:57"
+            "time": "2014-12-11 10:38:25"
         },
         {
             "name": "silverstripe/spamprotection",
@@ -274,12 +360,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-spamprotection.git",
-                "reference": "39f7f0be454af5f67f2789c6e7691221896fa313"
+                "reference": "c1a8a83011e10e238afbd6f4804e9ba1df5d56f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/39f7f0be454af5f67f2789c6e7691221896fa313",
-                "reference": "39f7f0be454af5f67f2789c6e7691221896fa313",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/c1a8a83011e10e238afbd6f4804e9ba1df5d56f9",
+                "reference": "c1a8a83011e10e238afbd6f4804e9ba1df5d56f9",
                 "shasum": ""
             },
             "require": {
@@ -294,8 +380,7 @@
                 },
                 {
                     "name": "Will Rossiter",
-                    "email": "will@fullscreen.io",
-                    "homepage": "http://wilr.github.com"
+                    "email": "will@fullscreen.io"
                 }
             ],
             "description": "Spam protection module for SilverStripe.",
@@ -303,14 +388,13 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2014-03-07 07:38:25"
+            "time": "2014-12-05 02:18:33"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": [],
-    "prefer-stable": false,
     "platform": {
         "php": ">=5.3.2"
     },
