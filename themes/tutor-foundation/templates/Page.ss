@@ -23,7 +23,7 @@
 	<script>try{Typekit.load();}catch(e){}</script>
 </head>
 <body class="$ClassName.ATT">
-	
+	<% include UiowaBar %>
 	<header class="header" role="banner">
 		<div class="contain-to-grid">
 			<% include TopBar %>
@@ -32,17 +32,12 @@
 
 	$Layout
 
-	<!--<footer class="footer" role="contentinfo">
-		<div class="row">
-			<div class="large-12 columns">
-				<p>&copy; $Now.Year $SiteConfig.Title</p>
-			</div>
-		</div>
-	</footer>-->
+	<% include Footer %>
 
 	<%--Login Modal--%>
 	<div id="login-form-modal" class="reveal-modal medium" data-reveal>
 		<h2>Login</h2>
+		<p>If you'd like to sign up to be a tutor, please take a look at our registration process page.</p>
 		$LoginForm
 		<a class="close-reveal-modal">&#215;</a>
 	</div>

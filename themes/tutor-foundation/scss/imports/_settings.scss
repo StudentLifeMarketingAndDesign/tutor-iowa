@@ -89,7 +89,7 @@ $column-gutter: rem-calc(25);
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // We use these to define default font stacks
- $font-family-sans-serif: "proxima-nova", sans-serif;
+ $font-family-sans-serif: "proxima-nova-alt", sans-serif;
 // $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 // $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 
@@ -113,8 +113,11 @@ $column-gutter: rem-calc(25);
 // $steel       : #666666;
 // $charcoal    : #555555;
 // $tuatara     : #444444;
+$yellow: #ffce39;
+
  $oil         : #333333;
- $blue : #1a8bd3;
+ //$blue : #1a8bd3;
+ $blue : #5275a5;
 // $jet         : #222222;
 // $black       : #000000;
 
@@ -199,7 +202,7 @@ $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max
 // $include-html-type-classes: $include-html-classes;
 
 // We use these to control header font styles
- $header-font-family: "proxima-nova-condensed", sans-serif;
+ $header-font-family: "proxima-nova-alt-condensed", sans-serif;
 // $header-font-weight: $font-weight-normal;
 // $header-font-style: normal;
 // $header-font-color: $jet;
@@ -1412,7 +1415,7 @@ $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max
 // $topbar-link-padding: ($topbar-height / 3);
  $topbar-back-link-size: rem-calc(14);
 // $topbar-link-dropdown-padding: rem-calc(20);
-// $topbar-button-font-size: 0.75rem;
+ $topbar-button-font-size: 0.3rem;
 // $topbar-button-top: 7px;
 
 // Style the top bar dropdown elements

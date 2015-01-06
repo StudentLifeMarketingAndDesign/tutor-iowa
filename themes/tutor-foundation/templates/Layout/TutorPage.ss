@@ -1,10 +1,11 @@
 <div class="gradient">
 	<div class="main typography" role="main">
 		
-			<div class="row">
-				<div class="large-8 columns">
+			<div class="row" data-equalizer>
+				<div class="large-8 columns content" data-equalizer-watch>
+					<div class="white-cover"></div>
 					<article>
-						<div class="row cover">
+						<div class="row">
 							<div class="medium-9 columns">
 								<h1>$Title</h1>
 								<p><% if $MeetingPreference %><strong>Meeting Preference: </strong>{$MeetingPreference}<br /><% end_if %>
@@ -28,7 +29,7 @@
 						$ContactForm
 					</article>
 				</div>
-				<div class="large-4 columns end">
+				<div class="large-4 columns end" data-equalizer-watch>
 					<% include TutorSideNav %>
 				</div>
 			

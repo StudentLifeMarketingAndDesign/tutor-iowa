@@ -1,39 +1,16 @@
 <nav class="top-bar" role="navigation" data-topbar>
 	<ul class="title-area">
-		<li class="name">
-			<h1><a href="{$baseUrl}"><img src="{$ThemeDir}/images/logo.png" /></a></h1>
+		<li>
+			<div class="row">
+				<div class="large-12 columns">
+					<h1><a href="{$baseUrl}"><img src="{$ThemeDir}/images/logo.png" /></a></h1>
+				</div>
+			</div>
 		</li>
 		<li class="toggle-topbar menu-icon"><a href=""><span></span></a></li>
 	</ul>
 	<section class="top-bar-section">
 
-		<%-- Search Nav Section --%>
-		<ul class="right">
-
-			<li class="has-form show-for-small-only">
-			      <input type="search" class="top-search" placeholder="Find Stuff">
-			      <a href="#" class="hidden hide">Search</a>
-			</li>
-
-			<li class="has-form show-for-xlarge-up">
-			      <input type="search" class="top-search" placeholder="Find Stuff">
-			      <a href="#" class="button hidden hide radius expand">Search</a>
-			</li>
-
-
-			<% if $CurrentMember %>
-			<li class="has-dropdown">
-				<a href="admin/myprofile">Dustin Quam</a>
-				<ul class="dropdown">
-					<li><a href="edit-profile/">Edit Profile</a></li>
-					<% if $SiteAdmin %><li><a href="admin/">Admin</a></li><% end_if %>
-					<li><a class="alert" href="Security/logout">Logout</a></li>
-				</ul>
-			</li>
-			<% else %>
-				<li><a href="Security/login?BackURL=%2Fadmin" data-reveal-id="login-form-modal">Login</a></li>
-			<% end_if %>
-		</ul>
 		<%-- Main Nav Section --%>
 		<ul class="right">
 			<% loop Menu(1) %>
@@ -60,6 +37,18 @@
 			</li>
 			<% if not $Last %><li class="divider"></li><% end_if %>
 			<% end_loop %>
+			<% if $CurrentMember %>
+			<li class="has-dropdown">
+				<a href="$currentMemberPage.Link">$CurrentMember.FirstName $CurrentMember.Surname</a>
+				<ul class="dropdown">
+					<li><a href="edit-profile/">Edit Profile</a></li>
+					<% if $SiteAdmin %><li><a href="admin/">Admin</a></li><% end_if %>
+					<li><a class="alert" href="Security/logout">Logout</a></li>
+				</ul>
+			</li>
+			<% else %>
+				<li class="has-form"><a href="Security/login?BackURL=%2Fadmin" data-reveal-id="login-form-modal" class="button radius">Login</a></li>
+			<% end_if %>
 		</ul>
 	</section>
 </nav>
