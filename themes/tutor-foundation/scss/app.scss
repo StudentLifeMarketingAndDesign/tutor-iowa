@@ -26,7 +26,7 @@
 
 .page-bg{
 	min-height: 300px;
-	background: red;
+	background-image: url('http://lorempixel.com/1240/300/');
 	position: relative;
 }
 
@@ -87,6 +87,20 @@
 	}
 }
 
+.tag{
+  @include button(
+    // $padding - Used to build padding for buttons Default: $button-med or rem-calc(12)
+    $padding: rem-calc(4),
+    // Background color. We can set $bg:false for a transparent background. Default: $primary-color.
+    $bg: #eee,
+    // If true, set to button radius which is $global-radius or explicitly set radius amount in px (ex. $radius:10px). Default:false.
+    $radius: false
+    // We can set $full-width:true to remove side padding extend width. Default:false
+  );
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  font-size: rem-calc(11);
+}
 
 .profile-image img{
 	border-radius: 50%;
