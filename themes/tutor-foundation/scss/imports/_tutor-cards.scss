@@ -1,9 +1,21 @@
 .tutor-card-list{
 
 	@include block-grid(
-		$per-row: 2,
-		$spacing: rem-calc(12)
+		$per-row: 2
 	);
+
+	&.small{
+		@include block-grid(
+			$per-row: 3
+		);
+
+		@media #{$large-up}{
+			@include block-grid(
+				$per-row: 2
+			);
+		}
+
+	}
 
 	li img{
 		display: block;
