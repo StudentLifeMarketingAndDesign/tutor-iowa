@@ -78,10 +78,11 @@ class EditProfilePage_Controller extends Page_Controller
 	
 	            
 	        );
-	         
+	         $saveAction = new FormAction('SaveProfile', 'Save');
+	         $saveAction->addExtraClass('radius');
 	        // Create action
 	        $actions = new FieldList(
-	            new FormAction('SaveProfile', 'Save')
+	            $saveAction
 	        );
 	        
 	      
@@ -91,7 +92,7 @@ class EditProfilePage_Controller extends Page_Controller
 	        $validator = new RequiredFields('FirstName', 'Surname', 'Email');
 	        
 	       //Create form
-	        $Form = new Form($this, 'EditProfileForm', $fields, $actions, $validator);
+	        $Form = new FoundationForm($this, 'EditProfileForm', $fields, $actions, $validator);
 	 
 	        //Get current member
 	        $Member = Member::CurrentUser();

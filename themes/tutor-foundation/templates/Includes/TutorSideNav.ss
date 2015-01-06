@@ -3,13 +3,13 @@
   		<li><a href="{$getFeedbackLink}" class="button secondary">Give Feedback About $FirstName</a></li>
 	</ul>
 	<h3>Related Campus Resources:</h3>
-	<h4>Help Labs</h4>
-	<ul>
-		<% loop ChildrenOf("help-labs").Limit(5) %><li><a href="$Link">$Title</a></li><% end_loop %>
-	</ul>
-	<h4>Supplemental Instruction</h4>
-	<ul>
-		<% loop ChildrenOf("supplemental-instruction").Limit(5) %><li><a href="$Link">$Title</a></li><% end_loop %>
+	
+	<ul class="no-bullet">
+		<li><strong>Help Labs:</strong> <% loop ChildrenOf("help-labs").Limit(5) %><a href="$Link">$Title</a><% if not $Last %>, <% end_if %><% end_loop %>
+		</li>
+		<li>
+			<strong>Supplemental Instruction:</strong> <% loop ChildrenOf("supplemental-instruction").Limit(5) %><li><a href="$Link">$Title</a><% if not $Last %>, <% end_if %><% end_loop %>
+		</li>
 	</ul>
 	<hr />
  	<h3>Similar Tutors</h3>

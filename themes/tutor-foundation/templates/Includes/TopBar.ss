@@ -3,11 +3,39 @@
 		<li class="name">
 			<h1><a href="{$baseUrl}"><img src="{$ThemeDir}/images/logo.png" /></a></h1>
 		</li>
-		<li class="toggle-topbar menu-icon"><a href=""><span>Menu</span></a></li>
+		<li class="toggle-topbar menu-icon"><a href=""><span></span></a></li>
 	</ul>
 	<section class="top-bar-section">
-		<%-- Left Nav Section --%>
-		<ul class="left">
+
+		<%-- Search Nav Section --%>
+		<ul class="right">
+
+			<li class="has-form show-for-small-only">
+			      <input type="search" class="top-search" placeholder="Find Stuff">
+			      <a href="#" class="hidden hide">Search</a>
+			</li>
+
+			<li class="has-form show-for-xlarge-up">
+			      <input type="search" class="top-search" placeholder="Find Stuff">
+			      <a href="#" class="button hidden hide radius expand">Search</a>
+			</li>
+
+
+			<% if $CurrentMember %>
+			<li class="has-dropdown">
+				<a href="admin/myprofile">Dustin Quam</a>
+				<ul class="dropdown">
+					<li><a href="edit-profile/">Edit Profile</a></li>
+					<% if $SiteAdmin %><li><a href="admin/">Admin</a></li><% end_if %>
+					<li><a class="alert" href="Security/logout">Logout</a></li>
+				</ul>
+			</li>
+			<% else %>
+				<li><a href="Security/login?BackURL=%2Fadmin" data-reveal-id="login-form-modal">Login</a></li>
+			<% end_if %>
+		</ul>
+		<%-- Main Nav Section --%>
+		<ul class="right">
 			<% loop Menu(1) %>
 			<li class="<% if $LinkingMode == "current" || $LinkingMode == "section" %>active<% end_if %><% if $Children %> has-dropdown<% end_if %>">
 				<a href="$Link" title="Go to the $Title.ATT">$MenuTitle</a>
@@ -32,32 +60,6 @@
 			</li>
 			<% if not $Last %><li class="divider"></li><% end_if %>
 			<% end_loop %>
-		</ul>
-		<%-- Right Nav Section --%>
-		<ul class="right">
-			<li class="has-form">
-			  <div class="row collapse">
-			    <div class="large-8 small-9 columns">
-			      <input type="search" id="top-search" placeholder="Find Stuff">
-			    </div>
-			    <div class="large-4 small-3 columns">
-			      <a href="#" class="button expand">Search</a>
-			    </div>
-			  </div>
-			</li>
-			<% if $CurrentMember %>
-
-			<li class="has-dropdown">
-				<a href="admin/myprofile">Hi $CurrentMember.FirstName</a>
-				<ul class="dropdown">
-					<li><a href="admin/">Admin</a></li>
-					<li><a href="admin/myprofile">My Profile</a></li>
-					<li><a href="Security/logout">Logout</a></li>
-				</ul>
-			</li>
-			<% else %>
-			<li><a href="Security/login?BackURL=%2Fadmin" data-reveal-id="login-form-modal">Login</a></li>
-			<% end_if %>
 		</ul>
 	</section>
 </nav>

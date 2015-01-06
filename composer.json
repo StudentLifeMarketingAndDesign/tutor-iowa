@@ -9,7 +9,8 @@
 		"silverstripe/spamprotection": "*",
 		"silverstripe/recaptcha" : "*",
 		"md/division-bar" : "*",
-		"md/ac-json-events" : "*"
+		"md/ac-json-events" : "*",
+		"rywa/silverstripe-foundation-forms": "dev-master"
 	},
 	"config": {
 		"process-timeout": 600	

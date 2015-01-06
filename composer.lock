@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "da1139bfd12d7a399c768071c8e97336",
+    "hash": "130013efe7d1e3f7f4583ebaee215fc7",
     "packages": [
         {
             "name": "composer/installers",
@@ -162,6 +162,46 @@
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-bar/issues"
             },
             "time": "2014-12-11 17:54:52"
+        },
+        {
+            "name": "rywa/silverstripe-foundation-forms",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rywa/silverstripe-foundation-forms.git",
+                "reference": "8e1daa4c89a0dd36f491b210fe8e9ca07674a94e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rywa/silverstripe-foundation-forms/zipball/8e1daa4c89a0dd36f491b210fe8e9ca07674a94e",
+                "reference": "8e1daa4c89a0dd36f491b210fe8e9ca07674a94e",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*",
+                "silverstripe/framework": ">=3.0"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "foundationforms"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT Open Source License"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Wachtl",
+                    "homepage": "http://ryanwachtl.com"
+                }
+            ],
+            "description": "SilverStripe 3 Forms Compatible with Zurb Foundation Framework",
+            "keywords": [
+                "Forms",
+                "silverstripe",
+                "zurbfoundation"
+            ],
+            "time": "2014-08-01 02:02:34"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -373,7 +413,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "rywa/silverstripe-foundation-forms": 20
+    },
     "prefer-stable": false,
     "platform": {
         "php": ">=5.3.2"

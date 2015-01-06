@@ -7,16 +7,37 @@
 @import "../../../division-bar/scss/_division-bar-foundation.scss";
 
 .main {
-	padding-top: 32px;
+	padding-top: 10px;
 	min-height: 320px;
+
+	h1{
+		text-transform: uppercase;
+		border-bottom: 1px solid #ddd;
+		padding-bottom: 5px;
+	}
+
+
 }
+
+
 
 .top-bar{
 	h1{
 		max-width: 300px;
 	}
 
-	#top-search{
-		border-radius: 20px;
+	.top-search{
+		border-radius: $global-radius;
+
+		border-right: 1px solid #ddd;
+		padding-right: 10px;
+
+	}
+
+	.title.back a{
+		background: #666;
+		&:hover{
+			background: #666;
+		}
 	}
 }
