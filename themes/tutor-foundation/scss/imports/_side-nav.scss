@@ -1,0 +1,16 @@
+.side-nav{
+	padding-top: 0;
+	background-color: $side-nav-bg;
+	padding: 10px;
+	h3{
+		text-transform: uppercase;
+		font-size: rem-calc(13);
+
+		span{
+			background: #efefef;
+			padding: 2px;
+			a{
+			}
+		}
+	}
+}

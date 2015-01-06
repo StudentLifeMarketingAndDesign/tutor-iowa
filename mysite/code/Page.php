@@ -272,6 +272,14 @@ class Page_Controller extends ContentController
       if(Permission::check('ADMIN')) return true;
     }
     
+    public function LatestNews($num=5) {
+       //$news = DataObject::get_one("ArticleHolder");
+       $news = ArticlePage::get()->sort('Sort')->limit($num); 
+       //return ($news) ? DataObject::get("ArticlePage", "ParentID = $news->ID", "Date DESC", "", $num) : false;
+       return $news; 
+
+    }
+
     public function init() {
         parent::init();
         

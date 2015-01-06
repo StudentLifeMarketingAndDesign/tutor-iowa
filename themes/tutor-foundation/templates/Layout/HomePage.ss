@@ -9,13 +9,7 @@
 		</ul>
 	</div>
 	<div class="large-4 columns">
-	<% loop LatestNews %>
-		<h3><a href="$Link">$Title</a></h3>
-		<!--<p class = "news-details-Hpage">Posted on: $Date.Nice</p>-->
-		<p>$Content.Summary(20)</p>
-		<a href="$Link">continue...</a>
-		<hr />
-	<% end_loop %>
+		<% include Announcements %>
 								
 	</div>
 </div>
