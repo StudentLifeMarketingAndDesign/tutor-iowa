@@ -51,19 +51,19 @@ class EditProfilePage_Controller extends Page_Controller
 
 	        
 	        $tagsLabel = '<p>Read the <a href="for-tutors/">For Tutors page</a> to learn more about tags and promoting yourself on Tutor Iowa!</p>';
-	        $changePassLabel = '<p><a href="Security/ChangePassword">Reset your password</a></p>';
+	        $changePassLabel = '<p><a href="Security/ChangePassword" class="button small radius">Reset your password</a></p>';
 	        $fields = new FieldList(
 	            new TextField('FirstName', '<span>*</span> First Name'),
 	            new TextField('Surname', '<span>*</span> Last Name'),
-	            new EmailField('Email', '<span>*</span> Email'),
+	            new EmailField('Email', '<span>*</span> Email Address'),
 	            new LiteralField('ChangePassword', $changePassLabel),
 	            new TextareaField('Content', 'Biography'),
 	            new TextareaField('Hours', 'Availability'),
 	            new DateField('StartDate', 'Date you would like to start tutoring'),
 	            new DateField('EndDate', 'Date you expect to stop tutoring'),
-	            new TextField('PhoneNo', 'Phone Number'),
+	            new TextField('PhoneNo', 'Phone number'),
 	            new TextField('MeetingPreference', 'Meeting preference (on and/or off-campus)'),
-	            new TextField('HourlyRate', 'Hourly Rate'),
+	            new TextField('HourlyRate', 'Hourly rate'),
 	            new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
 	            new TextField('GPA'),
 	            new UniversityIDField('UniversityID', 'University ID'),

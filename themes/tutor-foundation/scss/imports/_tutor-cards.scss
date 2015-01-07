@@ -23,7 +23,7 @@
 
 	@media #{$large-up}{
 		@include block-grid(
-			$per-row: 3
+			$per-row: 6
 		);
 	}
 

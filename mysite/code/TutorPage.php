@@ -189,9 +189,9 @@ class TutorPage_Controller extends Page_Controller {
 			);
 
 		$validator = new RequiredFields('Email');
-		$form = new Form($this, 'ContactForm', $fields, $actions, $validator);
+		$form = new FoundationForm($this, 'ContactForm', $fields, $actions, $validator);
 	    //$protector = SpamProtectorManager::update_form($form, 'Message');
-		$form->enableSpamProtection();
+		//$form->enableSpamProtection();
 		return $form;
 
 	}

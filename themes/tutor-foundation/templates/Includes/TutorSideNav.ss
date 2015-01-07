@@ -3,7 +3,7 @@
 		<% if $currentMemberPage.ID == $ID %>
 			<li><a href="edit-profile/" class="button success radius">Edit Your Page</a></li>
 		<% else %>
-  			<li><a href="{$getFeedbackLink}" class="button radius">Give Feedback About $FirstName</a></li>
+  			<li><a href="{$getFeedbackLink}" class="button radius" target="_blank">Give Feedback About $FirstName</a></li>
   		<% end_if %>
 	</ul>
 	<hr />
