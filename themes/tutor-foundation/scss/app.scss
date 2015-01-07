@@ -36,11 +36,11 @@
 	background: #ffffff;
 	position: relative;
 	@media #{$large-up} {
-		background: -moz-linear-gradient(left, #ffffff 50%, $side-nav-bg 50%); /* FF3.6+ */
+		background: -moz-linear-gradient(left, #ffffff 60%, $side-nav-bg 40%); /* FF3.6+ */
 		background: -webkit-gradient(linear, left top, right top, color-stop(60%,#ffffff), color-stop(40%,$side-nav-bg)); /* Chrome,Safari4+ */
 		background: -webkit-linear-gradient(left, #ffffff 60%,$side-nav-bg 40%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(left, #ffffff 50%,$side-nav-bg 40%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(left, #ffffff 50%,$side-nav-bg 50%); /* IE10+ */
+		background: -o-linear-gradient(left, #ffffff 60%,$side-nav-bg 40%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(left, #ffffff 60%,$side-nav-bg 40%); /* IE10+ */
 		background: linear-gradient(to right, #ffffff 60%,$side-nav-bg 40%); /* W3C */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='$side-nav-bg',GradientType=1 ); /* IE6-9 */ 
 	}
