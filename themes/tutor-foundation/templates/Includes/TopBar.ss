@@ -39,7 +39,7 @@
 			<% end_loop %>
 			<% if $CurrentMember %>
 			<li class="has-dropdown">
-				<a href="$currentMemberPage.Link">$CurrentMember.FirstName $CurrentMember.Surname</a>
+				<a href="$currentMemberPage.Link">$CurrentMember.FirstName</a>
 				<ul class="dropdown">
 					<li><a href="edit-profile/">Edit Profile</a></li>
 					<% if $SiteAdmin %><li><a href="admin/">Admin</a></li><% end_if %>

@@ -15,7 +15,7 @@
 			<div class="large-4 columns end" data-equalizer-watch>
 				<div class="side-nav">
 				<ul class="button-group stack">
-					<li><a href="$currentMemberPage.Link" class="button secondary radius">View Profile</a></li>
+					<li><a href="$currentMemberPage.Link" target="_blank" class="button secondary radius">View Profile</a></li>
 				</ul>
 				</div>
 				<% include SideNav %>

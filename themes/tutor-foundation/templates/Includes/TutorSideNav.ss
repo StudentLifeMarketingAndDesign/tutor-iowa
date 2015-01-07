@@ -1,7 +1,7 @@
 <div class="side-nav">
 	<ul class="button-group stack">
 		<% if $currentMemberPage.ID == $ID %>
-			<li><a href="edit-profile/" class="button success radius">Edit Your Page</a></li>
+			<li><a href="edit-profile/" class="button success radius">Edit Your Profile</a></li>
 		<% else %>
   			<li><a href="{$getFeedbackLink}" class="button radius" target="_blank">Give Feedback About $FirstName</a></li>
   		<% end_if %>
@@ -18,10 +18,10 @@
 	<% loop ChildrenOf("private-tutors").Limit(4) %><% include SideNavTutor %><% end_loop %>
 	<% if $Member %>
 		<h3><span>Site Administration Options</span></h3>
-		<ul class="stack button-group">
-	  		<li><a href="mailto:address@address.com" class="button">Email $FirstName Directly</a></li>
-	  		<li><a href="#" class="button">Edit in SilverStripe</a></li>
-	  		<li><a href="#" class="button alert">Unpublish (Deactivate)</a></li>
+		<ul class="button-group round even-3">
+	  		<li><a href="mailto:address@address.com" class="button">Email</a></li>
+	  		<li><a href="#" class="button success">Edit</a></li>
+	  		<li><a href="#" class="button alert">Disable</a></li>
 		</ul>
 	<% end_if %>
 </div>
