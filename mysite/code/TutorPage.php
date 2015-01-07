@@ -24,20 +24,29 @@ class TutorPage extends Page {
 		"PublishFlag" => 'Boolean'
 	);
 
-	static $has_one = array(
+	private static $has_one = array(
 		'Member' => 'Member',
 		'AcademicHelp' => 'AcademicHelp',
 	);
 
-	static $has_many = array(
+	private static $has_many = array(
 		'FeedbackItems' => 'FeedbackItem'
 	);
 
-	static $defaults = array ('ProvideComments' => '1',
+	private static $defaults = array('ProvideComments' => '1',
 		'UniversityID' => null,
 		'GPA' => null
 	);
-
+	
+	private static $default_sort = 'Surname ASC';
+	
+	private static $summary_fields = array(
+		//'Title' => 'Title', 
+		'FirstName' => 'First Name',
+		'Surname' => 'Last Name',
+		'Major' => 'Major',
+		'Email' => 'Email'
+	);
 
     //Add form fields to CMS
 	public function getCMSFields() {
