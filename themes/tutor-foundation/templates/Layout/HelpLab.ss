@@ -6,9 +6,10 @@
 				<div class="large-8 columns content" data-equalizer-watch>
 					<div class="white-cover"></div>
 					<article>
-						<div class="row">
-							<div class="medium-9 columns">
-								<div id="breadcrumbs"><a href="{$BaseHref}">Home</a> > <a href="{$BaseHref}find-help/">Find Help</a> > <a href="{$BaseHref}help-labs/">Help Labs</a> > <span class="current">$Title</span></div>
+						<div class="row" style="padding-top: 12px;">
+							<div class="medium-9 columns" >
+
+								<% include Breadcrumbs %>
 
 								<h1>$Title</h1>
 
