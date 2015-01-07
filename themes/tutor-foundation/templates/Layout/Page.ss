@@ -12,7 +12,6 @@
 				<div class="row">
 
 					<article class="large-10 columns">
-
 						<h1>$Title</h1>
 						$Content
 						$Form
