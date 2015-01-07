@@ -4,8 +4,59 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "130013efe7d1e3f7f4583ebaee215fc7",
+    "hash": "2fb6484e1c2752b9a41b8857d0e88055",
     "packages": [
+        {
+            "name": "briceburg/silverstripe-pageholder",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/briceburg/silverstripe-pageholder.git",
+                "reference": "25f25234c1df4bc8b2e4ed404995ea181db94f94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/briceburg/silverstripe-pageholder/zipball/25f25234c1df4bc8b2e4ed404995ea181db94f94",
+                "reference": "25f25234c1df4bc8b2e4ed404995ea181db94f94",
+                "shasum": ""
+            },
+            "require": {
+                "micschk/silverstripe-excludechildren": "*",
+                "silverstripe/framework": "~3.0"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "pageholder",
+                "screenshots": [
+                    "docs/screenshots/pageholder.png",
+                    "docs/screenshots/pageholder_edit.png"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Brice Burgess",
+                    "email": "briceburg@gmail.com"
+                }
+            ],
+            "description": "Hide children from the CMS sitetree and allow management through a Versioned GridField. Think _BlogHolder_ but flexible and for any page type.",
+            "homepage": "https://github.com/briceburg/silverstripe-pageholder",
+            "keywords": [
+                "children",
+                "cms",
+                "gridfield",
+                "hide",
+                "manage",
+                "silverstripe",
+                "sitetree",
+                "subpages",
+                "versioned"
+            ],
+            "time": "2014-12-05 19:44:47"
+        },
         {
             "name": "composer/installers",
             "version": "dev-master",
@@ -162,6 +213,41 @@
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-bar/issues"
             },
             "time": "2014-12-11 17:54:52"
+        },
+        {
+            "name": "micschk/silverstripe-excludechildren",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/micschk/silverstripe-excludechildren.git",
+                "reference": "2777dc855185c49358e63862eb8a89e9ea58c0e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/micschk/silverstripe-excludechildren/zipball/2777dc855185c49358e63862eb8a89e9ea58c0e2",
+                "reference": "2777dc855185c49358e63862eb8a89e9ea58c0e2",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.0"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "excludechildren"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "micschk"
+                }
+            ],
+            "description": "Provides an extension to limit subpages shown in sitetree",
+            "keywords": [
+                "excludechildren",
+                "silverstripe",
+                "sitetree"
+            ],
+            "time": "2014-12-11 09:12:27"
         },
         {
             "name": "rywa/silverstripe-foundation-forms",
