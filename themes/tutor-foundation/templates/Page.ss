@@ -35,7 +35,7 @@
 	<% include Footer %>
 
 	<%--Login Modal--%>
-	<div id="login-form-modal" class="reveal-modal medium" data-reveal>
+	<div id="login-form-modal" class="reveal-modal large" data-reveal>
 		<div class="row">
 			<div class="large-6 columns">
 				<h2>Login</h2>
