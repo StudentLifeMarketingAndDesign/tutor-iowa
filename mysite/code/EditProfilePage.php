@@ -70,7 +70,7 @@ class EditProfilePage_Controller extends Page_Controller
 	            new TextField('Major'),
 	            new LiteralField('TagsHelpLabel', $tagsLabel),
 
-	            new TextareaField('MetaKeywords', 'Tags'),
+	            new TagField('Tags', 'Tags'),
 	            
 	            
 	            //This does not sync with database (database field is 'Disabled')
@@ -195,7 +195,7 @@ class EditProfilePage_Controller extends Page_Controller
                 //$Tutor->doPublish();
                 
            
-                                           
+                 //TODO: Rewrite this so that we're only saving essential Member fields to Member. not the whole form.           
                 $form->saveInto($CurrentMember); 
                  
                 $CurrentMember->write();
