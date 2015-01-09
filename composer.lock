@@ -1,8 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
-        "This file is @generated automatically"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
     "hash": "2fb6484e1c2752b9a41b8857d0e88055",
     "packages": [
@@ -255,12 +254,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rywa/silverstripe-foundation-forms.git",
-                "reference": "8e1daa4c89a0dd36f491b210fe8e9ca07674a94e"
+                "reference": "1240251e9f9c698953c540756bb1656cd025ad51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rywa/silverstripe-foundation-forms/zipball/8e1daa4c89a0dd36f491b210fe8e9ca07674a94e",
-                "reference": "8e1daa4c89a0dd36f491b210fe8e9ca07674a94e",
+                "url": "https://api.github.com/repos/rywa/silverstripe-foundation-forms/zipball/1240251e9f9c698953c540756bb1656cd025ad51",
+                "reference": "1240251e9f9c698953c540756bb1656cd025ad51",
                 "shasum": ""
             },
             "require": {
@@ -287,7 +286,7 @@
                 "silverstripe",
                 "zurbfoundation"
             ],
-            "time": "2014-08-01 02:02:34"
+            "time": "2015-01-07 17:08:54"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -502,7 +501,6 @@
     "stability-flags": {
         "rywa/silverstripe-foundation-forms": 20
     },
-    "prefer-stable": false,
     "platform": {
         "php": ">=5.3.2"
     },

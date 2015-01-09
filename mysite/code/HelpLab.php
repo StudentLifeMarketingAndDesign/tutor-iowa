@@ -1,6 +1,4 @@
 <?php
-
-
 class HelpLab extends Page {
 	private static $db = array(
 		'Name' => 'Text',
@@ -87,6 +85,13 @@ class HelpLab extends Page {
 class HelpLab_Controller extends Page_Controller {
 
 	private static $allowed_actions = array( "Edit", "HelpLabSaveProfile", "canUserEditHelpLab", "helpLabSaved", "HelpEditProfileForm" );
+	
+	public function init() {
+		parent::init();
+		//require google maps API key on helplab pages because they include google maps. 
+		//Note the current key is for athaax@gmaildotcom, for dev. 
+		Requirements::javascript("http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=AIzaSyDUkOHwlzBjOa5Vb-fKIOYjv5LP4Hrai5E");
+	}
 
 	public function Edit() {
 		/*
