@@ -21,7 +21,8 @@ class TutorPage extends Page {
 		"UniversityID" => 'Text',
 		"Major" => 'Text',
 		"GPA" => 'Text',
-		"PublishFlag" => 'Boolean'
+		"PublishFlag" => 'Boolean',
+		'Tags' => 'Text'
 	);
 
 	private static $has_one = array(
@@ -63,7 +64,7 @@ class TutorPage extends Page {
 		$fields->addFieldToTab( 'Root.Main', new TextField("Surname", "Last name of tutor"));
 		$fields->addFieldToTab( 'Root.Main', new TextField("PhoneNo", "Phone Number"));
 		$fields->addFieldToTab( 'Root.Main', new TextField("Email"));
-		$fields->addFieldToTab( 'Root.Main', new TextAreaField("MetaKeywords", "Tags"));
+		$fields->addFieldToTab( 'Root.Main', new TagField("Tags", "Tags"));
 		$fields->addFieldToTab( 'Root.Main', new TextAreaField("Content", "Biography"));
 		$fields->addFieldToTab( 'Root.Main', new TextAreaField("Hours", "Availability"));
 
