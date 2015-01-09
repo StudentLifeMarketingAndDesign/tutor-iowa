@@ -1,5 +1,5 @@
 <?php
-class Tag_Controller extends Page_Controller {
+class Inbox_Controller extends Page_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
