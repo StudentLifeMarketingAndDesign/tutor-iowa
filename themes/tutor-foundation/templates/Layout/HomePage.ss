@@ -3,7 +3,7 @@
 <div class="row main-content">
 	<div class="large-8 columns">
 		<ul class="tutor-card-list">
-			<% loop ChildrenOf("private-tutors").Limit(3).Sort('RAND') %>
+			<% loop ChildrenOf("private-tutors").Limit(8).Sort('RAND') %>
 				<% include TutorCard %>
 			<% end_loop %>
 		</ul>
