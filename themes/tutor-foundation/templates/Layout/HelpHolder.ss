@@ -13,6 +13,12 @@
 						<h1>$Title</h1>
 						$Content
 						$Form
+						<p>Number of Help Labs: $ChildrenOf(help-labs).Count</p>
+						<ul>
+							<% loop ChildrenOf(help-labs) %>
+								<li><a href="$Link">$Title</a></li>
+							<% end_if %>
+						</ul>
 					</article>
 				</div>
 			</div>

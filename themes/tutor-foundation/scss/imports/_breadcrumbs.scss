@@ -1,0 +1,43 @@
+/* Single Page Styles */
+
+.main .breadcrumbs {
+    //display: none;
+    font-family: $header-font-family;
+    padding-left: 0;
+    a {
+        @include button(
+            $bg: $gray,
+            $padding: rem-calc(5)
+        );
+    }
+
+    span{
+        @include button(
+            $bg: $body-bg,
+            $padding: rem-calc(5),
+            $disabled: true
+        );       
+    }
+
+    a, span{
+       font-size: rem-calc(14);
+        border: #ccc;
+        color: $body-font-color;
+        margin-bottom: 0; 
+
+    }
+    .current a {
+        background: none;
+        color: $body-font-color;
+    }
+    @media #{$large-up} {
+        display: block;
+    }
+}
+
+/* Breadcrumb Nav Button */
+.button.nav {
+    background: #ededed;
+    color: $primary-color;
+    border: 1px solid #ccc;
+}

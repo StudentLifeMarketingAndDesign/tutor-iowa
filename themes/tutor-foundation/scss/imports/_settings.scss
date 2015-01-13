@@ -98,29 +98,29 @@ $column-gutter: rem-calc(25);
 // $font-weight-bold: bold;
 
  $white       : #FFFFFF;
-// $ghost       : #FAFAFA;
+ $ghost       : #FAFAFA;
 // $snow        : #F9F9F9;
-// $vapor       : #F6F6F6;
+ $vapor       : #F6F6F6;
 // $white-smoke : #F5F5F5;
 // $silver      : #EFEFEF;
 // $smoke       : #EEEEEE;
 // $gainsboro   : #DDDDDD;
 // $iron        : #CCCCCC;
 // $base        : #AAAAAA;
-// $aluminum    : #999999;
+ $aluminum    : #999999;
 // $jumbo       : #888888;
 // $monsoon     : #777777;
 // $steel       : #666666;
 // $charcoal    : #555555;
 // $tuatara     : #444444;
 $yellow: #ffce39;
-
+$gray: #eee;
  $oil         : #333333;
  //$blue : #1a8bd3;
  $blue : #5275a5;
  $green : #52a57f;
  $gold: #E4B74C;
-// $jet         : #222222;
+ $jet         : #222222;
 // $black       : #000000;
 
 // We use these as default colors throughout
@@ -132,8 +132,8 @@ $yellow: #ffce39;
 // $info-color: #a0d3e8;
 
 // We use these to control various global styles
-// $body-bg: $white;
-// $body-font-color: $jet;
+ $body-bg: $white;
+ $body-font-color: $jet;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
@@ -401,6 +401,33 @@ $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max
 // $include-html-nav-classes: $include-html-classes;
 
 // We use this to set the background color for the breadcrumb container.
+
+$crumb-bg: $body-bg;
+
+// We use these to set the padding around the breadcrumbs.
+// $crumb-padding: rem-calc(9 14 9);
+// $crumb-side-padding: rem-calc(12);
+
+// We use these to control border styles.
+// $crumb-function-factor: 10%;
+$crumb-border-size: 1px;
+$crumb-border-style: none;
+$crumb-border-color: $gray;
+$crumb-radius: 0;
+
+// We use these to set various text styles for breadcrumbs.
+$crumb-font-size: rem-calc(10);
+$crumb-font-color: $primary-color;
+
+// $crumb-font-color-current: #333;
+// $crumb-font-color-unavailable: #999;
+// $crumb-font-transform: uppercase;
+// $crumb-link-decor: underline;
+
+// We use these to control the slash between breadcrumbs
+$crumb-slash-color: $body-font-color;
+$crumb-slash: "\25B8";
+
 // $crumb-bg: scale-color($secondary-color, $lightness: 55%);
 
 // We use these to set the padding around the breadcrumbs.

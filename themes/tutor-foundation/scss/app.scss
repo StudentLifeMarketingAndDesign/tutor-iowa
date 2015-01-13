@@ -3,10 +3,12 @@
 
 @import "imports/uiowa-bar";
 @import "imports/homepage";
+@import "imports/help-lab";
 @import "imports/tutor-page";
 @import "imports/tutor-cards";
 @import "imports/edit-profile";
 @import "imports/side-nav";
+@import "imports/breadcrumbs";
 @import "imports/footer";
 
 @import "../../../division-bar/scss/_division-bar-foundation.scss";
@@ -30,6 +32,10 @@
 	background-image: url('http://lorempixel.com/1240/300/');
 	background-color: #eee;
 	position: relative;
+}
+
+#labmap {
+	//border: solid 10px black;
 }
 
 .gradient {
@@ -63,7 +69,10 @@
 
 .top-bar{
 	h1{
-		max-width: rem-calc(300);
+		max-width: rem-calc(200);
+		@media #{$large-up} {
+			max-width: rem-calc(300);
+		}
 	}
 
 	.top-search{
