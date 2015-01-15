@@ -1,0 +1,45 @@
+
+.message {
+	//border-bottom: 1px solid #ddd;
+	//border-top: 1px solid black;
+	//padding: 10px 0;
+	//max-height: 200px;
+	
+	.message-body {
+		height: auto;
+		max-height: 120px;
+		overflow: hidden;
+		//-webkit-line-clamp: 8;
+		//-webkit-box-orient: vertical;
+		//text-overflow: ellipsis;
+		//-webkit-transition: all 0.5s ease;
+	    //-moz-transition: all 0.5s ease;
+	    //-o-transition: all 0.5s ease;
+	    //transition: all 0.5s ease;
+	}
+
+	.open-message {
+		height: auto;
+		max-height: none !important;
+		//overflow: auto;
+		
+	}
+	
+	.truncate {
+		//width: 250px;
+		max-height: 222px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	
+	.reply-form {
+		//display: none;
+	}
+}
+
+.not-read {
+	> * {
+		background-color: $blue;
+	}
+}
