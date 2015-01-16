@@ -11,17 +11,22 @@
 							<h1>Your Inbox</h1>
 							<div>
 								<ul class="inbox-nav">
-									<li><a href="#!" class="tiny" >Unread</a></li>
-									<li><a href="#!" class="tiny" >All</a></li>
-									<li><a href="#!" class="tiny" >Unreplied</a></li>
+									<li><a href="#!" id="unread-messages" class="tiny" >Unread</a></li>
+									<li><a href="#!" id="all-messages" class="tiny" >All</a></li>
+									<li><a href="#!" id="unreplied-messages" class="tiny" >Unreplied</a></li>
 								</ul>
 							</div>
 							<% loop $CurrentMember.Messages.Sort(Created).Reverse %>
-								<div class="message <% if $ReadDateTime %> read <% end_if %> row">
+								<div class="<% if $ReadDateTime %>read<% end_if %> <% if $RepliedDateTime %>replied<% end_if %> message row" data-id="$ID" data-read="$ReadDateTime">
 									<div class="small-12 columns">
 										<section class="message-box truncate">
-											<div class="message-details"><span class="text-left"> $SenderName</span> <small class="right">$Created.NiceUS</small> </div>
-											<div><p class="truncate"> $MessageBody.BigSummary </p></div>
+											<div class="message-details"><span class="text-left"> $SenderName</span> <small class="right">$Created.NiceUS</small></div>
+											<div class="message-summary">									
+												<p class="truncate"> $MessageBody.FirstParagraph </p>
+											</div>
+											<div class="message-body" style="display: none;">
+												<p> $MessageBody </p>
+											</div>
 										</section>
 									</div>
 								</div>

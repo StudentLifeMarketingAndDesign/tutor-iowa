@@ -6346,6 +6346,8 @@ th.hide-for-touch {
     .message .message-box {
       height: 77px; }
  }
+  .message .message-summary {
+    overflow: hidden; }
   .message .message-body {
     height: auto;
     max-height: 120px;

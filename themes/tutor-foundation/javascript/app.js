@@ -15,8 +15,8 @@ var openMessage;
 //var getFullMessage = $(location).attr('href') + "/getFullMessage";
 
 $(".message").each( function() {
-	var message = $(this).children('.message-body').text();
-	var wordCount = message.split(" ");
+	//var message = $(this).children('.message-body').text();
+	//var wordCount = message.split(" ");
 	//console.log(message);
 	
 }).click(function() {
@@ -36,8 +36,8 @@ $(".message").each( function() {
 		);
 		*/
 	} else {
-		//console.log(messageID);
-		//console.log(memberID);
+		console.log(messageID);
+		console.log(memberID);
 		$.post(
 			markAsRead,
 			{
@@ -54,11 +54,23 @@ $(".message").each( function() {
 			console.log('fail');
 		});
 	}
+	
+	messageBody = $(this).find('.message-body').first();
+	messageSummary = $(this).find('.message-summary').first();
+	
+	messageSummary.toggle(); 
+	messageBody.toggle();
+	
+	$(".message-box").css("height", "auto");
+	
+	
 	/*
 	if ($(event.target).parents(".reply-form")) {
 		console.log($(event.target).parents(".reply-form"));
 		
 	} */
+	
+	/*
 	
 	clickedOn = ($(".reply-form").has($(event.target)));
 	if (clickedOn["length"] > 0) {
@@ -78,4 +90,25 @@ $(".message").each( function() {
 		$(".white-cover").css("height", articleHeight);
 		$(".footer").css("margin-top", heightFix);
 	}
+	*/
 });
+
+$("#unread-messages").click(function() {
+	$(".read").each(function() {
+		$(this).hide();
+	});	
+});
+
+$("#all-messages").click(function() {
+	$(".message").each(function() {
+		$(this).show();
+	});	
+});
+
+$("#unreplied-messages").click(function() {
+	$(".replied").each(function() {
+		$(this).hide();
+	});	
+});
+
+
