@@ -103,17 +103,17 @@ $column-gutter: rem-calc(25);
 // $vapor       : #F6F6F6;
 // $white-smoke : #F5F5F5;
  $silver      : #EFEFEF;
-// $smoke       : #EEEEEE;
+ $smoke       : #EEEEEE;
 // $gainsboro   : #DDDDDD;
 // $iron        : #CCCCCC;
 // $base        : #AAAAAA;
 // $aluminum    : #999999;
 // $jumbo       : #888888;
-// $monsoon     : #777777;
-// $steel       : #666666;
-// $charcoal    : #555555;
+ $monsoon     : #777777;
+ $steel       : #666666;
+ $charcoal    : #555555;
  $tuatara     : #444444;
-$yellow: #ffce39;
+ $yellow: #ffce39;
 
  $oil         : #333333;
  //$blue : #1a8bd3;
@@ -125,7 +125,7 @@ $yellow: #ffce39;
 
 // We use these as default colors throughout
  $primary-color: $blue;
-// $secondary-color: #e7e7e7;
+ $secondary-color: #e7e7e7;
  //$alert-color: $green;
  $success-color: #37be5e;
 // $warning-color: #f08a24;

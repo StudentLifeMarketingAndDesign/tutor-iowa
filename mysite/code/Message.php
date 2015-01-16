@@ -6,7 +6,8 @@ class Message extends DataObject {
 	   'SenderName' => 'Varchar',
 	   'MessageBody' => 'Text',
 	   'RecipientName' => 'Text',
-	   'ReadDateTime' => 'SS_Datetime'
+	   'ReadDateTime' => 'SS_Datetime',
+	   'RepliedDateTime' => 'SS_Datetime'
    );
    
    private static $has_one = array(
@@ -32,8 +33,7 @@ class Message extends DataObject {
    }
    
    public function canCreate($member = null) {
-        return false;
+       return false;
    }
-   
- 
+    
 }

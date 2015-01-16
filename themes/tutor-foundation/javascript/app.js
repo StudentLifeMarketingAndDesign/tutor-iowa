@@ -14,20 +14,17 @@ var initInboxHeight = $("#inbox").height();
 var openMessage;
 //var getFullMessage = $(location).attr('href') + "/getFullMessage";
 
-
 $(".message").each( function() {
 	var message = $(this).children('.message-body').text();
 	var wordCount = message.split(" ");
 	//console.log(message);
-	
-	
 	
 }).click(function() {
 	var messageID = $(this).data('id');
 	
 	if ($(this).data('read')) {
 		//something? nothing?
-		console.log('marked as read');
+		//console.log('marked as read');
 		/*
 		$.get(
 			getFullMessage,
@@ -57,40 +54,28 @@ $(".message").each( function() {
 			console.log('fail');
 		});
 	}
-
-
-	messageBody = $(this).find('.message-body').first();
-	messageBody.toggleClass("open-message");
-	replyForm = messageBody.find('.reply-form').first();
-	replyForm.toggleClass('hide');
-
-
-	openMessage = messageBody;
-	
-	heightFix = ($("#inbox").height() - initInboxHeight);
-	$(".footer").css("margin-top", heightFix);
-	
 	/*
+	if ($(event.target).parents(".reply-form")) {
+		console.log($(event.target).parents(".reply-form"));
 		
-	$(".message-body").each(function() {
-		if ($(this).hasClass("open-message")) {
-			$(this).removeClass("open-message");
-		}
-	});
+	} */
 	
-	messageBody.height( function() {
-		if ($(this).height() > 120) {
-			$(this).height(120);
-		} else {
-			$(this).height("auto");
-			console.log("hello");
-		}
-
-		var balanceHeight = $(this).height();
-		$(".footer").css("margin-top", balanceHeight);
+	clickedOn = ($(".reply-form").has($(event.target)));
+	if (clickedOn["length"] > 0) {
+		//console.log($(".reply-form").has($(event.target)));
+	} else {
+		messageBody = $(this).find('.message-body').first();
+		messageBody.toggleClass("open-message");
+		replyForm = messageBody.find('.reply-form').first();
+		replyForm.toggleClass('hide');
+	
+		openMessage = messageBody;
+		inboxHeight = $("#inbox").height();
+		whiteCoverHeight = $(".white-cover").height();
+		articleHeight = $(".main-article").outerHeight();
 		
-	}); 
-	*/
-	//expand div
-
+		heightFix = inboxHeight - initInboxHeight;
+		$(".white-cover").css("height", articleHeight);
+		$(".footer").css("margin-top", heightFix);
+	}
 });
