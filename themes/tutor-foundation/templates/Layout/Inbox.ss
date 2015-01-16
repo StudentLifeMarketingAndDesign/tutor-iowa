@@ -3,25 +3,25 @@
 
 		<div class="row" data-equalizer>
 			<div class="page-bg"></div>
-			<div class="large-12 columns content" data-equalizer-watch>
+			<div class="medium-8 columns content" data-equalizer-watch>
 				<div class="white-cover"></div>
 				<article class="main-article">
 					<div class="row">
 						<div class="medium-12 columns" id="main-content">
 							<h1>Your Inbox</h1>
-							<div class="inbox-nav">
-								<ul class="inline-list">
-									<li>Unread</li>
-									<li>All</li>
-									<li>Unreplied</li>
+							<div>
+								<ul class="inbox-nav">
+									<li><a href="#!" class="tiny" >Unread</a></li>
+									<li><a href="#!" class="tiny" >All</a></li>
+									<li><a href="#!" class="tiny" >Unreplied</a></li>
 								</ul>
 							</div>
 							<% loop $CurrentMember.Messages.Sort(Created).Reverse %>
 								<div class="message <% if $ReadDateTime %> read <% end_if %> row">
 									<div class="small-12 columns">
 										<section class="message-box truncate">
-											<div style="margin-bottom: .5em;"><span class="text-left"> $SenderName</span> <small class="right">$Created.NiceUS</small> </div>
-											<div><p class="truncate"> $MessageBody </p></div>
+											<div class="message-details"><span class="text-left"> $SenderName</span> <small class="right">$Created.NiceUS</small> </div>
+											<div><p class="truncate"> $MessageBody.BigSummary </p></div>
 										</section>
 									</div>
 								</div>
@@ -69,8 +69,8 @@
 				</article>
 			</div>
 		</div>
-				<%--
-				<div class="large-4 columns end" data-equalizer-watch>
+				
+				<div class="medium-4 columns end" data-equalizer-watch>
 
 							<aside id="memberInfo" class="side-nav" data-id="$CurrentMember.ID">
 								<h2>$CurrentMember.Name, you have $CurrentMember.Messages.ReadDateTime.Count</h2>
@@ -78,6 +78,6 @@
 								<% include Announcements %>
 							</aside>
 				</div>
-				--%>
+				
 	</div>
 </div>
