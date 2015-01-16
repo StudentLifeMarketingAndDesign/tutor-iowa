@@ -38,6 +38,6 @@
 
 	<%--See [Requirements](http://doc.silverstripe.org/framework/en/reference/requirements) for loading from controller--%>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="$ThemeDir/build/build.js"></script>
+	<script src="$ThemeDir/build/build.src.js"></script>
 </body>
 </html>

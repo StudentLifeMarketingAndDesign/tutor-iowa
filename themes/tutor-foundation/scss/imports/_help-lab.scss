@@ -1,0 +1,20 @@
+.HelpLab{
+	
+	#labmap {
+		.gmnoprint img {
+			max-width: none;
+		}
+	}
+
+	.lab-info {
+		
+		.columns:not(:last-child) {
+			border-right: 1px solid #ddd;
+		}
+		span {
+			//display: inline-block;
+		}
+	}
+
+
+}
