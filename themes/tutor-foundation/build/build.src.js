@@ -40,6 +40,14 @@ $(document).foundation();
 $('#start-jr').on('click', function() {
 	$(document).foundation('joyride','start');
 });
+
+// For small screens - show/hide the search on-click
+$('.search-toggle').click(function() {
+    $(this).toggleClass('active');
+    $('.division-search').slideToggle();
+    return false;
+});    
+
 /* Global Variables */
 var markerArray = [];
 var infowindow = new google.maps.InfoWindow({

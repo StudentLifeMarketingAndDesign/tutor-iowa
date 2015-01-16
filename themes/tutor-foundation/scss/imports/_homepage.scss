@@ -10,4 +10,30 @@
 	.main-content{
 		padding-top: rem-calc(12);
 	}
+
+	.HomePageSearchBg{
+		background-color: rgba(0, 0, 0, 0.6);
+		margin: 0 auto; 
+		transform: translateY(40%);
+		margin-right: 10%;
+		margin-left: 10%;
+		padding-top: 3%;
+		padding-bottom: 3%;
+
+		@media #{$medium-up} {
+			transform: translateY(70%);
+		}
+
+	}
+
+  .HomePageSearch{
+	position: relative;
+	text-align: center;
+	max-width: 600px;
+	margin: 0 auto; 
+
+}
+
+
+
 }

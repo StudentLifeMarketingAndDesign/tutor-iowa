@@ -1,0 +1,33 @@
+.resource-card-list{
+	list-style-type: none; 
+
+	@include block-grid(
+		$per-row: 1
+	);
+
+
+	@media #{$large-up}{
+		@include block-grid(
+			$per-row: 2
+		);
+
+	}
+
+	&.small{
+		@include block-grid(
+			$per-row: 1
+		);
+
+	}
+
+	li{
+		border-right: 1px solid #eee;
+		list-style-type: none; 
+	}
+
+	li img{
+		display: block;
+	}
+
+
+}

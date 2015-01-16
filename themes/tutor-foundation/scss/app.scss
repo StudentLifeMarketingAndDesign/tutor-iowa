@@ -5,13 +5,20 @@
 @import "imports/homepage";
 @import "imports/help-lab";
 @import "imports/tutor-page";
+
 @import "imports/tutor-cards";
+@import "imports/resource-cards";
+
 @import "imports/edit-profile";
 @import "imports/side-nav";
 @import "imports/breadcrumbs";
 @import "imports/footer";
 
 @import "../../../division-bar/scss/_division-bar-foundation.scss";
+
+
+
+
 
 .main {
 	//padding-top: 10px;
@@ -27,9 +34,16 @@
 
 }
 
+#search_help{
+	p{
+		color: white;
+	}
+}
+
+
 .page-bg{
 	min-height: 300px;
-	//background-image: url('http://lorempixel.com/1240/300/');
+	background-image: url('http://lorempixel.com/1240/300/');
 	background-color: #eee;
 	position: relative;
 }
@@ -69,7 +83,10 @@
 
 .top-bar{
 	h1{
-		max-width: rem-calc(300);
+		max-width: rem-calc(200);
+		@media #{$large-up} {
+			max-width: rem-calc(300);
+		}
 	}
 
 	.top-search{
@@ -112,6 +129,10 @@
 
 .profile-image img{
 	border-radius: 50%;
+}
+
+.tutor-name{
+	text-transform: capitalize;
 }
 
 form{

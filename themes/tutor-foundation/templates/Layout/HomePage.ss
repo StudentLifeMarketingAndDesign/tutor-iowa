@@ -1,4 +1,15 @@
-<div class="bg-container">
+<div class="row">
+	<div class="bg-container">
+		
+		
+			<div class="HomePageSearchBg">
+				<div class ="HomePageSearch">
+					<% include HomePageSearchForm %>
+				</div>
+			</div>
+		</div>
+		
+	</div>
 </div>
 <div class="row main-content">
 	<div class="large-8 columns">
@@ -13,3 +24,4 @@
 								
 	</div>
 </div>
+
