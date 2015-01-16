@@ -1,9 +1,4 @@
-		<form action="{$BaseHref}home/SearchForm">
-					<div class="fieldHolder">
-							<label for="textInput" style="display:none;"></label><input type="text" name="Search" class="textInput" placeholder="Find a tutor here!" />
-						</div>
-							<input type="submit" name="action_results" class="button" value="Find Help"  />
-							<div id="search_help"><p>Popular Searches:</p>
+<div id="search_help"><p>Popular Searches:</p>
 
 	<a class="tag" href="http://localhost:8888/tutor-iowa/home/SearchForm?Search= 002:021&action_results=Find+Tutors"> 002:021</a>
 
@@ -63,5 +58,3 @@
 
 	</div>
 
-		</form>
-		<div class="clearfix"></div>

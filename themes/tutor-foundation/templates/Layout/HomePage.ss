@@ -1,10 +1,11 @@
 <div class="row">
 	<div class="bg-container">
 		
-		
+			
 			<div class="HomePageSearchBg">
-				<div class ="HomePageSearch">
-					<% include HomePageSearchForm %>
+					<% include HomepageSearchForm %>
+				<div class ="HomePagePopSearches">
+					<% include HomePagePopSearches %>
 				</div>
 			</div>
 		</div>
