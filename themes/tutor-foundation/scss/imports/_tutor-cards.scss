@@ -27,5 +27,16 @@
 		display: block;
 	}
 
+	a {
+		color: #000;
+		&:hover{
+			.row{
+				background: #eee;
+			}
+		}
+	}
 
+	h4{
+		color: #5275a5;
+	}
 }
