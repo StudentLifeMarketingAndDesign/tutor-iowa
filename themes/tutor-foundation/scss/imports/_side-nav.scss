@@ -2,14 +2,19 @@
 	padding-top: 0;
 	background-color: $side-nav-bg;
 	padding: 10px;
+	h4{
+		color: #5275a5;
+	}
+	a{
+		color: #000; 
+	}
 	h3{
 		text-transform: uppercase;
 		font-size: rem-calc(13);
 
 		span{
 			padding: 2px;
-			a{
-			}
+			
 		}
 	}
 }
