@@ -21,7 +21,7 @@
 		</ul>
 	</div>
 	<div class="large-4 columns">
-		<% include Announcements %>
+		<% include AnnouncementCard %>
 								
 	</div>
 </div>
