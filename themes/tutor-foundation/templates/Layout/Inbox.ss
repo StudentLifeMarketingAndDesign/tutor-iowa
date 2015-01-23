@@ -3,7 +3,7 @@
 
 		<div class="row" data-equalizer>
 			<div class="page-bg"></div>
-			<div class="large-8 columns content" data-equalizer-watch>
+			<div class="large-8 columns content" >
 				<div class="white-cover"></div>
 				<article class="main-article">
 					<div class="row">
@@ -47,7 +47,7 @@
 				</article>
 			</div>
 
-			<div class="large-4 columns end" data-equalizer-watch>
+			<div class="large-4 columns end" >
 
 				<aside id="memberInfo" class="side-nav" data-id="$CurrentMember.ID">
 					<%-- <h2>$CurrentMember.Name, you have $CurrentMember.Messages.ReadDateTime.Count</h2> --%>

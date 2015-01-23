@@ -6337,6 +6337,8 @@ th.hide-for-touch {
     border-top: 1px solid #ddd;
     border-left: 4px solid #5275a5;
     padding: 5px 6px 4px 8px; }
+    .message .message-box * {
+      font-weight: bold; }
     .message .message-box p {
       font-size: 0.8em;
       color: #444444; }
@@ -6389,6 +6391,8 @@ th.hide-for-touch {
 .read {
   background-color: #EEEEEE;
   color: black; }
+  .read .message-box * {
+    font-weight: normal; }
   .read p {
     color: #555555; }
   .read .message-box {

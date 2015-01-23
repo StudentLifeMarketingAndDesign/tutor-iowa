@@ -22,9 +22,14 @@
 		border-left: 4px solid $blue;
 		padding: 5px 6px 4px 8px;	
 		
+		* {
+			font-weight: bold;
+		}
+		
 		p {
 			font-size: .80em;
 			color: $tuatara;
+			
 		}
 		
 		.message-details {
@@ -131,7 +136,18 @@
 
 }
 
+
+
 .read {
+	
+	.message-box {
+			
+	* {
+		font-weight: normal;
+	}
+		
+	}
+
 	
 	background-color: $smoke;
 	color: black;
