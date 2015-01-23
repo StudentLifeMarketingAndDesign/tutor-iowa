@@ -57,6 +57,13 @@ class Inbox_Controller extends Page_Controller {
 		}
 
 	}
+	
+	private static function unreadMessageCount() {
+		$member = Member::currentUser();
+		$messages = $member->Messages("ReadDateTime = NULL");
+		
+		return $messages->Debug();
+	}
 
 	public function markAsRead(SS_HTTPRequest $r) {
 
@@ -86,7 +93,7 @@ class Inbox_Controller extends Page_Controller {
 		return Convert::raw2json($data);
 
 	}
-	
+		
 	
 	public function ReplyForm() {
 
