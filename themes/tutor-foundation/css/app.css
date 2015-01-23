@@ -6360,6 +6360,7 @@ th.hide-for-touch {
   .message .truncate {
     max-height: 222px;
     white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis; }
   .message .reply-form :hover {
     cursor: text !important; }
@@ -6374,8 +6375,6 @@ th.hide-for-touch {
   margin-left: 0;
   padding-bottom: 1em; }
   .inbox-nav li {
-    display: inline-block;
-    margin-right: 1.5em;
     color: #555555;
     border-bottom: 0;
     width: auto; }

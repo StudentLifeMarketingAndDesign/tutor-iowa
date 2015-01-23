@@ -1,8 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
-        "This file is @generated automatically"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
     "hash": "f1d5dcc9c4f2a3c992fb7574ca6c42d1",
     "packages": [
@@ -63,12 +62,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "1bff8aa77a18f3616f468ed8000cf86a5725bac3"
+                "reference": "2d91dc9ce37bbf876cd408d483270a07001d8c7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/1bff8aa77a18f3616f468ed8000cf86a5725bac3",
-                "reference": "1bff8aa77a18f3616f468ed8000cf86a5725bac3",
+                "url": "https://api.github.com/repos/composer/installers/zipball/2d91dc9ce37bbf876cd408d483270a07001d8c7d",
+                "reference": "2d91dc9ce37bbf876cd408d483270a07001d8c7d",
                 "shasum": ""
             },
             "replace": {
@@ -149,7 +148,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2015-01-11 03:51:11"
+            "time": "2015-01-21 21:08:45"
         },
         {
             "name": "md/ac-json-events",
@@ -509,8 +508,6 @@
     "stability-flags": {
         "rywa/silverstripe-foundation-forms": 20
     },
-    "prefer-stable": false,
-    "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.2"
     },

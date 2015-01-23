@@ -44,6 +44,8 @@ $('#start-jr').on('click', function() {
 
 var memberID = $("#memberInfo").data('id');
 var markAsRead = $(location).attr('href') + "/markAsRead";
+//if href ends in "#" this url will not work
+
 var initInboxHeight = $("#inbox").height();
 var openMessage;
 //var getFullMessage = $(location).attr('href') + "/getFullMessage";
@@ -52,27 +54,15 @@ $(".message").each( function() {
 	//var message = $(this).children('.message-body').text();
 	//var wordCount = message.split(" ");
 	//console.log(message);
-	
 }).click(function() {
+	var message = $(this);
 	var messageID = $(this).data('id');
 	
-	if ($(this).data('read')) {
-		//something? nothing?
-		//console.log('marked as read');
-		/*
-		$.get(
-			getFullMessage,
-			{},
-			function(data, textStatus, jqXHR) {
-				$("#messagePanel").append(data);
-			},
-			"json"
-		);
-		*/
-	} else {
+	if (!$(this).data('read')) {
+		console.log('not read...yet');
 		console.log(messageID);
 		console.log(memberID);
-		$.post(
+		jqXHR = $.post(
 			markAsRead,
 			{
 				MemberID: memberID,
@@ -82,10 +72,12 @@ $(".message").each( function() {
 				console.log(textStatus);
 				//console.log(jqXHR);
 				console.log(data);
-			},
-			"json"
-		).fail(function() {
-			console.log('fail');
+				message.addClass("read");
+			}
+		).fail(function( jqXHR, status, error) {
+			//console.log(jqXHR);
+			console.log(status);
+			console.log(error);
 		});
 	}
 	
@@ -95,9 +87,9 @@ $(".message").each( function() {
 	messageSummary.toggle(); 
 	messageBody.toggle();
 	
-	$(".message-box").css("height", "auto");
+	$(this).find(".message-box").first().css("height", "auto");
 	
-	
+
 	/*
 	if ($(event.target).parents(".reply-form")) {
 		console.log($(event.target).parents(".reply-form"));

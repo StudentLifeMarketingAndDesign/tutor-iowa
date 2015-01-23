@@ -76,7 +76,7 @@
 		//width: 250px;
 		max-height: 222px;
 		white-space: nowrap;
-		//overflow: hidden;
+		overflow: hidden;
 		text-overflow: ellipsis;
 	}
 	
@@ -104,8 +104,8 @@
 	
 	li {
 		//background-color: $primary-brown;
-		display: inline-block;
-		margin-right: 1.5em;
+		//display: inline-block;
+		//margin-right: 1.5em;
 		color: $charcoal;
 		border-bottom: 0;
 		width: auto;

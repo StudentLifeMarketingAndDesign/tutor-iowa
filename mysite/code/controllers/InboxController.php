@@ -73,16 +73,18 @@ class Inbox_Controller extends Page_Controller {
 				$MarkedMessage->ReadDateTime = time();
 				$MarkedMessage->write();
 				
-				$data['MessageBody'] = $MarkedMessage->MessageBody;
-				$jsonResponse = Convert::raw2json($data);
+				//$data['MessageBody'] = $MarkedMessage->MessageBody;
+				
 			} else {
 				$data['Failed'] = "Unauthorized";
 			}
 		
-			return $jsonResponse;
 		} else {
-			$this->index();
+			$data = "improper";
 		}		
+		
+		return Convert::raw2json($data);
+
 	}
 	
 	
