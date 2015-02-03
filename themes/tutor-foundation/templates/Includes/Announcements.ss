@@ -1,4 +1,4 @@
-<div class="announcements">
+<div>
 	<h3><span>Announcements</span></h3>
 	<% loop LatestNews %>
 		<h4><a href="$Link">$Title</a></h4>
