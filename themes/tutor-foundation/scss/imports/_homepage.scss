@@ -4,7 +4,11 @@
 		background: url('../images/home-bg.jpg');
 		background-repeat: no-repeat;
 		background-size: cover;
+		min-height: 500px;
+		@media #{$medium-up} {
 		min-height: 700px;
+		}
+		
 	}
 
 	.main-content{
@@ -14,7 +18,7 @@
 	.HomePageSearchBg{
 		
 		margin: 0 auto; 
-		transform: translateY(70%);
+		transform: translateY(20%);
 		max-width: 600px;
 		
 
@@ -43,7 +47,7 @@
 	overflow: hidden;
 	padding-right: .5em;
 	input.textInput{
-		width: 50%;
+		width: 60%;
 		float:left;
 		height: 2.3125em;
 		font-size: 1.4rem;

@@ -1,5 +1,6 @@
 .announcements{
 
+	margin: 0;
 	@include block-grid(
 		$per-row: 1
 	);
@@ -16,9 +17,28 @@
 		@include block-grid(
 			$per-row: 1
 		);
+	li{
+		padding:0px;
+	}
+	
 
 	}
+
+	&.sidebar{
+		margin-left: 0;
+	}
 	.announcement-card{
+	li{
+		padding:0px;
+	}
+
+	
+	hr{
+
+		margin: 0px;
+		
+	}
+
 	a {
 		color: #000;
 		display: block;
@@ -28,8 +48,11 @@
 		
 		}
 	}
+	p{
+		margin-bottom: 0px;
+	}
 
-		h3{
+	  h3{
 			color: #5275a5;
 		}
 	}

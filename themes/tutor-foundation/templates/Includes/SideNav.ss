@@ -1,5 +1,5 @@
 <div class="side-nav">
 <% include AdminArea %>
-<% include AnnouncementCard %>
+<% include SideNavAnnouncementCardList %>
 <% include SideNavTutorList %>
 </div>
