@@ -38,7 +38,7 @@ function handleNoGeolocation(errorFlag) {
 }  
 
 /* End Helper Functions */
-
+/*
 function sortVenues() {
 	// empty list to sort venues by distance
 	var nearestVenues = [];
@@ -55,7 +55,8 @@ function sortVenues() {
 		$("#venuesWithEvents").append( $("<div class='clear'></div>") );
 	}
 }
-
+*/
+/*
 function addEventInfo( marker, venue ) {		
 	var venueName = $('#' + venue.id).data("title");
 	var venueLink = $('#' + venue.id).data("link");  
@@ -90,21 +91,22 @@ function addEventInfo( marker, venue ) {
 		}
 	});
 	
-	/* string concatination for infoBubble */
+	// string concatination for infoBubble 
 	eventsHereString = eventsHere.join(' ');
 	eventBubbleString = 
 		"<div class='event_bubble'>" +
 		eventsHereString +
 		"</div>";
 
-	/* make infoBubbles clickable */
+	// make infoBubbles clickable 
     google.maps.event.addListener(marker, 'click', function () {
   		infowindow.setContent(eventBubbleString);
   		infowindow.open(map, this);	
   		//infowindow.maxWidth(200);
 	});
 }
-
+*/
+/*
 function venueGen() {	
 	//DON'T CHANGE IDs or Class Names in NearMePage.ss
 	//Scans venues loaded on page for data-attributes and pulls data
@@ -150,11 +152,12 @@ function venueGen() {
 
 	});	
 
-	/* when finished, sort venues divs on page. */
+	// when finished, sort venues divs on page. 
 	sortVenues();
 
 }
-
+*/
+/*
 function getInitLocal() {
 	//finds users location
 	if(navigator.geolocation) {
@@ -196,6 +199,7 @@ function getInitLocal() {
 	    venueGen();
 	}	
 }
+*/
 
 function findLab(callback) {
 	var address = $("#address").text();
