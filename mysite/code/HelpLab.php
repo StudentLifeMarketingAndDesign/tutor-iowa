@@ -34,7 +34,7 @@ class HelpLab extends Page {
 		$fields->addFieldToTab( 'Root.Main', new TextField( "Name", "Help Lab name (can be the same as Page name)" ) );
 
 		$fields->addFieldToTab( 'Root.Main', new TextField( "Hours" ) );
-		$fields->addFieldToTab( 'Root.Main', new TextField( "Location" ) );
+		$fields->addFieldToTab( 'Root.Main', new TextAreaField( "Location", "Address(\r\nStreet \r\nCity, Zip Code \r\n)" ) );
 		$fields->removeFieldFromTab( 'Root.Metadata', "Keywords" );
 		$fields->addFieldToTab( 'Root.Main', new TextAreaField( "MetaKeywords", "Tags" ) );
 		$fields->addFieldToTab( 'Root.Main', new TextField( "ExtrnlLink", "External link to help lab homepage" ) );

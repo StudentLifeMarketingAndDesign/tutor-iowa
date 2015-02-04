@@ -58,6 +58,7 @@ class TutorPage extends Page {
 		$members = Member::get(); 
 		$membersDropdownSource = $members->Map('ID','Email');
 
+		$fields->renameField("Image", "Photo");
 		$fields->removeFieldFromTab('Root.Metadata', "Keywords"); 
 		$fields->removeFieldFromTab('Root.Main', "Content");
 		$fields->addFieldToTab( 'Root.Main', new TextField("FirstName", "First name of tutor"));
