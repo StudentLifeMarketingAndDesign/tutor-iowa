@@ -34,7 +34,7 @@ class HelpLab extends Page {
 		$fields->addFieldToTab( 'Root.Main', new TextField( "Name", "Help Lab name (can be the same as Page name)" ) );
 
 		$fields->addFieldToTab( 'Root.Main', new TextField( "Hours" ) );
-		$fields->addFieldToTab( 'Root.Main', new TextAreaField( "Location", "Address(\r\nStreet \r\nCity, Zip Code \r\n)" ) );
+		$fields->addFieldToTab( 'Root.Main', new TextAreaField( "Location", 'Address(<br />Street <br />City, Zip Code<br />)' ) );
 		$fields->removeFieldFromTab( 'Root.Metadata', "Keywords" );
 		$fields->addFieldToTab( 'Root.Main', new TextAreaField( "MetaKeywords", "Tags" ) );
 		$fields->addFieldToTab( 'Root.Main', new TextField( "ExtrnlLink", "External link to help lab homepage" ) );
@@ -154,7 +154,7 @@ class HelpLab_Controller extends Page_Controller {
 				new TextField( 'Link' ),
 				new TextField( 'ContactName', 'Contact Person\'s Name' ),
 				new TextField( 'ContactEmail', 'Contact Person\'s Email' ),
-
+				new UploadField('BackgroundImage', 'Background Image' ),
 				new TextField( 'PhoneNo', 'Phone Number' ),
 				new TextField( 'ExternalScheduleLink', 'Optional link to the lab\'s schedule on another site' ),
 
