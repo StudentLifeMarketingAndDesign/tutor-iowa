@@ -8,7 +8,7 @@ class EditProfilePage extends Page {
    		'Test' => 'Text',
    );
    private static $has_one = array(
-   
+   	
    );
    
    private static $defaults = array ('ProvideComments' => '1',
@@ -55,6 +55,8 @@ class EditProfilePage_Controller extends Page_Controller
 	        $fields = new FieldList(
 	            new TextField('FirstName', '<span>*</span> First Name'),
 	            new TextField('Surname', '<span>*</span> Last Name'),
+	            new UploadField("Image", "Photo"),
+	            new UploadField("BackgroundImage", "Background Image"),
 	            new EmailField('Email', '<span>*</span> Email Address'),
 	            new LiteralField('ChangePassword', $changePassLabel),
 	            new TextareaField('Content', 'Biography'),
@@ -70,7 +72,7 @@ class EditProfilePage_Controller extends Page_Controller
 	            new TextField('Major'),
 	            new LiteralField('TagsHelpLabel', $tagsLabel),
 
-	            new TextareaField('MetaKeywords', 'Tags'),
+	            //new TagField('Tags', 'Tags'),
 	            
 	            
 	            //This does not sync with database (database field is 'Disabled')
@@ -195,7 +197,7 @@ class EditProfilePage_Controller extends Page_Controller
                 //$Tutor->doPublish();
                 
            
-                                           
+                 //TODO: Rewrite this so that we're only saving essential Member fields to Member. not the whole form.           
                 $form->saveInto($CurrentMember); 
                  
                 $CurrentMember->write();

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f1d5dcc9c4f2a3c992fb7574ca6c42d1",
+    "hash": "69adfa7c00537e7511a5c17e95f5f822",
     "packages": [
         {
             "name": "briceburg/silverstripe-pageholder",
@@ -63,12 +63,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "1bff8aa77a18f3616f468ed8000cf86a5725bac3"
+                "reference": "89d77bfbee79e16653f7162c86e602cc188471db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/1bff8aa77a18f3616f468ed8000cf86a5725bac3",
-                "reference": "1bff8aa77a18f3616f468ed8000cf86a5725bac3",
+                "url": "https://api.github.com/repos/composer/installers/zipball/89d77bfbee79e16653f7162c86e602cc188471db",
+                "reference": "89d77bfbee79e16653f7162c86e602cc188471db",
                 "shasum": ""
             },
             "replace": {
@@ -110,7 +110,6 @@
                 "Hurad",
                 "MODX Evo",
                 "OXID",
-                "SMF",
                 "Thelia",
                 "WolfCMS",
                 "agl",
@@ -149,7 +148,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2015-01-11 03:51:11"
+            "time": "2014-11-29 01:29:17"
         },
         {
             "name": "md/ac-json-events",
@@ -189,12 +188,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar.git",
-                "reference": "e5d2429ecba4283922530b25a22eb14375f96d98"
+                "reference": "65257b10cf6a5352146dc1697b43c923856d9b92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/e5d2429ecba4283922530b25a22eb14375f96d98",
-                "reference": "e5d2429ecba4283922530b25a22eb14375f96d98",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/65257b10cf6a5352146dc1697b43c923856d9b92",
+                "reference": "65257b10cf6a5352146dc1697b43c923856d9b92",
                 "shasum": ""
             },
             "require": {
@@ -213,7 +212,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/division-bar/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-bar/issues"
             },
-            "time": "2015-01-12 15:58:08"
+            "time": "2014-12-11 17:54:52"
         },
         {
             "name": "micschk/silverstripe-excludechildren",
@@ -221,12 +220,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/micschk/silverstripe-excludechildren.git",
-                "reference": "049402a23a9b54d9d9cba4bf41b42c18cea87790"
+                "reference": "2777dc855185c49358e63862eb8a89e9ea58c0e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/micschk/silverstripe-excludechildren/zipball/049402a23a9b54d9d9cba4bf41b42c18cea87790",
-                "reference": "049402a23a9b54d9d9cba4bf41b42c18cea87790",
+                "url": "https://api.github.com/repos/micschk/silverstripe-excludechildren/zipball/2777dc855185c49358e63862eb8a89e9ea58c0e2",
+                "reference": "2777dc855185c49358e63862eb8a89e9ea58c0e2",
                 "shasum": ""
             },
             "require": {
@@ -242,13 +241,13 @@
                     "name": "micschk"
                 }
             ],
-            "description": "Extension to hide pages from the SiteTree",
+            "description": "Provides an extension to limit subpages shown in sitetree",
             "keywords": [
                 "excludechildren",
                 "silverstripe",
                 "sitetree"
             ],
-            "time": "2015-01-07 20:27:03"
+            "time": "2014-12-11 09:12:27"
         },
         {
             "name": "rywa/silverstripe-foundation-forms",
@@ -256,24 +255,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rywa/silverstripe-foundation-forms.git",
-                "reference": "f475f952b8246af62b2dd8860fd519b892535648"
+                "reference": "1240251e9f9c698953c540756bb1656cd025ad51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rywa/silverstripe-foundation-forms/zipball/f475f952b8246af62b2dd8860fd519b892535648",
-                "reference": "f475f952b8246af62b2dd8860fd519b892535648",
+                "url": "https://api.github.com/repos/rywa/silverstripe-foundation-forms/zipball/1240251e9f9c698953c540756bb1656cd025ad51",
+                "reference": "1240251e9f9c698953c540756bb1656cd025ad51",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "*",
-                "silverstripe/framework": "~3.1"
+                "silverstripe/framework": ">=3.0"
             },
             "type": "silverstripe-module",
             "extra": {
-                "installer-name": "foundationforms",
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
+                "installer-name": "foundationforms"
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -282,19 +278,16 @@
             "authors": [
                 {
                     "name": "Ryan Wachtl",
-                    "email": "ryan@beyondusability.pro",
-                    "homepage": "http://beyondusability.pro",
-                    "role": "Developer"
+                    "homepage": "http://ryanwachtl.com"
                 }
             ],
-            "description": "Add Foundation framework forms compatibility to SilverStripe 3",
+            "description": "SilverStripe 3 Forms Compatible with Zurb Foundation Framework",
             "keywords": [
                 "Forms",
-                "foundation",
                 "silverstripe",
-                "zurb foundation"
+                "zurbfoundation"
             ],
-            "time": "2015-01-10 06:10:42"
+            "time": "2015-01-07 17:08:54"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -501,6 +494,45 @@
                 "spamprotection"
             ],
             "time": "2014-12-05 02:18:33"
+        },
+        {
+            "name": "silverstripe/tagfield",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chillu/silverstripe-tagfield.git",
+                "reference": "df2a18a3e0fd92cba47290002f18ef71c0e42324"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chillu/silverstripe-tagfield/zipball/df2a18a3e0fd92cba47290002f18ef71c0e42324",
+                "reference": "df2a18a3e0fd92cba47290002f18ef71c0e42324",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ingo Schommer",
+                    "email": "ingo@silverstripe.com",
+                    "homepage": "http://chillu.com",
+                    "role": "tech-lead"
+                }
+            ],
+            "description": "Provides a SilverStripe form field for saving a string of tags into either a many_many relationship or a text property. ",
+            "keywords": [
+                "Forms",
+                "silverstripe",
+                "tags"
+            ],
+            "time": "2013-10-01 10:56:57"
         }
     ],
     "packages-dev": [],
@@ -510,7 +542,6 @@
         "rywa/silverstripe-foundation-forms": 20
     },
     "prefer-stable": false,
-    "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.2"
     },

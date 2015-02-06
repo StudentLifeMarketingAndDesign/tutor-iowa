@@ -11,7 +11,8 @@
 		"md/division-bar" : "*",
 		"md/ac-json-events" : "*",
 		"rywa/silverstripe-foundation-forms": "dev-master",
-		"briceburg/silverstripe-pageholder": "*"
+		"briceburg/silverstripe-pageholder": "*",
+		"silverstripe/tagfield" : "*"
 	},
 	"config": {
 		"process-timeout": 600	
