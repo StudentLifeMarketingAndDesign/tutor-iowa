@@ -22,7 +22,7 @@
 							</div>
 							<div class="medium-3 columns">
 								<!--<div class="profile-image"><img src="{$ThemeDir}/images/placeholder.jpg" /></div>-->
-								<div class="profile-image"><img class="b-lazy" src="http://lorempixel.com/500/500/" /></div>
+								<div class="profile-image"><img class="b-lazy" src="http://lorempixel.com/500/500/" data-src="http://lorempixel.com/500/500/" data-src-small="http://lorempixel.com/500/500/" /></div>
 							</div>
 						</div>
 						$Content

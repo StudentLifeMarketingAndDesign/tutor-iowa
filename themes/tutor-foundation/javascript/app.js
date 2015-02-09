@@ -20,10 +20,6 @@ $('.search-toggle').click(function() {
             width: 420 // max-width
             ,
             src: 'data-src-small'
-        }, {
-            width: 768 // max-width
-            ,
-            src: 'data-src-medium'
         }
        ]
     });

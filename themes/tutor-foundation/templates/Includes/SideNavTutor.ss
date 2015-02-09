@@ -2,7 +2,7 @@
 	<div class="small-3 columns push-9">
 		<a href="$Link" class="profile-image">
 		<%--<img src="{$ThemeDir}/images/placeholder.jpg" /> --%>
-		<img src="http://lorempixel.com/g/300/300/" />
+		<img class="b-lazy" src="{$ThemeDir}/images/placeholder.jpg" data-src="http://lorempixel.com/300/300/" data-src-small="http://lorempixel.com/300/300/" />
 		
 		</a>
 	</div>

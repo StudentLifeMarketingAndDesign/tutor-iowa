@@ -5,8 +5,8 @@
 	<% if $Image %>
 	<div class="small-3 columns push-9">
 		<a href="$Link" class="resource-image">
-		<img src="{$ThemeDir}/images/placeholder.jpg" /> 
-		$Image
+		<class="b-lazy" src="{$ThemeDir}/images/placeholder.jpg" data-src="http://lorempixel.com/300/300/" data-src-small="http://lorempixel.com/300/300/"/> 
+		
 		
 		</a>
 	</div>
