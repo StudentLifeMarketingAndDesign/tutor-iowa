@@ -4,17 +4,19 @@
 	$Content.Summary(10)
 </li>--%>
 <li>
-<div class="row">
-	<div class="small-3 columns push-9">
-		<a href="$Link" class="profile-image">
-		<%--<img src="{$ThemeDir}/images/placeholder.jpg" /> --%>
-		<img src="http://lorempixel.com/g/300/300/" />
-		
-		</a>
-	</div>
-	<div class="small-9 columns pull-3">
-		<h4><a class="tutor-name" href="$Link">$Title</a></h4>$Content.Summary(10)
+<a href="$Link" class="profile-image">
+	<div class="row">
+		<div class="small-3 columns push-9">
+			
+			<%--<img src="{$ThemeDir}/images/placeholder.jpg" /> --%>
+			<img src="http://lorempixel.com/g/300/300/" />
+			
+			
+		</div>
+		<div class="small-9 columns pull-3">
+			<h4 class="tutor-name" href="$Link">$Title</h4>$Content.Summary(10)
 
+		</div>
 	</div>
-</div>
+</a>
 </li>
