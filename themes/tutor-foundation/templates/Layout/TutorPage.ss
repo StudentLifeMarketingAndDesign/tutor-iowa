@@ -22,7 +22,14 @@
 							</div>
 							<div class="medium-3 columns">
 								<!--<div class="profile-image"><img src="{$ThemeDir}/images/placeholder.jpg" /></div>-->
-								<div class="profile-image"><img src="http://lorempixel.com/500/500/" /></div>
+
+								<div class="profile-image">
+									<% if $Image %>
+										<img src="http://lorempixel.com/500/500/" />
+									<% else %>
+										<img src="{$ThemeDir}/images/stain.png" />
+									<% end_if %>
+								</div>
 							</div>
 						</div>
 						$Content

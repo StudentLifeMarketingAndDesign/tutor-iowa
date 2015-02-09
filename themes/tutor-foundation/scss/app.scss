@@ -127,6 +127,11 @@
   font-size: rem-calc(11);
 }
 
+.profile-image{
+	background: url('../images/stain.png');
+	background-size: cover;
+}
+
 .profile-image img{
 	border-radius: 50%;
 }
