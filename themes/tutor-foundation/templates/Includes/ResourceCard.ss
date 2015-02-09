@@ -5,7 +5,7 @@
 	<% if $Image %>
 	<div class="small-3 columns push-9">
 		<a href="$Link" class="resource-image">
-		<%--<img src="{$ThemeDir}/images/placeholder.jpg" /> --%>
+		<img src="{$ThemeDir}/images/placeholder.jpg" /> 
 		$Image
 		
 		</a>
