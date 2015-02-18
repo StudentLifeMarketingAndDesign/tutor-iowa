@@ -6,8 +6,13 @@
 
 	.content.has-image{
 		margin-top: -100px;
+	}
+
+	.main{
 
 		article {
+			position: relative;
+			z-index: 1000;
 			.row{
 				background: $body-bg;
 			}

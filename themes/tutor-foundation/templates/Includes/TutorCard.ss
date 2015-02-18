@@ -9,12 +9,12 @@
 		<div class="small-3 columns push-9">
 			
 			<%--<img src="{$ThemeDir}/images/placeholder.jpg" /> --%>
-			<img src="http://lorempixel.com/g/300/300/" />
+			<img src="http://lorempixel.com/300/300/" />
 			
 			
 		</div>
 		<div class="small-9 columns pull-3">
-			<h4 class="tutor-name" href="$Link">$Title</h4>$Content.Summary(10)
+			<h4 class="tutor-name" href="$Link">$Title</h4><p>$Content.Summary(40)</p>
 
 		</div>
 	</div>
