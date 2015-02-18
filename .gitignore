@@ -19,3 +19,4 @@ tagfield/
 node_modules
 .sass-cache
 mathspamprotection/
+vendor/
