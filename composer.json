@@ -13,7 +13,7 @@
 		"md/ac-json-events" : "*",
 		"rywa/silverstripe-foundation-forms": "dev-master",
 		"briceburg/silverstripe-pageholder": "*",
-		"silverstripe/tagfield" : "*"
+		"silverstripe/tagfield" : "dev-master"
 	},
 	"config": {
 		"process-timeout": 600	

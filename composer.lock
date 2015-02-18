@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "56f4ffdb5b370cea4675dc89fcc4b9e6",
+    "hash": "6d1b4ec28ede10df30103e7cffbc4579",
     "packages": [
         {
             "name": "briceburg/silverstripe-pageholder",
@@ -581,7 +581,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "silverstripe/mathspamprotection": 20,
-        "rywa/silverstripe-foundation-forms": 20
+        "rywa/silverstripe-foundation-forms": 20,
+        "silverstripe/tagfield": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
