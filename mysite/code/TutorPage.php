@@ -1,5 +1,4 @@
 <?php
-
 class TutorPage extends Page {
 
     //Add extra database fields
@@ -202,7 +201,7 @@ class TutorPage_Controller extends Page_Controller {
 		$validator = new RequiredFields('Email');
 		$form = new FoundationForm($this, 'ContactForm', $fields, $actions, $validator);
 	    //$protector = SpamProtectorManager::update_form($form, 'Message');
-		//$form->enableSpamProtection();
+		$form->enableSpamProtection();
 		return $form;
 
 	}
