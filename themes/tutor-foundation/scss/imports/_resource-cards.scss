@@ -1,6 +1,7 @@
 .resource-card-list{
 	list-style-type: none; 
-
+	margin: 0;
+	padding: 0;
 	@include block-grid(
 		$per-row: 1
 	);
@@ -18,11 +19,18 @@
 			$per-row: 1
 		);
 
+		li{
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+
 	}
 
 	li{
 		border-right: 1px solid #eee;
 		list-style-type: none; 
+		margin-bottom: 0;
+		padding-bottom: 0;
 	}
 
 	li img{
