@@ -8,6 +8,14 @@ $('#start-jr').on('click', function() {
 });
 
 
+// For small screens - show/hide the search on-click
+$('.search-toggle').click(function() {
+    $(this).toggleClass('active');
+    $('.division-search').slideToggle();
+    return false;
+});    
+
+
 var memberID = $("#memberInfo").data('id');
 var markAsRead = $(location).attr('href') + "/markAsRead";
 //if href ends in "#" this url will not work
@@ -102,5 +110,3 @@ $("#unreplied-messages").click(function() {
 		$(this).hide();
 	});	
 });
-
-

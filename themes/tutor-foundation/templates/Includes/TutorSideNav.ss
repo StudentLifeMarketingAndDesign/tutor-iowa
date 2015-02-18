@@ -15,7 +15,9 @@
 	</p>
 	<hr />
  	<h3><span>Similar Tutors</span></h3>
-	<% loop ChildrenOf("private-tutors").Limit(4) %><% include SideNavTutor %><% end_loop %>
+ 	<ul class="tutor-card-list small">
+	<% loop ChildrenOf("private-tutors").Limit(4) %><% include TutorCard %><% end_loop %>
+	</ul>
 	<% if $Member %>
 		<h3><span>Site Administration Options</span></h3>
 		<ul class="button-group round even-3">

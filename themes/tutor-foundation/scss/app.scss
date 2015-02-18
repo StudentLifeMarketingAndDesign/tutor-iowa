@@ -5,14 +5,24 @@
 @import "imports/homepage";
 @import "imports/help-lab";
 @import "imports/tutor-page";
+@import "imports/inbox";
 @import "imports/tutor-cards";
+@import "imports/resource-cards";
+
 @import "imports/edit-profile";
 @import "imports/side-nav";
 @import "imports/breadcrumbs";
 @import "imports/footer";
-@import "imports/inbox";
+
+@import "imports/announcement-cards";
+
+
 
 @import "../../../division-bar/scss/_division-bar-foundation.scss";
+
+
+
+
 
 .main {
 	//padding-top: 10px;
@@ -28,9 +38,19 @@
 
 }
 
+
+#search_help{
+	p{
+		color: white;
+	}
+}
+
+
+
 .main-article {
 	min-height: 400px;
 }
+
 
 .page-bg{
 	min-height: 300px;
@@ -118,8 +138,17 @@
   font-size: rem-calc(11);
 }
 
+.profile-image{
+	//background: url('../images/stain.png');
+	background-size: cover;
+}
+
 .profile-image img{
 	border-radius: 50%;
+}
+
+.tutor-name{
+	text-transform: capitalize;
 }
 
 form{

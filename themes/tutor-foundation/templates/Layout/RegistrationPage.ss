@@ -8,11 +8,13 @@
 			<div class="large-8 columns content" data-equalizer-watch>
 				<div class="white-cover"></div>
 				<div class="row">
-					<article class="large-10 columns end">
+					<article class="medium-11 columns end">
 						<% include Breadcrumbs %>
 						<h1>$Title</h1>
 						$Content
-						$Form
+						<div class="panel">
+							$RegistrationForm
+						</div>
 					</article>
 				</div>
 			</div>

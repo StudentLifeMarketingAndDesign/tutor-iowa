@@ -1,5 +1,4 @@
 <?php
-
 class TutorPage extends Page {
 
     //Add extra database fields
@@ -21,7 +20,8 @@ class TutorPage extends Page {
 		"UniversityID" => 'Text',
 		"Major" => 'Text',
 		"GPA" => 'Text',
-		"PublishFlag" => 'Boolean'
+		"PublishFlag" => 'Boolean',
+		'Tags' => 'Text'
 	);
 
 	private static $has_one = array(
@@ -57,13 +57,14 @@ class TutorPage extends Page {
 		$members = Member::get(); 
 		$membersDropdownSource = $members->Map('ID','Email');
 
+		$fields->renameField("Image", "Photo");
 		$fields->removeFieldFromTab('Root.Metadata', "Keywords"); 
 		$fields->removeFieldFromTab('Root.Main', "Content");
 		$fields->addFieldToTab( 'Root.Main', new TextField("FirstName", "First name of tutor"));
 		$fields->addFieldToTab( 'Root.Main', new TextField("Surname", "Last name of tutor"));
 		$fields->addFieldToTab( 'Root.Main', new TextField("PhoneNo", "Phone Number"));
 		$fields->addFieldToTab( 'Root.Main', new TextField("Email"));
-		$fields->addFieldToTab( 'Root.Main', new TextAreaField("MetaKeywords", "Tags"));
+		$fields->addFieldToTab( 'Root.Main', new TagField("Tags", "Tags"));
 		$fields->addFieldToTab( 'Root.Main', new TextAreaField("Content", "Biography"));
 		$fields->addFieldToTab( 'Root.Main', new TextAreaField("Hours", "Availability"));
 
@@ -200,7 +201,7 @@ class TutorPage_Controller extends Page_Controller {
 		$validator = new RequiredFields('Email');
 		$form = new FoundationForm($this, 'ContactForm', $fields, $actions, $validator);
 	    //$protector = SpamProtectorManager::update_form($form, 'Message');
-		//$form->enableSpamProtection();
+		$form->enableSpamProtection();
 		return $form;
 
 	}

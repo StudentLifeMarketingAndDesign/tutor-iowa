@@ -17,7 +17,7 @@
 						<ul>
 							<% loop ChildrenOf(help-labs) %>
 								<li><a href="$Link">$Title</a></li>
-							<% end_if %>
+							<% end_loop %>
 						</ul>
 					</article>
 				</div>

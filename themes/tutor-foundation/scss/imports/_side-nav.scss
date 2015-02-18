@@ -2,14 +2,24 @@
 	padding-top: 0;
 	background-color: $side-nav-bg;
 	padding: 10px;
+	h4{
+		//color: $primary-color;
+	}
+	a{
+
+	}
+	a p{
+		color: $body-font-color;
+	}
 	h3{
 		text-transform: uppercase;
 		font-size: rem-calc(13);
-
+		background: darken($primary-color, 25);
+		color: white;
+		padding: 1px;
 		span{
 			padding: 2px;
-			a{
-			}
+			
 		}
 	}
 }
