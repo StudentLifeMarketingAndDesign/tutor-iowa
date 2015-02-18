@@ -1,0 +1,140 @@
+.message {
+
+	overflow: hidden;
+	
+	:hover {
+		cursor: pointer;
+	}
+	
+	.columns, .column {
+		padding: 0;
+	}
+		
+	.message-box {
+		height: 66px;
+		overflow: hidden;
+		border-top: 1px solid #ddd;
+		border-left: 4px solid $blue;
+		padding: 5px 6px 4px 8px;	
+		
+		* {
+			font-weight: bold;
+		}
+		
+		p {
+			font-size: .80em;
+			color: $tuatara;
+			
+		}
+		
+		.message-details {
+			margin-bottom: .66em;
+		}
+	}
+	
+	@media #{$medium-up}{
+		.message-box {
+			height:77px;
+		}
+	}	
+	
+	.message-summary {
+		overflow: hidden;
+	}
+	
+
+	.message-body {
+		height: auto;
+		max-height: 120px;
+		overflow: hidden;
+	}
+
+	small {
+		font-size: 77%;
+	}
+	.open-message {
+		height: auto;
+		max-height: none !important;
+		
+	}
+	
+	.truncate {
+		max-height: 222px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	
+	.reply-form {
+	
+		:hover {
+			cursor: text !important;
+		}
+		
+		fieldset {
+			margin-bottom: 0;
+		}
+		.Actions {
+			float: right;	
+		}
+	}
+
+}
+
+.inbox-nav {
+	text-align: right;
+	margin-bottom:0;
+	margin-left: 0;
+	padding-bottom: 1em;
+	
+	li {
+		color: $charcoal;
+		border-bottom: 0;
+		width: auto;
+			
+		a, span {
+			color: $charcoal;
+			padding: 0 8px;
+			margin-top: 0;
+			cursor: pointer;
+
+		}
+		
+		:hover {
+			background: $smoke;
+		}
+	}
+
+}
+
+
+#main-content {
+
+}
+
+
+
+.read {
+	
+	.message-box {
+			
+	* {
+		font-weight: normal;
+	}
+		
+	}
+
+	
+	background-color: $smoke;
+	color: black;
+		
+	p {
+		color: $charcoal;
+	}
+	
+	.message-box {
+		border-left: solid 4px $monsoon;
+		
+	}
+
+}

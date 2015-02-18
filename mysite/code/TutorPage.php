@@ -240,7 +240,8 @@ class TutorPage_Controller extends Page_Controller {
 			$email->setFrom(Email::getAdminEmail());
 			$email->replyTo($from);
 			$email->setBody($name.' has contacted you. Read their message below. You may reply to their message directly by replying to this email. <br />'.$body);
-			$email->send();
+			// Uncomment this before prouction
+			//$email->send();
 
 			$message = new Message();
 

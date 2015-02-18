@@ -39,8 +39,9 @@
 			<% end_loop %>
 			<% if $CurrentMember %>
 			<li class="has-dropdown">
-				<a href="$currentMemberPage.Link">$CurrentMember.FirstName</a>
+				<a href="$currentMemberPage.Link">$CurrentMember.FirstName ($CurrentMember.unreadMessageCount()) </a>
 				<ul class="dropdown">
+					<li><a href="inbox">Inbox ($CurrentMember.unreadMessageCount())</a></li>
 					<li><a href="edit-profile/">Edit Profile</a></li>
 					<% if $SiteAdmin %><li><a href="admin/">Admin</a></li><% end_if %>
 					<li><a class="alert" href="Security/logout">Logout</a></li>
