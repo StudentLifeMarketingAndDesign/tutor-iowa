@@ -13,7 +13,10 @@
 @import "imports/side-nav";
 @import "imports/breadcrumbs";
 @import "imports/footer";
+
 @import "imports/announcement-cards";
+
+
 
 @import "../../../division-bar/scss/_division-bar-foundation.scss";
 
@@ -35,10 +38,17 @@
 
 }
 
+
 #search_help{
 	p{
 		color: white;
 	}
+}
+
+
+
+.main-article {
+	min-height: 400px;
 }
 
 

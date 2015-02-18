@@ -1,0 +1,164 @@
+.message {
+	//border-bottom: 1px solid #ddd;
+	//border-top: 1px solid black;
+	//padding: 10px 0;
+	//max-height: 200px;
+	
+	overflow: hidden;
+	
+	:hover {
+		cursor: pointer;
+	}
+	
+	.columns, .column {
+		padding: 0;
+	}
+		
+	.message-box {
+		height: 66px;
+		//max-height: 79px;
+		overflow: hidden;
+		border-top: 1px solid #ddd;
+		border-left: 4px solid $blue;
+		padding: 5px 6px 4px 8px;	
+		
+		* {
+			font-weight: bold;
+		}
+		
+		p {
+			font-size: .80em;
+			color: $tuatara;
+			
+		}
+		
+		.message-details {
+			margin-bottom: .66em;
+		}
+	}
+	
+	@media #{$medium-up}{
+		.message-box {
+			height:77px;
+		}
+	}	
+	
+	/*
+	.message-box:first-of-type {
+		border-top: 1px solid #ddd;
+	}
+	*/
+	
+	.message-summary {
+		overflow: hidden;
+	}
+	
+
+	.message-body {
+		height: auto;
+		max-height: 120px;
+		overflow: hidden;
+		//-webkit-line-clamp: 8;
+		//-webkit-box-orient: vertical;
+		//text-overflow: ellipsis;
+		//-webkit-transition: all 0.5s ease;
+	    //-moz-transition: all 0.5s ease;
+	    //-o-transition: all 0.5s ease;
+	    //transition: all 0.5s ease;
+	}
+
+	small {
+		font-size: 77%;
+	}
+	.open-message {
+		height: auto;
+		max-height: none !important;
+		//overflow: auto;
+		
+	}
+	
+	.truncate {
+		//width: 250px;
+		max-height: 222px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	
+	.reply-form {
+	
+		:hover {
+			cursor: text !important;
+		}
+		
+		fieldset {
+			margin-bottom: 0;
+		}
+		.Actions {
+			float: right;	
+		}
+	}
+
+}
+
+.inbox-nav {
+	text-align: center;
+	margin-bottom:0;
+	margin-left: 0;
+	padding-bottom: 1em;
+	
+	li {
+		//background-color: $primary-brown;
+		//display: inline-block;
+		//margin-right: 1.5em;
+		color: $charcoal;
+		border-bottom: 0;
+		width: auto;
+			
+		a, span {
+			color: $charcoal;
+			padding: 0 8px;
+			margin-top: 0;
+			cursor: pointer;
+
+		}
+		
+		:hover {
+			//border: solid 1px black;
+			background: $smoke;
+		}
+	}
+
+}
+
+
+#main-content {
+
+}
+
+
+
+.read {
+	
+	.message-box {
+			
+	* {
+		font-weight: normal;
+	}
+		
+	}
+
+	
+	background-color: $smoke;
+	color: black;
+		
+	p {
+		color: $charcoal;
+	}
+	
+	.message-box {
+		border-left: solid 4px $monsoon;
+		
+	}
+
+}
