@@ -89,7 +89,7 @@ class TutorPage extends Page {
 	}
 
     public function SplitKeywords(){
-     	$keywords = $this->MetaKeywords;
+     	$keywords = $this->Tags;
 
      	if($keywords){
      		$splitKeywords = explode(',', $keywords); 
