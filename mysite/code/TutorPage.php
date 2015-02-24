@@ -27,6 +27,7 @@ class TutorPage extends Page {
 	private static $has_one = array(
 		'Member' => 'Member',
 		'AcademicHelp' => 'AcademicHelp',
+		'HomePage' => 'HomePage'
 	);
 
 	private static $has_many = array(

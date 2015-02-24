@@ -18,6 +18,14 @@ class HomePage extends Page {
 
    );
 
+   private static $has_many = array(
+
+      	'HelpLabs' => 'HelpLab',
+      	'TutorPages'   => 'TutorPage'
+
+
+   );
+
    static $defaults = array ('ProvideComments' => '1'
    );  
 
@@ -37,6 +45,31 @@ class HomePage extends Page {
 			$config
 		);
 		
+		$featuredConfig1 = GridFieldConfig_RelationEditor::create();
+		$featuredConfig1->getComponentByType('GridFieldDataColumns')->setDisplayFields(array(
+			'Title'=>'Title'
+		)); 
+
+
+
+		$featuredHelpLabs = new GridField(
+			'HelpLabs',
+			'HelpLab',
+			$this->HelpLabs(), 
+			$featuredConfig1
+		);
+
+		$featuredConfig2 = GridFieldConfig_RelationEditor::create();
+		$featuredConfig2->getComponentByType('GridFieldDataColumns')->setDisplayFields(array(
+			'Title'=>'Title'
+		)); 
+
+		$featuredTutorPages = new GridField(
+			'TutorPages',
+			'TutorPage',
+			 $this->TutorPages(), 
+			$featuredConfig2
+		);
     	/*$fields->addFieldToTab("Root.EmailSignups", 
     		 new DataObjectManager(
 			$this,
@@ -46,7 +79,11 @@ class HomePage extends Page {
 			'getCMSFields_forPopup'
 		));*/
 		
+		
 		$fields->addFieldToTab("Root.EmailSignups", $NewsletterPerson); 
+		$fields->addFieldToTab("Root.FeaturedHelpLabs", $featuredHelpLabs);
+		$fields->addFieldToTab("Root.FeaturedTutorPages", $featuredTutorPages);
+		
 		$fields->addFieldToTab("Root.Main", new TextField("FrontPageBlurb", "Front Page Blurb"));
 		$fields->addFieldToTab("Root.Main", new UploadField("MainImage", "Main Image"));
 
@@ -58,7 +95,41 @@ class HomePage extends Page {
  
 class HomePage_Controller extends Page_Controller {
 
-	  
+	  public function featuredHelpLabs(){
+
+	  	if($this->HelpLabs()->First()){
+
+	  			$helpLabs = new ArrayList($this->HelpLabs()->toArray());
+	  			$additionalHelpLabs = new ArrayList(HelpLab::get()->sort("RAND()")->toArray());
+		  		$helpLabs->merge($additionalHelpLabs);
+
+		  		return $helpLabs;
+
+
+	  	}else{
+	  		return HelpLab::get()->sort("RAND()");
+	  	}
+
+	  }
+
+
+
+	  public function featuredTutorPages(){
+	  	if($this->TutorPages()->First()){
+	  		
+	  	
+	  			$TutorPages = new ArrayList($this->TutorPages()->toArray());
+	  			$additionalTutorPages = new ArrayList(TutorPage::get()->sort("RAND()")->toArray());
+		  		$TutorPages->merge($additionalTutorPages);
+
+		  		return $TutorPages;
+
+
+	  	}else{
+	  		return TutorPage::get()->sort("RAND()");
+	  	}
+
+	  }
 	  public function NewsletterSignedUp(){
 	  
 	  	 $signedUp = $this->request->getVar('signup');
@@ -76,6 +147,8 @@ class HomePage_Controller extends Page_Controller {
 	  
 	  
 	  }
+
+
 	  
 	 
 	 public function rss() {
