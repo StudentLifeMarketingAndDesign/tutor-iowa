@@ -123,7 +123,7 @@
 	}
 }
 
-.tag{
+.tag,{
   @include button(
     // $padding - Used to build padding for buttons Default: $button-med or rem-calc(12)
     $padding: rem-calc(4),
