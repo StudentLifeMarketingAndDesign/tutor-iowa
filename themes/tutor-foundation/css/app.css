@@ -6678,6 +6678,19 @@ th.hide-for-touch {
 
 .EditProfilePage #Disable label {
   color: #f04124; }
+.EditProfilePage .field.tag, .EditProfilePage .field.tag span.tagMatches span.field {
+  width: 100%;
+  display: block;
+  text-transform: capitalize;
+  text-align: left;
+  background: none;
+  margin: 0;
+  padding: 0; }
+  .EditProfilePage .field.tag input.tag, .EditProfilePage .field.tag span.tagMatches span.field input.tag {
+    display: block;
+    text-transform: capitalize;
+    text-align: left;
+    background: none; }
 
 .side-nav {
   padding-top: 0;
@@ -7393,7 +7406,7 @@ a.dosl, p.adr {
   .top-bar .title.back a:hover {
     background: #666; }
 
-.tag {
+.tag, .EditProfilePage .field.tag span.tagMatches span {
   border-style: solid;
   border-width: 0;
   cursor: pointer;
@@ -7418,9 +7431,9 @@ a.dosl, p.adr {
   margin-bottom: 3px;
   text-transform: uppercase;
   font-size: 0.6875rem; }
-  .tag:hover, .tag:focus {
+  .tag:hover, .EditProfilePage .field.tag span.tagMatches span:hover, .tag:focus, .EditProfilePage .field.tag span.tagMatches span:focus {
     background-color: #eccd82; }
-  .tag:hover, .tag:focus {
+  .tag:hover, .EditProfilePage .field.tag span.tagMatches span:hover, .tag:focus, .EditProfilePage .field.tag span.tagMatches span:focus {
     color: #333333; }
 
 .profile-image {

@@ -1,7 +1,7 @@
 <div class="gradient">
 	<div class="main typography" role="main">
-		<div class="row" data-equalizer>
-			<div class="large-8 columns" data-equalizer-watch>
+		<div class="row">
+			<div class="large-8 columns">
 				<div class="white-cover"></div>
 				<div class="row">
 					<article class="large-12 columns">
@@ -12,7 +12,7 @@
 					</article>
 				</div>
 			</div>
-			<div class="large-4 columns end" data-equalizer-watch>
+			<div class="large-4 columns end">
 				<div class="side-nav">
 				<ul class="button-group stack">
 					<li><a href="$currentMemberPage.Link" target="_blank" class="button secondary radius">View Profile</a></li>
