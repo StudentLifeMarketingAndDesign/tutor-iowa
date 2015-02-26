@@ -38,7 +38,7 @@ class Page_Controller extends ContentController {
 	private static $allowed_actions = array('logout');
 
 	public function SplitKeywords() {
-		$keywords = $this->MetaKeywords;
+		$keywords = $this->Tags;
 
 		if ($keywords) {
 			$splitKeywords = explode(',', $keywords);
@@ -152,7 +152,7 @@ class Page_Controller extends ContentController {
 
 		$mode = ' IN BOOLEAN MODE';
 
-		$siteTreeClasses = array('TutorPage', 'SupplementalInstruction', 'HelpLab');
+		$siteTreeClasses = array('SiteTree', 'TutorPage', 'SupplementalInstruction', 'HelpLab');
 		//add in an classes that extend Page or SiteTree
 		$siteTreeMatch = "MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keyword'$mode)
                     + MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keywordHTML'$mode)";
@@ -165,7 +165,6 @@ class Page_Controller extends ContentController {
 			$query = DataList::create($c)->where($siteTreeMatch);
 			$query = $query->dataQuery()->query();
 			$query->addSelect(array('Relevance' => $siteTreeMatch));
-
 			$records = DB::query($query->sql());
 			$objects = array();
 			foreach ($records as $record) {
@@ -177,8 +176,8 @@ class Page_Controller extends ContentController {
 			$pages->merge($objects);
 		}
 
+		$pages->removeDuplicates();
 		$pages->sort(array('Relevance' => 'DESC', 'Title' => 'ASC'));
-
 		$data = array('Tutors' => $pages->filter(array('ClassName' => 'TutorPage')), 'SupplementalInstructions' => $pages->filter(array('ClassName' => 'SupplementalInstruction')), 'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')), 'Query' => $keyword, 'Title' => 'Search Results');
 
 		if ($pages->count() == 0 && $news->count() == 0 && $files->count() == 0) {
