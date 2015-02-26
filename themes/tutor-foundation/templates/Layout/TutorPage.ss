@@ -8,14 +8,14 @@
 					<article>
 						<div class="row">
 							<div class="medium-9 columns">
+								$Breadcrumbs
 								<h1>$Title</h1>
-
 								<p><strong>Member Since: </strong> $Created.NiceUS <br />
 								<% if $MeetingPreference %><strong>Meeting Preference: </strong>{$MeetingPreference}<br /><% end_if %>
 									<% if $Hours %><strong>Availability: </strong>{$Hours}<br /><% end_if %>
 									<% if $HourlyRate %><strong>Hourly Rate:</strong> {$HourlyRate}<% end_if %>
-									<% if $MetaKeywords %>
-										<br /><% include TutorTags %>
+									<% if $Tags %>
+										<br /><% include Tags %>
 									<% end_if %>
 						
 								</p>

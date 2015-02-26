@@ -54,15 +54,6 @@ $(".message").each( function() {
 			console.log(error);
 		});
 	}
-	
-	messageBody = $(this).find('.message-body').first();
-	messageSummary = $(this).find('.message-summary').first();
-	
-	messageSummary.toggle(); 
-	messageBody.toggle();
-	
-	$(this).find(".message-box").first().css("height", "auto");
-	
 
 	/*
 	if ($(event.target).parents(".reply-form")) {

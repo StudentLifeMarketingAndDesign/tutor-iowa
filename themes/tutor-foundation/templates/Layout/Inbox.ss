@@ -26,10 +26,7 @@
 									<div>
 										<section class="message-box">
 											<div class="message-details"><span class="text-left"> $SenderName</span> <small class="right">$Created.NiceUS</small></div>
-											<div class="message-summary">									
-												<p class="truncate"> $MessageBody.FirstSentence</p>
-											</div>
-											<div class="message-body" style="display: none;">
+											<div class="message-body">
 												<p> $MessageBody </p>
 											</div>
 										

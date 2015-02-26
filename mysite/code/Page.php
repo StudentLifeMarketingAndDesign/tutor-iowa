@@ -16,6 +16,9 @@ class Page extends SiteTree {
 		$fields->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "BackgroundImage"));
 		return $fields;
 	}
+	public function Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = false) {
+		return parent::Breadcrumbs(20, false, false, true);
+	}
 }
 
 class Page_Controller extends ContentController {
@@ -44,7 +47,7 @@ class Page_Controller extends ContentController {
 			$splitKeywords = explode(',', $keywords);
 		}
 
-		if ($splitKeywords) {
+		if (isset($splitKeywords)) {
 			$keywordsList = new ArrayList();
 			foreach ($splitKeywords as $data) {
 				$do = new DataObject();

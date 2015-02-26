@@ -6575,7 +6575,7 @@ th.hide-for-touch {
   .tutor-card-list li img {
     display: block; }
   .tutor-card-list a {
-    color: #000;
+    color: #222222;
     padding: 5px; }
   .tutor-card-list h4 {
     transition: all .5s ease-in-out;
@@ -6669,12 +6669,22 @@ th.hide-for-touch {
       margin-bottom: 0;
       padding-bottom: 0; }
   .resource-card-list li {
-    border-right: 1px solid #eee;
     list-style-type: none;
     margin-bottom: 0;
     padding-bottom: 0; }
+    .resource-card-list li:hover h4 {
+      color: #377EFF; }
+    .resource-card-list li a {
+      color: #222222; }
+    .resource-card-list li span {
+      color: #377EFF; }
   .resource-card-list li img {
     display: block; }
+  .resource-card-list h4 {
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    color: #5275a5; }
 
 .EditProfilePage #Disable label {
   color: #f04124; }
@@ -6706,6 +6716,8 @@ th.hide-for-touch {
     padding: 1px; }
     .side-nav h3 span {
       padding: 2px; }
+  .side-nav .announcements.small .announcement-card {
+    padding: 10px 0; }
 
 /* Single Page Styles */
 .main .breadcrumbs {
@@ -7456,6 +7468,10 @@ a.dosl, p.adr {
 
 .tutor-name {
   text-transform: capitalize; }
+
+article {
+  position: relative;
+  z-index: 1000; }
 
 form label span {
   color: #f04124;
