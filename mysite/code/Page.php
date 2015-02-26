@@ -154,8 +154,8 @@ class Page_Controller extends ContentController {
 
 		$siteTreeClasses = array('TutorPage', 'SupplementalInstruction', 'HelpLab');
 		//add in an classes that extend Page or SiteTree
-		$siteTreeMatch = "MATCH( Title, MenuTitle, Content, MetaKeywords) AGAINST ('$keyword'$mode)
-                    + MATCH( Title, MenuTitle, Content, MetaKeywords) AGAINST ('$keywordHTML'$mode)";
+		$siteTreeMatch = "MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keyword'$mode)
+                    + MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keywordHTML'$mode)";
 
 		/*
 		 * Standard pages

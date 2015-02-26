@@ -1,10 +1,10 @@
 <?php
 
-
 class SiteTreeFieldExtension extends DataExtension {
 
-    private static $db = array(
-        'MetaKeywords' => 'Text',
-    );
+	private static $db = array(
+		'MetaKeywords' => 'Text',
+		'Tags' => 'Text',
+	);
 
 }
