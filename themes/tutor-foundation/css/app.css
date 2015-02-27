@@ -6410,16 +6410,20 @@ th.hide-for-touch {
     overflow: hidden;
     border-top: 1px solid #ddd;
     border-left: 4px solid #377EFF;
-    padding: 1.5625rem; }
+    padding: 0.78125rem; }
     .message .message-box p {
       color: #444444;
-      font-weight: bold; }
+      font-weight: bold;
+      margin-bottom: 0.78125rem; }
     .message .message-box .message-details {
-      margin-bottom: .66em;
+      margin-bottom: 0.78125rem;
       font-weight: bold;
       font-size: 1.125rem; }
       .message .message-box .message-details:hover {
         cursor: normal; }
+      .message .message-box .message-details:before {
+        content: ' \25CF';
+        color: #377EFF; }
   .message .message-summary {
     overflow: hidden; }
   .message .message-body {
@@ -6427,14 +6431,8 @@ th.hide-for-touch {
     overflow: hidden; }
   .message small {
     font-size: 77%; }
-  .message .open-message {
-    height: auto; }
-  .message .reply-form :hover {
-    cursor: text !important; }
-  .message .reply-form fieldset {
-    margin-bottom: 0; }
-  .message .reply-form .Actions {
-    float: right; }
+  .message .button-group.message-options {
+    text-align: right; }
   .message .button, .message button {
     background: #DADADA;
     color: #222222;
@@ -6453,6 +6451,8 @@ th.hide-for-touch {
         font-weight: normal; }
       .message.read .message-box .message-details {
         font-weight: normal; }
+        .message.read .message-box .message-details:before {
+          display: none; }
     .message.read p {
       color: #555555; }
     .message.read button.mark-read {

@@ -18,7 +18,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="medium-12 columns" id="main-content">
+						<div class="medium-12" id="main-content">
 							
 							<% if $CurrentMember.Messages %>
 							<% loop $CurrentMember.Messages.Sort(Created).Reverse %>
@@ -39,11 +39,10 @@
 												<p> $MessageBody </p>
 											</div>
 										
-											<ul class="button-group">
-												<li><a href="mailto:$SenderEmail" class="button reply small">Reply Via Email</a></li>
-												
-												<li><button class="button small">Delete</a></li>
+											<ul class="button-group message-options">
 												<li><button class="small mark-read">Mark as Read</a></button>
+												<li><button class="button small">Delete</a></li>
+												<li><a href="mailto:$SenderEmail" class="button reply small">Reply Via Email</a></li>
 											</ul>
 										</section>
 									</div>
