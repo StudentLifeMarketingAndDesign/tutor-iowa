@@ -1,6 +1,7 @@
 @import "imports/settings";
 @import "foundation";
 
+@import "imports/mixins/gradient";
 @import "imports/uiowa-bar";
 @import "imports/homepage";
 @import "imports/help-lab";
@@ -92,12 +93,28 @@
 	height: 100%;
 }
 
+/* Top Bar Stuff (TODO move to seperate file) */
+
+@mixin topBarGradient() {
+	@include linear-gradient(lighten($topbar-bg, 5), $topbar-bg);
+	//@include linear-gradient(42deg, #B58234 0%, #D2B545 50%, #D7C04D 50.01%, #FFFFFF);
+}
+
+.contain-to-grid{
+	@include topBarGradient;
+}
 .top-bar{
 	h1{
 		max-width: rem-calc(200);
 		@media #{$large-up} {
 			max-width: rem-calc(300);
 		}
+	}
+
+	@include topBarGradient;
+
+	.name h1 a {
+		padding-left: $column-gutter/2;
 	}
 
 	.top-search{
@@ -109,11 +126,36 @@
 	}
 
 	.top-bar-section{
-	   	ul li a{
-	    		&.button {
-	        		font-size: 0.9rem;
-	        	}
+		ul li{
+	    	@media #{$large-up}{
+	    		@include topBarGradient;
 	    	}
+		}
+	   	ul li a{
+			&.button {
+	    		font-size: 0.9rem;
+	    	}
+	    }
+
+	    .has-form{
+	    	@include topBarGradient;
+	    	padding: 0 1rem;
+	    }
+
+	    .has-form:last-of-type{
+	    	padding-right: 0;
+	    }
+
+	    li.active:not(.has-form) a:not(.button){
+	    	@media #{$large-up}{
+	    		@include topBarGradient;
+	    	}
+	    }
+		li:not(.has-form) a:not(.button){
+	    	@media #{$large-up}{
+	    		@include topBarGradient;
+	    	}
+		}
 	}
 	.title.back a{
 		background: #666;
@@ -121,6 +163,25 @@
 			background: #666;
 		}
 	}
+}
+
+/* buttons and tags */
+
+@mixin buttonGradient($color){
+	//@include linear-gradient(45deg, $color 0%, darken($color, 7) 50%, lighten($color, 3)  50.01%, lighten($color, 30));
+	@include linear-gradient(45deg, $color 0%, darken($color, 7) 50%, darken($color, 3)  50.01%, lighten($color, 20));
+	//@include linear-gradient(80deg, $color 0%, lighten($color, 10) 50%,);
+	&:hover{
+
+	}
+}
+
+.button, button{
+	@include buttonGradient($primary-color);
+}
+
+.button.success, button.success{
+	@include buttonGradient($success-color);
 }
 
 .tag,{

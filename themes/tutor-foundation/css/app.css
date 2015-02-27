@@ -6722,9 +6722,6 @@ th.hide-for-touch {
   padding-top: 0;
   background-color: #f4f4f4;
   padding: 0.78125rem; }
-  @media only screen and (min-width:64.063em) {
-    .side-nav {
-      padding: 1.5625rem; } }
   .side-nav a p {
     color: #222222; }
   .side-nav h3 {
@@ -7433,21 +7430,66 @@ a.dosl, p.adr {
   background: #fff;
   height: 100%; }
 
-.top-bar h1 {
-  max-width: 12.5rem; }
+/* Top Bar Stuff (TODO move to seperate file) */
+.contain-to-grid {
+  background: #515151;
+  background: -webkit-linear-gradient(-90deg, #515151, #444);
+  background: linear-gradient(180deg, #515151, #444); }
+
+.top-bar {
+  background: #515151;
+  background: -webkit-linear-gradient(-90deg, #515151, #444);
+  background: linear-gradient(180deg, #515151, #444); }
+  .top-bar h1 {
+    max-width: 12.5rem; }
+    @media only screen and (min-width:64.063em) {
+      .top-bar h1 {
+        max-width: 18.75rem; } }
+  .top-bar .name h1 a {
+    padding-left: 0.78125rem; }
+  .top-bar .top-search {
+    border-radius: 20px;
+    border-right: 1px solid #ddd;
+    padding-right: 10px; }
   @media only screen and (min-width:64.063em) {
-    .top-bar h1 {
-      max-width: 18.75rem; } }
-.top-bar .top-search {
-  border-radius: 20px;
-  border-right: 1px solid #ddd;
-  padding-right: 10px; }
-.top-bar .top-bar-section ul li a.button {
-  font-size: 0.9rem; }
-.top-bar .title.back a {
-  background: #666; }
-  .top-bar .title.back a:hover {
+    .top-bar .top-bar-section ul li {
+      background: #515151;
+      background: -webkit-linear-gradient(-90deg, #515151, #444);
+      background: linear-gradient(180deg, #515151, #444); } }
+  .top-bar .top-bar-section ul li a.button {
+    font-size: 0.9rem; }
+  .top-bar .top-bar-section .has-form {
+    background: #515151;
+    background: -webkit-linear-gradient(-90deg, #515151, #444);
+    background: linear-gradient(180deg, #515151, #444);
+    padding: 0 1rem; }
+  .top-bar .top-bar-section .has-form:last-of-type {
+    padding-right: 0; }
+  @media only screen and (min-width:64.063em) {
+    .top-bar .top-bar-section li.active:not(.has-form) a:not(.button) {
+      background: #515151;
+      background: -webkit-linear-gradient(-90deg, #515151, #444);
+      background: linear-gradient(180deg, #515151, #444); } }
+  @media only screen and (min-width:64.063em) {
+    .top-bar .top-bar-section li:not(.has-form) a:not(.button) {
+      background: #515151;
+      background: -webkit-linear-gradient(-90deg, #515151, #444);
+      background: linear-gradient(180deg, #515151, #444); } }
+  .top-bar .title.back a {
     background: #666; }
+    .top-bar .title.back a:hover {
+      background: #666; }
+
+/* buttons and tags */
+.button, button {
+  background: #377EFF;
+  background: -webkit-linear-gradient(45deg, #377EFF 0%, #1367ff 50%, #2874ff 50.01%, #9dc0ff);
+  background: linear-gradient(45deg, #377EFF 0%, #1367ff 50%, #2874ff 50.01%, #9dc0ff); }
+
+.button.success, button.success {
+  background: #37be5e;
+  background: -webkit-linear-gradient(45deg, #37be5e 0%, #2fa250 50%, #34b258 50.01%, #81da9b);
+  background: linear-gradient(45deg, #37be5e 0%, #2fa250 50%, #34b258 50.01%, #81da9b); }
 
 .tag, .EditProfilePage .field.tag span.tagMatches span {
   border-style: solid;
@@ -7495,3 +7537,5 @@ article {
 form label span {
   color: #f04124;
   padding-right: 3px; }
+
+/*# sourceMappingURL=app.css.map */

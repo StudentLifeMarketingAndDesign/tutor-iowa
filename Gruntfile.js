@@ -19,7 +19,7 @@ module.exports = function(grunt) {
           includePaths: [
           '<%=globalConfig.themeDir %>/bower_components/foundation/scss'
           ],
-          sourcemap: true
+          sourceMap: true
         }
       }
     },
