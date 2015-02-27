@@ -129,23 +129,46 @@ $(".message").each( function() {
 	*/
 });
 
+function noUnreadMessages() {
+	// determines if inbox has unread messages or nah
+	count = $(".inboxCount").data("unreadcount"); 
+	if (count < 1 || typeof(count) == "undefined") {
+		return true;
+	} else {
+		return false;
+	}
+
+}
+
+$("#main-content .noUnread").hide(); // hiding with javascript b/c the fnd '.hide' class sets visibility: invisible
+
+
 $(".unread-messages").click(function() {
 	$(".read").each(function() {
 		$(this).hide();
 	});	
+	// if all messages unread and div hasn't been appended already, append message
+	console.log(noUnreadMessages());
+	if ( noUnreadMessages() ) {
+		$("#main-content .noUnread").show(); // what is a better way to only show .noUnread in .unread-messages?
+	} 
 });
 
 $(".all-messages").click(function() {
 	$(".message").each(function() {
 		$(this).show();
+		$("#main-content .noUnread").hide(); 
 	});	
 });
 
 $(".unreplied-messages").click(function() {
 	$(".replied").each(function() {
 		$(this).hide();
+		$("#main-content .noUnread").hide(); 
+
 	});	
 });
+
 
 /* Global Variables */
 var markerArray = [];

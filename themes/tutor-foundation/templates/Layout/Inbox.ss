@@ -9,7 +9,7 @@
 						<div class="medium-3 columns show-for-medium-up">
 							<span class="button inbox-head small all-messages">
 								<% if $CurrentMember.unreadMessageCount > 0 %> 
-									<strong>Inbox <span class="inboxCount" data-unreadcount="$CurrentMember.unreadMessageCount">({$CurrentMember.unreadMessageCount})</span></strong>
+									<strong>Inbox</strong> <span class="inboxCount" data-unreadcount="$CurrentMember.unreadMessageCount">({$CurrentMember.unreadMessageCount})</span>
 								<% else %>
 									Inbox
 								<% end_if %>
@@ -27,7 +27,9 @@
 					</div>
 					<div class="row">
 						<div class="medium-12" id="main-content">
-							
+
+							<div class='panel callout noUnread'>No unread messages here!</div>
+
 							<% if $CurrentMember.Messages %>
 							<% loop $CurrentMember.Messages.Sort(Created).Reverse %>
 								<div class="<% if $ReadDateTime %>read<% end_if %> <% if $RepliedDateTime %>replied<% end_if %> message" data-id="$ID" data-read="$ReadDateTime">
