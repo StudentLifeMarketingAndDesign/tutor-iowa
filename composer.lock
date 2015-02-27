@@ -4,11 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "hash": "56f4ffdb5b370cea4675dc89fcc4b9e6",
-=======
-    "hash": "4a53ea2378f8b3ecf9031b35de1cb436",
->>>>>>> master
     "packages": [
         {
             "name": "briceburg/silverstripe-pageholder",
@@ -67,21 +63,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-<<<<<<< HEAD
                 "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/composer/installers/zipball/d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
                 "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
-=======
-                "reference": "89d77bfbee79e16653f7162c86e602cc188471db"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/89d77bfbee79e16653f7162c86e602cc188471db",
-                "reference": "89d77bfbee79e16653f7162c86e602cc188471db",
->>>>>>> master
                 "shasum": ""
             },
             "replace": {
@@ -123,10 +110,7 @@
                 "Hurad",
                 "MODX Evo",
                 "OXID",
-<<<<<<< HEAD
                 "SMF",
-=======
->>>>>>> master
                 "Thelia",
                 "WolfCMS",
                 "agl",
@@ -166,7 +150,6 @@
                 "zend",
                 "zikula"
             ],
-<<<<<<< HEAD
             "time": "2015-02-18 17:17:01"
         },
         {
@@ -313,9 +296,6 @@
                 "zurb foundation"
             ],
             "time": "2015-02-03 04:31:12"
-=======
-            "time": "2014-11-29 01:29:17"
->>>>>>> master
         },
         {
             "name": "silverstripe-themes/simple",
@@ -448,7 +428,6 @@
                 "silverstripe"
             ],
             "time": "2015-01-14 22:56:46"
-<<<<<<< HEAD
         },
         {
             "name": "silverstripe/mathspamprotection",
@@ -482,8 +461,6 @@
                 "spamprotection"
             ],
             "time": "2015-01-27 20:11:23"
-=======
->>>>>>> master
         },
         {
             "name": "silverstripe/recaptcha",
@@ -529,21 +506,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-spamprotection.git",
-<<<<<<< HEAD
                 "reference": "adbb4be14d791e8c34b70ff5647058bb85b66c77"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/adbb4be14d791e8c34b70ff5647058bb85b66c77",
                 "reference": "adbb4be14d791e8c34b70ff5647058bb85b66c77",
-=======
-                "reference": "c1a8a83011e10e238afbd6f4804e9ba1df5d56f9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/c1a8a83011e10e238afbd6f4804e9ba1df5d56f9",
-                "reference": "c1a8a83011e10e238afbd6f4804e9ba1df5d56f9",
->>>>>>> master
                 "shasum": ""
             },
             "require": {
@@ -566,7 +534,6 @@
                 "silverstripe",
                 "spamprotection"
             ],
-<<<<<<< HEAD
             "time": "2015-01-31 02:34:54"
         },
         {
@@ -607,9 +574,6 @@
                 "tags"
             ],
             "time": "2013-10-01 10:56:57"
-=======
-            "time": "2014-12-05 02:18:33"
->>>>>>> master
         }
     ],
     "packages-dev": [],
