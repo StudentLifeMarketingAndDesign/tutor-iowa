@@ -6431,8 +6431,6 @@ th.hide-for-touch {
     overflow: hidden; }
   .message small {
     font-size: 77%; }
-  .message .button-group.message-options {
-    text-align: right; }
   .message .button, .message button {
     background: #DADADA;
     color: #222222;
@@ -6468,7 +6466,10 @@ th.hide-for-touch {
   padding-bottom: 0.78125rem;
   padding-top: 0.78125rem; }
   .inbox-nav .button-group {
-    text-align: right; }
+    text-align: center; }
+    @media only screen and (min-width:40.063em) {
+      .inbox-nav .button-group {
+        text-align: right; } }
   .inbox-nav li {
     color: #555555;
     border-bottom: 0;
@@ -6718,7 +6719,10 @@ th.hide-for-touch {
 .side-nav {
   padding-top: 0;
   background-color: #f4f4f4;
-  padding: 1.5625rem; }
+  padding: 0.78125rem; }
+  @media only screen and (min-width:64.063em) {
+    .side-nav {
+      padding: 1.5625rem; } }
   .side-nav a p {
     color: #222222; }
   .side-nav h3 {

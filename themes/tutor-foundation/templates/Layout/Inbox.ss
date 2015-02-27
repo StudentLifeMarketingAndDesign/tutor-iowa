@@ -6,8 +6,15 @@
 				<div class="white-cover"></div>
 				<article class="main-article">
 					<div class="row inbox-nav">
-						<div class="medium-3 columns"><span class="button inbox-head small all-messages">Inbox</span></div>
-						<div class="medium-9 columns">
+						<div class="medium-3 columns show-for-medium-up">
+						<span class="button inbox-head small all-messages">
+							<% if $CurrentMember.unreadMessageCount > 0 %> 
+								<strong>Inbox ({$CurrentMember.unreadMessageCount})</strong>
+							<% else %>
+								Inbox
+							<% end_if %>
+						</span></div>
+						<div class="small-12 medium-9 columns">
 							<div>
 								<ul class="button-group">
 									<li><button class="unread-messages small button" >Unread</button></li>

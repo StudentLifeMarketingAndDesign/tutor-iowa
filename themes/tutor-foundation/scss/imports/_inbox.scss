@@ -44,7 +44,8 @@
         font-size: 77%;
     }
     .button-group.message-options{
-    	text-align: right;
+
+
     }
 
     .button, button {
@@ -97,7 +98,12 @@
     padding-bottom: $column-gutter / 2;
     padding-top: $column-gutter / 2;
     .button-group{
-    	text-align: right;
+    	text-align: center;
+
+    	@media #{$medium-up}{
+    		text-align: right;
+    	}
+    	
     }
     li {
         color: $charcoal;
