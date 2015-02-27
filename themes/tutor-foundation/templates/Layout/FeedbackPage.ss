@@ -5,6 +5,7 @@
 			<div class="white-cover"></div>
 			<div class="row">
 				<article class="large-10 columns">
+				$Breadcrumbs
 					<% if $Saved %>
 						<script type="text/javascript">
 					    	$('<p class="savedMessage">Your feedback has been submitted! </p>').insertBefore('#Name');

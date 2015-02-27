@@ -1,7 +1,11 @@
 .side-nav{
 	padding-top: 0;
 	background-color: $side-nav-bg;
-	padding: 10px;
+	padding: $column-gutter/2;
+
+	@media #{$large-up}{
+		//padding: $column-gutter;
+	}
 	h4{
 		//color: $primary-color;
 	}
@@ -22,4 +26,11 @@
 			
 		}
 	}
+
+	.announcements.small{
+		.announcement-card{
+			padding: 10px 0;
+		}		
+	}
+
 }

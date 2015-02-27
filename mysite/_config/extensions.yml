@@ -1,0 +1,9 @@
+SiteTree:
+  extensions:
+    - SiteTreeFieldExtension
+Member:
+  extensions:
+    - MemberExtension
+TutorPage:
+  extensions:
+    - TutorPageExtension

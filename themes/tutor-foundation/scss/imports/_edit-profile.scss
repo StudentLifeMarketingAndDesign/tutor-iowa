@@ -4,5 +4,26 @@
 		color: $alert-color;
 	}
 
+	.field.tag{
+
+		width: 100%;
+		display: block;
+		text-transform: capitalize;
+		text-align: left;
+		background: none;
+		margin: 0;
+		padding:0;
+		input.tag{
+			display: block;
+			text-transform: capitalize;
+			text-align: left;
+			background: none;
+		}
+
+		span.tagMatches span{
+			@extend .tag;
+		}
+
+	} 
 
 }

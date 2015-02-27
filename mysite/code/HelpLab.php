@@ -17,6 +17,7 @@ class HelpLab extends Page {
 
 	private static $has_one = array(
 		'AcademicHelp' => 'AcademicHelp',
+		'HomePage' => 'HomePage',
 	);
 
 	private static $many_many = array(

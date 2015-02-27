@@ -72,7 +72,7 @@ class EditProfilePage_Controller extends Page_Controller
 	            new TextField('Major'),
 	            new LiteralField('TagsHelpLabel', $tagsLabel),
 
-	            //new TagField('Tags', 'Tags'),
+	            new TagField('Tags', 'Tags'),
 	            
 	            
 	            //This does not sync with database (database field is 'Disabled')
