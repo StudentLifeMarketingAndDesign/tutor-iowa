@@ -1,11 +1,7 @@
 <nav class="top-bar" role="navigation" data-topbar>
 	<ul class="title-area">
-		<li>
-			<div class="row">
-				<div class="large-12 columns">
-					<h1><a href="{$baseUrl}"><img src="{$ThemeDir}/images/logo.png" /></a></h1>
-				</div>
-			</div>
+		<li class="name">
+			<h1><a href="{$baseUrl}"><img alt="Tutor Iowa Wordmark" src="{$ThemeDir}/images/logo.png" /></a></h1>
 		</li>
 		<li class="toggle-topbar menu-icon"><a href=""><span></span></a></li>
 	</ul>
@@ -42,7 +38,7 @@
 			<li class="has-dropdown">
 				<a href="$currentMemberPage.Link">$CurrentMember.FirstName</a>
 				<ul class="dropdown">
-					
+					<li><a href="$currentMemberPage.Link">View Profile</a></li>
 					<li><a href="edit-profile/">Edit Profile</a></li>
 					<% if $SiteAdmin %><li><a href="admin/">Admin</a></li><% end_if %>
 					<li><a class="alert" href="Security/logout">Logout</a></li>
