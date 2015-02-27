@@ -22,6 +22,7 @@ class FeedbackPage extends Page {
 }
  
 class FeedbackPage_Controller extends Page_Controller {
+	 
 	 static $allowed_actions = array('FeedbackForm'); //added in 3.1
 	
 	 public function FeedbackForm(){
@@ -171,7 +172,7 @@ class FeedbackPage_Controller extends Page_Controller {
     	//$headers = "From: Tutor Iowa";       	
         //mail($recip->Email, $subject, $body);
         
-         include 'EmailArray.php';
+        include 'EmailArray.php';
          
         foreach ($emailArray as $recip){ //emailArray defined in EmailArray.php
 	      	        
@@ -186,7 +187,7 @@ class FeedbackPage_Controller extends Page_Controller {
             	    
    	    Session::set('Saved', 1);
    	    
-   	    return $this->redirect($this->Link());   
+   	    return $this->redirect($this->Link(), 302);   
    	     
    	     
    }
