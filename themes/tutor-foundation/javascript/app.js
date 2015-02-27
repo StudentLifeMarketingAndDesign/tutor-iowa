@@ -84,19 +84,19 @@ $(".message").each( function() {
 	*/
 });
 
-$("#unread-messages").click(function() {
+$(".unread-messages").click(function() {
 	$(".read").each(function() {
 		$(this).hide();
 	});	
 });
 
-$("#all-messages").click(function() {
+$(".all-messages").click(function() {
 	$(".message").each(function() {
 		$(this).show();
 	});	
 });
 
-$("#unreplied-messages").click(function() {
+$(".unreplied-messages").click(function() {
 	$(".replied").each(function() {
 		$(this).hide();
 	});	

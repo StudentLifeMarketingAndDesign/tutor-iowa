@@ -1,140 +1,118 @@
+.button.inbox-head {
+    margin: 0;
+    background: #eee;
+    color: $body-font-color;
+}
+
 .message {
+    overflow: hidden;
+    .columns, .column {
+        padding: 0;
+    }
+    .message-box {
+        overflow: hidden;
+        border-top: 1px solid #ddd;
+        border-left: 4px solid $blue;
+        padding: $column-gutter;
+        p {
+            color: $tuatara;
+            font-weight: bold;
+        }
+        .message-details {
+            margin-bottom: .66em;
+            font-weight: bold;
+            font-size: rem-calc(18);
+            &:hover {
+                cursor: normal;
+            }
+        }
+    }
+    .message-summary {
+        overflow: hidden;
+    }
+    .message-body {
+        height: auto;
+        overflow: hidden;
+    }
+    small {
+        font-size: 77%;
+    }
+    .open-message {
+        height: auto;
+    }
+    .reply-form {
+        :hover {
+            cursor: text !important;
+        }
+        fieldset {
+            margin-bottom: 0;
+        }
+        .Actions {
+            float: right;
+        }
+    }
+    .button, button {
+        background: #DADADA;
+        color: $body-font-color;
+        margin: 0;
+        &:hover {
+            background: #CECECE;
+        }
+        &.reply{
+        	background: $primary-color;
+        	color: white;
+        }
+    }
+    &.read {
+        background-color: $smoke;
+        color: black;
+        .message-box {
+            border-left: solid 4px $monsoon;
+            p {
+                font-weight: normal;
+            }
+            .message-details {
+                font-weight: normal;
+            }
+        }
+        p {
+            color: $charcoal;
+        }
 
-	overflow: hidden;
-	
-	:hover {
-		cursor: pointer;
-	}
-	
-	.columns, .column {
-		padding: 0;
-	}
-		
-	.message-box {
-		height: 66px;
-		overflow: hidden;
-		border-top: 1px solid #ddd;
-		border-left: 4px solid $blue;
-		padding: 5px 6px 4px 8px;	
-		
-		* {
-			font-weight: bold;
-		}
-		
-		p {
-			font-size: .80em;
-			color: $tuatara;
-			
-		}
-		
-		.message-details {
-			margin-bottom: .66em;
-		}
-	}
-	
-	@media #{$medium-up}{
-		.message-box {
-			height:77px;
-		}
-	}	
-	
-	.message-summary {
-		overflow: hidden;
-	}
-	
-
-	.message-body {
-		height: auto;
-		max-height: 120px;
-		overflow: hidden;
-	}
-
-	small {
-		font-size: 77%;
-	}
-	.open-message {
-		height: auto;
-		max-height: none !important;
-		
-	}
-	
-	.truncate {
-		max-height: 222px;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-	
-	.reply-form {
-	
-		:hover {
-			cursor: text !important;
-		}
-		
-		fieldset {
-			margin-bottom: 0;
-		}
-		.Actions {
-			float: right;	
-		}
-	}
-
+        button.mark-read{
+        	background: $smoke;
+        	color: #AEAEAE;
+        	margin: 0;
+        	&:hover{
+        		cursor: default;
+        	}
+        }
+    }
 }
 
 .inbox-nav {
-	text-align: right;
-	margin-bottom:0;
-	margin-left: 0;
-	padding-bottom: 1em;
-	
-	li {
-		color: $charcoal;
-		border-bottom: 0;
-		width: auto;
-			
-		a, span {
-			color: $charcoal;
-			padding: 0 8px;
-			margin-top: 0;
-			cursor: pointer;
-
-		}
-		
-		:hover {
-			background: $smoke;
-		}
-	}
-
-}
-
-
-#main-content {
-
-}
-
-
-
-.read {
-	
-	.message-box {
-			
-	* {
-		font-weight: normal;
-	}
-		
-	}
-
-	
-	background-color: $smoke;
-	color: black;
-		
-	p {
-		color: $charcoal;
-	}
-	
-	.message-box {
-		border-left: solid 4px $monsoon;
-		
-	}
-
+    
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-bottom: $column-gutter / 2;
+    padding-top: $column-gutter / 2;
+    .button-group{
+    	text-align: right;
+    }
+    li {
+        color: $charcoal;
+        border-bottom: 0;
+        width: auto;
+        button {
+            margin: 0;
+        }
+        a, span {
+            color: $charcoal;
+            padding: 0 8px;
+            margin-top: 0;
+        }
+        :hover {
+            background: darken($primary-color, 20);
+        }
+    }
 }
