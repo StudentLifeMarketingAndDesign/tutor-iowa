@@ -77,10 +77,21 @@ $(".message").each( function() {
 				MessageID: messageID
 			}, 
 			function(data, textStatus, jqXHR) {
-				console.log(textStatus);
+				//console.log(textStatus);
 				//console.log(jqXHR);
-				console.log(data);
+				//console.log(data);
+				
 				message.addClass("read");
+
+				// dynamically reduce inbox count on header and topbar
+				inboxCount = $(".inboxCount").data("unreadcount");
+				inboxCount--;
+				if (inboxCount > 0) {
+					$(".inboxCount").html("(" + inboxCount + ")").data("unreadcount", inboxCount );
+				} else {
+					$(".inboxCount").html("").data("unreadcount", inboxCount);
+				}
+
 			}
 		).fail(function( jqXHR, status, error) {
 			//console.log(jqXHR);
