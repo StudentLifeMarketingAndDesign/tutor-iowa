@@ -19,10 +19,6 @@ class SupplementalInstruction extends Page {
     'AcademicHelp' => 'AcademicHelp',
     );
     
-     private static $many_many = array(
-      'Tags' => 'Tag', 
-    );
-    
     //Comments enabled by default
     
     //Also want pages to be created under a SuppHolder by default
@@ -30,9 +26,7 @@ class SupplementalInstruction extends Page {
      
     );
 
-    function getTags() {
-     	return $this->Tags();
-     }
+
      
      
       public function getCMSFields() 
@@ -41,7 +35,7 @@ class SupplementalInstruction extends Page {
     	$fields = parent::getCMSFields();
     	$fields->removeFieldFromTab('Root.Metadata', "Keywords"); 
     	$fields->removeFieldFromTab('Root.Main', "Content");
-    	$fields->addFieldToTab( 'Root.Main', new TextAreaField("MetaKeywords", "Tags"));
+    	$fields->addFieldToTab( 'Root.Main', new Tagfield("Tags", "Tags"));
     	$fields->addFieldToTab( 'Root.Main', new TextField("Name", "Supplemental Instruction name (can be the same as page name)"));
     	$fields->addFieldToTab('Root.Main', new TextField("Location"));
     	$fields->addFieldToTab('Root.Main', new TextField("Hours"));

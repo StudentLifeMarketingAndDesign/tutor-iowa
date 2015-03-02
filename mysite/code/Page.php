@@ -37,22 +37,67 @@ class Page_Controller extends ContentController {
 	 */
 	private static $allowed_actions = array('logout');
 
-	public function SplitKeywords() {
-		$keywords = $this->Tags;
+	function getTagsCollection() {
 
-		if ($keywords) {
-			$splitKeywords = explode(',', $keywords);
-		}
+			$entries = SiteTree::get();
+			//$entries = SiteTree::get()->filter(array("ClassName" => "TutorPage", "ClassName" => "HelpLab"));
+			// Extract all tags from each entry
+			$tagCounts = array(); // Mapping of tag => frequency
 
-		if ($splitKeywords) {
-			$keywordsList = new ArrayList();
-			foreach ($splitKeywords as $data) {
-				$do = new DataObject();
-				$do->Keyword = $data;
-				$keywordsList->push($do);
+			foreach($entries as $entry) {
+				$theseTags = $entry->SplitKeywords();
+				foreach($theseTags as $tag => $tagLabel) {
+					$tagLabels[$tag] = $tagLabel;
+					//getting the count into key => value map
+					$tagCounts[$tag] = isset($tagCounts[$tag]) ? $tagCounts[$tag] + 1 : 1;
+				}
 			}
-			return $keywordsList;
-		}
+
+			if(empty($tagCounts)) return null;
+			$minCount = min($tagCounts);
+			$maxCount = max($tagCounts);
+			// Apply sorting mechanism
+			if($this->Sortby == "alphabet") {
+				// Sort by name
+				ksort($tagCounts);
+			} else {
+				 // Sort by frequency
+				uasort($tagCounts, function($a, $b) {
+					return $b - $a;
+				});
+			}
+			
+			// Apply limiting
+			if($this->Limit > 0) $tagCounts = array_slice($tagCounts, 0, $this->Limit, true);
+			// Calculate buckets of popularities
+			$numsizes = count(array_unique($tagCounts)); //Work out the number of different sizes
+			$popularities = self::config()->popularities;
+			$buckets = count($popularities);
+			// If there are more frequencies than buckets, divide frequencies into buckets
+			if ($numsizes > $buckets) $numsizes = $buckets;
+			
+			// Adjust offset to use central buckets (if using a subset of available buckets)
+			$offset = round(($buckets - $numsizes)/2);
+			$output = new ArrayList();
+			foreach($tagCounts as $tag => $count) {
+				
+				// Find position of $count in the selected range, adjusted for bucket range used
+				if($maxCount == $minCount) {
+					$popularity = $offset;
+				} else {
+					$popularity = round(
+						($count-$minCount) / ($maxCount-$minCount) * ($numsizes-1)
+					) + $offset;
+				}
+				$class = $popularities[$popularity];
+				$output->push(new ArrayData(array(
+					"Title" => $tagLabels[$tag],
+					"Count" => $count,
+					"Class" => $class,
+					//"Link" => Controller::join_links($container->Link('tag'), urlencode($tag))
+				)));
+			}
+			return $output;
 	}
 	public function currentMemberPage() {
 		$currentMember = Member::currentUser();
