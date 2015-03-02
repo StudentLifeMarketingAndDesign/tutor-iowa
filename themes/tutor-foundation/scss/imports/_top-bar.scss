@@ -1,0 +1,71 @@
+/* Top Bar Stuff (TODO move to seperate file) */
+
+@mixin topBarGradient() {
+	@include linear-gradient(lighten($topbar-bg, 5), $topbar-bg);
+	//@include linear-gradient(42deg, #B58234 0%, #D2B545 50%, #D7C04D 50.01%, #FFFFFF);
+}
+
+.contain-to-grid{
+	@include topBarGradient;
+}
+.top-bar{
+	h1{
+		max-width: rem-calc(300);
+		@media #{$large-up} {
+			max-width: rem-calc(300);
+		}
+	}
+
+	@include topBarGradient;
+
+	.name h1 a {
+		padding-left: $column-gutter/2;
+	}
+
+	.top-search{
+		border-radius: $global-radius;
+
+		border-right: 1px solid #ddd;
+		padding-right: 10px;
+
+	}
+
+	.top-bar-section{
+		ul li{
+	    	@media #{$large-up}{
+	    		@include topBarGradient;
+	    	}
+		}
+	   	ul li a{
+			&.button {
+	    		font-size: 0.9rem;
+	    	}
+	    }
+
+	    .has-form{
+	    	@include topBarGradient;
+	    	padding: 0 5px;
+	    }
+
+	    .has-form:last-of-type{
+	    	padding-right: 0;
+	    }
+
+	    li.active:not(.has-form) a:not(.button){
+	    	@media #{$large-up}{
+	    		@include topBarGradient;
+	    	}
+	    }
+		li:not(.has-form) a:not(.button){
+	    	@media #{$large-up}{
+	    		@include topBarGradient;
+	    	}
+		}
+	}
+	.title.back a{
+		background: #666;
+		&:hover{
+			background: #666;
+		}
+	}
+}

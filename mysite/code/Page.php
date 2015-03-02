@@ -19,6 +19,23 @@ class Page extends SiteTree {
 	public function Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = false) {
 		return parent::Breadcrumbs(20, false, false, true);
 	}
+
+	public function SplitKeywords() {
+		$keywords = $this->Tags;
+		if ($keywords) {
+			$splitKeywords = explode(',', $keywords);
+		}
+
+		if (isset($splitKeywords)) {
+			$keywordsList = new ArrayList();
+			foreach ($splitKeywords as $data) {
+				$do = new DataObject();
+				$do->Keyword = $data;
+				$keywordsList->push($do);
+			}
+			return $keywordsList;
+		}
+	}
 }
 
 class Page_Controller extends ContentController {
@@ -40,23 +57,6 @@ class Page_Controller extends ContentController {
 	 */
 	private static $allowed_actions = array('logout');
 
-	public function SplitKeywords() {
-		$keywords = $this->Tags;
-
-		if ($keywords) {
-			$splitKeywords = explode(',', $keywords);
-		}
-
-		if (isset($splitKeywords)) {
-			$keywordsList = new ArrayList();
-			foreach ($splitKeywords as $data) {
-				$do = new DataObject();
-				$do->Keyword = $data;
-				$keywordsList->push($do);
-			}
-			return $keywordsList;
-		}
-	}
 	public function currentMemberPage() {
 		$currentMember = Member::currentUser();
 
