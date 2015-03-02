@@ -1,6 +1,6 @@
 <?php
 
-class TagsCollection extends SiteTree{
+class TagsCollection extends DataObject{
 	private static $db = array(
 			"Title" => "Varchar",
 			"Count" => "Int"
@@ -19,7 +19,3 @@ class TagsCollection extends SiteTree{
 
 }
 
-class TagsCollection_Controller extends Page_Controller{
-
-
-}
