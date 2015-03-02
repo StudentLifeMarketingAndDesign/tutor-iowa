@@ -47,34 +47,6 @@ $(".message").each( function() {
 			console.log(error);
 		});
 	}
-
-	/*
-	if ($(event.target).parents(".reply-form")) {
-		console.log($(event.target).parents(".reply-form"));
-		
-	} */
-	
-	/*
-	
-	clickedOn = ($(".reply-form").has($(event.target)));
-	if (clickedOn["length"] > 0) {
-		//console.log($(".reply-form").has($(event.target)));
-	} else {
-		messageBody = $(this).find('.message-body').first();
-		messageBody.toggleClass("open-message");
-		replyForm = messageBody.find('.reply-form').first();
-		replyForm.toggleClass('hide');
-	
-		openMessage = messageBody;
-		inboxHeight = $("#inbox").height();
-		whiteCoverHeight = $(".white-cover").height();
-		articleHeight = $(".main-article").outerHeight();
-		
-		heightFix = inboxHeight - initInboxHeight;
-		$(".white-cover").css("height", articleHeight);
-		$(".footer").css("margin-top", heightFix);
-	}
-	*/
 });
 
 function noUnreadMessages() {
@@ -88,8 +60,11 @@ function noUnreadMessages() {
 
 }
 
-$("#main-content .noUnread").hide(); // hiding with javascript b/c the fnd '.hide' class sets visibility: invisible
+$("#main-content .noUnread").hide(); // hiding with jQuery b/c the foundation '.hide' class sets visibility: invisible
 
+/*
+* inbox navigation
+*/
 
 $(".unread-messages").click(function() {
 	$(".read").each(function() {
