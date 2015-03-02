@@ -35,9 +35,9 @@
 			<% if $CurrentMember %>
 			
 			<li class="has-dropdown">
-				<a href="$currentMemberPage.Link">$CurrentMember.FirstName</a>
+				<a href="$CurrentMemberPage.Link" id="memberInfo" data-id="$CurrentMember.ID">$CurrentMember.FirstName</a>
 				<ul class="dropdown">
-					<li><a href="$currentMemberPage.Link">View Profile</a></li>
+					<li><a href="$CurrentMember.Link()">View Profile</a></li>
 					<li><a href="edit-profile/">Edit Profile</a></li>
 					<% if $SiteAdmin %><li><a href="admin/">Admin</a></li><% end_if %>
 					<li><a class="alert" href="Security/logout">Logout</a></li>

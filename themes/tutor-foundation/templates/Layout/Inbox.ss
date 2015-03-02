@@ -31,7 +31,7 @@
 							<div class='panel callout noUnread'>No unread messages here!</div>
 
 							<% if $CurrentMember.Messages %>
-							<% loop $CurrentMember.Messages.Sort(Created).Reverse %>
+							<% loop $CurrentMember.Messages.Sort(Created).Reverse.Limit(5) %>
 								<div class="<% if $ReadDateTime %>read<% end_if %> <% if $RepliedDateTime %>replied<% end_if %> message" data-id="$ID" data-read="$ReadDateTime">
 									<div>
 										<section class="message-box">
@@ -77,7 +77,7 @@
 
 			<div class="large-4 columns end" >
 
-				<aside id="memberInfo" class="side-nav" data-id="$CurrentMember.ID">
+				<aside class="side-nav">
 					<%-- <h2>$CurrentMember.Name, you have $CurrentMember.Messages.ReadDateTime.Count</h2> --%>
 					<div id="messagePanel"></div>
 					<% include Announcements %>

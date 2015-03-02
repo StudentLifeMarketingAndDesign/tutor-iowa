@@ -50,13 +50,53 @@ $('.search-toggle').click(function() {
 });    
 
 
-var memberID = $("#memberInfo").data('id');
-var markAsRead = $(location).attr('href') + "/markAsRead";
-//if href ends in "#" this url will not work
+/*
+* inbox inits
+*/
 
-var initInboxHeight = $("#inbox").height();
-var openMessage;
+$("#main-content .noUnread").hide(); // hiding with jQuery b/c the foundation '.hide' class sets visibility: invisible
+
+var memberID = $("#memberInfo").data('id');
+var markAsRead = $(location).attr('href') + "/markAsRead"; //if href ends in "#" this url will not work
+
+var messagesPerPage = 5;
+
+//var initInboxHeight = $("#inbox").height();
 //var getFullMessage = $(location).attr('href') + "/getFullMessage";
+
+/*
+* inbox navigation
+*/
+
+$(".unread-messages").click(function() {
+	$(".read").each(function() {
+		$(this).hide();
+	});	
+	// if all messages unread and div hasn't been appended already, append message
+	console.log(noUnreadMessages());
+	if ( noUnreadMessages() ) {
+		$("#main-content .noUnread").show(); // what is a better way to only show .noUnread in .unread-messages?
+	} 
+});
+
+$(".all-messages").click(function() {
+	$(".message").each(function() {
+		$(this).show();
+		$("#main-content .noUnread").hide(); 
+	});	
+});
+
+$(".unreplied-messages").click(function() {
+	$(".replied").each(function() {
+		$(this).hide();
+		$("#main-content .noUnread").hide(); 
+
+	});	
+});
+
+/*
+* inbox "controller"
+*/
 
 $(".message").each( function() {
 	//var message = $(this).children('.message-body').text();
@@ -112,37 +152,12 @@ function noUnreadMessages() {
 
 }
 
-$("#main-content .noUnread").hide(); // hiding with jQuery b/c the foundation '.hide' class sets visibility: invisible
-
 /*
-* inbox navigation
+* inbox pagination
 */
+if ($("#main-content .message").length > messagesPerPage) {}
 
-$(".unread-messages").click(function() {
-	$(".read").each(function() {
-		$(this).hide();
-	});	
-	// if all messages unread and div hasn't been appended already, append message
-	console.log(noUnreadMessages());
-	if ( noUnreadMessages() ) {
-		$("#main-content .noUnread").show(); // what is a better way to only show .noUnread in .unread-messages?
-	} 
-});
 
-$(".all-messages").click(function() {
-	$(".message").each(function() {
-		$(this).show();
-		$("#main-content .noUnread").hide(); 
-	});	
-});
-
-$(".unreplied-messages").click(function() {
-	$(".replied").each(function() {
-		$(this).hide();
-		$("#main-content .noUnread").hide(); 
-
-	});	
-});
 
 
 if (typeof google !== "undefined") {
@@ -160,25 +175,6 @@ if (typeof google !== "undefined") {
 	var userInitPosition;
 
 	/* Helper Functions */
-
-	//obsolete?
-	function error(msg) {
-	  var s = document.querySelector('#status');
-	  s.innerHTML = typeof msg == 'string' ? msg : "failed";
-	  s.className = 'fail';
-	}
-
-	//obsolete?
-	function makeMarker(options){
-	   var pushPin = new google.maps.Marker({map:map});
-	   pushPin.setOptions(options);
-	   google.maps.event.addListener(pushPin, 'click', function(){
-	     infoWindow.setOptions(options);
-	     infoWindow.open(map, pushPin);
-	   });
-	   markerArray.push(pushPin);
-	   return pushPin;
-	}
 
 	function handleNoGeolocation(errorFlag) {   	
 		var userInitPosition = iowaCity;

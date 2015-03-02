@@ -14,25 +14,6 @@ if (typeof google !== "undefined") {
 
 	/* Helper Functions */
 
-	//obsolete?
-	function error(msg) {
-	  var s = document.querySelector('#status');
-	  s.innerHTML = typeof msg == 'string' ? msg : "failed";
-	  s.className = 'fail';
-	}
-
-	//obsolete?
-	function makeMarker(options){
-	   var pushPin = new google.maps.Marker({map:map});
-	   pushPin.setOptions(options);
-	   google.maps.event.addListener(pushPin, 'click', function(){
-	     infoWindow.setOptions(options);
-	     infoWindow.open(map, pushPin);
-	   });
-	   markerArray.push(pushPin);
-	   return pushPin;
-	}
-
 	function handleNoGeolocation(errorFlag) {   	
 		var userInitPosition = iowaCity;
 	    $('#status').text("Your location couldn't be detected. Showing events in Iowa City.");
