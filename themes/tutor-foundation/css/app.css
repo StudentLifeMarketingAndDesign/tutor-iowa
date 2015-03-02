@@ -6743,8 +6743,7 @@ input[type="submit"] {
   .tutor-card-list li img {
     display: block; }
   .tutor-card-list a {
-    color: #222222;
-    padding: 5px; }
+    color: #222222; }
 
 .resource-card-list {
   list-style-type: none;
