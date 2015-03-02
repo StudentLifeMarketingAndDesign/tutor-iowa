@@ -4,6 +4,7 @@
     //display: none;
     font-family: $header-font-family;
     padding-left: 0;
+    margin-bottom: 0;
     a {
         @include button(
             $bg: $gray,

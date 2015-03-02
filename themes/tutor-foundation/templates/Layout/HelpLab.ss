@@ -18,18 +18,8 @@
 						<br>
 						<% end_if %>
 						<%-- if $Address --%>
-						<span><strong>Address:</strong><data id="address">$Address 16 North Clinton Street, Iowa City, IA</data></span>
+						<span><strong>Address:</strong><data id="address">$Address 16 North Clinton Street, Iowa City, IA</data></span><br />
 						<%-- end_if --%>
-						<% if PhoneNo %>
-							<strong>Phone:</strong> $PhoneNo
-						<% else %>
-							<strong>No Phone Listed</strong>
-						<% end_if %>
-						$Description <%-- why not use $Content? Superseded in helplab.php --%>
-						$Form
-						<% if $Tags %>
-							<% include Tags %>
-						<% end_if %>
 						<% if $ContactEmail %>
 						<strong>Contact:</strong>
 							<% if ContactName %>
@@ -37,6 +27,17 @@
 							<% else %>
 								<a href="mailto:$ContactEmail">$ContactEmail</a>
 							<% end_if %>
+							<br />
+						<% end_if %>
+						<% if PhoneNo %>
+							<strong>Phone:</strong> $PhoneNo<br />
+						<% else %>
+							<strong>No Phone Listed</strong><br />
+						<% end_if %>
+						$Description <%-- why not use $Content? Superseded in helplab.php --%>
+						$Form
+						<% if $Tags %>
+							<% include Tags %>
 						<% end_if %>
 					</article>
 				</div>

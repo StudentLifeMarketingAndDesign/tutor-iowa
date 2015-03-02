@@ -30,13 +30,7 @@
 		list-style-type: none; 
 		margin-bottom: 0;
 		padding-bottom: 0;
-
-		&:hover{
-			h4 {
-				color: $primary-color;
-			}
-		}
-
+		
 		a{
 			color: $body-font-color;
 
@@ -50,11 +44,5 @@
 		display: block;
 	}
 
-	h4{
-		transition: all .5s ease-in-out;
-		-moz-transition: all .5s ease-in-out;
-		-webkit-transition: all .5s ease-in-out;
-		color: $darkBlue;
-	}
 
 }

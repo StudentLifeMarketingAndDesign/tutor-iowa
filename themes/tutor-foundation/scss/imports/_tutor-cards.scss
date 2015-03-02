@@ -38,18 +38,16 @@
 		//padding: $column-gutter;
 		img{
 
-			transition: all .5s ease-in-out;
-			-moz-transition: all .5s ease-in-out;
-			-webkit-transition: all .5s ease-in-out;
+			transition: all .2s ease-in-out;
+			-moz-transition: all .2s ease-in-out;
+			-webkit-transition: all .2s ease-in-out;
 
 			-webkit-filter: grayscale(100%);
 			-moz-filter: grayscale(100%);
 			filter: grayscale(100%);	
 		}
 		&:hover{
-			h4 {
-				color: $primary-color;
-			}
+
 			img{
 				-webkit-filter: grayscale(0);
 				-moz-filter: grayscale(0);
@@ -73,11 +71,6 @@
 
 	}
 
-	h4{
-		transition: all .5s ease-in-out;
-		-moz-transition: all .5s ease-in-out;
-		-webkit-transition: all .5s ease-in-out;
-		color: $darkBlue;
-	}
+
 }
 
