@@ -13,6 +13,10 @@
 
         margin: 0 2px;
 
+        @media #{$large-up}{
+            margin: 0 5px;
+        }
+
     }
     a {
         @include button(

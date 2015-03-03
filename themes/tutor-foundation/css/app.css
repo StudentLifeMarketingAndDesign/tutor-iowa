@@ -6956,6 +6956,9 @@ input[type="submit"] {
     margin: 0; }
   .main .breadcrumbs > *:before {
     margin: 0 2px; }
+    @media only screen and (min-width:64.063em) {
+      .main .breadcrumbs > *:before {
+        margin: 0 5px; } }
   .main .breadcrumbs a {
     border-style: solid;
     border-width: 0;
@@ -7598,7 +7601,7 @@ a.dosl, p.adr {
     border-bottom: 1px solid #ddd;
     padding-bottom: 5px;
     margin-bottom: 13px;
-    margin-top: 10px; }
+    margin-top: 0; }
 
 #search_help p {
   color: white; }
