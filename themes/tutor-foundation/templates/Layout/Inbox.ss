@@ -77,7 +77,7 @@
 				<aside id="memberInfo" class="side-nav" data-id="$CurrentMember.ID">
 					<%-- <h2>$CurrentMember.Name, you have $CurrentMember.Messages.ReadDateTime.Count</h2> --%>
 					<div id="messagePanel"></div>
-					<% include Announcements %>
+					<% include AnnouncementCardList %>
 				</aside>
 			</div>
 		</div>

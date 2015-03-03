@@ -3,7 +3,7 @@
 	<h3><a href="$Link">$Title</a></h3>
 	$Content.Summary(10)
 </li>--%>
-<li class="card">
+<li class="card $FirstLast">
 <a href="$Link" class="profile-image">
 	<div class="row">
 		<div class="small-3 columns push-9">

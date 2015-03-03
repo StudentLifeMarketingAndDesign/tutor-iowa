@@ -23,7 +23,7 @@
 	<script>try{Typekit.load();}catch(e){}</script>
 </head>
 <body class="$ClassName.ATT">
-	<% include UiowaBar %>
+	<% include DivisionBarFoundation %>
 	<header class="header" role="banner">
 		<div class="contain-to-grid">
 			<% include TopBar %>

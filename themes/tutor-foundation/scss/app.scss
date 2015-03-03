@@ -62,6 +62,11 @@
 	background-image: url('http://lorempixel.com/1240/300/');
 	background-color: #eee;
 	position: relative;
+
+	@media #{$large-up} {
+		margin: 0 $column-gutter/2;
+	}
+
 }
 
 #labmap {

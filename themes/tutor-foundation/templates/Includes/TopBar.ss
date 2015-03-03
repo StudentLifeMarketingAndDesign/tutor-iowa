@@ -33,7 +33,7 @@
 			</li>
 			<% end_loop %>
 			<% if $CurrentMember %>
-			
+			<li><a href="inbox" class="<% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>">Inbox <% if $CurrentMember.unreadMessageCount > 0 %>({$CurrentMember.unreadMessageCount})<% end_if %></a></li>			
 			<li class="has-dropdown">
 				<a href="$currentMemberPage.Link">$CurrentMember.FirstName</a>
 				<ul class="dropdown">
@@ -43,7 +43,7 @@
 					<li><a class="alert" href="Security/logout">Logout</a></li>
 				</ul>
 			</li>
-			<li><a href="inbox">Inbox <% if $CurrentMember.unreadMessageCount > 0 %>({$CurrentMember.unreadMessageCount})<% end_if %></a></li>
+
 			<% else %>
 				<li class="has-form"><a href="Security/login?BackURL=%2Fadmin" data-reveal-id="login-form-modal" class="button radius success">Login</a></li>
 				<li class="has-form"><a href="Security/login?BackURL=%2Fadmin" class="button radius">Register as a Tutor</a></li>

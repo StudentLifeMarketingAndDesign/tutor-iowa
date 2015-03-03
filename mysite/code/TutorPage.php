@@ -160,7 +160,7 @@ class TutorPage_Controller extends Page_Controller {
 		);
 
 		$actions = new FieldList(
-			new FormAction('doContactTutor', 'Contact Tutor')
+			new FormAction('doContactTutor', 'Send a Message to ' . $this->FirstName)
 
 		);
 
