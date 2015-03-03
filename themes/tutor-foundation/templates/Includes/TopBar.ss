@@ -52,7 +52,7 @@
 
 			<% else %>
 				<li class="has-form"><a href="Security/login?BackURL=%2Fadmin" data-reveal-id="login-form-modal" class="button radius success">Login</a></li>
-				<li class="has-form"><a href="Security/login?BackURL=%2Fadmin" class="button radius">Register as a Tutor</a></li>
+				<li class="has-form"><a href="register" class="button radius">Register as a Tutor</a></li>
 			<% end_if %>
 		</ul>
 	</section>

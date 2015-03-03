@@ -4,7 +4,8 @@
 	padding: $column-gutter/2;
 
 	@media #{$large-up}{
-		//padding: $column-gutter;
+		padding-right: 0;
+
 	}
 	h4{
 		//color: $primary-color;
@@ -29,6 +30,12 @@
 
 	.announcements.small{
 		.announcement-card{
+			padding: 10px 0;
+		}		
+	}
+
+	.resource-card-list.small{
+		.resource-card{
 			padding: 10px 0;
 		}		
 	}

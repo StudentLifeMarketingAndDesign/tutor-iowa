@@ -34,10 +34,11 @@
 						<% else %>
 							<strong>No Phone Listed</strong><br />
 						<% end_if %>
-						$Description <%-- why not use $Content? Superseded in helplab.php --%>
+						<h2>About $Title</h2>
+						<p>$Description</p>
 						$Form
 						<% if $Tags %>
-							<% include Tags %>
+							<p><% include Tags %></p>
 						<% end_if %>
 					</article>
 				</div>

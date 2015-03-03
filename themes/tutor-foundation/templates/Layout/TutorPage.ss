@@ -23,9 +23,9 @@
 									<% if $Hours %><strong>Availability: </strong>{$Hours}<br /><% end_if %>
 									<% if $HourlyRate %><strong>Hourly Rate:</strong> {$HourlyRate}<% end_if %>
 								</p>
+								<% include EditProfileButton %>
 							</div>
 							<div class="medium-3 small-2 columns">
-								<!--<div class="profile-image"><img src="{$ThemeDir}/images/placeholder.jpg" /></div>-->
 
 								<div class="profile-image">
 									<% if $Image %>
@@ -33,12 +33,14 @@
 									<% else %>
 										<img src="{$ThemeDir}/images/stain.png" />
 									<% end_if %>
+									<span class="text-center"><% include EditProfileButton %></span>
 								</div>
 							</div>
 						</div>
 
 						<h2>About $FirstName</h2>
 						<p>$Content</p>
+						<% include EditProfileButton %>
 						<% if $Tags %>
 							<p><% include Tags %></p>
 						<% end_if %>

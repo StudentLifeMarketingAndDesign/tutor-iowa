@@ -26,5 +26,14 @@
 
 	} 
 
+	.ss-uploadfield .ss-uploadfield-item{
+		padding: $column-gutter/2 0;
+
+		.ss-uploadfield-item-preview{
+			width: 100px;
+			background: $gray;
+			margin-right: $column-gutter/2;
+		}
+	}
 
 }

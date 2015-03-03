@@ -46,8 +46,8 @@ class EditProfilePage_Controller extends Page_Controller {
 			$fields = new FieldList(
 				new TextField('FirstName', '<span>*</span> First Name'),
 				new TextField('Surname', '<span>*</span> Last Name'),
-				new UploadField("Image", "Photo"),
-				new UploadField("BackgroundImage", "Background Image"),
+				new UploadField("Image", "Choose a photo of yourself"),
+				new UploadField("BackgroundImage", "Choose a background image (the wider, the better.)"),
 				new EmailField('Email', '<span>*</span> Email Address'),
 				new LiteralField('ChangePassword', $changePassLabel),
 				new TextareaField('Content', 'Biography'),
@@ -104,7 +104,7 @@ class EditProfilePage_Controller extends Page_Controller {
 			return $Form;
 		} else {
 			//Shouldn't happen with current design unless user tries to navigate there directly (there is no link to edit profile when you're not logged in)
-			$message = "You must be <a href='Security/login'>logged</a> in to edit your profile.  If you do not have an account, register <a href='registration-page'>here.</a>";
+			$message = "<a href='Security/login'>You must be logged in to edit your profile. </a>  If you do not have an account,  <a href='registration-page'>register here.</a>";
 			return $message;
 		}
 	}
@@ -250,11 +250,8 @@ class EditProfilePage_Controller extends Page_Controller {
 		if ($this->request->getVar('enable') == 1) {
 
 			$CurrentMember = Member::CurrentUser();
-
 			$IDMember = $CurrentMember->ID;
-
 			include 'EmailArray.php'; //Gets members of security group that should be notified about user registration
-
 			$userEmail = $CurrentMember->Email;
 
 			//$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");
@@ -276,9 +273,7 @@ class EditProfilePage_Controller extends Page_Controller {
 
 
 		    Best, <br>
-		    The Tutor Iowa Team<br>"; //changed $IDmember nd $tutor to Controller::curr()
-				//$headers = "From: Tutor Iowa";
-				//mail($recip->Email, $subject, $body);
+		    The Tutor Iowa Team<br>";
 
 				$email = new Email();
 				$email->setTo($recip->Email);
