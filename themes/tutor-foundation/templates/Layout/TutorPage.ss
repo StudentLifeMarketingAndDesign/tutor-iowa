@@ -22,10 +22,6 @@
 								<% if $MeetingPreference %><strong>Meeting Preference: </strong>{$MeetingPreference}<br /><% end_if %>
 									<% if $Hours %><strong>Availability: </strong>{$Hours}<br /><% end_if %>
 									<% if $HourlyRate %><strong>Hourly Rate:</strong> {$HourlyRate}<% end_if %>
-									<% if $Tags %>
-										<br /><% include Tags %>
-									<% end_if %>
-						
 								</p>
 							</div>
 							<div class="medium-3 small-2 columns">
@@ -40,8 +36,12 @@
 								</div>
 							</div>
 						</div>
-						$Content
 
+						<h2>About $FirstName</h2>
+						<p>$Content</p>
+						<% if $Tags %>
+							<p><% include Tags %></p>
+						<% end_if %>
 						$Form
 						<hr />
 						<h2>Contact $FirstName</h2>

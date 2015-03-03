@@ -952,7 +952,7 @@ select {
     .alert-box .close:hover, .alert-box .close:focus {
       opacity: 0.5; }
   .alert-box.radius {
-    border-radius: 7px; }
+    border-radius: 2px; }
   .alert-box.round {
     border-radius: 1000px; }
   .alert-box.success {
@@ -2101,7 +2101,7 @@ button, .button {
     text-align: right;
     padding-right: 0.75rem; }
   button.radius, .button.radius {
-    border-radius: 7px; }
+    border-radius: 2px; }
   button.round, .button.round {
     border-radius: 1000px; }
   button.disabled, button[disabled], .button.disabled, .button[disabled] {
@@ -2265,15 +2265,15 @@ button::-moz-focus-inner {
     .button-group.radius > *, .button-group.radius > * > a, .button-group.radius > * > button, .button-group.radius > * > .button {
       border-radius: 0; }
     .button-group.radius > *:first-child, .button-group.radius > *:first-child > a, .button-group.radius > *:first-child > button, .button-group.radius > *:first-child > .button {
-      -webkit-border-bottom-left-radius: 7px;
-      -webkit-border-top-left-radius: 7px;
-      border-bottom-left-radius: 7px;
-      border-top-left-radius: 7px; }
+      -webkit-border-bottom-left-radius: 2px;
+      -webkit-border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+      border-top-left-radius: 2px; }
     .button-group.radius > *:last-child, .button-group.radius > *:last-child > a, .button-group.radius > *:last-child > button, .button-group.radius > *:last-child > .button {
-      -webkit-border-bottom-right-radius: 7px;
-      -webkit-border-top-right-radius: 7px;
-      border-bottom-right-radius: 7px;
-      border-top-right-radius: 7px; }
+      -webkit-border-bottom-right-radius: 2px;
+      -webkit-border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+      border-top-right-radius: 2px; }
   .button-group.radius.stack > * {
     margin: 0 -2px;
     display: inline-block;
@@ -2295,15 +2295,15 @@ button::-moz-focus-inner {
     .button-group.radius.stack > *, .button-group.radius.stack > * > a, .button-group.radius.stack > * > button, .button-group.radius.stack > * > .button {
       border-radius: 0; }
     .button-group.radius.stack > *:first-child, .button-group.radius.stack > *:first-child > a, .button-group.radius.stack > *:first-child > button, .button-group.radius.stack > *:first-child > .button {
-      -webkit-top-left-radius: 7px;
-      -webkit-top-right-radius: 7px;
-      border-top-left-radius: 7px;
-      border-top-right-radius: 7px; }
+      -webkit-top-left-radius: 2px;
+      -webkit-top-right-radius: 2px;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px; }
     .button-group.radius.stack > *:last-child, .button-group.radius.stack > *:last-child > a, .button-group.radius.stack > *:last-child > button, .button-group.radius.stack > *:last-child > .button {
-      -webkit-bottom-left-radius: 7px;
-      -webkit-bottom-right-radius: 7px;
-      border-bottom-left-radius: 7px;
-      border-bottom-right-radius: 7px; }
+      -webkit-bottom-left-radius: 2px;
+      -webkit-bottom-right-radius: 2px;
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px; }
   @media only screen and (min-width:40.063em) {
     .button-group.radius.stack-for-small > * {
       margin: 0 -2px;
@@ -2316,15 +2316,15 @@ button::-moz-focus-inner {
       .button-group.radius.stack-for-small > *, .button-group.radius.stack-for-small > * > a, .button-group.radius.stack-for-small > * > button, .button-group.radius.stack-for-small > * > .button {
         border-radius: 0; }
       .button-group.radius.stack-for-small > *:first-child, .button-group.radius.stack-for-small > *:first-child > a, .button-group.radius.stack-for-small > *:first-child > button, .button-group.radius.stack-for-small > *:first-child > .button {
-        -webkit-border-bottom-left-radius: 7px;
-        -webkit-border-top-left-radius: 7px;
-        border-bottom-left-radius: 7px;
-        border-top-left-radius: 7px; }
+        -webkit-border-bottom-left-radius: 2px;
+        -webkit-border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+        border-top-left-radius: 2px; }
       .button-group.radius.stack-for-small > *:last-child, .button-group.radius.stack-for-small > *:last-child > a, .button-group.radius.stack-for-small > *:last-child > button, .button-group.radius.stack-for-small > *:last-child > .button {
-        -webkit-border-bottom-right-radius: 7px;
-        -webkit-border-top-right-radius: 7px;
-        border-bottom-right-radius: 7px;
-        border-top-right-radius: 7px; } }
+        -webkit-border-bottom-right-radius: 2px;
+        -webkit-border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        border-top-right-radius: 2px; } }
   @media only screen and (max-width: 40em) {
     .button-group.radius.stack-for-small > * {
       margin: 0 -2px;
@@ -2347,15 +2347,15 @@ button::-moz-focus-inner {
       .button-group.radius.stack-for-small > *, .button-group.radius.stack-for-small > * > a, .button-group.radius.stack-for-small > * > button, .button-group.radius.stack-for-small > * > .button {
         border-radius: 0; }
       .button-group.radius.stack-for-small > *:first-child, .button-group.radius.stack-for-small > *:first-child > a, .button-group.radius.stack-for-small > *:first-child > button, .button-group.radius.stack-for-small > *:first-child > .button {
-        -webkit-top-left-radius: 7px;
-        -webkit-top-right-radius: 7px;
-        border-top-left-radius: 7px;
-        border-top-right-radius: 7px; }
+        -webkit-top-left-radius: 2px;
+        -webkit-top-right-radius: 2px;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px; }
       .button-group.radius.stack-for-small > *:last-child, .button-group.radius.stack-for-small > *:last-child > a, .button-group.radius.stack-for-small > *:last-child > button, .button-group.radius.stack-for-small > *:last-child > .button {
-        -webkit-bottom-left-radius: 7px;
-        -webkit-bottom-right-radius: 7px;
-        border-bottom-left-radius: 7px;
-        border-bottom-right-radius: 7px; } }
+        -webkit-bottom-left-radius: 2px;
+        -webkit-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px; } }
   .button-group.round > * {
     margin: 0 -2px;
     display: inline-block; }
@@ -2905,7 +2905,7 @@ button::-moz-focus-inner {
     .f-dropdown li:hover, .f-dropdown li:focus {
       background: #EEEEEE; }
     .f-dropdown li.radius {
-      border-radius: 7px; }
+      border-radius: 2px; }
     .f-dropdown li a {
       display: block;
       padding: 0.5rem;
@@ -3083,17 +3083,17 @@ label {
 
 .prefix.button.radius {
   border-radius: 0;
-  -webkit-border-bottom-left-radius: 7px;
-  -webkit-border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
-  border-top-left-radius: 7px; }
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px; }
 
 .postfix.button.radius {
   border-radius: 0;
-  -webkit-border-bottom-right-radius: 7px;
-  -webkit-border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
-  border-top-right-radius: 7px; }
+  -webkit-border-bottom-right-radius: 2px;
+  -webkit-border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px; }
 
 .prefix.button.round {
   border-radius: 0;
@@ -3157,32 +3157,32 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
     background-color: #DDDDDD;
     cursor: default; }
   input[type="text"].radius, input[type="password"].radius, input[type="date"].radius, input[type="datetime"].radius, input[type="datetime-local"].radius, input[type="month"].radius, input[type="week"].radius, input[type="email"].radius, input[type="number"].radius, input[type="search"].radius, input[type="tel"].radius, input[type="time"].radius, input[type="url"].radius, input[type="color"].radius, textarea.radius {
-    border-radius: 7px; }
+    border-radius: 2px; }
 
 form .row .prefix-radius.row.collapse input, form .row .prefix-radius.row.collapse textarea, form .row .prefix-radius.row.collapse select {
   border-radius: 0;
-  -webkit-border-bottom-right-radius: 7px;
-  -webkit-border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
-  border-top-right-radius: 7px; }
+  -webkit-border-bottom-right-radius: 2px;
+  -webkit-border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px; }
 form .row .prefix-radius.row.collapse .prefix {
   border-radius: 0;
-  -webkit-border-bottom-left-radius: 7px;
-  -webkit-border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
-  border-top-left-radius: 7px; }
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px; }
 form .row .postfix-radius.row.collapse input, form .row .postfix-radius.row.collapse textarea, form .row .postfix-radius.row.collapse select {
   border-radius: 0;
-  -webkit-border-bottom-left-radius: 7px;
-  -webkit-border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
-  border-top-left-radius: 7px; }
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px; }
 form .row .postfix-radius.row.collapse .postfix {
   border-radius: 0;
-  -webkit-border-bottom-right-radius: 7px;
-  -webkit-border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
-  border-top-right-radius: 7px; }
+  -webkit-border-bottom-right-radius: 2px;
+  -webkit-border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px; }
 form .row .prefix-round.row.collapse input, form .row .prefix-round.row.collapse textarea, form .row .prefix-round.row.collapse select {
   border-radius: 0;
   -webkit-border-bottom-right-radius: 1000px;
@@ -3241,7 +3241,7 @@ select {
   select::-ms-expand {
     display: none; }
   select.radius {
-    border-radius: 7px; }
+    border-radius: 2px; }
   select:hover {
     background-color: #f3f3f3;
     border-color: #999999; }
@@ -3645,7 +3645,7 @@ label.error {
   font-family: "Consolas", "Menlo", "Courier", monospace;
   font-size: inherit;
   padding: 0.125rem 0.25rem 0;
-  border-radius: 7px; }
+  border-radius: 2px; }
 
 .label {
   font-weight: normal;
@@ -3662,7 +3662,7 @@ label.error {
   background-color: #377EFF;
   color: #FFFFFF; }
   .label.radius {
-    border-radius: 7px; }
+    border-radius: 2px; }
   .label.round {
     border-radius: 1000px; }
   .label.alert {
@@ -3940,7 +3940,7 @@ ul.pagination {
       padding: 0.0625rem 0.625rem 0.0625rem;
       color: #999999;
       background: none;
-      border-radius: 7px;
+      border-radius: 2px;
       font-weight: normal;
       font-size: 1em;
       line-height: inherit;
@@ -4014,7 +4014,7 @@ ul.pagination {
       .panel.callout a:not(.button):hover, .panel.callout a:not(.button):focus {
         color: #0c62ff; }
   .panel.radius {
-    border-radius: 7px; }
+    border-radius: 2px; }
 
 /* Pricing Tables */
 .pricing-table {
@@ -4086,9 +4086,9 @@ ul.pagination {
     height: 100%;
     display: block; }
   .progress.radius {
-    border-radius: 7px; }
+    border-radius: 2px; }
     .progress.radius .meter {
-      border-radius: 6px; }
+      border-radius: 1px; }
   .progress.round {
     border-radius: 1000px; }
     .progress.round .meter {
@@ -4127,10 +4127,10 @@ ul.pagination {
       bottom: 0; }
   .range-slider.radius {
     background: #FAFAFA;
-    border-radius: 7px; }
+    border-radius: 2px; }
     .range-slider.radius .range-slider-handle {
       background: #377EFF;
-      border-radius: 7px; }
+      border-radius: 2px; }
       .range-slider.radius .range-slider-handle:hover {
         background: #1266ff; }
   .range-slider.round {
@@ -4192,7 +4192,7 @@ ul.pagination {
   z-index: 1005;
   width: 100vw;
   top: 0;
-  border-radius: 7px;
+  border-radius: 2px;
   left: 0;
   background-color: #FFFFFF;
   padding: 1.375rem;
@@ -4219,7 +4219,7 @@ ul.pagination {
     .reveal-modal, dialog {
       top: 6.25rem; } }
   .reveal-modal.radius, dialog.radius {
-    border-radius: 7px; }
+    border-radius: 2px; }
   .reveal-modal.round, dialog.round {
     border-radius: 1000px; }
   .reveal-modal.collapse, dialog.collapse {
@@ -4412,10 +4412,10 @@ dialog {
   .split.button.secondary span:after {
     border-color: #333333 transparent transparent transparent; }
   .split.button.radius span {
-    -webkit-border-bottom-right-radius: 7px;
-    -webkit-border-top-right-radius: 7px;
-    border-bottom-right-radius: 7px;
-    border-top-right-radius: 7px; }
+    -webkit-border-bottom-right-radius: 2px;
+    -webkit-border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px; }
   .split.button.round span {
     -webkit-border-bottom-right-radius: 1000px;
     -webkit-border-top-right-radius: 1000px;
@@ -4616,15 +4616,15 @@ table {
       background-color: #FFFFFF;
       color: #222222; }
   .tabs.radius dd:first-child a, .tabs.radius .tab:first-child a {
-    -webkit-border-bottom-left-radius: 7px;
-    -webkit-border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
-    border-top-left-radius: 7px; }
+    -webkit-border-bottom-left-radius: 2px;
+    -webkit-border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px; }
   .tabs.radius dd:last-child a, .tabs.radius .tab:last-child a {
-    -webkit-border-bottom-right-radius: 7px;
-    -webkit-border-top-right-radius: 7px;
-    border-bottom-right-radius: 7px;
-    border-top-right-radius: 7px; }
+    -webkit-border-bottom-right-radius: 2px;
+    -webkit-border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px; }
   .tabs.vertical dd, .tabs.vertical .tab-title {
     position: inherit;
     float: none;
@@ -4682,7 +4682,7 @@ table {
   .th:hover, .th:focus {
     box-shadow: 0 0 6px 1px rgba(55, 126, 255, 0.5); }
   .th.radius {
-    border-radius: 7px; }
+    border-radius: 2px; }
 
 /* Tooltips */
 .has-tip {
@@ -4723,7 +4723,7 @@ table {
       left: auto;
       right: 5px; }
   .tooltip.radius {
-    border-radius: 7px; }
+    border-radius: 2px; }
   .tooltip.round {
     border-radius: 1000px; }
     .tooltip.round > .nub {
@@ -6341,7 +6341,7 @@ input[type="submit"] {
   background-color: #377EFF;
   border-color: #0058f8;
   color: #FFFFFF;
-  border-radius: 7px;
+  border-radius: 2px;
   transition: background-color 300ms ease-out;
   -webkit-transition: all 1s ease-out;
   -moz-transition: all 1s ease-out;
@@ -6513,7 +6513,7 @@ input[type="submit"] {
   .top-bar .name h1 a {
     padding-left: 0.78125rem; }
   .top-bar .top-search {
-    border-radius: 7px;
+    border-radius: 2px;
     border-right: 1px solid #ddd;
     padding-right: 10px; }
   @media only screen and (min-width:64.063em) {

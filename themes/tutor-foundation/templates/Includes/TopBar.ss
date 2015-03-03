@@ -33,12 +33,18 @@
 			</li>
 			<% end_loop %>
 			<% if $CurrentMember %>
-			<li><a href="inbox" class="<% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>">Inbox <% if $CurrentMember.unreadMessageCount > 0 %>({$CurrentMember.unreadMessageCount})<% end_if %></a></li>			
+			<li><a href="inbox" class="<% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>">Inbox <% if $CurrentMember.unreadMessageCount > 0 %>({$CurrentMember.unreadMessageCount})<% end_if %></a></li>
+		
 			<li class="has-dropdown">
 				<a href="$currentMemberPage.Link">$CurrentMember.FirstName</a>
 				<ul class="dropdown">
-					<li><a href="$currentMemberPage.Link">View Profile</a></li>
 					<li><a href="edit-profile/">Edit Profile</a></li>
+					<li><a href="$currentMemberPage.Link">View Profile</a></li>
+					
+					<% if HelpLabs %>
+					<li><a href="personal-help-labs/">Edit Help Labs</a></li>
+					<% end_if %>
+
 					<% if $SiteAdmin %><li><a href="admin/">Admin</a></li><% end_if %>
 					<li><a class="alert" href="Security/logout">Logout</a></li>
 				</ul>
