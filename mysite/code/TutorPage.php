@@ -21,6 +21,7 @@ class TutorPage extends Page {
 		'Major' => 'Text',
 		'GPA' => 'Text',
 		'PublishFlag' => 'Boolean',
+
 	);
 
 	private static $has_one = array(
@@ -56,6 +57,9 @@ class TutorPage extends Page {
 		$members = Member::get();
 		$membersDropdownSource = $members->Map('ID', 'Email');
 
+		$tagField = new TagField("Tags", "Tags");
+		$tagField->setTagTopicClass("SiteTree");
+
 		$fields->renameField("Image", "Photo");
 		$fields->removeFieldFromTab('Root.Metadata', "Keywords");
 		$fields->removeFieldFromTab('Root.Main', "Content");
@@ -63,7 +67,7 @@ class TutorPage extends Page {
 		$fields->addFieldToTab('Root.Main', new TextField("Surname", "Last name of tutor"));
 		$fields->addFieldToTab('Root.Main', new TextField("PhoneNo", "Phone Number"));
 		$fields->addFieldToTab('Root.Main', new TextField("Email"));
-		$fields->addFieldToTab('Root.Main', new TagField("Tags", "Tags"));
+		$fields->addFieldToTab('Root.Main', $tagField);
 		$fields->addFieldToTab('Root.Main', new TextAreaField("Content", "Biography"));
 		$fields->addFieldToTab('Root.Main', new TextAreaField("Hours", "Availability"));
 
