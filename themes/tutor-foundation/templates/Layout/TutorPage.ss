@@ -33,7 +33,6 @@
 									<% else %>
 										<img src="{$ThemeDir}/images/stain.png" />
 									<% end_if %>
-									<span class="text-center"><% include EditProfileButton %></span>
 								</div>
 							</div>
 						</div>
