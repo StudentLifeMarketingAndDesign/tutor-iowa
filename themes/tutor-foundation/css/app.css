@@ -6399,7 +6399,7 @@ input[type="submit"] {
     background: -webkit-linear-gradient(45deg, #666 0%, #616161 49%, #6e6e6e 49.01%, #b3b3b3);
     background: linear-gradient(45deg, #666 0%, #616161 49%, #6e6e6e 49.01%, #b3b3b3); }
 
-.tag, .EditProfilePage .field.tag span.tagMatches span {
+.tag {
   border-style: solid;
   border-width: 0;
   cursor: pointer;
@@ -6424,9 +6424,9 @@ input[type="submit"] {
   margin-bottom: 3px;
   text-transform: uppercase;
   font-size: 0.6875rem; }
-  .tag:hover, .EditProfilePage .field.tag span.tagMatches span:hover, .tag:focus, .EditProfilePage .field.tag span.tagMatches span:focus {
+  .tag:hover, .tag:focus {
     background-color: #eccd82; }
-  .tag:hover, .EditProfilePage .field.tag span.tagMatches span:hover, .tag:focus, .EditProfilePage .field.tag span.tagMatches span:focus {
+  .tag:hover, .tag:focus {
     color: #333333; }
 
 .ss-ui-button {
@@ -6913,7 +6913,7 @@ body.SearchForm h2 {
 
 .EditProfilePage #Disable label {
   color: #f04124; }
-.EditProfilePage .field.tag, .EditProfilePage .field.tag span.tagMatches span.field {
+.EditProfilePage .field.tag {
   width: 100%;
   display: block;
   text-transform: capitalize;
@@ -6921,11 +6921,38 @@ body.SearchForm h2 {
   background: none;
   margin: 0;
   padding: 0; }
-  .EditProfilePage .field.tag input.tag, .EditProfilePage .field.tag span.tagMatches span.field input.tag {
+  .EditProfilePage .field.tag input.tag {
     display: block;
     text-transform: capitalize;
     text-align: left;
     background: none; }
+  .EditProfilePage .field.tag span.tagMatches span {
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    font-family: "proxima-nova-alt", sans-serif;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0 0 1.25rem;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    -webkit-appearance: none;
+    border-radius: 0;
+    display: inline-block;
+    padding-top: 0.25rem;
+    padding-right: 0.5rem;
+    padding-bottom: 0.3125rem;
+    padding-left: 0.5rem;
+    background-color: #f8ecd1;
+    border-color: #eccd82;
+    color: #333333;
+    transition: background-color 300ms ease-out;
+    margin: 3px; }
+    .EditProfilePage .field.tag span.tagMatches span:hover, .EditProfilePage .field.tag span.tagMatches span:focus {
+      background-color: #eccd82; }
+    .EditProfilePage .field.tag span.tagMatches span:hover, .EditProfilePage .field.tag span.tagMatches span:focus {
+      color: #333333; }
 .EditProfilePage .ss-uploadfield .ss-uploadfield-item {
   padding: 0.78125rem 0; }
   .EditProfilePage .ss-uploadfield .ss-uploadfield-item .ss-uploadfield-item-preview {
