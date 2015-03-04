@@ -79,8 +79,13 @@ class Inbox_Controller extends Page_Controller {
 	public function unread() {
 		//returns all unread messages as rendered html to slap into the inbox
 		$unreadMessageList = DataObject::get("Message", "ReadDateTime IS NULL AND RecipientID =" . Member::currentUserID(), "Created DESC");
-				
-		return $this->renderWith("Unread");
+		
+		$Data = array (
+			'unreadMessages' => $unreadMessageList
+		);
+
+		return $this->customise($Data)->renderWith(array('Unread'));
+
 	}
 	
 	private static function unreadMessageCount() {

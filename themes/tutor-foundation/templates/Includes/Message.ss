@@ -1,7 +1,6 @@
-<div class="<% if $ReadDateTime %>read<% end_if %> <% if $RepliedDateTime %>replied<% end_if %> inbox-message" data-id="$ID" data-read="$ReadDateTime">
-	<div>
-		<section class="message-box">
-			<div class="message-details"><span class="text-left"> $SenderName <a href="mailto:{$SenderEmail}"><small>{$SenderEmail}</small></a></span> 
+<article class="<% if $ReadDateTime %>read<% end_if %> <% if $RepliedDateTime %>replied<% end_if %> inbox-message" data-id="$ID" data-read="$ReadDateTime">
+	<section class="message-box">
+			<header class="message-details"><span class="text-left"> $SenderName <a href="mailto:{$SenderEmail}"><small>{$SenderEmail}</small></a></span> 
 				<small class="right">
 					<% if not $Created.isToday %>
 						$Created.NiceUS
@@ -10,7 +9,7 @@
 					<% end_if %>
 					 <small>$Created.Format("g:i a")</small>
 				</small>
-			</div>
+			</header>
 			<div class="message-body">
 				<p> $MessageBody </p>
 			</div>
@@ -21,5 +20,4 @@
 				<li><a href="mailto:$SenderEmail" class="button reply small">Reply Via Email</a></li>
 			</ul>
 		</section>
-	</div>
-</div>
+</article>

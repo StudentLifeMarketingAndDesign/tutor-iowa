@@ -69,24 +69,33 @@ $('.search-toggle').click(function() {
 */
 
 $("#main-content .noUnread").hide(); // hiding with jQuery b/c the foundation '.hide' class sets visibility: invisible
-
+$("#unreadInbox").hide();
 var memberID = $("#memberInfo").data('id');
 var markAsRead = $(location).attr('href') + "/markAsRead"; //if href ends in "#" this url will not work
+var unreadMessages;
 
-var unreadMessages = {};
+$.get( location.href + "/unread", {}, 
+	function(data) {
+		unreadMessages = data;
+		console.log(unreadMessages);
+	},
+	"html" 
+);
+
 
 /*
 * inbox navigation
 */
 
 $(".unread-messages").click(function() {
-
-	$(".read").each(function() {
+	console.log('hello');
+	$(".inbox-message").each(function() {
 		$(this).hide();
 	});	
+	$(".moreMessages").hide();
 	
-	$("main-content").append(unreadMessages);
-
+	$("#unreadInbox").append(unreadMessages);
+	$("#unreadInbox").show();
 	// if all messages unread and div hasn't been appended already, append message
 	if ( noUnreadMessages() ) {
 		$("#main-content .noUnread").show(); // what is a better way to only show .noUnread in .unread-messages?
@@ -94,6 +103,7 @@ $(".unread-messages").click(function() {
 });
 
 $(".all-messages").click(function() {
+	$("#unreadInbox").hide();
 	$(".inbox-message").each(function() {
 		$(this).show();
 		$("#main-content .noUnread").hide(); 

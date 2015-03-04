@@ -28,19 +28,20 @@
 					<div class="row">
 						<div class="medium-12" id="main-content">
 
+							<%-- this panel shows if script doesn't find any unread messages if .unread is clicked --%>
 							<div class='panel callout noUnread'>No unread messages here!</div>
-
+							<div id="unreadInbox"></div>
 							<% if $CurrentMember.Messages %>
-							<%--<% loop $CurrentMember.Messages.Sort(Created).Reverse.Limit(5) %>--%>
-							<% loop paginatedMessages() %>
 
-								<% include Message %>
+								<% loop paginatedMessages %>
+
+									<% include Message %>
+								
+								<% end_loop %>
 							
-							<% end_loop %>
-							
-							<% if $paginatedMessages.NotLastPage %>
-								<a class="next button right moreMessages" href="$paginatedMessages.NextLink">Next</a>
-							<% end_if %>
+								<% if $paginatedMessages.NotLastPage %>
+									<a class="next right moreMessages" href="$paginatedMessages.NextLink">Next</a>
+								<% end_if %>
 
 							<% else %>
 								<div class="panel callout radius">
