@@ -6551,6 +6551,13 @@ input[type="submit"] {
     color: #6a9fff;
     margin-right: 5px; }
 
+body.SearchForm h2 {
+  background: #666666;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  padding: 5px 6px; }
+
 .HomePage .bg-container {
   background: url('../images/home-bg.jpg');
   background-repeat: no-repeat;
@@ -6937,10 +6944,10 @@ input[type="submit"] {
     color: #222222; }
   .side-nav h3 {
     text-transform: uppercase;
-    font-size: 0.8125rem;
+    font-size: 1rem;
     background: #666;
     color: white;
-    padding: 1px; }
+    padding: 2px; }
     .side-nav h3 span {
       padding: 2px; }
   .side-nav .announcements.small .announcement-card {

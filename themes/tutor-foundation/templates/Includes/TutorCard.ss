@@ -14,7 +14,7 @@
 			
 		</div>
 		<div class="small-9 columns pull-3">
-			<h4 class="tutor-name" href="$Link">$Title</h4><p>$Content.Summary(20)</p>
+			<h4 class="tutor-name" href="$Link">$Title</h4><p>$Content.Summary(20) <strong>...</strong></p>
 			<%--<% loop $SplitKeywords.Sort('RAND').Limit(8) %>
 				$Keyword<% if not $Last %>, <% end_if %>
 			<% end_loop %>--%>
