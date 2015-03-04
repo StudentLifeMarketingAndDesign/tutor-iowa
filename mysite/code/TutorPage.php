@@ -45,6 +45,7 @@ class TutorPage extends Page {
 		'Surname' => 'Last Name',
 		'Major' => 'Major',
 		'Email' => 'Email',
+		'Status' => 'Status',
 	);
 
 	//Add form fields to CMS
@@ -118,11 +119,12 @@ class TutorPage extends Page {
 		$this->Metakeywords = $this->Tags;
 		parent::onWrite();
 	}
-	private function onBeforePublish() {
+	public function onBeforePublish() {
 		$this->changeParent();
+
 	}
 
-	private function onAfterPublish() {
+	public function onAfterPublish() {
 
 		$approved = $this->Approved;
 
