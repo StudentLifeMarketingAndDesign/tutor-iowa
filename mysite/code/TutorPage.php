@@ -142,7 +142,10 @@ class TutorPage extends Page {
 		$email->setFrom("tutoriowa@uiowa.edu");
 		$email->setSubject($subject);
 		$email->setBody($body);
-		$email->send();
+
+		if (SS_ENVIRONMENT_TYPE == "live") {
+			$email->send();
+		}
 
 	}
 
