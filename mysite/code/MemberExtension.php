@@ -11,15 +11,22 @@ class MemberExtension extends DataExtension {
 		"Messages" => "Message"
 	);
     
-    
+    	
     public function unreadMessageCount(){
 	    $member = $this->owner; 
 	    
 	    //return the count of Messages without a ReadDateTime.
-	    return $member->Messages()->where("ReadDateTime IS NULL")->Count();
-	    
+	    return $member->Messages()->where("ReadDateTime IS NULL")->Count();    
     }
-	
+    
+    public function allMessageCount() {
+	   $member = $this->owner; 
+	   //return the count of Messages without a ReadDateTime.
+	   
+	   return $member->Messages()->Count(); 
+    }
+    
+
 	
 	/*
 	private function getMessages($memberObject) {

@@ -7,28 +7,28 @@ $("#main-content .noUnread").hide(); // hiding with jQuery b/c the foundation '.
 var memberID = $("#memberInfo").data('id');
 var markAsRead = $(location).attr('href') + "/markAsRead"; //if href ends in "#" this url will not work
 
-var messagesPerPage = 5;
-
-//var initInboxHeight = $("#inbox").height();
-//var getFullMessage = $(location).attr('href') + "/getFullMessage";
+var unreadMessages = {};
 
 /*
 * inbox navigation
 */
 
 $(".unread-messages").click(function() {
+
 	$(".read").each(function() {
 		$(this).hide();
 	});	
+	
+	$("main-content").append(unreadMessages);
+
 	// if all messages unread and div hasn't been appended already, append message
-	console.log(noUnreadMessages());
 	if ( noUnreadMessages() ) {
 		$("#main-content .noUnread").show(); // what is a better way to only show .noUnread in .unread-messages?
 	} 
 });
 
 $(".all-messages").click(function() {
-	$(".message").each(function() {
+	$(".inbox-message").each(function() {
 		$(this).show();
 		$("#main-content .noUnread").hide(); 
 	});	
@@ -46,8 +46,8 @@ $(".unreplied-messages").click(function() {
 * inbox "controller"
 */
 
-$(".message").each( function() {
-	//var message = $(this).children('.message-body').text();
+$(".inbox-message").each( function() {
+	//var message = $(this).children('.inbox-message-body').text();
 	//var wordCount = message.split(" ");
 	//console.log(message);
 }).click(function() {
@@ -103,7 +103,13 @@ function noUnreadMessages() {
 /*
 * inbox pagination
 */
-if ($("#main-content .message").length > messagesPerPage) {}
+
+// using the waypoints.js jquery plugin to make this nice and succinct
+var infinite = new Waypoint.Infinite({
+  element: $('#main-content')[0],
+  items: '.inbox-message',
+  more: '.moreMessages'
+})
 
 
 

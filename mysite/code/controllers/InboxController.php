@@ -19,14 +19,18 @@ class Inbox_Controller extends Page_Controller {
 
 	private static $allowed_actions = array(
 		'markAsRead', 
-		'ReplyForm'
+		'ReplyForm',
+		'unread',
+		'nextPage'
 		//only allow replyform if the user is logged in
 	);
 
 	private static $url_handlers = array(
        // 'inbox/markAsRead' => 'markAsRead'
        'markAsRead' => 'markAsRead',  
-       'ReplyForm' => 'ReplyForm'      
+       'ReplyForm' => 'ReplyForm',
+       'unread' => 'unread',
+       'nextPage' => 'nextPage' 
     );
     
 	public function init() {
@@ -58,6 +62,27 @@ class Inbox_Controller extends Page_Controller {
 
 	}
 	
+	public function paginatedMessages() {
+		$member = Member::CurrentUser(); 
+		$list = $member->Messages()->sort('Created DESC');;
+		$pl = new PaginatedList($list, $this->request);
+		$pl->setPageLength(5);
+		return $pl;
+	    
+    }
+	
+	public function nextPage(SS_HTTPRequest $r) {
+		$data = $r->getVars();
+		return Convert::raw2json($data);
+	}
+	
+	public function unread() {
+		//returns all unread messages as rendered html to slap into the inbox
+		$unreadMessageList = DataObject::get("Message", "ReadDateTime IS NULL AND RecipientID =" . Member::currentUserID(), "Created DESC");
+				
+		return $this->renderWith("Unread");
+	}
+	
 	private static function unreadMessageCount() {
 		$member = Member::currentUser();
 		$messages = $member->Messages("ReadDateTime = NULL");
@@ -65,7 +90,7 @@ class Inbox_Controller extends Page_Controller {
 		return $messages->Debug();
 	}
 
-	public function markAsRead(SS_HTTPRequest $r) {
+	private function markAsRead(SS_HTTPRequest $r) {
 
 		if ($r->isAjax() && $r->isPOST() ) {
 			$currentUserID = Member::currentUserID();
@@ -94,105 +119,6 @@ class Inbox_Controller extends Page_Controller {
 
 	}
 		
-	
-	public function ReplyForm() {
-
-		$fields = new FieldList(
-			//new TextField('Email', '<span>*</span> Your Email Address'),
-			//new TextField('Name', '<span>*</span> Your First and Last Name'),
-			new TextAreaField('Body',  '<span>*</span> Your Message to ')
-
-			);
-
-		$actions = new FieldList(
-			new FormAction('doReplyToStudent', 'Reply to Student')
-
-			);
-
-		$validator = new RequiredFields('Body');
-		$form = new FoundationForm($this, 'ReplyForm', $fields, $actions, $validator);
-	    //$protector = SpamProtectorManager::update_form($form, 'Message');
-		//$form->enableSpamProtection();
-		return $form;
-	}
-
-	public function doReplyToStudent($data, $form){
-
-		$from = Member::currentUser()->Email;
-		$name = Member::currentUser()->Name;    
-		$body = $data["Body"];
-
-		$subject = "[Tutor Iowa] ".$name." has contacted you.";
-	    //$body = "Sent by " . $data["Email"] . "<br><br>" . $data["Body"];
-
-
-	    //Emails from TutorUniverse.com should fail silently and a notification of the contact attempt should be sent to tutoriowa@uiowa.edu 
-		$fromSubstring = stripos($from, 'TutorUniverse.com');
-
-
-		if (!(($fromSubstring == false) || ($fromSubstring == ''))){
-			$email = new Email(); 
-			$email->setTo('dustin-quam@uiowa.edu; tutoriowa@uiowa.edu;');
-			$email->setSubject('TutorUniverse email blocked');
-			$email->setFrom(Email::getAdminEmail());
-			$email->replyTo($from);
-			$email->setBody($body);
-			$email->send(); 	
-		}
-
-	    //If the email is not from TutorUniverse, send the email
-		else {       
-
-			$email = new Email(); 
-			$toString = $this->Email;
-			$email->setTo($toString); 
-			$email->setSubject($subject); 
-			$email->setFrom(Email::getAdminEmail());
-			$email->replyTo($from);
-			$email->setBody($name.' has contacted you. Read their message below. You may reply to their message directly by replying to this email. <br />'.$body);
-			// Uncomment this before prouction
-			//$email->send();
-
-			$message = new Message();
-
-			$message->SenderName = $name;
-			$message->SenderEmail = $from;
-			$message->MessageBody = $body;
-			$message->RecipientID = $this->Member()->ID;
-			$message->RecipientName = $this->Member()->FirstName.' '.$this->Member()->Surname;		    
-
-			$message->write();
-
-			$statspage = StatsPage::get()->first(); 
-			$temp = $statspage->TutorRequestCount;
-			$temp++;
-
-			$statspage->TutorRequestCount = $temp;
-		    //return Debug::show($statspage);
-			Versioned::reading_stage('stage');
-
-			$statspage->writeToStage('Stage');
-
-			$statspage->publish("Stage", "Live");
-
-			Versioned::reading_stage('Live');
-
-			$statspage->write();	    
-
-		} 
-
-		return $this->redirect($this->Link('?sent=1'));   
-
-
-	}
-
-	public function Sent(){
-		return $this->request->getVar('sent');
-	}
-
-	public function Saved(){
-		return $this->request->getVar('saved');
-	}
 
 	public function getFeedbackLink(){
 		$linkPage = FeedbackPage::get()->First();
