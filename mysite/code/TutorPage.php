@@ -88,11 +88,11 @@ class TutorPage extends Page {
 	public function SplitKeywords() {
 		$keywords = $this->Tags;
 
-		if ($keywords) {
+		if (!empty($keywords)) {
 			$splitKeywords = explode(',', $keywords);
 		}
 
-		if ($splitKeywords) {
+		if (isset($splitKeywords)) {
 			$keywordsList = new ArrayList();
 			foreach ($splitKeywords as $data) {
 				$do = new DataObject();

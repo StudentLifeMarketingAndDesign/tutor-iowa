@@ -26,7 +26,6 @@ class Inbox_Controller extends Page_Controller {
 	);
 
 	private static $url_handlers = array(
-       // 'inbox/markAsRead' => 'markAsRead'
        'markAsRead' => 'markAsRead',  
        'ReplyForm' => 'ReplyForm',
        'unread' => 'unread',
@@ -42,21 +41,8 @@ class Inbox_Controller extends Page_Controller {
 		$member = Member::currentUser();
 		
 		if (isset($member)) {
-			/*
-			$messages = $member->Messages();
-			
-			$Data = array (
-				"Messages" => $messages
-			);
-
-			//print_r($messages);
-			//print_r(gettype($inbox));
-			return $this->customise($Data)->renderWith(array('Inbox', 'Page'));
-			*/
 			return $this->renderWith(array('Inbox', 'Page'));
-
-		} else {
-			
+		} else {		
 			$this->redirect('security/login');
 		}
 
@@ -95,7 +81,7 @@ class Inbox_Controller extends Page_Controller {
 		return $messages->Debug();
 	}
 
-	private function markAsRead(SS_HTTPRequest $r) {
+	public function markAsRead(SS_HTTPRequest $r) {
 
 		if ($r->isAjax() && $r->isPOST() ) {
 			$currentUserID = Member::currentUserID();
@@ -106,11 +92,10 @@ class Inbox_Controller extends Page_Controller {
 			
 			if ($memberID == $currentUserID) {
 				$MarkedMessage = Message::get()->byID($messageID);
-								
 				$MarkedMessage->ReadDateTime = time();
 				$MarkedMessage->write();
 				
-				//$data['MessageBody'] = $MarkedMessage->MessageBody;
+				$data["ReadDateTime"] = $MarkedMessage->ReadDateTime;
 				
 			} else {
 				$data['Failed'] = "Unauthorized";
@@ -124,13 +109,10 @@ class Inbox_Controller extends Page_Controller {
 
 	}
 		
-
 	public function getFeedbackLink(){
 		$linkPage = FeedbackPage::get()->First();
 		$tutorID = $this->ID;
 		$linkText = $linkPage->Link() . '?TutorID=' . $tutorID;
 		return $linkText;
 	}  
-
-	
 }

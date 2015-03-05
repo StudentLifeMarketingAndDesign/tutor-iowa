@@ -64,6 +64,8 @@ $('.search-toggle').click(function() {
 });    
 
 
+(function() {
+
 /*
 * inbox inits
 */
@@ -71,13 +73,12 @@ $('.search-toggle').click(function() {
 $("#main-content .noUnread").hide(); // hiding with jQuery b/c the foundation '.hide' class sets visibility: invisible
 $("#unreadInbox").hide();
 var memberID = $("#memberInfo").data('id');
-var markAsRead = $(location).attr('href') + "/markAsRead"; //if href ends in "#" this url will not work
+var markAsReadURL = $(location).attr('href') + "/markAsRead"; //if href ends in "#" this url will not work
 var unreadMessages;
 
 $.get( location.href + "/unread", {}, 
 	function(data) {
 		unreadMessages = data;
-		console.log(unreadMessages);
 	},
 	"html" 
 );
@@ -126,44 +127,63 @@ $(".inbox-message").each( function() {
 	//var message = $(this).children('.inbox-message-body').text();
 	//var wordCount = message.split(" ");
 	//console.log(message);
-}).click(function() {
-	var message = $(this);
-	var messageID = $(this).data('id');
-	
-	if (!$(this).data('read')) {
-		console.log('not read...yet');
-		console.log(messageID);
-		console.log(memberID);
-		jqXHR = $.post(
-			markAsRead,
-			{
-				MemberID: memberID,
-				MessageID: messageID
-			}, 
-			function(data, textStatus, jqXHR) {
-				//console.log(textStatus);
-				//console.log(jqXHR);
-				//console.log(data);
-				
-				message.addClass("read");
-
-				// dynamically reduce inbox count on header and topbar
-				inboxCount = $(".inboxCount").data("unreadcount");
-				inboxCount--;
-				if (inboxCount > 0) {
-					$(".inboxCount").html("(" + inboxCount + ")").data("unreadcount", inboxCount );
-				} else {
-					$(".inboxCount").html("").data("unreadcount", inboxCount);
-				}
-
-			}
-		).fail(function( jqXHR, status, error) {
-			//console.log(jqXHR);
-			console.log(status);
-			console.log(error);
-		});
-	}
 });
+
+function markAsRead() {
+	console.log('markasreadcalled');
+	$(".mark-read").each(function () {
+		console.log($(this).data("loaded"));
+		if ($(this).data("loaded") != 'true') {
+			$(this).data("loaded", "true");
+			$(this).click(function() {
+				var message = $(this).closest(".inbox-message");
+				var messageID = message.data('id');
+				console.log(message);
+				if (!message.data('read')) {
+					console.log('not read...yet');
+					//console.log(messageID);
+					//console.log(memberID);
+					jqXHR = $.post(
+						markAsReadURL,
+						{
+							MemberID: memberID,
+							MessageID: messageID
+						}, 
+						function(data, textStatus, jqXHR) {	
+							data = $.parseJSON(data);
+							console.log(data.MemberID);				
+							message.addClass("read");
+							message.data("read", data.DateReadTime)
+
+							// dynamically reduce inbox count on header and topbar
+							inboxCount = $(".inboxCount").data("unreadcount");
+							inboxCount--;
+							if (inboxCount > 0) {
+								$(".inboxCount").html("(" + inboxCount + ")").data("unreadcount", inboxCount );
+							} else {
+								$(".inboxCount").html("").data("unreadcount", inboxCount);
+							}
+						}
+					).fail(function( jqXHR, status, error) {
+						console.log(status);
+					});
+				}
+			});				
+		} else {
+			// nada
+		}
+	});
+
+}
+
+
+
+function markAsDeleted() {
+
+}
+
+markAsRead();
+markAsDeleted();
 
 function noUnreadMessages() {
 	// determines if inbox has unread messages or nah
@@ -178,17 +198,17 @@ function noUnreadMessages() {
 
 /*
 * inbox pagination
+* using the waypoints.js jquery plugin to make this nice and succinct
 */
 
-// using the waypoints.js jquery plugin to make this nice and succinct
 var infinite = new Waypoint.Infinite({
   element: $('#main-content')[0],
   items: '.inbox-message',
-  more: '.moreMessages'
+  more: '.moreMessages',
+  onAfterPageLoad: markAsRead
 })
 
-
-
+})();
 
 if (typeof google !== "undefined") {
 

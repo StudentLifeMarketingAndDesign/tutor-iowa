@@ -40,7 +40,7 @@
 								<% end_loop %>
 							
 								<% if $paginatedMessages.NotLastPage %>
-									<a class="next right moreMessages" href="$paginatedMessages.NextLink">Next</a>
+									<a hidden class="next right moreMessages" href="$paginatedMessages.NextLink">Next</a>
 								<% end_if %>
 
 							<% else %>
