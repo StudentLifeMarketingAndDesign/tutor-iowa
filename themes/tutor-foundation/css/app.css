@@ -6522,7 +6522,10 @@ input[type="submit"] {
       background: -webkit-linear-gradient(-90deg, #515151, #444);
       background: linear-gradient(180deg, #515151, #444); } }
   .top-bar .top-bar-section ul li a.button {
-    font-size: 0.9rem; }
+    font-size: 1.125rem;
+    padding: 0.1875rem 1.0625rem;
+    text-transform: capitalize;
+    font-family: "proxima-nova-alt", sans-serif; }
   .top-bar .top-bar-section .has-form {
     background: #515151;
     background: -webkit-linear-gradient(-90deg, #515151, #444);
