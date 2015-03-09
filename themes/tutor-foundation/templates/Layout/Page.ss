@@ -8,8 +8,8 @@
 			<div class="large-8 columns content" data-equalizer-watch>
 				<div class="white-cover"></div>
 				<div class="row">
-					<article class="large-10 columns">
-						<% include Breadcrumbs %>
+					<article class="large-10 columns end">
+						$Breadcrumbs
 						<h1>$Title</h1>
 						$Content
 						$Form

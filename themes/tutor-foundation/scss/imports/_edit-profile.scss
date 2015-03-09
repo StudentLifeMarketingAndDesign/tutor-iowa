@@ -4,5 +4,36 @@
 		color: $alert-color;
 	}
 
+	.field.tag{
+
+		width: 100%;
+		display: block;
+		text-transform: capitalize;
+		text-align: left;
+		background: none;
+		margin: 0;
+		padding:0;
+		input.tag{
+			display: block;
+			text-transform: capitalize;
+			text-align: left;
+			background: none;
+		}
+
+		span.tagMatches span{
+			@extend .tag;
+		}
+
+	} 
+
+	.ss-uploadfield .ss-uploadfield-item{
+		padding: $column-gutter/2 0;
+
+		.ss-uploadfield-item-preview{
+			width: 100px;
+			background: $gray;
+			margin-right: $column-gutter/2;
+		}
+	}
 
 }

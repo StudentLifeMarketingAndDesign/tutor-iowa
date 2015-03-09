@@ -16,5 +16,8 @@ foundationforms/
 excludechildren/
 pageholder/
 tagfield/
-node_modules
+node_modules/
 .sass-cache
+mathspamprotection/
+pageholder/
+.phpintel

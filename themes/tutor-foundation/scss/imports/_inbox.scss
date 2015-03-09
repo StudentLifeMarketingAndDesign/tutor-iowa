@@ -1,0 +1,124 @@
+
+.message {
+    overflow: hidden;
+    .columns, .column {
+        padding: 0;
+    }
+    .message-box {
+        overflow: hidden;
+        border-top: 1px solid #ddd;
+        border-left: 4px solid $blue;
+        padding: $column-gutter/2;
+        p {
+            color: $tuatara;
+            font-weight: bold;
+            margin-bottom: $column-gutter/2;
+        }
+        .message-details {
+            margin-bottom: $column-gutter/2;
+            font-weight: bold;
+            font-size: rem-calc(18);
+            &:hover {
+                cursor: normal;
+            }
+
+            &:before{
+            	content: ' \25CF';
+            	color: $primary-color;
+            }
+        }
+    }
+    .message-summary {
+        overflow: hidden;
+    }
+    .message-body {
+        height: auto;
+        overflow: hidden;
+    }
+    small {
+        font-size: 77%;
+    }
+    .button-group.message-options{
+    	text-align: right;
+
+    }
+
+    .button, button {
+        background: #DADADA;
+        color: $body-font-color;
+        margin: 0;
+        &:hover {
+            background: #CECECE;
+        }
+        &.reply{
+        	background: $primary-color;
+        	color: white;
+        }
+    }
+    &.read {
+        background-color: $smoke;
+        color: black;
+        .message-box {
+            border-left: solid 4px $monsoon;
+            p {
+                font-weight: normal;
+            }
+            .message-details {
+                font-weight: normal;
+	            &:before{
+	            	display: none;
+	            }
+            }
+
+        }
+        p {
+            color: $charcoal;
+        }
+
+        button.mark-read{
+        	background: $smoke;
+        	color: #AEAEAE;
+        	margin: 0;
+        	&:hover{
+        		cursor: default;
+        	}
+        }
+    }
+}
+
+.row.inbox-nav {
+    margin-top: $column-gutter/2;
+    background: #CACACA;
+    padding-bottom: $column-gutter / 2;
+    padding-top: $column-gutter / 2;
+    .button-group{
+    	text-align: center;
+
+    	@media #{$medium-up}{
+    		text-align: right;
+    	}
+    	
+    }
+    .button, button {
+        margin: 0;
+        background: #eee;
+        color: $body-font-color;
+        &:hover{
+            background: #ccc;
+        }
+    }
+
+    li {
+        color: $charcoal;
+        border-bottom: 0;
+        width: auto;
+        button {
+            margin: 0;
+        }
+        a, span {
+            color: $charcoal;
+            padding: 0 8px;
+            margin-top: 0;
+        }
+    }
+}

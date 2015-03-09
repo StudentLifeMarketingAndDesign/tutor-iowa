@@ -1,20 +1,43 @@
 .side-nav{
 	padding-top: 0;
 	background-color: $side-nav-bg;
-	padding: 10px;
+	padding: $column-gutter/2;
+
+	@media #{$large-up}{
+		padding-right: 0;
+
+	}
 	h4{
-		color: #5275a5;
+		//color: $primary-color;
 	}
 	a{
-		color: #000 !important;
+
+	}
+	a p{
+		color: $body-font-color;
 	}
 	h3{
 		text-transform: uppercase;
-		font-size: rem-calc(13);
-
+		font-size: rem-calc(16);
+		background: #666;
+		color: white;
+		padding: 2px;
 		span{
 			padding: 2px;
 			
 		}
 	}
+
+	.announcements.small{
+		.announcement-card{
+			padding: 10px 0;
+		}		
+	}
+
+	.resource-card-list.small{
+		.resource-card{
+			padding: 10px 0;
+		}		
+	}
+
 }

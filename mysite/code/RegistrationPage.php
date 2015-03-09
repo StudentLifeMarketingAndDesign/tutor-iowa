@@ -1,16 +1,13 @@
 <?php
-
- 
 class RegistrationPage extends Page {
-   private static $db = array(
-   	'Disabled' => 'Boolean'
-   );
-   private static $has_one = array(
-   );
+	private static $db = array (
+		'Disabled' => 'Boolean'
+	);
+	private static $has_one = array (
+		
+	);
    
-   private static $defaults = array ('ProvideComments' => '1',
-    
-   
+	private static $defaults = array ('ProvideComments' => '1',
     
     );
    
@@ -25,7 +22,6 @@ class RegistrationPage extends Page {
      } 
    
 }
- 
 class RegistrationPage_Controller extends Page_Controller {
 
     //Allow our form as an action
@@ -46,13 +42,11 @@ class RegistrationPage_Controller extends Page_Controller {
             new TextField('Major'),
             new TextField('GPA'),
             new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
-            new LiteralField('Terms', $this->Content),
+            //new LiteralField('Terms', $this->Content),
             new CheckboxField('AgreeToConditions', 'Checking this box confirms that you have reviewed our Terms and Conditions above.')
                      
         );
-        
-      
-         
+ 
         // Create action
         $actions = new FieldList(
             new FormAction('doRegister', 'Register')

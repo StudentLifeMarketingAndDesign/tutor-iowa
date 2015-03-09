@@ -6,8 +6,13 @@
 
 	.content.has-image{
 		margin-top: -100px;
+	}
+
+	.main{
 
 		article {
+			position: relative;
+			z-index: 1000;
 			.row{
 				background: $body-bg;
 			}
@@ -18,7 +23,12 @@
 	.profile-image{
 		margin-top: 10px;
 		
-		
+	}
+
+	.content{
+		@media #{$large-up}{
+			//margin-top: -30px;
+		}
 	}
 
 

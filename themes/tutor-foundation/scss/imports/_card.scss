@@ -1,0 +1,23 @@
+.card{
+	&:hover{
+		h4 {
+		color: $primary-color;
+		}
+	}
+	h4{
+		transition: all .2s ease-in-out;
+		-moz-transition: all .2s ease-in-out;
+		-webkit-transition: all .2s ease-in-out;
+		color: $darkBlue;
+	}
+}
+
+.small {
+	li.card{
+		padding: 10px 0;
+		border-bottom: 1px solid #ddd;
+		&.last{
+			border-bottom: 0;
+		}
+	}
+}

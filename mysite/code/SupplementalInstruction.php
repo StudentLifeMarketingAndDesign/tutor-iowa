@@ -15,28 +15,13 @@ class SupplementalInstruction extends Page {
    );
    
    
-     private static $has_one = array( 
-    'AcademicHelp' => 'AcademicHelp',
+    private static $has_one = array( 
+        'AcademicHelp' => 'AcademicHelp',
     );
     
-     private static $many_many = array(
-      'Tags' => 'Tag', 
-    );
-    
-    //Comments enabled by default
-    
-    //Also want pages to be created under a SuppHolder by default
-   private static $defaults = array ('ProvideComments' => '1',
-     
-    );
 
-    function getTags() {
-     	return $this->Tags();
-     }
      
-     
-      public function getCMSFields() 
-    {
+      public function getCMSFields() {
     
     	$fields = parent::getCMSFields();
     	$fields->removeFieldFromTab('Root.Metadata', "Keywords"); 
@@ -49,8 +34,7 @@ class SupplementalInstruction extends Page {
     	$fields->addFieldToTab('Root.Main', new TextAreaField("Content", "Describe the supplemental instruction here"));
     	$fields->addFieldToTab('Root.Main', new HTMLEditorField("Schedule", "Schedule"));
 
-    	
-       
+
         return $fields;
         
      } 
