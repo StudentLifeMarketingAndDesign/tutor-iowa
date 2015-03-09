@@ -61,11 +61,20 @@
 	    		@include topBarGradient;
 	    	}
 		}
+		.right{
+			padding-right: $column-gutter/2;
+		}
 	}
 	.title.back a{
 		background: #666;
 		&:hover{
 			background: #666;
 		}
+	}
+
+	.unread-messages::before{
+		content: ' \25CF';
+		color: $topbar-link-color-active;
+		margin-right: 5px;
 	}
 }

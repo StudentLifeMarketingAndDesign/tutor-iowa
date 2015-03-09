@@ -18,7 +18,7 @@
  	<ul class="tutor-card-list small">
 	<% loop ChildrenOf("private-tutors").Limit(4) %><% include TutorCard %><% end_loop %>
 	</ul>
-	<% if $Member %>
+	<% if $SiteAdmin %>
 		<h3><span>Site Administration Options</span></h3>
 		<ul class="button-group round even-3">
 	  		<li><a href="mailto:address@address.com" class="button">Email</a></li>

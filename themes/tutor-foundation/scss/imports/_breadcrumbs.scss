@@ -2,14 +2,28 @@
 
 .main .breadcrumbs {
     //display: none;
-    font-family: $header-font-family;
+    
     padding-left: 0;
     margin-bottom: 0;
+
+    &> *:first-child:before{
+        margin: 0;
+    }
+    &> *:before{
+
+        margin: 0 2px;
+
+        @media #{$large-up}{
+            margin: 0 5px;
+        }
+
+    }
     a {
         @include button(
             $bg: $gray,
             $padding: rem-calc(5)
         );
+        font-family: $header-font-family;
     }
 
     span{
@@ -17,7 +31,8 @@
             $bg: $body-bg,
             $padding: rem-calc(5),
             $disabled: true
-        );       
+        );
+        font-family: $header-font-family;
     }
 
     a, span{

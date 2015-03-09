@@ -6,6 +6,7 @@
 @import "imports/buttons-tags";
 @import "imports/uiowa-bar";
 @import "imports/top-bar";
+@import "imports/search-results";
 @import "imports/homepage";
 @import "imports/help-lab";
 @import "imports/tutor-page";
@@ -13,6 +14,7 @@
 @import "imports/card";
 @import "imports/tutor-cards";
 @import "imports/resource-cards";
+@import "imports/supplemental-instruction";
 
 @import "imports/edit-profile";
 @import "imports/side-nav";
@@ -38,7 +40,7 @@
 		border-bottom: 1px solid #ddd;
 		padding-bottom: 5px;
 		margin-bottom: 13px;
-		margin-top: 10px;
+		margin-top: 0;
 	}
 
 }
@@ -62,6 +64,11 @@
 	background-image: url('http://lorempixel.com/1240/300/');
 	background-color: #eee;
 	position: relative;
+
+	@media #{$large-up} {
+		margin: 0 $column-gutter/2;
+	}
+
 }
 
 #labmap {

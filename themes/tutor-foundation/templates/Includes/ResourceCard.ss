@@ -1,4 +1,4 @@
-<li class="resource-card card">
+<li class="resource-card card $FirstLast">
 	<a href="$Link">
 		<h4>$Title</h4>
 		<p>

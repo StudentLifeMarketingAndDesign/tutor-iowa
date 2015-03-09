@@ -19,18 +19,17 @@
 			$per-row: 1
 		);
 
-		li{
-			margin-bottom: 0;
-			padding-bottom: 0;
-		}
 
+	}
+
+	.resource-card{
+		margin-bottom: 0;
 	}
 
 	li{
 		list-style-type: none; 
-		margin-bottom: 0;
-		padding-bottom: 0;
 		
+
 		a{
 			color: $body-font-color;
 

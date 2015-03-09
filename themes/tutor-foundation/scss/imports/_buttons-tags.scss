@@ -16,7 +16,9 @@
 }
 
 input[type="submit"]{
-	@include button;
+	@include button(
+    $radius: $global-radius
+  );
 	@include buttonGradient($primary-color);
 }
 
@@ -30,7 +32,12 @@ input[type="submit"]{
 	@include buttonGradient($success-color);
 }
 
-.tag,{
+.button.darkGray, button.darkGray{
+  @include buttonGradient(#666);
+  color: white;
+}
+
+.tag{
   @include button(
     // $padding - Used to build padding for buttons Default: $button-med or rem-calc(12)
     $padding: rem-calc(4),
@@ -44,3 +51,10 @@ input[type="submit"]{
   text-transform: uppercase;
   font-size: rem-calc(11);
 }
+
+.ss-ui-button{
+    @include button(
+      $padding: $button-tny
+    );
+    @include buttonGradient(#666);
+  }

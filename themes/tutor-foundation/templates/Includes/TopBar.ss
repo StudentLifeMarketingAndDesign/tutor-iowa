@@ -33,20 +33,28 @@
 			</li>
 			<% end_loop %>
 			<% if $CurrentMember %>
-			
+		
 			<li class="has-dropdown">
 				<a href="$CurrentMemberPage.Link" id="memberInfo" data-id="$CurrentMember.ID">$CurrentMember.FirstName</a>
 				<ul class="dropdown">
-					<li><a href="$CurrentMember.Link()">View Profile</a></li>
+
 					<li><a href="edit-profile/">Edit Profile</a></li>
+					<li><a href="$currentMemberPage.Link">View Profile</a></li>
+					
+					<% if HelpLabs %>
+					<li><a href="personal-help-labs/">Edit Help Labs</a></li>
+					<% end_if %>
+
 					<% if $SiteAdmin %><li><a href="admin/">Admin</a></li><% end_if %>
 					<li><a class="alert" href="Security/logout">Logout</a></li>
 				</ul>
 			</li>
-			<li><a href="inbox">Inbox <% if $CurrentMember.unreadMessageCount > 0 %><span data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount" class="inboxCount">({$CurrentMember.unreadMessageCount})</span><% end_if %></a></li>
+
+			<li><a href="inbox" class="<% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>">Inbox <% if $CurrentMember.unreadMessageCount > 0 %><span data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount" class="inboxCount  ">({$CurrentMember.unreadMessageCount})</span><% end_if %></a></li>
+
 			<% else %>
 				<li class="has-form"><a href="Security/login?BackURL=%2Fadmin" data-reveal-id="login-form-modal" class="button radius success">Login</a></li>
-				<li class="has-form"><a href="Security/login?BackURL=%2Fadmin" class="button radius">Register as a Tutor</a></li>
+				<li class="has-form"><a href="register" class="button radius">Register as a Tutor</a></li>
 			<% end_if %>
 		</ul>
 	</section>

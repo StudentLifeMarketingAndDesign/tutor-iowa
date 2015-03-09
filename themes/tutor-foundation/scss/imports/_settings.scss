@@ -125,7 +125,8 @@ $gray: #eee;
  //$blue : #1a8bd3;
  //$blue : #5275a5;
  $blue : #377EFF;
- $darkBlue: #5275a5;
+ //$blue : #4ba7fc;
+ $darkBlue: darken($blue, 10);
  $green : #52a57f;
  $gold: #E4B74C;
  $jet         : #222222;
@@ -156,7 +157,7 @@ $gray: #eee;
 // $last-child-float: $opposite-direction;
 
 // We use these to make sure border radius matches unless we want it different.
- $global-radius: 20px;
+ $global-radius: 2px;
 // $global-rounded: 1000px;
 
 // We use these to control inset shadow shiny edges and depressions.
@@ -434,7 +435,7 @@ $crumb-font-color: $primary-color;
 
 // We use these to control the slash between breadcrumbs
 $crumb-slash-color: $body-font-color;
-$crumb-slash: "\25B8";
+$crumb-slash: "";
 
 // $crumb-bg: scale-color($secondary-color, $lightness: 55%);
 
@@ -1436,8 +1437,8 @@ $crumb-slash: "\25B8";
 
 // Set the link colors and styles for top-level nav
  $topbar-link-color: #fff;
- $topbar-link-color-hover: lighten($primary-color, 40);
- $topbar-link-color-active: lighten($primary-color, 30);
+ $topbar-link-color-hover: lighten($primary-color, 10);
+ $topbar-link-color-active: lighten($primary-color, 10);
 // $topbar-link-color-active-hover: $white;
 // $topbar-link-weight: $font-weight-normal;
  $topbar-link-font-size: rem-calc(22);
