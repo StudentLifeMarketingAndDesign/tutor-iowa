@@ -99,28 +99,28 @@
             if ($(this).data("loaded") != 'true') {
                 $(this).data("loaded", "true");
                 $(this).click(function() {
-                    console.log('click');
-                    var message = $(this).closest(".inbox-message");
-                    var messageID = message.data('id');
-                    var jqXHR = $.post(
-                        markAsDeletedURL,
-                        {
-                            MemberID: memberID,
-                            MessageID: messageID
-                        }, 
-                        function(data, textStatus, jqXHR) { 
+                    var c = confirm("Deleting Messages is permanent. Click OK to delete message");
+                    if (c = true) {
+                        var message = $(this).closest(".inbox-message");
+                        var messageID = message.data('id');
+                        var jqXHR = $.post(
+                            markAsDeletedURL,
+                            {
+                                MemberID: memberID,
+                                MessageID: messageID
+                            }, 
+                            function(data, textStatus, jqXHR) { 
+                                console.log(data);
+                                updateDOM(message, "markAsDeleted");
+                            },
+                            "json"
+                        ).fail(function(data, status, error) {
+                            console.log(error);
                             console.log(data);
-                            updateDOM(message, "markAsDeleted");
-                        },
-                        "json"
-                    ).fail(function(data, status, error) {
-                        console.log(error);
-                        console.log(data);
-                    });
+                        });                       
+                    } 
                 });             
-            } else {
-                // nada
-            }
+            } 
         });
     }
 
