@@ -7,6 +7,7 @@ class Message extends DataObject {
 	   'MessageBody' => 'Text',
 	   'RecipientName' => 'Text',
 	   'ReadDateTime' => 'SS_Datetime',
+	   'MarkAsDeleted' => 'SS_Datetime',
 	   'RepliedDateTime' => 'SS_Datetime'
    );
    

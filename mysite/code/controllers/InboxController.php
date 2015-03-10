@@ -21,7 +21,9 @@ class Inbox_Controller extends Page_Controller {
 		'markAsRead', 
 		'ReplyForm',
 		'unread',
-		'nextPage'
+		'unreadCount',
+		'nextPage',
+		'markAsDeleted'
 		//only allow replyform if the user is logged in
 	);
 
@@ -29,7 +31,9 @@ class Inbox_Controller extends Page_Controller {
        'markAsRead' => 'markAsRead',  
        'ReplyForm' => 'ReplyForm',
        'unread' => 'unread',
-       'nextPage' => 'nextPage' 
+       'unreadCount' => 'unreadCount',
+       'nextPage' => 'nextPage',
+       'markAsDeleted' => 'markAsDeleted'
     );
     
 	public function init() {
@@ -50,7 +54,7 @@ class Inbox_Controller extends Page_Controller {
 	
 	public function paginatedMessages() {
 		$member = Member::CurrentUser(); 
-		$list = $member->Messages()->sort('Created DESC');;
+		$list = $member->Messages()->where("MarkAsDeleted IS NULL")->sort('Created DESC');;
 		$pl = new PaginatedList($list, $this->request);
 		$pl->setPageLength(5);
 		return $pl;
@@ -74,39 +78,62 @@ class Inbox_Controller extends Page_Controller {
 
 	}
 	
-	private static function unreadMessageCount() {
+	public function unreadCount() {
 		$member = Member::currentUser();
-		$messages = $member->Messages("ReadDateTime = NULL");
-		
-		return $messages->Debug();
+		$unreadMessageCount = $member->unreadMessageCount();	
+		return Convert::raw2json($unreadMessageCount);
 	}
 
 	public function markAsRead(SS_HTTPRequest $r) {
 
-		if ($r->isAjax() && $r->isPOST() ) {
-			$currentUserID = Member::currentUserID();
-			
-			$data = $r->postVars();
-			$memberID = (int)$data['MemberID'];
-			$messageID = (int)$data['MessageID'];
-			
-			if ($memberID == $currentUserID) {
-				$MarkedMessage = Message::get()->byID($messageID);
-				$MarkedMessage->ReadDateTime = time();
-				$MarkedMessage->write();
+		if ($r->isAjax() && $r->isPOST() && $markedMessage = $this->markedMessage($r)) {
+			$markedMessage->ReadDateTime = time();
+			$markedMessage->write();
+
+			// get new SS_datetime
+			$markedMessage = Message::get()->byID($markedMessage->ID);
+			$data["ReadDateTime"] = $markedMessage->ReadDateTime;
 				
-				$data["ReadDateTime"] = $MarkedMessage->ReadDateTime;
-				
-			} else {
-				$data['Failed'] = "Unauthorized";
-			}
-		
 		} else {
-			$data = "improper";
-		}		
+			$data['Failed'] = "Unauthorized";
+		}
 		
 		return Convert::raw2json($data);
 
+	}
+	
+	public function markedMessage($r) {
+		
+		$currentUserID = Member::currentUserID();
+			
+		$data = $r->postVars();
+		$memberID = (int)$data['MemberID'];
+		$messageID = (int)$data['MessageID'];
+			
+		if ($memberID == $currentUserID) {
+			$markedMessage = Message::get()->byID($messageID);
+			return $markedMessage;
+		} else {
+			return false;
+		}
+			
+	}
+	
+	public function markAsDeleted(SS_HTTPRequest $r) {
+		if ($r->isAjax() && $r->isPOST() && $markedMessage = $this->markedMessage($r)) {			
+
+			$this->markAsRead($r);
+			$markedMessage->MarkAsDeleted = time();
+			$markedMessage->write();
+			
+			// get new SS_datetime
+			$markedMessage = Message::get()->byID($markedMessage->ID);
+			$data["markAsDeleted"] = $markedMessage->MarkAsDeleted;
+		} else {
+			$data = "improper";
+		}		
+		$this->response->addHeader("Content-Type", "application/json");
+		return Convert::raw2json($data);
 	}
 		
 	public function getFeedbackLink(){

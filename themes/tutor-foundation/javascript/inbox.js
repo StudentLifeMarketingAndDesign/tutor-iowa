@@ -8,7 +8,10 @@
 
     $("#main-content .noUnread").hide(); // hiding with jQuery b/c the foundation '.hide' class sets visibility: invisible
     $("#unreadInbox").hide();
-    var memberID = $("#memberInfo").data('id'), markAsReadURL = $(location).attr('href') + "/markAsRead", unreadMessages;
+    var memberID = $("#memberInfo").data('id');
+    var markAsReadURL = $(location).attr('href') + "/markAsRead";
+    var markAsDeletedURL = $(location).attr('href') + "/markAsDeleted";
+    var unreadMessages;
 
     /*
     * inbox navigation
@@ -69,31 +72,17 @@
                 $(this).click(function() {
                     var message = $(this).closest(".inbox-message");
                     var messageID = message.data('id');
-                    console.log(message);
                     if (!message.data('read')) {
-                        console.log('not read...yet');
-                        //console.log(messageID);
-                        //console.log(memberID);
-                        jqXHR = $.post(
+
+                        var jqXHR = $.post(
                         markAsReadURL,
                         {
-                        MemberID: memberID,
-                        MessageID: messageID
+                            MemberID: memberID,
+                            MessageID: messageID
                         }, 
                         function(data, textStatus, jqXHR) {	
-                            data = $.parseJSON(data);
-                            console.log(data.MemberID);				
-                            message.addClass("read");
-                            message.data("read", data.DateReadTime)
-
-                            // dynamically reduce inbox count on header and topbar
-                            inboxCount = $(".inboxCount").data("unreadcount");
-                            inboxCount--;
-                            if (inboxCount > 0) {
-                                $(".inboxCount").html("(" + inboxCount + ")").data("unreadcount", inboxCount );
-                            } else {
-                                $(".inboxCount").html("").data("unreadcount", inboxCount);
-                            }
+                            message.data("read", data.DateReadTime);
+                            updateDOM(message, "markAsRead");
                         }).fail(function( jqXHR, status, error) {
                             console.log(status);
                         });
@@ -106,11 +95,61 @@
     }
 
     function markAsDeleted() {
-
+        $(".mark-delete").each(function () {
+            if ($(this).data("loaded") != 'true') {
+                $(this).data("loaded", "true");
+                $(this).click(function() {
+                    console.log('click');
+                    var message = $(this).closest(".inbox-message");
+                    var messageID = message.data('id');
+                    var jqXHR = $.post(
+                        markAsDeletedURL,
+                        {
+                            MemberID: memberID,
+                            MessageID: messageID
+                        }, 
+                        function(data, textStatus, jqXHR) { 
+                            console.log(data);
+                            updateDOM(message, "markAsDeleted");
+                        },
+                        "json"
+                    ).fail(function(data, status, error) {
+                        console.log(error);
+                        console.log(data);
+                    });
+                });             
+            } else {
+                // nada
+            }
+        });
     }
 
-    markAsRead();
-    markAsDeleted();
+    function updateDOM(message, action) {
+        console.log(message);
+        // dynamically reduce inbox count on header and topbar
+        if (action == "markAsRead") {
+            message.addClass("read");
+        } else if (action == "markAsDeleted") {
+            message.remove();
+        }
+        // dynamically reduce inbox count on header and topbar
+        $.get( location.href + "/unreadCount", {}, function(data) {
+                var unreadCount = $.parseJSON(data);
+                
+                if (unreadCount > 0) {
+                    $(".inboxCount").html("(" + unreadCount + ")").data("unreadcount", unreadCount );
+                } else {
+                    $(".inboxCount").html("").data("unreadcount", unreadCount);
+                }
+                // if all messages unread and div hasn't been appended already, append message
+            },
+            "json" 
+        );
+
+        if ( noUnreadMessages() ) {
+             $("#main-content .noUnread").show(); // what is a better way to only show .noUnread in .unread-messages?
+        } 
+    }
 
     function noUnreadMessages() {
         // determines if inbox has unread messages or nah
@@ -119,7 +158,7 @@
             return true;
         } else {
             return false;
-    }
+        }
 
     }
 
@@ -134,5 +173,15 @@
         more: '.moreMessages',
         onAfterPageLoad: markAsRead
     })
+
+    /*
+    * inbox initalize 
+    *
+    */
+
+    $( document ).ready(function () {
+        markAsRead();
+        markAsDeleted();  
+    });
 
 })();

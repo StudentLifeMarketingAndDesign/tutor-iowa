@@ -34,9 +34,8 @@
 							<% if $CurrentMember.Messages %>
 
 								<% loop paginatedMessages %>
-
-									<% include Message %>
-								
+										<%-- NOTE: paginatedMessages filters out messages MarkedAsDeleted --%>
+										<% include Message %>
 								<% end_loop %>
 							
 								<% if $paginatedMessages.NotLastPage %>
