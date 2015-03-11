@@ -9,8 +9,9 @@ class TagsCollection extends DataObject{
 
 		$fields = parent::getCMSFields();
 		
-		$fields->addFieldToTab( 'Root.Main', new TextField( "Title", "Tag" ) );
-		$fields->addFieldToTab( 'Root.Main', new TextField( "Count", "Count" ) );
+		$fields->addFieldToTab( 'Root.Main', new TagField( "Title", "Tag" ) );
+		
+
 		
 
 		return $fields;
