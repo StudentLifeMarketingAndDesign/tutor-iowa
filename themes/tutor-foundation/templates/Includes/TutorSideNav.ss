@@ -1,7 +1,11 @@
 <div class="side-nav">
 	<ul class="button-group stack">
 		<% if $currentMemberPage.ID == $ID %>
-			<li><a href="{$Link}edit" class="button success radius">Edit Your Profile</a></li>
+			<% if not $Editing %>
+			<li><a href="{$Link}edit" class="button info radius">Edit Your Profile</a></li>
+			<% else_if $Editing %>
+			<li><a href="{$Link}edit" class="button success radius">Save Your Profile</a></li>
+			<% end_if %>
 		<% else %>
   			<li><a href="{$getFeedbackLink}" class="button radius" target="_blank">Give Feedback About $FirstName</a></li>
   		<% end_if %>

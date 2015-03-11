@@ -28,7 +28,7 @@ class Message extends DataObject {
    );
    
    
-   // I believe these functions prevent anybody from editing or creating messages
+   // I believe these functions prevent anybody from editing or creating messages through the CMS
    public function canEdit($member = null) {
 	   return false;
    }

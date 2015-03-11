@@ -154,15 +154,14 @@ class TutorPage extends Page {
 	}
 
 }
-
 class TutorPage_Controller extends Page_Controller {
-
-	private static $allowed_actions = array('ContactForm', 'edit');
+	
+	private static $allowed_actions = array('ContactForm', 'editProfile');
 	
 	private static $url_handlers = array(
        'edit' => 'editProfile'
     );
-    
+
 	public function ContactForm() {
 
 		$fields = new FieldList(
@@ -245,13 +244,212 @@ class TutorPage_Controller extends Page_Controller {
 		return $linkText;
 	}
 	
-	public function editProfile() {
-		
-		
-		
-		return $this->renderWith(array('EditProfilePage'));
-		//customise($Data)->
-		
+	public function editProfile($toggle) {
+		$member = Member::CurrentUserID(); 
+		if ($member = $this->Member()->ID) {
+			$editing = Session::get("editingProfile");
+			if ($editing) {
+				Session::set("editingProfile", false);
+			} else {
+				Session::set("editingProfile", true);
+			}
+		}
+			
+		$this->redirectBack();
 	}
+	
+	public function Editing() {
+		$member = Member::CurrentUserID(); 
+		if ($member = $this->Member()->ID) {
+			$editingProfile = Session::get("editingProfile");
+			return ($editingProfile ? true : false);
+		}
+	}
+	
+	function EditProfileForm() {
+		$Member = Member::CurrentUser();
+
+		//chromephp::log('EditProfileForm start' . Session::get('saved'));
+
+		if ($Member) {
+			//User shouldn't be able to access EditProfileForm unless they're logged in.  If they're not logged in, provide links so that they can login (or register if need be).
+
+			$IDMember = $Member->ID;
+
+			//$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");
+			$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
+
+			$tagField = new TagField('Tags', 'Tags');
+			$tagField->setTagTopicClass("SiteTree");
+
+			$tagsLabel = '<p>Read the <a href="for-tutors/">For Tutors page</a> to learn more about tags and promoting yourself on Tutor Iowa!</p>';
+			$changePassLabel = '<p><a href="Security/ChangePassword" class="button small radius">Reset your password</a></p>';
+			$fields = new FieldList(
+				new TextField('FirstName', '<span>*</span> First Name'),
+				new TextField('Surname', '<span>*</span> Last Name'),
+				new UploadField("Image", "Choose a photo of yourself"),
+				new UploadField("BackgroundImage", "Choose a background image (the wider, the better.)"),
+				new EmailField('Email', '<span>*</span> Email Address'),
+				new LiteralField('ChangePassword', $changePassLabel),
+				new TextareaField('Content', 'Biography'),
+				new TextareaField('Hours', 'Availability'),
+				new DateField('StartDate', 'Date you would like to start tutoring'),
+				new DateField('EndDate', 'Date you expect to stop tutoring'),
+				new TextField('PhoneNo', 'Phone number'),
+				new TextField('MeetingPreference', 'Meeting preference (on and/or off-campus)'),
+				new TextField('HourlyRate', 'Hourly rate'),
+				new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
+				new TextField('GPA'),
+				new UniversityIDField('UniversityID', 'University ID'),
+				new TextField('Major'),
+				new LiteralField('TagsHelpLabel', $tagsLabel),
+				$tagField
+				,
+
+				//This does not sync with database (database field is 'Disabled')
+				new CheckboxField('Disable', 'Request to disable your page (will no longer be returned as a search result on TutorIowa)')
+
+			);
+			$saveAction = new FormAction('SaveProfile', 'Save');
+			$saveAction->addExtraClass('radius');
+			// Create action
+			$actions = new FieldList(
+				$saveAction
+			);
+
+			// Create action
+			$validator = new RequiredFields('FirstName', 'Surname', 'Email');
+
+			//Create form
+			$Form = new FoundationForm($this, 'EditProfileForm', $fields, $actions, $validator);
+
+			//Get current member
+			$Member = Member::CurrentUser();
+
+			//Get tutor dataobject to populate form with tutor info (stuff like bio that's stored in tutor table)
+
+			//Information must be loaded from both tutor and member because member stores a member/tutor's password
+			$Form->loadDataFrom($Member->data());
+
+			///$Check if user is published yet
+			if ($Tutor instanceof TutorPage) {
+				//Tutor is published
+				$Form->loadDataFrom($Tutor->data());
+			} else {
+				//Not published (disabled and unapproved users).  The enable function is at at the bottom and handles sending the emails
+
+				return 'You must be confirmed as a user by our administrator to edit your profile.  If you have disabled your account, please click <a href="' . Director::baseURL() . $this->URLSegment . '?enable=1' . '">here</a> to have your account re-enabled.';
+			}
+
+			//Return the form
+			return $Form;
+		} else {
+			//Shouldn't happen with current design unless user tries to navigate there directly (there is no link to edit profile when you're not logged in)
+			$message = "<a href='Security/login'>You must be logged in to edit your profile. </a>  If you do not have an account,  <a href='registration-page'>register here.</a>";
+			return $message;
+		}
+	}
+
+	//Save profile
+	function SaveProfile($data, $form) {
+		Session::clear('Saved');
+		//chromephp::log('Enters save profile');
+
+		//Check for a logged in member
+		if ($CurrentMember = Member::CurrentUser()) {
+
+			//chromephp::log('Current member entered');
+
+			//Check for another member with the same email address
+
+			$email = Convert::raw2sql($data['Email']);
+
+			if ($member = DataObject::get_one("Member", "Email = '" . Convert::raw2sql($data['Email']) . "' AND ID != " . $CurrentMember->ID)) {
+
+				Session::set('Saved', 0); //Display error message
+				//chromephp::log('After Email error ' . Session::get('saved'));
+
+				$form->addErrorMessage("Email", 'Sorry, an account with that Email address already exists', "bad");
+
+				Session::set("FormInfo.Form_EditProfileForm.data", $data);
+
+				return $this->redirect($this->Link());
+
+			}
+			//Otherwise check that user IDs match and save
+			else {
+
+				Session::set('Saved', 1); //Changes saved
+				//chromephp::log('After successful validation ');
+				//chromephp::log(Session::get('Saved'));
+				//chromephp::log(Session::get_all());
+
+				$IDMember = $CurrentMember->ID;
+
+				$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
+
+				$form->saveInto($Tutor);
+
+				/*Preserve this code, for it works the magic of SilverStripe 3 publishing*/
+				Versioned::reading_stage('stage');
+				$Tutor->writeToStage('Stage');
+				$Tutor->publish("Stage", "Live");
+				Versioned::reading_stage('Live');
+				$Tutor->write();
+
+				// Save into the member dataobject.
+				$memberFieldList = array(
+					"FirstName",
+					"Surname",
+					"Email",
+				);
+				$form->saveInto($CurrentMember, $memberFieldList);
+
+				$CurrentMember->write();
+
+				$formData = $form->getData();
+				$formDisabled = $formData['Disable'];
+
+				if ($formDisabled) {
+					//If user checked disable page box
+
+					if ($DisablePage = DisablePage::get()->First()) //$DisablePage = DataObject::get_one('DisablePage'))
+					{
+
+						$parameter = '?ID=' . $Tutor->ID;
+
+						return $this->redirect($DisablePage->Link($parameter));
+					}
+
+				}
+				$ID = 92;
+				//$test = DataObject::get_by_id('TutorPage', $ID);
+				$test = TutorPage::get()->byID($ID);
+				/*
+				$notSaved = Session::get('ValidationError');
+				Debug::show($notSaved);
+
+				if ($notSaved){
+				$form->addErrorMessage("Name", 'An error occurred with one or more fields.', "bad");
+				Session::set('ValidationError', false);
+				Session::set("FormInfo.Form_EditProfileForm.data", $data);
+				return Director::redirect($this->Link());
+				}
+				 */
+
+				//$savedValue = Session::get('Saved');
+				//print_r('Saved ' . $savedValue);
+				//user_error("breakpoint", E_USER_ERROR);
+
+				return $this->redirect($this->Link());
+			}
+		}
+		//If not logged in then return a permission error
+		else {
+			return Security::PermissionFailure($this->controller, 'You must <a href="register">registered</a> and logged in to edit your profile:');
+		}
+
+	}
+
 
 }
