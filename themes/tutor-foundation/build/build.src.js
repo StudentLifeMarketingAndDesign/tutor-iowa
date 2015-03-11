@@ -165,8 +165,7 @@ $('.search-toggle').click(function() {
             if ($(this).data("loaded") != 'true') {
                 $(this).data("loaded", "true");
                 $(this).click(function() {
-                    var c = confirm("Deleting Messages is permanent. Click OK to delete message");
-                    if (c = true) {
+                    if (window.confirm("Deleting Messages is permanent. Click OK to delete message")) {
                         var message = $(this).closest(".inbox-message");
                         var messageID = message.data('id');
                         var jqXHR = $.post(
@@ -176,7 +175,6 @@ $('.search-toggle').click(function() {
                                 MessageID: messageID
                             }, 
                             function(data, textStatus, jqXHR) { 
-                                console.log(data);
                                 updateDOM(message, "markAsDeleted");
                             },
                             "json"
@@ -184,14 +182,15 @@ $('.search-toggle').click(function() {
                             console.log(error);
                             console.log(data);
                         });                       
-                    } 
+                    } else {
+                        event.preventDefault();
+                    }
                 });             
             } 
         });
     }
 
     function updateDOM(message, action) {
-        console.log(message);
         // dynamically reduce inbox count on header and topbar
         if (action == "markAsRead") {
             message.addClass("read");
@@ -228,6 +227,11 @@ $('.search-toggle').click(function() {
 
     }
 
+    function attachHandlers() {
+        markAsRead();
+        markAsDeleted();
+    }
+
     /*
     * inbox pagination
     * using the waypoints.js jquery plugin to make this nice and succinct
@@ -237,7 +241,7 @@ $('.search-toggle').click(function() {
         element: $('#main-content')[0],
         items: '.inbox-message',
         more: '.moreMessages',
-        onAfterPageLoad: markAsRead
+        onAfterPageLoad: attachHandlers, 
     })
 
     /*

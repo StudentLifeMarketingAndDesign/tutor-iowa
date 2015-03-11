@@ -25,29 +25,5 @@ class MemberExtension extends DataExtension {
 	   
 	   return $member->Messages()->Count(); 
     }
-    
-
-	
-	/*
-	private function getMessages($memberObject) {
-		
-		$memberMessages = $this->owner->Messages();
-		//print_r($memberMessages);
-		
-		$Data = array();
-		
-		foreach ($memberMessages as $key => $message) {
-			$Data[$key]['SenderEmail'] = $message->SenderEmail;
-			$Data[$key]['SenderName'] = $message->SenderName;
-			//print_r(get_class($message->MessageBody));
-			$Data[$key]['MessageBody'] = $message->MessageBody;
-			$Data[$key]['RecipientName'] = $message->RecipientName;
-		}
-		
-		$ArrayList = new ArrayList($Data);
-		
-		return $memberMessages;
-	}
-	*/
 }
 

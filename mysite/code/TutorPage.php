@@ -157,8 +157,12 @@ class TutorPage extends Page {
 
 class TutorPage_Controller extends Page_Controller {
 
-	private static $allowed_actions = array('ContactForm');
-
+	private static $allowed_actions = array('ContactForm', 'edit');
+	
+	private static $url_handlers = array(
+       'edit' => 'editProfile'
+    );
+    
 	public function ContactForm() {
 
 		$fields = new FieldList(
@@ -239,6 +243,15 @@ class TutorPage_Controller extends Page_Controller {
 		$tutorID = $this->ID;
 		$linkText = $linkPage->Link() . '?TutorID=' . $tutorID;
 		return $linkText;
+	}
+	
+	public function editProfile() {
+		
+		
+		
+		return $this->renderWith(array('EditProfilePage'));
+		//customise($Data)->
+		
 	}
 
 }
