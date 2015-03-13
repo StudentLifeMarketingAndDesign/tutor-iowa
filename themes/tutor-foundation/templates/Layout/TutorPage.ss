@@ -2,17 +2,16 @@
 	<div class="main typography" role="main">
 		
 		<div class="row" data-equalizer>
-			<div class="page-bg"></div>
+			<div class="page-bg">
+            	<img id="profile-cover-photo" src="http://lorempixel.com/1240/600/"> </img>
+			</div>
 			<div class="large-8 columns content" data-equalizer-watch>
 
 				<div class="white-cover"></div>
 				$Breadcrumbs
 				<article>
-					<% if $Editing %>
-						$EditProfileForm
-					<% else %>
 					<div class="row">
-						<div class="medium-9 small-10 columns">
+						<div class="medium-9 small-9 columns">
 
 							<% if $Sent %>
 							<div data-alert class="alert-box success">
@@ -28,7 +27,7 @@
 								<% if $HourlyRate %><strong>Hourly Rate:</strong> {$HourlyRate}<% end_if %>
 							</p>
 						</div>
-						<div class="medium-3 small-2 columns">
+						<div class="medium-3 small-3 columns">
 
 							<div class="profile-image">
 								<% if $Image %>
@@ -39,27 +38,41 @@
 							</div>
 						</div>
 					</div>
+					<div class="row">
+						<div class="medium-12 columns">
+							<h2>About $FirstName</h2>
+							<p>$Content</p>
 
-					<h2>About $FirstName</h2>
-					<p>$Content</p>
+							<%--
+							<% if $currentMemberPage.ID == $ID %>
+								<% include EditProfileButton %>
+							<% end_if %>
+							--%>
+							<% if $Tags %>
+								<p><% include Tags %></p>
+							<% end_if %>
+							$Form
+							<hr />
+							<h2>Contact $FirstName</h2>
+							$ContactForm
+						</div>
+					</div>
 
-					<%--
-					<% if $currentMemberPage.ID == $ID %>
-						<% include EditProfileButton %>
-					<% end_if %>
-					--%>
-					<% if $Tags %>
-						<p><% include Tags %></p>
-					<% end_if %>
-					$Form
-					<hr />
-					<h2>Contact $FirstName</h2>
-					$ContactForm
-					<% end_if %>
 				</article>
 			</div>
 			<div class="large-4 columns end" data-equalizer-watch>
-				<% include TutorSideNav %>
+				 <div class="side-nav">
+				 	<ul class="button-group stack">
+					    <% if $currentMemberPage.ID == $ID %>
+					        <li><a href="{$Link}edit" class="button info radius">Edit Your Profile</a></li>
+					    <% else %>
+					        <li><a href="{$getFeedbackLink}" class="button radius" target="_blank">Give Feedback About $FirstName</a></li>
+					    <% end_if %>
+					</ul>
+					<hr>
+                    <% include RelatedResources %>
+                    <% include SiteAdmin %>
+                </div>
 			</div>
 		
 		</div>

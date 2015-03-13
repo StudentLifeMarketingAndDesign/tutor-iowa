@@ -38,7 +38,7 @@
 				<a href="$CurrentMemberPage.Link" id="memberInfo" data-id="$CurrentMember.ID">$CurrentMember.FirstName</a>
 				<ul class="dropdown">
 
-					<li><a href="edit-profile/">Edit Profile</a></li>
+					<li><a href="{$currentMemberPage.Link}edit">Edit Profile</a></li>
 					<li><a href="$currentMemberPage.Link">View Profile</a></li>
 					
 					<% if HelpLabs %>
