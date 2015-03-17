@@ -2,7 +2,7 @@
 class TutorPage extends Page {
 
 	//Add extra database fields
-	public static $db = array(
+	private static $db = array(
 		'Bio' => 'Text',
 		'PhoneNo' => 'Varchar',
 		'Hours' => 'Text',
@@ -20,23 +20,27 @@ class TutorPage extends Page {
 		'UniversityID' => 'Text',
 		'Major' => 'Text',
 		'GPA' => 'Text',
-		'PublishFlag' => 'Boolean',
-
+		'PublishFlag' => 'Boolean'
 	);
 
 	private static $has_one = array(
 		'Member' => 'Member',
 		'AcademicHelp' => 'AcademicHelp',
 		'HomePage' => 'HomePage',
+		'PendingCoverImage' => 'CoverImage',
+		'CoverImage' => 'CoverImage',
+		'PendingProfileImage' => 'ProfileImage',
+		'ProfileImage' => 'ProfileImage'
 	);
 
 	private static $has_many = array(
-		'FeedbackItems' => 'FeedbackItem',
+		'FeedbackItems' => 'FeedbackItem'
+		
 	);
 
 	private static $defaults = array('ProvideComments' => '1',
 		'UniversityID' => null,
-		'GPA' => null,
+		'GPA' => null
 	);
 
 	private static $default_sort = 'Surname ASC';
@@ -46,7 +50,7 @@ class TutorPage extends Page {
 		'Surname' => 'Last Name',
 		'Major' => 'Major',
 		'Email' => 'Email',
-		'Status' => 'Status',
+		'Status' => 'Status'
 	);
 
 	//Add form fields to CMS
@@ -156,7 +160,7 @@ class TutorPage extends Page {
 }
 class TutorPage_Controller extends Page_Controller {
 	
-	private static $allowed_actions = array('ContactForm', 'editProfile');
+	private static $allowed_actions = array('ContactForm', 'editProfile', 'EditProfileForm' );
 	
 	private static $url_handlers = array(
        'edit' => 'editProfile'
@@ -253,18 +257,28 @@ class TutorPage_Controller extends Page_Controller {
 		}
 	}
 		
-	function EditProfileForm() {
+	public function EditProfileForm() {
 		$Member = Member::CurrentUser();
 
 		if ($Member) {
 			$MemberID = $Member->ID;
-
 			$tagField = new TagField('Tags', 'Tags');
 			$tagField->setTagTopicClass("SiteTree");
+					
+					
+			$coverImage = new UploadField("PendingCoverImage", "Choose a Cover Photo (the wider, the better.)");
+			$coverImage->setCanPreviewFolder(false);
+			if ($this->PendingCoverImage()->ID !== 0) { $coverImage  = $coverImage->performReadonlyTransformation(); }	
+
+			$profileImage = new UploadField("PendingProfileImage", "Choose your Profile Photo");
+			$profileImage->setCanPreviewFolder(false);
+            if ($this->PendingProfileImage()->ID !== 0) { $profileImage = $profileImage->performReadonlyTransformation();	}			
 
 			$tagsLabel = '<p>Read the <a href="for-tutors/">For Tutors page</a> to learn more about tags and promoting yourself on Tutor Iowa!</p>';
 			$changePassLabel = '<p><a href="Security/ChangePassword" class="button small radius">Reset your password</a></p>';
 			$fields = new FieldList(
+				$coverImage,
+				$profileImage,
 				new TextField('FirstName', '<span>*</span> First Name'),
 				new TextField('Surname', '<span>*</span> Last Name'),
 				new EmailField('Email', '<span>*</span> Email Address'),
@@ -288,10 +302,8 @@ class TutorPage_Controller extends Page_Controller {
 			
 			$saveAction = new FormAction('SaveProfile', 'Save');
 			$saveAction->addExtraClass('radius');
-
-			$actions = new FieldList(
-				$saveAction
-			);
+			
+			$actions = new FieldList( $saveAction );
 
 			$validator = new RequiredFields('FirstName', 'Surname', 'Email');
 
@@ -326,7 +338,116 @@ class TutorPage_Controller extends Page_Controller {
 	}
 
 	//Save profile
-	function SaveProfile($data, $form) {	
+	public function SaveProfile($data, $form) {	
+		/* Meant to check and ensure email is duplicated with another in the DB. Can be refactored :D
+		$email = Convert::raw2sql($data['Email']);
+		if ($member = DataObject::get_one("Member", "Email = '" . Convert::raw2sql($data['Email']) . "' AND ID != " . $CurrentMember->ID)) {
+			$form->addErrorMessage("Email", 'Sorry, an account with that Email address already exists', "bad");
+			Session::set("FormInfo.Form_EditProfileForm.data", $data);
+			return $this->redirect($this->Link());
+		}
+		*/
+			$Member = Member::CurrentUser();
+			$MemberID = $Member->ID;
+
+			$Tutor = TutorPage::get()->filter(array('MemberID' => $MemberID))->first();
+
+			/*Preserve this code, for it works the magic of SilverStripe 3 publishing
+			Versioned::reading_stage('stage');
+			$Tutor->writeToStage('Stage');
+			$Tutor->publish("Stage", "Live");
+			Versioned::reading_stage('Live');
+			$Tutor->write();
+            */
+			// Save into the member dataobject.
+			$memberFieldList = array(
+				"FirstName",
+				"Surname",
+				"Email",
+			);
+			$form->saveInto($Tutor);
+			$form->saveInto($Member, $memberFieldList);
+			
+			$Tutor->PendingCoverImage()->setField("Status", "Pending");
+            $Tutor->PendingProfileImage()->setField("Status", "Pending");
+
+			$Tutor->write();
+			$Member->write();
+
+			$formData = $form->getData();
+			$formDisabled = $formData['Disable'];
+
+			if ($formDisabled) {
+				//If user checked disable page box
+
+				if ($DisablePage = DisablePage::get()->First()) //$DisablePage = DataObject::get_one('DisablePage'))
+				{
+
+					$parameter = '?ID=' . $Tutor->ID;
+
+					return $this->redirect($DisablePage->Link($parameter));
+				}
+
+			}
+			$ID = 92;
+			$test = TutorPage::get()->byID($ID);
+		
+			return $this->redirectBack();
+			
+			// Use below snipped to deny logged-out users
+			// return Security::PermissionFailure($this->controller, 'You must <a href="register">registered</a> and logged in to edit your profile:');
+
+
+	}
+	
+	public function EditProfileCoverForm() {
+		$Member = Member::CurrentUser();
+
+		if ($Member) {
+			$MemberID = $Member->ID;
+
+
+			$fields = new FieldList(
+
+				new HiddenField("CoverImagePosition")
+			);
+			
+			$saveAction = new FormAction('SaveProfile', 'Save Profile Photo');
+			$saveAction->addExtraClass('radius');
+
+			$actions = new FieldList(
+				$saveAction
+			);
+
+			$validator = new RequiredFields('BackgroundImage');
+
+			//Create form
+			$Form = new FoundationForm($this, 'EditProfileCoverForm', $fields, $actions, $validator);
+			
+			//Information must be loaded from both tutor and member because member stores a member/tutor's password
+			$Form->loadDataFrom($this->data());
+
+			///$Check if user is published yet
+			/*
+			if ($this instanceof TutorPage) {
+				//Tutor is published
+				$Form->loadDataFrom($Tutor->data());
+			} else {
+				//Not published (disabled and unapproved users).  The enable function is at at the bottom and handles sending the emails
+
+				return 'You must be confirmed as a user by our administrator to edit your profile.  If you have disabled your account, please click <a href="' . Director::baseURL() . $this->URLSegment . '?enable=1' . '">here</a> to have your account re-enabled.';
+			}
+			*/
+
+			//Return the form
+			return $Form;
+		} else {
+			$message = "<a href='Security/login'>You must be logged in to edit your profile. </a>  If you do not have an account,  <a href='registration-page'>register here.</a>";
+			return $message;
+		}
+	}
+	
+	private function SaveCoverImage($data, $form) {	
 		/* Meant to check and ensure email is duplicated with another in the DB. Can be refactored :D
 		$email = Convert::raw2sql($data['Email']);
 		if ($member = DataObject::get_one("Member", "Email = '" . Convert::raw2sql($data['Email']) . "' AND ID != " . $CurrentMember->ID)) {
@@ -383,99 +504,6 @@ class TutorPage_Controller extends Page_Controller {
 
 
 	}
+
 	
-	function EditProfileCoverForm() {
-		$Member = Member::CurrentUser();
-
-		if ($Member) {
-			$MemberID = $Member->ID;
-
-
-			$fields = new FieldList(
-				new UploadField("BackgroundImage", "Choose a background image (the wider, the better.)")
-			);
-			
-			$saveAction = new FormAction('SaveProfile', 'Save Profile Photo');
-			$saveAction->addExtraClass('radius');
-
-			$actions = new FieldList(
-				$saveAction
-			);
-
-			$validator = new RequiredFields('BackgroundImage');
-
-			//Create form
-			$Form = new FoundationForm($this, 'EditProfileCoverForm', $fields, $actions, $validator);
-			
-			//Information must be loaded from both tutor and member because member stores a member/tutor's password
-			$Form->loadDataFrom($this->data());
-
-			///$Check if user is published yet
-			/*
-			if ($this instanceof TutorPage) {
-				//Tutor is published
-				$Form->loadDataFrom($Tutor->data());
-			} else {
-				//Not published (disabled and unapproved users).  The enable function is at at the bottom and handles sending the emails
-
-				return 'You must be confirmed as a user by our administrator to edit your profile.  If you have disabled your account, please click <a href="' . Director::baseURL() . $this->URLSegment . '?enable=1' . '">here</a> to have your account re-enabled.';
-			}
-			*/
-
-			//Return the form
-			return $Form;
-		} else {
-			$message = "<a href='Security/login'>You must be logged in to edit your profile. </a>  If you do not have an account,  <a href='registration-page'>register here.</a>";
-			return $message;
-		}
-	}
-	
-function EditProfileImageForm() {
-		$Member = Member::CurrentUser();
-
-		if ($Member) {
-			$MemberID = $Member->ID;
-
-
-			$fields = new FieldList(
-				new UploadField("Image", "Choose your Profile Photo")
-			);
-			
-			$saveAction = new FormAction('SaveProfile', 'Save Cover Photo');
-			$saveAction->addExtraClass('radius tiny ');
-
-			$actions = new FieldList(
-				$saveAction
-			);
-
-			$validator = new RequiredFields('Image');
-
-			//Create form
-			$Form = new FoundationForm($this, 'EditProfileImageForm', $fields, $actions, $validator);
-			
-			//Information must be loaded from both tutor and member because member stores a member/tutor's password
-			$Form->loadDataFrom($this->data());
-
-			///$Check if user is published yet
-			/*
-			if ($this instanceof TutorPage) {
-				//Tutor is published
-				$Form->loadDataFrom($Tutor->data());
-			} else {
-				//Not published (disabled and unapproved users).  The enable function is at at the bottom and handles sending the emails
-
-				return 'You must be confirmed as a user by our administrator to edit your profile.  If you have disabled your account, please click <a href="' . Director::baseURL() . $this->URLSegment . '?enable=1' . '">here</a> to have your account re-enabled.';
-			}
-			*/
-
-			//Return the form
-			return $Form;
-		} else {
-			$message = "<a href='Security/login'>You must be logged in to edit your profile. </a>  If you do not have an account,  <a href='registration-page'>register here.</a>";
-			return $message;
-		}
-	}
-
-
-
 }

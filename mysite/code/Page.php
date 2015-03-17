@@ -5,7 +5,7 @@ class Page extends SiteTree {
 
 	private static $has_one = array(
 		"Image" => "Image",
-		"BackgroundImage" => "Image",
+		"BackgroundImage" => "Image"
 	);
 
 	private static $defaults = array('ProvideComments' => '1');

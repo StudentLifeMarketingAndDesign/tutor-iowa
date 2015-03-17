@@ -23,7 +23,9 @@ class Inbox_Controller extends Page_Controller {
 		'unread',
 		'unreadCount',
 		'nextPage',
-		'markAsDeleted'
+		'markAsDeleted',
+		'pendingForApproval' => 'ADMIN',
+		'processPendingImage' => 'ADMIN'
 		//only allow replyform if the user is logged in
 	);
 
@@ -33,17 +35,16 @@ class Inbox_Controller extends Page_Controller {
        'unread' => 'unread',
        'unreadCount' => 'unreadCount',
        'nextPage' => 'nextPage',
-       'markAsDeleted' => 'markAsDeleted'
+       'markAsDeleted' => 'markAsDeleted',
+       'process' => 'processPendingImage'
     );
     
 	public function init() {
-		parent::init();
-		
+		parent::init();	
 	}
 	
 	public function index(){
 		$member = Member::currentUser();
-		
 		if (isset($member)) {
 			return $this->renderWith(array('Inbox', 'Page'));
 		} else {		
@@ -53,7 +54,7 @@ class Inbox_Controller extends Page_Controller {
 	}
 	
 	public function paginatedMessages() {
-		$member = Member::CurrentUser(); 
+		$member = Member::currentUser();
 		$list = $member->Messages()->where("MarkAsDeleted IS NULL")->sort('Created DESC');;
 		$pl = new PaginatedList($list, $this->request);
 		$pl->setPageLength(5);
@@ -67,8 +68,9 @@ class Inbox_Controller extends Page_Controller {
 	}
 	
 	public function unread() {
+		$member = Member::currentUser();
 		//returns all unread messages as rendered html to slap into the inbox
-		$unreadMessageList = DataObject::get("Message", "ReadDateTime IS NULL AND RecipientID =" . Member::currentUserID(), "Created DESC");
+		$unreadMessageList = DataObject::get("Message", "ReadDateTime IS NULL AND RecipientID =" . $member->ID, "Created DESC");
 		
 		$Data = array (
 			'unreadMessages' => $unreadMessageList
@@ -85,7 +87,6 @@ class Inbox_Controller extends Page_Controller {
 	}
 
 	public function markAsRead(SS_HTTPRequest $r) {
-
 		if ($r->isAjax() && $r->isPOST() && $markedMessage = $this->markedMessage($r)) {
 			$markedMessage->ReadDateTime = time();
 			$markedMessage->write();
@@ -103,8 +104,8 @@ class Inbox_Controller extends Page_Controller {
 	}
 	
 	public function markedMessage($r) {
-		
-		$currentUserID = Member::currentUserID();
+		$member = Member::currentUser();
+		$currentUserID = $member->ID;
 			
 		$data = $r->postVars();
 		$memberID = (int)$data['MemberID'];
@@ -142,4 +143,40 @@ class Inbox_Controller extends Page_Controller {
 		$linkText = $linkPage->Link() . '?TutorID=' . $tutorID;
 		return $linkText;
 	}  
+	
+	public function pendingProfileImages() {
+		$pending = ProfileImage::get()->filter(array('Status' => 'Pending'));
+		return $pending;
+		
+	}
+	
+	public function pendingCoverImages() {
+        $pending = CoverImage::get()->filter(array('Status' => 'Pending'));
+		return $pending;
+	}
+	
+	public function processPendingImage() {
+    	if ($r->isAjax() && $r->isPOST()) {			
+            $member = Member::currentUser();
+    		$currentUserID = $member->ID;	
+    		$data = $r->postVars();
+    		$imageID = (int)$data['ImageID'];
+    		// 1 = approve, 2 = disapprove
+    		$processID = (int)$data['ProcessID'];
+    		if ($processID === 2) {
+        		$disapproveMessage = $data['disapproveMessage'];
+    		}
+    			
+    		if ($memberID == $currentUserID) {
+    			$markedMessage = Message::get()->byID($messageID);
+    			return $markedMessage;
+            }
+
+		} else {
+			$data = "improper";
+		}		
+		$this->response->addHeader("Content-Type", "application/json");
+		return Convert::raw2json($data);
+	}
+	
 }

@@ -3,7 +3,11 @@
 		
 		<div class="row" data-equalizer>
 			<div class="page-bg">
-            	<img id="profile-cover-photo" src="http://lorempixel.com/1240/600/"> </img>
+				<% if $CoverImage %>
+			    	<img id="profile-cover-photo" src="$CoverImage.Link" />
+				<% else %>
+			    	<img id="profile-cover-photo" src="http://lorempixel.com/1240/600/" />
+			    <% end_if %>
 			</div>
 			<div class="large-8 columns content" data-equalizer-watch>
 
@@ -30,8 +34,8 @@
 						<div class="medium-3 small-3 columns">
 
 							<div class="profile-image">
-								<% if $Image %>
-									<img src="http://lorempixel.com/500/500/" />
+								<% if $ProfileImage %>
+									$ProfileImage
 								<% else %>
 									<img src="{$ThemeDir}/images/stain.png" />
 								<% end_if %>
