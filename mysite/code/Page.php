@@ -16,6 +16,26 @@ class Page extends SiteTree {
 		$fields->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "BackgroundImage"));
 		return $fields;
 	}
+	public function Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = false) {
+		return parent::Breadcrumbs(20, false, false, true);
+	}
+
+	public function SplitKeywords() {
+		$keywords = $this->Tags;
+		if ($keywords) {
+			$splitKeywords = explode(',', $keywords);
+		}
+
+		if (isset($splitKeywords)) {
+			$keywordsList = new ArrayList();
+			foreach ($splitKeywords as $data) {
+				$do = new DataObject();
+				$do->Keyword = $data;
+				$keywordsList->push($do);
+			}
+			return $keywordsList;
+		}
+	}
 }
 
 class Page_Controller extends ContentController {
@@ -37,7 +57,6 @@ class Page_Controller extends ContentController {
 	 */
 	private static $allowed_actions = array('logout');
 
-	
 	public function currentMemberPage() {
 		$currentMember = Member::currentUser();
 
@@ -188,125 +207,121 @@ class Page_Controller extends ContentController {
 	}
 	public function getTagsCollection() {
 
-				$entries = SiteTree::get();
-				//$entries = SiteTree::get()->filter(array("ClassName" => "TutorPage", "ClassName" => "HelpLab"));
-				// Extract all tags from each entry
-				$tagCounts = array(); // Mapping of tag => frequency
+		$entries = SiteTree::get();
+		//$entries = SiteTree::get()->filter(array("ClassName" => "TutorPage", "ClassName" => "HelpLab"));
+		// Extract all tags from each entry
+		$tagCounts = array(); // Mapping of tag => frequency
 
-				foreach($entries as $entry) {
-					$theseTags = $entry->SplitKeywords();
-					foreach($theseTags as $tag => $tagLabel) {
-						$tagLabels[$tag] = $tagLabel;
-						//getting the count into key => value map
-						$tagCounts[$tag] = isset($tagCounts[$tag]) ? $tagCounts[$tag] + 1 : 1;
-					}
-				}
-
-				if(empty($tagCounts)) return null;
-				$minCount = min($tagCounts);
-				$maxCount = max($tagCounts);
-				
-				
-				// Apply sorting mechanism
-				// if($this->Sortby == "alphabet") {
-				// 	// Sort by name
-				// 	ksort($tagCounts);
-				// } else {
-				// 	 // Sort by frequency
-				// 	uasort($tagCounts, function($a, $b) {
-				// 		return $b - $a;
-				// 	});
-				// }
-
-			 	uasort($tagCounts, function($a, $b) {
-			 		return $b - $a;
-			 	});
-				
-				// Apply limiting
-				if($this->Limit > 0) $tagCounts = array_slice($tagCounts, 0, $this->Limit, true);
-				// Calculate buckets of popularities
-				$numsizes = count(array_unique($tagCounts)); //Work out the number of different sizes
-				$popularities = self::config()->popularities;
-				$buckets = count($popularities);
-				// If there are more frequencies than buckets, divide frequencies into buckets
-				if ($numsizes > $buckets) $numsizes = $buckets;
-				
-				// Adjust offset to use central buckets (if using a subset of available buckets)
-				$offset = round(($buckets - $numsizes)/2);
-				$output = new ArrayList();
-				foreach($tagCounts as $tag => $count) {
-					
-					// Find position of $count in the selected range, adjusted for bucket range used
-					if($maxCount == $minCount) {
-						$popularity = $offset;
-					} else {
-						$popularity = round(
-							($count-$minCount) / ($maxCount-$minCount) * ($numsizes-1)
-						) + $offset;
-					}
-					$class = $popularities[$popularity];
-
-
-					$output->push(new ArrayData(array(
-						"Title" => $tagLabels[$tag],
-						"Count" => $count,
-						"Class" => $class,
-						//"Link" => Controller::join_links($container->Link('tag'), urlencode($tag))
-					)));
-				}
-
-
-
-
-				// $output is now a sorted ArrayList full of tags.
-
-				//The following will grab 5 unpopular tags and shuffle them into the top 20 popular ones
-			
-				$unPoptags = new ArrayList(); 
-				$collection = $output->toArray();
-
-				
-
-				foreach ($collection as $tag) {
-					
-					$tag = $tag->toMap();
-					
-					if($tag['Count'] <= $minCount + 4){
-						$unPoptags->add($tag);
-												
-					}
-				}
-				
-				$unPoptags = $unPoptags->toArray();
-	
-				$unPopKeys = array_rand($unPoptags,5);
-
-				foreach($unPopKeys as $key){
-					$unPopTagsFiltered[] = $unPoptags[$key];
-				}
-
-
-				$finalTagCollection = $unPopTagsFiltered;
-
-				
-
-				$i = 0;
-
-				foreach ($collection as $tag) {
-					$tag = $tag->toMap();
-					array_push($finalTagCollection, $tag);
-					if (++$i > 20) {
-						break;
-					}
-				}
-				
-				shuffle($finalTagCollection);
-				$finalOutput = new ArrayList($finalTagCollection);
-
-				     
-				return $finalOutput;
+		foreach ($entries as $entry) {
+			$theseTags = $entry->SplitKeywords();
+			foreach ($theseTags as $tag => $tagLabel) {
+				$tagLabels[$tag] = $tagLabel;
+				//getting the count into key => value map
+				$tagCounts[$tag] = isset($tagCounts[$tag]) ? $tagCounts[$tag] + 1 : 1;
+			}
 		}
-	
+
+		if (empty($tagCounts)) {
+			return null;
+		}
+
+		$minCount = min($tagCounts);
+		$maxCount = max($tagCounts);
+
+		// Apply sorting mechanism
+		// if($this->Sortby == "alphabet") {
+		// 	// Sort by name
+		// 	ksort($tagCounts);
+		// } else {
+		// 	 // Sort by frequency
+		// 	uasort($tagCounts, function($a, $b) {
+		// 		return $b - $a;
+		// 	});
+		// }
+
+		uasort($tagCounts, function ($a, $b) {
+			return $b - $a;
+		});
+
+		// Apply limiting
+		if ($this->Limit > 0) {
+			$tagCounts = array_slice($tagCounts, 0, $this->Limit, true);
+		}
+
+		// Calculate buckets of popularities
+		$numsizes = count(array_unique($tagCounts)); //Work out the number of different sizes
+		$popularities = self::config()->popularities;
+		$buckets = count($popularities);
+		// If there are more frequencies than buckets, divide frequencies into buckets
+		if ($numsizes > $buckets) {
+			$numsizes = $buckets;
+		}
+
+		// Adjust offset to use central buckets (if using a subset of available buckets)
+		$offset = round(($buckets - $numsizes) / 2);
+		$output = new ArrayList();
+		foreach ($tagCounts as $tag => $count) {
+
+			// Find position of $count in the selected range, adjusted for bucket range used
+			if ($maxCount == $minCount) {
+				$popularity = $offset;
+			} else {
+				$popularity = round(
+					($count - $minCount) / ($maxCount - $minCount) * ($numsizes - 1)
+				) + $offset;
+			}
+			$class = $popularities[$popularity];
+
+			$output->push(new ArrayData(array(
+				"Title" => $tagLabels[$tag],
+				"Count" => $count,
+				"Class" => $class,
+				//"Link" => Controller::join_links($container->Link('tag'), urlencode($tag))
+			)));
+		}
+
+		// $output is now a sorted ArrayList full of tags.
+
+		//The following will grab 5 unpopular tags and shuffle them into the top 20 popular ones
+
+		$unPoptags = new ArrayList();
+		$collection = $output->toArray();
+
+		foreach ($collection as $tag) {
+
+			$tag = $tag->toMap();
+
+			if ($tag['Count'] <= $minCount + 4) {
+				$unPoptags->add($tag);
+
+			}
+		}
+
+		$unPoptags = $unPoptags->toArray();
+
+		$unPopKeys = array_rand($unPoptags, 5);
+
+		foreach ($unPopKeys as $key) {
+			$unPopTagsFiltered[] = $unPoptags[$key];
+		}
+
+		$finalTagCollection = $unPopTagsFiltered;
+
+		$i = 0;
+
+		foreach ($collection as $tag) {
+			$tag = $tag->toMap();
+			array_push($finalTagCollection, $tag);
+			if (++$i > 20) {
+				break;
+			}
+		}
+
+		shuffle($finalTagCollection);
+		$finalOutput = new ArrayList($finalTagCollection);
+
+		return $finalOutput;
+	}
 
 	//I want logout to redirect to the home page
 

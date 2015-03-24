@@ -4,7 +4,15 @@
 			<div class="large-8 columns">
 				<div class="white-cover"></div>
 				<div class="row">
-					<article class="large-12 columns">
+					<article class="large-12 columns" >
+						$Breadcrumbs
+						<% if $Saved %>
+						<div data-alert class="alert-box success">
+						  Profile Saved.
+						  <a href="#" class="close">&times;</a>
+						</div>
+						<% end_if %>
+						$ClearSession
 						<h1>$Title</h1>
 						<p>Read the For Tutors page to learn more about tags and promoting yourself on Tutor Iowa!</p>
 						$Content
@@ -15,7 +23,7 @@
 			<div class="large-4 columns end">
 				<div class="side-nav">
 				<ul class="button-group stack">
-					<li><a href="$currentMemberPage.Link" target="_blank" class="button secondary radius">View Profile</a></li>
+					<li><a href="$currentMemberPage.Link" target="_blank" class="button radius">View Profile</a></li>
 				</ul>
 				</div>
 				<% include SideNav %>
