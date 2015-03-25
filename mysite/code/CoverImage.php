@@ -6,13 +6,14 @@ class CoverImage extends PendingImage {
     );
 
     private static $belongs_to = array(
-        'TutorPage' => 'TutorPage.PendingCoverImage'
+        
     );
     
     private static $summary_fields = array();
     private static $field_labels = array();
     
     protected function onBeforeWrite() {
-        parent::onBeforeWrite();	
+        // Status on PendingImage Class
+        parent::onBeforeWrite();
     }
 }

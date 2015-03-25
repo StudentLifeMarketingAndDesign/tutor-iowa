@@ -36,7 +36,7 @@ class Inbox_Controller extends Page_Controller {
        'unreadCount' => 'unreadCount',
        'nextPage' => 'nextPage',
        'markAsDeleted' => 'markAsDeleted',
-       'process' => 'processPendingImage'
+       'processImage' => 'processPendingImage'
     );
     
 	public function init() {
@@ -155,25 +155,28 @@ class Inbox_Controller extends Page_Controller {
 		return $pending;
 	}
 	
-	public function processPendingImage() {
+	public function processPendingImage(SS_HTTPRequest $r) {
     	if ($r->isAjax() && $r->isPOST()) {			
-            $member = Member::currentUser();
-    		$currentUserID = $member->ID;	
     		$data = $r->postVars();
-    		$imageID = (int)$data['ImageID'];
-    		// 1 = approve, 2 = disapprove
-    		$processID = (int)$data['ProcessID'];
-    		if ($processID === 2) {
-        		$disapproveMessage = $data['disapproveMessage'];
+    		$imageID = isset($data['ImageID']) ? (int)$data['ImageID'] : NULL;
+    		$processCode =  isset($data['ProcessCode']) ? (int)$data['ProcessCode'] : NULL;
+            $unapprovedMessage = isset($data['UnapprovedMessage']) ? $data['UnapprovedMessage'] : NULL;
+            
+            $pendingImage = PendingImage::get()->byID($imageID);
+            // 1 = approve, 2 = Unapproved
+    		if ($processCode === 1) {
+                $pendingImage->Status = "Approved";
+    		} else if ($processCode === 2) {
+                $pendingImage->Status = "Unapproved";
+                $pendingImage->UnapprovedMessage = $unapprovedMessage;
     		}
-    			
-    		if ($memberID == $currentUserID) {
-    			$markedMessage = Message::get()->byID($messageID);
-    			return $markedMessage;
-            }
-
+            $pendingImage->write();
+            $TP = TutorPage::get()->where("PendingCoverImageID OR PendingProfileImageID = " . $pendingImage->ID)->first();
+            $data["tp"] = $TP->ID;
+            $response = $TP->updatePendingImage($pendingImage, $processCode, $unapprovedMessage);  
+    		$data["response"] = $response;
 		} else {
-			$data = "improper";
+			$data["response"] = "improper";
 		}		
 		$this->response->addHeader("Content-Type", "application/json");
 		return Convert::raw2json($data);

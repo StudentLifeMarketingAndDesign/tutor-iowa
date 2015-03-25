@@ -16,8 +16,6 @@ class PendingImage extends Image {
     
     protected function onBeforeWrite() {
         parent::onBeforeWrite();
-        if (empty($this->pending)){
-        
-        }   	
+	
     }
 }

@@ -4,14 +4,10 @@
             <form $AttributesHTML>
         <% end_if %>
         <div class="row" data-equalizer>
-        				                $PendingCoverImage.ID
-
             <div class="page-bg ">
-            	<% if $PendingCoverImage %>
-			    	<img id="profile-cover-photo" src="$PendingCoverImage.Link" />
-				<% else_if $CoverImage %>
-			    	<img id="profile-cover-photo" src="$CoverImage.Link" />
-			    <% else %>
+                <% if $ApprovedCoverImage %>
+                    <img id="profile-cover-photo" src="$ApprovedCoverImage.Link" />
+                <% else %>
 			    	<img id="profile-cover-photo" src="http://lorempixel.com/1240/600/" />
 			    <% end_if %>
 
@@ -34,11 +30,8 @@
                         <div class="medium-4 small-2 columns">
             				
                             <div class="profile-image">
-                            	<% if $PendingProfileImage %>
-                                    $PendingProfileImage
-                                    <p> $PendingProfileImage.ID </p>
-                                <% else_if $ProfileImage %>
-                                   $ProfileImage
+                                <% if $approvedProfileImage %>
+                                    $approvedProfileImage
                                 <% else %>
                                     <img src="{$ThemeDir}/images/stain.png" />
                                 <% end_if %>
@@ -50,6 +43,9 @@
             </div>
             <div class="large-4 columns end" data-equalizer-watch>
                 <div class="side-nav">
+                    <% if $UnapprovedCoverImage %>
+                        <p>Sorry, your last photo wasn't approved: $UnapprovedCoverImage.UnapprovedMessage</p>
+                    <% end_if %>
 					<div class="update-cover-photo">$EditProfileCoverForm</div>
                     <% include RelatedResources %>
                     <% include SiteAdmin %>

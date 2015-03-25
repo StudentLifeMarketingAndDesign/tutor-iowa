@@ -1,4 +1,4 @@
-(function () {
+(function() {
 
     "use strict";
 
@@ -9,9 +9,10 @@
     $("#main-content .noUnread").hide(); // hiding with jQuery b/c the foundation '.hide' class sets visibility: invisible
     $("#unreadInbox").hide();
     var memberID = $("#memberInfo").data('id');
-    var markAsReadURL = $(location).attr('href') + "/markAsRead";
-    var markAsDeletedURL = $(location).attr('href') + "/markAsDeleted";
-    var unreadMessages;
+    var baseURL = $(location).attr('href');
+    var markAsReadURL = baseURL + "/markAsRead";
+    var markAsDeletedURL = baseURL + "/markAsDeleted";
+    var processImageURL = baseURL + "/processImage"
 
     /*
     * inbox navigation
@@ -21,7 +22,7 @@
 
         $.get( location.href + "/unread", {}, 
         function(data) {
-            unreadMessages = data;
+            var unreadMessages = data;
 
             $(".inbox-message").each(function () {
                 $(this).hide();
@@ -130,6 +131,8 @@
             message.addClass("read");
         } else if (action == "markAsDeleted") {
             message.remove();
+        } else if (action == "withdrawImage") {
+            console.log(message);
         }
         // dynamically reduce inbox count on header and topbar
         $.get( location.href + "/unreadCount", {}, function(data) {
@@ -150,6 +153,52 @@
         } 
     }
 
+ 
+    /*
+    * Image approval function
+    */
+
+    $(".processImage button").click(function () {
+        console.log('processing image');
+        var $pendingImage = $(this).closest(".pending-image");
+        var imageID = $pendingImage.data("imageid");
+        var processCode = $(this).data("process");
+        console.log(imageID, processCode);
+        
+        if (processCode !== 3 ) {
+            if (processCode == 2) {
+                var unapprovedMessage = $pendingImage.find(".reasonBox").val();
+                console.log(unapprovedMessage);
+            }
+            var processImage = $.post(
+                processImageURL,
+                {
+                    ProcessCode: processCode,
+                    ImageID: imageID,
+                    UnapprovedMessage: unapprovedMessage
+                }, 
+                function(data, textStatus, jqXHR) { 
+                    console.log(data);
+                    data = $.parseJSON(data);
+                    updateDOM(data.disapprovedMessage, "withdrawImage");
+                },
+                "json"
+            ).fail(function(data, status, error) {
+                console.log(error);
+                console.log(data);
+            });  
+        } else if (processCode == 3) {
+            console.log('not approved :(');
+            var element = document.createElement("textarea");
+            element.className += "reasonBox";
+            $pendingImage.append(element);
+            $(this).addClass("alert-confirm");
+            $(this).text("Confirm ");
+            $(this).data("process", 2);
+        }
+
+    });  
+
     function noUnreadMessages() {
         // determines if inbox has unread messages or nah
         var count = $(".inboxCount").data("unreadcount"); 
@@ -158,7 +207,6 @@
         } else {
             return false;
         }
-
     }
 
     function attachHandlers() {
@@ -184,8 +232,8 @@
     */
 
     $( document ).ready(function () {
-        markAsRead();
-        markAsDeleted();  
+        attachHandlers();  
     });
+   
 
 })();

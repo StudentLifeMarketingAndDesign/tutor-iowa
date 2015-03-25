@@ -6744,6 +6744,10 @@ body.SearchForm h2 {
       padding: 0 8px;
       margin-top: 0; }
 
+.alert-confirm {
+  background-color: #f04124;
+  border-color: #cf2a0e; }
+
 .card:hover h4 {
   color: #377EFF; }
 .card h4 {

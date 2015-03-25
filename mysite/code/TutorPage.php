@@ -28,17 +28,20 @@ class TutorPage extends Page {
 		'AcademicHelp' => 'AcademicHelp',
 		'HomePage' => 'HomePage',
 		'PendingCoverImage' => 'CoverImage',
-		'CoverImage' => 'CoverImage',
+		'ApprovedCoverImage' => 'CoverImage',
+		'UnapprovedCoverImage' => 'CoverImage',
 		'PendingProfileImage' => 'ProfileImage',
-		'ProfileImage' => 'ProfileImage'
+		'ApprovedProfileImage' => 'ProfileImage',
+		'UnapprovedProfileImage' => 'ProfileImage'
+
 	);
 
 	private static $has_many = array(
 		'FeedbackItems' => 'FeedbackItem'
-		
 	);
 
-	private static $defaults = array('ProvideComments' => '1',
+	private static $defaults = array(
+        'ProvideComments' => '1',
 		'UniversityID' => null,
 		'GPA' => null
 	);
@@ -52,6 +55,30 @@ class TutorPage extends Page {
 		'Email' => 'Email',
 		'Status' => 'Status'
 	);
+	
+	public function updatePendingImage($image, $processCode, $message) {
+    	$imgClass = $image->class;
+        if (($imgClass) == "CoverImage") {       
+            if ($processCode === 1) {
+                $this->ApprovedCoverImageID = $image->ID;
+                $this->UnapprovedCoverImageID = 0;
+            } else if ($processCode === 2) {
+                $this->UnapprovedCoverImageID = $image->ID;
+            }
+            $this->PendingCoverImageID = 0; // reset the pending cover image relation
+        } else if (($imgClass) == "ProfileImage") {
+            if ($processCode === 1) {
+                $this->ApprovedProfileImageID = $image->ID;
+                $this->UnapprovedProfileImageID = 0;
+            } else if ($processCode === 2) {
+                $this->UnapprovedProfileImageID = $image->ID;
+            }
+            $this->PendingProfileImageID = 0; //reset the pending profile image relation       
+        }    
+        $this->write();
+        $response = array($image->ID, $processCode, $this->ApprovedProfileImageID, $this->PendingProfileImageID, $this->UnapprovedProfileImageID, $this->Title);   
+        return $response;
+	}
 
 	//Add form fields to CMS
 	public function getCMSFields() {
@@ -264,21 +291,39 @@ class TutorPage_Controller extends Page_Controller {
 			$MemberID = $Member->ID;
 			$tagField = new TagField('Tags', 'Tags');
 			$tagField->setTagTopicClass("SiteTree");
-					
-					
-			$coverImage = new UploadField("PendingCoverImage", "Choose a Cover Photo (the wider, the better.)");
+				
+            /*
+            $coverImage = ($a = $this->approvedCoverImage()) ? $a : NULL;
+			if ($coverImage) { $coverImage = $this->CoverImages()->exclude('ID', $coverImage->ID); }
+			*/
+            //
+			/*
+			$coverImage = new UploadField("CoverImages", "Choose a Cover Photo (the wider, the better.)" );
 			$coverImage->setCanPreviewFolder(false);
-			if ($this->PendingCoverImage()->ID !== 0) { $coverImage  = $coverImage->performReadonlyTransformation(); }	
+			$coverImage->setAllowedFileCategories('image');
+			$coverImage->setAllowedMaxFileNumber(1);
+			$coverImage->setValue(NULL, $this->approvedProfileImage());
+			if ($this->pendingCoverImage()) { $coverImage = $coverImage->performReadonlyTransformation(); }	
 
-			$profileImage = new UploadField("PendingProfileImage", "Choose your Profile Photo");
+			$profileImage = new UploadField("ProfileImages", "Choose your Profile Photo");
 			$profileImage->setCanPreviewFolder(false);
-            if ($this->PendingProfileImage()->ID !== 0) { $profileImage = $profileImage->performReadonlyTransformation();	}			
+            $profileImage->setAllowedFileCategories('image');
+			$profileImage->setAllowedMaxFileNumber(1);
+            if ($this->pendingProfileImage()) { $profileImage = $profileImage->performReadonlyTransformation();	}	
+            */
+            $pendingCoverImage = new UploadField("PendingCoverImage", "Upload a new Cover Photo. (The wider, the better!)");
+            $pendingCoverImage->setCanPreviewFolder(false);
+            $pendingCoverImage->setAllowedFileCategories('image');
+            
+            $pendingProfileImage = new UploadField("PendingProfileImage", "Choose your Profile Photo");
+			$pendingProfileImage->setCanPreviewFolder(false);
+			$pendingProfileImage->setAllowedFileCategories('image');
 
 			$tagsLabel = '<p>Read the <a href="for-tutors/">For Tutors page</a> to learn more about tags and promoting yourself on Tutor Iowa!</p>';
 			$changePassLabel = '<p><a href="Security/ChangePassword" class="button small radius">Reset your password</a></p>';
 			$fields = new FieldList(
-				$coverImage,
-				$profileImage,
+				$pendingCoverImage,
+				$pendingProfileImage,
 				new TextField('FirstName', '<span>*</span> First Name'),
 				new TextField('Surname', '<span>*</span> Last Name'),
 				new EmailField('Email', '<span>*</span> Email Address'),
@@ -300,6 +345,17 @@ class TutorPage_Controller extends Page_Controller {
 				new CheckboxField('Disable', 'Request to disable your page (will no longer be returned as a search result on TutorIowa)')
 			);
 			
+			if ($this->UnapprovedCoverImage()->exists()) {
+    			$message = "Sorry, your last uploaded cover image was not approved." . $this->UnapprovedCoverImage()->UnapprovedMessage;
+    			$unapprovedCoverLabel = new LabelField("UnapprovedCoverImageMessage", $message);
+    			$fields->insertAfter($unapprovedCoverLabel, "PendingCoverImage");
+			}
+            if ($this->UnapprovedProfileImage()->exists()) {
+    			$message = "Sorry, your last uploaded profile image was not approved. " . $this->UnapprovedProfileImage()->UnapprovedMessage . " Upload a new image";
+    			$unapprovedProfileLabel = new LabelField("UnapprovedCoverImageMessage", $message);
+    			$fields->insertAfter($unapprovedProfileLabel, "PendingProfileImage");
+			}
+						
 			$saveAction = new FormAction('SaveProfile', 'Save');
 			$saveAction->addExtraClass('radius');
 			
@@ -368,8 +424,8 @@ class TutorPage_Controller extends Page_Controller {
 			$form->saveInto($Tutor);
 			$form->saveInto($Member, $memberFieldList);
 			
-			$Tutor->PendingCoverImage()->setField("Status", "Pending");
-            $Tutor->PendingProfileImage()->setField("Status", "Pending");
+			//$Tutor->CoverImage()->filter("Status", "setField("Status", "Pending");
+            //$Tutor->ProfileImage()->setField("Status", "Pending");
 
 			$Tutor->write();
 			$Member->write();

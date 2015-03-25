@@ -3,9 +3,9 @@
 		
 		<div class="row" data-equalizer>
 			<div class="page-bg">
-				<% if $CoverImage %>
-			    	<img id="profile-cover-photo" src="$CoverImage.Link" />
-				<% else %>
+			    <% if $approvedCoverImage %>
+                    <img id="profile-cover-photo" src="$approvedCoverImage.Link" />
+                <% else %>
 			    	<img id="profile-cover-photo" src="http://lorempixel.com/1240/600/" />
 			    <% end_if %>
 			</div>
@@ -34,11 +34,11 @@
 						<div class="medium-3 small-3 columns">
 
 							<div class="profile-image">
-								<% if $ProfileImage %>
-									$ProfileImage
-								<% else %>
-									<img src="{$ThemeDir}/images/stain.png" />
-								<% end_if %>
+                                <% if $approvedProfileImage %>
+                                    $approvedProfileImage
+                                <% else %>
+                                    <img src="{$ThemeDir}/images/stain.png" />
+                                <% end_if %>
 							</div>
 						</div>
 					</div>

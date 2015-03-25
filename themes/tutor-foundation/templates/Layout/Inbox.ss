@@ -59,29 +59,13 @@
 								<h3>Pending Profile Image </h3>
 								<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
 									<% loop $pendingProfileImages %>
-									<li>
-										$SetWidth(444)
-										<a href="$TutorPage.Link">$ID $TutorPage.FirstName $TutorPage.Surname </a>
-										<ul class="button-group">
-											<li><button class="approveImage tiny success">Approve</button></li>
-											<li><button class="unapproveImage tiny alert">Disapprove</button></li>
-										</ul>
-									</li>
+										<% include PendingImageCard %>
 									<% end_loop %>
 								</ul>
 								<h3>Pending Cover Images </h3>
 								<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
 									<% loop $pendingCoverImages %>
-									<li>
-										$SetWidth(444)
-										<a href="$TutorPage.Link">$ID $TutorPage.FirstName $TutorPage.Surname </a>
-										<a href="$TutorPage.Link">$FirstName $Surname</a>
-										
-										<ul class="button-group">
-											<li><button class="approveImage tiny success">Approve</button></li>
-											<li><button class="unapproveImage tiny alert">Disapprove</button></li>
-										</ul>
-									</li>
+										<% include PendingImageCard %>
 									<% end_loop %>
 								</ul>
 							<% end_if %>
