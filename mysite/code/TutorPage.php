@@ -313,10 +313,12 @@ class TutorPage_Controller extends Page_Controller {
             */
             $pendingCoverImage = new UploadField("PendingCoverImage", "Upload a new Cover Photo. (The wider, the better!)");
             $pendingCoverImage->setCanPreviewFolder(false);
+            $pendingCoverImage->setOverwriteWarning(false);
             $pendingCoverImage->setAllowedFileCategories('image');
             
             $pendingProfileImage = new UploadField("PendingProfileImage", "Choose your Profile Photo");
 			$pendingProfileImage->setCanPreviewFolder(false);
+            $pendingCoverImage->setOverwriteWarning(false);
 			$pendingProfileImage->setAllowedFileCategories('image');
 
 			$tagsLabel = '<p>Read the <a href="for-tutors/">For Tutors page</a> to learn more about tags and promoting yourself on Tutor Iowa!</p>';
@@ -445,8 +447,8 @@ class TutorPage_Controller extends Page_Controller {
 				}
 
 			}
-			$ID = 92;
-			$test = TutorPage::get()->byID($ID);
+			
+			
 		
 			return $this->redirectBack();
 			

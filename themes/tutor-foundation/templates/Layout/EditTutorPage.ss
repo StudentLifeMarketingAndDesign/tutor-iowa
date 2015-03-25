@@ -4,13 +4,13 @@
             <form $AttributesHTML>
         <% end_if %>
         <div class="row" data-equalizer>
-            <div class="page-bg ">
                 <% if $ApprovedCoverImage %>
-                    <img id="profile-cover-photo" src="$ApprovedCoverImage.Link" />
+                    <div class="page-bg" style="background-image: url('$ApprovedCoverImage.Link');">
+                    <%-- <img id="profile-cover-photo" src="$ApprovedCoverImage.Link" /> --%>
                 <% else %>
+                    <div class="page-bg">
 			    	<img id="profile-cover-photo" src="http://lorempixel.com/1240/600/" />
 			    <% end_if %>
-
             </div>
             	<%-- <div class="update-cover-photo">$EditProfileCoverForm</div> --%>
             <div class="large-8 columns content" data-equalizer-watch>
@@ -31,7 +31,8 @@
             				
                             <div class="profile-image">
                                 <% if $approvedProfileImage %>
-                                    $approvedProfileImage
+                                    <div style="margin-bottom: 10px;">$approvedProfileImage</div>
+                                    <button class="tiny round" id="removeProfilePhoto">Remove Profile Image</button>
                                 <% else %>
                                     <img src="{$ThemeDir}/images/stain.png" />
                                 <% end_if %>
@@ -43,10 +44,10 @@
             </div>
             <div class="large-4 columns end" data-equalizer-watch>
                 <div class="side-nav">
-                    <% if $UnapprovedCoverImage %>
-                        <p>Sorry, your last photo wasn't approved: $UnapprovedCoverImage.UnapprovedMessage</p>
-                    <% end_if %>
-					<div class="update-cover-photo">$EditProfileCoverForm</div>
+                    <ul class="button-group">
+                        <li><button id="removeCoverPhoto" class="small radius alert">Remove Cover Photo</button></li>
+                        <li><button id="repositionCoverPhoto" class="small radius secondary">Reposition Cover Photo</button></li>
+                    </ul>
                     <% include RelatedResources %>
                     <% include SiteAdmin %>
                 </div>

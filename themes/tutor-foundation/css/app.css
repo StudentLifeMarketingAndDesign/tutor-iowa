@@ -7698,9 +7698,12 @@ a.dosl, p.adr {
   min-height: 400px; }
 
 .page-bg {
+  min-height: 300px;
   max-height: 300px;
   overflow: hidden;
   background-color: #eee;
+  background-size: 100% auto;
+  background-position-y: -40px;
   position: relative; }
   @media only screen and (min-width:64.063em) {
     .page-bg {

@@ -177,9 +177,23 @@ class Inbox_Controller extends Page_Controller {
     		$data["response"] = $response;
 		} else {
 			$data["response"] = "improper";
-		}		
+		}
+		$sent = $this->sendPendingImageEmail($TP, $pendingImage);	
+		$data["sent"] = $sent;	
 		$this->response->addHeader("Content-Type", "application/json");
 		return Convert::raw2json($data);
+	}
+	
+	public function sendPendingImageEmail($Tutor, $processedImage) {
+    	$notice = ($processedImage->Status == "Approved") ? "Approved, thanks for using Tutor Iowa!" : "Not been approved, you can try uploading a new one now though."; 
+    	$body = "Hi! The image you uploaded to your Profile at Tutor Iowa has been " . $notice . "Please don't reply to this email.";
+    		
+        $email = new Email(); 
+        $email->setTo($Tutor->Email); 
+        $email->setFrom("TutorIowa"); 
+        $email->setSubject("Tutor Iowa Profile Image Processed"); 
+        $email->setBody($body); 
+        return $email->send(); // returns boolean
 	}
 	
 }

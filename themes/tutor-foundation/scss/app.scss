@@ -60,11 +60,13 @@
 
 
 .page-bg{
-	//min-height: 300px;
+	min-height: 300px;
 	max-height: 300px;
 	overflow: hidden;
 	//background-image: url('http://lorempixel.com/1240/600/');
 	background-color: #eee;
+	background-size: 100% auto;
+	background-position-y: -40px;
 	position: relative;
 
 	@media #{$large-up} {
