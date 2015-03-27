@@ -14,18 +14,8 @@
 
 <div class="row main-content">
 	<div class="large-8 columns">
-<<<<<<< HEAD
-<<<<<<< HEAD
-		<ul class="tutor-card-list">
-			<% loop ChildrenOf("private-tutors").Limit(8) %>
-=======
 		<ul class="tutor-card-list large">
 			<% loop featuredTutorPages.Limit(8) %>
->>>>>>> 2.0
-=======
-		<ul class="tutor-card-list large">
-			<% loop featuredTutorPages.Limit(8) %>
->>>>>>> 2.0
 				<% include TutorCard %>
 			<% end_loop %>
 		</ul>
@@ -43,4 +33,3 @@
 
 	</div>
 </div>
-
