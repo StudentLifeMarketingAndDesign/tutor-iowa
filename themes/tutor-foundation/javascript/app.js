@@ -16,6 +16,15 @@ $('.search-toggle').click(function() {
 });    
 
 
+    var bLazy = new Blazy({
+        breakpoints: [{
+            width: 420 // max-width
+            ,
+            src: 'data-src-small'
+        }
+       ]
+    });
+
 var memberID = $("#memberInfo").data('id');
 var markAsRead = $(location).attr('href') + "/markAsRead";
 //if href ends in "#" this url will not work

@@ -2,15 +2,18 @@
   "name": "tutor-iowa",
   "version": "2.0.0",
   "devDependencies": {
+    "gifsicle": "*",
     "grunt": "*",
     "grunt-contrib-concat": "*",
+    "grunt-contrib-imagemin": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-criticalcss": "^0.5.0",
     "grunt-contrib-uglify": "*",
     "grunt-sass": "*",
     "gifsicle": "*",
     "optipng-bin": "*",
-    "jpegtran-bin": "*",
-    "grunt-contrib-imagemin": "*",
-    "grunt-contrib-watch": "*"
+    "jpegtran-bin": "*"
   },
   "dependencies": {
     "gifsicle": "^1.0.2",

@@ -32,6 +32,239 @@ $(document).ready(function() {
     });
 
 });
+/*!
+  hey, [be]Lazy.js - v1.3.1 - 2015.02.01 
+  A lazy loading and multi-serving image script
+  (c) Bjoern Klinggaard - @bklinggaard - http://dinbror.dk/blazy
+*/
+;(function(root, blazy) {
+	if (typeof define === 'function' && define.amd) {
+        // AMD. Register bLazy as an anonymous module
+        define(blazy);
+	} else if (typeof exports === 'object') {
+		// Node. Does not work with strict CommonJS, but
+        // only CommonJS-like environments that support module.exports,
+        // like Node. 
+		module.exports = blazy();
+	} else {
+        // Browser globals. Register bLazy on window
+        root.Blazy = blazy();
+	}
+})(this, function () {
+	'use strict';
+	
+	//vars
+	var source, options, viewport, images, count, isRetina, destroyed;
+	//throttle vars
+	var validateT, saveViewportOffsetT;
+	
+	// constructor
+	function Blazy(settings) {
+		//IE7- fallback for missing querySelectorAll support
+		if (!document.querySelectorAll) {
+			var s=document.createStyleSheet();
+			document.querySelectorAll = function(r, c, i, j, a) {
+				a=document.all, c=[], r = r.replace(/\[for\b/gi, '[htmlFor').split(',');
+				for (i=r.length; i--;) {
+					s.addRule(r[i], 'k:v');
+					for (j=a.length; j--;) a[j].currentStyle.k && c.push(a[j]);
+						s.removeRule(0);
+				}
+				return c;
+			};
+		}
+		//init vars
+		destroyed 				= true;
+		images 					= [];
+		viewport				= {};
+		//options
+		options 				= settings 				|| {};
+		options.error	 		= options.error 		|| false;
+		options.offset			= options.offset 		|| 100;
+		options.success			= options.success 		|| false;
+	  	options.selector 		= options.selector 		|| '.b-lazy';
+		options.separator 		= options.separator 	|| '|';
+		options.container		= options.container 	?  document.querySelectorAll(options.container) : false;
+		options.errorClass 		= options.errorClass 	|| 'b-error';
+		options.breakpoints		= options.breakpoints	|| false;
+		options.successClass 	= options.successClass 	|| 'b-loaded';
+		options.src = source 	= options.src			|| 'data-src';
+		isRetina				= window.devicePixelRatio > 1;
+		viewport.top 			= 0 - options.offset;
+		viewport.left 			= 0 - options.offset;
+		//throttle, ensures that we don't call the functions too often
+		validateT				= throttle(validate, 25); 
+		saveViewportOffsetT			= throttle(saveViewportOffset, 50);
+
+		saveViewportOffset();	
+				
+		//handle multi-served image src
+		each(options.breakpoints, function(object){
+			if(object.width >= window.screen.width) {
+				source = object.src;
+				return false;
+			}
+		});
+		
+		// start lazy load
+		initialize();	
+  	}
+	
+	/* public functions
+	************************************/
+	Blazy.prototype.revalidate = function() {
+ 		initialize();
+   	};
+	Blazy.prototype.load = function(element, force){
+		if(!isElementLoaded(element)) loadImage(element, force);
+	};
+	Blazy.prototype.destroy = function(){
+		if(options.container){
+			each(options.container, function(object){
+				unbindEvent(object, 'scroll', validateT);
+			});
+		}
+		unbindEvent(window, 'scroll', validateT);
+		unbindEvent(window, 'resize', validateT);
+		unbindEvent(window, 'resize', saveViewportOffsetT);
+		count = 0;
+		images.length = 0;
+		destroyed = true;
+	};
+	
+	/* private helper functions
+	************************************/
+	function initialize(){
+		// First we create an array of images to lazy load
+		createImageArray(options.selector);
+		// Then we bind resize and scroll events if not already binded
+		if(destroyed) {
+			destroyed = false;
+			if(options.container) {
+	 			each(options.container, function(object){
+	 				bindEvent(object, 'scroll', validateT);
+	 			});
+	 		}
+			bindEvent(window, 'resize', saveViewportOffsetT);
+			bindEvent(window, 'resize', validateT);
+	 		bindEvent(window, 'scroll', validateT);
+		}
+		// And finally, we start to lazy load. Should bLazy ensure domready?
+		validate();	
+	}
+	
+	function validate() {
+		for(var i = 0; i<count; i++){
+			var image = images[i];
+ 			if(elementInView(image) || isElementLoaded(image)) {
+				Blazy.prototype.load(image);
+ 				images.splice(i, 1);
+ 				count--;
+ 				i--;
+ 			} 
+ 		}
+		if(count === 0) {
+			Blazy.prototype.destroy();
+		}
+	}
+	
+	function loadImage(ele, force){
+		// if element is visible
+		if(force || (ele.offsetWidth > 0 && ele.offsetHeight > 0)) {
+			var dataSrc = ele.getAttribute(source) || ele.getAttribute(options.src); // fallback to default data-src
+			if(dataSrc) {
+				var dataSrcSplitted = dataSrc.split(options.separator);
+				var src = dataSrcSplitted[isRetina && dataSrcSplitted.length > 1 ? 1 : 0];
+				var img = new Image();
+				// cleanup markup, remove data source attributes
+				each(options.breakpoints, function(object){
+					ele.removeAttribute(object.src);
+				});
+				ele.removeAttribute(options.src);
+				img.onerror = function() {
+					if(options.error) options.error(ele, "invalid");
+					ele.className = ele.className + ' ' + options.errorClass;
+				}; 
+				img.onload = function() {
+					// Is element an image or should we add the src as a background image?
+			      		ele.nodeName.toLowerCase() === 'img' ? ele.src = src : ele.style.backgroundImage = 'url("' + src + '")';	
+					ele.className = ele.className + ' ' + options.successClass;	
+					if(options.success) options.success(ele);
+				};
+				img.src = src; //preload image
+			} else {
+				if(options.error) options.error(ele, "missing");
+				ele.className = ele.className + ' ' + options.errorClass;
+			}
+		}
+	 }
+			
+	function elementInView(ele) {
+		var rect = ele.getBoundingClientRect();
+		
+		return (
+			// Intersection
+			rect.right >= viewport.left
+			&& rect.bottom >= viewport.top
+			&& rect.left <= viewport.right
+			&& rect.top <= viewport.bottom
+		 );
+	 }
+	 
+	 function isElementLoaded(ele) {
+		 return (' ' + ele.className + ' ').indexOf(' ' + options.successClass + ' ') !== -1;
+	 }
+	 
+	 function createImageArray(selector) {
+ 		var nodelist 	= document.querySelectorAll(selector);
+ 		count 			= nodelist.length;
+ 		//converting nodelist to array
+ 		for(var i = count; i--; images.unshift(nodelist[i])){}
+	 }
+	 
+	 function saveViewportOffset(){
+		 viewport.bottom = (window.innerHeight || document.documentElement.clientHeight) + options.offset;
+		 viewport.right = (window.innerWidth || document.documentElement.clientWidth) + options.offset;
+	 }
+	 
+	 function bindEvent(ele, type, fn) {
+		 if (ele.attachEvent) {
+         		ele.attachEvent && ele.attachEvent('on' + type, fn);
+       	 	} else {
+         	       ele.addEventListener(type, fn, false);
+       		}
+	 }
+	 
+	 function unbindEvent(ele, type, fn) {
+		 if (ele.detachEvent) {
+         		ele.detachEvent && ele.detachEvent('on' + type, fn);
+       	 	} else {
+         	       ele.removeEventListener(type, fn, false);
+       		}
+	 }
+	 
+	 function each(object, fn){
+ 		if(object && fn) {
+ 			var l = object.length;
+ 			for(var i = 0; i<l && fn(object[i], i) !== false; i++){}
+ 		}
+	 }
+	 
+	 function throttle(fn, minDelay) {
+     		 var lastCall = 0;
+		 return function() {
+			 var now = +new Date();
+         		 if (now - lastCall < minDelay) {
+           			 return;
+			 }
+         		 lastCall = now;
+         		 fn.apply(images, arguments);
+       		 };
+	 }
+  	
+	 return Blazy;
+});
+
 // Foundation JavaScript
 // Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation();
@@ -49,6 +282,15 @@ $('.search-toggle').click(function() {
     return false;
 });    
 
+
+    var bLazy = new Blazy({
+        breakpoints: [{
+            width: 420 // max-width
+            ,
+            src: 'data-src-small'
+        }
+       ]
+    });
 
 var memberID = $("#memberInfo").data('id');
 var markAsRead = $(location).attr('href') + "/markAsRead";
@@ -134,276 +376,4 @@ $(".unreplied-messages").click(function() {
 	$(".replied").each(function() {
 		$(this).hide();
 	});	
-});
-
-/* Global Variables */
-var markerArray = [];
-var infowindow = new google.maps.InfoWindow({
-	content: "holding...",
-	maxWidth: 310
-	});	
-var iowaCity = new google.maps.LatLng(41.661736, -91.540017);
-//var venueCount = $("#venuesWithEvents section").length;
-//var countVenue = 0;
-var venueFromUser = {};
-var userInitPosition;
-
-/* Helper Functions */
-
-//obsolete?
-function error(msg) {
-  var s = document.querySelector('#status');
-  s.innerHTML = typeof msg == 'string' ? msg : "failed";
-  s.className = 'fail';
-}
-
-//obsolete?
-function makeMarker(options){
-   var pushPin = new google.maps.Marker({map:map});
-   pushPin.setOptions(options);
-   google.maps.event.addListener(pushPin, 'click', function(){
-     infoWindow.setOptions(options);
-     infoWindow.open(map, pushPin);
-   });
-   markerArray.push(pushPin);
-   return pushPin;
-}
-
-function handleNoGeolocation(errorFlag) {   	
-	var userInitPosition = iowaCity;
-    $('#status').text("Your location couldn't be detected. Showing events in Iowa City.");
-    return userInitPosition;
-}  
-
-/* End Helper Functions */
-/*
-function sortVenues() {
-	// empty list to sort venues by distance
-	var nearestVenues = [];
-	// you can only do for-in loops on objects (as opposed to arrays) in js. who knew?
-	for (var venueID in venueFromUser) {
-		nearestVenues.push([venueID, venueFromUser[venueID]])
-	}	
-	nearestVenues.sort(function(a,b) {return a[1] - b[1]});
-	$("#venuesWithEvents .clear").remove();
-	for (var v=0; v < nearestVenues.length; v++) {
-		console.log('sorting...');
-		var vid = nearestVenues[v];
-		$("#venuesWithEvents").append( $("#" + vid) );
-		$("#venuesWithEvents").append( $("<div class='clear'></div>") );
-	}
-}
-*/
-/*
-function addEventInfo( marker, venue ) {		
-	var venueName = $('#' + venue.id).data("title");
-	var venueLink = $('#' + venue.id).data("link");  
-	var eventsHere = [];
-	var eventsHereString = '';
-	var eventBubbleString = '';
-	var eventLimit = 4;
-	
-	eventsHere.push("<a class='button tag' href='" + venueLink + "'>" + venueName + "</a>");
-	
-	$(venue).children('div').each(function(index, Element) {
-		var eventTitle = $(this).data('title');
-		var eventImage = $(this).data('image');
-		var eventLink = $(this).data('link');
-		var eventCost = $(this).data('cost');
-		var startDate = $(this).data('startdate');
-		var startTime = $(this).data('starttime');	
-		var eventStringSeg = 
-		"<div> <h3> <a href='" + eventLink + "'>" + eventTitle + "</a> </h3> <ul class='infobox-list'>" + 
-			"<li>" + startDate + ", " + startTime + ((eventCost  !== "") ? ", Cost: " + eventCost : "") + "</li>" 
-			+ "</ul></div>";
-				
-		eventsHere.push(eventStringSeg);
-
-		// sets maximum number of events per bubble to eventLimit
-		if (index >= eventLimit) {
-			
-			var seeMoreEvents = '<a href="' + venueLink + '"class ="button" > See More Events at: ' + venueName + '</a>';
-			eventsHere.push(seeMoreEvents);
-
-			return false;
-		}
-	});
-	
-	// string concatination for infoBubble 
-	eventsHereString = eventsHere.join(' ');
-	eventBubbleString = 
-		"<div class='event_bubble'>" +
-		eventsHereString +
-		"</div>";
-
-	// make infoBubbles clickable 
-    google.maps.event.addListener(marker, 'click', function () {
-  		infowindow.setContent(eventBubbleString);
-  		infowindow.open(map, this);	
-  		//infowindow.maxWidth(200);
-	});
-}
-*/
-/*
-function venueGen() {	
-	//DON'T CHANGE IDs or Class Names in NearMePage.ss
-	//Scans venues loaded on page for data-attributes and pulls data
-
-	//note: geocoder used to be global variable
-	var geocoder = new google.maps.Geocoder();
-
-	$('.venue').each(function(index, element) {
-		var venue = this;
-		var venueID = venue.id;
-		var title = $(this).data("title");
-		var lat = $(this).data("lat");
-		var lng = $(this).data("lng");
-		var address = $(this).data("address");
-		var venueLatLng;
-		
-		if(lat && lng) {
-			console.log('venue has coords');
-			venueLatLng = new google.maps.LatLng(lat, lng);
-		} else if (address != null) {
-		console.log('venue does not have coords, has address');
-			geocoder.geocode( {'address': address}, function(results, status) {
-				if (status == google.maps.GeocoderStatus.OK) {
-				//Geocoder returns array of information, first indice is lat/lng
-				venueLatLng = results[0].geometry.location;
-				}				
-			});
-		} else {
-			//console.log("No coords or address available for " + title)
-		}	
-
-		// drops pin
-		var marker = new google.maps.Marker({
-			position: venueLatLng,
-			map: map
-		});	
-
-		console.log("I have " + title + " at " + venueLatLng);
-		// fills 'infowindow' for each pin with list of events
-		addEventInfo( marker, venue );  
-
-		venueFromUser[venueID] = google.maps.geometry.spherical.computeDistanceBetween(userInitPosition, venueLatLng);
-
-	});	
-
-	// when finished, sort venues divs on page. 
-	sortVenues();
-
-}
-*/
-/*
-function getInitLocal() {
-	//finds users location
-	if(navigator.geolocation) {
-		console.log("Browser DOES support Geolocation");
-	    var browserSupportFlag = true;
-	    navigator.geolocation.getCurrentPosition(function(position) {
-	    	console.log('geolocated');
-			userInitPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-			var userDistanceFromIowaCity = google.maps.geometry.spherical.computeDistanceBetween(userInitPosition,iowaCity);	
-			// If the current position is too far away from Iowa City, just default to centering around Iowa City	
-			if (userDistanceFromIowaCity < 32186.9) {
-				map.setCenter(userInitPosition);
-				var image = 'themes/tutor-foundation/images/position-indicator.png';
-				var initalMarker = new google.maps.Marker({
-					position: userInitPosition,
-					map: map,
-					icon: image
-				});  
-				//initalMarker.setMap(map);
-			} else {
-				$('#mapLoaded').text("You're too far away from Iowa City. Here are events in Iowa City");
-			}
-			venueGen();							  
-	    }, function(error) {
-	    	console.log('navigator failed');
-	    	var errorFlag = false;
-	    	userInitPosition = handleNoGeolocation(errorFlag)
-	    	map.setCenter(userInitPosition);
-	    	venueGen();
-	    }, { 
-	    	enableHighAccuracy: true, 
-	    	timeout: 1000,
-	    	maximumAge: 0
-	    });	     
-	} else {
-		console.log("Browser does NOT support Geolocation");
-	    var browserSupportFlag = false;
-	    userInitPosition = handleNoGeolocation(browserSupportFlag);
-	    venueGen();
-	}	
-}
-*/
-
-function findLab(callback) {
-	var address = $("#address").text();
-	var venueLatLng;
-	console.log(address);
-	
-	var geocoder = new google.maps.Geocoder();
-	geocoder.geocode( {'address': address}, function(results, status) {
-		if (status == google.maps.GeocoderStatus.OK) {
-		//Geocoder returns array of information, first indice is lat/lng
-		venueLatLng = results[0].geometry.location;
-		callback(venueLatLng);
-		} else {
-			console.log('geocoder failed');
-		}				
-	});
-}
-
-function genMapCanvas(lab) {
-	// generates map styles, objects, DOM objects
-
-    var mapcanvas = document.createElement('div');	
-	 mapcanvas.id = 'mapcanvas';
-	 //mapcanvas.class = 'map-canvas';
-	 mapcanvas.style.width = '100%';	
-	 mapcanvas.style.height = '300px';
-	$('#labmap').append(mapcanvas);
-
-	//var findCenter = findLab();
-	console.log(lab);
-	//new google.maps.LatLng(41.661736, -91.540017);
- 
-	//afterclassMap styles located in MapStyles.js
-	//var afterclassMap = new google.maps.StyledMapType(styles, {name: "AfterClass Style Map"});
-	var MapOptions = {
-	    zoom: 17,
-	    center: lab,
-	    panControl: false,
-	    zoomControl: true,
-	    scrollwheel:false,
-	    scaleControl: false,
-	    mapTypeControl: false,
-	    navigationControlOptions: {style: google.maps.NavigationControlStyle.HORIZONTAL_BAR, 
-		    position: google.maps.ControlPosition.RIGHT_BOTTOM
-	    },
-	    disableDefaultUI: false,
-	    mapTypeId: google.maps.MapTypeId.ROADMAP,
-	    streetViewControl: true
-	};
-
-	var map = new google.maps.Map(document.getElementById("mapcanvas"), MapOptions);
-	 //map.mapTypes.set('map_style', afterclassMap);
-	 //map.setMapTypeId('map_style');
-	
-	//getInitLocal();
-	
-	var marker = new google.maps.Marker({
-		position: lab,
-		map: map
-	});	
-}
-
-$(window).load(function() {
-	if( $("#labmap").length ){
-		//var lab = findLab();
-		//genMapCanvas(lab);
-		findLab(genMapCanvas);
-	}
 });
