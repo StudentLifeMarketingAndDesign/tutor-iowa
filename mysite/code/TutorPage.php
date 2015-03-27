@@ -187,10 +187,10 @@ class TutorPage extends Page {
 }
 class TutorPage_Controller extends Page_Controller {
 	
-	private static $allowed_actions = array('ContactForm', 'editProfile', 'EditProfileForm' );
+	private static $allowed_actions = array('ContactForm', 'editProfile', 'EditProfileForm', 'repositionCoverImage' );
 	
 	private static $url_handlers = array(
-       'edit' => 'editProfile'
+       'edit//$action' => 'editProfile'
     );
 
 	public function ContactForm() {
@@ -273,8 +273,15 @@ class TutorPage_Controller extends Page_Controller {
 		return $linkText;
 	}
 	
-	public function editProfile($toggle) {
+	public function editProfile() {
 		$memberID = Member::CurrentUserID(); 
+		
+		$action = $this->request->param('action');
+		if (isset($action)) {
+    		$response = $this->$action($this->request);
+    		return $response;
+		}
+		
 		if ($memberID == $this->Member()->ID) {
 			$Data = array();
 			return $this->customise($Data)->renderWith(array("EditTutorPage", "Page"));
@@ -560,8 +567,18 @@ class TutorPage_Controller extends Page_Controller {
 			// Use below snipped to deny logged-out users
 			// return Security::PermissionFailure($this->controller, 'You must <a href="register">registered</a> and logged in to edit your profile:');
 
-
 	}
+	
+	public function repositionCoverImage(SS_HTTPRequest $r) {
+    	$data = $r->postVars();
+		$top = (float)$data['Top'];
+    	$coverImage = $this->ApprovedCoverImage();
+    	$coverImage->setField('Top', $top);
+    	$coverImage->write();
+    	return Convert::raw2json($data);
+	}
+	
+	
 
 	
 }

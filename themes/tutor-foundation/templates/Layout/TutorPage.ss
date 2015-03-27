@@ -2,11 +2,22 @@
 	<div class="main typography" role="main">
 		
 		<div class="row" data-equalizer>
-			<div class="page-bg">
+			<style>
+				#profile-cover-photo {
+					background-position: center center;
+				}
+				@media (min-width: 40em) {
+					#profile-cover-photo {
+						background-position-y: {$ApprovedCoverImage.NiceTop()};
+					}
+				}
+
+			</style>
+			<div class="page-bg" >
 			    <% if $approvedCoverImage %>
-                    <img id="profile-cover-photo" src="$approvedCoverImage.Link" />
+                     <div id="profile-cover-photo" class="CoverImage FlexEmbed FlexEmbed--3by1" style="background-image:url($ApprovedCoverImage.Link);"></div>
                 <% else %>
-			    	<img id="profile-cover-photo" src="http://lorempixel.com/1240/600/" />
+			    	<%-- <img id="profile-cover-photo" src="http://lorempixel.com/1240/600/" /> --%>
 			    <% end_if %>
 			</div>
 			<div class="large-8 columns content" data-equalizer-watch>

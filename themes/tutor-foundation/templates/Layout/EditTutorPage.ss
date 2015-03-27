@@ -3,15 +3,38 @@
         <% if $IncludeFormTag %>
             <form $AttributesHTML>
         <% end_if %>
+
         <div class="row" data-equalizer>
-                <% if $ApprovedCoverImage %>
-                    <div class="page-bg" style="background-image: url('$ApprovedCoverImage.Link');">
-                    <%-- <img id="profile-cover-photo" src="$ApprovedCoverImage.Link" /> --%>
+            <style>
+                #profile-cover-photo {
+                    background-position: center center;
+                }
+                @media (min-width: 40em) {
+                    #profile-cover-photo {
+                        background-position-y: {$ApprovedCoverImage.NiceTop()};
+                    }
+                }
+
+            </style>
+            <%--
+            <div class="page-bg" >
+                <% if $approvedCoverImage %>
+                     <div id="profile-cover-photo" class="CoverImage FlexEmbed FlexEmbed--3by1" style="background-image:url($ApprovedCoverImage.Link);"></div>
                 <% else %>
-                    <div class="page-bg">
+                    <%-- <img id="profile-cover-photo" src="http://lorempixel.com/1240/600/" /> -%>
+                <% end_if %>
+            </div>
+            --%>
+                <div class="page-bg">
+                <% if $ApprovedCoverImage %>
+                    <%-- <div class="page-bg" style="background-image: url('$ApprovedCoverImage.Link');"> --%>
+                    <img id="profile-cover-photo-move" class="cover hide" src="$ApprovedCoverImage.Link" style="width: 100%; bottom: 300px; " />
+                    <div id="profile-cover-photo" class=" CoverImage FlexEmbed FlexEmbed--3by1" style="background-image:url($ApprovedCoverImage.Link);"></div>
+                <% else %>
 			    	<img id="profile-cover-photo" src="http://lorempixel.com/1240/600/" />
 			    <% end_if %>
             </div>
+            
             	<%-- <div class="update-cover-photo">$EditProfileCoverForm</div> --%>
             <div class="large-8 columns content" data-equalizer-watch>
 
@@ -28,7 +51,10 @@
                            	$EditProfileForm
                         </div>
                         <div class="medium-4 small-2 columns">
-            				
+            				<ul class="button-group">
+                                <li><button id="removeCoverPhoto" class="tiny radius alert">Remove Cover Photo</button></li>
+                                <li><button id="repositionCoverPhoto" class="tiny radius secondary">Reposition Cover Photo</button></li>
+                            </ul>
                             <div class="profile-image">
                                 <% if $approvedProfileImage %>
                                     <div style="margin-bottom: 10px;">$approvedProfileImage</div>
@@ -44,10 +70,6 @@
             </div>
             <div class="large-4 columns end" data-equalizer-watch>
                 <div class="side-nav">
-                    <ul class="button-group">
-                        <li><button id="removeCoverPhoto" class="small radius alert">Remove Cover Photo</button></li>
-                        <li><button id="repositionCoverPhoto" class="small radius secondary">Reposition Cover Photo</button></li>
-                    </ul>
                     <% include RelatedResources %>
                     <% include SiteAdmin %>
                 </div>
