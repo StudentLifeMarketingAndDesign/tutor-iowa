@@ -41,6 +41,9 @@ class EditProfilePage_Controller extends Page_Controller {
 			//$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");
 			$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
 
+			$tagField = new TagField('Tags', 'Tags');
+			$tagField->setTagTopicClass("SiteTree");
+
 			$tagsLabel = '<p>Read the <a href="for-tutors/">For Tutors page</a> to learn more about tags and promoting yourself on Tutor Iowa!</p>';
 			$changePassLabel = '<p><a href="Security/ChangePassword" class="button small radius">Reset your password</a></p>';
 			$fields = new FieldList(
@@ -62,8 +65,8 @@ class EditProfilePage_Controller extends Page_Controller {
 				new UniversityIDField('UniversityID', 'University ID'),
 				new TextField('Major'),
 				new LiteralField('TagsHelpLabel', $tagsLabel),
-
-				new TagField('Tags', 'Tags'),
+				$tagField
+				,
 
 				//This does not sync with database (database field is 'Disabled')
 				new CheckboxField('Disable', 'Request to disable your page (will no longer be returned as a search result on TutorIowa)')

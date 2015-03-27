@@ -17,6 +17,7 @@ $('.search-toggle').click(function() {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     var bLazy = new Blazy({
         breakpoints: [{
             width: 420 // max-width
@@ -26,6 +27,8 @@ $('.search-toggle').click(function() {
        ]
     });
 =======
+=======
+>>>>>>> 2.0
 var memberID = $("#memberInfo").data('id');
 var markAsRead = $(location).attr('href') + "/markAsRead";
 //if href ends in "#" this url will not work
@@ -111,4 +114,7 @@ $(".unreplied-messages").click(function() {
 		$(this).hide();
 	});	
 });
+<<<<<<< HEAD
+>>>>>>> 2.0
+=======
 >>>>>>> 2.0

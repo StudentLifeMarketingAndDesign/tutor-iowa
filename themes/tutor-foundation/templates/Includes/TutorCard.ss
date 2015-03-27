@@ -10,7 +10,11 @@
 			
 			<%--<img src="{$ThemeDir}/images/placeholder.jpg" /> --%>
 <<<<<<< HEAD
+<<<<<<< HEAD
 			<img class="b-lazy" src="{$ThemeDir}/images/placeholder.jpg" data-src="http://lorempixel.com/300/300/" data-src-small="http://lorempixel.com/300/300/" />
+=======
+			<img src="http://lorempixel.com/300/300/" />
+>>>>>>> 2.0
 =======
 			<img src="http://lorempixel.com/300/300/" />
 >>>>>>> 2.0

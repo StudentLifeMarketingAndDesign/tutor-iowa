@@ -21,6 +21,7 @@ class TutorPage extends Page {
 		'Major' => 'Text',
 		'GPA' => 'Text',
 		'PublishFlag' => 'Boolean',
+
 	);
 
 	private static $has_one = array(
@@ -45,6 +46,7 @@ class TutorPage extends Page {
 		'Surname' => 'Last Name',
 		'Major' => 'Major',
 		'Email' => 'Email',
+		'Status' => 'Status',
 	);
 
 	//Add form fields to CMS
@@ -55,6 +57,9 @@ class TutorPage extends Page {
 		$members = Member::get();
 		$membersDropdownSource = $members->Map('ID', 'Email');
 
+		$tagField = new TagField("Tags", "Tags");
+		$tagField->setTagTopicClass("SiteTree");
+
 		$fields->renameField("Image", "Photo");
 		$fields->removeFieldFromTab('Root.Metadata', "Keywords");
 		$fields->removeFieldFromTab('Root.Main', "Content");
@@ -62,7 +67,7 @@ class TutorPage extends Page {
 		$fields->addFieldToTab('Root.Main', new TextField("Surname", "Last name of tutor"));
 		$fields->addFieldToTab('Root.Main', new TextField("PhoneNo", "Phone Number"));
 		$fields->addFieldToTab('Root.Main', new TextField("Email"));
-		$fields->addFieldToTab('Root.Main', new TagField("Tags", "Tags"));
+		$fields->addFieldToTab('Root.Main', $tagField);
 		$fields->addFieldToTab('Root.Main', new TextAreaField("Content", "Biography"));
 		$fields->addFieldToTab('Root.Main', new TextAreaField("Hours", "Availability"));
 
@@ -85,24 +90,6 @@ class TutorPage extends Page {
 
 	}
 
-	public function SplitKeywords() {
-		$keywords = $this->Tags;
-
-		if ($keywords) {
-			$splitKeywords = explode(',', $keywords);
-		}
-
-		if ($splitKeywords) {
-			$keywordsList = new ArrayList();
-			foreach ($splitKeywords as $data) {
-				$do = new DataObject();
-				$do->Keyword = $data;
-				$keywordsList->push($do);
-			}
-			return $keywordsList;
-		}
-	}
-
 	private function getEmails() {
 		return MemberManagement::get();
 	}
@@ -118,11 +105,12 @@ class TutorPage extends Page {
 		$this->Metakeywords = $this->Tags;
 		parent::onWrite();
 	}
-	private function onBeforePublish() {
+	public function onBeforePublish() {
 		$this->changeParent();
+
 	}
 
-	private function onAfterPublish() {
+	public function onAfterPublish() {
 
 		$approved = $this->Approved;
 
@@ -140,7 +128,10 @@ class TutorPage extends Page {
 		$email->setFrom("tutoriowa@uiowa.edu");
 		$email->setSubject($subject);
 		$email->setBody($body);
-		$email->send();
+
+		if (SS_ENVIRONMENT_TYPE == "live") {
+			$email->send();
+		}
 
 	}
 
@@ -186,8 +177,10 @@ class TutorPage_Controller extends Page_Controller {
 		$email->setFrom(Email::getAdminEmail());
 		$email->replyTo($from);
 		$email->setBody($name . ' has contacted you. Read their message below. You may reply to their message directly by replying to this email. <br />' . $body);
-		// Uncomment this before prouction
-		//$email->send();
+
+		if (SS_ENVIRONMENT_TYPE == "live") {
+			$email->send();
+		}
 
 		$message = new Message();
 

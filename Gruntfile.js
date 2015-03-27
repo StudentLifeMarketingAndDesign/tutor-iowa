@@ -69,8 +69,6 @@ module.exports = function(grunt) {
       }
     },
 
-
-
      criticalcss: {
             custom: {
                 options: {

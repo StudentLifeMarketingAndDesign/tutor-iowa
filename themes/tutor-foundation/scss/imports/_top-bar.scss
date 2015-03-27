@@ -38,7 +38,10 @@
 		}
 	   	ul li a{
 			&.button {
-	    		font-size: 0.9rem;
+	    		font-size: rem-calc(18);
+	    		padding: rem-calc(3) rem-calc(17);
+	    		text-transform: capitalize;
+	    		font-family: $body-font-family;
 	    	}
 	    }
 

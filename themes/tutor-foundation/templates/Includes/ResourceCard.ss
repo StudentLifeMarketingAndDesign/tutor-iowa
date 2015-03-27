@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <li>
 
 
@@ -26,6 +27,8 @@
 
 </div>
 =======
+=======
+>>>>>>> 2.0
 <li class="resource-card card $FirstLast">
 	<a href="$Link">
 		<h4>$Title</h4>
@@ -48,5 +51,8 @@
 		<span>Continue reading...</span>
 		</p>
 	</a>
+<<<<<<< HEAD
+>>>>>>> 2.0
+=======
 >>>>>>> 2.0
 </li>

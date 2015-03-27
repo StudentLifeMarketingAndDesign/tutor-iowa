@@ -283,7 +283,10 @@ $('.search-toggle').click(function() {
 });    
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 2.0
 
 var memberID = $("#memberInfo").data('id');
 var markAsRead = $(location).attr('href') + "/markAsRead";
