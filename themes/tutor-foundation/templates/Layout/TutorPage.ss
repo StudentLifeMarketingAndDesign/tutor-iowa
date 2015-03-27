@@ -25,10 +25,6 @@
 								</p>
 								<% include EditProfileButton %>
 							</div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 2.0
 							<div class="medium-3 small-2 columns">
 
 								<div class="profile-image">
@@ -37,17 +33,9 @@
 									<% else %>
 										<img src="{$ThemeDir}/images/stain.png" />
 									<% end_if %>
-<<<<<<< HEAD
-									<span class="text-center"><% include EditProfileButton %></span>
-								</div>
-
-							</div>
-						
-=======
 								</div>
 							</div>
 						</div>
->>>>>>> 2.0
 
 						<h2>About $FirstName</h2>
 						<p>$Content</p>
