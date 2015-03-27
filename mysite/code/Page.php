@@ -214,10 +214,12 @@ class Page_Controller extends ContentController {
 
 		foreach ($entries as $entry) {
 			$theseTags = $entry->SplitKeywords();
-			foreach ($theseTags as $tag => $tagLabel) {
-				$tagLabels[$tag] = $tagLabel;
-				//getting the count into key => value map
-				$tagCounts[$tag] = isset($tagCounts[$tag]) ? $tagCounts[$tag] + 1 : 1;
+			if (isset($theseTags)) {
+				foreach ($theseTags as $tag => $tagLabel) {
+					$tagLabels[$tag] = $tagLabel;
+					//getting the count into key => value map
+					$tagCounts[$tag] = isset($tagCounts[$tag]) ? $tagCounts[$tag] + 1 : 1;
+				}
 			}
 		}
 
@@ -273,7 +275,7 @@ class Page_Controller extends ContentController {
 			$class = $popularities[$popularity];
 
 			$output->push(new ArrayData(array(
-				"Title" => $tagLabels[$tag],
+				"Title" => $tagLabels[$tag]->Keyword,
 				"Count" => $count,
 				"Class" => $class,
 				//"Link" => Controller::join_links($container->Link('tag'), urlencode($tag))
@@ -319,7 +321,6 @@ class Page_Controller extends ContentController {
 
 		shuffle($finalTagCollection);
 		$finalOutput = new ArrayList($finalTagCollection);
-
 		return $finalOutput;
 	}
 
