@@ -1955,7 +1955,7 @@ select {
 
 .breadcrumbs {
   display: block;
-  padding: 0.5625rem 0.875rem 0.5625rem;
+  padding: 0.625rem 0.875rem 0.625rem;
   overflow: hidden;
   margin-left: 0;
   list-style: none;
@@ -1992,7 +1992,7 @@ select {
         color: #999999;
         cursor: default; }
     .breadcrumbs > *:before {
-      content: "";
+      content: "\25B8";
       color: #222222;
       margin: 0 0.75rem;
       position: relative;
@@ -6573,11 +6573,11 @@ body.SearchForm h2 {
   padding-top: 0.75rem; }
 .HomePage .HomePageSearchBg {
   margin: 0 auto;
-  transform: translateY(20%);
+  padding-top: 100px;
   max-width: 600px; }
   @media only screen and (min-width:40.063em) {
     .HomePage .HomePageSearchBg {
-      transform: translateY(120%); } }
+      padding-top: 40px; } }
 .HomePage .HomePagePopSearches {
   background-color: rgba(0, 0, 0, 0.6);
   position: relative;
@@ -6700,6 +6700,8 @@ body.SearchForm h2 {
       padding: 0 8px;
       margin-top: 0; }
 
+.card:hover * {
+  text-decoration: underline; }
 .card:hover h4 {
   color: #377EFF; }
 .card h4 {
@@ -6709,8 +6711,7 @@ body.SearchForm h2 {
   color: #045dff; }
 
 .small li.card {
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd; }
+  padding: 10px 0; }
   .small li.card.last {
     border-bottom: 0; }
 
@@ -6987,13 +6988,6 @@ body.SearchForm h2 {
 .main .breadcrumbs {
   padding-left: 0;
   margin-bottom: 0; }
-  .main .breadcrumbs > *:first-child:before {
-    margin: 0; }
-  .main .breadcrumbs > *:before {
-    margin: 0 2px; }
-    @media only screen and (min-width:64.063em) {
-      .main .breadcrumbs > *:before {
-        margin: 0 5px; } }
   .main .breadcrumbs a {
     border-style: solid;
     border-width: 0;
@@ -7021,6 +7015,8 @@ body.SearchForm h2 {
       background-color: #bebebe; }
     .main .breadcrumbs a:hover, .main .breadcrumbs a:focus {
       color: #333333; }
+  .main .breadcrumbs li:before {
+    top: -1px; }
   .main .breadcrumbs span {
     border-style: solid;
     border-width: 0;
