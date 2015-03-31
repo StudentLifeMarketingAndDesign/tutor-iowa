@@ -56,6 +56,12 @@ class TutorPage extends Page {
 		'Status' => 'Status'
 	);
 	
+    /**
+    * Accomplishes same thing as pendingCoverImages() but for pendingProfileImages(). 
+    * Note: since the default value of PendingProfileImageID is 0, anything besides that indicates
+    * that there is a valid image related to it. 
+    * @return ArrayList	
+    */	
 	public function updatePendingImage($image, $processCode, $message) {
     	$imgClass = $image->class;
         if (($imgClass) == "CoverImage") {       
@@ -290,7 +296,13 @@ class TutorPage_Controller extends Page_Controller {
 			$this->redirect(Security::login_url());
 		}
 	}
-		
+
+    /**
+    * Accomplishes same thing as pendingCoverImages() but for pendingProfileImages(). 
+    * Note: since the default value of PendingProfileImageID is 0, anything besides that indicates
+    * that there is a valid image related to it. 
+    * @return ArrayList	
+    */		
 	public function EditProfileForm() {
 		$Member = Member::CurrentUser();
 
@@ -298,35 +310,13 @@ class TutorPage_Controller extends Page_Controller {
 			$MemberID = $Member->ID;
 			$tagField = new TagField('Tags', 'Tags');
 			$tagField->setTagTopicClass("SiteTree");
-				
-            /*
-            $coverImage = ($a = $this->approvedCoverImage()) ? $a : NULL;
-			if ($coverImage) { $coverImage = $this->CoverImages()->exclude('ID', $coverImage->ID); }
-			*/
-            //
-			/*
-			$coverImage = new UploadField("CoverImages", "Choose a Cover Photo (the wider, the better.)" );
-			$coverImage->setCanPreviewFolder(false);
-			$coverImage->setAllowedFileCategories('image');
-			$coverImage->setAllowedMaxFileNumber(1);
-			$coverImage->setValue(NULL, $this->approvedProfileImage());
-			if ($this->pendingCoverImage()) { $coverImage = $coverImage->performReadonlyTransformation(); }	
-
-			$profileImage = new UploadField("ProfileImages", "Choose your Profile Photo");
-			$profileImage->setCanPreviewFolder(false);
-            $profileImage->setAllowedFileCategories('image');
-			$profileImage->setAllowedMaxFileNumber(1);
-            if ($this->pendingProfileImage()) { $profileImage = $profileImage->performReadonlyTransformation();	}	
-            */
+			
+			/* handles uploads for pending photos */
             $pendingCoverImage = new UploadField("PendingCoverImage", "Upload a new Cover Photo. (The wider, the better!)");
-            $pendingCoverImage->setCanPreviewFolder(false);
-            $pendingCoverImage->setOverwriteWarning(false);
-            $pendingCoverImage->setAllowedFileCategories('image');
+            $pendingCoverImage->setCanPreviewFolder(false)->setOverwriteWarning(false)->setAllowedFileCategories('image')->setAutoUpload(true)->setFolderName("Uploads/Tutors/" . $Member->ID);
             
             $pendingProfileImage = new UploadField("PendingProfileImage", "Choose your Profile Photo");
-			$pendingProfileImage->setCanPreviewFolder(false);
-            $pendingCoverImage->setOverwriteWarning(false);
-			$pendingProfileImage->setAllowedFileCategories('image');
+			$pendingProfileImage->setCanPreviewFolder(false)->setOverwriteWarning(false)->setAllowedFileCategories('image')->setAutoUpload(true)->setFolderName("Uploads/Tutors/" . $Member->ID);
 
 			$tagsLabel = '<p>Read the <a href="for-tutors/">For Tutors page</a> to learn more about tags and promoting yourself on Tutor Iowa!</p>';
 			$changePassLabel = '<p><a href="Security/ChangePassword" class="button small radius">Reset your password</a></p>';
@@ -369,14 +359,11 @@ class TutorPage_Controller extends Page_Controller {
 			$saveAction->addExtraClass('radius');
 			
 			$actions = new FieldList( $saveAction );
-
 			$validator = new RequiredFields('FirstName', 'Surname', 'Email');
 
-			//Create form
 			$Form = new FoundationForm($this, 'EditProfileForm', $fields, $actions, $validator);
 			//$Form->setTemplate('EditTutorFormTemplate');
 			
-			//print_r($Form->getTemplate());
 			
 			//Information must be loaded from both tutor and member because member stores a member/tutor's password
 			$Form->loadDataFrom($Member->data());
@@ -402,7 +389,12 @@ class TutorPage_Controller extends Page_Controller {
 		}
 	}
 
-	//Save profile
+    /**
+    * Accomplishes same thing as pendingCoverImages() but for pendingProfileImages(). 
+    * Note: since the default value of PendingProfileImageID is 0, anything besides that indicates
+    * that there is a valid image related to it. 
+    * @return ArrayList	
+    */	
 	public function SaveProfile($data, $form) {	
 		/* Meant to check and ensure email is duplicated with another in the DB. Can be refactored :D
 		$email = Convert::raw2sql($data['Email']);
@@ -424,151 +416,55 @@ class TutorPage_Controller extends Page_Controller {
 			Versioned::reading_stage('Live');
 			$Tutor->write();
             */
+            
 			// Save into the member dataobject.
 			$memberFieldList = array(
 				"FirstName",
 				"Surname",
 				"Email",
 			);
+            $formData = $form->getData();
+            //print_r($formData);
+
+            $pci = isset($formData["PendingCoverImage"]["Files"]) ? array_shift($formData["PendingCoverImage"]["Files"]) : NULL;
+            $ppi = isset($formData["PendingProfileImage"]["Files"]) ? array_shift($formData["PendingProfileImage"]["Files"]) : NULL;
+            $pendingImages = array($this->PendingCoverImage()->ID, $this->PendingProfileImage()->ID);
+            
+            if (!empty($pendingImages)) {
+                if ($pendingImages[0] > 0 && empty($pci)) {
+                    DataObject::delete_by_id("PendingImage", $pendingImages[0]);
+                } 
+                if ($pendingImages[1] > 0 && empty($ppi)) {
+                    DataObject::delete_by_id("PendingImage", $pendingImages[1]);
+                }
+            }
 			$form->saveInto($Tutor);
 			$form->saveInto($Member, $memberFieldList);
-			
+							
 			//$Tutor->CoverImage()->filter("Status", "setField("Status", "Pending");
             //$Tutor->ProfileImage()->setField("Status", "Pending");
 
 			$Tutor->write();
 			$Member->write();
-
-			$formData = $form->getData();
+			
 			$formDisabled = $formData['Disable'];
-
 			if ($formDisabled) {
 				//If user checked disable page box
-
 				if ($DisablePage = DisablePage::get()->First()) //$DisablePage = DataObject::get_one('DisablePage'))
 				{
-
 					$parameter = '?ID=' . $Tutor->ID;
-
 					return $this->redirect($DisablePage->Link($parameter));
 				}
-
 			}
-			
-			
-		
-			return $this->redirectBack();
-			
-			// Use below snipped to deny logged-out users
-			// return Security::PermissionFailure($this->controller, 'You must <a href="register">registered</a> and logged in to edit your profile:');
 
-
+            return $this->redirectBack();
 	}
-	
-	public function EditProfileCoverForm() {
-		$Member = Member::CurrentUser();
-
-		if ($Member) {
-			$MemberID = $Member->ID;
-
-
-			$fields = new FieldList(
-
-				new HiddenField("CoverImagePosition")
-			);
-			
-			$saveAction = new FormAction('SaveProfile', 'Save Profile Photo');
-			$saveAction->addExtraClass('radius');
-
-			$actions = new FieldList(
-				$saveAction
-			);
-
-			$validator = new RequiredFields('BackgroundImage');
-
-			//Create form
-			$Form = new FoundationForm($this, 'EditProfileCoverForm', $fields, $actions, $validator);
-			
-			//Information must be loaded from both tutor and member because member stores a member/tutor's password
-			$Form->loadDataFrom($this->data());
-
-			///$Check if user is published yet
-			/*
-			if ($this instanceof TutorPage) {
-				//Tutor is published
-				$Form->loadDataFrom($Tutor->data());
-			} else {
-				//Not published (disabled and unapproved users).  The enable function is at at the bottom and handles sending the emails
-
-				return 'You must be confirmed as a user by our administrator to edit your profile.  If you have disabled your account, please click <a href="' . Director::baseURL() . $this->URLSegment . '?enable=1' . '">here</a> to have your account re-enabled.';
-			}
-			*/
-
-			//Return the form
-			return $Form;
-		} else {
-			$message = "<a href='Security/login'>You must be logged in to edit your profile. </a>  If you do not have an account,  <a href='registration-page'>register here.</a>";
-			return $message;
-		}
-	}
-	
-	private function SaveCoverImage($data, $form) {	
-		/* Meant to check and ensure email is duplicated with another in the DB. Can be refactored :D
-		$email = Convert::raw2sql($data['Email']);
-		if ($member = DataObject::get_one("Member", "Email = '" . Convert::raw2sql($data['Email']) . "' AND ID != " . $CurrentMember->ID)) {
-			$form->addErrorMessage("Email", 'Sorry, an account with that Email address already exists', "bad");
-			Session::set("FormInfo.Form_EditProfileForm.data", $data);
-			return $this->redirect($this->Link());
-		}
-		*/
-			$MemberID = $CurrentMember->ID;
-
-			$Tutor = TutorPage::get()->filter(array('MemberID' => $MemberID))->first();
-
-			$form->saveInto($Tutor);
-
-			/*Preserve this code, for it works the magic of SilverStripe 3 publishing*/
-			Versioned::reading_stage('stage');
-			$Tutor->writeToStage('Stage');
-			$Tutor->publish("Stage", "Live");
-			Versioned::reading_stage('Live');
-			$Tutor->write();
-
-			// Save into the member dataobject.
-			$memberFieldList = array(
-				"FirstName",
-				"Surname",
-				"Email",
-			);
-			$form->saveInto($CurrentMember, $memberFieldList);
-
-			$CurrentMember->write();
-
-			$formData = $form->getData();
-			$formDisabled = $formData['Disable'];
-
-			if ($formDisabled) {
-				//If user checked disable page box
-
-				if ($DisablePage = DisablePage::get()->First()) //$DisablePage = DataObject::get_one('DisablePage'))
-				{
-
-					$parameter = '?ID=' . $Tutor->ID;
-
-					return $this->redirect($DisablePage->Link($parameter));
-				}
-
-			}
-			$ID = 92;
-			$test = TutorPage::get()->byID($ID);
-		
-			return $this->redirect($this->Link());
-			
-			// Use below snipped to deny logged-out users
-			// return Security::PermissionFailure($this->controller, 'You must <a href="register">registered</a> and logged in to edit your profile:');
-
-	}
-	
+	/**
+    * Accomplishes same thing as pendingCoverImages() but for pendingProfileImages(). 
+    * Note: since the default value of PendingProfileImageID is 0, anything besides that indicates
+    * that there is a valid image related to it. 
+    * @return ArrayList	
+    */	
 	public function repositionCoverImage(SS_HTTPRequest $r) {
     	$data = $r->postVars();
 		$top = (float)$data['Top'];
@@ -577,8 +473,36 @@ class TutorPage_Controller extends Page_Controller {
     	$coverImage->write();
     	return Convert::raw2json($data);
 	}
-	
-	
-
-	
+	/**
+    * Accomplishes same thing as pendingCoverImages() but for pendingProfileImages(). 
+    * Note: since the default value of PendingProfileImageID is 0, anything besides that indicates
+    * that there is a valid image related to it. 
+    * @return ArrayList	
+    */		
+	public function removeCoverImage(SS_HTTPRequest $r) {
+        $data = $r->postVars();
+        $DO = $this->dataRecord;
+        $DO->ApprovedCoverImageID = 0;
+        $confirm = $DO->write();
+        $data['confirm'] = $confirm;
+        $data['this'] = $this;
+        $data['that'] = $DO;
+        return Convert::raw2json($data);
+	}
+	/**
+    * Accomplishes same thing as pendingCoverImages() but for pendingProfileImages(). 
+    * Note: since the default value of PendingProfileImageID is 0, anything besides that indicates
+    * that there is a valid image related to it. 
+    * @return ArrayList	
+    */		
+	public function removeProfileImage(SS_HTTPRequest $r) {
+        $data = $r->postVars();
+        $DO = $this->dataRecord;
+        $DO->ApprovedProfileImageID = 0;
+        $confirm = $DO->write();
+        $data['confirm'] = $confirm;
+        $data['this'] = $this;
+        $data['that'] = $DO;
+        return Convert::raw2json($data);
+	}	
 }

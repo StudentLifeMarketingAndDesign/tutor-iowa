@@ -62,7 +62,7 @@
 .page-bg{
 	//min-height: 300px;
 	max-height: 333px;
-	//overflow: hidden;
+    //overflow: 
 	//background-image: url('http://lorempixel.com/1240/600/');
 	//background: center center;
 	//background-color: #eee;
@@ -118,7 +118,9 @@
   //overflow: hidden;
 }
 
-
+#profile-cover-photo-move {
+    overflow: hidden;
+}
 
 .pointer {
 	cursor: hand;

@@ -1,22 +1,6 @@
 <?php
 class Inbox_Controller extends Page_Controller {
 
-	/**
-	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
-	 * permissions or conditions required to allow the user to access it.
-	 *
-	 * <code>
-	 * array (
-	 *     'action', // anyone can access this action
-	 *     'action' => true, // same as above
-	 *     'action' => 'ADMIN', // you must have ADMIN permissions to access this action
-	 *     'action' => '->checkAction' // you can only access this action if $this->checkAction() returns true
-	 * );
-	 * </code>
-	 *
-	 * @var array
-	 */
-
 	private static $allowed_actions = array(
 		'markAsRead', 
 		'ReplyForm',
@@ -26,7 +10,6 @@ class Inbox_Controller extends Page_Controller {
 		'markAsDeleted',
 		'pendingForApproval' => 'ADMIN',
 		'processPendingImage' => 'ADMIN'
-		//only allow replyform if the user is logged in
 	);
 
 	private static $url_handlers = array(
@@ -43,6 +26,10 @@ class Inbox_Controller extends Page_Controller {
 		parent::init();	
 	}
 	
+   /**
+    * Checks if the user is logged in. If set, show the inbox view, otherwise redirect them to the login page.
+    * @return SS_HTTPResponse || redirect
+    */		
 	public function index(){
 		$member = Member::currentUser();
 		if (isset($member)) {
@@ -50,23 +37,32 @@ class Inbox_Controller extends Page_Controller {
 		} else {		
 			$this->redirect('security/login');
 		}
-
 	}
 	
+   /**
+    * Paginated Messages are tapped by an infinite scroll script in the front end, but will fallback to the SS paginatedMessages 
+    * functionality otherwise. 
+    * @return PaginatedList (SS_HTTPResponse)
+    */		
 	public function paginatedMessages() {
 		$member = Member::currentUser();
 		$list = $member->Messages()->where("MarkAsDeleted IS NULL")->sort('Created DESC');;
 		$pl = new PaginatedList($list, $this->request);
 		$pl->setPageLength(5);
 		return $pl;
-	    
     }
 	
+	/*
 	public function nextPage(SS_HTTPRequest $r) {
 		$data = $r->getVars();
 		return Convert::raw2json($data);
 	}
+	*/
 	
+   /**
+    * Used to return a current list of messages that are not marked as read to the inbox. Plopped straight into the template. 
+    * @return SS_HTTPResponse
+    */		
 	public function unread() {
 		$member = Member::currentUser();
 		//returns all unread messages as rendered html to slap into the inbox
@@ -77,33 +73,24 @@ class Inbox_Controller extends Page_Controller {
 		);
 
 		return $this->customise($Data)->renderWith(array('Unread'));
-
 	}
 	
+    /**
+    * Helper function to access the number of unread message associated with $this user
+    * @return int
+    */	
 	public function unreadCount() {
 		$member = Member::currentUser();
 		$unreadMessageCount = $member->unreadMessageCount();	
 		return Convert::raw2json($unreadMessageCount);
 	}
-
-	public function markAsRead(SS_HTTPRequest $r) {
-		if ($r->isAjax() && $r->isPOST() && $markedMessage = $this->markedMessage($r)) {
-			$markedMessage->ReadDateTime = time();
-			$markedMessage->write();
-
-			// get new SS_datetime
-			$markedMessage = Message::get()->byID($markedMessage->ID);
-			$data["ReadDateTime"] = $markedMessage->ReadDateTime;
-				
-		} else {
-			$data['Failed'] = "Unauthorized";
-		}
-		
-		return Convert::raw2json($data);
-
-	}
 	
-	public function markedMessage($r) {
+    /**
+    * Helper function to retrieve a specific message for handling by other functions (markAsRead, markAsDeleted)
+    * @param SS_HTTPRequest $r
+    * @return Message|false
+    */		
+    public function markedMessage(SS_HTTPRequest $r) {
 		$member = Member::currentUser();
 		$currentUserID = $member->ID;
 			
@@ -120,6 +107,33 @@ class Inbox_Controller extends Page_Controller {
 			
 	}
 	
+    /**
+    * Server side method for handling the marksAsRead action for Tutors in their inbox View. 
+    * Note: This merely adds a flag to the db record. 
+    * @param SS_HTTPRequest $r
+    * @return JSON Response
+    */	
+	public function markAsRead(SS_HTTPRequest $r) {
+		if ($r->isAjax() && $r->isPOST() && $markedMessage = $this->markedMessage($r)) {
+			$markedMessage->ReadDateTime = time();
+			$markedMessage->write();
+
+			// get new SS_datetime
+			$markedMessage = Message::get()->byID($markedMessage->ID);
+			$data["ReadDateTime"] = $markedMessage->ReadDateTime;	
+		} else {
+			$data['Failed'] = "Unauthorized";
+		}
+		
+		return Convert::raw2json($data);
+	}
+	
+    /**
+    * Server side method for handling the delete action for Tutors to delete messages in their inbox from the View. 
+    * Note: This does not actually delete the file, it merely adds a flag to it's db record. 
+    * @param SS_HTTPRequest $r
+    * @return JSON Response
+    */		
 	public function markAsDeleted(SS_HTTPRequest $r) {
 		if ($r->isAjax() && $r->isPOST() && $markedMessage = $this->markedMessage($r)) {			
 
@@ -136,25 +150,44 @@ class Inbox_Controller extends Page_Controller {
 		$this->response->addHeader("Content-Type", "application/json");
 		return Convert::raw2json($data);
 	}
-		
-	public function getFeedbackLink(){
-		$linkPage = FeedbackPage::get()->First();
-		$tutorID = $this->ID;
-		$linkText = $linkPage->Link() . '?TutorID=' . $tutorID;
-		return $linkText;
-	}  
 	
-	public function pendingProfileImages() {
-		$pending = ProfileImage::get()->filter(array('Status' => 'Pending'));
-		return $pending;
-		
-	}
-	
+	/**
+    * Construct a datalist of CoverImages marked 'Pending' by first finding TutorPages with a PendingCoverImage relation set 
+    * Then loop those relations, adding them to ArrayList. We do this to ensure that Admins only see PendingImages that will
+    * can be worked with, i.e approved, unapproved. Note: the ajax upload field on TutorPage can create PendingImages before
+    * the relation is set. This gets around that. 
+    * @return ArrayList	
+    */
 	public function pendingCoverImages() {
-        $pending = CoverImage::get()->filter(array('Status' => 'Pending'));
+        $pending = new ArrayList();
+        $TutorsWithPendingCoverImages = TutorPage::get()->where("PendingCoverImageID != 0");
+        foreach ($TutorsWithPendingCoverImages as $TP) {
+            $pending->add($TP->PendingCoverImage());
+        }
 		return $pending;
 	}
-	
+		
+	/**
+    * Accomplishes same thing as pendingCoverImages() but for pendingProfileImages(). 
+    * Note: since the default value of PendingProfileImageID is 0, anything besides that indicates
+    * that there is a valid image related to it. 
+    * @return ArrayList	
+    */	
+	public function pendingProfileImages() {
+        $pending = new ArrayList();
+        $TutorsWithPendingProfileImages = TutorPage::get()->where("PendingProfileImageID != 0");
+        foreach ($TutorsWithPendingProfileImages as $TP) {
+            $pending->add($TP->PendingProfileImage());
+        }
+		return $pending;
+	}
+
+	/**
+    * Server side method to handle AJAX Push requests from the Inbox view available to Administrators to approve or deny 
+    * TutorPage images (ProfileImage, CoverImage). Makes calls to process the image in the associated TutorPage. 
+    * @param SS_HTTPRequest $r
+    * @return JSON Response
+    */	
 	public function processPendingImage(SS_HTTPRequest $r) {
     	if ($r->isAjax() && $r->isPOST()) {			
     		$data = $r->postVars();
@@ -172,24 +205,35 @@ class Inbox_Controller extends Page_Controller {
     		}
             $pendingImage->write();
             $TP = TutorPage::get()->where("PendingCoverImageID OR PendingProfileImageID = " . $pendingImage->ID)->first();
-            $data["tp"] = $TP->ID;
-            $response = $TP->updatePendingImage($pendingImage, $processCode, $unapprovedMessage);  
-    		$data["response"] = $response;
+            if (isset($TP)) {
+                $data["tp"] = $TP->ID;
+                $response = $TP->updatePendingImage($pendingImage, $processCode, $unapprovedMessage);  
+                $data["response"] = $response;        
+            } else {
+                $data["response"] = "no tutor page found";
+            }
 		} else {
 			$data["response"] = "improper";
 		}
-		$sent = $this->sendPendingImageEmail($TP, $pendingImage);	
+		$sent = $this->sendImageProcessedEmail($TP, $pendingImage);	
 		$data["sent"] = $sent;	
 		$this->response->addHeader("Content-Type", "application/json");
 		return Convert::raw2json($data);
 	}
 	
-	public function sendPendingImageEmail($Tutor, $processedImage) {
+    /**
+    * Server side method to handle AJAX Push requests from the Inbox view available to Administrators to approve or deny 
+    * TutorPage images (ProfileImage, CoverImage). Returns True if the email was succesfully sent, false otherwise.
+    * @param TutorPage $tutorPage
+    * @param PendingImage $processedImage
+    * @return Boolean
+    */	
+	public function sendImageProcessedEmail($tutorPage, $processedImage) {
     	$notice = ($processedImage->Status == "Approved") ? "Approved, thanks for using Tutor Iowa!" : "Not been approved, you can try uploading a new one now though."; 
     	$body = "Hi! The image you uploaded to your Profile at Tutor Iowa has been " . $notice . "Please don't reply to this email.";
-    		
+    	
         $email = new Email(); 
-        $email->setTo($Tutor->Email); 
+        $email->setTo($tutorPage->Email); 
         $email->setFrom("TutorIowa"); 
         $email->setSubject("Tutor Iowa Profile Image Processed"); 
         $email->setBody($body); 

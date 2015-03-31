@@ -67,7 +67,13 @@ $('.search-toggle').click(function() {
 (function() {
     "use strict";
 
-    var coverBox = $(".page-bg");
+    removeCoverPhotoURL
+
+    var coverBox = $(".page-bg"); 
+    var baseURL = $(location).attr('href');
+    var repositionCoverPhotoURL = baseURL + "/repositionCoverImage";
+    var removeCoverPhotoURL = baseURL + "/removeCoverImage";
+    var removeProfilePhotoURL = baseURL + "/removeProfileImage";
 
     // TODO: ensure image is ready before grabbing this height; 
     window.coverImageHeight = $("#profile-cover-photo-move").height();
@@ -96,6 +102,7 @@ $('.search-toggle').click(function() {
         create: function(event, ui) {
             $("#repositionCoverPhoto").click( function () {
                 $("#profile-cover-photo").hide();
+                $(".page-bg").css("overflow", "hidden");
                 $("#profile-cover-photo-move").removeClass('hide');
                 $("#profile-cover-photo-move").draggable("enable");
                 $(this).text("Save New Position");
@@ -110,8 +117,6 @@ $('.search-toggle').click(function() {
         }
     });
 
-    var baseURL = $(location).attr('href');
-    var repositionCoverPhotoURL = baseURL + "/repositionCoverImage";
 
     function savePosition(positionObject) {
         var top = Math.abs(positionObject.top);
@@ -136,6 +141,34 @@ $('.search-toggle').click(function() {
             });
 
     }
+
+    $("#removeCoverPhoto").click(function() {
+         var jqXHR = $.post(
+                removeCoverPhotoURL,
+                {
+                    Test: "test"
+                }, 
+                function(data, textStatus, jqXHR) { 
+                    console.log(data)
+                    //updateDOM(message, "markAsRead");
+                }).fail(function( jqXHR, status, error ) {
+                    console.log(status);
+            });
+    });
+
+    $("#removeProfilePhoto").click(function() {
+         var jqXHR = $.post(
+                removeProfilePhotoURL,
+                {
+                    Test: "test"
+                }, 
+                function(data, textStatus, jqXHR) { 
+                    console.log(data)
+                    //updateDOM(message, "markAsRead");
+                }).fail(function( jqXHR, status, error ) {
+                    console.log(status);
+            });
+    });
 
 
 
@@ -268,7 +301,7 @@ $('.search-toggle').click(function() {
         });
     }
 
-    function updateDOM(message, action) {
+    function updateDOM(message, action, $object) {
         // dynamically reduce inbox count on header and topbar
         if (action == "markAsRead") {
             message.addClass("read");
@@ -276,6 +309,7 @@ $('.search-toggle').click(function() {
             message.remove();
         } else if (action == "withdrawImage") {
             console.log(message);
+            $object.remove();
         }
         // dynamically reduce inbox count on header and topbar
         $.get( location.href + "/unreadCount", {}, function(data) {
@@ -323,7 +357,8 @@ $('.search-toggle').click(function() {
                 function(data, textStatus, jqXHR) { 
                     console.log(data);
                     data = $.parseJSON(data);
-                    updateDOM(data.disapprovedMessage, "withdrawImage");
+                    updateDOM(data, "withdrawImage", $pendingImage);
+
                 },
                 "json"
             ).fail(function(data, status, error) {

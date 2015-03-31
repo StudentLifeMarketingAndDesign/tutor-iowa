@@ -1,6 +1,6 @@
 <div class="gradient">
 	<div class="main typography" role="main">
-		
+		$ID
 		<div class="row" data-equalizer>
 			<style>
 				#profile-cover-photo {

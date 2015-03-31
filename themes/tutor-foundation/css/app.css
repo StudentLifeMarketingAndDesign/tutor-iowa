@@ -7730,6 +7730,9 @@ a.dosl, p.adr {
   max-height: 333px;
   max-width: 100%; }
 
+#profile-cover-photo-move {
+  overflow: hidden; }
+
 .pointer {
   cursor: hand; }
 

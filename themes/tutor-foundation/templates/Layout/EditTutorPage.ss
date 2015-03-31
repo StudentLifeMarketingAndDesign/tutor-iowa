@@ -31,7 +31,7 @@
                     <img id="profile-cover-photo-move" class="cover hide" src="$ApprovedCoverImage.Link" style="width: 100%; bottom: 300px; " />
                     <div id="profile-cover-photo" class=" CoverImage FlexEmbed FlexEmbed--3by1" style="background-image:url($ApprovedCoverImage.Link);"></div>
                 <% else %>
-			    	<img id="profile-cover-photo" src="http://lorempixel.com/1240/600/" />
+			    	<%-- <img id="profile-cover-photo" src="http://lorempixel.com/1240/600/" /> --%>
 			    <% end_if %>
             </div>
             

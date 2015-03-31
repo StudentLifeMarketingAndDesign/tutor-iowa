@@ -125,7 +125,7 @@
         });
     }
 
-    function updateDOM(message, action) {
+    function updateDOM(message, action, $object) {
         // dynamically reduce inbox count on header and topbar
         if (action == "markAsRead") {
             message.addClass("read");
@@ -133,6 +133,7 @@
             message.remove();
         } else if (action == "withdrawImage") {
             console.log(message);
+            $object.remove();
         }
         // dynamically reduce inbox count on header and topbar
         $.get( location.href + "/unreadCount", {}, function(data) {
@@ -180,7 +181,8 @@
                 function(data, textStatus, jqXHR) { 
                     console.log(data);
                     data = $.parseJSON(data);
-                    updateDOM(data.disapprovedMessage, "withdrawImage");
+                    updateDOM(data, "withdrawImage", $pendingImage);
+
                 },
                 "json"
             ).fail(function(data, status, error) {

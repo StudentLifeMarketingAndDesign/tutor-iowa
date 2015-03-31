@@ -1,7 +1,13 @@
 (function() {
     "use strict";
 
-    var coverBox = $(".page-bg");
+    removeCoverPhotoURL
+
+    var coverBox = $(".page-bg"); 
+    var baseURL = $(location).attr('href');
+    var repositionCoverPhotoURL = baseURL + "/repositionCoverImage";
+    var removeCoverPhotoURL = baseURL + "/removeCoverImage";
+    var removeProfilePhotoURL = baseURL + "/removeProfileImage";
 
     // TODO: ensure image is ready before grabbing this height; 
     window.coverImageHeight = $("#profile-cover-photo-move").height();
@@ -30,6 +36,7 @@
         create: function(event, ui) {
             $("#repositionCoverPhoto").click( function () {
                 $("#profile-cover-photo").hide();
+                $(".page-bg").css("overflow", "hidden");
                 $("#profile-cover-photo-move").removeClass('hide');
                 $("#profile-cover-photo-move").draggable("enable");
                 $(this).text("Save New Position");
@@ -44,8 +51,6 @@
         }
     });
 
-    var baseURL = $(location).attr('href');
-    var repositionCoverPhotoURL = baseURL + "/repositionCoverImage";
 
     function savePosition(positionObject) {
         var top = Math.abs(positionObject.top);
@@ -70,6 +75,34 @@
             });
 
     }
+
+    $("#removeCoverPhoto").click(function() {
+         var jqXHR = $.post(
+                removeCoverPhotoURL,
+                {
+                    Test: "test"
+                }, 
+                function(data, textStatus, jqXHR) { 
+                    console.log(data)
+                    //updateDOM(message, "markAsRead");
+                }).fail(function( jqXHR, status, error ) {
+                    console.log(status);
+            });
+    });
+
+    $("#removeProfilePhoto").click(function() {
+         var jqXHR = $.post(
+                removeProfilePhotoURL,
+                {
+                    Test: "test"
+                }, 
+                function(data, textStatus, jqXHR) { 
+                    console.log(data)
+                    //updateDOM(message, "markAsRead");
+                }).fail(function( jqXHR, status, error ) {
+                    console.log(status);
+            });
+    });
 
 
 
