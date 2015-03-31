@@ -197,7 +197,7 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .top-bar .top-bar-section .right{ padding-right: 0.78125rem; }
 .message{ overflow-x: hidden; overflow-y: hidden; }
 .card h4{ -webkit-transition-property: all; -webkit-transition-duration: 0.2s; -webkit-transition-timing-function: ease-in-out; -webkit-transition-delay: initial; color: rgb(4, 93, 255); }
-.small li.card{ padding-top: 10px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(221, 221, 221); }
+.small li.card{ padding-top: 10px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; }
 .small li.card.last{ border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; }
 .tutor-card-list{ display: block; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }
 .tutor-card-list::before, .tutor-card-list::after{ content: ' '; display: table; }
