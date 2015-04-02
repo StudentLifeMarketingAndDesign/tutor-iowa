@@ -218,6 +218,11 @@ class TutorPage_Controller extends Page_Controller {
 
 	}
 
+	public function RelatedResources(){
+		$results = search($tags);
+		return $results;
+	}
+
 	public function Sent() {
 		return $this->request->getVar('sent');
 	}

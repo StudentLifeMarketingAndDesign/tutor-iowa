@@ -149,10 +149,24 @@ class Page_Controller extends ContentController {
 
 		$this->addSearchTermToLibrary($keyword);
 
+
+		$pages = $this->search($keyword);
+		
+		$data = array('Tutors' => $pages->filter(array('ClassName' => 'TutorPage')), 'SupplementalInstructions' => $pages->filter(array('ClassName' => 'SupplementalInstruction')), 'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')), 'Query' => $keyword, 'Title' => 'Search Results');
+		
+		if ($pages->count() == 0 && $news->count() == 0 && $files->count() == 0) {
+			$data['NoResults'] = 1;
+		} else {
+		}
+
+		return $this->customise($data)->renderWith(array('Page_results', 'Page'));
+	}
+
+	private function search($keyword){
 		$pages = new ArrayList();
 		$news = new ArrayList();
 		$files = new ArrayList();
-
+		$keywordHTML = htmlentities($keyword, ENT_NOQUOTES, 'UTF-8');
 		$mode = ' IN BOOLEAN MODE';
 
 		$siteTreeClasses = array('SiteTree', 'TutorPage', 'SupplementalInstruction', 'HelpLab');
@@ -177,19 +191,15 @@ class Page_Controller extends ContentController {
 			}
 
 			$pages->merge($objects);
+			$pages->removeDuplicates();
+			$pages->sort(array('Relevance' => 'DESC', 'Title' => 'ASC'));
+			
+			return $pages;
 		}
-
-		$pages->removeDuplicates();
-		$pages->sort(array('Relevance' => 'DESC', 'Title' => 'ASC'));
-		$data = array('Tutors' => $pages->filter(array('ClassName' => 'TutorPage')), 'SupplementalInstructions' => $pages->filter(array('ClassName' => 'SupplementalInstruction')), 'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')), 'Query' => $keyword, 'Title' => 'Search Results');
-
-		if ($pages->count() == 0 && $news->count() == 0 && $files->count() == 0) {
-			$data['NoResults'] = 1;
-		} else {
-		}
-
-		return $this->customise($data)->renderWith(array('Page_results', 'Page'));
 	}
+
+		
+	
 
 	private function addSearchTermToLibrary($keyword) {
 
