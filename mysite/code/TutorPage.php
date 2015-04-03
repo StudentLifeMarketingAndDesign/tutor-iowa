@@ -90,6 +90,21 @@ class TutorPage extends Page {
 
 	}
 
+	public function RelatedResources(){
+		//$tags = $this->SplitKeywords();
+		//print_r($tags);
+		$results = $this->search($this->Tags);
+		//$results = $this->search("Chemistry");
+
+
+		//print_r($results);
+
+		//$tutorResults = $results['Tutors'];
+
+
+		return $results;
+	}
+
 	public function getContent() {
 		//print_r($this->getField("Content"));
 		if ($this->getField("Content")) {
@@ -144,6 +159,8 @@ class TutorPage extends Page {
 		}
 
 	}
+
+
 
 }
 
@@ -217,6 +234,8 @@ class TutorPage_Controller extends Page_Controller {
 		return $this->redirect($this->Link('?sent=1'));
 
 	}
+
+	
 
 	public function Sent() {
 		return $this->request->getVar('sent');
