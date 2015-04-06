@@ -49,6 +49,8 @@ class Page extends SiteTree {
 		$siteTreeMatch = "MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keyword'$mode)
                     + MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keywordHTML'$mode)";
 
+               
+
 		/*
 		 * Standard pages
 		 * SiteTree Classes with the default search MATCH
@@ -68,13 +70,26 @@ class Page extends SiteTree {
 			$pages->merge($objects);
 			$pages->removeDuplicates();
 			$pages->sort(array('Relevance' => 'DESC', 'Title' => 'ASC'));
+
+			$shuffletutors = $pages->filter(array('ClassName' => 'TutorPage'));
+			$shuffletutors = $shuffletutors->toArray();
+			shuffle($shuffletutors);
+			$tutors = new ArrayList($shuffletutors);
+		
+				
+
+
+			$SupplementalInstructions = $pages->filter(array('ClassName' => 'SupplementalInstruction'));
+			$HelpLabs = 
+
+
 			
 
 			//$data = array('Tutors' => $pages->filter(array('ClassName' => 'TutorPage')), 'SupplementalInstructions' => $pages->filter(array('ClassName' => 'SupplementalInstruction')), 'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')), 'Query' => $keyword, 'Title' => 'Search Results');
 			$data = new ArrayData(
 				array(
-					'Tutors' => $pages->filter(array('ClassName' => 'TutorPage')), 
-					'SupplementalInstructions' => $pages->filter(array('ClassName' => 'SupplementalInstruction')), 
+					'Tutors' => $tutors, 
+					'SupplementalInstructions' => $SupplementalInstructions, 
 					'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')), 
 					'Query' => $keyword, 
 					'Title' => 'Search Results'
