@@ -1,6 +1,6 @@
 <li class="pending-image" data-imageid="$ID">
     $SetWidth(444)
-    <a href="$TutorPage.Link">$ID $TutorPage.FirstName $TutorPage.Surname </a>
+    <a href="$TutorPage.Link">$ID $Title</a>
 
     <ul class="button-group processImage">
         <li><button class="tiny success" data-process="1">Approve</button></li>

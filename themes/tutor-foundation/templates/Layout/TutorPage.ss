@@ -1,6 +1,5 @@
 <div class="gradient">
 	<div class="main typography" role="main">
-		$ID
 		<div class="row" data-equalizer>
 			<style>
 				#profile-cover-photo {
@@ -11,7 +10,6 @@
 						background-position-y: {$ApprovedCoverImage.NiceTop()};
 					}
 				}
-
 			</style>
 			<div class="page-bg" >
 			    <% if $approvedCoverImage %>

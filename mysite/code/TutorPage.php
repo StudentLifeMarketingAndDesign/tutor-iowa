@@ -57,10 +57,12 @@ class TutorPage extends Page {
 	);
 	
     /**
-    * Accomplishes same thing as pendingCoverImages() but for pendingProfileImages(). 
-    * Note: since the default value of PendingProfileImageID is 0, anything besides that indicates
-    * that there is a valid image related to it. 
-    * @return ArrayList	
+    * Main Function for managing Pending, Approved, and Unapproved Images. Called by InboxController::processPendingImage()
+    * to process approval/unapproval of TutorPage images by TutorIowa Administrators.
+    * @param PendingImage $image
+    * @param int (1,2) $processCode
+    * @param string $message
+    * @return Array
     */	
 	public function updatePendingImage($image, $processCode, $message) {
     	$imgClass = $image->class;
@@ -72,6 +74,7 @@ class TutorPage extends Page {
                 $this->UnapprovedCoverImageID = $image->ID;
             }
             $this->PendingCoverImageID = 0; // reset the pending cover image relation
+            $success = "CoverImage Processed";
         } else if (($imgClass) == "ProfileImage") {
             if ($processCode === 1) {
                 $this->ApprovedProfileImageID = $image->ID;
@@ -79,14 +82,17 @@ class TutorPage extends Page {
             } else if ($processCode === 2) {
                 $this->UnapprovedProfileImageID = $image->ID;
             }
-            $this->PendingProfileImageID = 0; //reset the pending profile image relation       
+            $this->PendingProfileImageID = 0; //reset the pending profile image relation  
+            $success = "ProfileImage Processed";
         }    
-        $this->write();
-        $response = array($image->ID, $processCode, $this->ApprovedProfileImageID, $this->PendingProfileImageID, $this->UnapprovedProfileImageID, $this->Title);   
+        $written = $this->write();
+        $response = array("ProcessCode" => $processCode, "Success" => $success, "Written" => $written);   
         return $response;
 	}
 
-	//Add form fields to CMS
+    /**
+    * The following 7 functions are from the previous iteration of TutorIowa, and may no longer be neccessary. 
+    */	
 	public function getCMSFields() {
 
 		$fields = parent::getCMSFields();
@@ -126,7 +132,6 @@ class TutorPage extends Page {
 		return $fields;
 
 	}
-
 	public function SplitKeywords() {
 		$keywords = $this->Tags;
 
@@ -144,11 +149,9 @@ class TutorPage extends Page {
 			return $keywordsList;
 		}
 	}
-
 	private function getEmails() {
 		return MemberManagement::get();
 	}
-
 	private function changeParent() {
 
 		$tutorParent = TutorHolder::get()->filter(array('Title' => 'Private Tutors'))->first();
@@ -164,7 +167,6 @@ class TutorPage extends Page {
 		$this->changeParent();
 
 	}
-
 	public function onAfterPublish() {
 
 		$approved = $this->Approved;
@@ -267,11 +269,9 @@ class TutorPage_Controller extends Page_Controller {
 	public function Sent() {
 		return $this->request->getVar('sent');
 	}
-
 	public function Saved() {
 		return $this->request->getVar('saved');
 	}
-
 	public function getFeedbackLink() {
 		$linkPage = FeedbackPage::get()->First();
 		$tutorID = $this->ID;
@@ -279,30 +279,32 @@ class TutorPage_Controller extends Page_Controller {
 		return $linkText;
 	}
 	
+    /**
+    * Main action to handle the Edit Profile Page, parses request for additional actions and calls them.
+    * @return HTMLText || action response.
+    */		
 	public function editProfile() {
-		$memberID = Member::CurrentUserID(); 
-		
 		$action = $this->request->param('action');
 		if (isset($action)) {
     		$response = $this->$action($this->request);
     		return $response;
 		}
 		
+		$memberID = Member::CurrentUserID(); 
 		if ($memberID == $this->Member()->ID) {
 			$Data = array();
+			//print_r(EmailAdmins::gatherStats());
 			return $this->customise($Data)->renderWith(array("EditTutorPage", "Page"));
 		} else {
-			//TODO: send User back to edit profile page after they've logged in. 
+			// TODO: send User back to edit profile page after they've logged in. 
 			$this->redirect(Security::login_url());
 		}
 	}
 
     /**
-    * Accomplishes same thing as pendingCoverImages() but for pendingProfileImages(). 
-    * Note: since the default value of PendingProfileImageID is 0, anything besides that indicates
-    * that there is a valid image related to it. 
-    * @return ArrayList	
-    */		
+    * Creates a form for Tutors to edit the content of their Profile Page. 
+    * @return Form object
+    */	
 	public function EditProfileForm() {
 		$Member = Member::CurrentUser();
 
@@ -390,10 +392,9 @@ class TutorPage_Controller extends Page_Controller {
 	}
 
     /**
-    * Accomplishes same thing as pendingCoverImages() but for pendingProfileImages(). 
-    * Note: since the default value of PendingProfileImageID is 0, anything besides that indicates
-    * that there is a valid image related to it. 
-    * @return ArrayList	
+    * Saves Edit Tutor Page Form into TutorPage and Member.
+    * @param $data, $form
+    * @return RedirectBack
     */	
 	public function SaveProfile($data, $form) {	
 		/* Meant to check and ensure email is duplicated with another in the DB. Can be refactored :D
@@ -460,10 +461,10 @@ class TutorPage_Controller extends Page_Controller {
             return $this->redirectBack();
 	}
 	/**
-    * Accomplishes same thing as pendingCoverImages() but for pendingProfileImages(). 
-    * Note: since the default value of PendingProfileImageID is 0, anything besides that indicates
-    * that there is a valid image related to it. 
-    * @return ArrayList	
+    * Server Side Action to handle saving the position of the cover image. 
+    * Recieves Top variable from TutorPage Repo
+    * @param SS_HTTPRequest $r (HTTP Post)
+    * @return JSON String
     */	
 	public function repositionCoverImage(SS_HTTPRequest $r) {
     	$data = $r->postVars();
@@ -473,36 +474,41 @@ class TutorPage_Controller extends Page_Controller {
     	$coverImage->write();
     	return Convert::raw2json($data);
 	}
+	
 	/**
-    * Accomplishes same thing as pendingCoverImages() but for pendingProfileImages(). 
-    * Note: since the default value of PendingProfileImageID is 0, anything besides that indicates
-    * that there is a valid image related to it. 
-    * @return ArrayList	
+    * Server Side Action that handles removeing Cover Image. 
+    * Note: This only unsets the relation, doesn't actually destroy CoverImage record or file.
+    * If we want to change this, simply uncomment one of the #'d lines below
+    * @param SS_HTTPRequest $r (HTTP Post)
+    * @return JSON String
     */		
 	public function removeCoverImage(SS_HTTPRequest $r) {
-        $data = $r->postVars();
-        $DO = $this->dataRecord;
-        $DO->ApprovedCoverImageID = 0;
-        $confirm = $DO->write();
-        $data['confirm'] = $confirm;
-        $data['this'] = $this;
-        $data['that'] = $DO;
+        $data = $r->postVars(); 
+        $DO = $this->dataRecord; // retrieves TutorPage Object associated with controller... 
+        #CoverImage::get()->byID($DO->ApprovedCoverImageID)->deleteDatabaseOnly(); //uncomment this line to delete ONLY CoverImage record
+        #CoverImage::get()->byID($DO->ApprovedCoverImageID)->delete(); // uncomment this line to delete CoverImage Record AND file.
+        $DO->ApprovedCoverImageID = 0; // unset relation.
+        $confirm = $DO->write(); 
+        $data['confirm'] = $confirm; // return confirmation along with initial data through the JSON response
         return Convert::raw2json($data);
 	}
+	
 	/**
-    * Accomplishes same thing as pendingCoverImages() but for pendingProfileImages(). 
-    * Note: since the default value of PendingProfileImageID is 0, anything besides that indicates
-    * that there is a valid image related to it. 
-    * @return ArrayList	
+    * Server Side Action that handles removeProfileImage. 
+    * Note: This only unsets the relation, doesn't actually destroy ProfileImage record or file.
+    * If we want to change this, simply uncomment one of the #'d lines below
+    * @param SS_HTTPRequest $r (HTTP Post)
+    * @return JSON String
     */		
 	public function removeProfileImage(SS_HTTPRequest $r) {
-        $data = $r->postVars();
-        $DO = $this->dataRecord;
-        $DO->ApprovedProfileImageID = 0;
-        $confirm = $DO->write();
-        $data['confirm'] = $confirm;
-        $data['this'] = $this;
-        $data['that'] = $DO;
+        $data = $r->postVars(); 
+        $DO = $this->dataRecord; // retrieves TutorPage Object associated with controller... 
+        #ProfileImage::get()->byID($DO->ApprovedProfileImageID)->delete(); // uncomment this line to delete CoverImage Record AND file.
+        #ProfileImage::get()->byID($DO->ApprovedProfileImageID)->deleteDatabaseOnly(); //uncomment this line to delete ONLY CoverImage record
+        $DO->ApprovedProfileImageID = 0; // unset relation
+        $confirm = $DO->write(); 
+        $data['confirm'] = $confirm; // return confirmation along with initial data through the JSON response
         return Convert::raw2json($data);
 	}	
+	
 }

@@ -5,7 +5,7 @@ class CoverImage extends PendingImage {
         'Top' => 'Percentage'
     );
 
-    public static $belongs_to = array(
+    private static $belongs_to = array(
         'TutorPage' => "TutorPage"
     );
         
@@ -13,11 +13,6 @@ class CoverImage extends PendingImage {
     private static $field_labels = array();
     
     protected function onBeforeWrite() {
-        // This sets the the foreign key ID for Tutorpage in the DB to give us a handle on the Tutorpage from the CoverImage object
-		$member = Member::currentUser();
-        $associatedTutorPage = TutorPage::get()->where("MemberID =" . $member->ID)->first(); 
-        $this->TutorPageID = $associatedTutorPage->ID;
-
         parent::onBeforeWrite();
     }
     
@@ -26,4 +21,16 @@ class CoverImage extends PendingImage {
         $topPercentage = (string)$this->Top * 100;
         return $topPercentage . "%";
     }
+    
+	/**
+    * Construct a datalist of CoverImages marked 'Pending' by first finding TutorPages with a PendingCoverImage relation that is set,
+    * Then loop those relations, adding them to ArrayList. We do this to ensure that everyone only sees PendingImages that 
+    * can be worked with, i.e approved, unapproved. Note: the ajax upload field on TutorPage can create PendingImages before
+    * the relation is set. This gets around that. 
+    * @return ArrayList	
+    */
+	public static function getPending() {
+        return new ArrayList(self::get()->filter("Status", "Pending")->toArray());
+	}
+	
 }

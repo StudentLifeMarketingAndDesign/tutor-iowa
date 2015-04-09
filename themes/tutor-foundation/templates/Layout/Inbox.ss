@@ -69,7 +69,6 @@
 									<% end_loop %>
 								</ul>
 							<% end_if %>
-
 						</div>
 					</div>
 				</article>

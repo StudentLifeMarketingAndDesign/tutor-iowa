@@ -133,7 +133,9 @@
             message.remove();
         } else if (action == "withdrawImage") {
             console.log(message);
-            $object.remove();
+            console.log(action);
+            console.log($object);
+            //$object.remove();
         }
         // dynamically reduce inbox count on header and topbar
         $.get( location.href + "/unreadCount", {}, function(data) {
@@ -179,7 +181,7 @@
                     UnapprovedMessage: unapprovedMessage
                 }, 
                 function(data, textStatus, jqXHR) { 
-                    console.log(data);
+                    //console.log(data);
                     data = $.parseJSON(data);
                     updateDOM(data, "withdrawImage", $pendingImage);
 
@@ -236,6 +238,12 @@
     $( document ).ready(function () {
         attachHandlers();  
     });
-   
+
+/*
+    function InboxViewModel() {
+
+    }
+    ko.applyBindings(new InboxViewModel());
+   */
 
 })();

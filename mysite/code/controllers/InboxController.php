@@ -33,6 +33,7 @@ class Inbox_Controller extends Page_Controller {
 	public function index(){
 		$member = Member::currentUser();
 		if (isset($member)) {
+    		//PendingImage::cleanUpPendingImages();
 			return $this->renderWith(array('Inbox', 'Page'));
 		} else {		
 			$this->redirect('security/login');
@@ -40,7 +41,7 @@ class Inbox_Controller extends Page_Controller {
 	}
 	
    /**
-    * Paginated Messages are tapped by an infinite scroll script in the front end, but will fallback to the SS paginatedMessages 
+    * Paginated Messages are tapped into by an infinite scroll script in the front end, but will fallback to the SS paginatedMessages 
     * functionality otherwise. 
     * @return PaginatedList (SS_HTTPResponse)
     */		
@@ -151,36 +152,8 @@ class Inbox_Controller extends Page_Controller {
 		return Convert::raw2json($data);
 	}
 	
-	/**
-    * Construct a datalist of CoverImages marked 'Pending' by first finding TutorPages with a PendingCoverImage relation set 
-    * Then loop those relations, adding them to ArrayList. We do this to ensure that Admins only see PendingImages that will
-    * can be worked with, i.e approved, unapproved. Note: the ajax upload field on TutorPage can create PendingImages before
-    * the relation is set. This gets around that. 
-    * @return ArrayList	
-    */
-	public function pendingCoverImages() {
-        $pending = new ArrayList();
-        $TutorsWithPendingCoverImages = TutorPage::get()->where("PendingCoverImageID != 0");
-        foreach ($TutorsWithPendingCoverImages as $TP) {
-            $pending->add($TP->PendingCoverImage());
-        }
-		return $pending;
-	}
-		
-	/**
-    * Accomplishes same thing as pendingCoverImages() but for pendingProfileImages(). 
-    * Note: since the default value of PendingProfileImageID is 0, anything besides that indicates
-    * that there is a valid image related to it. 
-    * @return ArrayList	
-    */	
-	public function pendingProfileImages() {
-        $pending = new ArrayList();
-        $TutorsWithPendingProfileImages = TutorPage::get()->where("PendingProfileImageID != 0");
-        foreach ($TutorsWithPendingProfileImages as $TP) {
-            $pending->add($TP->PendingProfileImage());
-        }
-		return $pending;
-	}
+	public function pendingProfileImages() { return ProfileImage::getPending(); }
+	public function pendingCoverImages() { return CoverImage::getPending(); }
 
 	/**
     * Server side method to handle AJAX Push requests from the Inbox view available to Administrators to approve or deny 
