@@ -90,6 +90,20 @@ class TutorPage extends Page {
 
 	}
 
+	public function RelatedResources() {
+
+		$searchTerm = $this->Tags . ' ' . $this->Content;
+
+		$results = $this->search($searchTerm);
+
+		//Remove this tutor from results
+		$tutors = $results->getField('Tutors');
+		$thisTutorInResults = $tutors->find('ID', $this->ID);
+		$results->getField('Tutors')->remove($thisTutorInResults);
+
+		return $results;
+	}
+
 	public function getContent() {
 		//print_r($this->getField("Content"));
 		if ($this->getField("Content")) {

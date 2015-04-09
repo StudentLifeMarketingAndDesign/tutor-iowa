@@ -36,6 +36,64 @@ class Page extends SiteTree {
 			return $keywordsList;
 		}
 	}
+
+	public function search($keyword) {
+		$pages = new ArrayList();
+		$news = new ArrayList();
+		$files = new ArrayList();
+		$keywordHTML = htmlentities($keyword, ENT_NOQUOTES, 'UTF-8');
+		$keywordFiltered = Convert::raw2sql($keywordHTML);
+		$mode = ' IN BOOLEAN MODE';
+
+		$siteTreeClasses = array('SiteTree', 'TutorPage', 'SupplementalInstruction', 'HelpLab');
+		//add in an classes that extend Page or SiteTree
+		$siteTreeMatch = "MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keywordFiltered'$mode)
+                    + MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keywordFiltered'$mode)";
+
+		/*
+		 * Standard pages
+		 * SiteTree Classes with the default search MATCH
+		 */
+		foreach ($siteTreeClasses as $c) {
+			$query = DataList::create($c)->where($siteTreeMatch);
+			$query = $query->dataQuery()->query();
+			$query->addSelect(array('Relevance' => $siteTreeMatch));
+			$records = DB::query($query->sql());
+			$objects = array();
+			foreach ($records as $record) {
+				if (in_array($record['ClassName'], $siteTreeClasses)) {
+					$objects[] = new $record['ClassName']($record);
+				}
+			}
+
+			$pages->merge($objects);
+			$pages->removeDuplicates();
+			$pages->sort(array('Relevance' => 'DESC', 'Title' => 'ASC'));
+
+			$shuffletutors = $pages->filter(array('ClassName' => 'TutorPage'));
+			$shuffletutors = $shuffletutors->toArray();
+			shuffle($shuffletutors);
+			$tutors = new ArrayList($shuffletutors);
+
+			$SupplementalInstructions = $pages->filter(array('ClassName' => 'SupplementalInstruction'));
+			$HelpLabs =
+
+			//$data = array('Tutors' => $pages->filter(array('ClassName' => 'TutorPage')), 'SupplementalInstructions' => $pages->filter(array('ClassName' => 'SupplementalInstruction')), 'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')), 'Query' => $keyword, 'Title' => 'Search Results');
+			$data = new ArrayData(
+				array(
+					'Tutors' => $tutors,
+					'SupplementalInstructions' => $SupplementalInstructions,
+					'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')),
+					'Query' => $keyword,
+					'Title' => 'Search Results',
+				)
+
+			);
+
+			return $data;
+		}
+	}
+
 }
 
 class Page_Controller extends ContentController {
@@ -149,44 +207,7 @@ class Page_Controller extends ContentController {
 
 		$this->addSearchTermToLibrary($keyword);
 
-		$pages = new ArrayList();
-		$news = new ArrayList();
-		$files = new ArrayList();
-
-		$mode = ' IN BOOLEAN MODE';
-
-		$siteTreeClasses = array('SiteTree', 'TutorPage', 'SupplementalInstruction', 'HelpLab');
-		//add in an classes that extend Page or SiteTree
-		$siteTreeMatch = "MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keyword'$mode)
-                    + MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keywordHTML'$mode)";
-
-		/*
-		 * Standard pages
-		 * SiteTree Classes with the default search MATCH
-		 */
-		foreach ($siteTreeClasses as $c) {
-			$query = DataList::create($c)->where($siteTreeMatch);
-			$query = $query->dataQuery()->query();
-			$query->addSelect(array('Relevance' => $siteTreeMatch));
-			$records = DB::query($query->sql());
-			$objects = array();
-			foreach ($records as $record) {
-				if (in_array($record['ClassName'], $siteTreeClasses)) {
-					$objects[] = new $record['ClassName']($record);
-				}
-			}
-
-			$pages->merge($objects);
-		}
-
-		$pages->removeDuplicates();
-		$pages->sort(array('Relevance' => 'DESC', 'Title' => 'ASC'));
-		$data = array('Tutors' => $pages->filter(array('ClassName' => 'TutorPage')), 'SupplementalInstructions' => $pages->filter(array('ClassName' => 'SupplementalInstruction')), 'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')), 'Query' => $keyword, 'Title' => 'Search Results');
-
-		if ($pages->count() == 0 && $news->count() == 0 && $files->count() == 0) {
-			$data['NoResults'] = 1;
-		} else {
-		}
+		$data = $this->search($keyword);
 
 		return $this->customise($data)->renderWith(array('Page_results', 'Page'));
 	}

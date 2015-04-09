@@ -1,6 +1,7 @@
 <div class="main typography" role="main">
   <div class="row">
     <div class="large-12 columns">
+      <% include BreadcrumbsSearch %>
       <h1>Search Results</h1>
       <% if Query %>
       <p>Your results for <strong>'{$Query}'</strong></p>
@@ -11,7 +12,7 @@
   </div>
   <div class="row">
     <% if HelpLabs %>
-      <div class = "large-6 columns">
+      <div class = "<% if $SupplementalInstructions %>large-6<% else %>large-12<% end_if %> columns">
         <h2>Help Labs</h2>
         <ul class="resource-card-list large">
           <% loop HelpLabs %>
@@ -21,7 +22,7 @@
       </div>
     <% end_if %><%-- end if HelpLabs --%>
     <% if SupplementalInstructions %>
-    <div class = "large-6 columns">
+    <div class = "<% if $HelpLabs %>large-6<% else %>large-12<% end_if %> columns">
       <h2>Supplemental Instruction</h2>
       <ul class="resource-card-list large">
         <% loop SupplementalInstructions %>
@@ -30,11 +31,10 @@
       </ul>
       
     </div>
-  </div>
   <% end_if %><%-- end if SuppInstructions --%>
-
-  <div class = "row">
-    <div class = "large-12 columns">
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
       <% if Tutors %>
       <h2>Tutors</h2>
       <ul class="tutor-card-list large">
