@@ -90,17 +90,16 @@ class TutorPage extends Page {
 
 	}
 
-	public function RelatedResources(){
-		//$tags = $this->SplitKeywords();
-		//print_r($tags);
-		$results = $this->search($this->Tags);
-		//$results = $this->search("Chemistry");
+	public function RelatedResources() {
 
+		$searchTerm = $this->Tags . ' ' . $this->Content;
 
-		//print_r($results);
+		$results = $this->search($searchTerm);
 
-		//$tutorResults = $results['Tutors'];
-
+		//Remove this tutor from results
+		$tutors = $results->getField('Tutors');
+		$thisTutorInResults = $tutors->find('ID', $this->ID);
+		$results->getField('Tutors')->remove($thisTutorInResults);
 
 		return $results;
 	}
@@ -159,8 +158,6 @@ class TutorPage extends Page {
 		}
 
 	}
-
-
 
 }
 
@@ -234,8 +231,6 @@ class TutorPage_Controller extends Page_Controller {
 		return $this->redirect($this->Link('?sent=1'));
 
 	}
-
-	
 
 	public function Sent() {
 		return $this->request->getVar('sent');

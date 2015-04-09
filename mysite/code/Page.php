@@ -37,19 +37,18 @@ class Page extends SiteTree {
 		}
 	}
 
-	public function search($keyword){
+	public function search($keyword) {
 		$pages = new ArrayList();
 		$news = new ArrayList();
 		$files = new ArrayList();
 		$keywordHTML = htmlentities($keyword, ENT_NOQUOTES, 'UTF-8');
+		$keywordFiltered = Convert::raw2sql($keywordHTML);
 		$mode = ' IN BOOLEAN MODE';
 
 		$siteTreeClasses = array('SiteTree', 'TutorPage', 'SupplementalInstruction', 'HelpLab');
 		//add in an classes that extend Page or SiteTree
-		$siteTreeMatch = "MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keyword'$mode)
-                    + MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keywordHTML'$mode)";
-
-               
+		$siteTreeMatch = "MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keywordFiltered'$mode)
+                    + MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keywordFiltered'$mode)";
 
 		/*
 		 * Standard pages
@@ -75,24 +74,18 @@ class Page extends SiteTree {
 			$shuffletutors = $shuffletutors->toArray();
 			shuffle($shuffletutors);
 			$tutors = new ArrayList($shuffletutors);
-		
-				
-
 
 			$SupplementalInstructions = $pages->filter(array('ClassName' => 'SupplementalInstruction'));
-			$HelpLabs = 
-
-
-			
+			$HelpLabs =
 
 			//$data = array('Tutors' => $pages->filter(array('ClassName' => 'TutorPage')), 'SupplementalInstructions' => $pages->filter(array('ClassName' => 'SupplementalInstruction')), 'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')), 'Query' => $keyword, 'Title' => 'Search Results');
 			$data = new ArrayData(
 				array(
-					'Tutors' => $tutors, 
-					'SupplementalInstructions' => $SupplementalInstructions, 
-					'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')), 
-					'Query' => $keyword, 
-					'Title' => 'Search Results'
+					'Tutors' => $tutors,
+					'SupplementalInstructions' => $SupplementalInstructions,
+					'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')),
+					'Query' => $keyword,
+					'Title' => 'Search Results',
 				)
 
 			);
@@ -100,8 +93,6 @@ class Page extends SiteTree {
 			return $data;
 		}
 	}
-
-
 
 }
 
@@ -217,14 +208,9 @@ class Page_Controller extends ContentController {
 		$this->addSearchTermToLibrary($keyword);
 
 		$data = $this->search($keyword);
-		
 
 		return $this->customise($data)->renderWith(array('Page_results', 'Page'));
 	}
-
-	
-		
-	
 
 	private function addSearchTermToLibrary($keyword) {
 
