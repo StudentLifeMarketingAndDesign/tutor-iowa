@@ -132,23 +132,17 @@ class TutorPage extends Page {
 		return $fields;
 
 	}
-	public function SplitKeywords() {
-		$keywords = $this->Tags;
 
-		if (!empty($keywords)) {
-			$splitKeywords = explode(',', $keywords);
-		}
-
-		if (isset($splitKeywords)) {
-			$keywordsList = new ArrayList();
-			foreach ($splitKeywords as $data) {
-				$do = new DataObject();
-				$do->Keyword = $data;
-				$keywordsList->push($do);
-			}
-			return $keywordsList;
+	public function getContent() {
+		//print_r($this->getField("Content"));
+		if ($this->getField("Content")) {
+			return $this->getField("Content");
+		} else {
+			$tempBio = "My tags are: " . $this->Tags;
+			return $tempBio;
 		}
 	}
+	
 	private function getEmails() {
 		return MemberManagement::get();
 	}
@@ -509,6 +503,6 @@ class TutorPage_Controller extends Page_Controller {
         $confirm = $DO->write(); 
         $data['confirm'] = $confirm; // return confirmation along with initial data through the JSON response
         return Convert::raw2json($data);
-	}	
-	
+	}		
 }
+

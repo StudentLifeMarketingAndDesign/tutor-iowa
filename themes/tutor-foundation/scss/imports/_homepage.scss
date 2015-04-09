@@ -18,17 +18,13 @@
 	.HomePageSearchBg{
 		
 		margin: 0 auto; 
-		transform: translateY(20%);
+		padding-top: 100px;
 		max-width: 600px;
-		
-
-		// margin-right: 30%;
-		// margin-left: 30%;
-		// padding-top: 3%;
-		// padding-bottom: 3%;
+	
 
 		@media #{$medium-up} {
-			transform: translateY(120%);
+			padding-top: 40px;
+			//transform: translateY(120%);
 		}
 
 	}
