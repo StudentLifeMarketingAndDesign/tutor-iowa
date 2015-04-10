@@ -2,21 +2,28 @@
 
 .main .breadcrumbs {
     //display: none;
-    font-family: $header-font-family;
+    
     padding-left: 0;
+    margin-bottom: 0;
+
     a {
         @include button(
             $bg: $gray,
             $padding: rem-calc(5)
         );
-    }
+        font-family: $header-font-family;
 
+    }
+    li:before{
+        top: -1px;
+    }
     span{
         @include button(
             $bg: $body-bg,
             $padding: rem-calc(5),
             $disabled: true
-        );       
+        );
+        font-family: $header-font-family;
     }
 
     a, span{

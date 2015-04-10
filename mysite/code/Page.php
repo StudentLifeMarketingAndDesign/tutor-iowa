@@ -6,9 +6,9 @@ class Page extends SiteTree {
 	private static $has_one = array(
 		"Image" => "Image",
 		"BackgroundImage" => "Image",
-		);
+	);
 
-	private static $defaults = array('ProvideComments' => '1', );
+	private static $defaults = array('ProvideComments' => '1');
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
@@ -16,18 +16,17 @@ class Page extends SiteTree {
 		$fields->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "BackgroundImage"));
 		return $fields;
 	}
-}
-
-class Page_Controller extends ContentController {
+	public function Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = false) {
+		return parent::Breadcrumbs(20, false, false, true);
+	}
 
 	public function SplitKeywords() {
-		$keywords = $this->MetaKeywords;
-
+		$keywords = $this->Tags;
 		if ($keywords) {
 			$splitKeywords = explode(',', $keywords);
 		}
 
-		if ($splitKeywords) {
+		if (isset($splitKeywords)) {
 			$keywordsList = new ArrayList();
 			foreach ($splitKeywords as $data) {
 				$do = new DataObject();
@@ -37,6 +36,85 @@ class Page_Controller extends ContentController {
 			return $keywordsList;
 		}
 	}
+
+	public function search($keyword) {
+		$pages = new ArrayList();
+		$news = new ArrayList();
+		$files = new ArrayList();
+		$keywordHTML = htmlentities($keyword, ENT_NOQUOTES, 'UTF-8');
+		$keywordFiltered = Convert::raw2sql($keywordHTML);
+		$mode = ' IN BOOLEAN MODE';
+
+		$siteTreeClasses = array('SiteTree', 'TutorPage', 'SupplementalInstruction', 'HelpLab');
+		//add in an classes that extend Page or SiteTree
+		$siteTreeMatch = "MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keywordFiltered'$mode)
+                    + MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keywordFiltered'$mode)";
+
+		/*
+		 * Standard pages
+		 * SiteTree Classes with the default search MATCH
+		 */
+		foreach ($siteTreeClasses as $c) {
+			$query = DataList::create($c)->where($siteTreeMatch);
+			$query = $query->dataQuery()->query();
+			$query->addSelect(array('Relevance' => $siteTreeMatch));
+			$records = DB::query($query->sql());
+			$objects = array();
+			foreach ($records as $record) {
+				if (in_array($record['ClassName'], $siteTreeClasses)) {
+					$objects[] = new $record['ClassName']($record);
+				}
+			}
+
+			$pages->merge($objects);
+			$pages->removeDuplicates();
+			$pages->sort(array('Relevance' => 'DESC', 'Title' => 'ASC'));
+
+			$shuffletutors = $pages->filter(array('ClassName' => 'TutorPage'));
+			$shuffletutors = $shuffletutors->toArray();
+			shuffle($shuffletutors);
+			$tutors = new ArrayList($shuffletutors);
+
+			$SupplementalInstructions = $pages->filter(array('ClassName' => 'SupplementalInstruction'));
+			$HelpLabs =
+
+			//$data = array('Tutors' => $pages->filter(array('ClassName' => 'TutorPage')), 'SupplementalInstructions' => $pages->filter(array('ClassName' => 'SupplementalInstruction')), 'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')), 'Query' => $keyword, 'Title' => 'Search Results');
+			$data = new ArrayData(
+				array(
+					'Tutors' => $tutors,
+					'SupplementalInstructions' => $SupplementalInstructions,
+					'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')),
+					'Query' => $keyword,
+					'Title' => 'Search Results',
+				)
+
+			);
+
+			return $data;
+		}
+	}
+
+}
+
+class Page_Controller extends ContentController {
+
+	/**
+	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
+	 * permissions or conditions required to allow the user to access it.
+	 *
+	 * <code>
+	 * array (
+	 *     'action', // anyone can access this action
+	 *     'action' => true, // same as above
+	 *     'action' => 'ADMIN', // you must have ADMIN permissions to access this action
+	 *     'action' => '->checkAction' // you can only access this action if $this->checkAction() returns true
+	 * );
+	 * </code>
+	 *
+	 * @var array
+	 */
+	private static $allowed_actions = array('logout');
+
 	public function currentMemberPage() {
 		$currentMember = Member::currentUser();
 
@@ -55,8 +133,6 @@ class Page_Controller extends ContentController {
 
 	public function getHelpLab() {
 		if ($this->isHelpLab()) {
-
-			//$HelpLab = DataObject::get_one("YourHelpLabs");
 			$HelpLab = YourHelpLabs::get("YourHelpLabs")->First();
 			return $HelpLab;
 		}
@@ -74,8 +150,6 @@ class Page_Controller extends ContentController {
 
 		$form = new Form($this, 'NewsletterSignUpForm', $fields, $actions, $validator);
 		$form->enableSpamProtection();
-
-		//$protector = SpamProtectorManager::update_form($form, 'Message');
 
 		return $form;
 	}
@@ -96,9 +170,6 @@ class Page_Controller extends ContentController {
 		if ($Member) {
 
 			$IDMember = $Member->ID;
-			//$memberLabs = DataObject::get('Member', "ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
-
-			//$memberLabs = DataObject::get('Member', "ID=$IDMember and ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
 			$memberLabs = Member::get()->where("ID=$IDMember and ID in (SELECT DISTINCT MemberID from  `HelpLab_Members`)");
 
 			return $memberLabs;
@@ -107,21 +178,8 @@ class Page_Controller extends ContentController {
 		return false;
 	}
 
-	/*
-	public function isHelpLabCached(){
-	return (Session::get("isHelpLabCached") == 1);
-	}
-
-	public function isHelpLabSession(){
-	return (Session::get("isHelpLabSession") == 1);
-	}
-	 */
-
 	public function News($number = 3) {
-
-		//$articles = DataObject::get("ArticlePage", $filter = null, $sort = "Date DESC", $join = null, $limit = $number);
 		$articles = ArticlePage::get()->sort('Date DESC');
-
 		if ($articles) {
 			return $articles;
 		}
@@ -147,124 +205,145 @@ class Page_Controller extends ContentController {
 		$keyword = Convert::raw2sql($keyword);
 		$keywordHTML = htmlentities($keyword, ENT_NOQUOTES, 'UTF-8');
 
-		$pages = new ArrayList();
-		$news = new ArrayList();
-		$files = new ArrayList();
+		$this->addSearchTermToLibrary($keyword);
 
-		$mode = ' IN BOOLEAN MODE';
-
-		//$mode = ' WITH QUERY EXPANSION';
-		//$mode = '';
-
-		$siteTreeClasses = array('TutorPage', 'SupplementalInstruction', 'HelpLab');
-		//add in an classes that extend Page or SiteTree
-		$siteTreeMatch = "MATCH( Title, MenuTitle, Content, MetaKeywords) AGAINST ('$keyword'$mode)
-                    + MATCH( Title, MenuTitle, Content, MetaKeywords) AGAINST ('$keywordHTML'$mode)";
-
-		/*
-		 * Standard pages
-		 * SiteTree Classes with the default search MATCH
-		 */
-		foreach ($siteTreeClasses as $c) {
-			$query = DataList::create($c)->where($siteTreeMatch);
-			$query = $query->dataQuery()->query();
-			$query->addSelect(array('Relevance' => $siteTreeMatch));
-
-			$records = DB::query($query->sql());
-			$objects = array();
-			foreach ($records as $record) {
-				if (in_array($record['ClassName'], $siteTreeClasses)) {
-					$objects[] = new $record['ClassName']($record);
-				}
-			}
-
-			$pages->merge($objects);
-		}
-
-		/* ** */
-		$pages->sort(array('Relevance' => 'DESC', 'Title' => 'ASC'));
-
-		$data = array('Tutors' => $pages->filter(array('ClassName' => 'TutorPage')), 'SupplementalInstructions' => $pages->filter(array('ClassName' => 'SupplementalInstruction')), 'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')), 'Query' => $keyword, 'Title' => 'Search Results');
-
-		/*
-
-		$data = array(
-		'Results' => $results,
-		'Tutors' => $tutors,
-		'SupplementalInstructions' => $supplementalInstructions,
-		'HelpLabs' => $helpLabs,
-		'Query' => $form->getSearchQuery(),
-		'Title' => 'Search Results'
-		);*/
-
-		if ($pages->count() == 0 && $news->count() == 0 && $files->count() == 0) {
-			$data['NoResults'] = 1;
-		} else {
-		}
+		$data = $this->search($keyword);
 
 		return $this->customise($data)->renderWith(array('Page_results', 'Page'));
 	}
 
-	/* Old Results Function For Reference Only */
+	private function addSearchTermToLibrary($keyword) {
 
-	/*
-	function results($data, $form){
-	$form->setPageLength(99999); //Makeshift way of disabling pagination for results
-	$results = $form->getResults();
+		$term = SearchTerm::get()->filter(array('Title' => $keyword))->First();
 
-
-	$supplementalInstructions = new ArrayList();
-	$tutors = new ArrayList();
-	$helpLabs = new ArrayList();
-
-	foreach($results AS $result) {
-
-	if($result->ClassName == "SupplementalInstruction") {
-	$supplementalInstructions->push($result);
-	}
-
-	if($result->ClassName == "TutorPage") {
-
-	//$tutorObject = DataObject::get_by_id("TutorPage", $result->ID);
-	$tutorObject = TutorPage::get()->byID($result->ID);
-	$tutors->push($tutorObject);
-	//print_r($result);
-	}
-
-	if($result->ClassName == "HelpLab") {
-	$helpLabs->push($result);
-	}
+		if (isset($term)) {
+			$term->SearchCount = $term->SearchCount + 1;
+			$term->write();
+		} else {
+			$term = new SearchTerm();
+			$term->Title = $keyword;
+			$term->write();
+		}
 
 	}
-	//print_r($tutors);
-	$data = array(
-	'Results' => $results,
-	'Tutors' => $tutors,
-	'SupplementalInstructions' => $supplementalInstructions,
-	'HelpLabs' => $helpLabs,
-	'Query' => $form->getSearchQuery(),
-	'Title' => 'Search Results'
-	);
+	public function getTagsCollection() {
 
-	return $this->customise($data)->renderWith(array('Page_results', 'Page'));
-	}*/
+		$entries = SiteTree::get();
+		//$entries = SiteTree::get()->filter(array("ClassName" => "TutorPage", "ClassName" => "HelpLab"));
+		// Extract all tags from each entry
+		$tagCounts = array(); // Mapping of tag => frequency
 
-	/**
-	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
-	 * permissions or conditions required to allow the user to access it.
-	 *
-	 * <code>
-	 * array (
-	 *     'action', // anyone can access this action
-	 *     'action' => true, // same as above
-	 *     'action' => 'ADMIN', // you must have ADMIN permissions to access this action
-	 *     'action' => '->checkAction' // you can only access this action if $this->checkAction() returns true
-	 * );
-	 * </code>
-	 *
-	 * @var array
-	 */
-	private static $allowed_actions = array('logout');
+		foreach ($entries as $entry) {
+			$theseTags = $entry->SplitKeywords();
+			if (isset($theseTags)) {
+				foreach ($theseTags as $tag => $tagLabel) {
+					$tagLabels[$tag] = $tagLabel;
+					//getting the count into key => value map
+					$tagCounts[$tag] = isset($tagCounts[$tag]) ? $tagCounts[$tag] + 1 : 1;
+				}
+			}
+		}
+
+		if (empty($tagCounts)) {
+			return null;
+		}
+
+		$minCount = min($tagCounts);
+		$maxCount = max($tagCounts);
+
+		// Apply sorting mechanism
+		// if($this->Sortby == "alphabet") {
+		// 	// Sort by name
+		// 	ksort($tagCounts);
+		// } else {
+		// 	 // Sort by frequency
+		// 	uasort($tagCounts, function($a, $b) {
+		// 		return $b - $a;
+		// 	});
+		// }
+
+		uasort($tagCounts, function ($a, $b) {
+			return $b - $a;
+		});
+
+		// Apply limiting
+		if ($this->Limit > 0) {
+			$tagCounts = array_slice($tagCounts, 0, $this->Limit, true);
+		}
+
+		// Calculate buckets of popularities
+		$numsizes = count(array_unique($tagCounts)); //Work out the number of different sizes
+		$popularities = self::config()->popularities;
+		$buckets = count($popularities);
+		// If there are more frequencies than buckets, divide frequencies into buckets
+		if ($numsizes > $buckets) {
+			$numsizes = $buckets;
+		}
+
+		// Adjust offset to use central buckets (if using a subset of available buckets)
+		$offset = round(($buckets - $numsizes) / 2);
+		$output = new ArrayList();
+		foreach ($tagCounts as $tag => $count) {
+
+			// Find position of $count in the selected range, adjusted for bucket range used
+			if ($maxCount == $minCount) {
+				$popularity = $offset;
+			} else {
+				$popularity = round(
+					($count - $minCount) / ($maxCount - $minCount) * ($numsizes - 1)
+				) + $offset;
+			}
+			$class = $popularities[$popularity];
+
+			$output->push(new ArrayData(array(
+				"Title" => $tagLabels[$tag]->Keyword,
+				"Count" => $count,
+				"Class" => $class,
+				//"Link" => Controller::join_links($container->Link('tag'), urlencode($tag))
+			)));
+		}
+
+		// $output is now a sorted ArrayList full of tags.
+
+		//The following will grab 5 unpopular tags and shuffle them into the top 20 popular ones
+
+		$unPoptags = new ArrayList();
+		$collection = $output->toArray();
+
+		foreach ($collection as $tag) {
+
+			$tag = $tag->toMap();
+
+			if ($tag['Count'] <= $minCount + 4) {
+				$unPoptags->add($tag);
+
+			}
+		}
+
+		$unPoptags = $unPoptags->toArray();
+
+		$unPopKeys = array_rand($unPoptags, 5);
+
+		foreach ($unPopKeys as $key) {
+			$unPopTagsFiltered[] = $unPoptags[$key];
+		}
+
+		$finalTagCollection = $unPopTagsFiltered;
+
+		$i = 0;
+
+		foreach ($collection as $tag) {
+			$tag = $tag->toMap();
+			array_push($finalTagCollection, $tag);
+			if (++$i > 20) {
+				break;
+			}
+		}
+
+		shuffle($finalTagCollection);
+		$finalOutput = new ArrayList($finalTagCollection);
+		return $finalOutput;
+	}
 
 	//I want logout to redirect to the home page
 
@@ -284,36 +363,9 @@ class Page_Controller extends ContentController {
 	}
 
 	public function LatestNews($num = 5) {
-		//$news = DataObject::get_one("ArticleHolder");
 		$news = ArticlePage::get()->sort('Sort')->limit($num);
-		//return ($news) ? DataObject::get("ArticlePage", "ParentID = $news->ID", "Date DESC", "", $num) : false;
 		return $news;
 
-	}
-
-	public function init() {
-		parent::init();
-
-		//require_once '/Applications/MAMP/htdocs/tutoriowa3/ChromePhp.php';
-		Requirements::block('/cms/css/layout.css');
-
-		if (isset($_GET['setTheme'])) {
-			if (Director::isDev() || Permission::check('ADMIN')) {
-				Session::set('theme', $_GET['setTheme']);
-			} else {
-				Security::permissionFailure(null, 'Please log in as an administrator to switch theme.');
-			}
-		}
-
-		if (isset($_GET['theme'])) {
-			if (Director::isDev() || Permission::check('ADMIN')) {
-				SSViewer::set_theme($_GET['theme']);
-			} else {
-				Security::permissionFailure(null, 'Please log in as an administrator to set the theme.');
-			}
-		} elseif (Session::get('theme')) {
-			SSViewer::set_theme(Session::get('theme'));
-		}
 	}
 
 	function getHelpLabs() {

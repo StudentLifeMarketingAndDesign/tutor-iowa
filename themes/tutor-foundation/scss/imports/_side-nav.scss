@@ -1,7 +1,12 @@
 .side-nav{
 	padding-top: 0;
 	background-color: $side-nav-bg;
-	padding: 10px;
+	padding: $column-gutter/2;
+
+	@media #{$large-up}{
+		padding-right: 0;
+
+	}
 	h4{
 		//color: $primary-color;
 	}
@@ -13,13 +18,26 @@
 	}
 	h3{
 		text-transform: uppercase;
-		font-size: rem-calc(13);
-		background: darken($primary-color, 25);
+		font-size: rem-calc(16);
+		background: #666;
 		color: white;
-		padding: 1px;
+		padding: 2px;
 		span{
 			padding: 2px;
 			
 		}
 	}
+
+	.announcements.small{
+		.announcement-card{
+			padding: 10px 0;
+		}		
+	}
+
+	.resource-card-list.small{
+		.resource-card{
+			padding: 10px 0;
+		}		
+	}
+
 }

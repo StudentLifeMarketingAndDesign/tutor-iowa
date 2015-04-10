@@ -1,11 +1,7 @@
 <nav class="top-bar" role="navigation" data-topbar>
 	<ul class="title-area">
-		<li>
-			<div class="row">
-				<div class="large-12 columns">
-					<h1><a href="{$baseUrl}"><img src="{$ThemeDir}/images/logo.png" /></a></h1>
-				</div>
-			</div>
+		<li class="name">
+			<h1><a href="{$baseUrl}"><img alt="Tutor Iowa Wordmark" src="{$ThemeDir}/images/logo.png" /></a></h1>
 		</li>
 		<li class="toggle-topbar menu-icon"><a href=""><span></span></a></li>
 	</ul>
@@ -35,20 +31,28 @@
 				</ul>
 				<% end_if %>
 			</li>
-			<% if not $Last %><li class="divider"></li><% end_if %>
 			<% end_loop %>
 			<% if $CurrentMember %>
+			<li><a href="inbox" class="<% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>">Inbox <% if $CurrentMember.unreadMessageCount > 0 %>({$CurrentMember.unreadMessageCount})<% end_if %></a></li>
+		
 			<li class="has-dropdown">
-				<a href="$currentMemberPage.Link">$CurrentMember.FirstName ($CurrentMember.unreadMessageCount()) </a>
+				<a href="$currentMemberPage.Link">$CurrentMember.FirstName</a>
 				<ul class="dropdown">
-					<li><a href="inbox">Inbox ($CurrentMember.unreadMessageCount())</a></li>
 					<li><a href="edit-profile/">Edit Profile</a></li>
+					<li><a href="$currentMemberPage.Link">View Profile</a></li>
+					
+					<% if HelpLabs %>
+					<li><a href="personal-help-labs/">Edit Help Labs</a></li>
+					<% end_if %>
+
 					<% if $SiteAdmin %><li><a href="admin/">Admin</a></li><% end_if %>
 					<li><a class="alert" href="Security/logout">Logout</a></li>
 				</ul>
 			</li>
+
 			<% else %>
-				<li class="has-form"><a href="Security/login?BackURL=%2Fadmin" data-reveal-id="login-form-modal" class="button radius">Login</a></li>
+				<li class="has-form"><a href="Security/login?BackURL=%2Fadmin" data-reveal-id="login-form-modal" class="button radius success">Login</a></li>
+				<li class="has-form"><a href="register" class="button radius">Register as a Tutor</a></li>
 			<% end_if %>
 		</ul>
 	</section>

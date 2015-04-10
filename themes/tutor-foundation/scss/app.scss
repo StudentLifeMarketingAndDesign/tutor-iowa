@@ -1,13 +1,20 @@
 @import "imports/settings";
 @import "foundation";
 
+@import "imports/mixins/gradient";
+
+@import "imports/buttons-tags";
 @import "imports/uiowa-bar";
+@import "imports/top-bar";
+@import "imports/search-results";
 @import "imports/homepage";
 @import "imports/help-lab";
 @import "imports/tutor-page";
 @import "imports/inbox";
+@import "imports/card";
 @import "imports/tutor-cards";
 @import "imports/resource-cards";
+@import "imports/supplemental-instruction";
 
 @import "imports/edit-profile";
 @import "imports/side-nav";
@@ -33,7 +40,7 @@
 		border-bottom: 1px solid #ddd;
 		padding-bottom: 5px;
 		margin-bottom: 13px;
-		margin-top: 10px;
+		margin-top: 0;
 	}
 
 }
@@ -57,6 +64,11 @@
 	background-image: url('http://lorempixel.com/1240/300/');
 	background-color: #eee;
 	position: relative;
+
+	@media #{$large-up} {
+		margin: 0 $column-gutter/2;
+	}
+
 }
 
 #labmap {
@@ -92,51 +104,6 @@
 	height: 100%;
 }
 
-.top-bar{
-	h1{
-		max-width: rem-calc(200);
-		@media #{$large-up} {
-			max-width: rem-calc(300);
-		}
-	}
-
-	.top-search{
-		border-radius: $global-radius;
-
-		border-right: 1px solid #ddd;
-		padding-right: 10px;
-
-	}
-
-	.top-bar-section{
-	   	ul li a{
-	    		&.button {
-	        		font-size: 0.9rem;
-	        	}
-	    	}
-	}
-	.title.back a{
-		background: #666;
-		&:hover{
-			background: #666;
-		}
-	}
-}
-
-.tag,{
-  @include button(
-    // $padding - Used to build padding for buttons Default: $button-med or rem-calc(12)
-    $padding: rem-calc(4),
-    // Background color. We can set $bg:false for a transparent background. Default: $primary-color.
-    $bg: lighten($gold, 30),
-    // If true, set to button radius which is $global-radius or explicitly set radius amount in px (ex. $radius:10px). Default:false.
-    $radius: false
-    // We can set $full-width:true to remove side padding extend width. Default:false
-  );
-  margin-bottom: 3px;
-  text-transform: uppercase;
-  font-size: rem-calc(11);
-}
 
 .profile-image{
 	//background: url('../images/stain.png');
@@ -151,6 +118,11 @@
 	text-transform: capitalize;
 }
 
+article {
+	position: relative;
+	z-index: 1000;
+}
+
 form{
 	label{
 		span{
@@ -158,4 +130,16 @@ form{
 			padding-right: 3px;
 		}
 	}
+}
+
+.b-lazy {
+        -webkit-transition: opacity 500ms ease-in-out;
+           -moz-transition: opacity 500ms ease-in-out;
+             -o-transition: opacity 500ms ease-in-out;
+                transition: opacity 500ms ease-in-out;
+                 max-width: 100%;
+                   opacity: 0;
+    }
+.b-lazy.b-loaded {
+               opacity: 1;
 }

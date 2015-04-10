@@ -16,6 +16,15 @@ $('.search-toggle').click(function() {
 });    
 
 
+    var bLazy = new Blazy({
+        breakpoints: [{
+            width: 420 // max-width
+            ,
+            src: 'data-src-small'
+        }
+       ]
+    });
+
 var memberID = $("#memberInfo").data('id');
 var markAsRead = $(location).attr('href') + "/markAsRead";
 //if href ends in "#" this url will not work
@@ -54,15 +63,6 @@ $(".message").each( function() {
 			console.log(error);
 		});
 	}
-	
-	messageBody = $(this).find('.message-body').first();
-	messageSummary = $(this).find('.message-summary').first();
-	
-	messageSummary.toggle(); 
-	messageBody.toggle();
-	
-	$(this).find(".message-box").first().css("height", "auto");
-	
 
 	/*
 	if ($(event.target).parents(".reply-form")) {
@@ -93,19 +93,19 @@ $(".message").each( function() {
 	*/
 });
 
-$("#unread-messages").click(function() {
+$(".unread-messages").click(function() {
 	$(".read").each(function() {
 		$(this).hide();
 	});	
 });
 
-$("#all-messages").click(function() {
+$(".all-messages").click(function() {
 	$(".message").each(function() {
 		$(this).show();
 	});	
 });
 
-$("#unreplied-messages").click(function() {
+$(".unreplied-messages").click(function() {
 	$(".replied").each(function() {
 		$(this).hide();
 	});	

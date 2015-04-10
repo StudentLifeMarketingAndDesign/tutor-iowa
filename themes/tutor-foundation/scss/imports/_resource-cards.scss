@@ -19,18 +19,24 @@
 			$per-row: 1
 		);
 
-		li{
-			margin-bottom: 0;
-			padding-bottom: 0;
-		}
 
 	}
 
-	li{
-		border-right: 1px solid #eee;
-		list-style-type: none; 
+	.resource-card{
 		margin-bottom: 0;
-		padding-bottom: 0;
+	}
+
+	li{
+		list-style-type: none; 
+		
+
+		a{
+			color: $body-font-color;
+
+		}
+		span{
+			color: $anchor-font-color;
+		}
 	}
 
 	li img{
