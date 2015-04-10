@@ -6573,11 +6573,11 @@ body.SearchForm h2 {
   padding-top: 0.75rem; }
 .HomePage .HomePageSearchBg {
   margin: 0 auto;
-  padding-top: 100px;
   max-width: 600px; }
   @media only screen and (min-width:40.063em) {
     .HomePage .HomePageSearchBg {
-      padding-top: 40px; } }
+      padding-top: 18%;
+      margin-bottom: 1.5625rem; } }
 .HomePage .HomePagePopSearches {
   background-color: rgba(0, 0, 0, 0.6);
   position: relative;

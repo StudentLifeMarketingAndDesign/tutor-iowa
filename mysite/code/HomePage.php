@@ -52,29 +52,22 @@ class HomePage extends Page {
 			$featuredConfig1
 		);
 
+		/*** We are not featuring tutors.
 		$featuredConfig2 = GridFieldConfig_RelationEditor::create();
 		$featuredConfig2->getComponentByType('GridFieldDataColumns')->setDisplayFields(array(
-			'Title' => 'Title',
+		'Title' => 'Title',
 		));
 
 		$featuredTutorPages = new GridField(
-			'TutorPages',
-			'TutorPage',
-			$this->TutorPages(),
-			$featuredConfig2
-		);
-		/*$fields->addFieldToTab("Root.EmailSignups",
-		new DataObjectManager(
-		$this,
-		'NewsletterPersons',
-		'NewsletterPerson',
-		array('EmailAddress'=>'EmailAddress'),
-		'getCMSFields_forPopup'
-		));*/
+		'TutorPages',
+		'TutorPage',
+		$this->TutorPages(),
+		$featuredConfig2
+		);*/
 
 		$fields->addFieldToTab("Root.EmailSignups", $NewsletterPerson);
 		$fields->addFieldToTab("Root.FeaturedHelpLabs", $featuredHelpLabs);
-		$fields->addFieldToTab("Root.FeaturedTutorPages", $featuredTutorPages);
+		//$fields->addFieldToTab("Root.FeaturedTutorPages", $featuredTutorPages);
 
 		$fields->addFieldToTab("Root.Main", new TextField("FrontPageBlurb", "Front Page Blurb"));
 		$fields->addFieldToTab("Root.Main", new UploadField("MainImage", "Main Image"));
@@ -106,20 +99,20 @@ class HomePage_Controller extends Page_Controller {
 		return SearchTerm::get()->sort('SearchCount DESC');
 	}
 
-	public function featuredTutorPages() {
-		if ($this->TutorPages()->First()) {
+	/*public function featuredTutorPages() {
+	if ($this->TutorPages()->First()) {
 
-			$TutorPages = new ArrayList($this->TutorPages()->toArray());
-			$additionalTutorPages = new ArrayList(TutorPage::get()->sort("RAND()")->toArray());
-			$TutorPages->merge($additionalTutorPages);
+	$TutorPages = new ArrayList($this->TutorPages()->toArray());
+	$additionalTutorPages = new ArrayList(TutorPage::get()->sort("RAND()")->toArray());
+	$TutorPages->merge($additionalTutorPages);
 
-			return $TutorPages;
+	return $TutorPages;
 
-		} else {
-			return TutorPage::get()->sort("RAND()");
-		}
-
+	} else {
+	return TutorPage::get()->sort("RAND()");
 	}
+
+	}*/
 	public function NewsletterSignedUp() {
 
 		$signedUp = $this->request->getVar('signup');

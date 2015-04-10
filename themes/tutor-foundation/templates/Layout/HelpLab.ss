@@ -18,7 +18,7 @@
 						<br>
 						<% end_if %>
 						<%-- if $Address --%>
-						<span><strong>Address:</strong><data id="address">$Address 16 North Clinton Street, Iowa City, IA</data></span><br />
+						<span><strong>Address:</strong><data id="address">$Address</data></span><br />
 						<%-- end_if --%>
 						<% if $ContactEmail %>
 						<strong>Contact:</strong>

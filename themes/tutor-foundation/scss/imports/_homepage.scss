@@ -18,13 +18,13 @@
 	.HomePageSearchBg{
 		
 		margin: 0 auto; 
-		padding-top: 100px;
+		
 		max-width: 600px;
 	
 
 		@media #{$medium-up} {
-			padding-top: 40px;
-			//transform: translateY(120%);
+			padding-top: 18%;
+			margin-bottom: $column-gutter;
 		}
 
 	}

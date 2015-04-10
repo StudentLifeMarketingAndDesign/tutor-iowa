@@ -380,4 +380,9 @@ class Page_Controller extends ContentController {
 			}
 		}
 	}
+
+	public function getRandomTutors() {
+		$tutors = TutorPage::get()->sort('RAND()');
+		return $tutors;
+	}
 }

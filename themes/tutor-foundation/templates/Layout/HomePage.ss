@@ -15,7 +15,7 @@
 <div class="row main-content">
 	<div class="large-8 columns">
 		<ul class="tutor-card-list large">
-			<% loop featuredTutorPages.Limit(8) %>
+			<% loop RandomTutors.Limit(8) %>
 				<% include TutorCard %>
 			<% end_loop %>
 		</ul>
