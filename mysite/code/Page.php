@@ -5,7 +5,7 @@ class Page extends SiteTree {
 
 	private static $has_one = array(
 		"Image" => "Image",
-		"BackgroundImage" => "Image"
+		"BackgroundImage" => "Image",
 	);
 
 	private static $defaults = array('ProvideComments' => '1');
@@ -57,7 +57,7 @@ class Page extends SiteTree {
 		foreach ($siteTreeClasses as $c) {
 			$query = DataList::create($c)->where($siteTreeMatch);
 			$query = $query->dataQuery()->query();
-			$query->addSelect(array('Relevance' => $siteTreeMatch));
+			$query->SelectField($siteTreeMatch, 'Relevance');
 			$records = DB::query($query->sql());
 			$objects = array();
 			foreach ($records as $record) {

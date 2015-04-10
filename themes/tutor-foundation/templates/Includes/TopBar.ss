@@ -37,9 +37,10 @@
 			<li class="has-dropdown">
 				<a href="$CurrentMemberPage.Link" id="memberInfo" data-id="$CurrentMember.ID">$CurrentMember.FirstName</a>
 				<ul class="dropdown">
-
+				<% if $currentMemberPage %>
 					<li><a href="{$currentMemberPage.Link}edit">Edit Profile</a></li>
 					<li><a href="$currentMemberPage.Link">View Profile</a></li>
+				<% end_if %>
 					
 					<% if HelpLabs %>
 					<li><a href="personal-help-labs/">Edit Help Labs</a></li>
