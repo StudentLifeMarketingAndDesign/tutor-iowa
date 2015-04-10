@@ -59,6 +59,8 @@ class TutorPage extends Page {
     /**
     * Main Function for managing Pending, Approved, and Unapproved Images. Called by InboxController::processPendingImage()
     * to process approval/unapproval of TutorPage images by TutorIowa Administrators.
+    * Works by directly shifting the foreign keys for the has_one relationships such as ApprovedCoverImageID and PendingCoverImageID
+    * a process code of 1 means it's approved, 2 means unapproved. 
     * @param PendingImage $image
     * @param int (1,2) $processCode
     * @param string $message
@@ -69,7 +71,7 @@ class TutorPage extends Page {
         if (($imgClass) == "CoverImage") {       
             if ($processCode === 1) {
                 $this->ApprovedCoverImageID = $image->ID;
-                $this->UnapprovedCoverImageID = 0;
+                $this->UnapprovedCoverImageID = 0; //resent pending image ID to 0, unsetting relation.
             } else if ($processCode === 2) {
                 $this->UnapprovedCoverImageID = $image->ID;
             }
