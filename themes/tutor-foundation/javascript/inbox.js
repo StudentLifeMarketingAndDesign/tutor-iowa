@@ -239,11 +239,30 @@
         attachHandlers();  
     });
 
-/*
+
     function InboxViewModel() {
+        this.test = "hi world!";
+        var self = this;
+
+        self.folders = ['Unread', 'All'];
+        self.chosenFolderId = ko.observable();
+
+        // controller
+        self.goToFolder = function(folder) { self.chosenFolderId(folder); };
+        
+
+
+
+
+
+
+
+
+
+
 
     }
+
     ko.applyBindings(new InboxViewModel());
-   */
 
 })();

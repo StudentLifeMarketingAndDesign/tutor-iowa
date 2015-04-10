@@ -51,14 +51,18 @@
                            	$EditProfileForm
                         </div>
                         <div class="medium-4 small-2 columns">
-            				<ul class="button-group">
-                                <li><button id="removeCoverPhoto" class="tiny radius alert">Remove Cover Photo</button></li>
-                                <li><button id="repositionCoverPhoto" class="tiny radius secondary">Reposition Cover Photo</button></li>
+            				<ul class="stack round button-group" id="coverImageButtons">
+                                <% if $approvedCoverImage %>
+                                    <li><button id="repositionCoverPhoto" class="tiny radius secondary button" data-action="reposition">Reposition Cover Photo</button></li>
+                                    <li><button id="removeCoverPhoto" class="tiny radius alert button">Remove Cover Photo</button></li> 
+                                <% end_if %>
                             </ul>
-                            <div class="profile-image">
+                            <div class="profile-image" id="profileImage">
                                 <% if $approvedProfileImage %>
                                     <div style="margin-bottom: 10px;">$approvedProfileImage</div>
-                                    <button class="tiny round" id="removeProfilePhoto">Remove Profile Image</button>
+                                    <ul class="stack round button-group">
+                                        <li><button class="tiny alert round" id="removeProfilePhoto">Remove Profile Image</button></li>
+                                    </ul>
                                 <% else %>
                                     <img src="{$ThemeDir}/images/stain.png" />
                                 <% end_if %>

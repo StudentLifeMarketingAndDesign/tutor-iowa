@@ -6659,6 +6659,10 @@ body.SearchForm h2 {
     background: #FFFFFF; }
 .TutorPage .profile-image {
   margin-top: 10px; }
+.TutorPage #profile-cover-photo-move {
+  overflow: hidden; }
+.TutorPage #profile-cover-photo {
+  margin-bottom: 0; }
 
 .inbox-message {
   overflow: hidden; }
@@ -6747,15 +6751,12 @@ body.SearchForm h2 {
       padding: 0 8px;
       margin-top: 0; }
 
-<<<<<<< HEAD
 .alert-confirm {
   background-color: #f04124;
   border-color: #cf2a0e; }
 
-=======
 .card:hover * {
   text-decoration: underline; }
->>>>>>> 2.0
 .card:hover h4 {
   color: #377EFF; }
 .card h4 {
