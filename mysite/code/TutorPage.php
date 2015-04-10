@@ -104,16 +104,6 @@ class TutorPage extends Page {
 		return $results;
 	}
 
-	public function getContent() {
-		//print_r($this->getField("Content"));
-		if ($this->getField("Content")) {
-			return $this->getField("Content");
-		} else {
-			$tempBio = "My tags are: " . $this->Tags;
-			return $tempBio;
-		}
-	}
-
 	private function getEmails() {
 		return MemberManagement::get();
 	}

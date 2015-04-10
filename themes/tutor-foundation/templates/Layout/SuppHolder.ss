@@ -8,15 +8,15 @@
 			<div class="large-8 columns content" data-equalizer-watch>
 				<div class="white-cover"></div>
 				<div class="row">
-					<article class="large-10 columns">
+					<article class="large-10 columns end">
 						$Breadcrumbs
 						<h1>$Title</h1>
 						$Content
 						$Form
 						<ul class="resource-card-list">
-							<% loop Children %>
-								<% include ResourceCard %>
-							<% end_loop %>
+						<% loop $Children.Sort("Title") %>
+							<% include ResourceCard %>
+						<% end_loop %>
 						</ul>
 					</article>
 				</div>

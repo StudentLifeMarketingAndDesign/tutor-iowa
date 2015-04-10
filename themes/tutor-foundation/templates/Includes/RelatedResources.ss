@@ -5,11 +5,11 @@
 <% with $RelatedResources %>
     <% if $HelpLabs || $SupplementalInstructions %><p><% end_if %>
     <% if $HelpLabs %>
-    <strong>Help Labs:</strong> <% loop HelpLabs.Limit(5) %><a href="$Link">$Title</a><% if not $Last %>, <% end_if %><% end_loop %>
+    <strong>Help Labs:</strong> <% loop HelpLabs.Limit(5) %><a href="$Link">$Title</a><% if not $Last %>, <% end_if %><% end_loop %><br /><strong><a href="help-labs/">Learn more about help labs on campus</a></strong>
         <hr />
     <% end_if %>
     <% if $SupplementalInstructions %>
-        <strong>Supplemental Instruction:</strong> <% loop SupplementalInstructions.Limit(5) %><a href="$Link">$Title</a><% if not $Last %>, <% end_if %><% end_loop %>
+        <strong>Supplemental Instruction:</strong> <% loop SupplementalInstructions.Limit(5) %><a href="$Link">$Title</a><% if not $Last %>, <% end_if %><% end_loop %><br /><strong><a href="supplemental-instructions/">Learn more about Supplemental Instruction</a></strong>
     <% end_if %>
     <% if $HelpLabs || $SupplementalInstructions %></p><% end_if %>
     <% if $Tutors %>

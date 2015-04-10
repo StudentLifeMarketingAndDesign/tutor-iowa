@@ -8,21 +8,22 @@
 			<div class="large-8 columns content" data-equalizer-watch>
 				<div class="white-cover"></div>
 				<div class="row">
-					<article class="large-10 columns">
+					<article class="large-10 columns end">
 						$Breadcrumbs
-						<h1>$Title</h1>
 						$Content
 						$Form
-						<ul class="resource-card-list">
-							<% loop Children %>
-								<% include ResourceCard %>
-							<% end_loop %>
-						</ul>
+						<% loop Children %>
+						<article>
+							<h2>$Title</h2>
+							$Content
+						</article>
+						<hr />
+						<% end_loop %>
 					</article>
 				</div>
 			</div>
 			<div class="large-4 columns end" data-equalizer-watch>
-					<% include SideNav %>
+					<% include SideNavArticleHolder %>
 			</div>
 		
 		</div>

@@ -13,13 +13,14 @@
 						<% if ExternalScheduleLink %>
 							<a href="$ExternalScheduleLink" target="_blank" class="external-link">View full schedule</a>
 						<% end_if %>
+						<p>
 						<% if $Location %>
 						<span><strong>Location:</strong> $Location</span>
 						<br>
 						<% end_if %>
-						<%-- if $Address --%>
+						<% if $Address %>
 						<span><strong>Address:</strong><data id="address">$Address</data></span><br />
-						<%-- end_if --%>
+						<% end_if %>
 						<% if $ContactEmail %>
 						<strong>Contact:</strong>
 							<% if ContactName %>
@@ -34,8 +35,11 @@
 						<% else %>
 							<strong>No Phone Listed</strong><br />
 						<% end_if %>
-						<h2>About $Title</h2>
-						<p>$Description</p>
+						</p>
+						<% if $Description %>
+							<h2>About $Title</h2>
+							<p>$Description</p>
+						<% end_if %>
 						$Form
 						<% if $Tags %>
 							<p><% include Tags %></p>
