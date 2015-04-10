@@ -30,6 +30,7 @@
             $(".moreMessages").remove();
 
             $("#unreadInbox").append(unreadMessages);
+            attachHandlers(); // very important, handlers need to be attached each time new DOM content is loaded
             $("#unreadInbox").show();
             // if all messages unread and div hasn't been appended already, append message
             if ( noUnreadMessages() ) {
@@ -127,11 +128,14 @@
 
     function updateDOM(message, action, $object) {
         // dynamically reduce inbox count on header and topbar
+        console.log('updating DOM...');
         if (action == "markAsRead") {
             message.addClass("read");
         } else if (action == "markAsDeleted") {
             message.remove();
         } else if (action == "withdrawImage") {
+            console.log("action: " + action);
+            $object.hide({ease: "easeInOutExpo", duration: 777 });
             console.log(message);
             console.log(action);
             console.log($object);
@@ -173,7 +177,7 @@
                 var unapprovedMessage = $pendingImage.find(".reasonBox").val();
                 console.log(unapprovedMessage);
             }
-            var processImage = $.post(
+            var jqXHR = $.post(
                 processImageURL,
                 {
                     ProcessCode: processCode,
@@ -181,10 +185,10 @@
                     UnapprovedMessage: unapprovedMessage
                 }, 
                 function(data, textStatus, jqXHR) { 
-                    //console.log(data);
+                    console.log("done!");
+                    $pendingImage.remove();
                     data = $.parseJSON(data);
                     updateDOM(data, "withdrawImage", $pendingImage);
-
                 },
                 "json"
             ).fail(function(data, status, error) {
@@ -238,31 +242,5 @@
     $( document ).ready(function () {
         attachHandlers();  
     });
-
-
-    function InboxViewModel() {
-        this.test = "hi world!";
-        var self = this;
-
-        self.folders = ['Unread', 'All'];
-        self.chosenFolderId = ko.observable();
-
-        // controller
-        self.goToFolder = function(folder) { self.chosenFolderId(folder); };
-        
-
-
-
-
-
-
-
-
-
-
-
-    }
-
-    ko.applyBindings(new InboxViewModel());
 
 })();

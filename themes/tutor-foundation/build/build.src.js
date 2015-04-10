@@ -393,8 +393,7 @@ $(".unreplied-messages").click(function() {
 (function() {
     "use strict";
 
-    removeCoverPhotoURL
-
+    /* variables local to the scope of this script */
     var coverBox = $(".page-bg"); 
     var baseURL = $(location).attr('href');
     var repositionCoverPhotoURL = baseURL + "/repositionCoverImage";
@@ -404,9 +403,9 @@ $(".unreplied-messages").click(function() {
 
     // TODO: ensure image is ready before grabbing this height; 
     window.coverImageHeight = $("#profile-cover-photo-move").height();
+    var pageBgMaxHeight = (parseInt($(".page-bg").first().css("maxHeight")) || 333); // this value needs to reflect .page-bg max height 
 
-    var pageBgMaxHeight = 333;
-
+    /* this initilizes the jQuery UI draggable functionality */
     window.reposition = $("#profile-cover-photo-move").draggable({
         axis: "y",
         disabled: true,
@@ -417,10 +416,10 @@ $(".unreplied-messages").click(function() {
         scrollSpeed: 100,
         drag: function(event, ui) {
             if (ui.position.top >= 0) {
-                $(this).draggable.disable();
+                $(this).draggable.disable(); // prevents image from scrolling past containment box. 
             } 
             if (ui.position.top <= (pageBgMaxHeight - $("#profile-cover-photo-move").height())) {
-                $(this).draggable.disable();
+                $(this).draggable.disable(); // prevents image from scrolling past containment box. 
             }
         },
         stop: function(event, ui) {
@@ -465,6 +464,7 @@ $(".unreplied-messages").click(function() {
         var topPercentage = top / (coverHeight - pageBgMaxHeight);
         //console.log("top: " + topPercentage);
         $("#profile-cover-photo-move").draggable("disable");
+        /* HTTP post request that saves the position of the image */
         var jqXHR = $.post(
             repositionCoverPhotoURL,
             {
@@ -472,9 +472,7 @@ $(".unreplied-messages").click(function() {
             }, 
             function(data, textStatus, jqXHR) { 
                 data = jQuery.parseJSON(data);
-                console.log(data);
                 var $newPosition = Number((Number(data["Top"]) * 100)).toFixed(2) + "%";
-                console.log("new Position: " + $newPosition);
                 $("#profile-cover-photo").css("background-position-y", $newPosition);
                 callback();
             }).fail(function( jqXHR, status, error ) {
@@ -553,6 +551,7 @@ $(".unreplied-messages").click(function() {
             $(".moreMessages").remove();
 
             $("#unreadInbox").append(unreadMessages);
+            attachHandlers(); // very important, handlers need to be attached each time new DOM content is loaded
             $("#unreadInbox").show();
             // if all messages unread and div hasn't been appended already, append message
             if ( noUnreadMessages() ) {
@@ -650,11 +649,14 @@ $(".unreplied-messages").click(function() {
 
     function updateDOM(message, action, $object) {
         // dynamically reduce inbox count on header and topbar
+        console.log('updating DOM...');
         if (action == "markAsRead") {
             message.addClass("read");
         } else if (action == "markAsDeleted") {
             message.remove();
         } else if (action == "withdrawImage") {
+            console.log("action: " + action);
+            $object.hide({ease: "easeInOutExpo", duration: 777 });
             console.log(message);
             console.log(action);
             console.log($object);
@@ -696,7 +698,7 @@ $(".unreplied-messages").click(function() {
                 var unapprovedMessage = $pendingImage.find(".reasonBox").val();
                 console.log(unapprovedMessage);
             }
-            var processImage = $.post(
+            var jqXHR = $.post(
                 processImageURL,
                 {
                     ProcessCode: processCode,
@@ -704,10 +706,10 @@ $(".unreplied-messages").click(function() {
                     UnapprovedMessage: unapprovedMessage
                 }, 
                 function(data, textStatus, jqXHR) { 
-                    //console.log(data);
+                    console.log("done!");
+                    $pendingImage.remove();
                     data = $.parseJSON(data);
                     updateDOM(data, "withdrawImage", $pendingImage);
-
                 },
                 "json"
             ).fail(function(data, status, error) {
@@ -761,32 +763,6 @@ $(".unreplied-messages").click(function() {
     $( document ).ready(function () {
         attachHandlers();  
     });
-
-
-    function InboxViewModel() {
-        this.test = "hi world!";
-        var self = this;
-
-        self.folders = ['Unread', 'All'];
-        self.chosenFolderId = ko.observable();
-
-        // controller
-        self.goToFolder = function(folder) { self.chosenFolderId(folder); };
-        
-
-
-
-
-
-
-
-
-
-
-
-    }
-
-    ko.applyBindings(new InboxViewModel());
 
 })();
 

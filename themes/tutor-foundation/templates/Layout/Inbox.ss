@@ -3,8 +3,6 @@
 		<div class="row" data-equalizer>
 			<div class="large-8 columns content" >
 				<div class="white-cover"></div>
-				<% require javascript("https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js") %>
-
 				<article class="main-article">
 					<div class="row inbox-nav">
 						<div class="medium-3 columns show-for-medium-up">

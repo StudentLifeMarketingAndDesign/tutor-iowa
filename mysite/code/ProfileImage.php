@@ -23,7 +23,11 @@ class ProfileImage extends PendingImage {
     * @return ArrayList	
     */	
 	public static function getPending() {
-        return new ArrayList(self::get()->filter("Status", "Pending")->toArray());
-    }
-
+        $realTutorsWithPI = new ArrayList(TutorPage::get()->where("PendingProfileImageID != 0")->toArray());
+        $realPendingProfileImages = new ArrayList();
+        foreach ($realTutorsWithPI as $index => $TP) {
+            $realPendingProfileImages->push($TP->PendingProfileImage());
+        }
+		return $realPendingProfileImages;
+	}
 }

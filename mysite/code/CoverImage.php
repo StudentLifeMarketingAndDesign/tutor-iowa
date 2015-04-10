@@ -30,7 +30,13 @@ class CoverImage extends PendingImage {
     * @return ArrayList	
     */
 	public static function getPending() {
-        return new ArrayList(self::get()->filter("Status", "Pending")->toArray());
+        $tutorsWithPI = TutorPage::get()->where("PendingCoverImageID != 0");
+        $realTutorsWithPI = new ArrayList($tutorsWithPI->toArray());
+        $realPendingCoverImages = new ArrayList();
+        foreach ($realTutorsWithPI as $index => $TP) {
+            $realPendingCoverImages->push($TP->PendingCoverImage());
+        }
+		return $realPendingCoverImages;
 	}
 	
 }
