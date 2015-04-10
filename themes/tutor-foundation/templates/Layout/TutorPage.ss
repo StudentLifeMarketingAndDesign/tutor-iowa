@@ -2,7 +2,7 @@
 	<div class="main typography" role="main">
 			
 			<div class="row" data-equalizer>
-				<div class="page-bg"></div>
+				<!--<div class="page-bg"></div>-->
 				<div class="large-8 columns content" data-equalizer-watch>
 
 					<div class="white-cover"></div>
@@ -28,11 +28,7 @@
 							<div class="medium-3 small-2 columns">
 
 								<div class="profile-image">
-									<% if $Image %>
-										<img src="http://lorempixel.com/500/500/" />
-									<% else %>
-										<img src="{$ThemeDir}/images/stain.png" />
-									<% end_if %>
+		
 								</div>
 							</div>
 						</div>

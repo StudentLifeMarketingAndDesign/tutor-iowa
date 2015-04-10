@@ -6576,12 +6576,10 @@ body.SearchForm h2 {
   max-width: 600px; }
   @media only screen and (min-width:40.063em) {
     .HomePage .HomePageSearchBg {
-      padding-top: 18%;
-      margin-bottom: 1.5625rem; } }
+      padding-top: 12%;
+      padding-bottom: 3%; } }
 .HomePage .HomePagePopSearches {
-  background-color: rgba(0, 0, 0, 0.6);
   position: relative;
-  padding: 2em;
   text-align: center;
   margin: 0 auto; }
 .HomePage .HomeFieldHolder {
@@ -6804,8 +6802,10 @@ body.SearchForm h2 {
     .tutor-card-list.small li {
       min-height: 100px; }
   .tutor-card-list li {
-    margin: 0px;
-    min-height: 200px; }
+    margin: 0px; }
+    @media only screen and (min-width:64.063em) {
+      .tutor-card-list li {
+        min-height: 150px; } }
     .tutor-card-list li img {
       transition: all .2s ease-in-out;
       -moz-transition: all .2s ease-in-out;

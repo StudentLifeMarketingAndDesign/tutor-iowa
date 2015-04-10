@@ -119,7 +119,6 @@ meta.foundation-mq-topbar{ font-family: '/only screen and (min-width:64.063em)/'
 .top-bar-section ul li > a{ display: block; width: 100%; color: rgb(255, 255, 255); padding-top: 12px; padding-right: 0px; padding-bottom: 12px; padding-left: 1.4583333333rem; font-family: proxima-nova-alt-condensed, sans-serif; font-size: 1.375rem; font-weight: normal; text-transform: uppercase; }
 .top-bar-section ul li > a.button{ font-size: 1.375rem; padding-right: 1.4583333333rem; padding-left: 1.4583333333rem; background-color: rgb(55, 126, 255); border-top-color: rgb(0, 88, 248); border-right-color: rgb(0, 88, 248); border-bottom-color: rgb(0, 88, 248); border-left-color: rgb(0, 88, 248); color: rgb(255, 255, 255); }
 .top-bar-section ul li > a.button.success{ background-color: rgb(55, 190, 94); border-top-color: rgb(44, 152, 75); border-right-color: rgb(44, 152, 75); border-bottom-color: rgb(44, 152, 75); border-left-color: rgb(44, 152, 75); color: rgb(255, 255, 255); }
-.top-bar-section ul li.active > a{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); color: rgb(106, 159, 255); background-position: initial initial; background-repeat: initial initial; }
 .top-bar-section .has-form{ padding-top: 1.4583333333rem; padding-right: 1.4583333333rem; padding-bottom: 1.4583333333rem; padding-left: 1.4583333333rem; }
 @media only screen and (min-width: 64.063em){
 .top-bar{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); overflow-x: visible; overflow-y: visible; background-position: initial initial; background-repeat: initial initial; }
@@ -134,7 +133,6 @@ meta.foundation-mq-topbar{ font-family: '/only screen and (min-width:64.063em)/'
 .top-bar-section ul{ width: auto; height: auto !important; display: inline; }
 .top-bar-section ul li{ float: left; }
 .top-bar-section li:not(.has-form) a:not(.button){ padding-top: 0px; padding-right: 1.4583333333rem; padding-bottom: 0px; padding-left: 1.4583333333rem; line-height: 4.375rem; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
-.top-bar-section li.active:not(.has-form) a:not(.button){ padding-top: 0px; padding-right: 1.4583333333rem; padding-bottom: 0px; padding-left: 1.4583333333rem; line-height: 4.375rem; color: rgb(106, 159, 255); background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
 .top-bar-section .has-form{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); padding-top: 0px; padding-right: 1.4583333333rem; padding-bottom: 0px; padding-left: 1.4583333333rem; height: 4.375rem; background-position: initial initial; background-repeat: initial initial; }
 }
 div, ul, li, h1, h2, h3, h4, form, p{ margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; }
@@ -193,9 +191,6 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .top-bar .top-bar-section ul li a.button{ font-size: 1.125rem; padding-top: 0.1875rem; padding-right: 1.0625rem; padding-bottom: 0.1875rem; padding-left: 1.0625rem; text-transform: capitalize; font-family: proxima-nova-alt, sans-serif; }
 .top-bar .top-bar-section .has-form{ background-image: -webkit-linear-gradient(-90deg, rgb(81, 81, 81), rgb(68, 68, 68)); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; padding-top: 0px; padding-right: 5px; padding-bottom: 0px; padding-left: 5px; background-position: initial initial; background-repeat: initial initial; }
 .top-bar .top-bar-section .has-form:last-of-type{ padding-right: 0px; }
-@media only screen and (min-width: 64.063em){
-.top-bar .top-bar-section li.active:not(.has-form) a:not(.button){ background-image: -webkit-linear-gradient(-90deg, rgb(81, 81, 81), rgb(68, 68, 68)); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: initial initial; background-repeat: initial initial; }
-}
 @media only screen and (min-width: 64.063em){
 .top-bar .top-bar-section li:not(.has-form) a:not(.button){ background-image: -webkit-linear-gradient(-90deg, rgb(81, 81, 81), rgb(68, 68, 68)); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: initial initial; background-repeat: initial initial; }
 }

@@ -23,16 +23,14 @@
 	
 
 		@media #{$medium-up} {
-			padding-top: 18%;
-			margin-bottom: $column-gutter;
+			padding-top: 12%;
+			padding-bottom: 3%;
 		}
 
 	}
 
   .HomePagePopSearches{
-  	background-color: rgba(0, 0, 0, 0.6);
 	position: relative;
-	padding: 2em;
 	text-align: center;
 		margin: 0 auto; 
 

@@ -34,7 +34,10 @@
 	li{
 		//border-right: 1px solid #eee;
 		margin: 0px;
-		min-height: 200px;
+		
+		@media #{$large-up}{
+			min-height: 150px;
+		}
 
 		//padding: $column-gutter;
 		img{
