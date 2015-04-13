@@ -6516,6 +6516,8 @@ input[type="submit"] {
     border-radius: 2px;
     border-right: 1px solid #ddd;
     padding-right: 10px; }
+  .top-bar .top-bar-section .has-dropdown.hover > .dropdown, .top-bar .top-bar-section .has-dropdown.not-click:hover > .dropdown {
+    z-index: 9999; }
   @media only screen and (min-width:64.063em) {
     .top-bar .top-bar-section ul li {
       background: #515151;
@@ -6533,11 +6535,6 @@ input[type="submit"] {
     padding: 0 5px; }
   .top-bar .top-bar-section .has-form:last-of-type {
     padding-right: 0; }
-  @media only screen and (min-width:64.063em) {
-    .top-bar .top-bar-section li.active:not(.has-form) a:not(.button) {
-      background: #515151;
-      background: -webkit-linear-gradient(-90deg, #515151, #444);
-      background: linear-gradient(180deg, #515151, #444); } }
   @media only screen and (min-width:64.063em) {
     .top-bar .top-bar-section li:not(.has-form) a:not(.button) {
       background: #515151;
@@ -6993,6 +6990,14 @@ body.SearchForm h2 {
 .main .breadcrumbs {
   padding-left: 0;
   margin-bottom: 0; }
+  .main .breadcrumbs > *:before {
+    margin: 0 3px; }
+    @media only screen and (min-width:64.063em) {
+      .main .breadcrumbs > *:before {
+        margin: 0 0.75rem; } }
+  .main .breadcrumbs > *:first-child:before {
+    content: " ";
+    margin: 0; }
   .main .breadcrumbs a {
     border-style: solid;
     border-width: 0;
@@ -7055,10 +7060,13 @@ body.SearchForm h2 {
     .main .breadcrumbs span:hover, .main .breadcrumbs span:focus {
       background-color: #FFFFFF; }
   .main .breadcrumbs a, .main .breadcrumbs span {
-    font-size: 0.875rem;
+    font-size: 0.6875rem;
     border: #ccc;
     color: #222222;
     margin-bottom: 0; }
+    @media only screen and (min-width:64.063em) {
+      .main .breadcrumbs a, .main .breadcrumbs span {
+        font-size: 0.875rem; } }
   .main .breadcrumbs .current a {
     background: none;
     color: #222222; }

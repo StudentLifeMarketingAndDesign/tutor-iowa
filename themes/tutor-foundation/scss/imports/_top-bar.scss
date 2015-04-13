@@ -29,7 +29,9 @@
 		padding-right: 10px;
 
 	}
-
+	.top-bar-section .has-dropdown.hover > .dropdown, .top-bar-section .has-dropdown.not-click:hover > .dropdown {
+		z-index: 9999;
+	}
 	.top-bar-section{
 		ul li{
 	    	@media #{$large-up}{
@@ -54,11 +56,11 @@
 	    	padding-right: 0;
 	    }
 
-	    li.active:not(.has-form) a:not(.button){
-	    	@media #{$large-up}{
-	    		@include topBarGradient;
-	    	}
-	    }
+	    // li.active:not(.has-form) a:not(.button){
+	    // 	@media #{$large-up}{
+	    // 		@include topBarGradient;
+	    // 	}
+	    // }
 		li:not(.has-form) a:not(.button){
 	    	@media #{$large-up}{
 	    		@include topBarGradient;
