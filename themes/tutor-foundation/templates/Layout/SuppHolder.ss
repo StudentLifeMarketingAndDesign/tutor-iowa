@@ -11,6 +11,7 @@
 					<article class="large-10 columns end">
 						$Breadcrumbs
 						<h1>$Title</h1>
+						<% include FindHelpSearch %>
 						$Content
 						$Form
 						<ul class="resource-card-list">
