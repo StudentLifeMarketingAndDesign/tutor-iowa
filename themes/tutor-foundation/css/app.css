@@ -4308,7 +4308,7 @@ dialog {
 .side-nav {
   display: block;
   margin: 0;
-  padding: 0.875rem 0;
+  padding: 0.625rem 0;
   list-style-type: none;
   list-style-position: outside;
   font-family: "proxima-nova-alt", sans-serif; }
@@ -6715,6 +6715,9 @@ body.SearchForm h2 {
   .small li.card.last {
     border-bottom: 0; }
 
+.side-nav .tutor-card-list li {
+  border-bottom: none; }
+
 .tutor-card-list {
   display: block;
   padding: 0;
@@ -6799,7 +6802,8 @@ body.SearchForm h2 {
     .tutor-card-list.small li {
       min-height: 100px; }
   .tutor-card-list li {
-    margin: 0px; }
+    margin: 0px;
+    border-bottom: none; }
     @media only screen and (min-width:64.063em) {
       .tutor-card-list li {
         min-height: 150px; } }
@@ -6971,13 +6975,15 @@ body.SearchForm h2 {
   @media only screen and (min-width:64.063em) {
     .side-nav {
       padding-right: 0; } }
+  .side-nav li {
+    border-bottom: 1px solid #ccc; }
   .side-nav a p {
     color: #222222; }
   .side-nav h3 {
     text-transform: uppercase;
     font-size: 1rem;
-    background: #666;
-    color: white;
+    background: none;
+    color: #3e3e3e;
     padding: 2px; }
     .side-nav h3 span {
       padding: 2px; }
@@ -6985,6 +6991,8 @@ body.SearchForm h2 {
     padding: 10px 0; }
   .side-nav .resource-card-list.small .resource-card {
     padding: 10px 0; }
+  .side-nav .tutor-card-list li {
+    border-bottom: none; }
 
 /* Single Page Styles */
 .main .breadcrumbs {

@@ -7,6 +7,9 @@
 		padding-right: 0;
 
 	}
+	li{
+		border-bottom: 1px solid #ccc;
+	}
 	h4{
 		//color: $primary-color;
 	}
@@ -19,8 +22,8 @@
 	h3{
 		text-transform: uppercase;
 		font-size: rem-calc(16);
-		background: #666;
-		color: white;
+		background: none;
+  		color: rgb(62, 62, 62);
 		padding: 2px;
 		span{
 			padding: 2px;
@@ -39,5 +42,10 @@
 			padding: 10px 0;
 		}		
 	}
+
+	.tutor-card-list li{
+		border-bottom: none;
+	}
+
 
 }

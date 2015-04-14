@@ -1,15 +1,22 @@
-<% if $RelatedResources.HelpLabs || $RelatedResources.SupplementalInstruction %>
-<h3><span>Related Campus Resources</span></h3>
-<% end_if %>
-
 <% with $RelatedResources %>
     <% if $HelpLabs || $SupplementalInstructions %><p><% end_if %>
     <% if $HelpLabs %>
-    <strong>Help Labs:</strong> <% loop HelpLabs.Limit(5) %><a href="$Link">$Title</a><% if not $Last %>, <% end_if %><% end_loop %><br /><strong><a href="help-labs/">Learn more about help labs on campus</a></strong>
-        <hr />
+    <h3><span>Related Help Labs</span></h3> 
+        <ul class="side-nav">
+        <% loop HelpLabs.Limit(5).Sort('Title ASC') %>
+            <li><a href="$Link">$Title</a></li>
+        <% end_loop %>
+            <li><strong><a href="help-labs/">Learn more about help labs on campus</a></strong></li>
+        </ul>
     <% end_if %>
     <% if $SupplementalInstructions %>
-        <strong>Supplemental Instruction:</strong> <% loop SupplementalInstructions.Limit(5) %><a href="$Link">$Title</a><% if not $Last %>, <% end_if %><% end_loop %><br /><strong><a href="supplemental-instructions/">Learn more about Supplemental Instruction</a></strong>
+    <h3><span>Related Supplemental Instruction</span></h3> 
+        <ul class="side-nav">
+        <% loop SupplementalInstructions.Limit(5).Sort('Title ASC') %>
+            <li><a href="$Link">$Title</a></li>
+        <% end_loop %>
+            <li><strong><a href="supplemental-instruction/">Learn more about supplemental instruction</a></strong></li>
+        </ul>
     <% end_if %>
     <% if $HelpLabs || $SupplementalInstructions %></p><% end_if %>
     <% if $Tutors %>
