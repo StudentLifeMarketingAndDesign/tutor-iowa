@@ -3,7 +3,7 @@
 	
 		
 		<div class="HomePageSearchBg">
-			<span class="tagline">You got this.</span>
+			<span class="tagline">$RandomTagline</span>
 				<% include HomepageSearchForm %>
 			<div class ="HomePagePopSearches">
 				<% include HomePagePopSearches %>
