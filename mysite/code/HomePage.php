@@ -22,6 +22,13 @@ class HomePage extends Page {
 
 	);
 
+	private static $taglines = array(
+		'You got this.',
+		"Don't give up.",
+		'Learn by doing.',
+		'Learn by tutoring.',
+	);
+
 	static $defaults = array('ProvideComments' => '1',
 	);
 
@@ -75,6 +82,10 @@ class HomePage extends Page {
 		return $fields;
 
 	}
+	public function RandomTagline() {
+		return array_rand($this->taglines, 1);
+	}
+
 }
 
 class HomePage_Controller extends Page_Controller {

@@ -76,7 +76,19 @@ class HelpLab extends Page {
 		return $fields;
 
 	}
+	public function RelatedResources() {
 
+		$searchTerm = $this->Tags . ' ' . $this->Content;
+
+		$results = $this->search($searchTerm);
+
+		//Remove this tutor from results
+		$labs = $results->getField('HelpLabs');
+		$thisLabInResults = $labs->find('ID', $this->ID);
+		$results->getField('HelpLabs')->remove($thisLabInResults);
+
+		return $results;
+	}
 }
 
 class HelpLab_Controller extends Page_Controller {

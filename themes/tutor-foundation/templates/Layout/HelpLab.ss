@@ -2,7 +2,7 @@
 	<div class="main typography" role="main">
 			
 			<div class="row" data-equalizer>
-				<div class="page-bg" id="labmap"></div>
+				<%--<div class="page-bg" id="labmap"></div>--%>
 				<div class="large-8 columns content" data-equalizer-watch>
 					<div class="white-cover"></div>
 					<article>
@@ -47,7 +47,7 @@
 					</article>
 				</div>
 				<div class="large-4 columns end" data-equalizer-watch>
-					<% include SideNav %>
+					<% include HelpLabSideNav %>
 				</div>
 			
 			</div>
