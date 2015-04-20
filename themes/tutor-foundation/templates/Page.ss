@@ -16,7 +16,7 @@
 	<meta property="og:image" content="<% with $Image.SetSize(500,500) %>$AbsoluteURL.ATT<% end_with %>" />
 	<% end_if %>
 	<!--<style><% include CriticalCss %></style>-->
-	<link rel="icon" type="image/png" href="$ThemeDir/favicon.ico" />
+	<% include Favicons %>
 	<%--See [Requirements](http://doc.silverstripe.org/framework/en/reference/requirements) for loading from controller--%>
 	<link rel="stylesheet" href="$ThemeDir/css/app.css" />
 	<script src="$ThemeDir/bower_components/modernizr/modernizr.js"></script>

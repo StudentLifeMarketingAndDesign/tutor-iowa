@@ -12,7 +12,7 @@
 		</div>
 		<% end_if %>
 		<div class="columns <% if $Image %>small-9 pull-3<% else %> small-12 end<% end_if %>">
-			<h4 class="tutor-name" href="$Link">$Title</h4><p>$Content.Summary(20) <strong class="tag tiny">...</strong></p>
+			<h4 class="tutor-name" href="$Link">$Title</h4><p>$Content.Summary(20)</p>
 		</div>
 	</div>
 </a>

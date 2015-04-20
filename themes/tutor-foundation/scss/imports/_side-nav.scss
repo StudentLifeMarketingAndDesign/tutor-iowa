@@ -24,15 +24,7 @@ ul.side-nav{
 		color: $body-font-color;
 	}
 	h3{
-		text-transform: uppercase;
-		font-size: rem-calc(16);
-		background: none;
-  		color: rgb(62, 62, 62);
-		padding: 2px;
-		span{
-			padding: 2px;
-			
-		}
+		@include banner;
 	}
 
 	.announcements.small{

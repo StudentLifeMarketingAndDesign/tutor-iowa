@@ -158,7 +158,7 @@ class HelpLab_Controller extends Page_Controller {
 				new TextareaField('Description'),
 				new Textareafield('MetaKeywords', 'Tags'),
 				new TextField('Location'),
-				new TextField('Link'),
+				//new TextField('Link'),
 				new TextField('ContactName', 'Contact Person\'s Name'),
 				new TextField('ContactEmail', 'Contact Person\'s Email'),
 				new UploadField('BackgroundImage', 'Background Image'),

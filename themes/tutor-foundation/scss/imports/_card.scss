@@ -1,4 +1,8 @@
 .card{
+	padding: $column-gutter/2 0;
+	@media #{$large-up}{
+		padding: 0;
+	}
 	&:hover{
 		* {
 			text-decoration: underline;
@@ -26,6 +30,8 @@
 		-webkit-transition: all .2s ease-in-out;
 		color: $darkBlue;
 	}
+
+
 }
 
 .small {

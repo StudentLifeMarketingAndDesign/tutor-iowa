@@ -14,12 +14,16 @@
 						<% include FindHelpSearch %>
 						$Content
 						$Form
+					</article>
+				</div>
+				<div class="row">
+					<div class="large-12 columns">
 						<ul class="resource-card-list">
 							<% loop Children %>
 								<% include ResourceCard %>
 							<% end_loop %>
 						</ul>
-					</article>
+					</div>
 				</div>
 			</div>
 			<div class="large-4 columns end" data-equalizer-watch>
