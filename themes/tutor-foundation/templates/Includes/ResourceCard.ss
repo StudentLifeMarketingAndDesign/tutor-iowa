@@ -18,7 +18,6 @@
 		<% if $Description %>
 			$Description.Summary(20)<br />
 		<% end_if %>
-		<span>Continue reading...</span>
 		</p>
 	</a>
 </li>

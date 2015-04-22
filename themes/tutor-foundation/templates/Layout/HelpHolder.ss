@@ -11,15 +11,19 @@
 					<article class="large-10 columns">
 						$Breadcrumbs
 						<h1>$Title</h1>
+						<% include FindHelpSearch %>
 						$Content
 						$Form
-						<p>Number of Help Labs: $ChildrenOf(help-labs).Count</p>
-						<ul>
-							<% loop ChildrenOf(help-labs) %>
-								<li><a href="$Link">$Title</a></li>
+					</article>
+				</div>
+				<div class="row">
+					<div class="large-12 columns">
+						<ul class="resource-card-list">
+							<% loop Children %>
+								<% include ResourceCard %>
 							<% end_loop %>
 						</ul>
-					</article>
+					</div>
 				</div>
 			</div>
 			<div class="large-4 columns end" data-equalizer-watch>

@@ -2,7 +2,7 @@
 	<div class="main typography" role="main">
 			
 			<div class="row" data-equalizer>
-				<div class="page-bg" id="labmap"></div>
+				<%--<div class="page-bg" id="labmap"></div>--%>
 				<div class="large-8 columns content" data-equalizer-watch>
 					<div class="white-cover"></div>
 					<article>
@@ -13,13 +13,14 @@
 						<% if ExternalScheduleLink %>
 							<a href="$ExternalScheduleLink" target="_blank" class="external-link">View full schedule</a>
 						<% end_if %>
+						<p>
 						<% if $Location %>
 						<span><strong>Location:</strong> $Location</span>
 						<br>
 						<% end_if %>
-						<%-- if $Address --%>
-						<span><strong>Address:</strong><data id="address">$Address 16 North Clinton Street, Iowa City, IA</data></span><br />
-						<%-- end_if --%>
+						<% if $Address %>
+						<span><strong>Address:</strong><data id="address">$Address</data></span><br />
+						<% end_if %>
 						<% if $ContactEmail %>
 						<strong>Contact:</strong>
 							<% if ContactName %>
@@ -34,8 +35,11 @@
 						<% else %>
 							<strong>No Phone Listed</strong><br />
 						<% end_if %>
-						<h2>About $Title</h2>
-						<p>$Description</p>
+						</p>
+						<% if $Description %>
+							<h2>About $Title</h2>
+							<p>$Description</p>
+						<% end_if %>
 						$Form
 						<% if $Tags %>
 							<p><% include Tags %></p>
@@ -43,7 +47,7 @@
 					</article>
 				</div>
 				<div class="large-4 columns end" data-equalizer-watch>
-					<% include SideNav %>
+					<% include HelpLabSideNav %>
 				</div>
 			
 			</div>

@@ -12,24 +12,23 @@
 						<% end_if %>
 
 						<% if $Location %>
-						<span><strong>Location:</strong>$Location</span>
+						<span><strong>Location:</strong> $Location</span>
 						<br />
 						<% end_if %>
 
 						<% if $Hours %>
-						<span><strong>Hours:</strong>$Hours</span>
+						<span><strong>Hours:</strong> $Hours</span>
 						<br />
 						<% end_if %>
 
 
 						<% if $Schedule %>
-						<span><strong>Schedule:</strong>$Schedule</span>
-						<br />
+						$Schedule
 						<% end_if %>
 
 
 						<% if $SessionLeader%>
-							<strong>Session Leader:</strong>$SessionLeader
+							<strong>Session Leader:</strong> $SessionLeader
 							<br />
 						<% end_if %>
 						$Form
