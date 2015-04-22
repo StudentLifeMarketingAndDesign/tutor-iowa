@@ -1,19 +1,26 @@
-<div class="contain-to-grid uiowa-bar">
-	<nav class="top-bar" data-topbar role="navigation">
-		<div class="top-bar-section">
-			<ul class="left">
-				<div class="row">
-					<div class="large-12 columns">
-						<li class="uiowa"><a href="http://wwww.uiowa.edu" target="_blank"><img src="division-bar/images/division-bar/uiowa.png" /></a></li>
-
-					</div>
-				</div>
-			</ul>
-			<ul class="right">
-				<form action="{$BaseHref}home/SearchForm">
-					<li class="has-form"><input type="text" name="Search" class="textInput" placeholder="Search" /></li>
+<!-- This file overwrites /division-bar/templates/DivisionBar.ss -->
+<div class="division-topbar no-print">
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="clearfix">
+				<a href="http://www.uiowa.edu/" class="uiowa" target="_blank">
+					<img src="{$BaseHref}/division-bar/images/division-bar/uiowa.png" alt="The University of Iowa" width="177">
+				</a>
+				<% if SearchForm %>
+					<a href="#" class="search-toggle">Search</a>
+				<% end_if %>
+			</div>
+			<% if SearchForm %>
+			<div class="division-search">
+			<% with SearchForm %>
+				<form $FormAttributes>
+					<label for="divisionsearchinput">Search</label>
+					<input type="search"  id="divisionsearchinput" placeholder="Search" results="5" name="Search" class="division-search-input">
+					<input type="submit" class="division-search-btn" value="search">
 				</form>
-			</ul>
+			<% end_with %>
+			</div>
+			<% end_if %>
 		</div>
-	</nav>
+	 </div>
 </div>

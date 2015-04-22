@@ -2,9 +2,9 @@
 @import "foundation";
 
 @import "imports/mixins/gradient";
+@import "imports/mixins/banner";
 
 @import "imports/buttons-tags";
-@import "imports/uiowa-bar";
 @import "imports/top-bar";
 @import "imports/search-results";
 @import "imports/homepage";
@@ -25,7 +25,7 @@
 
 
 
-@import "../../../division-bar/scss/_division-bar-foundation.scss";
+@import "../../../division-bar/scss/_uiowa-bar-foundation.scss";
 
 
 
@@ -172,6 +172,7 @@
 	background-size: cover;
 }
 
+
 .profile-image img{
 	border-radius: 50%;
 }
@@ -204,4 +205,8 @@ form{
     }
 .b-lazy.b-loaded {
                opacity: 1;
+}
+
+.HelpFieldHolder{
+	
 }

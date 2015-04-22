@@ -3,11 +3,14 @@
     <div class="large-12 columns">
       <% include BreadcrumbsSearch %>
       <h1>Search Results</h1>
+      <% include FindHelpSearch %>
       <% if Query %>
       <p>Your results for <strong>'{$Query}'</strong></p>
       <% else %>
       <p>Please enter a search term.</p>
       <% end_if %> <%-- end if Query --%>
+
+
     </div>
   </div>
   <div class="row">

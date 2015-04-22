@@ -1,3 +1,7 @@
+.side-nav .tutor-card-list li{
+	border-bottom: none;
+}
+
 .tutor-card-list{
 
 	@include block-grid(
@@ -13,8 +17,14 @@
 	}
 
 	&.large{
+
 		li{
-			padding-bottom: 0;
+			padding-top: $column-gutter/2;
+			padding-bottom: $column-gutter/2;
+			@media #{$large-up}{
+				padding-top: 0;
+				padding-bottom: 0;
+			}
 		}
 	}
 
@@ -34,7 +44,10 @@
 	li{
 		//border-right: 1px solid #eee;
 		margin: 0px;
-		min-height: 200px;
+		border-bottom: none;
+		@media #{$large-up}{
+			min-height: 150px;
+		}
 
 		//padding: $column-gutter;
 		img{

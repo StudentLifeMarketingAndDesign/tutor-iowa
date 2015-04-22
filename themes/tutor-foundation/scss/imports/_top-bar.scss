@@ -29,17 +29,45 @@
 		padding-right: 10px;
 
 	}
-
+	.top-bar-section .has-dropdown.hover > .dropdown, .top-bar-section .has-dropdown.not-click:hover > .dropdown {
+		z-index: 9999;
+	}
 	.top-bar-section{
 		ul li{
+			&.log-in:not(.has-form) a:not(.button){
+				background: $primary-color;
+				//@include buttonGradient($primary-color);
+				a{
+					background: none;
+					&:hover{
+						color: white;
+					}
+				}
+			}	
+
+			&.log-in:hover:not(.has-form) > a, &.register:hover:not(.has-form) > a{
+				color: white;
+			}			
+
+			&.register:not(.has-form) a:not(.button){
+				background: $success-color;
+				//@include buttonGradient($success-color);
+				a{
+					background: none;
+					&:hover{
+						color: white;
+					}
+				}
+			}
+
 	    	@media #{$large-up}{
 	    		@include topBarGradient;
 	    	}
 		}
 	   	ul li a{
 			&.button {
-	    		font-size: rem-calc(18);
-	    		padding: rem-calc(3) rem-calc(17);
+	    		font-size: rem-calc(14);
+	    		padding: rem-calc(5) rem-calc(17);
 	    		text-transform: capitalize;
 	    		font-family: $body-font-family;
 	    	}
@@ -54,11 +82,11 @@
 	    	padding-right: 0;
 	    }
 
-	    li.active:not(.has-form) a:not(.button){
-	    	@media #{$large-up}{
-	    		@include topBarGradient;
-	    	}
-	    }
+	    // li.active:not(.has-form) a:not(.button){
+	    // 	@media #{$large-up}{
+	    // 		@include topBarGradient;
+	    // 	}
+	    // }
 		li:not(.has-form) a:not(.button){
 	    	@media #{$large-up}{
 	    		@include topBarGradient;

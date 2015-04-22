@@ -7,5 +7,11 @@
   		<li><a href="#" class="button success">Edit</a></li>
   		<li><a href="#" class="button alert">Disable</a></li>
 	</ul>
+<<<<<<< HEAD
 
+=======
+	<hr />
+	<% include RelatedResources %>
+		<% if $SiteAdmin %>
+>>>>>>> 2.0
 
