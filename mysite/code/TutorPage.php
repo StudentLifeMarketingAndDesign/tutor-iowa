@@ -147,7 +147,6 @@ class TutorPage extends Page {
 		return $results;
 	}
 
-<<<<<<< HEAD
 	public function getContent() {
 		//print_r($this->getField("Content"));
 		if ($this->getField("Content")) {
@@ -158,8 +157,6 @@ class TutorPage extends Page {
 		}
 	}
 	
-=======
->>>>>>> 2.0
 	private function getEmails() {
 		return MemberManagement::get();
 	}

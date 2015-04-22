@@ -1,7 +1,3 @@
-ul.side-nav{
-	padding: $column-gutter/2 0;
-}
-
 .side-nav{
 	padding-top: 0;
 	background-color: $side-nav-bg;
@@ -10,9 +6,6 @@ ul.side-nav{
 	@media #{$large-up}{
 		padding-right: 0;
 
-	}
-	li{
-		border-bottom: 1px solid #ccc;
 	}
 	h4{
 		//color: $primary-color;
@@ -24,7 +17,15 @@ ul.side-nav{
 		color: $body-font-color;
 	}
 	h3{
-		@include banner;
+		text-transform: uppercase;
+		font-size: rem-calc(16);
+		background: #666;
+		color: white;
+		padding: 2px;
+		span{
+			padding: 2px;
+			
+		}
 	}
 
 	.announcements.small{
@@ -38,10 +39,5 @@ ul.side-nav{
 			padding: 10px 0;
 		}		
 	}
-
-	.tutor-card-list li{
-		border-bottom: none;
-	}
-
 
 }

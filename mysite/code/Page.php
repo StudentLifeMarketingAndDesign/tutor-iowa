@@ -309,26 +309,20 @@ class Page_Controller extends ContentController {
 
 		$unPoptags = new ArrayList();
 		$collection = $output->toArray();
-		$unPoptagsLimit = 5;
 
 		foreach ($collection as $tag) {
 
 			$tag = $tag->toMap();
 
-			if ($tag['Count'] <= $minCount + ($unPoptagsLimit - 1)) {
+			if ($tag['Count'] <= $minCount + 4) {
 				$unPoptags->add($tag);
 
 			}
 		}
 
 		$unPoptags = $unPoptags->toArray();
-		//print_r($unPoptags);
 
-		if (count($unPoptags) >= $unPoptagsLimit) {
-			$unPopKeys = array_rand($unPoptags, $unPoptagsLimit);
-		} else {
-			$unPopKeys = array_rand($unPoptags, count($unPoptags));
-		}
+		$unPopKeys = array_rand($unPoptags, 5);
 
 		foreach ($unPopKeys as $key) {
 			$unPopTagsFiltered[] = $unPoptags[$key];
@@ -385,18 +379,5 @@ class Page_Controller extends ContentController {
 				return $memberLabs;
 			}
 		}
-	}
-	public function getRandomSupplementalInstruction() {
-		$suppInstruction = SupplementalInstruction::get()->sort('RAND()');
-		return $suppInstruction;
-	}
-	public function getRandomHelpLabs() {
-		$helpLabs = HelpLab::get()->sort('RAND()');
-		return $helpLabs;
-	}
-
-	public function getRandomTutors() {
-		$tutors = TutorPage::get()->sort('RAND()');
-		return $tutors;
 	}
 }

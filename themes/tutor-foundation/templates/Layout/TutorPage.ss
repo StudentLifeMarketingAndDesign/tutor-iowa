@@ -1,6 +1,5 @@
 <div class="gradient">
 	<div class="main typography" role="main">
-<<<<<<< HEAD
 		<div class="row" data-equalizer>
 			<style>
 				#profile-cover-photo {
@@ -20,12 +19,6 @@
 			    <% end_if %>
 			</div>
 			<div class="large-8 columns content" data-equalizer-watch>
-=======
-			
-			<div class="row" data-equalizer>
-				<!--<div class="page-bg"></div>-->
-				<div class="large-8 columns content" data-equalizer-watch>
->>>>>>> 2.0
 
 				<div class="white-cover"></div>
 				$Breadcrumbs
@@ -49,18 +42,12 @@
 						</div>
 						<div class="medium-3 small-3 columns">
 
-<<<<<<< HEAD
 							<div class="profile-image">
                                 <% if $approvedProfileImage %>
                                     $approvedProfileImage
                                 <% else %>
                                     <img src="{$ThemeDir}/images/stain.png" />
                                 <% end_if %>
-=======
-								<div class="profile-image">
-		
-								</div>
->>>>>>> 2.0
 							</div>
 						</div>
 					</div>

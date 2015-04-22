@@ -1,0 +1,46 @@
+$uiowa-bg: #222;
+$uiowa-height: rem-calc(43);
+
+.contain-to-grid.uiowa-bar {
+    background: $uiowa-bg;
+    .top-bar {
+        background: $uiowa-bg;
+        height: auto;
+        @media #{$large-up}{
+	        height: $uiowa-height;
+	        line-height: $uiowa-height;        	
+        }
+
+        .uiowa-logo {
+            max-width: 300px;
+        }
+        input {
+            top: ($uiowa-height - $topbar-input-height) / 2;
+        }
+
+        .top-bar-section{
+
+	        .has-form {
+	        	height: $uiowa-height;
+	        	padding: 0 $uiowa-height / 3;
+	        }
+
+        	ul{
+        		line-height: $uiowa-height;
+        	}
+
+        	li{
+        		background: $uiowa-bg;
+        	}
+			li:not(.has-form) a:not(.button) {
+	            background: $uiowa-bg;
+	            line-height: $uiowa-height;
+	            padding: 0;
+	        }
+        }
+
+        &.has-form {
+            background: $uiowa-bg;
+        }
+    }
+}
