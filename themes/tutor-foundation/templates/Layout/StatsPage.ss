@@ -2,19 +2,16 @@
 	<div class="main typography" role="main">
 			
 			<div class="row" >
-				<div class="large-8 columns content" >
+				<div class="large-12 columns content" >
 
 					<h1 align="center">$Title</h1>
 				</div>
-					<div class="large-4 columns content"align="center" >
-
-					<h1>Sidebar</h1>
-				</div>
+					
 
 			</div>
 			<div class="row" >
 				<%--<div class="page-bg" id="labmap"></div>--%>
-				<div class="large-4 columns content"align="center" >
+				<div class="large-6 columns content"align="center" >
 					
 
 					<h4>Message Count</h4>
@@ -52,9 +49,14 @@
 
 				
 				</div>
-				<div class="large-4 columns content"align="left" >
+				<div class="large-2 columns content"align="left" >
 					
 
+				
+					
+				</div>
+				<div class="large-4 columns content"align="left" >
+					
 					<h4>Top 25 Most Popular Terms</h4>
 
 					<table style="width:100%">
@@ -70,11 +72,6 @@
 
 					  <% end_loop %>
 					  </table>
-				
-					
-				</div>
-				<div class="large-4 columns content"align="left" >
-					
 
 					
 				</div>
