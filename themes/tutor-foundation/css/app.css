@@ -6728,6 +6728,9 @@ body.SearchForm h2 {
   .small li.card.last {
     border-bottom: 0; }
 
+.StatsPage .side-nav {
+  background: none; }
+
 .side-nav .tutor-card-list li {
   border-bottom: none; }
 
