@@ -82,9 +82,18 @@ class RegistrationPage_Controller extends Page_Controller {
 	    $DateArray[strtotime("8/26/2013")] = strtotime("12/13/2013");
 	    $DateArray[strtotime("1/21/2014")] = strtotime("5/16/2014");
 	    $DateArray[strtotime("8/25/2014")] = strtotime("12/19/2014");
-	    $DateArray[strtotime("1/20/2015")] = strtotime("5/15/2015");
-	    
-	  
+	    $DateArray[strtotime("1/20/2015")] = strtotime("5/15/2015");        
+        $DateArray[strtotime("8/24/2015")] = strtotime("12/18/2015");
+        $DateArray[strtotime("1/19/2016")] = strtotime("5/13/2016");
+	    $DateArray[strtotime("8/22/2016")] = strtotime("12/19/2016");
+        $DateArray[strtotime("1/17/2017")] = strtotime("5/12/2017");
+        $DateArray[strtotime("8/21/2017")] = strtotime("12/15/2017");
+        $DateArray[strtotime("1/16/2018")] = strtotime("5/11/2018");
+        
+        //proposed dates for 2018-2019 and are subject to change
+        $DateArray[strtotime("8/20/2018")] = strtotime("12/14/2018");
+        $DateArray[strtotime("1/14/2019")] = strtotime("5/10/2019");
+
 	    
 	    $StartDate = strtotime("8/20/2012");
 	    $EndDate = strtotime("12/14/2012");
