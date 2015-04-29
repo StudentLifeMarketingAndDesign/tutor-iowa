@@ -119,6 +119,8 @@ class RegistrationPage_Controller extends Page_Controller {
     //Submit the registration form
     function doRegister($data,$form)
     {
+        $adminEmail = Config::inst()->get('Email', 'admin_email');
+
         //Check for existing member email address, use raw2sql to sanitize email form input
         if($member = DataObject::get_one("Member", "`Email` = '". Convert::raw2sql($data['Email']) . "'")) 
         {
@@ -192,7 +194,7 @@ class RegistrationPage_Controller extends Page_Controller {
                   
         //$emailArray = DataObject::get('Member', "ID in (select MemberID from Group_Members where GroupID = (select ID from `Group` where title='Content Authors'))");
         
-        include 'EmailArray.php'; //Gets members of security group that should be notified about user registration 
+       
         
         
         $userEmail = $Member->Email; //used in body of email, not really necessary
@@ -212,8 +214,8 @@ class RegistrationPage_Controller extends Page_Controller {
 		        //mail($recip->Email, $subject, $body);
 		        
 		         $email = new Email(); 
-		         $email->setTo($recip->Email); 	         
-		         $email->setFrom("tutoriowa@uiowa.edu"); 
+		         $email->setTo($adminEmail); 	         
+		         $email->setFrom($adminEmail); 
 		         $email->setSubject($subject); 
 		         $email->setBody($body); 
 		         $email->send(); 

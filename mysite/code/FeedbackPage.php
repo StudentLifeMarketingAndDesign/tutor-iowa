@@ -26,6 +26,8 @@ class FeedbackPage_Controller extends Page_Controller {
 	
 	 public function FeedbackForm(){
    
+    
+
 		$getVars = $this->request->getVars();
    	 
 		//If directed to feedback page from a tutor's page, set the hidden field Tutor ID to have the value of the GET parameter
@@ -90,7 +92,7 @@ class FeedbackPage_Controller extends Page_Controller {
    
    public function SubmitFeedbackForm($data, $form){
    
-	   
+	      $adminEmail = Config::inst()->get('Email', 'admin_email');
 	    
    	    
    	    $feedback = new FeedbackItem();
@@ -171,18 +173,16 @@ class FeedbackPage_Controller extends Page_Controller {
     	//$headers = "From: Tutor Iowa";       	
         //mail($recip->Email, $subject, $body);
         
-         include 'EmailArray.php';
-         
-        foreach ($emailArray as $recip){ //emailArray defined in EmailArray.php
+        
 	      	        
 	         $email = new Email(); 
-	         $email->setTo($recip->Email); 
+	         $email->setTo($adminEmail); 
 	         $email->setFrom($userEmail); 
 	         $email->setSubject($subject); 
 	         $email->setBody($body); 
 	         $email->send(); 
 	        
-         }
+         
             	    
    	    Session::set('Saved', 1);
    	    
