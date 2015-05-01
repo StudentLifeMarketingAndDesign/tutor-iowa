@@ -20,6 +20,7 @@ class TutorPage extends Page {
 		'UniversityID' => 'Text',
 		'Major' => 'Text',
 		'GPA' => 'Text',
+		'EligibleToTutor' => 'Boolean',
 		'PublishFlag' => 'Boolean',
 
 	);
@@ -37,6 +38,7 @@ class TutorPage extends Page {
 	private static $defaults = array('ProvideComments' => '1',
 		'UniversityID' => null,
 		'GPA' => null,
+		'EligibleToTutor' => '1',
 	);
 
 	private static $default_sort = 'Surname ASC';
@@ -80,7 +82,10 @@ class TutorPage extends Page {
 		$fields->addFieldToTab('Root.Main', new TextField("GPA", "GPA"));
 		$fields->addFieldToTab('Root.Main', new TextField("Major"));
 		$fields->addFieldToTab('Root.Main', new TextField("AcademicStatus", "Academic Status"));
+		$fields->addFieldToTab('Root.Main', new CheckboxField('EligibleToTutor', 'Is this tutor eligible?', true));
+
 		$fields->addFieldToTab('Root.Advanced', new DropdownField("MemberID", "Associated User", $membersDropdownSource));
+		
 
 		$gridFieldConfigFeedbackItems = GridFieldConfig_RecordEditor::create();
 		$gridfield = new GridField("FeedbackItem", "Feedback Items", $this->FeedbackItems(), $gridFieldConfigFeedbackItems);
@@ -109,15 +114,25 @@ class TutorPage extends Page {
 	}
 
 	private function changeParent() {
-
-		$tutorParent = TutorHolder::get()->filter(array('Title' => 'Private Tutors'))->first();
-
-		$this->setParent($tutorParent);
-		$this->write();
+	
+		
 	}
-	private function onWrite() {
-		$this->Metakeywords = $this->Tags;
-		parent::onWrite();
+	protected function onBeforeWrite() {
+
+		if($this->EligibleToTutor){
+			if($this->isPublished()){
+				$tutorParent = TutorHolder::get()->filter(array('Title' => 'Private Tutors'))->first();
+			}
+			else{
+				$tutorParent = TutorHolder::get()->filter(array('Title' => 'Provisional Tutors'))->first();
+			}
+		}
+		elseif (!($this->EligibleToTutor)) {
+			$tutorParent = TutorHolder::get()->filter(array('Title' => 'Ineligible Tutors'))->first();
+		}
+		$this->setParent($tutorParent);
+
+		parent::onBeforeWrite();
 	}
 	public function onBeforePublish() {
 		$this->changeParent();
