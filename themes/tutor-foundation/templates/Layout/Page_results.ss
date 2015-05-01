@@ -9,7 +9,9 @@
       <% else %>
       <p>Please enter a search term.</p>
       <% end_if %> <%-- end if Query --%>
-
+      <% if not HasResults %>
+        <p>No results for this search term were found.</p>
+      <% end_if %>
 
     </div>
   </div>
@@ -47,6 +49,6 @@
       </ul>
       <% end_if %><%-- end if Tutors --%>
     </div>
-    
+
   </div>
 </div>
