@@ -76,16 +76,23 @@ class Page extends SiteTree {
 			$tutors = new ArrayList($shuffletutors);
 
 			$SupplementalInstructions = $pages->filter(array('ClassName' => 'SupplementalInstruction'));
-			$HelpLabs =
+			$HelpLabs = $pages->filter(array('ClassName' => 'HelpLab'));
+
+			if ($HelpLabs->First() || $tutors->First() || $SupplementalInstructions->First()) {
+				$resultsFound = true;
+			} else {
+				$resultsFound = false;
+			}
 
 			//$data = array('Tutors' => $pages->filter(array('ClassName' => 'TutorPage')), 'SupplementalInstructions' => $pages->filter(array('ClassName' => 'SupplementalInstruction')), 'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')), 'Query' => $keyword, 'Title' => 'Search Results');
 			$data = new ArrayData(
 				array(
 					'Tutors' => $tutors,
 					'SupplementalInstructions' => $SupplementalInstructions,
-					'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')),
+					'HelpLabs' => $HelpLabs,
 					'Query' => $keyword,
 					'Title' => 'Search Results',
+					'HasResults' => $resultsFound,
 				)
 
 			);

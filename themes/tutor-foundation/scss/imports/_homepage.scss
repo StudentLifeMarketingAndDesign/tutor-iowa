@@ -15,6 +15,7 @@
         text-align: center;
         color: white;
         padding: $column-gutter 0;
+        line-height: 0.9em;
     }
     .HomePageSearchBg {
         margin: 0 auto;
@@ -37,19 +38,24 @@
     .HomeFieldHolder {
         overflow: hidden;
         padding-right: .5em;
+        text-align: center;
         input.textInput {
-            width: 60%;
-            float: left;
-            height: 2.3125em;
-            font-size: 1.4rem;
-        }
-        @media #{$medium-up} {
-            input.textInput {
-                width: 75%;
+            width: 100%;
+            text-align: center;
+            border-radius: 100px;
+            @media #{$medium-up} {
+                height: 2.3125em;
+                font-size: 1.4rem;
+                
             }
         }
-        input.button home-search-submit {
-            float: right;
+
+        input.button.home-search-submit {
+            display: inline;
+            width: 40%;
+            @media #{$medium-up} {
+                
+            }
         }
     }
 }

@@ -164,8 +164,11 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 }
 .top-bar .top-bar-section .right{ padding-right: 0.78125rem; }
 .message{ overflow-x: hidden; overflow-y: hidden; }
+.card{ padding-top: 0.78125rem; padding-right: 0px; padding-bottom: 0.78125rem; padding-left: 0px; }
+@media only screen and (min-width: 64.063em){
+.card{ padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; }
+}
 .card p{ margin-bottom: 0px; }
-.card .tag{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(238, 238, 238); padding-top: 2px; padding-right: 10px; padding-bottom: 2px; padding-left: 10px; background-position: initial initial; background-repeat: initial initial; }
 .card h4{ -webkit-transition-property: all; -webkit-transition-duration: 0.2s; -webkit-transition-timing-function: ease-in-out; -webkit-transition-delay: initial; color: rgb(4, 93, 255); }
 .small li.card{ padding-top: 10px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; }
 .tutor-card-list{ display: block; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }
@@ -187,7 +190,10 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .tutor-card-list > li:nth-of-type(2n+1){ padding-left: 0rem; padding-right: 0.78125rem; }
 .tutor-card-list > li:nth-of-type(2n){ padding-left: 0.78125rem; padding-right: 0rem; }
 }
-.tutor-card-list.large li{ padding-bottom: 0px; }
+.tutor-card-list.large li{ padding-top: 0.78125rem; padding-bottom: 0.78125rem; }
+@media only screen and (min-width: 64.063em){
+.tutor-card-list.large li{ padding-top: 0px; padding-bottom: 0px; }
+}
 .tutor-card-list li{ margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; border-bottom-style: none; border-bottom-width: initial; border-bottom-color: initial; }
 @media only screen and (min-width: 64.063em){
 .tutor-card-list li{ min-height: 150px; }
@@ -223,14 +229,13 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .resource-card-list .resource-card{ margin-bottom: 0px; }
 .resource-card-list li{ list-style-type: none; }
 .resource-card-list li a{ color: rgb(34, 34, 34); }
-.resource-card-list li span{ color: rgb(55, 126, 255); }
 .side-nav{ background-color: rgb(244, 244, 244); padding-top: 0.78125rem; padding-right: 0.78125rem; padding-bottom: 0.78125rem; padding-left: 0.78125rem; }
 @media only screen and (min-width: 64.063em){
 .side-nav{ padding-right: 0px; }
 }
 .side-nav li{ border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(204, 204, 204); }
 .side-nav a p{ color: rgb(34, 34, 34); }
-.side-nav h3{ text-transform: uppercase; font-size: 1rem; background-image: none; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; color: rgb(62, 62, 62); padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; background-position: initial initial; background-repeat: initial initial; }
+.side-nav h3{ text-transform: uppercase; font-size: 1rem; background-image: none; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; color: rgb(62, 62, 62); padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; position: relative; background-position: initial initial; background-repeat: initial initial; }
 .side-nav h3 span{ padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; }
 .side-nav .announcements.small .announcement-card{ padding-top: 10px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; }
 .side-nav .resource-card-list.small .resource-card{ padding-top: 10px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; }
@@ -286,7 +291,7 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .clearfix{ }
 .division-topbar{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; line-height: 1.5; position: relative; background-position: initial initial; background-repeat: initial initial; }
 .uiowa{ line-height: 42px; }
-.uiowa{ display: block; float: left; opacity: 0.7; width: 177px; margin-left: 10px; }
+.uiowa{ display: block; float: left; opacity: 0.7; width: 177px; }
 @media only screen and (min-width: 64.063em){
 .uiowa{ margin-left: 0px; }
 }

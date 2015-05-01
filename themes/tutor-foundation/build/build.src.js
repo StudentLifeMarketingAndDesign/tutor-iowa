@@ -275,22 +275,15 @@ $('#start-jr').on('click', function() {
 });
 
 
-// For small screens - show/hide the search on-click
-$('.search-toggle').click(function() {
-    $(this).toggleClass('active');
-    $('.division-search').slideToggle();
-    return false;
-});    
 
-
-    var bLazy = new Blazy({
-        breakpoints: [{
-            width: 420 // max-width
-            ,
-            src: 'data-src-small'
-        }
-       ]
-    });
+var bLazy = new Blazy({
+    breakpoints: [{
+        width: 420 // max-width
+        ,
+        src: 'data-src-small'
+    }
+   ]
+});
 
 var memberID = $("#memberInfo").data('id');
 var markAsRead = $(location).attr('href') + "/markAsRead";

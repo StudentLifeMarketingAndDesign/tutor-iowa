@@ -5004,7 +5004,7 @@ meta.foundation-mq-topbar {
       background: #444;
       color: #6a9fff; }
       .top-bar-section ul li.active > a:hover {
-        background: #444;
+        background: none;
         color: #FFFFFF; }
   .top-bar-section .has-form {
     padding: 1.4583333333rem; }
@@ -5134,7 +5134,7 @@ meta.foundation-mq-topbar {
       color: #6a9fff;
       background: #444; }
       .top-bar-section li.active:not(.has-form) a:not(.button):hover {
-        background: #444;
+        background: none;
         color: #FFFFFF; }
     .top-bar-section .has-dropdown > a {
       padding-right: 2.7083333333rem !important; }
@@ -6484,6 +6484,15 @@ input[type="submit"] {
   background: -webkit-linear-gradient(-90deg, #515151, #444);
   background: linear-gradient(180deg, #515151, #444); }
 
+@media only only screen and (min-width:64.063em) {
+  .top-bar-section .has-dropdown .dropdown li.has-dropdown > a:after {
+    border: none;
+    content: "\00bb";
+    top: 1rem;
+    margin-top: 5px;
+    right: 5px;
+    line-height: 1.2; } }
+
 .top-bar {
   background: #515151;
   background: -webkit-linear-gradient(-90deg, #515151, #444);
@@ -6501,6 +6510,14 @@ input[type="submit"] {
     padding-right: 10px; }
   .top-bar .top-bar-section .has-dropdown.hover > .dropdown, .top-bar .top-bar-section .has-dropdown.not-click:hover > .dropdown {
     z-index: 9999; }
+  @media only screen and (min-width:64.063em) {
+    .top-bar .top-bar-section .has-dropdown .dropdown li.has-dropdown > a:after {
+      border: none;
+      content: "\00bb";
+      top: 1rem;
+      margin-top: 5px;
+      right: 5px;
+      line-height: 1.2; } }
   .top-bar .top-bar-section ul li.log-in:not(.has-form) a:not(.button) {
     background: #377EFF; }
     .top-bar .top-bar-section ul li.log-in:not(.has-form) a:not(.button) a {
@@ -6569,7 +6586,8 @@ body.SearchForm h2 {
   display: block;
   text-align: center;
   color: white;
-  padding: 1.5625rem 0; }
+  padding: 1.5625rem 0;
+  line-height: 0.9em; }
 .HomePage .HomePageSearchBg {
   margin: 0 auto;
   max-width: 600px; }
@@ -6587,17 +6605,19 @@ body.SearchForm h2 {
   padding-top: 0.78125rem; }
 .HomePage .HomeFieldHolder {
   overflow: hidden;
-  padding-right: .5em; }
+  padding-right: .5em;
+  text-align: center; }
   .HomePage .HomeFieldHolder input.textInput {
-    width: 60%;
-    float: left;
-    height: 2.3125em;
-    font-size: 1.4rem; }
-  @media only screen and (min-width:40.063em) {
-    .HomePage .HomeFieldHolder input.textInput {
-      width: 75%; } }
-  .HomePage .HomeFieldHolder input.button home-search-submit {
-    float: right; }
+    width: 100%;
+    text-align: center;
+    border-radius: 100px; }
+    @media only screen and (min-width:40.063em) {
+      .HomePage .HomeFieldHolder input.textInput {
+        height: 2.3125em;
+        font-size: 1.4rem; } }
+  .HomePage .HomeFieldHolder input.button.home-search-submit {
+    display: inline;
+    width: 40%; }
 
 .HelpLab #labmap .gmnoprint img {
   max-width: none; }
@@ -7350,8 +7370,7 @@ ul.side-nav {
   display: block;
   float: left;
   opacity: .7;
-  width: 177px;
-  margin-left: 10px; }
+  width: 177px; }
   @media only screen and (min-width:64.063em) {
     .uiowa {
       margin-left: 0; } }
