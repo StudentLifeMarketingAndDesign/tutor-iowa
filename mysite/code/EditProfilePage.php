@@ -249,12 +249,13 @@ class EditProfilePage_Controller extends Page_Controller {
 	}
 
 	function Enable() {
+		$adminEmail = Config::inst()->get('Email', 'admin_email');
 
 		if ($this->request->getVar('enable') == 1) {
 
 			$CurrentMember = Member::CurrentUser();
 			$IDMember = $CurrentMember->ID;
-			include 'EmailArray.php'; //Gets members of security group that should be notified about user registration
+			
 			$userEmail = $CurrentMember->Email;
 
 			//$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");
@@ -280,7 +281,7 @@ class EditProfilePage_Controller extends Page_Controller {
 
 				$email = new Email();
 				$email->setTo($recip->Email);
-				$email->setFrom(Email::getAdminEmail());
+				$email->setFrom($adminEmail);
 				$email->setSubject($subject);
 				$email->setBody($body);
 				$email->send();
@@ -300,7 +301,7 @@ class EditProfilePage_Controller extends Page_Controller {
 
 			$email = new Email();
 			$email->setTo($CurrentMember->Email);
-			$email->setFrom(Email::getAdminEmail());
+			$email->setFrom($adminEmail);
 			$email->setSubject($subject);
 			$email->setBody($body);
 			$email->send();
