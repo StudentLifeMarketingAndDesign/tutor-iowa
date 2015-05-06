@@ -4,7 +4,11 @@
 	<% base_tag %>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-	<title><% if $MetaTitle %>$MetaTitle<% else_if not $URLSegment=="home" %>$Title - <% end_if %>$SiteConfig.Title - The University of Iowa</title>
+	<% if $URLSegment = 'home' %>
+		<title>$SiteConfig.Title - The University of Iowa</title>
+	<% else %>
+		<title>$Title - $SiteConfig.Title - The University of Iowa</title>
+	<% end_if %>
 	<meta name="description" content="$MetaDescription.ATT" />
 	<%--http://ogp.me/--%>
 	<meta property="og:site_name" content="$SiteConfig.Title.ATT" />

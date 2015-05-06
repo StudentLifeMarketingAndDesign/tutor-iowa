@@ -116,7 +116,8 @@ class TutorPage extends Page {
 		$this->write();
 	}
 	private function onWrite() {
-		$this->Metakeywords = $this->Tags;
+		// this shouldn't be happening anymore:
+		//$this->Metakeywords = $this->Tags;
 		parent::onWrite();
 	}
 	public function onBeforePublish() {

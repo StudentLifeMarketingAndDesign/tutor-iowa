@@ -244,9 +244,11 @@ class Page_Controller extends ContentController {
 			$theseTags = $entry->SplitKeywords();
 			if (isset($theseTags)) {
 				foreach ($theseTags as $tag => $tagLabel) {
-					$tagLabels[$tag] = $tagLabel;
-					//getting the count into key => value map
-					$tagCounts[$tag] = isset($tagCounts[$tag]) ? $tagCounts[$tag] + 1 : 1;
+					if ($tagLabel->Keyword != '') {
+						$tagLabels[$tag] = $tagLabel;
+						//getting the count into key => value map
+						$tagCounts[$tag] = isset($tagCounts[$tag]) ? $tagCounts[$tag] + 1 : 1;
+					}
 				}
 			}
 		}
@@ -318,8 +320,9 @@ class Page_Controller extends ContentController {
 		$collection = $output->toArray();
 		$unPoptagsLimit = 5;
 
-		foreach ($collection as $tag) {
+		//print_r($collection);
 
+		foreach ($collection as $tag) {
 			$tag = $tag->toMap();
 
 			if ($tag['Count'] <= $minCount + ($unPoptagsLimit - 1)) {
