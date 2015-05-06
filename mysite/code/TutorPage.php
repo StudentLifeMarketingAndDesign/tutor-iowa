@@ -116,7 +116,8 @@ class TutorPage extends Page {
 		$this->write();
 	}
 	private function onWrite() {
-		$this->Metakeywords = $this->Tags;
+		// this shouldn't be happening anymore:
+		//$this->Metakeywords = $this->Tags;
 		parent::onWrite();
 	}
 	public function onBeforePublish() {
@@ -125,6 +126,7 @@ class TutorPage extends Page {
 	}
 
 	public function onAfterPublish() {
+		$adminEmail = Config::inst()->get('Email', 'admin_email');
 
 		$approved = $this->Approved;
 
@@ -139,7 +141,7 @@ class TutorPage extends Page {
 
 		$email = new Email();
 		$email->setTo($this->Email);
-		$email->setFrom("tutoriowa@uiowa.edu");
+		$email->setFrom($adminEmail);
 		$email->setSubject($subject);
 		$email->setBody($body);
 
@@ -177,6 +179,7 @@ class TutorPage_Controller extends Page_Controller {
 	}
 
 	public function doContactTutor($data, $form) {
+		$adminEmail = Config::inst()->get('Email', 'admin_email');
 
 		$from = $data["Email"];
 		$name = $data["Name"];
@@ -188,7 +191,7 @@ class TutorPage_Controller extends Page_Controller {
 		$toString = $this->Email;
 		$email->setTo($toString);
 		$email->setSubject($subject);
-		$email->setFrom(Email::getAdminEmail());
+		$email->setFrom($adminEmail);
 		$email->replyTo($from);
 		$email->setBody($name . ' has contacted you. Read their message below. You may reply to their message directly by replying to this email. <br />' . $body);
 

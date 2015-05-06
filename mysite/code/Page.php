@@ -76,16 +76,23 @@ class Page extends SiteTree {
 			$tutors = new ArrayList($shuffletutors);
 
 			$SupplementalInstructions = $pages->filter(array('ClassName' => 'SupplementalInstruction'));
-			$HelpLabs =
+			$HelpLabs = $pages->filter(array('ClassName' => 'HelpLab'));
+
+			if ($HelpLabs->First() || $tutors->First() || $SupplementalInstructions->First()) {
+				$resultsFound = true;
+			} else {
+				$resultsFound = false;
+			}
 
 			//$data = array('Tutors' => $pages->filter(array('ClassName' => 'TutorPage')), 'SupplementalInstructions' => $pages->filter(array('ClassName' => 'SupplementalInstruction')), 'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')), 'Query' => $keyword, 'Title' => 'Search Results');
 			$data = new ArrayData(
 				array(
 					'Tutors' => $tutors,
 					'SupplementalInstructions' => $SupplementalInstructions,
-					'HelpLabs' => $pages->filter(array('ClassName' => 'HelpLab')),
+					'HelpLabs' => $HelpLabs,
 					'Query' => $keyword,
 					'Title' => 'Search Results',
+					'HasResults' => $resultsFound,
 				)
 
 			);
@@ -237,9 +244,11 @@ class Page_Controller extends ContentController {
 			$theseTags = $entry->SplitKeywords();
 			if (isset($theseTags)) {
 				foreach ($theseTags as $tag => $tagLabel) {
-					$tagLabels[$tag] = $tagLabel;
-					//getting the count into key => value map
-					$tagCounts[$tag] = isset($tagCounts[$tag]) ? $tagCounts[$tag] + 1 : 1;
+					if ($tagLabel->Keyword != '') {
+						$tagLabels[$tag] = $tagLabel;
+						//getting the count into key => value map
+						$tagCounts[$tag] = isset($tagCounts[$tag]) ? $tagCounts[$tag] + 1 : 1;
+					}
 				}
 			}
 		}
@@ -311,8 +320,9 @@ class Page_Controller extends ContentController {
 		$collection = $output->toArray();
 		$unPoptagsLimit = 5;
 
-		foreach ($collection as $tag) {
+		//print_r($collection);
 
+		foreach ($collection as $tag) {
 			$tag = $tag->toMap();
 
 			if ($tag['Count'] <= $minCount + ($unPoptagsLimit - 1)) {
