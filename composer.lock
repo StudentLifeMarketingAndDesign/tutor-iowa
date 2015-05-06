@@ -63,12 +63,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "f8c20b427de1cfe7a28a015c1640ce4e4eef1e33"
+                "reference": "a66f93a541c2214b4865161426b077e2b7d951de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/f8c20b427de1cfe7a28a015c1640ce4e4eef1e33",
-                "reference": "f8c20b427de1cfe7a28a015c1640ce4e4eef1e33",
+                "url": "https://api.github.com/repos/composer/installers/zipball/a66f93a541c2214b4865161426b077e2b7d951de",
+                "reference": "a66f93a541c2214b4865161426b077e2b7d951de",
                 "shasum": ""
             },
             "replace": {
@@ -150,7 +150,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2015-03-26 16:11:30"
+            "time": "2015-04-21 19:54:55"
         },
         {
             "name": "md/ac-json-events",
@@ -158,12 +158,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "b0f187e1bb41ce8728bd7387fd1bf9de9e81710c"
+                "reference": "3f813c7f14606452676fd46bbcdeedab70c17e87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/b0f187e1bb41ce8728bd7387fd1bf9de9e81710c",
-                "reference": "b0f187e1bb41ce8728bd7387fd1bf9de9e81710c",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/3f813c7f14606452676fd46bbcdeedab70c17e87",
+                "reference": "3f813c7f14606452676fd46bbcdeedab70c17e87",
                 "shasum": ""
             },
             "require": {
@@ -182,7 +182,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2015-03-24 20:08:02"
+            "time": "2015-04-27 19:40:41"
         },
         {
             "name": "md/division-bar",
@@ -190,12 +190,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar.git",
-                "reference": "18dd3df784b7fdf2eac5ecfe1a809be8b077cc06"
+                "reference": "11b4b5b01d39b4a6ca3c59d860d0e66e28ec471b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/18dd3df784b7fdf2eac5ecfe1a809be8b077cc06",
-                "reference": "18dd3df784b7fdf2eac5ecfe1a809be8b077cc06",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/11b4b5b01d39b4a6ca3c59d860d0e66e28ec471b",
+                "reference": "11b4b5b01d39b4a6ca3c59d860d0e66e28ec471b",
                 "shasum": ""
             },
             "require": {
@@ -214,7 +214,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/division-bar/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-bar/issues"
             },
-            "time": "2015-03-23 16:53:10"
+            "time": "2015-04-30 15:12:58"
         },
         {
             "name": "micschk/silverstripe-excludechildren",
@@ -222,12 +222,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/micschk/silverstripe-excludechildren.git",
-                "reference": "f94aa8e02c0002880b4e1b811a009fef8c3160d3"
+                "reference": "cc92ffb01b4926af0507d509b555c69804230a0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/micschk/silverstripe-excludechildren/zipball/f94aa8e02c0002880b4e1b811a009fef8c3160d3",
-                "reference": "f94aa8e02c0002880b4e1b811a009fef8c3160d3",
+                "url": "https://api.github.com/repos/micschk/silverstripe-excludechildren/zipball/cc92ffb01b4926af0507d509b555c69804230a0f",
+                "reference": "cc92ffb01b4926af0507d509b555c69804230a0f",
                 "shasum": ""
             },
             "require": {
@@ -249,7 +249,7 @@
                 "silverstripe",
                 "sitetree"
             ],
-            "time": "2015-01-27 16:35:41"
+            "time": "2015-05-05 05:55:14"
         },
         {
             "name": "rywa/silverstripe-foundation-forms",
@@ -506,12 +506,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-spamprotection.git",
-                "reference": "747a801ba5e394867c9891bdb8c53e92878a700b"
+                "reference": "9c649f0b6c56eec4c85bcd66094d165ef6333375"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/747a801ba5e394867c9891bdb8c53e92878a700b",
-                "reference": "747a801ba5e394867c9891bdb8c53e92878a700b",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/9c649f0b6c56eec4c85bcd66094d165ef6333375",
+                "reference": "9c649f0b6c56eec4c85bcd66094d165ef6333375",
                 "shasum": ""
             },
             "require": {
@@ -542,7 +542,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2015-03-24 23:59:49"
+            "time": "2015-05-05 05:19:21"
         },
         {
             "name": "silverstripe/tagfield",
