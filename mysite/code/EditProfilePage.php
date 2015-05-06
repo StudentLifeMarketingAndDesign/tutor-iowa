@@ -49,8 +49,8 @@ class EditProfilePage_Controller extends Page_Controller {
 			$fields = new FieldList(
 				new TextField('FirstName', '<span>*</span> First Name'),
 				new TextField('Surname', '<span>*</span> Last Name'),
-				new UploadField("Image", "Choose a photo of yourself"),
-				new UploadField("BackgroundImage", "Choose a background image (the wider, the better.)"),
+				//new UploadField("Image", "Choose a photo of yourself"),
+				//new UploadField("BackgroundImage", "Choose a background image (the wider, the better.)"),
 				new EmailField('Email', '<span>*</span> Email Address'),
 				new LiteralField('ChangePassword', $changePassLabel),
 				new TextareaField('Content', 'Biography'),
@@ -255,7 +255,7 @@ class EditProfilePage_Controller extends Page_Controller {
 
 			$CurrentMember = Member::CurrentUser();
 			$IDMember = $CurrentMember->ID;
-			
+
 			$userEmail = $CurrentMember->Email;
 
 			//$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");

@@ -89,6 +89,22 @@ class HelpLab extends Page {
 
 		return $results;
 	}
+	public function canUserEditHelpLab() {
+		$helplabs = $this->getHelpLabs();
+		$labID = $this->ID;
+		if ($helplabs) {
+			foreach ($helplabs as $lab) {
+				$checkID = $lab->ID;
+				if ($labID == $checkID) {
+					return true;
+				}
+			}
+		} else {
+			return false;
+		}
+		return false;
+
+	}
 }
 
 class HelpLab_Controller extends Page_Controller {
@@ -155,13 +171,13 @@ class HelpLab_Controller extends Page_Controller {
 		$canUserEdit = $this->canUserEditHelpLab();
 		if ($canUserEdit) {
 			$fields = new FieldList(
-				new TextareaField('Description'),
+				new HTMLEditorField('Description'),
 				new Textareafield('MetaKeywords', 'Tags'),
 				new TextField('Location'),
 				//new TextField('Link'),
 				new TextField('ContactName', 'Contact Person\'s Name'),
 				new TextField('ContactEmail', 'Contact Person\'s Email'),
-				new UploadField('BackgroundImage', 'Background Image'),
+				//new UploadField('BackgroundImage', 'Background Image'),
 				new TextField('PhoneNo', 'Phone Number'),
 				new TextField('ExternalScheduleLink', 'Optional link to the lab\'s schedule on another site'),
 
@@ -209,23 +225,6 @@ class HelpLab_Controller extends Page_Controller {
 			return Security::PermissionFailure($this->controller, 'You do not have permission to edit this profile.');
 
 		}
-
-	}
-
-	function canUserEditHelpLab() {
-		$helplabs = $this->getHelpLabs();
-		$labID = $this->ID;
-		if ($helplabs) {
-			foreach ($helplabs as $lab) {
-				$checkID = $lab->ID;
-				if ($labID == $checkID) {
-					return true;
-				}
-			}
-		} else {
-			return false;
-		}
-		return false;
 
 	}
 

@@ -20,4 +20,7 @@
 		<% end_if %>
 		</p>
 	</a>
+	<% if canUserEditHelpLab %>
+		<p><a href="{$Link}Edit" class="button success">Edit</a></p>
+	<% end_if %>
 </li>
