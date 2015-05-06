@@ -18,6 +18,7 @@
 	<meta property="og:url" content="$AbsoluteLink.ATT" />
 	<% if $Image %>
 	<meta property="og:image" content="<% with $Image.SetSize(500,500) %>$AbsoluteURL.ATT<% end_with %>" />
+	
 	<% end_if %>
 	<!--<style><% include CriticalCss %></style>-->
 	<% include Favicons %>
