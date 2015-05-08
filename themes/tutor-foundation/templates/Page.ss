@@ -4,7 +4,11 @@
 	<% base_tag %>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-	<title><% if $MetaTitle %>$MetaTitle<% else %>$Title<% end_if %> - $SiteConfig.Title</title>
+	<% if $URLSegment = 'home' %>
+		<title>$SiteConfig.Title - The University of Iowa</title>
+	<% else %>
+		<title>$Title - $SiteConfig.Title - The University of Iowa</title>
+	<% end_if %>
 	<meta name="description" content="$MetaDescription.ATT" />
 	<%--http://ogp.me/--%>
 	<meta property="og:site_name" content="$SiteConfig.Title.ATT" />
@@ -14,6 +18,8 @@
 	<meta property="og:url" content="$AbsoluteLink.ATT" />
 	<% if $Image %>
 	<meta property="og:image" content="<% with $Image.SetSize(500,500) %>$AbsoluteURL.ATT<% end_with %>" />
+	<% else %>
+		<meta property="og:image" content="{$ThemeDir}/images/tutor-iowa-logo-fb.png" />
 	<% end_if %>
 	<!--<style><% include CriticalCss %></style>-->
 	<% include Favicons %>

@@ -52,7 +52,7 @@
 	<div class="row">
 		<div class="small-12 columns">
 			<hr>
-			<p>&copy; $Now.Year The University of Iowa. All Rights Reserved.</p>
+			<% include CopyrightPrivacyFooter %>
 		</div>
 	</div>
 </footer>

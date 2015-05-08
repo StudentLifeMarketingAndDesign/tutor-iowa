@@ -19,7 +19,6 @@
 		<div class="row" data-equalizer>
 			<div class="large-8 columns content" data-equalizer-watch>
 				<div class="white-cover"></div>
-					<h3 class="banner">Shuffled Selection of Tutors</h3>
 						<ul class="tutor-card-list large">
 							<% loop RandomTutors.Limit(16) %>
 								<% include TutorCard %>

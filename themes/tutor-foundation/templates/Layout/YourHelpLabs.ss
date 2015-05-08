@@ -12,9 +12,15 @@
 						$Breadcrumbs
 						<h1>$Title</h1>
 						$Content
-						<% loop HelpLabs %>
-							<a href="$Link" target="_blank">$Name</a>:   <a href="{$Link}Edit" >Edit</a> / <a href="$Link" target="_blank">View</a> <br>
-						<% end_loop %>
+						<div class="row">
+							<div class="large-12 columns">
+								<ul class="resource-card-list">
+									<% loop HelpLabs %>
+										<% include ResourceCard %>
+									<% end_loop %>
+								</ul>
+							</div>
+						</div>
 					</article>
 				</div>
 			</div>

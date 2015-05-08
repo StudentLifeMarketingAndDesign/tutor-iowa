@@ -8,7 +8,7 @@
 	<section class="top-bar-section">
 
 		<%-- Main Nav Section --%>
-		<ul class="right">
+		<ul class="left">
 			<% loop Menu(1) %>
 			<li class="<% if $LinkingMode == "current" || $LinkingMode == "section" %>active<% end_if %><% if $Children %> has-dropdown<% end_if %>">
 				<a href="$Link" title="Go to the $Title.ATT">$MenuTitle</a>
@@ -21,7 +21,7 @@
 						<% if $Children %>
 						<ul class="dropdown">
 							<% loop $Children %>
-							<li class="<% if $LinkingMode == "current" || $LinkingMode == "section" %>active<% end_if %>"><a href="$Link" title="Go to the $Title.ATT">$MenuTitle</a></li>
+							<li class="<% if $LinkingMode == "current" || $LinkingMode == "section" %>active<% end_if %>"><a href="$Link" title="Go to the $Title.ATT">$MenuTitle.LimitCharacters(25)</a></li>
 							<% end_loop %>
 						</ul>
 						<% end_if %>
@@ -32,25 +32,29 @@
 				<% end_if %>
 			</li>
 			<% end_loop %>
-			<% if $CurrentMember %>
-				<li><a href="inbox" class="<% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>">Inbox <% if $CurrentMember.unreadMessageCount > 0 %><span data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount" class="inboxCount  ">({$CurrentMember.unreadMessageCount})</span><% end_if %></a></li>
+		</ul>
 
-				<li class="has-dropdown">
-					<a href="$CurrentMemberPage.Link" id="memberInfo" data-id="$CurrentMember.ID">$CurrentMember.FirstName</a>
-					<ul class="dropdown">
-					<% if $currentMemberPage %>
-						<li><a href="{$currentMemberPage.Link}edit">Edit Profile</a></li>
-						<li><a href="$currentMemberPage.Link">View Profile</a></li>
-					<% end_if %>
+			<ul class="right">
+			<% if $CurrentMember %>
+			<li><a href="inbox" class="<% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>">Inbox <% if $CurrentMember.unreadMessageCount > 0 %><span data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount" class="inboxCount  ">({$CurrentMember.unreadMessageCount})</span><% end_if %></a></li>
+			<li class="has-dropdown">
+				<a href="$CurrentMemberPage.Link" id="memberInfo" data-id="$CurrentMember.ID">$CurrentMember.FirstName</a>
+				<ul class="dropdown">
+				<% if $currentMemberPage %>
+					<li><a href="edit-profile/">Edit Profile</a></li>
+					<li><a href="$currentMemberPage.Link">View Profile</a></li>
+				<% end_if %>
+					
 						
 						<% if HelpLabs %>
 						<li><a href="personal-help-labs/">Edit Help Labs</a></li>
 						<% end_if %>
 
-						<% if $SiteAdmin %><li><a href="admin/">Admin</a></li><% end_if %>
-						<li><a class="alert" href="Security/logout">Logout</a></li>
-					</ul>
-				</li>
+					<% if $SiteAdmin %><li><a href="admin/">Admin</a></li><li><a href="stats-page/">Statistics</a></li><% end_if %>
+					<li><a class="alert" href="Security/logout">Logout</a></li>
+				</ul>
+			</li>
+
 			<% else %>
 				<li class="log-in"><a href="Security/login?BackURL=%2Fadmin" data-reveal-id="login-form-modal">Log In</a></li>
 				<li class="register"><a href="register">Become a Tutor</a></li>
