@@ -32,10 +32,12 @@
 				<% end_if %>
 			</li>
 			<% end_loop %>
-			<% if $CurrentMember %>
+			</ul>
+			
 		
 
-
+			<ul class="right">
+			<% if $CurrentMember %>
 			<li><a href="inbox" class="<% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>">Inbox <% if $CurrentMember.unreadMessageCount > 0 %><span data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount" class="inboxCount  ">({$CurrentMember.unreadMessageCount})</span><% end_if %></a></li>
 			<li class="has-dropdown">
 				<a href="$CurrentMemberPage.Link" id="memberInfo" data-id="$CurrentMember.ID">$CurrentMember.FirstName</a>

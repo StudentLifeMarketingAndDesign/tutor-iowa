@@ -36,6 +36,10 @@
 	//padding-top: 10px;
 	min-height: 320px;
 
+	@media #{$large-up}{
+		min-height: 600px;
+	}
+
 	h1{
 		text-transform: uppercase;
 		border-bottom: 1px solid #ddd;
