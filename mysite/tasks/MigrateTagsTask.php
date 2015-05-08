@@ -23,6 +23,10 @@ class MigrateTagsTask extends BuildTask {
 		foreach ($objectList as $object) {
 			$object->Tags = $object->MetaKeywords;
 			echo "<li>Converting " . $object->Title . " MetaKeywords to Tags ";
+			if ($object->ClassName == "TutorPage") {
+				$object->EligibleToTutor = true;
+				echo " Also making them eligible to tutor.";
+			}
 			$object->write();
 			$object->writeToStage("Stage");
 			if ($object->isPublished()) {

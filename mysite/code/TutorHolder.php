@@ -10,6 +10,7 @@ class TutorHolder extends Page {
 	private static $extensions = array(
 		'PageHolderExtension',
 	);
+
 	private static $pageholder_insertBefore = 'Content';
 
 	private static $excluded_children = array('TutorPage');
