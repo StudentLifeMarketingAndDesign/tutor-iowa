@@ -34,4 +34,74 @@ class StatsPage extends Page {
     }
 }
 class StatsPage_Controller extends Page_Controller {
+
+
+
+    public function RequestsSinceYesterday(){
+        $today = ss_datetime::Now()->Format('Y-m-d');
+        $days_ago = date('Y-m-d', strtotime('-1 days', strtotime($today)));
+        
+        $messageCount = $this->getMessagesByDateRange($days_ago, $today)->Count();
+        return $messageCount;
+    }
+
+    public function RequestsSinceLastWeek(){
+        $today = ss_datetime::Now()->Format('Y-m-d');
+        $days_ago = date('Y-m-d', strtotime('-7 days', strtotime($today)));
+
+        $messageCount = $this->getMessagesByDateRange($days_ago, $today)->Count();
+        return $messageCount;
+    }
+
+    public function RequestsSinceLastMonth(){
+        $today = ss_datetime::Now()->Format('Y-m-d');
+        $days_ago = date('Y-m-d', strtotime('-1 months', strtotime($today)));
+
+        $messageCount = $this->getMessagesByDateRange($days_ago, $today)->Count();
+        return $messageCount;
+    }
+
+    public function RequestsSinceLastSemester(){
+        $today = ss_datetime::Now()->Format('Y-m-d');
+        $days_ago = date('Y-m-d', strtotime('-6 months', strtotime($today)));
+
+        $messageCount = $this->getMessagesByDateRange($days_ago, $today)->Count();
+        return $messageCount;
+    }
+
+    public function RequestsSinceBeginningOfYear(){
+        $today = ss_datetime::Now()->Format('Y-m-d');
+        $days_ago = date('Y-m-d', strtotime('-1 years', strtotime($today)));
+
+        $messageCount = $this->getMessagesByDateRange($days_ago, $today)->Count();
+        return $messageCount;
+    }
+
+      
+
+    
+
+     
+
+
+   
+
+
+
+//In template: Yesterday's messages: $RequestsSinceYesterday
+
+
+    function getMessagesByDateRange($startDate, $endDate){
+        $requests = Message::get()->filter(array(
+                        "Created:GreaterThanOrEqual" => $startDate, 
+                        "Created:LessThanOrEqual" => $endDate
+                    ));
+        return $requests;
+    }
+
+    function getTopSearchTerms(){
+
+        $searchTerms=SearchTerm::get();
+        return $searchTerms;
+    }
 }

@@ -6748,6 +6748,9 @@ body.SearchForm h2 {
   .small li.card.last {
     border-bottom: 0; }
 
+.StatsPage .side-nav {
+  background: none; }
+
 .side-nav .tutor-card-list li {
   border-bottom: none; }
 
@@ -7684,6 +7687,9 @@ a.dosl, p.adr {
 
 .main {
   min-height: 320px; }
+  @media only screen and (min-width:64.063em) {
+    .main {
+      min-height: 600px; } }
   .main h1 {
     text-transform: uppercase;
     border-bottom: 1px solid #ddd;
