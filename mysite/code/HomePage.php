@@ -108,30 +108,9 @@ class HomePage_Controller extends Page_Controller {
 
 	}
 
-	public function PopularSearches() {
-		return SearchTerm::get()->sort('SearchCount DESC');
-	}
-
-	/*public function featuredTutorPages() {
-	if ($this->TutorPages()->First()) {
-
-	$TutorPages = new ArrayList($this->TutorPages()->toArray());
-	$additionalTutorPages = new ArrayList(TutorPage::get()->sort("RAND()")->toArray());
-	$TutorPages->merge($additionalTutorPages);
-
-	return $TutorPages;
-
-	} else {
-	return TutorPage::get()->sort("RAND()");
-	}
-
-	}*/
 	public function NewsletterSignedUp() {
 
 		$signedUp = $this->request->getVar('signup');
-		// print_r($this->request);
-
-		// print_r(Director::urlParams());
 		if (intval($signedUp) == 1) {
 
 			return true;
@@ -141,11 +120,6 @@ class HomePage_Controller extends Page_Controller {
 
 		}
 
-	}
-
-	public function rss() {
-		$rss = new RSSFeed($this->Children(), $this->Link(), "Tutor news");
-		$rss->outputToBrowser();
 	}
 
 	public function init() {

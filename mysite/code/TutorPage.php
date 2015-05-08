@@ -85,7 +85,6 @@ class TutorPage extends Page {
 		$fields->addFieldToTab('Root.Main', new CheckboxField('EligibleToTutor', 'Is this tutor eligible?', true));
 
 		$fields->addFieldToTab('Root.Advanced', new DropdownField("MemberID", "Associated User", $membersDropdownSource));
-		
 
 		$gridFieldConfigFeedbackItems = GridFieldConfig_RecordEditor::create();
 		$gridfield = new GridField("FeedbackItem", "Feedback Items", $this->FeedbackItems(), $gridFieldConfigFeedbackItems);
@@ -114,20 +113,18 @@ class TutorPage extends Page {
 	}
 
 	private function changeParent() {
-	
-		
+
 	}
+
 	protected function onBeforeWrite() {
 
-		if($this->EligibleToTutor){
-			if($this->isPublished()){
+		if ($this->EligibleToTutor) {
+			if ($this->isPublished()) {
 				$tutorParent = TutorHolder::get()->filter(array('Title' => 'Private Tutors'))->first();
-			}
-			else{
+			} else {
 				$tutorParent = TutorHolder::get()->filter(array('Title' => 'Provisional Tutors'))->first();
 			}
-		}
-		elseif (!($this->EligibleToTutor)) {
+		} elseif (!($this->EligibleToTutor)) {
 			$tutorParent = TutorHolder::get()->filter(array('Title' => 'Ineligible Tutors'))->first();
 		}
 		$this->setParent($tutorParent);

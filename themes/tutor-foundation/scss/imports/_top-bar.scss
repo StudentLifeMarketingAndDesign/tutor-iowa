@@ -8,6 +8,18 @@
 .contain-to-grid{
 	@include topBarGradient;
 }
+
+@media only #{$large-up}{
+	.top-bar-section .has-dropdown .dropdown li.has-dropdown > a:after {
+	  border: none;
+	  content: "\00bb";
+	  top: 1rem;
+	  margin-top: 5px;
+	  right: 5px;
+	  line-height: 1.2;
+	}
+}
+
 .top-bar{
 	h1{
 		max-width: rem-calc(300);
@@ -33,6 +45,18 @@
 		z-index: 9999;
 	}
 	.top-bar-section{
+
+
+		@media #{$large-up}{
+			.has-dropdown .dropdown li.has-dropdown > a:after {
+			  border: none;
+			  content: "\00bb";
+			  top: 1rem;
+			  margin-top: 5px;
+			  right: 5px;
+			  line-height: 1.2;
+			}
+		}
 		ul li{
 			&.log-in:not(.has-form) a:not(.button){
 				background: $primary-color;

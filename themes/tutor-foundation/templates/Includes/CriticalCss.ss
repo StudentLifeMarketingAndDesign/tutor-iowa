@@ -100,7 +100,16 @@ meta.foundation-mq-topbar{ font-family: '/only screen and (min-width:64.063em)/'
 .top-bar-section ul{ padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; height: auto; display: block; font-size: 16px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }
 .top-bar-section ul li{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
 .top-bar-section ul li > a{ display: block; width: 100%; color: rgb(255, 255, 255); padding-top: 12px; padding-right: 0px; padding-bottom: 12px; padding-left: 1.4583333333rem; font-family: proxima-nova-alt-condensed, sans-serif; font-size: 1.375rem; font-weight: normal; text-transform: uppercase; }
-.top-bar-section ul li.active > a{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); color: rgb(106, 159, 255); background-position: initial initial; background-repeat: initial initial; }
+.top-bar-section .has-dropdown{ position: relative; }
+.top-bar-section .has-dropdown > a::after{ content: ''; display: block; width: 0px; height: 0px; border-top-style: inset; border-right-style: inset; border-bottom-style: inset; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-color: initial; border-top-color: transparent; border-right-color: transparent; border-bottom-color: transparent; border-left-color: rgba(255, 255, 255, 0.398438); border-left-style: solid; margin-right: 1.4583333333rem; margin-top: -4.5px; position: absolute; top: 50%; right: 0px; }
+.top-bar-section .dropdown{ padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; left: 100%; top: 0px; z-index: 99; display: block; position: absolute !important; height: 1px; width: 1px; overflow-x: hidden; overflow-y: hidden; clip: rect(1px 1px 1px 1px); }
+.top-bar-section .dropdown li{ width: 100%; height: auto; }
+.top-bar-section .dropdown li a{ font-weight: normal; padding-top: 8px; padding-right: 1.4583333333rem; padding-bottom: 8px; padding-left: 1.4583333333rem; }
+.top-bar-section .dropdown li a.parent-link{ font-weight: normal; }
+.top-bar-section .dropdown li.title h5, .top-bar-section .dropdown li.parent-link{ margin-bottom: 0px; margin-top: 0px; font-size: 0.875rem; }
+.top-bar-section .dropdown li.title h5 a, .top-bar-section .dropdown li.parent-link a{ color: rgb(255, 255, 255); display: block; }
+.top-bar-section .dropdown label{ padding-top: 8px; padding-right: 1.4583333333rem; padding-bottom: 2px; padding-left: 1.4583333333rem; margin-bottom: 0px; text-transform: uppercase; color: rgb(119, 119, 119); font-weight: bold; font-size: 0.625rem; }
+.js-generated{ display: block; }
 @media only screen and (min-width: 64.063em){
 .top-bar{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); overflow-x: visible; overflow-y: visible; background-position: initial initial; background-repeat: initial initial; }
 .top-bar::before, .top-bar::after{ content: ' '; display: table; }
@@ -112,37 +121,66 @@ meta.foundation-mq-topbar{ font-family: '/only screen and (min-width:64.063em)/'
 .top-bar-section{ left: 0px !important; }
 .top-bar-section ul{ width: auto; height: auto !important; display: inline; }
 .top-bar-section ul li{ float: left; }
+.top-bar-section ul li .js-generated{ display: none; }
 .top-bar-section li:not(.has-form) a:not(.button){ padding-top: 0px; padding-right: 1.4583333333rem; padding-bottom: 0px; padding-left: 1.4583333333rem; line-height: 4.375rem; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
-.top-bar-section li.active:not(.has-form) a:not(.button){ padding-top: 0px; padding-right: 1.4583333333rem; padding-bottom: 0px; padding-left: 1.4583333333rem; line-height: 4.375rem; color: rgb(106, 159, 255); background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
+.top-bar-section .has-dropdown > a{ padding-right: 2.7083333333rem !important; }
+.top-bar-section .has-dropdown > a::after{ content: ''; display: block; width: 0px; height: 0px; border-right-style: inset; border-bottom-style: inset; border-left-style: inset; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-color: initial; border-top-color: rgba(255, 255, 255, 0.398438); border-right-color: transparent; border-bottom-color: transparent; border-left-color: transparent; border-top-style: solid; margin-top: -2.5px; top: 2.1875rem; }
+.top-bar-section .has-dropdown .dropdown li.has-dropdown > a::after{ border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; content: »; top: 1rem; margin-top: -1px; right: 5px; line-height: 1.2; }
+.top-bar-section .dropdown{ left: 0px; top: auto; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; min-width: 100%; background-position: initial initial; background-repeat: initial initial; }
+.top-bar-section .dropdown li a{ color: rgb(255, 255, 255); line-height: 4.375rem; white-space: nowrap; padding-top: 12px; padding-right: 1.4583333333rem; padding-bottom: 12px; padding-left: 1.4583333333rem; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial; }
+.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button){ color: rgb(255, 255, 255); background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial; }
+.top-bar-section .dropdown li label{ white-space: nowrap; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial; }
+.top-bar-section .dropdown li .dropdown{ left: 100%; top: 0px; }
+.top-bar-section .left li .dropdown{ right: auto; left: 0px; }
+.top-bar-section .left li .dropdown li .dropdown{ left: 100%; }
 }
-div, ul, li, h1, h2, h3, h4, form, p{ margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; }
+div, ul, li, h1, h2, h3, h4, h5, form, p{ margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; }
 a{ color: rgb(55, 126, 255); text-decoration: none; line-height: inherit; }
 a img{ border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; }
 p{ font-family: inherit; font-weight: normal; font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem; text-rendering: optimizelegibility; }
-h1, h2, h3, h4{ font-family: proxima-nova-alt-condensed, sans-serif; font-weight: normal; font-style: normal; color: rgb(34, 34, 34); text-rendering: optimizelegibility; margin-top: 0.2rem; margin-bottom: 0.5rem; line-height: 1.1; }
+h1, h2, h3, h4, h5{ font-family: proxima-nova-alt-condensed, sans-serif; font-weight: normal; font-style: normal; color: rgb(34, 34, 34); text-rendering: optimizelegibility; margin-top: 0.2rem; margin-bottom: 0.5rem; line-height: 1.1; }
 h1{ font-size: 2.125rem; }
 h2{ font-size: 1.6875rem; }
 h3{ font-size: 1.375rem; }
 h4{ font-size: 1.125rem; }
+h5{ font-size: 1.125rem; }
 hr{ border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(221, 221, 221); border-right-color: rgb(221, 221, 221); border-bottom-color: rgb(221, 221, 221); border-left-color: rgb(221, 221, 221); border-width: initial; border-top-width: 1px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; clear: both; margin-top: 1.25rem; margin-right: 0px; margin-bottom: 1.1875rem; margin-left: 0px; height: 0px; }
 strong{ font-weight: bold; line-height: inherit; }
 ul{ font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem; list-style-position: outside; font-family: inherit; }
 ul{ margin-left: 1.1rem; }
+ul li ul{ margin-left: 1.25rem; margin-bottom: 0px; }
 @media only screen and (min-width: 40.063em){
-h1, h2, h3, h4{ line-height: 1.1; }
+h1, h2, h3, h4, h5{ line-height: 1.1; }
 h1{ font-size: 2.75rem; }
 h2{ font-size: 2.3125rem; }
 h3{ font-size: 1.6875rem; }
 h4{ font-size: 1.4375rem; }
+h5{ font-size: 1.125rem; }
 }
 @media print{
 *{ background-image: initial !important; background-attachment: initial !important; background-origin: initial !important; background-clip: initial !important; background-color: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; background-position: initial initial !important; background-repeat: initial initial !important; }
 a{ text-decoration: underline; }
 a[href]::after{ content: ' (', attr(href), ')'; }
+ a[href^="javascript:"]::after{ content: ''; }
  img{ page-break-inside: avoid; }
 img{ max-width: 100% !important; }
 p, h2, h3{ orphans: 3; widows: 3; }
 h2, h3{ page-break-after: avoid; }
+}
+@media only screen{
+.show-for-small-only{ display: inherit !important; }
+}
+@media only screen and (min-width: 40.063em){
+.show-for-small-only{ display: none !important; }
+}
+@media only screen and (min-width: 64.063em){
+.show-for-small-only{ display: none !important; }
+}
+@media only screen and (min-width: 90.063em){
+.show-for-small-only{ display: none !important; }
+}
+@media only screen and (min-width: 120.063em){
+.show-for-small-only{ display: none !important; }
 }
 input[type="submit"]{ border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; cursor: pointer; font-family: proxima-nova-alt, sans-serif; font-weight: normal; line-height: normal; margin-top: 0px; margin-right: 0px; margin-bottom: 1.25rem; margin-left: 0px; position: relative; text-decoration: none; text-align: center; -webkit-appearance: none; display: inline-block; padding-top: 0.875rem; padding-right: 1.75rem; padding-bottom: 0.9375rem; padding-left: 1.75rem; font-size: 1rem; border-top-color: rgb(0, 88, 248); border-right-color: rgb(0, 88, 248); border-bottom-color: rgb(0, 88, 248); border-left-color: rgb(0, 88, 248); color: rgb(255, 255, 255); border-top-left-radius: 2px 2px; border-top-right-radius: 2px 2px; border-bottom-right-radius: 2px 2px; border-bottom-left-radius: 2px 2px; -webkit-transition-property: all; -webkit-transition-duration: 1s; -webkit-transition-timing-function: ease-out; -webkit-transition-delay: initial; background-image: -webkit-linear-gradient(45deg, rgb(55, 126, 255) 0%, rgb(19, 103, 255) 50%, rgb(40, 116, 255) 50.01%, rgb(157, 192, 255)); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: initial initial; background-repeat: initial initial; }
 .button{ -webkit-transition-property: all; -webkit-transition-duration: 1s; -webkit-transition-timing-function: ease-out; -webkit-transition-delay: initial; background-image: -webkit-linear-gradient(45deg, rgb(55, 126, 255) 0%, rgb(19, 103, 255) 50%, rgb(40, 116, 255) 50.01%, rgb(157, 192, 255)); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: initial initial; background-repeat: initial initial; }
@@ -154,6 +192,9 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .top-bar h1{ max-width: 18.75rem; }
 }
 .top-bar .name h1 a{ padding-left: 0.78125rem; }
+@media only screen and (min-width: 64.063em){
+.top-bar .top-bar-section .has-dropdown .dropdown li.has-dropdown > a::after{ border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; content: »; top: 1rem; margin-top: 5px; right: 5px; line-height: 1.2; }
+}
 .top-bar .top-bar-section ul li.log-in:not(.has-form) a:not(.button){ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(55, 126, 255); background-position: initial initial; background-repeat: initial initial; }
 .top-bar .top-bar-section ul li.register:not(.has-form) a:not(.button){ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(55, 190, 94); background-position: initial initial; background-repeat: initial initial; }
 @media only screen and (min-width: 64.063em){
@@ -163,9 +204,13 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .top-bar .top-bar-section li:not(.has-form) a:not(.button){ background-image: -webkit-linear-gradient(-90deg, rgb(81, 81, 81), rgb(68, 68, 68)); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: initial initial; background-repeat: initial initial; }
 }
 .top-bar .top-bar-section .right{ padding-right: 0.78125rem; }
+.top-bar .title.back a{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(102, 102, 102); background-position: initial initial; background-repeat: initial initial; }
 .message{ overflow-x: hidden; overflow-y: hidden; }
+.card{ padding-top: 0.78125rem; padding-right: 0px; padding-bottom: 0.78125rem; padding-left: 0px; }
+@media only screen and (min-width: 64.063em){
+.card{ padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; }
+}
 .card p{ margin-bottom: 0px; }
-.card .tag{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(238, 238, 238); padding-top: 2px; padding-right: 10px; padding-bottom: 2px; padding-left: 10px; background-position: initial initial; background-repeat: initial initial; }
 .card h4{ -webkit-transition-property: all; -webkit-transition-duration: 0.2s; -webkit-transition-timing-function: ease-in-out; -webkit-transition-delay: initial; color: rgb(4, 93, 255); }
 .small li.card{ padding-top: 10px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; }
 .tutor-card-list{ display: block; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }
@@ -187,7 +232,10 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .tutor-card-list > li:nth-of-type(2n+1){ padding-left: 0rem; padding-right: 0.78125rem; }
 .tutor-card-list > li:nth-of-type(2n){ padding-left: 0.78125rem; padding-right: 0rem; }
 }
-.tutor-card-list.large li{ padding-bottom: 0px; }
+.tutor-card-list.large li{ padding-top: 0.78125rem; padding-bottom: 0.78125rem; }
+@media only screen and (min-width: 64.063em){
+.tutor-card-list.large li{ padding-top: 0px; padding-bottom: 0px; }
+}
 .tutor-card-list li{ margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; border-bottom-style: none; border-bottom-width: initial; border-bottom-color: initial; }
 @media only screen and (min-width: 64.063em){
 .tutor-card-list li{ min-height: 150px; }
@@ -223,14 +271,13 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .resource-card-list .resource-card{ margin-bottom: 0px; }
 .resource-card-list li{ list-style-type: none; }
 .resource-card-list li a{ color: rgb(34, 34, 34); }
-.resource-card-list li span{ color: rgb(55, 126, 255); }
 .side-nav{ background-color: rgb(244, 244, 244); padding-top: 0.78125rem; padding-right: 0.78125rem; padding-bottom: 0.78125rem; padding-left: 0.78125rem; }
 @media only screen and (min-width: 64.063em){
 .side-nav{ padding-right: 0px; }
 }
 .side-nav li{ border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(204, 204, 204); }
 .side-nav a p{ color: rgb(34, 34, 34); }
-.side-nav h3{ text-transform: uppercase; font-size: 1rem; background-image: none; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; color: rgb(62, 62, 62); padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; background-position: initial initial; background-repeat: initial initial; }
+.side-nav h3{ text-transform: uppercase; font-size: 1rem; background-image: none; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; color: rgb(62, 62, 62); padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; position: relative; background-position: initial initial; background-repeat: initial initial; }
 .side-nav h3 span{ padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; }
 .side-nav .announcements.small .announcement-card{ padding-top: 10px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; }
 .side-nav .resource-card-list.small .resource-card{ padding-top: 10px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; }
@@ -286,7 +333,7 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .clearfix{ }
 .division-topbar{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; line-height: 1.5; position: relative; background-position: initial initial; background-repeat: initial initial; }
 .uiowa{ line-height: 42px; }
-.uiowa{ display: block; float: left; opacity: 0.7; width: 177px; margin-left: 10px; }
+.uiowa{ display: block; float: left; opacity: 0.7; width: 177px; }
 @media only screen and (min-width: 64.063em){
 .uiowa{ margin-left: 0px; }
 }
