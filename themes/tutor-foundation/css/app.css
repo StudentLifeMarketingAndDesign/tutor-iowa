@@ -7011,9 +7011,9 @@ body.SearchForm h2 {
   .resource-card-list li img {
     display: block; }
 
-.EditProfilePage #Disable label {
+.TutorPage.editProfile #Disable label {
   color: #f04124; }
-.EditProfilePage .field.tag {
+.TutorPage.editProfile .field.tag {
   width: 100%;
   display: block;
   text-transform: capitalize;
@@ -7021,12 +7021,12 @@ body.SearchForm h2 {
   background: none;
   margin: 0;
   padding: 0; }
-  .EditProfilePage .field.tag input.tag {
+  .TutorPage.editProfile .field.tag input.tag {
     display: block;
     text-transform: capitalize;
     text-align: left;
     background: none; }
-  .EditProfilePage .field.tag span.tagMatches span {
+  .TutorPage.editProfile .field.tag span.tagMatches span {
     border-style: solid;
     border-width: 0;
     cursor: pointer;
@@ -7050,13 +7050,13 @@ body.SearchForm h2 {
     color: #333333;
     transition: background-color 300ms ease-out;
     margin: 3px; }
-    .EditProfilePage .field.tag span.tagMatches span:hover, .EditProfilePage .field.tag span.tagMatches span:focus {
+    .TutorPage.editProfile .field.tag span.tagMatches span:hover, .TutorPage.editProfile .field.tag span.tagMatches span:focus {
       background-color: #eccd82; }
-    .EditProfilePage .field.tag span.tagMatches span:hover, .EditProfilePage .field.tag span.tagMatches span:focus {
+    .TutorPage.editProfile .field.tag span.tagMatches span:hover, .TutorPage.editProfile .field.tag span.tagMatches span:focus {
       color: #333333; }
-.EditProfilePage .ss-uploadfield .ss-uploadfield-item {
+.TutorPage.editProfile .ss-uploadfield .ss-uploadfield-item {
   padding: 0.78125rem 0; }
-  .EditProfilePage .ss-uploadfield .ss-uploadfield-item .ss-uploadfield-item-preview {
+  .TutorPage.editProfile .ss-uploadfield .ss-uploadfield-item .ss-uploadfield-item-preview {
     width: 100px;
     background: #eee;
     margin-right: 0.78125rem; }

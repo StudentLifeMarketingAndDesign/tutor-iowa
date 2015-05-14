@@ -20,7 +20,7 @@
 			<div class="large-8 columns content" data-equalizer-watch>
 				<div class="white-cover"></div>
 						<ul class="tutor-card-list large">
-							<% loop RandomTutors.Limit(16) %>
+							<% loop getRandomTutors.Limit(16) %>
 								<% include TutorCard %>
 							<% end_loop %>
 						</ul>

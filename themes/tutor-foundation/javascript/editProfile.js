@@ -1,5 +1,8 @@
 (function() {
-    "use strict";
+    /* UNCOMMENT TO ENABLE COVER/PROFILE IMAGE EDITING */
+   /* 
+    
+   "use strict";
 
     removeCoverPhotoURL
 
@@ -104,6 +107,6 @@
             });
     });
 
-
+*/
 
 })();

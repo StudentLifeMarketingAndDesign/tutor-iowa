@@ -336,17 +336,22 @@ class TutorPage_Controller extends Page_Controller {
 			$tagField->setTagTopicClass("SiteTree");
 
 			/* handles uploads for pending photos */
-			$pendingCoverImage = new UploadField("PendingCoverImage", "Upload a new Cover Photo. (The wider, the better!)");
-			$pendingCoverImage->setCanPreviewFolder(false)->setOverwriteWarning(false)->setAllowedFileCategories('image')->setAutoUpload(true)->setFolderName("Uploads/Tutors/" . $Member->ID);
 
-			$pendingProfileImage = new UploadField("PendingProfileImage", "Choose your Profile Photo");
-			$pendingProfileImage->setCanPreviewFolder(false)->setOverwriteWarning(false)->setAllowedFileCategories('image')->setAutoUpload(true)->setFolderName("Uploads/Tutors/" . $Member->ID);
+			/* UNCOMMENT TO ENABLE COVER/PROFILE IMAGE EDITING */
+			//$pendingCoverImage = new UploadField("PendingCoverImage", "Upload a new Cover Photo. (The wider, the better!)");
+			//$pendingCoverImage->setCanPreviewFolder(false)->setOverwriteWarning(false)->setAllowedFileCategories('image')->setAutoUpload(true)->setFolderName("Uploads/Tutors/" . $Member->ID);
+
+			//$pendingProfileImage = new UploadField("PendingProfileImage", "Choose your Profile Photo");
+			//$pendingProfileImage->setCanPreviewFolder(false)->setOverwriteWarning(false)->setAllowedFileCategories('image')->setAutoUpload(true)->setFolderName("Uploads/Tutors/" . $Member->ID);
+			/* UNCOMMENT TO ENABLE COVER/PROFILE IMAGE EDITING */
 
 			$tagsLabel = '<p>Read the <a href="for-tutors/">For Tutors page</a> to learn more about tags and promoting yourself on Tutor Iowa!</p>';
 			$changePassLabel = '<p><a href="Security/ChangePassword" class="button small radius">Reset your password</a></p>';
 			$fields = new FieldList(
-				$pendingCoverImage,
-				$pendingProfileImage,
+				/* UNCOMMENT TO ENABLE COVER/PROFILE IMAGE EDITING */
+				//$pendingCoverImage,
+				//$pendingProfileImage,
+				/* UNCOMMENT TO ENABLE COVER/PROFILE IMAGE EDITING */
 				new TextField('FirstName', '<span>*</span> First Name'),
 				new TextField('Surname', '<span>*</span> Last Name'),
 				new EmailField('Email', '<span>*</span> Email Address'),
@@ -462,9 +467,6 @@ class TutorPage_Controller extends Page_Controller {
 		}
 		$form->saveInto($Tutor);
 		$form->saveInto($Member, $memberFieldList);
-
-		//$Tutor->CoverImage()->filter("Status", "setField("Status", "Pending");
-		//$Tutor->ProfileImage()->setField("Status", "Pending");
 
 		$Tutor->write();
 		$Member->write();

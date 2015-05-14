@@ -16,15 +16,6 @@
                 }
 
             </style>
-            <%--
-            <div class="page-bg" >
-                <% if $approvedCoverImage %>
-                     <div id="profile-cover-photo" class="CoverImage FlexEmbed FlexEmbed--3by1" style="background-image:url($ApprovedCoverImage.Link);"></div>
-                <% else %>
-                    <%-- <img id="profile-cover-photo" src="http://lorempixel.com/1240/600/" /> -%>
-                <% end_if %>
-            </div>
-            --%>
                 <div class="page-bg">
                 <% if $ApprovedCoverImage %>
                     <%-- <div class="page-bg" style="background-image: url('$ApprovedCoverImage.Link');"> --%>
@@ -42,7 +33,7 @@
                 $Breadcrumbs
                 <article>
                     <div class="row">
-                        <div class="medium-8 small-10 columns">  
+                        <div class="medium-12 columns">  
                             <% if $Message %>
                             <p id="{$FormName}_error" class="message $MessageType">$Message</p>
                             <% else %>
@@ -50,6 +41,7 @@
                             <% end_if %>
                            	$EditProfileForm
                         </div>
+                        <%--/* UNCOMMENT TO ENABLE COVER/PROFILE IMAGE EDITING */ -- %>
                         <div class="medium-4 small-2 columns">
             				<ul class="button-group">
                                 <li><button id="removeCoverPhoto" class="tiny radius alert">Remove Cover Photo</button></li>
@@ -64,7 +56,7 @@
                                 <% end_if %>
                             </div>
 
-                        </div>
+                        </div>--%>
                     </div>
                 </article>
             </div>
