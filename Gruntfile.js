@@ -29,6 +29,8 @@ module.exports = function(grunt) {
       js:{
         src: [
           '<%=globalConfig.themeDir %>/bower_components/foundation/js/foundation.min.js',
+          '<%=globalConfig.themeDir %>/bower_components/waypoints/lib/jquery.waypoints.min.js',
+          '<%=globalConfig.themeDir %>/bower_components/waypoints/lib/shortcuts/infinite.min.js',
           'division-bar/js/division-bar.js',
           '<%=globalConfig.themeDir %>/bower_components/blazy/blazy.js',
           '<%=globalConfig.themeDir %>/javascript/*.js'

@@ -32,9 +32,7 @@
 				<% end_if %>
 			</li>
 			<% end_loop %>
-			</ul>
-			
-		
+		</ul>
 
 			<ul class="right">
 			<% if $CurrentMember %>
@@ -47,14 +45,16 @@
 					<li><a href="$currentMemberPage.Link">View Profile</a></li>
 				<% end_if %>
 					
-					<% if HelpLabs %>
-					<li><a href="personal-help-labs/">Edit Help Labs</a></li>
-					<% end_if %>
+						
+						<% if HelpLabs %>
+						<li><a href="personal-help-labs/">Edit Help Labs</a></li>
+						<% end_if %>
 
 					<% if $SiteAdmin %><li><a href="admin/">Admin</a></li><li><a href="stats-page/">Statistics</a></li><% end_if %>
 					<li><a class="alert" href="Security/logout">Logout</a></li>
 				</ul>
 			</li>
+
 			<% else %>
 				<li class="log-in"><a href="Security/login?BackURL=%2Fadmin" data-reveal-id="login-form-modal">Log In</a></li>
 				<li class="register"><a href="register">Become a Tutor</a></li>

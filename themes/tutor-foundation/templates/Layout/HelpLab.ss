@@ -1,7 +1,7 @@
 <div class="gradient">
-	<div class="main typography" role="main">
+	<div class="main typography" role="main" data-equalizer>
 			
-			<div class="row" data-equalizer>
+			<div class="row"  data-equalizer-watch>
 				<%--<div class="page-bg" id="labmap"></div>--%>
 				<div class="large-8 columns content" data-equalizer-watch>
 					<div class="white-cover"></div>

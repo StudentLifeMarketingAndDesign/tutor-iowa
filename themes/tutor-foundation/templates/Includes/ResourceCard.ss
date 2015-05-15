@@ -17,6 +17,8 @@
 
 		<% if $Description %>
 			$Description.Summary(20)<br />
+		<% else_if $Content %>
+			$Content.Summary(20)
 		<% end_if %>
 		</p>
 	</a>

@@ -48,6 +48,9 @@
 		margin-top: 0;
 	}
 
+	>.row{
+		
+	}
 }
 
 
@@ -65,15 +68,77 @@
 
 
 .page-bg{
-	min-height: 300px;
-	background-image: url('http://lorempixel.com/1240/300/');
-	background-color: #eee;
-	position: relative;
+	//min-height: 300px;
+	max-height: 333px;
+    //overflow: 
+	//background-image: url('http://lorempixel.com/1240/600/');
+	//background: center center;
+	//background-color: #eee;
+	//background-size: 100% auto;
+	//background-repeat: no-repeat;
+	//background-size: cover;
 
-	@media #{$large-up} {
-		margin: 0 $column-gutter/2;
-	}
+	//background-position-y: -40px;
+	//position: relative;
 
+
+}
+
+
+
+/*! suit-flex-embed v1.4.0 | MIT License | github.com/suitcss */
+
+.FlexEmbed {
+  display: block;
+  //overflow: hidden;
+  position: relative;
+}
+
+.FlexEmbed:before {
+  content: "";
+  display: block;
+  width: 100%;
+}
+
+.FlexEmbed--3by1:before {
+  padding-bottom: 33.33333%;
+}
+
+.FlexEmbed--2by1:before {
+  padding-bottom: 50%;
+}
+
+.FlexEmbed--16by9:before {
+  padding-bottom: 56.25%;
+}
+
+.FlexEmbed--4by3:before {
+  padding-bottom: 75%;
+}
+
+.CoverImage {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto 1em;
+  max-height: 333px;
+  max-width: 100%;
+  //overflow: hidden;
+}
+
+#profile-cover-photo-move {
+    overflow: hidden;
+}
+
+.pointer {
+	cursor: hand;
+}
+
+.update-cover-photo {
+	//position: absolute;
+	bottom: 3;
+	left: 3;
+	
 }
 
 #labmap {

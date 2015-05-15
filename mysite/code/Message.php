@@ -7,6 +7,7 @@ class Message extends DataObject {
 	   'MessageBody' => 'Text',
 	   'RecipientName' => 'Text',
 	   'ReadDateTime' => 'SS_Datetime',
+	   'MarkAsDeleted' => 'SS_Datetime',
 	   'RepliedDateTime' => 'SS_Datetime'
    );
    
@@ -27,7 +28,7 @@ class Message extends DataObject {
    );
    
    
-   // I believe these functions prevent anybody from editing or creating messages
+   // I believe these functions prevent anybody from editing or creating messages through the CMS
    public function canEdit($member = null) {
 	   return false;
    }

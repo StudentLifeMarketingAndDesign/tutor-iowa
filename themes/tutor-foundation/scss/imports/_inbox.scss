@@ -1,5 +1,5 @@
 
-.message {
+.inbox-message {
     overflow: hidden;
     .columns, .column {
         padding: 0;
@@ -121,4 +121,9 @@
             margin-top: 0;
         }
     }
+}
+
+.alert-confirm {
+    background-color: #f04124;
+    border-color: #cf2a0e;
 }

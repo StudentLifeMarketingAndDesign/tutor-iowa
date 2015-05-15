@@ -17,7 +17,6 @@ class TutorHolder extends Page {
 
 	private static $icon = 'mysite/cms_icons/amount.png';
 }
-
 class TutorHolder_Controller extends Page_Controller {
 
 }

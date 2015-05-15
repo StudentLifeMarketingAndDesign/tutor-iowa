@@ -8,7 +8,6 @@ $('#start-jr').on('click', function() {
 });
 
 
-
 var bLazy = new Blazy({
     breakpoints: [{
         width: 420 // max-width
@@ -17,6 +16,7 @@ var bLazy = new Blazy({
     }
    ]
 });
+
 
 var memberID = $("#memberInfo").data('id');
 var markAsRead = $(location).attr('href') + "/markAsRead";

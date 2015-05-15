@@ -7,13 +7,14 @@
 				<article class="main-article">
 					<div class="row inbox-nav">
 						<div class="medium-3 columns show-for-medium-up">
-						<span class="button inbox-head small all-messages">
-							<% if $CurrentMember.unreadMessageCount > 0 %> 
-								<strong>Inbox ({$CurrentMember.unreadMessageCount})</strong>
-							<% else %>
-								Inbox
-							<% end_if %>
-						</span></div>
+							<span class="button inbox-head small all-messages">
+								<% if $CurrentMember.unreadMessageCount > 0 %> 
+									<strong>Inbox</strong> <span class="inboxCount" data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount">({$CurrentMember.unreadMessageCount})</span>
+								<% else %>
+									Inbox
+								<% end_if %>
+							</span>
+						</div>
 						<div class="small-12 medium-9 columns">
 							<div>
 								<ul class="button-group">
@@ -26,35 +27,21 @@
 					</div>
 					<div class="row">
 						<div class="medium-12" id="main-content">
-							
+
+							<%-- this panel shows if script doesn't find any unread messages if .unread is clicked --%>
+							<div class='panel callout noUnread'>No unread messages here!</div>
+							<div id="unreadInbox"></div>
 							<% if $CurrentMember.Messages %>
-							<% loop $CurrentMember.Messages.Sort(Created).Reverse %>
-								<div class="<% if $ReadDateTime %>read<% end_if %> <% if $RepliedDateTime %>replied<% end_if %> message" data-id="$ID" data-read="$ReadDateTime">
-									<div>
-										<section class="message-box">
-											<div class="message-details"><span class="text-left"> $SenderName <a href="mailto:{$SenderEmail}"><small>{$SenderEmail}</small></a></span> 
-												<small class="right">
-													<% if not $Created.isToday %>
-														$Created.NiceUS
-													<% else %>
-														 Today
-													<% end_if %>
-													 <small>$Created.Format("g:i a")</small>
-												</small>
-											</div>
-											<div class="message-body">
-												<p> $MessageBody </p>
-											</div>
-										
-											<ul class="button-group message-options">
-												<li><button class="small mark-read">Mark as Read</a></button>
-												<li><button class="button small">Delete</a></li>
-												<li><a href="mailto:$SenderEmail" class="button reply small">Reply Via Email</a></li>
-											</ul>
-										</section>
-									</div>
-								</div>
-							<% end_loop %>
+
+								<% loop paginatedMessages %>
+										<%-- NOTE: paginatedMessages filters out messages MarkedAsDeleted --%>
+										<% include Message %>
+								<% end_loop %>
+							
+								<% if $paginatedMessages.NotLastPage %>
+									<a hidden class="next right moreMessages" href="$paginatedMessages.NextLink">Next</a>
+								<% end_if %>
+
 							<% else %>
 								<div class="panel callout radius">
 									<h3>You don't have any messages yet.</h3>
@@ -67,6 +54,21 @@
 							--%>
 							$Content
 							$Form
+							<% if $SiteAdmin %>
+								<h2> Hello Admin </h2>
+								<h3>Pending Profile Image </h3>
+								<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+									<% loop $pendingProfileImages %>
+										<% include PendingImageCard %>
+									<% end_loop %>
+								</ul>
+								<h3>Pending Cover Images </h3>
+								<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+									<% loop $pendingCoverImages %>
+										<% include PendingImageCard %>
+									<% end_loop %>
+								</ul>
+							<% end_if %>
 						</div>
 					</div>
 				</article>
@@ -74,7 +76,7 @@
 
 			<div class="large-4 columns end" >
 
-				<aside id="memberInfo" class="side-nav" data-id="$CurrentMember.ID">
+				<aside class="side-nav">
 					<%-- <h2>$CurrentMember.Name, you have $CurrentMember.Messages.ReadDateTime.Count</h2> --%>
 					<div id="messagePanel"></div>
 					<% include AnnouncementCardList %>

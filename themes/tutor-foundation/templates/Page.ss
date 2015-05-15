@@ -21,7 +21,7 @@
 	<% else %>
 		<meta property="og:image" content="{$ThemeDir}/images/tutor-iowa-logo-fb.png" />
 	<% end_if %>
-	<!--<style><% include CriticalCss %></style>-->
+	<style><% include CriticalCss %></style>
 	<% include Favicons %>
 	<%--See [Requirements](http://doc.silverstripe.org/framework/en/reference/requirements) for loading from controller--%>
 	<link rel="stylesheet" href="$ThemeDir/css/app.css" />
@@ -45,6 +45,7 @@
 
 	<%--See [Requirements](http://doc.silverstripe.org/framework/en/reference/requirements) for loading from controller--%>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 	<script src="$ThemeDir/build/build.src.js"></script>
 </body>
 </html>

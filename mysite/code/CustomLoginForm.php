@@ -1,8 +1,8 @@
-<?php
-
-class CustomLoginForm extends MemberLoginForm 
-{
+<?php 
+class CustomLoginForm extends MemberLoginForm {
+        
     public function dologin($data) {
+        
         if($this->performLogin($data)) {
         
         			$member = Member::currentUser();
@@ -14,16 +14,13 @@ class CustomLoginForm extends MemberLoginForm
         			$tutorPage = TutorPage::get()->filter(array('MemberID' => '$member->ID'))->First();
         			//print_r($tutorPage);
         			
-        			
-        	
-        			
         			if($tutorPage){
+            			
         				if(Permission::check("ADMIN")){
 	        				 Controller::curr()->redirect("admin/");
 	        			}else{
 		        			if ($tutorPage){
-		        				
-			        			 Controller::curr()->redirect($tutorPage->Link());
+                                Controller::curr()->redirect($tutorPage->Link());
 			        		}
 			        		else {
 				        		 Controller::curr()->redirect(Director::getAbsoluteBaseURL());
@@ -31,7 +28,6 @@ class CustomLoginForm extends MemberLoginForm
 			        	}
 	        		
         			}else{
-        			
         				if(Permission::check("ADMIN")){
 	        				 Controller::curr()->redirect("admin/");
 	        			}else{
@@ -48,5 +44,3 @@ class CustomLoginForm extends MemberLoginForm
         }      
     }
 }
-
-?>

@@ -1,9 +1,10 @@
 {
-	"name": "silverstripe-foundation-theme",
-	"version": "1.1.8",
-	"private": "true",
-	"dependencies": {
-		"foundation": "zurb/bower-foundation",
-		"blazy" : "*"
-	}
+  "name": "silverstripe-foundation-theme",
+  "version": "1.1.8",
+  "private": "true",
+  "dependencies": {
+    "foundation": "zurb/bower-foundation",
+    "waypoints": "~3.1.1",
+    "blazy" : "*"
+    }
 }
