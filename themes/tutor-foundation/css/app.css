@@ -7739,17 +7739,17 @@ a.dosl, p.adr {
       padding: 25px 0 0;
       width: 75%; } }
 
-.main {
+.main h1 {
+  text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  margin-bottom: 13px;
+  margin-top: 0; }
+.main > .row {
   min-height: 320px; }
   @media only screen and (min-width:64.063em) {
-    .main {
+    .main > .row {
       min-height: 600px; } }
-  .main h1 {
-    text-transform: uppercase;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-    margin-bottom: 13px;
-    margin-top: 0; }
 
 #search_help p {
   color: white; }

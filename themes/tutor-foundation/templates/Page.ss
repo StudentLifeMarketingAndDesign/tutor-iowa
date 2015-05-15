@@ -21,7 +21,7 @@
 	<% else %>
 		<meta property="og:image" content="{$ThemeDir}/images/tutor-iowa-logo-fb.png" />
 	<% end_if %>
-	<!--<style><% include CriticalCss %></style>-->
+	<style><% include CriticalCss %></style>
 	<% include Favicons %>
 	<%--See [Requirements](http://doc.silverstripe.org/framework/en/reference/requirements) for loading from controller--%>
 	<link rel="stylesheet" href="$ThemeDir/css/app.css" />
