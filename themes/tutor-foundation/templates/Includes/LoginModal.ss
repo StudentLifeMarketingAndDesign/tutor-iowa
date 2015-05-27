@@ -3,7 +3,6 @@
 	<div class="row">
 		<div class="large-6 columns">
 			<h2>Login</h2>
-			
 			$LoginForm
 		</div>
 		<div class="large-6 columns">
