@@ -125,8 +125,23 @@
         });
     }
 
+    function getBaseHref(){
+        var bases = document.getElementsByTagName('base');
+        var baseHref = null;
+
+        if (bases.length > 0) {
+            baseHref = bases[0].href;
+        }
+
+        return baseHref;
+    }
+
     function updateDOM(message, action, $object) {
+
+        var baseHref = getBaseHref();
+
         // dynamically reduce inbox count on header and topbar
+        console.log('updating dom');
         if (action == "markAsRead") {
             message.addClass("read");
         } else if (action == "markAsDeleted") {
@@ -138,13 +153,15 @@
             //$object.remove();
         }
         // dynamically reduce inbox count on header and topbar
-        $.get( location.href + "/unreadCount", {}, function(data) {
+        $.get( baseHref + "/inbox/unreadCount", {}, function(data) {
                 var unreadCount = $.parseJSON(data);
                 
                 if (unreadCount > 0) {
                     $(".inboxCount").html("(" + unreadCount + ")").data("unreadcount", unreadCount );
                 } else {
                     $(".inboxCount").html("").data("unreadcount", unreadCount);
+                    $("#inbox-link").removeClass("unread-messages");
+                    $(".inbox-head").removeClass("unread-messages");
                 }
                 // if all messages unread and div hasn't been appended already, append message
             },
@@ -236,7 +253,12 @@
     */
 
     $( document ).ready(function () {
-        attachHandlers();  
+        attachHandlers();
+
+        //Refresh every five seconds if user is logged in (has an inbox)
+        if($("#inbox-link").length > 0 ){
+            setInterval(updateDOM, 5000); 
+        }
     });
 
 /*

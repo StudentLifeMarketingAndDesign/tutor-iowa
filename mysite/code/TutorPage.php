@@ -3,9 +3,9 @@ class TutorPage extends Page {
 
 	//Add extra database fields
 	private static $db = array(
-		'Bio' => 'Text',
+		'Bio' => 'HTMLText',
 		'PhoneNo' => 'Varchar',
-		'Hours' => 'Text',
+		'Hours' => 'HTMLText',
 		'Disabled' => 'Boolean',
 		'Approved' => 'Boolean',
 		'FirstName' => 'Text',
@@ -48,6 +48,7 @@ class TutorPage extends Page {
 		'EligibleToTutor' => '1',
 	);
 
+	private static $show_in_sitetree = true;
 	private static $default_sort = 'Surname ASC';
 
 	private static $summary_fields = array(
@@ -316,7 +317,7 @@ class TutorPage_Controller extends Page_Controller {
 		if ($memberID == $this->Member()->ID) {
 			$Data = array();
 			//print_r(EmailAdmins::gatherStats());
-			return $this->customise($Data)->renderWith(array("EditTutorPage", "Page"));
+			return $this->customise($Data)->renderWith(array("TutorPage_Edit", "Page"));
 		} else {
 			// TODO: send User back to edit profile page after they've logged in.
 			$this->redirect(Security::login_url());
@@ -356,8 +357,8 @@ class TutorPage_Controller extends Page_Controller {
 				new TextField('Surname', '<span>*</span> Last Name'),
 				new EmailField('Email', '<span>*</span> Email Address'),
 				new LiteralField('ChangePassword', $changePassLabel),
-				new TextareaField('Content', 'Biography'),
-				new TextareaField('Hours', 'Availability'),
+				new TrumbowygHTMLEditorField('Content', 'Biography'),
+				new TrumbowygHTMLEditorField('Hours', 'Availability'),
 				new DateField('StartDate', 'Date you would like to start tutoring'),
 				new DateField('EndDate', 'Date you expect to stop tutoring'),
 				new TextField('PhoneNo', 'Phone number'),
@@ -481,7 +482,7 @@ class TutorPage_Controller extends Page_Controller {
 			}
 		}
 
-		return $this->redirectBack();
+		return $this->redirect($this->Link('edit?saved=1'));
 	}
 	/**
 	 * Server Side Action to handle saving the position of the cover image.

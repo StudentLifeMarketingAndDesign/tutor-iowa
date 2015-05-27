@@ -13,7 +13,9 @@
 		"md/ac-json-events" : "*",
 		"rywa/silverstripe-foundation-forms": "dev-master",
 		"briceburg/silverstripe-pageholder": "*",
-		"silverstripe/tagfield" : "dev-master"
+		"silverstripe/tagfield" : "dev-master",
+		"micmania1/silverstripe-lumberjack": "dev-master",
+		"i-lateral/silverstripe-trumbowyg-htmleditor": "dev-master"
 	},
 	"config": {
 		"process-timeout": 600	

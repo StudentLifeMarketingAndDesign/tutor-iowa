@@ -56,7 +56,7 @@ body {
   color: #222222;
   padding: 0;
   margin: 0;
-  font-family: "proxima-nova-alt", sans-serif;
+  font-family: "proxima-nova-alt", "Arial", sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1.5;
@@ -913,7 +913,7 @@ select {
       color: #222222;
       padding: 1rem;
       display: block;
-      font-family: "proxima-nova-alt", sans-serif;
+      font-family: "proxima-nova-alt", "Arial", sans-serif;
       font-size: 1rem; }
       .accordion .accordion-navigation > a:hover, .accordion dd > a:hover {
         background: #e3e3e3; }
@@ -2008,7 +2008,7 @@ button, .button {
   border-style: solid;
   border-width: 0;
   cursor: pointer;
-  font-family: "proxima-nova-alt", sans-serif;
+  font-family: "proxima-nova-alt", "Arial", sans-serif;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -3244,7 +3244,7 @@ select {
   border-color: #cccccc;
   padding: 0.5rem;
   font-size: 0.875rem;
-  font-family: "proxima-nova-alt", sans-serif;
+  font-family: "proxima-nova-alt", "Arial", sans-serif;
   color: rgba(0, 0, 0, 0.75);
   line-height: normal;
   border-radius: 0;
@@ -3689,7 +3689,7 @@ label.error {
 
 .label {
   font-weight: normal;
-  font-family: "proxima-nova-alt", sans-serif;
+  font-family: "proxima-nova-alt", "Arial", sans-serif;
   text-align: center;
   text-decoration: none;
   line-height: 1;
@@ -4071,7 +4071,7 @@ ul.pagination {
     color: #EEEEEE;
     font-weight: normal;
     font-size: 1rem;
-    font-family: "proxima-nova-alt", sans-serif; }
+    font-family: "proxima-nova-alt", "Arial", sans-serif; }
   .pricing-table .price {
     background-color: #F6F6F6;
     padding: 0.9375rem 1.25rem;
@@ -4079,7 +4079,7 @@ ul.pagination {
     color: #333333;
     font-weight: normal;
     font-size: 2rem;
-    font-family: "proxima-nova-alt", sans-serif; }
+    font-family: "proxima-nova-alt", "Arial", sans-serif; }
   .pricing-table .description {
     background-color: #FFFFFF;
     padding: 0.9375rem;
@@ -4328,7 +4328,7 @@ ul.pagination {
   padding: 0.625rem 0;
   list-style-type: none;
   list-style-position: outside;
-  font-family: "proxima-nova-alt", sans-serif; }
+  font-family: "proxima-nova-alt", "Arial", sans-serif; }
   .side-nav li {
     margin: 0 0 0.4375rem 0;
     font-size: 0.875rem;
@@ -4344,7 +4344,7 @@ ul.pagination {
     .side-nav li.active > a:first-child:not(.button) {
       color: #73a5ff;
       font-weight: normal;
-      font-family: "proxima-nova-alt", sans-serif; }
+      font-family: "proxima-nova-alt", "Arial", sans-serif; }
     .side-nav li.divider {
       border-top: 1px solid;
       height: 0;
@@ -4462,7 +4462,7 @@ ul.pagination {
     float: left;
     margin-left: 1rem;
     margin-bottom: 0;
-    font-family: "proxima-nova-alt", sans-serif;
+    font-family: "proxima-nova-alt", "Arial", sans-serif;
     font-weight: normal;
     font-size: 0.875rem;
     color: #999999; }
@@ -4634,7 +4634,7 @@ table {
       background-color: #EFEFEF;
       color: #222222;
       padding: 1rem 2rem;
-      font-family: "proxima-nova-alt", sans-serif;
+      font-family: "proxima-nova-alt", "Arial", sans-serif;
       font-size: 1rem; }
       .tabs dd > a:hover, .tabs .tab-title > a:hover {
         background-color: #e1e1e1; }
@@ -4934,7 +4934,7 @@ meta.foundation-mq-topbar {
       color: #fff;
       padding: 12px 0 12px 0;
       padding-left: 1.4583333333rem;
-      font-family: "proxima-nova-alt-condensed", sans-serif;
+      font-family: "proxima-nova-alt-condensed", "Arial Narrow", sans-serif;
       font-size: 1.375rem;
       font-weight: normal;
       text-transform: uppercase; }
@@ -5422,7 +5422,7 @@ p {
 
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "proxima-nova-alt-condensed", sans-serif;
+  font-family: "proxima-nova-alt-condensed", "Arial Narrow", sans-serif;
   font-weight: normal;
   font-style: normal;
   color: #222222;
@@ -6367,7 +6367,6 @@ th.hide-for-touch {
   font-size: 1rem;
   background: none;
   color: #3e3e3e;
-  padding: 2px;
   position: relative; }
   .banner span {
     padding: 2px; }
@@ -6377,7 +6376,7 @@ input[type="submit"] {
   border-style: solid;
   border-width: 0;
   cursor: pointer;
-  font-family: "proxima-nova-alt", sans-serif;
+  font-family: "proxima-nova-alt", "Arial", sans-serif;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -6458,7 +6457,7 @@ input[type="submit"] {
   border-style: solid;
   border-width: 0;
   cursor: pointer;
-  font-family: "proxima-nova-alt", sans-serif;
+  font-family: "proxima-nova-alt", "Arial", sans-serif;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -6489,7 +6488,7 @@ input[type="submit"] {
   border-style: solid;
   border-width: 0;
   cursor: pointer;
-  font-family: "proxima-nova-alt", sans-serif;
+  font-family: "proxima-nova-alt", "Arial", sans-serif;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -6588,7 +6587,7 @@ input[type="submit"] {
     font-size: 0.875rem;
     padding: 0.3125rem 1.0625rem;
     text-transform: capitalize;
-    font-family: "proxima-nova-alt", sans-serif; }
+    font-family: "proxima-nova-alt", "Arial", sans-serif; }
   .top-bar .top-bar-section .has-form {
     background: #515151;
     background: -webkit-linear-gradient(-90deg, #515151, #444);
@@ -6620,7 +6619,7 @@ body.SearchForm h2 {
   padding: 5px 6px; }
 
 .HomePage .bg-container {
-  background: url("../images/home-bg.jpg");
+  background-color: #333;
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 500px; }
@@ -6668,6 +6667,13 @@ body.SearchForm h2 {
 
 .HelpLab #labmap .gmnoprint img {
   max-width: none; }
+
+.field.trumbowyghtmleditor {
+  box-shadow: none; }
+  .field.trumbowyghtmleditor button {
+    margin-bottom: 0; }
+  .field.trumbowyghtmleditor .left {
+    float: none !important; }
 
 .TutorPage #FoundationForm_ContactForm {
   position: relative; }
@@ -7011,9 +7017,9 @@ body.SearchForm h2 {
   .resource-card-list li img {
     display: block; }
 
-.TutorPage.editProfile #Disable label {
+.TutorPage.editProfile #Disable label, .HelpLab.Edit #Disable label {
   color: #f04124; }
-.TutorPage.editProfile .field.tag {
+.TutorPage.editProfile .field.tag, .HelpLab.Edit .field.tag {
   width: 100%;
   display: block;
   text-transform: capitalize;
@@ -7021,16 +7027,16 @@ body.SearchForm h2 {
   background: none;
   margin: 0;
   padding: 0; }
-  .TutorPage.editProfile .field.tag input.tag {
+  .TutorPage.editProfile .field.tag input.tag, .HelpLab.Edit .field.tag input.tag {
     display: block;
     text-transform: capitalize;
     text-align: left;
     background: none; }
-  .TutorPage.editProfile .field.tag span.tagMatches span {
+  .TutorPage.editProfile .field.tag span.tagMatches span, .HelpLab.Edit .field.tag span.tagMatches span {
     border-style: solid;
     border-width: 0;
     cursor: pointer;
-    font-family: "proxima-nova-alt", sans-serif;
+    font-family: "proxima-nova-alt", "Arial", sans-serif;
     font-weight: normal;
     line-height: normal;
     margin: 0 0 1.25rem;
@@ -7050,13 +7056,13 @@ body.SearchForm h2 {
     color: #333333;
     transition: background-color 300ms ease-out;
     margin: 3px; }
-    .TutorPage.editProfile .field.tag span.tagMatches span:hover, .TutorPage.editProfile .field.tag span.tagMatches span:focus {
+    .TutorPage.editProfile .field.tag span.tagMatches span:hover, .TutorPage.editProfile .field.tag span.tagMatches span:focus, .HelpLab.Edit .field.tag span.tagMatches span:hover, .HelpLab.Edit .field.tag span.tagMatches span:focus {
       background-color: #eccd82; }
-    .TutorPage.editProfile .field.tag span.tagMatches span:hover, .TutorPage.editProfile .field.tag span.tagMatches span:focus {
+    .TutorPage.editProfile .field.tag span.tagMatches span:hover, .TutorPage.editProfile .field.tag span.tagMatches span:focus, .HelpLab.Edit .field.tag span.tagMatches span:hover, .HelpLab.Edit .field.tag span.tagMatches span:focus {
       color: #333333; }
-.TutorPage.editProfile .ss-uploadfield .ss-uploadfield-item {
+.TutorPage.editProfile .ss-uploadfield .ss-uploadfield-item, .HelpLab.Edit .ss-uploadfield .ss-uploadfield-item {
   padding: 0.78125rem 0; }
-  .TutorPage.editProfile .ss-uploadfield .ss-uploadfield-item .ss-uploadfield-item-preview {
+  .TutorPage.editProfile .ss-uploadfield .ss-uploadfield-item .ss-uploadfield-item-preview, .HelpLab.Edit .ss-uploadfield .ss-uploadfield-item .ss-uploadfield-item-preview {
     width: 100px;
     background: #eee;
     margin-right: 0.78125rem; }
@@ -7080,7 +7086,6 @@ ul.side-nav {
     font-size: 1rem;
     background: none;
     color: #3e3e3e;
-    padding: 2px;
     position: relative; }
     .side-nav h3 span {
       padding: 2px; }
@@ -7102,7 +7107,7 @@ ul.side-nav {
     border-style: solid;
     border-width: 0;
     cursor: pointer;
-    font-family: "proxima-nova-alt", sans-serif;
+    font-family: "proxima-nova-alt", "Arial", sans-serif;
     font-weight: normal;
     line-height: normal;
     margin: 0 0 1.25rem;
@@ -7121,7 +7126,7 @@ ul.side-nav {
     border-color: #bebebe;
     color: #333333;
     transition: background-color 300ms ease-out;
-    font-family: "proxima-nova-alt-condensed", sans-serif; }
+    font-family: "proxima-nova-alt-condensed", "Arial Narrow", sans-serif; }
     .main .breadcrumbs a:hover, .main .breadcrumbs a:focus {
       background-color: #bebebe; }
     .main .breadcrumbs a:hover, .main .breadcrumbs a:focus {
@@ -7132,7 +7137,7 @@ ul.side-nav {
     border-style: solid;
     border-width: 0;
     cursor: pointer;
-    font-family: "proxima-nova-alt", sans-serif;
+    font-family: "proxima-nova-alt", "Arial", sans-serif;
     font-weight: normal;
     line-height: normal;
     margin: 0 0 1.25rem;
@@ -7154,7 +7159,7 @@ ul.side-nav {
     opacity: 0.7;
     box-shadow: none;
     transition: background-color 300ms ease-out;
-    font-family: "proxima-nova-alt-condensed", sans-serif; }
+    font-family: "proxima-nova-alt-condensed", "Arial Narrow", sans-serif; }
     .main .breadcrumbs span:hover, .main .breadcrumbs span:focus {
       background-color: #cccccc; }
     .main .breadcrumbs span:hover, .main .breadcrumbs span:focus {
@@ -7745,10 +7750,10 @@ a.dosl, p.adr {
   padding-bottom: 5px;
   margin-bottom: 13px;
   margin-top: 0; }
-.main > .row {
+.main .content {
   min-height: 320px; }
   @media only screen and (min-width:64.063em) {
-    .main > .row {
+    .main .content {
       min-height: 600px; } }
 
 #search_help p {

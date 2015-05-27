@@ -39,8 +39,12 @@
 						<td>Requests sent in the last year</td>
 						<td>{$RequestsSinceBeginningOfYear}</td>
 					</tr>
+					<tr>
+						<td>Total requests (since January, 2014):</td>
+						<td>{$RequestsTotal}</td>
+					</tr>
 				</table>
-
+				<p><a href="admin/messages" target="_blank">Manage or Export all Messages</a></p>
 				<h3>Quick Links</h3>
 				<ul>
 					<li><a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a426753w61604118p63091529/" target="_blank">Tutor Iowa Google Analytics</a></li>

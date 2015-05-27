@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e9fb558758f971e30a7924053696954a",
+    "hash": "df050b6c6ce05da64bdbeeff781887ec",
     "packages": [
         {
             "name": "briceburg/silverstripe-pageholder",
@@ -153,6 +153,49 @@
             "time": "2015-03-26 16:11:30"
         },
         {
+            "name": "i-lateral/silverstripe-trumbowyg-htmleditor",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/i-lateral/silverstripe-trumbowyg-htmleditor.git",
+                "reference": "ba863eea215c54d3360d4a8160ade04b7f7e708e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/i-lateral/silverstripe-trumbowyg-htmleditor/zipball/ba863eea215c54d3360d4a8160ade04b7f7e708e",
+                "reference": "ba863eea215c54d3360d4a8160ade04b7f7e708e",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": ">=3.1"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "trumbowyg-htmleditor"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Morven Lewis-Everley",
+                    "email": "morven@i-lateral.com"
+                }
+            ],
+            "description": "Simple HTML Editor field for the Silverstripe CMS that uses the Trumbowyg jquery plugin for WYSIWYG editing",
+            "homepage": "http://github.com/i-lateral/silverstripe-trumbowyg-htmleditor",
+            "keywords": [
+                "editor",
+                "fields",
+                "form",
+                "html",
+                "silverstripe",
+                "wysiwyg"
+            ],
+            "time": "2015-05-14 22:02:26"
+        },
+        {
             "name": "md/ac-json-events",
             "version": "dev-master",
             "source": {
@@ -215,6 +258,37 @@
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-bar/issues"
             },
             "time": "2015-03-23 16:53:10"
+        },
+        {
+            "name": "micmania1/silverstripe-lumberjack",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/micmania1/silverstripe-lumberjack.git",
+                "reference": "3c5de75dc02b1bf88f5435af0d908791ab52aaa5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/micmania1/silverstripe-lumberjack/zipball/3c5de75dc02b1bf88f5435af0d908791ab52aaa5",
+                "reference": "3c5de75dc02b1bf88f5435af0d908791ab52aaa5",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Strong",
+                    "email": "mstrong@silverstripe.org"
+                }
+            ],
+            "description": "A module to make managing pages in a GridField easy without losing any of the functionality that you're used to in the CMS.",
+            "time": "2015-01-29 09:19:51"
         },
         {
             "name": "micschk/silverstripe-excludechildren",
@@ -590,7 +664,9 @@
     "stability-flags": {
         "silverstripe/mathspamprotection": 20,
         "rywa/silverstripe-foundation-forms": 20,
-        "silverstripe/tagfield": 20
+        "silverstripe/tagfield": 20,
+        "micmania1/silverstripe-lumberjack": 20,
+        "i-lateral/silverstripe-trumbowyg-htmleditor": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

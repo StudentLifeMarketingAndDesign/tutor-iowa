@@ -90,7 +90,7 @@ class HelpLab extends Page {
 		return $results;
 	}
 	public function canUserEditHelpLab() {
-		$helplabs = $this->getHelpLabs();
+		$helplabs = $this->getMemberHelpLabs();
 		$labID = $this->ID;
 		if ($helplabs) {
 			foreach ($helplabs as $lab) {
@@ -109,7 +109,7 @@ class HelpLab extends Page {
 
 class HelpLab_Controller extends Page_Controller {
 
-	private static $allowed_actions = array("Edit", "HelpLabSaveProfile", "canUserEditHelpLab", "helpLabSaved", "HelpEditProfileForm");
+	private static $allowed_actions = array("Edit", "HelpLabSaveProfile", "canUserEditHelpLab", "helpLabSaved", "HelpEditProfileForm", "EditorToolbar");
 
 	public function init() {
 		parent::init();
@@ -119,60 +119,18 @@ class HelpLab_Controller extends Page_Controller {
 	}
 
 	public function Edit() {
-		/*
-
-		$fields = new FieldSet (
-		new TextareaField('Description'),
-		new Textareafield('MetaKeywords', 'Tags'),
-		new TextField('Location'),
-		new TextField('Link'),
-		new TextField('ContactName', 'Contact Person\'s Name'),
-		new TextField('ContactEmail', 'Contact Person\'s Email'),
-
-		new TextField('PhoneNo', 'Phone Number'),
-		new TextField('ExternalScheduleLink', 'Optional link to the lab\'s schedule on another site'),
-
-		new TextField('Hours', 'Availability')
-		);
-
-
-
-
-
-		$actions = new FieldSet(
-		new FormAction('HelpLabSaveProfile', 'Save Page')
-		);
-
-
-
-
-
-		$form = new Form($this, 'Edit', $fields, $actions);
-
-
-		$HelpLabID = $this->ID;
-
-		//return "HelpLab_Live.ID = $HelpLabID";
-
-		//$DisplayedHelpLab = DataObject::get_one("HelpLab", "HelpLab_Live.ID = $HelpLabID");
-
-		//$form->loadDataFrom($this->data());
-
-
-		 */
-
-		//$data = $this->data();
-
 		return $this->renderWith(array('HelpLab_Edit', 'Page'));
-
 	}
 
 	public function HelpEditProfileForm() {
 		$canUserEdit = $this->canUserEditHelpLab();
 		if ($canUserEdit) {
+			$tagField = new TagField('Tags', 'Tags');
+			$tagField->setTagTopicClass("SiteTree");
+
 			$fields = new FieldList(
-				new HTMLEditorField('Description'),
-				new Textareafield('MetaKeywords', 'Tags'),
+				new TrumbowygHTMLEditorField('Description'),
+				$tagField,
 				new TextField('Location'),
 				//new TextField('Link'),
 				new TextField('ContactName', 'Contact Person\'s Name'),

@@ -2,8 +2,10 @@
 <footer class="footer clearfix" role="contentinfo">
 	<div class="row">
 		<div class="medium-6 large-5 columns">
-			<a href="http://www.uiowa.edu" target="_blank" class="hide-print footer-logo"><img src="{$ThemeDir}/images/uiowa-dome.png" alt="The University of Iowa"></a><br><br>
-			<a href="http://uc.uiowa.edu/student-success/swat" target="_blank" class="hide-print footer-logo"><img src="{$ThemeDir}/images/footer_swat.png" alt="SWAT"></a><br>
+			<a href="http://www.uiowa.edu" target="_blank" class="hide-print footer-logo"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
+" data-src="{$ThemeDir}/images/uiowa-dome.png" alt="The University of Iowa"></a><br><br>
+			<a href="http://uc.uiowa.edu/student-success/swat" target="_blank" class="hide-print footer-logo"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
+" data-src="{$ThemeDir}/images/footer_swat.png" alt="SWAT"></a><br>
 			<% if $SiteConfig.GroupSummary %>
 				$SiteConfig.GroupSummary
 			<% else %>

@@ -12,7 +12,9 @@ class TutorPageExtension extends DataExtension {
 		$email->setFrom($adminEmail);
 		$email->setSubject($subject);
 		$email->setBody($body);
-		$email->send();
+		if (SS_ENVIRONMENT_TYPE == "live") {
+			$email->send();
+		}
 
 	}
 

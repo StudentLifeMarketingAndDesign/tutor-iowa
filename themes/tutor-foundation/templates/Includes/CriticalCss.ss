@@ -1,17 +1,7 @@
-meta.foundation-mq-small{ font-family: '/only screen/'; width: 0em; }
-meta.foundation-mq-small-only{ font-family: '/only screen and (max-width: 40em)/'; width: 0em; }
-meta.foundation-mq-medium{ font-family: '/only screen and (min-width:40.063em)/'; width: 40.063em; }
-meta.foundation-mq-medium-only{ font-family: '/only screen and (min-width:40.063em) and (max-width:64em)/'; width: 40.063em; }
-meta.foundation-mq-large{ font-family: '/only screen and (min-width:64.063em)/'; width: 64.063em; }
-meta.foundation-mq-large-only{ font-family: '/only screen and (min-width:64.063em) and (max-width:90em)/'; width: 64.063em; }
-meta.foundation-mq-xlarge{ font-family: '/only screen and (min-width:90.063em)/'; width: 90.063em; }
-meta.foundation-mq-xlarge-only{ font-family: '/only screen and (min-width:90.063em) and (max-width:120em)/'; width: 90.063em; }
-meta.foundation-mq-xxlarge{ font-family: '/only screen and (min-width:120.063em)/'; width: 120.063em; }
-meta.foundation-data-attribute-namespace{ font-family: false; }
 html, body{ height: 100%; }
 *{ box-sizing: border-box; }
 html, body{ font-size: 100%; }
-body{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(255, 255, 255); color: rgb(34, 34, 34); padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: proxima-nova-alt, sans-serif; font-weight: normal; font-style: normal; line-height: 1.5; position: relative; cursor: auto; background-position: initial initial; background-repeat: initial initial; }
+body{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(255, 255, 255); color: rgb(34, 34, 34); padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: proxima-nova-alt, Arial, sans-serif; font-weight: normal; font-style: normal; line-height: 1.5; position: relative; cursor: auto; background-position: initial initial; background-repeat: initial initial; }
 img{ max-width: 100%; height: auto; }
 img{ }
 .left{ float: left !important; }
@@ -44,11 +34,10 @@ img{ display: inline-block; vertical-align: middle; }
 .large-3{ width: 25%; }
 .large-4{ width: 33.3333333333%; }
 .large-5{ width: 41.6666666667%; }
-.large-6{ width: 50%; }
 .large-9{ width: 75%; }
 .large-12{ width: 100%; }
 }
- .button{ border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; cursor: pointer; font-family: proxima-nova-alt, sans-serif; font-weight: normal; line-height: normal; margin-top: 0px; margin-right: 0px; margin-bottom: 1.25rem; margin-left: 0px; position: relative; text-decoration: none; text-align: center; -webkit-appearance: none; border-top-left-radius: 0px 0px; border-top-right-radius: 0px 0px; border-bottom-right-radius: 0px 0px; border-bottom-left-radius: 0px 0px; display: inline-block; padding-top: 0.875rem; padding-right: 1.75rem; padding-bottom: 0.9375rem; padding-left: 1.75rem; font-size: 1rem; background-color: rgb(55, 126, 255); border-top-color: rgb(0, 88, 248); border-right-color: rgb(0, 88, 248); border-bottom-color: rgb(0, 88, 248); border-left-color: rgb(0, 88, 248); color: rgb(255, 255, 255); }
+ .button{ border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; cursor: pointer; font-family: proxima-nova-alt, Arial, sans-serif; font-weight: normal; line-height: normal; margin-top: 0px; margin-right: 0px; margin-bottom: 1.25rem; margin-left: 0px; position: relative; text-decoration: none; text-align: center; -webkit-appearance: none; border-top-left-radius: 0px 0px; border-top-right-radius: 0px 0px; border-bottom-right-radius: 0px 0px; border-bottom-left-radius: 0px 0px; display: inline-block; padding-top: 0.875rem; padding-right: 1.75rem; padding-bottom: 0.9375rem; padding-left: 1.75rem; font-size: 1rem; background-color: rgb(55, 126, 255); border-top-color: rgb(0, 88, 248); border-right-color: rgb(0, 88, 248); border-bottom-color: rgb(0, 88, 248); border-left-color: rgb(0, 88, 248); color: rgb(255, 255, 255); }
 @media only screen and (min-width: 40.063em){
  .button{ display: inline-block; }
 }
@@ -77,10 +66,9 @@ fieldset{ border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1
 .reveal-modal.large{ width: 70%; max-width: 77.5rem; left: 0px; right: 0px; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; }
 }
 .reveal-modal .close-reveal-modal{ font-size: 2.5rem; line-height: 1; position: absolute; top: 0.625rem; right: 1.375rem; color: rgb(170, 170, 170); font-weight: bold; cursor: pointer; }
-.side-nav{ display: block; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0.625rem; padding-right: 0px; padding-bottom: 0.625rem; padding-left: 0px; list-style-type: none; list-style-position: outside; font-family: proxima-nova-alt, sans-serif; }
+.side-nav{ display: block; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0.625rem; padding-right: 0px; padding-bottom: 0.625rem; padding-left: 0px; list-style-type: none; list-style-position: outside; font-family: proxima-nova-alt, Arial, sans-serif; }
 .side-nav li{ margin-top: 0px; margin-right: 0px; margin-bottom: 0.4375rem; margin-left: 0px; font-size: 0.875rem; font-weight: normal; }
 .side-nav li a:not(.button){ display: block; color: rgb(55, 126, 255); margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; }
-meta.foundation-mq-topbar{ font-family: '/only screen and (min-width:64.063em)/'; width: 64.063em; }
 .contain-to-grid{ width: 100%; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
 .contain-to-grid .top-bar{ margin-bottom: 0px; }
 .top-bar{ overflow-x: hidden; overflow-y: hidden; height: 4.375rem; line-height: 4.375rem; position: relative; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); margin-bottom: 0px; background-position: initial initial; background-repeat: initial initial; }
@@ -97,7 +85,7 @@ meta.foundation-mq-topbar{ font-family: '/only screen and (min-width:64.063em)/'
 .top-bar-section{ left: 0px; position: relative; width: auto; }
 .top-bar-section ul{ padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; height: auto; display: block; font-size: 16px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }
 .top-bar-section ul li{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
-.top-bar-section ul li > a{ display: block; width: 100%; color: rgb(255, 255, 255); padding-top: 12px; padding-right: 0px; padding-bottom: 12px; padding-left: 1.4583333333rem; font-family: proxima-nova-alt-condensed, sans-serif; font-size: 1.375rem; font-weight: normal; text-transform: uppercase; }
+.top-bar-section ul li > a{ display: block; width: 100%; color: rgb(255, 255, 255); padding-top: 12px; padding-right: 0px; padding-bottom: 12px; padding-left: 1.4583333333rem; font-family: proxima-nova-alt-condensed, 'Arial Narrow', sans-serif; font-size: 1.375rem; font-weight: normal; text-transform: uppercase; }
 .top-bar-section ul li.active > a{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); color: rgb(106, 159, 255); background-position: initial initial; background-repeat: initial initial; }
 @media only screen and (min-width: 64.063em){
 .top-bar{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); overflow-x: visible; overflow-y: visible; background-position: initial initial; background-repeat: initial initial; }
@@ -117,7 +105,7 @@ div, ul, li, h1, h2, h3, h4, form, p{ margin-top: 0px; margin-right: 0px; margin
 a{ color: rgb(55, 126, 255); text-decoration: none; line-height: inherit; }
 a img{ border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; }
 p{ font-family: inherit; font-weight: normal; font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem; text-rendering: optimizelegibility; }
-h1, h2, h3, h4{ font-family: proxima-nova-alt-condensed, sans-serif; font-weight: normal; font-style: normal; color: rgb(34, 34, 34); text-rendering: optimizelegibility; margin-top: 0.2rem; margin-bottom: 0.5rem; line-height: 1.1; }
+h1, h2, h3, h4{ font-family: proxima-nova-alt-condensed, 'Arial Narrow', sans-serif; font-weight: normal; font-style: normal; color: rgb(34, 34, 34); text-rendering: optimizelegibility; margin-top: 0.2rem; margin-bottom: 0.5rem; line-height: 1.1; }
 h1{ font-size: 2.125rem; }
 h2{ font-size: 1.6875rem; }
 h3{ font-size: 1.375rem; }
@@ -142,10 +130,10 @@ img{ max-width: 100% !important; }
 p, h2, h3{ orphans: 3; widows: 3; }
 h2, h3{ page-break-after: avoid; }
 }
-.banner{ text-transform: uppercase; font-size: 1rem; background-image: none; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; color: rgb(62, 62, 62); padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; position: relative; background-position: initial initial; background-repeat: initial initial; }
-input[type="submit"]{ border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; cursor: pointer; font-family: proxima-nova-alt, sans-serif; font-weight: normal; line-height: normal; margin-top: 0px; margin-right: 0px; margin-bottom: 1.25rem; margin-left: 0px; position: relative; text-decoration: none; text-align: center; -webkit-appearance: none; display: inline-block; padding-top: 0.875rem; padding-right: 1.75rem; padding-bottom: 0.9375rem; padding-left: 1.75rem; font-size: 1rem; border-top-color: rgb(0, 88, 248); border-right-color: rgb(0, 88, 248); border-bottom-color: rgb(0, 88, 248); border-left-color: rgb(0, 88, 248); color: rgb(255, 255, 255); border-top-left-radius: 2px 2px; border-top-right-radius: 2px 2px; border-bottom-right-radius: 2px 2px; border-bottom-left-radius: 2px 2px; -webkit-transition-property: all; -webkit-transition-duration: 1s; -webkit-transition-timing-function: ease-out; -webkit-transition-delay: initial; background-image: -webkit-linear-gradient(45deg, rgb(55, 126, 255) 0%, rgb(19, 103, 255) 50%, rgb(40, 116, 255) 50.01%, rgb(157, 192, 255)); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: initial initial; background-repeat: initial initial; }
+.banner{ text-transform: uppercase; font-size: 1rem; background-image: none; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; color: rgb(62, 62, 62); position: relative; background-position: initial initial; background-repeat: initial initial; }
+input[type="submit"]{ border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; cursor: pointer; font-family: proxima-nova-alt, Arial, sans-serif; font-weight: normal; line-height: normal; margin-top: 0px; margin-right: 0px; margin-bottom: 1.25rem; margin-left: 0px; position: relative; text-decoration: none; text-align: center; -webkit-appearance: none; display: inline-block; padding-top: 0.875rem; padding-right: 1.75rem; padding-bottom: 0.9375rem; padding-left: 1.75rem; font-size: 1rem; border-top-color: rgb(0, 88, 248); border-right-color: rgb(0, 88, 248); border-bottom-color: rgb(0, 88, 248); border-left-color: rgb(0, 88, 248); color: rgb(255, 255, 255); border-top-left-radius: 2px 2px; border-top-right-radius: 2px 2px; border-bottom-right-radius: 2px 2px; border-bottom-left-radius: 2px 2px; -webkit-transition-property: all; -webkit-transition-duration: 1s; -webkit-transition-timing-function: ease-out; -webkit-transition-delay: initial; background-image: -webkit-linear-gradient(45deg, rgb(55, 126, 255) 0%, rgb(19, 103, 255) 50%, rgb(40, 116, 255) 50.01%, rgb(157, 192, 255)); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: initial initial; background-repeat: initial initial; }
 .button{ -webkit-transition-property: all; -webkit-transition-duration: 1s; -webkit-transition-timing-function: ease-out; -webkit-transition-delay: initial; background-image: -webkit-linear-gradient(45deg, rgb(55, 126, 255) 0%, rgb(19, 103, 255) 50%, rgb(40, 116, 255) 50.01%, rgb(157, 192, 255)); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: initial initial; background-repeat: initial initial; }
-.tag{ border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; cursor: pointer; font-family: proxima-nova-alt, sans-serif; font-weight: normal; line-height: normal; margin-top: 0px; margin-right: 0px; margin-left: 0px; position: relative; text-decoration: none; text-align: center; -webkit-appearance: none; border-top-left-radius: 0px 0px; border-top-right-radius: 0px 0px; border-bottom-right-radius: 0px 0px; border-bottom-left-radius: 0px 0px; display: inline-block; padding-top: 0.25rem; padding-right: 0.5rem; padding-bottom: 0.3125rem; padding-left: 0.5rem; background-color: rgb(248, 236, 209); border-top-color: rgb(236, 205, 130); border-right-color: rgb(236, 205, 130); border-bottom-color: rgb(236, 205, 130); border-left-color: rgb(236, 205, 130); color: rgb(51, 51, 51); margin-bottom: 3px; text-transform: uppercase; font-size: 0.6875rem; }
+.tag{ border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; cursor: pointer; font-family: proxima-nova-alt, Arial, sans-serif; font-weight: normal; line-height: normal; margin-top: 0px; margin-right: 0px; margin-left: 0px; position: relative; text-decoration: none; text-align: center; -webkit-appearance: none; border-top-left-radius: 0px 0px; border-top-right-radius: 0px 0px; border-bottom-right-radius: 0px 0px; border-bottom-left-radius: 0px 0px; display: inline-block; padding-top: 0.25rem; padding-right: 0.5rem; padding-bottom: 0.3125rem; padding-left: 0.5rem; background-color: rgb(248, 236, 209); border-top-color: rgb(236, 205, 130); border-right-color: rgb(236, 205, 130); border-bottom-color: rgb(236, 205, 130); border-left-color: rgb(236, 205, 130); color: rgb(51, 51, 51); margin-bottom: 3px; text-transform: uppercase; font-size: 0.6875rem; }
 .contain-to-grid{ background-image: -webkit-linear-gradient(-90deg, rgb(81, 81, 81), rgb(68, 68, 68)); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: initial initial; background-repeat: initial initial; }
 .top-bar{ background-image: -webkit-linear-gradient(-90deg, rgb(81, 81, 81), rgb(68, 68, 68)); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: initial initial; background-repeat: initial initial; }
 .top-bar h1{ max-width: 18.75rem; }
@@ -234,7 +222,7 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 }
 .side-nav li{ border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(204, 204, 204); }
 .side-nav a p{ color: rgb(34, 34, 34); }
-.side-nav h3{ text-transform: uppercase; font-size: 1rem; background-image: none; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; color: rgb(62, 62, 62); padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; position: relative; background-position: initial initial; background-repeat: initial initial; }
+.side-nav h3{ text-transform: uppercase; font-size: 1rem; background-image: none; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; color: rgb(62, 62, 62); position: relative; background-position: initial initial; background-repeat: initial initial; }
 .side-nav h3 span{ padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; }
 .side-nav .announcements.small .announcement-card{ padding-top: 10px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; }
 .side-nav .resource-card-list.small .resource-card{ padding-top: 10px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; }
@@ -315,9 +303,9 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .division-search input[type="search"].division-search-input{ width: 120px; }
 }
 .division-search .division-search-btn{ border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; clip: rect(0px 0px 0px 0px); height: 1px; margin-top: -1px; margin-right: -1px; margin-bottom: -1px; margin-left: -1px; overflow-x: hidden; overflow-y: hidden; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; position: absolute; width: 1px; }
-.main > .row{ min-height: 320px; }
+.main .content{ min-height: 320px; }
 @media only screen and (min-width: 64.063em){
-.main > .row{ min-height: 600px; }
+.main .content{ min-height: 600px; }
 }
 .gradient{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(255, 255, 255); position: relative; background-position: initial initial; background-repeat: initial initial; }
 @media only screen and (min-width: 64.063em){

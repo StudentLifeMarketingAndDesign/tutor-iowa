@@ -7,3 +7,9 @@ Member:
 TutorPage:
   extensions:
     - TutorPageExtension
+SiteConfig:
+  extensions:
+    - CustomSiteConfig
+Controller:
+  extensions:
+    - SS_MinifiedResponseExtension

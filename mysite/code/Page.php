@@ -100,7 +100,7 @@ class Page extends SiteTree {
 			return $data;
 		}
 	}
-	function getHelpLabs() {
+	function getMemberHelpLabs() {
 		$Member = Member::CurrentUser();
 		if ($Member) {
 			$IDMember = $Member->ID;

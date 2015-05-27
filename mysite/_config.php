@@ -30,8 +30,6 @@ FulltextSearchable::enable();
 
 //Validator::set_javascript_validation_handler('none');
 //SpamProtectorManager::set_spam_protector("RecaptchaProtector");
-
-Email::setAdminEmail("tutoriowa@uiowa.edu");
 //error_reporting(E_ALL);
 Object::useCustomClass('MemberLoginForm', 'CustomLoginForm');
 //Object::add_extension('TutorPage', 'TutorPagePublish');

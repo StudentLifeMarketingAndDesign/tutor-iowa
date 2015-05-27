@@ -7,9 +7,9 @@
 				<article class="main-article">
 					<div class="row inbox-nav">
 						<div class="medium-3 columns show-for-medium-up">
-							<span class="button inbox-head small all-messages">
+							<span class="button inbox-head small all-messages <% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>">
 								<% if $CurrentMember.unreadMessageCount > 0 %> 
-									<strong>Inbox</strong> <span class="inboxCount" data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount">({$CurrentMember.unreadMessageCount})</span>
+									Inbox <span class="inboxCount" data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount">({$CurrentMember.unreadMessageCount})</span>
 								<% else %>
 									Inbox
 								<% end_if %>

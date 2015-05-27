@@ -9,6 +9,7 @@
 @import "imports/search-results";
 @import "imports/homepage";
 @import "imports/help-lab";
+@import "imports/forms";
 @import "imports/tutor-page";
 @import "imports/inbox";
 @import "imports/card";
@@ -34,11 +35,6 @@
 
 .main {
 	//padding-top: 10px;
-	min-height: 320px;
-
-	@media #{$large-up}{
-		min-height: 600px;
-	}
 
 	h1{
 		text-transform: uppercase;
@@ -48,8 +44,12 @@
 		margin-top: 0;
 	}
 
-	>.row{
-		
+	.content{
+		min-height: 320px;
+		@media #{$large-up}{
+			min-height: 600px;
+		}
+
 	}
 }
 

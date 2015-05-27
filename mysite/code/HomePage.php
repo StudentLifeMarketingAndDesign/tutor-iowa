@@ -80,8 +80,12 @@ class HomePage extends Page {
 		$taglines = array(
 			'You got this.',
 			"Don't give up.",
-			'Learn by doing.',
 			'Learn by tutoring.',
+			"College classes are hard, but finding help isn't.",
+			"See a tutor, see results.",
+			"Get better grades.",
+			'Excel.',
+			'Peer-to-peer and small group tutoring.',
 		);
 
 		$random = array_rand($taglines, 1);
