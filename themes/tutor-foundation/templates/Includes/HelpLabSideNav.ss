@@ -5,7 +5,7 @@
 			<% if canUserEditHelpLab %>
 				<li><a href="$Link("Edit")" class="button radius success" >Edit this Help Lab</a></a></li>
 			<% else %>
-	  			<li><a href="feedback/" class="button radius" target="_blank">Give Feedback About This Lab</a></li>
+	  			<li><a href="feedback/" class="button radius" data-reveal-id="feedback-form-modal" >Give Feedback About This Lab</a></li>
 	  		<% end_if %>
 
 	  	<% else %>

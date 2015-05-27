@@ -136,7 +136,7 @@ class FeedbackPage_Controller extends Page_Controller {
     	$userEmail = Convert::raw2sql($data['Email']);
     	$feedback = Convert::raw2sql($data['Feedback']);
     	$tutorFirstName = Convert::raw2sql($data['FirstName']);
-    	$tutorLastName = Convert::raw2sql($data['LastName']);
+    	$tutorLastName = Convert::raw2sql($data['Surname']);
 
 		
     	$body = '' . $name . " has submitted feedback. " . "<br><br>Feedback:" . $feedback;

@@ -11,7 +11,7 @@ class FeedbackItem extends DataObject {
    );
    
    private static $has_one = array(
-   'TutorPage' => 'TutorPage'
+   'Page' => 'Page'
    );
    
    private static $searchable_fields = array('ID', 'Feedback', 'Name');

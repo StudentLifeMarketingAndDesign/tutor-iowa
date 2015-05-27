@@ -28,27 +28,7 @@
 	<script src="$ThemeDir/bower_components/modernizr/modernizr.js"></script>
 	<script src="//use.typekit.net/tvn1igz.js"></script>
 	<script>try{Typekit.load();}catch(e){}</script>
-	<script>
-              var _vengage = _vengage || [];
-              (function(){
-              var a, b, c;
-              a = function (f) {
-              return function () {
-              _vengage.push([f].concat(Array.prototype.slice.call(arguments, 0)));
-            };
-          };
-          b = ['load', 'addRule', 'addVariable', 'getURLParam', 'addRuleByParam', 'addVariableByParam', 'trackAction', 'submitFeedback', 'submitResponse', 'close', 'minimize', 'openModal', 'helpers'];
-          for (c = 0; c < b.length; c++) {
-          _vengage[b[c]] = a(b[c]);
-        }
-        var t = document.createElement('script'),
-        s = document.getElementsByTagName('script')[0];
-        t.async = true;
-        t.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://s3.amazonaws.com/vetrack/init.min.js';
-        s.parentNode.insertBefore(t, s);
-        _vengage.push(['pubkey', '6dd0adda-593f-4f09-8306-bce3b3afe244']);
-      })();
-      </script>
+	
 	
 </head>
 <body class="$ClassName.ATT $Action.ATT">
@@ -64,6 +44,7 @@
 	<% include Footer %>
 
 	<% include LoginModal %>
+	<% include FeedbackModal %>
 
 	<%--See [Requirements](http://doc.silverstripe.org/framework/en/reference/requirements) for loading from controller--%>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
