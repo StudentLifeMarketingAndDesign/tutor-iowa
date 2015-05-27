@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "df050b6c6ce05da64bdbeeff781887ec",
+    "hash": "cb6b2557eefdef50127fe293e650d70f",
     "packages": [
         {
             "name": "briceburg/silverstripe-pageholder",
@@ -63,12 +63,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "f8c20b427de1cfe7a28a015c1640ce4e4eef1e33"
+                "reference": "a66f93a541c2214b4865161426b077e2b7d951de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/f8c20b427de1cfe7a28a015c1640ce4e4eef1e33",
-                "reference": "f8c20b427de1cfe7a28a015c1640ce4e4eef1e33",
+                "url": "https://api.github.com/repos/composer/installers/zipball/a66f93a541c2214b4865161426b077e2b7d951de",
+                "reference": "a66f93a541c2214b4865161426b077e2b7d951de",
                 "shasum": ""
             },
             "replace": {
@@ -150,7 +150,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2015-03-26 16:11:30"
+            "time": "2015-04-21 19:54:55"
         },
         {
             "name": "i-lateral/silverstripe-trumbowyg-htmleditor",
@@ -201,12 +201,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "b0f187e1bb41ce8728bd7387fd1bf9de9e81710c"
+                "reference": "a431403eb8fae7df711615212f0bea965136a0a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/b0f187e1bb41ce8728bd7387fd1bf9de9e81710c",
-                "reference": "b0f187e1bb41ce8728bd7387fd1bf9de9e81710c",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/a431403eb8fae7df711615212f0bea965136a0a8",
+                "reference": "a431403eb8fae7df711615212f0bea965136a0a8",
                 "shasum": ""
             },
             "require": {
@@ -225,7 +225,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2015-03-24 20:08:02"
+            "time": "2015-05-12 18:44:15"
         },
         {
             "name": "md/division-bar",
@@ -233,12 +233,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar.git",
-                "reference": "18dd3df784b7fdf2eac5ecfe1a809be8b077cc06"
+                "reference": "1cf03adb6bc4005d2872065e86a8298d706443cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/18dd3df784b7fdf2eac5ecfe1a809be8b077cc06",
-                "reference": "18dd3df784b7fdf2eac5ecfe1a809be8b077cc06",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/1cf03adb6bc4005d2872065e86a8298d706443cd",
+                "reference": "1cf03adb6bc4005d2872065e86a8298d706443cd",
                 "shasum": ""
             },
             "require": {
@@ -257,7 +257,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/division-bar/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-bar/issues"
             },
-            "time": "2015-03-23 16:53:10"
+            "time": "2015-05-06 20:09:33"
         },
         {
             "name": "micmania1/silverstripe-lumberjack",
@@ -296,12 +296,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/micschk/silverstripe-excludechildren.git",
-                "reference": "f94aa8e02c0002880b4e1b811a009fef8c3160d3"
+                "reference": "cc92ffb01b4926af0507d509b555c69804230a0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/micschk/silverstripe-excludechildren/zipball/f94aa8e02c0002880b4e1b811a009fef8c3160d3",
-                "reference": "f94aa8e02c0002880b4e1b811a009fef8c3160d3",
+                "url": "https://api.github.com/repos/micschk/silverstripe-excludechildren/zipball/cc92ffb01b4926af0507d509b555c69804230a0f",
+                "reference": "cc92ffb01b4926af0507d509b555c69804230a0f",
                 "shasum": ""
             },
             "require": {
@@ -323,7 +323,7 @@
                 "silverstripe",
                 "sitetree"
             ],
-            "time": "2015-01-27 16:35:41"
+            "time": "2015-05-05 05:55:14"
         },
         {
             "name": "rywa/silverstripe-foundation-forms",
@@ -331,12 +331,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ryanwachtl/silverstripe-foundation-forms.git",
-                "reference": "98bbd67f4f37892b65406a36de8debd3e54f7bb4"
+                "reference": "7fd35e59119c6036805de4d01bc53883560593bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ryanwachtl/silverstripe-foundation-forms/zipball/98bbd67f4f37892b65406a36de8debd3e54f7bb4",
-                "reference": "98bbd67f4f37892b65406a36de8debd3e54f7bb4",
+                "url": "https://api.github.com/repos/ryanwachtl/silverstripe-foundation-forms/zipball/7fd35e59119c6036805de4d01bc53883560593bf",
+                "reference": "7fd35e59119c6036805de4d01bc53883560593bf",
                 "shasum": ""
             },
             "require": {
@@ -369,7 +369,7 @@
                 "silverstripe",
                 "zurb foundation"
             ],
-            "time": "2015-03-04 01:56:50"
+            "time": "2015-04-05 16:08:59"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -377,12 +377,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe-themes/silverstripe-simple.git",
-                "reference": "63c549e82fb8d530bb88a370a8b7c3d8c61ddd74"
+                "reference": "3cf638c170e649b6b122504c8f62d6d8946b853c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe-themes/silverstripe-simple/zipball/63c549e82fb8d530bb88a370a8b7c3d8c61ddd74",
-                "reference": "63c549e82fb8d530bb88a370a8b7c3d8c61ddd74",
+                "url": "https://api.github.com/repos/silverstripe-themes/silverstripe-simple/zipball/3cf638c170e649b6b122504c8f62d6d8946b853c",
+                "reference": "3cf638c170e649b6b122504c8f62d6d8946b853c",
                 "shasum": ""
             },
             "require": {
@@ -405,7 +405,7 @@
                 "silverstripe",
                 "theme"
             ],
-            "time": "2014-07-30 04:30:14"
+            "time": "2015-04-09 03:18:37"
         },
         {
             "name": "silverstripe/cms",
@@ -580,12 +580,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-spamprotection.git",
-                "reference": "747a801ba5e394867c9891bdb8c53e92878a700b"
+                "reference": "12947ae886bae73bd86342fa9c10a2bbc241071d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/747a801ba5e394867c9891bdb8c53e92878a700b",
-                "reference": "747a801ba5e394867c9891bdb8c53e92878a700b",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/12947ae886bae73bd86342fa9c10a2bbc241071d",
+                "reference": "12947ae886bae73bd86342fa9c10a2bbc241071d",
                 "shasum": ""
             },
             "require": {
@@ -616,7 +616,45 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2015-03-24 23:59:49"
+            "time": "2015-05-26 05:14:40"
+        },
+        {
+            "name": "silverstripe/staticpublisher",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe-labs/silverstripe-staticpublisher.git",
+                "reference": "937a3b5606444f2c82ac8958b0f8d322fbaba994"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-staticpublisher/zipball/937a3b5606444f2c82ac8958b0f8d322fbaba994",
+                "reference": "937a3b5606444f2c82ac8958b0f8d322fbaba994",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Sam Minnee",
+                    "email": "sam@silverstripe.com"
+                },
+                {
+                    "name": "Will Rossiter",
+                    "email": "will@fullscreen.io"
+                }
+            ],
+            "description": "StaticPublisher provides an extensions for exporting a SilverStripe application to either a local or remote file systems.",
+            "keywords": [
+                "export",
+                "publisher",
+                "silverstripe-labs",
+                "static"
+            ],
+            "time": "2015-05-18 22:02:44"
         },
         {
             "name": "silverstripe/tagfield",
@@ -666,7 +704,8 @@
         "rywa/silverstripe-foundation-forms": 20,
         "silverstripe/tagfield": 20,
         "micmania1/silverstripe-lumberjack": 20,
-        "i-lateral/silverstripe-trumbowyg-htmleditor": 20
+        "i-lateral/silverstripe-trumbowyg-htmleditor": 20,
+        "silverstripe/staticpublisher": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

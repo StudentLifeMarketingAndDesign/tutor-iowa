@@ -37,4 +37,6 @@ Object::useCustomClass('MemberLoginForm', 'CustomLoginForm');
 Object::add_extension("Member", "MemberExtension");
 Object::add_extension("TutorPage", "TutorPageExtension");
 Object::add_extension("SiteTree", "SiteTreeFieldExtension");
+SiteTree::add_extension("FilesystemPublisher('cache/')");
+
 /* ---- */

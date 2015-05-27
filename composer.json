@@ -15,7 +15,8 @@
 		"briceburg/silverstripe-pageholder": "*",
 		"silverstripe/tagfield" : "dev-master",
 		"micmania1/silverstripe-lumberjack": "dev-master",
-		"i-lateral/silverstripe-trumbowyg-htmleditor": "dev-master"
+		"i-lateral/silverstripe-trumbowyg-htmleditor": "dev-master",
+		"silverstripe/staticpublisher": "dev-master"
 	},
 	"config": {
 		"process-timeout": 600	
