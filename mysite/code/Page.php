@@ -171,10 +171,9 @@ class Page_Controller extends ContentController {
 	   
 	   //new LabelField("label", "Enter first and last name if your feedback concerns a specific tutor.  If your feedback does not concern a specific person, ignore these fields."),
 	   new TextField('Name', '<span>*</span>Your Name',$memberName),
-     new EmailField('Email', '<span>*</span>Your Email Address', $memberEmail),
+       new EmailField('Email', '<span>*</span>Your Email Address', $memberEmail),
+       new Checkboxfield('SpecificPage', 'This feedback is related to this page: <strong>'.$this->Title.'</strong>'),
 	   new TextAreaField('Feedback', '<span>*</span>Your Feedback'),
-	   new TextField('FirstName', 'Tutor First Name (if your feedback is applicable to a specific tutor)', $this->FirstName), //TUTOR FIRST NAME
-	   new TextField('Surname', 'Tutor Last Name (if your feedback is applicable to a specific tutor)', $this->Surname), //TUTOR SURNAME
 	   new HiddenField('PageID', 'PageID',  $this->ID)
 	   );
 	   

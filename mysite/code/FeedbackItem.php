@@ -7,7 +7,8 @@ class FeedbackItem extends DataObject {
    private static $db = array(
    'Feedback' => 'Text',
    'Name' => 'Varchar',
-   'Email' => 'Varchar'
+   'Email' => 'Varchar',
+   'SpecificPage' => 'Boolean'
    );
    
    private static $has_one = array(
