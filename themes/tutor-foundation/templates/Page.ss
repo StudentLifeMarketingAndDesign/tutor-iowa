@@ -40,6 +40,7 @@
 	</header>
 
 	$Layout
+	 <a id="feedback-btn" href="feedback" data-reveal-id="feedback-form-modal"></a>
 
 	<% include Footer %>
 

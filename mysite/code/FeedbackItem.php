@@ -15,10 +15,10 @@ class FeedbackItem extends DataObject {
    'Page' => 'Page'
    );
    
-   private static $searchable_fields = array('ID', 'Feedback', 'Name');
+   private static $searchable_fields = array('ID', 'Feedback', 'Name', 'SpecificPage');
   
-   private static $summary_fields = array('ID', 'Feedback', 'Name');
-   
+   private static $summary_fields = array('PageID', 'Page.Title', 'Feedback', 'Name', 'SpecificPage');
+   //No ID, Email address, Feedback, Specific Page, PageID + Page Title see summary_fields docs
    	            
 
 }
