@@ -32,10 +32,14 @@ class InboxController extends Page_Controller {
 	 * @return SS_HTTPResponse || redirect
 	 */
 	public function index() {
+
 		$member = Member::currentUser();
 		if (isset($member)) {
 			//PendingImage::cleanUpPendingImages();
-			return $this->renderWith(array('Inbox', 'Page'));
+			$data = array(
+				'Title' => 'Inbox',
+			);
+			return $this->customise($data)->renderWith(array('Inbox', 'Page'));
 		} else {
 			$this->redirect('security/login');
 			//echo 'failure';
@@ -49,10 +53,14 @@ class InboxController extends Page_Controller {
 	 */
 	public function paginatedMessages() {
 		$member = Member::currentUser();
-		$list = $member->Messages()->where("MarkAsDeleted IS NULL")->sort('Created DESC');
-		$pl = new PaginatedList($list, $this->request);
-		$pl->setPageLength(5);
-		return $pl;
+		if (isset($member)) {
+			$list = $member->Messages()->where("MarkAsDeleted IS NULL")->sort('Created DESC');
+			$pl = new PaginatedList($list, $this->request);
+			$pl->setPageLength(5);
+			return $pl;
+		} else {
+			$this->httpError(404);
+		}
 	}
 
 	/*
@@ -68,14 +76,18 @@ class InboxController extends Page_Controller {
 	 */
 	public function unread() {
 		$member = Member::currentUser();
-		//returns all unread messages as rendered html to slap into the inbox
-		$unreadMessageList = DataObject::get("Message", "ReadDateTime IS NULL AND RecipientID =" . $member->ID, "Created DESC");
+		if (isset($member)) {
+			//returns all unread messages as rendered html to slap into the inbox
+			$unreadMessageList = DataObject::get("Message", "ReadDateTime IS NULL AND RecipientID =" . $member->ID, "Created DESC");
 
-		$Data = array(
-			'unreadMessages' => $unreadMessageList,
-		);
+			$Data = array(
+				'unreadMessages' => $unreadMessageList,
+			);
 
-		return $this->customise($Data)->renderWith(array('Unread'));
+			return $this->customise($Data)->renderWith(array('Unread'));
+		} else {
+			$this->httpError(404);
+		}
 	}
 
 	/**
@@ -84,8 +96,13 @@ class InboxController extends Page_Controller {
 	 */
 	public function unreadCount() {
 		$member = Member::currentUser();
-		$unreadMessageCount = $member->unreadMessageCount();
-		return Convert::raw2json($unreadMessageCount);
+
+		if (isset($member)) {
+			$unreadMessageCount = $member->unreadMessageCount();
+			return Convert::raw2json($unreadMessageCount);
+		} else {
+			$this->httpError(404);
+		}
 	}
 
 	/**
@@ -95,17 +112,22 @@ class InboxController extends Page_Controller {
 	 */
 	public function markedMessage(SS_HTTPRequest $r) {
 		$member = Member::currentUser();
-		$currentUserID = $member->ID;
 
-		$data = $r->postVars();
-		$memberID = (int) $data['MemberID'];
-		$messageID = (int) $data['MessageID'];
+		if (isset($member)) {
+			$currentUserID = $member->ID;
 
-		if ($memberID == $currentUserID) {
-			$markedMessage = Message::get()->byID($messageID);
-			return $markedMessage;
+			$data = $r->postVars();
+			$memberID = (int) $data['MemberID'];
+			$messageID = (int) $data['MessageID'];
+
+			if ($memberID == $currentUserID) {
+				$markedMessage = Message::get()->byID($messageID);
+				return $markedMessage;
+			} else {
+				return false;
+			}
 		} else {
-			return false;
+			$this->httpError(404);
 		}
 
 	}

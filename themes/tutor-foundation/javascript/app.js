@@ -9,6 +9,7 @@ $('#start-jr').on('click', function() {
 
 
 var bLazy = new Blazy({
+	selector: 'img,.lazy',
     breakpoints: [{
         width: 420 // max-width
         ,

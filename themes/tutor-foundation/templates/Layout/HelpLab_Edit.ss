@@ -6,11 +6,15 @@
 				<div class="large-8 columns content" data-equalizer-watch>
 					<div class="white-cover"></div>
 					<article>
-					<% if HelpLabSaved %>
-					<p class="alert">Your changes have been saved!</p>
-					<% end_if %>
 						$Breadcrumbs
 						<h1>$Title</h1>
+						<% if HelpLabSaved %>
+
+						<div data-alert class="alert-box success">
+							  Your changes have been saved!
+							  <a href="#" class="close">&times;</a>
+						</div>
+						<% end_if %>
 						$HelpEditProfileForm
 					</article>
 				</div>

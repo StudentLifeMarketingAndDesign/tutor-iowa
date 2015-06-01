@@ -1,5 +1,5 @@
-
-<div class="bg-container">
+ 
+<div class="bg-container lazy" data-src="{$ThemeDir}/images/home-bg.jpg">
 	
 		
 		<div class="HomePageSearchBg">

@@ -45,7 +45,7 @@
                                 <% if $approvedProfileImage %>
                                     $approvedProfileImage
                                 <% else %>
-                                    <img src="{$ThemeDir}/images/stain.png" />
+                                   
                                 <% end_if %>
 
 							</div>
@@ -77,7 +77,7 @@
 				 <div class="side-nav">
 				 	<ul class="button-group stack">
 					    <% if $currentMemberPage.ID == $ID %>
-					        <li><a href="{$Link}edit" class="button info radius">Edit Your Profile</a></li>
+					        <li><a href="{$Link}edit" class="button success radius">Edit Your Profile</a></li>
 					    <% else %>
 					        <li><a href="{$getFeedbackLink}" class="button radius" data-reveal-id="feedback-form-modal">Give Feedback About $FirstName</a></li>
 					    <% end_if %>

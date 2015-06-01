@@ -15,7 +15,7 @@
 						<div class="row">
 							<div class="large-12 columns">
 								<ul class="resource-card-list">
-									<% loop HelpLabs %>
+									<% loop MemberHelpLabs %>
 										<% include ResourceCard %>
 									<% end_loop %>
 								</ul>

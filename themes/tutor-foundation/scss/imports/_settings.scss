@@ -89,7 +89,7 @@ $column-gutter: rem-calc(25);
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // We use these to define default font stacks
- $font-family-sans-serif: "proxima-nova-alt", sans-serif;
+ $font-family-sans-serif: "proxima-nova-alt", "Arial", sans-serif;
 // $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 // $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 
@@ -213,7 +213,7 @@ $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max
 // $include-html-type-classes: $include-html-classes;
 
 // We use these to control header font styles
- $header-font-family: "proxima-nova-alt-condensed", sans-serif;
+ $header-font-family: "proxima-nova-alt-condensed", "Arial Narrow", sans-serif;
 // $header-font-weight: $font-weight-normal;
 // $header-font-style: normal;
 // $header-font-color: $jet;

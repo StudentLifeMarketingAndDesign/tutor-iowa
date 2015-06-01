@@ -23,3 +23,6 @@ pageholder/
 .phpintel
 node_modules/
 .phpintel
+trumbowyg-htmleditor/
+
+silverstripe-lumberjack/

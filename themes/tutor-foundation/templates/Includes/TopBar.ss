@@ -36,17 +36,17 @@
 
 			<ul class="right">
 			<% if $CurrentMember %>
-			<li><a href="inbox" class="<% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>">Inbox <% if $CurrentMember.unreadMessageCount > 0 %><span data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount" class="inboxCount  ">({$CurrentMember.unreadMessageCount})</span><% end_if %></a></li>
+			<li><a href="inbox" id="inbox-link" class="<% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>">Inbox <% if $CurrentMember.unreadMessageCount > 0 %><span data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount" class="inboxCount  ">({$CurrentMember.unreadMessageCount})</span><% end_if %></a></li>
 			<li class="has-dropdown">
 				<a href="$CurrentMemberPage.Link" id="memberInfo" data-id="$CurrentMember.ID">$CurrentMember.FirstName</a>
 				<ul class="dropdown">
 				<% if $currentMemberPage %>
-					<li><a href="edit-profile/">Edit Profile</a></li>
+					<li><a href="{$currentMemberPage.Link("edit")}">Edit Profile</a></li>
 					<li><a href="$currentMemberPage.Link">View Profile</a></li>
 				<% end_if %>
 					
 						
-						<% if HelpLabs %>
+						<% if MemberHelpLabs %>
 						<li><a href="personal-help-labs/">Edit Help Labs</a></li>
 						<% end_if %>
 

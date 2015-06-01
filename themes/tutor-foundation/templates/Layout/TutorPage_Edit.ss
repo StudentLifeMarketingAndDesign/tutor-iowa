@@ -31,6 +31,12 @@
 
                 <div class="white-cover"></div>
                 $Breadcrumbs
+                <% if $Saved %>
+                    <div data-alert class="alert-box success">
+                          Your changes have been saved!
+                          <a href="#" class="close">&times;</a>
+                    </div>
+                <% end_if %>
                 <article>
                     <div class="row">
                         <div class="medium-12 columns">  
@@ -62,8 +68,7 @@
             </div>
             <div class="large-4 columns end" data-equalizer-watch>
                 <div class="side-nav">
-                    <% include RelatedResources %>
-                    <% include SiteAdmin %>
+                <ul class="button-group stack"><li><a href="$Link" class="button radius" target="_blank">View Your Profile</a></li></ul>
                 </div>
             </div>
             <% if $IncludeFormTag %>
