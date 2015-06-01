@@ -11,7 +11,7 @@
 		<ul class="left">
 			<% loop Menu(1) %>
 			<li class="<% if $LinkingMode == "current" || $LinkingMode == "section" %>active<% end_if %><% if $Children %> has-dropdown<% end_if %>">
-				<a href="$Link" title="Go to the $Title.ATT">$MenuTitle</a>
+				<a href="$Link" <% if $URLSegment == "feedback" %>data-reveal-id="{$URLSegment}-form-modal"<% end_if %> title="Go to the $Title.ATT">$MenuTitle</a>
 				<% if $Children %>
 				<ul class="dropdown">
 					<li><label>$MenuTitle</label></li>

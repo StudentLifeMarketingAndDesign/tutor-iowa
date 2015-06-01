@@ -26,7 +26,6 @@
 	<%--See [Requirements](http://doc.silverstripe.org/framework/en/reference/requirements) for loading from controller--%>
 	<link rel="stylesheet" href="$ThemeDir/css/app.css" />
 	<script src="$ThemeDir/bower_components/modernizr/modernizr.js"></script>
-
 </head>
 <body class="$ClassName.ATT $Action.ATT">
 	<% include UiowaBar %>
@@ -37,10 +36,12 @@
 	</header>
 
 	$Layout
+	 <a id="feedback-btn" href="feedback" data-reveal-id="feedback-form-modal"></a>
 
 	<% include Footer %>
 
 	<% include LoginModal %>
+	<% include FeedbackModal %>
 
 	<%--See [Requirements](http://doc.silverstripe.org/framework/en/reference/requirements) for loading from controller--%>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

@@ -9,6 +9,7 @@ img{ }
 .clearfix::before, .clearfix::after{ content: ' '; display: table; }
 .clearfix::after{ clear: both; }
 img{ display: inline-block; vertical-align: middle; }
+textarea{ height: auto; min-height: 50px; }
 .row{ width: 100%; margin-left: auto; margin-right: auto; margin-top: 0px; margin-bottom: 0px; max-width: 77.5rem; }
 .row::before, .row::after{ content: ' '; display: table; }
 .row::after{ clear: both; }
@@ -44,8 +45,10 @@ img{ display: inline-block; vertical-align: middle; }
 form{ margin-top: 0px; margin-right: 0px; margin-bottom: 1rem; margin-left: 0px; }
 label{ font-size: 0.875rem; color: rgb(77, 77, 77); cursor: pointer; display: block; font-weight: normal; line-height: 1.5; margin-bottom: 0px; }
 label.right{ float: none !important; text-align: right; }
-input[type="text"], input[type="password"], input[type="search"]{ -webkit-appearance: none; border-top-left-radius: 0px 0px; border-top-right-radius: 0px 0px; border-bottom-right-radius: 0px 0px; border-bottom-left-radius: 0px 0px; background-color: rgb(255, 255, 255); font-family: inherit; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-color: rgb(204, 204, 204); border-right-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.0976562) 0px 1px 2px inset; color: rgba(0, 0, 0, 0.746094); display: block; font-size: 0.875rem; margin-top: 0px; margin-right: 0px; margin-bottom: 1rem; margin-left: 0px; padding-top: 0.5rem; padding-right: 0.5rem; padding-bottom: 0.5rem; padding-left: 0.5rem; height: 2.3125rem; width: 100%; box-sizing: border-box; }
+input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea{ -webkit-appearance: none; border-top-left-radius: 0px 0px; border-top-right-radius: 0px 0px; border-bottom-right-radius: 0px 0px; border-bottom-left-radius: 0px 0px; background-color: rgb(255, 255, 255); font-family: inherit; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-color: rgb(204, 204, 204); border-right-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.0976562) 0px 1px 2px inset; color: rgba(0, 0, 0, 0.746094); display: block; font-size: 0.875rem; margin-top: 0px; margin-right: 0px; margin-bottom: 1rem; margin-left: 0px; padding-top: 0.5rem; padding-right: 0.5rem; padding-bottom: 0.5rem; padding-left: 0.5rem; height: 2.3125rem; width: 100%; box-sizing: border-box; }
 input[type="submit"]{ -webkit-appearance: none; border-top-left-radius: 0px 0px; border-top-right-radius: 0px 0px; border-bottom-right-radius: 0px 0px; border-bottom-left-radius: 0px 0px; }
+textarea[rows]{ height: auto; }
+textarea{ max-width: 100%; }
  input[type="checkbox"]{ margin-top: 0px; margin-right: 0px; margin-bottom: 1rem; margin-left: 0px; }
 input[type="checkbox"] + label{ display: inline-block; margin-left: 0.5rem; margin-right: 1rem; margin-bottom: 0px; vertical-align: baseline; }
 fieldset{ border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: rgb(221, 221, 221); border-right-color: rgb(221, 221, 221); border-bottom-color: rgb(221, 221, 221); border-left-color: rgb(221, 221, 221); padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 1.125rem; margin-right: 0px; margin-bottom: 1.125rem; margin-left: 0px; }
@@ -318,3 +321,8 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .profile-image{ background-size: cover; }
 .tutor-name{ text-transform: capitalize; }
 article{ position: relative; z-index: 1000; }
+form label span{ color: rgb(240, 65, 36); padding-right: 3px; }
+#feedback-btn{ display: none; }
+@media only screen and (min-width: 64.063em){
+#feedback-btn{ display: block; background-image: url(../images/feedback-btn.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; position: fixed; width: 40px; height: 196px; opacity: 0.7; top: 45%; right: 0px; z-index: 101; background-position: 50% 100%; background-repeat: initial initial; }
+}

@@ -7857,6 +7857,24 @@ form label span {
   color: #f04124;
   padding-right: 3px; }
 
+#feedback-btn {
+  display: none; }
+  @media only screen and (min-width:64.063em) {
+    #feedback-btn {
+      display: block;
+      background: url("../images/feedback-btn.gif") bottom;
+      position: fixed;
+      width: 40px;
+      height: 196px;
+      opacity: 0.7;
+      top: 45%;
+      right: 0;
+      z-index: 101; } }
+
+#feedback-btn:hover {
+  background-position: top;
+  cursor: pointer; }
+
 .b-lazy {
   -webkit-transition: opacity 500ms ease-in-out;
   -moz-transition: opacity 500ms ease-in-out;

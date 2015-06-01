@@ -7,17 +7,18 @@ class FeedbackItem extends DataObject {
    private static $db = array(
    'Feedback' => 'Text',
    'Name' => 'Varchar',
-   'Email' => 'Varchar'
+   'Email' => 'Varchar',
+   'SpecificPage' => 'Boolean'
    );
    
    private static $has_one = array(
-   'TutorPage' => 'TutorPage'
+   'Page' => 'Page'
    );
    
-   private static $searchable_fields = array('ID', 'Feedback', 'Name');
+   private static $searchable_fields = array('ID', 'Feedback', 'Name', 'SpecificPage');
   
-   private static $summary_fields = array('ID', 'Feedback', 'Name');
-   
+   private static $summary_fields = array('PageID', 'Page.Title', 'Feedback', 'Name', 'SpecificPage');
+   //No ID, Email address, Feedback, Specific Page, PageID + Page Title see summary_fields docs
    	            
 
 }
