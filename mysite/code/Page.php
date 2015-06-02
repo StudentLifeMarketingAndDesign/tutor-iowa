@@ -166,14 +166,36 @@ class Page_Controller extends ContentController {
         $memberEmail = '';
        }
 
+
+       if($this->ClassName == "TutorPage"){
+       		$niceName = "tutor";
+       }
+
+       else if($this->ClassName == "HelpLab"){
+       		$niceName = "help lab";
+       }
+       else if($this->ClassName == "SupplementalInstruction"){
+       		$niceName = "supplemental instruction";
+       }
+       else{
+       		$niceName = "page";
+       }
+
+
+       $checkbox = new Checkboxfield('SpecificPage', 'This feedback is related to this '.$niceName.': <strong>'.$this->Title.'</strong>');
+
+       if($this->ClassName == "TutorPage" || $this->ClassName == "HelpLab" || $this->ClassName == "SupplementalInstruction"){
+       		$checkbox->setValue('1');
+       }   	      
+
     
 	  $fields = new FieldList(
 	   
 	   //new LabelField("label", "Enter first and last name if your feedback concerns a specific tutor.  If your feedback does not concern a specific person, ignore these fields."),
 	   new TextField('Name', '<span>*</span>Your Name',$memberName),
        new EmailField('Email', '<span>*</span>Your Email Address', $memberEmail),
-       new Checkboxfield('SpecificPage', 'This feedback is related to this page: <strong>'.$this->Title.'</strong>'),
-	   new TextAreaField('Feedback', '<span>*</span>Your Feedback'),
+       $checkbox,
+       new TextAreaField('Feedback', '<span>*</span>Your Feedback'),
 	   new HiddenField('PageID', 'PageID',  $this->ID)
 	   );
 	   
