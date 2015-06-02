@@ -166,7 +166,23 @@ class Page_Controller extends ContentController {
         $memberEmail = '';
        }
 
-       $checkbox = new Checkboxfield('SpecificPage', 'This feedback is related to this page: <strong>'.$this->Title.'</strong>');
+
+       if($this->ClassName == "TutorPage"){
+       		$niceName = "tutor";
+       }
+
+       else if($this->ClassName == "HelpLab"){
+       		$niceName = "help lab";
+       }
+       else if($this->ClassName == "SupplementalInstruction"){
+       		$niceName = "supplemental instruction";
+       }
+       else{
+       		$niceName = "page";
+       }
+
+
+       $checkbox = new Checkboxfield('SpecificPage', 'This feedback is related to this '.$niceName.': <strong>'.$this->Title.'</strong>');
 
        if($this->ClassName == "TutorPage" || $this->ClassName == "HelpLab" || $this->ClassName == "SupplementalInstruction"){
        		$checkbox->setValue('1');
