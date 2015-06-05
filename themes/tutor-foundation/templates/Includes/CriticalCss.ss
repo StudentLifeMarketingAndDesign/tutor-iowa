@@ -324,5 +324,5 @@ article{ position: relative; z-index: 1000; }
 form label span{ color: rgb(240, 65, 36); padding-right: 3px; }
 #feedback-btn{ display: none; }
 @media only screen and (min-width: 64.063em){
-#feedback-btn{ display: block; background-image: url(../images/feedback-btn.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; position: fixed; width: 40px; height: 196px; opacity: 0.7; top: 45%; right: 0px; z-index: 101; background-position: 50% 100%; background-repeat: initial initial; }
+#feedback-btn{ display: block; background-image: url(../images/feedback-btn.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; position: fixed; width: 50px; height: 196px; top: 45%; right: 0px; z-index: 101; background-position: 50% 100%; background-repeat: initial initial; }
 }

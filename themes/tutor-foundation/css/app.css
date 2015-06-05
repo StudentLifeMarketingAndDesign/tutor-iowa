@@ -7864,9 +7864,8 @@ form label span {
       display: block;
       background: url("../images/feedback-btn.gif") bottom;
       position: fixed;
-      width: 40px;
+      width: 50px;
       height: 196px;
-      opacity: 0.7;
       top: 45%;
       right: 0;
       z-index: 101; } }

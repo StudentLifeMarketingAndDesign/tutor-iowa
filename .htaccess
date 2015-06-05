@@ -27,7 +27,7 @@ ErrorDocument 500 /assets/error-500.html
 </IfModule>
 
 php_flag display_errors 1
-
+php_value max_execution_time 259200
 #php_value error_reporting integer 8191
 #php_value error_reporting 8191
 ### SILVERSTRIPE END ###

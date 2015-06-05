@@ -3,9 +3,10 @@
 		<div class="row">
 			
 			<div class="large-12 columns">
-					
-						$FeedbackForm
-					
+				<% with Page("feedback") %>
+					$Content
+				<% end_with %>
+				$FeedbackForm
 			</div>
 		</div>
 		<a class="close-reveal-modal">&#215;</a>
