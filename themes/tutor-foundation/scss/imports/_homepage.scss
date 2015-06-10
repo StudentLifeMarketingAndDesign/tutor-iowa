@@ -9,13 +9,19 @@
         }
     }
     .tagline {
-        font-size: rem-calc(72);
+
+        font-size: rem-calc(36);
+        line-height: 1em;
+        @media #{$medium-up} {
+            font-size: rem-calc(72);
+            line-height: 0.9em;
+        }
         font-weight: bold;
         display: block;
         text-align: center;
         color: white;
         padding: $column-gutter 0;
-        line-height: 0.9em;
+       
     }
     .HomePageSearchBg {
         margin: 0 auto;

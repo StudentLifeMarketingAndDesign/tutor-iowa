@@ -133,197 +133,167 @@ class Page_Controller extends ContentController {
 	 */
 	private static $allowed_actions = array('logout', 'FeedbackForm');
 
-
-	 public function FeedbackForm(){
-   
-    
+	public function FeedbackForm() {
 
 		$getVars = $this->request->getVars();
-   	 
+
 		//If directed to feedback page from a tutor's page, set the hidden field Tutor ID to have the value of the GET parameter
-	   /* if (isset($getVars['TutorID'])){
-   	  		$tutorID = $getVars['TutorID'];
-   	  		$tutorPage = TutorPage::get()->byID($tutorID);
-   	  		$firstName = $tutorPage->FirstName;
-   	  		$surname = $tutorPage->Surname;
-   	  		   	  		
-   	    }
-   	    else {
-	   	    $tutorID = 0;
-	   	    $firstName = '';
-	   	    $surname = '';
-   	    }*/
-   	    $tutorID = 0;
-   	    $firstName = '';
-   	    $surname = '';
+		/* if (isset($getVars['TutorID'])){
+		$tutorID = $getVars['TutorID'];
+		$tutorPage = TutorPage::get()->byID($tutorID);
+		$firstName = $tutorPage->FirstName;
+		$surname = $tutorPage->Surname;
 
-      if( Member::currentUserID()) {
-        $member = Member::currentUser();
-        $memberName = $member->FirstName.' '.$member->Surname;
-        $memberEmail = $member->Email;
-	     } else{
-        $memberName = '';
-        $memberEmail = '';
-       }
+		}
+		else {
+		$tutorID = 0;
+		$firstName = '';
+		$surname = '';
+		}*/
+		$tutorID = 0;
+		$firstName = '';
+		$surname = '';
 
+		if (Member::currentUserID()) {
+			$member = Member::currentUser();
+			$memberName = $member->FirstName . ' ' . $member->Surname;
+			$memberEmail = $member->Email;
+		} else {
+			$memberName = '';
+			$memberEmail = '';
+		}
 
-       if($this->ClassName == "TutorPage"){
-       		$niceName = "tutor";
-       }
+		if ($this->ClassName == "TutorPage") {
+			$niceName = "tutor";
+		} else if ($this->ClassName == "HelpLab") {
+			$niceName = "help lab";
+		} else if ($this->ClassName == "SupplementalInstruction") {
+			$niceName = "supplemental instruction";
+		} else {
+			$niceName = "page";
+		}
 
-       else if($this->ClassName == "HelpLab"){
-       		$niceName = "help lab";
-       }
-       else if($this->ClassName == "SupplementalInstruction"){
-       		$niceName = "supplemental instruction";
-       }
-       else{
-       		$niceName = "page";
-       }
+		$checkbox = new Checkboxfield('SpecificPage', 'This feedback is related to this ' . $niceName . ': <strong>' . $this->Title . '</strong>');
 
+		if ($this->ClassName == "TutorPage" || $this->ClassName == "HelpLab" || $this->ClassName == "SupplementalInstruction") {
+			$checkbox->setValue('1');
+		}
 
-       $checkbox = new Checkboxfield('SpecificPage', 'This feedback is related to this '.$niceName.': <strong>'.$this->Title.'</strong>');
+		$fields = new FieldList(
 
-       if($this->ClassName == "TutorPage" || $this->ClassName == "HelpLab" || $this->ClassName == "SupplementalInstruction"){
-       		$checkbox->setValue('1');
-       }   	      
+			//new LabelField("label", "Enter first and last name if your feedback concerns a specific tutor.  If your feedback does not concern a specific person, ignore these fields."),
+			new TextField('Name', '<span>*</span>Your Name', $memberName),
+			new EmailField('Email', '<span>*</span>Your Email Address', $memberEmail),
+			$checkbox,
+			new TextAreaField('Feedback', '<span>*</span>Your Feedback'),
+			new HiddenField('PageID', 'PageID', $this->ID)
+		);
 
-    
-	  $fields = new FieldList(
-	   
-	   //new LabelField("label", "Enter first and last name if your feedback concerns a specific tutor.  If your feedback does not concern a specific person, ignore these fields."),
-	   new TextField('Name', '<span>*</span>Your Name',$memberName),
-       new EmailField('Email', '<span>*</span>Your Email Address', $memberEmail),
-       $checkbox,
-       new TextAreaField('Feedback', '<span>*</span>Your Feedback'),
-	   new HiddenField('PageID', 'PageID',  $this->ID)
-	   );
-	   
-	   
-	    $actions = new FieldList(
-	            new FormAction('SubmitFeedbackForm', 'Submit Feedback')
-	     );
-         
-        // Create action
-        $validator = new RequiredFields('Name', 'Email', 'Feedback');
-        
-       //Create form
-        $Form = new Form($this, 'FeedbackForm', $fields, $actions, $validator);
-        
-        //$protector = SpamProtectorManager::update_form($Form, 'Message', null, "Please enter the following words");
-        $Form->enableSpamProtection();
-       
-        
-        
-        return $Form;
+		$actions = new FieldList(
+			new FormAction('SubmitFeedbackForm', 'Submit Feedback')
+		);
 
-	  
-   }
+		// Create action
+		$validator = new RequiredFields('Name', 'Email', 'Feedback');
 
-      public function ClearSession(){
-	    Session::clear('Saved');
-    }
-   
-   public function SubmitFeedbackForm($data, $form){
-   
-	     $adminEmail = Config::inst()->get('Email', 'admin_email');
-	    
-   	    
-   	    $feedback = new FeedbackItem();
-   	    $form->saveInto($feedback);
-   	    
-   	    $feedback->write();
-   	    
-   	   if (($data["FirstName"] != '') && ($data["Surname"] != '')){
-   	    	$firstName = Convert::raw2sql($data['FirstName']);
-   	    	$surname = Convert::raw2sql($data['Surname']);
-	   	    $desiredTutor = TutorPage::get()->filter(array('FirstName' => $firstName,
-	   	    												'Surname' => $surname))->First();
-	   	    //print_r($desiredTutor);	
-	   	    if ($desiredTutor){
+		//Create form
+		$Form = new FoundationForm($this, 'FeedbackForm', $fields, $actions, $validator);
 
-   	  			$feedbackItem = new FeedbackItem();
-   	  			$feedbackItem->TutorID = $desiredTutor->ID;
+		//$protector = SpamProtectorManager::update_form($Form, 'Message', null, "Please enter the following words");
+		$Form->enableSpamProtection();
 
-   	  			$feedbackItem->write();
-		   	    
-	   	    }
-   	    }
-   	    
-   	            	
-    	$subject = "Feedback submitted"; 
-    	
-    	$name = Convert::raw2sql($data['Name']);
-    	$userEmail = Convert::raw2sql($data['Email']);
-    	$feedback = Convert::raw2sql($data['Feedback']);
-    	$tutorFirstName = Convert::raw2sql($data['FirstName']);
-    	$tutorLastName = Convert::raw2sql($data['Surname']);
+		return $Form;
 
-		
-    	$body = '' . $name . " has submitted feedback. " . "<br><br>Feedback:" . $feedback;
-    	
-    	if (($tutorFirstName != '') || ($tutorLastName != '')){
-        	$body .= '<br><br>' . 'Tutor First Name: ' . $tutorFirstName . '<br><br>' . 'Tutor Last Name :' . $tutorLastName;
-    	}
-    	
-    	if (isset($tutorPage))
-    	{
-    	   if ($tutorPage){
-	    	   $tutorID = $tutorPage->ID;        	   
-	    	   $body .= "<br><br> View tutor account <a href='" . Director::absoluteBaseURL() .  "admin/pages/edit/show/" . $tutorID . "'>here</a/><br><br>";
-	       }
-    	}
-    	elseif (isset($desiredTutor)){
-			 if ($desiredTutor){
-		    	$tutorID = $desiredTutor->ID;        	   
-	    	    $body .= "<br><br> View tutor account <a href='" . Director::absoluteBaseURL() .  "admin/pages/edit/show/" . $tutorID . "'>here</a/><br><br>";
-	    	 }
-    	}
-    	else {
-    	   $feedbackPage = FeedbackPage::get()->First();
-    	       if ($feedbackPage){
-	        	   $feedbackID = $feedbackPage->ID;
-		           $body .= "<br><br>All Tutor Feedback can be viewed in the CMS <a href='" . Director::absoluteBaseURL() .  "admin/pages/edit/show/" . $feedbackID . "'>here</a/><br><br>";
-		       }
-    	}
-    	
-    	
-    	//"Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/pages/edit/show/" . $Tutor->ID . "'>here</a/><br><br>
-    
-          	
-    	//$headers = "From: Tutor Iowa";       	
-        //mail($recip->Email, $subject, $body);
-        
-        
-	      	        
-	         $email = new Email(); 
-	         $email->setTo($adminEmail); 
-	         $email->setFrom($userEmail); 
-	         $email->setSubject($subject); 
-	         $email->setBody($body); 
-	         $email->send(); 
-	        
-         
-            	    
-   	    Session::set('Saved', 1);
-   	    
-   	    return $this->redirect($this->Link());   
-   	     
-   	     
-   }
-  
-  function Saved()
-	{
-    	$saved = Session::get('Saved');
-    	if ($saved == 1){
-	        return true;
-        }
-        else {
-	        return false;
-        }
-        
-    }
+	}
 
+	public function ClearSession() {
+		Session::clear('Saved');
+	}
+
+	public function SubmitFeedbackForm($data, $form) {
+
+		$adminEmail = Config::inst()->get('Email', 'admin_email');
+
+		$feedback = new FeedbackItem();
+		$form->saveInto($feedback);
+
+		$feedback->write();
+
+		if (($data["FirstName"] != '') && ($data["Surname"] != '')) {
+			$firstName = Convert::raw2sql($data['FirstName']);
+			$surname = Convert::raw2sql($data['Surname']);
+			$desiredTutor = TutorPage::get()->filter(array('FirstName' => $firstName,
+				'Surname' => $surname))->First();
+			//print_r($desiredTutor);
+			if ($desiredTutor) {
+
+				$feedbackItem = new FeedbackItem();
+				$feedbackItem->TutorID = $desiredTutor->ID;
+
+				$feedbackItem->write();
+
+			}
+		}
+
+		$subject = "Feedback submitted";
+
+		$name = Convert::raw2sql($data['Name']);
+		$userEmail = Convert::raw2sql($data['Email']);
+		$feedback = Convert::raw2sql($data['Feedback']);
+		$tutorFirstName = Convert::raw2sql($data['FirstName']);
+		$tutorLastName = Convert::raw2sql($data['Surname']);
+
+		$body = '' . $name . " has submitted feedback. " . "<br><br>Feedback:" . $feedback;
+
+		if (($tutorFirstName != '') || ($tutorLastName != '')) {
+			$body .= '<br><br>' . 'Tutor First Name: ' . $tutorFirstName . '<br><br>' . 'Tutor Last Name :' . $tutorLastName;
+		}
+
+		if (isset($tutorPage)) {
+			if ($tutorPage) {
+				$tutorID = $tutorPage->ID;
+				$body .= "<br><br> View tutor account <a href='" . Director::absoluteBaseURL() . "admin/pages/edit/show/" . $tutorID . "'>here</a/><br><br>";
+			}
+		} elseif (isset($desiredTutor)) {
+			if ($desiredTutor) {
+				$tutorID = $desiredTutor->ID;
+				$body .= "<br><br> View tutor account <a href='" . Director::absoluteBaseURL() . "admin/pages/edit/show/" . $tutorID . "'>here</a/><br><br>";
+			}
+		} else {
+			$feedbackPage = FeedbackPage::get()->First();
+			if ($feedbackPage) {
+				$feedbackID = $feedbackPage->ID;
+				$body .= "<br><br>All Tutor Feedback can be viewed in the CMS <a href='" . Director::absoluteBaseURL() . "admin/pages/edit/show/" . $feedbackID . "'>here</a/><br><br>";
+			}
+		}
+
+		//"Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/pages/edit/show/" . $Tutor->ID . "'>here</a/><br><br>
+
+		//$headers = "From: Tutor Iowa";
+		//mail($recip->Email, $subject, $body);
+
+		$email = new Email();
+		$email->setTo($adminEmail);
+		$email->setFrom($userEmail);
+		$email->setSubject($subject);
+		$email->setBody($body);
+		$email->send();
+
+		Session::set('Saved', 1);
+
+		return $this->redirect($this->Link());
+
+	}
+
+	function Saved() {
+		$saved = Session::get('Saved');
+		if ($saved == 1) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
 
 	public function currentMemberPage() {
 		$currentMember = Member::currentUser();
