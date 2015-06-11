@@ -133,7 +133,7 @@ class TutorPage extends Page {
 		$gridFieldConfigFeedbackItems = GridFieldConfig_RecordEditor::create();
 		$gridfield = new GridField("FeedbackItem", "Feedback Items", $this->FeedbackItems(), $gridFieldConfigFeedbackItems);
 		$fields->addFieldToTab('Root.FeedbackItems', $gridfield);
-
+		$this->changeParent();
 		return $fields;
 
 	}
@@ -165,9 +165,25 @@ class TutorPage extends Page {
 	private function getEmails() {
 		return MemberManagement::get();
 	}
+
+
 	private function changeParent() {
+			if ($this->EligibleToTutor) {
+			
+				$tutorParent = TutorHolder::get()->filter(array('Title' => 'Private Tutors'))->first();
+				$this->setParent($tutorParent);
+			
+		    } elseif (!($this->EligibleToTutor)) {
+			    $tutorParent = TutorHolder::get()->filter(array('Title' => 'Ineligible Tutors'))->first();
+			    $this->setParent($tutorParent);
+			    
+		     }
+			
 
 	}
+
+
+
 
 	protected function onBeforeWrite() {
 
@@ -185,7 +201,10 @@ class TutorPage extends Page {
 		parent::onBeforeWrite();
 	}
 	public function onBeforePublish() {
-		$this->changeParent();
+	
+			
+			 
+
 
 	}
 	public function onAfterPublish() {
@@ -211,6 +230,10 @@ class TutorPage extends Page {
 		if (SS_ENVIRONMENT_TYPE == "live") {
 			$email->send();
 		}
+
+		$this->changeParent();
+
+
 
 	}
 
