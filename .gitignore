@@ -24,5 +24,7 @@ pageholder/
 node_modules/
 .phpintel
 trumbowyg-htmleditor/
-
+betterbuttons/
 silverstripe-lumberjack/
+lumberjack/
+gridfield-bulk-editing-tools
