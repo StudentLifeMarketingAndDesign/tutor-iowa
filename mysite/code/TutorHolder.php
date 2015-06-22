@@ -28,6 +28,13 @@ class TutorHolder extends Page {
 
 		$tutorFieldConfig = GridFieldConfig_Lumberjack::create();
 		$tutorFieldConfig->addComponent(new GridFieldBulkManager());
+		$tutorFieldConfig->getComponentByType('GridFieldBulkManager')->removeBulkAction('bulkEdit');
+		$tutorFieldConfig->getComponentByType('GridFieldBulkManager')->removeBulkAction('delete');
+		$tutorFieldConfig->getComponentByType('GridFieldBulkManager')->removeBulkAction('unLink');
+		$tutorFieldConfig->getComponentByType('GridFieldBulkManager')->addBulkAction('publish', 'Publish', 'GridFieldBulkActionPublishHandler',null);
+		$tutorFieldConfig->getComponentByType('GridFieldBulkManager')->addBulkAction('unPublish', 'Unpublish', 'GridFieldBulkActionUnpublishHandler',null);
+		$tutorFieldConfig->getComponentByType('GridFieldBulkManager')->addBulkAction('markIneligible', 'Mark as Ineligible', 'GridFieldBulkActionMarkIneligibleHandler',null);
+		
 
 		$gridField = new GridField(
 			"ChildPages",

@@ -62,8 +62,8 @@ class TutorPageExtension extends DataExtension {
 	public function onBeforePublish() {
 		if ($this->owner->EligibleToTutor) {
 			$tutorParent = TutorHolder::get()->filter(array('Title' => 'Private Tutors'))->first();
-		}
-		$this->owner->setParent($tutorParent);
+			$this->owner->setParent($tutorParent);
+		}		
 	}
 
 }
