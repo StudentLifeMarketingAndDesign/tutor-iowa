@@ -28,6 +28,7 @@ class TutorHolder extends Page {
 
 		$tutorFieldConfig = GridFieldConfig_Lumberjack::create();
 		$tutorFieldConfig->addComponent(new GridFieldBulkManager());
+		$tutorFieldConfig->getComponentByType('GridFieldPaginator')->setItemsPerPage(50);
 		$tutorFieldConfig->getComponentByType('GridFieldBulkManager')->removeBulkAction('bulkEdit');
 		$tutorFieldConfig->getComponentByType('GridFieldBulkManager')->removeBulkAction('delete');
 		$tutorFieldConfig->getComponentByType('GridFieldBulkManager')->removeBulkAction('unLink');
