@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "df050b6c6ce05da64bdbeeff781887ec",
+    "hash": "a996f067a4cd0c373fdfbfc729809e8b",
     "packages": [
         {
             "name": "briceburg/silverstripe-pageholder",
@@ -58,6 +58,48 @@
             "time": "2014-12-05 19:44:47"
         },
         {
+            "name": "colymba/gridfield-bulk-editing-tools",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/colymba/GridFieldBulkEditingTools.git",
+                "reference": "f1035f06a3703ad3ad6c2f978e157d9e13755500"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/colymba/GridFieldBulkEditingTools/zipball/f1035f06a3703ad3ad6c2f978e157d9e13755500",
+                "reference": "f1035f06a3703ad3ad6c2f978e157d9e13755500",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": ">=3.1"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD Simplified"
+            ],
+            "authors": [
+                {
+                    "name": "Thierry Francois",
+                    "homepage": "http://colymba.com"
+                },
+                {
+                    "name": "GitHub contributors",
+                    "homepage": "https://github.com/colymba/GridFieldBulkEditingTools/contributors"
+                }
+            ],
+            "description": "SilverStripe 3 GridField component to upload images and edit records in bulk",
+            "homepage": "https://github.com/colymba/GridFieldBulkEditingTools",
+            "keywords": [
+                "Image upload",
+                "bulk upload",
+                "gridfield bulk upload",
+                "silverstripe"
+            ],
+            "time": "2015-03-15 17:13:57"
+        },
+        {
             "name": "composer/installers",
             "version": "dev-master",
             "source": {
@@ -67,7 +109,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/a66f93a541c2214b4865161426b077e2b7d951de",
+                "url": "https://api.github.com/repos/composer/installers/zipball/9e5aafc2ab85aed4a38a839283bd5eb803995402",
                 "reference": "a66f93a541c2214b4865161426b077e2b7d951de",
                 "shasum": ""
             },
@@ -201,12 +243,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "54748377908a31c6cfe2ec3cfbb25a58b4ad0c0b"
+                "reference": "13f2e61e8db79567d08b9c886bff7e6c0eb8aec6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/54748377908a31c6cfe2ec3cfbb25a58b4ad0c0b",
-                "reference": "54748377908a31c6cfe2ec3cfbb25a58b4ad0c0b",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/13f2e61e8db79567d08b9c886bff7e6c0eb8aec6",
+                "reference": "13f2e61e8db79567d08b9c886bff7e6c0eb8aec6",
                 "shasum": ""
             },
             "require": {
@@ -225,7 +267,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2015-05-29 14:55:18"
+            "time": "2015-06-09 14:29:57"
         },
         {
             "name": "md/division-bar",
@@ -233,12 +275,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar.git",
-                "reference": "1cf03adb6bc4005d2872065e86a8298d706443cd"
+                "reference": "0728f204b28e5d3e6d06abede903108454eb455d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/1cf03adb6bc4005d2872065e86a8298d706443cd",
-                "reference": "1cf03adb6bc4005d2872065e86a8298d706443cd",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-bar/zipball/0728f204b28e5d3e6d06abede903108454eb455d",
+                "reference": "0728f204b28e5d3e6d06abede903108454eb455d",
                 "shasum": ""
             },
             "require": {
@@ -257,38 +299,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/division-bar/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/division-bar/issues"
             },
-            "time": "2015-05-06 20:09:33"
-        },
-        {
-            "name": "micmania1/silverstripe-lumberjack",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/micmania1/silverstripe-lumberjack.git",
-                "reference": "3c5de75dc02b1bf88f5435af0d908791ab52aaa5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/micmania1/silverstripe-lumberjack/zipball/3c5de75dc02b1bf88f5435af0d908791ab52aaa5",
-                "reference": "3c5de75dc02b1bf88f5435af0d908791ab52aaa5",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1"
-            },
-            "type": "silverstripe-module",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Strong",
-                    "email": "mstrong@silverstripe.org"
-                }
-            ],
-            "description": "A module to make managing pages in a GridField easy without losing any of the functionality that you're used to in the CMS.",
-            "time": "2015-01-29 09:19:51"
+            "time": "2015-06-04 14:15:02"
         },
         {
             "name": "micschk/silverstripe-excludechildren",
@@ -504,6 +515,39 @@
             "time": "2015-01-14 22:56:46"
         },
         {
+            "name": "silverstripe/lumberjack",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-lumberjack.git",
+                "reference": "24d0816412ae04188a6eede10908c4fdf9309135"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-lumberjack/zipball/24d0816412ae04188a6eede10908c4fdf9309135",
+                "reference": "24d0816412ae04188a6eede10908c4fdf9309135",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Strong",
+                    "email": "mstrong@silverstripe.org"
+                }
+            ],
+            "description": "A module to make managing pages in a GridField easy without losing any of the functionality that you're used to in the CMS.",
+            "support": {
+                "source": "https://github.com/silverstripe/silverstripe-lumberjack/tree/master"
+            },
+            "time": "2015-02-05 01:58:46"
+        },
+        {
             "name": "silverstripe/mathspamprotection",
             "version": "dev-master",
             "source": {
@@ -656,6 +700,42 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-tagfield/tree/master"
             },
             "time": "2015-02-22 05:33:19"
+        },
+        {
+            "name": "unclecheese/betterbuttons",
+            "version": "1.2.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unclecheese/silverstripe-gridfield-betterbuttons.git",
+                "reference": "b78f3c7449651ba2acefe4000f161e17384fcad3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/b78f3c7449651ba2acefe4000f161e17384fcad3",
+                "reference": "b78f3c7449651ba2acefe4000f161e17384fcad3",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Uncle Cheese",
+                    "email": "unclecheese@leftandmain.com"
+                }
+            ],
+            "description": "Adds new form actions and buttons to GridField detail form for usability enhancements.",
+            "keywords": [
+                "buttons",
+                "gridfield",
+                "silverstripe"
+            ],
+            "time": "2015-02-09 02:07:59"
         }
     ],
     "packages-dev": [],
@@ -665,7 +745,7 @@
         "silverstripe/mathspamprotection": 20,
         "rywa/silverstripe-foundation-forms": 20,
         "silverstripe/tagfield": 20,
-        "micmania1/silverstripe-lumberjack": 20,
+        "silverstripe/lumberjack": 20,
         "i-lateral/silverstripe-trumbowyg-htmleditor": 20
     },
     "prefer-stable": false,

@@ -14,8 +14,10 @@
 		"rywa/silverstripe-foundation-forms": "dev-master",
 		"briceburg/silverstripe-pageholder": "*",
 		"silverstripe/tagfield" : "dev-master",
-		"micmania1/silverstripe-lumberjack": "dev-master",
-		"i-lateral/silverstripe-trumbowyg-htmleditor": "dev-master"
+		"silverstripe/lumberjack": "dev-master",
+		"i-lateral/silverstripe-trumbowyg-htmleditor": "dev-master",
+		"colymba/gridfield-bulk-editing-tools": "*",
+		"unclecheese/betterbuttons": "1.2.*"
 	},
 	"config": {
 		"process-timeout": 600	
@@ -33,6 +35,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-tagfield"
+        },
+        {
+        	"type" : "vcs",
+        	"url" : "https://github.com/silverstripe/silverstripe-lumberjack"
         }
     ]
 }

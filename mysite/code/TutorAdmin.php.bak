@@ -1,0 +1,56 @@
+<?php
+class TutorAdmin extends ModelAdmin {
+
+	private static $managed_models = array(
+		'TutorPage',
+	);
+	private static $url_segment = 'tutors';
+	private static $menu_title = 'Tutors';
+	// ...
+	public function getEditForm($id = null, $fields = null) {
+		$list = TutorPage::get();
+		$exportButton = new GridFieldExportButton('before');
+		$exportButton->setExportColumns($this->getExportFields());
+
+		$fieldConfig = GridFieldConfig_RecordEditor::create($this->stat('page_length'))
+			->addComponent($exportButton)
+			->removeComponentsByType('GridFieldFilterHeader')
+			->addComponents(new GridFieldPrintButton('before'));
+
+		$fieldConfig->addComponent(new GridFieldBulkManager());
+		$fieldConfig->addComponent(new GridFieldSiteTreeState());
+		//$fieldConfig->addComponent(new GridFieldFilterHeader(), 'GridFieldDataColumns');
+		//$fieldConfig->addComponent(new GridFieldSiteTreeAddNewButton('buttons-before-left'));
+		$fieldConfig->addComponent(new GridFieldSiteTreeEditButton());
+
+		$listField = GridField::create(
+			$this->sanitiseClassName($this->modelClass),
+			false,
+			$list,
+			$fieldConfig
+		);
+
+		// Validation
+		if (singleton($this->modelClass)->hasMethod('getCMSValidator')) {
+			$detailValidator = singleton($this->modelClass)->getCMSValidator();
+			$listField->getConfig()->getComponentByType('GridFieldDetailForm')->setValidator($detailValidator);
+		}
+
+		$form = CMSForm::create(
+			$this,
+			'EditForm',
+			new FieldList($listField),
+			new FieldList()
+		)->setHTMLID('Form_EditForm');
+		$form->setResponseNegotiator($this->getResponseNegotiator());
+		$form->addExtraClass('cms-edit-form cms-panel-padded center');
+		$form->setTemplate($this->getTemplatesWithSuffix('_EditForm'));
+		$editFormAction = Controller::join_links($this->Link($this->sanitiseClassName($this->modelClass)), 'EditForm');
+		$form->setFormAction($editFormAction);
+		$form->setAttribute('data-pjax-fragment', 'CurrentForm');
+
+		$this->extend('updateEditForm', $form);
+
+		return $form;
+	}
+}

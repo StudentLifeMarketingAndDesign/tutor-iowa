@@ -22,6 +22,7 @@ class TutorPage extends Page {
 		'GPA' => 'Text',
 		'EligibleToTutor' => 'Boolean',
 		'PublishFlag' => 'Boolean',
+		'ApprovalStatus' => "Enum('Provisional, Active, Inactive, Ineligible')",
 	);
 
 	private static $has_one = array(
@@ -48,7 +49,7 @@ class TutorPage extends Page {
 		'EligibleToTutor' => '1',
 	);
 
-	private static $show_in_sitetree = true;
+	private static $show_in_sitetree = false;
 	private static $default_sort = 'Surname ASC';
 
 	private static $summary_fields = array(
@@ -56,9 +57,16 @@ class TutorPage extends Page {
 		'Surname' => 'Last Name',
 		'Major' => 'Major',
 		'Email' => 'Email',
-		'Status' => 'Status',
+		'Parent.Title' => 'Approval Status',
+		//'ApprovalStatus' => 'Approval Status',
 	);
-
+	private static $searchable_fields = array(
+		'FirstName',
+		'Surname',
+		'Major',
+		'Email',
+		'Parent.Title',
+	);
 	/**
 	 * Main Function for managing Pending, Approved, and Unapproved Images. Called by InboxController::processPendingImage()
 	 * to process approval/unapproval of TutorPage images by TutorIowa Administrators.
@@ -92,7 +100,16 @@ class TutorPage extends Page {
 		$response = array("ProcessCode" => $processCode, "Success" => $success, "Written" => $written);
 		return $response;
 	}
+	/*public function canView($member = null) {
+	parent::canView();
 
+	if ($this->ApprovalStatus == "Active") {
+	return true;
+	} else {
+	return Permission::check('ADMIN');
+	}
+
+	}*/
 	/**
 	 * The following 7 functions are from the previous iteration of TutorIowa, and may no longer be neccessary.
 	 */
@@ -113,6 +130,11 @@ class TutorPage extends Page {
 		$fields->addFieldToTab('Root.Main', new TextField("Surname", "Last name of tutor"));
 		$fields->addFieldToTab('Root.Main', new TextField("PhoneNo", "Phone Number"));
 		$fields->addFieldToTab('Root.Main', new TextField("Email"));
+
+		//$approvalStatusField = DropdownField::create('ApprovalStatus', 'ApprovalStatus', singleton('TutorPage')->dbObject('ApprovalStatus')->enumValues());
+
+		//$fields->addFieldToTab('Root.Main', $approvalStatusField);
+		$fields->addFieldToTab('Root.Main', new CheckboxField('EligibleToTutor', 'Is this tutor eligible?', true));
 		$fields->addFieldToTab('Root.Main', $tagField);
 		$fields->addFieldToTab('Root.Main', new TextAreaField("Content", "Biography"));
 		$fields->addFieldToTab('Root.Main', new TextAreaField("Hours", "Availability"));
@@ -126,7 +148,6 @@ class TutorPage extends Page {
 		$fields->addFieldToTab('Root.Main', new TextField("GPA", "GPA"));
 		$fields->addFieldToTab('Root.Main', new TextField("Major"));
 		$fields->addFieldToTab('Root.Main', new TextField("AcademicStatus", "Academic Status"));
-		$fields->addFieldToTab('Root.Main', new CheckboxField('EligibleToTutor', 'Is this tutor eligible?', true));
 
 		$fields->addFieldToTab('Root.Advanced', new DropdownField("MemberID", "Associated User", $membersDropdownSource));
 
@@ -164,54 +185,6 @@ class TutorPage extends Page {
 
 	private function getEmails() {
 		return MemberManagement::get();
-	}
-	private function changeParent() {
-
-	}
-
-	protected function onBeforeWrite() {
-
-		if ($this->EligibleToTutor) {
-			if ($this->isPublished()) {
-				$tutorParent = TutorHolder::get()->filter(array('Title' => 'Private Tutors'))->first();
-			} else {
-				$tutorParent = TutorHolder::get()->filter(array('Title' => 'Provisional Tutors'))->first();
-			}
-		} elseif (!($this->EligibleToTutor)) {
-			$tutorParent = TutorHolder::get()->filter(array('Title' => 'Ineligible Tutors'))->first();
-		}
-		$this->setParent($tutorParent);
-
-		parent::onBeforeWrite();
-	}
-	public function onBeforePublish() {
-		$this->changeParent();
-
-	}
-	public function onAfterPublish() {
-		$adminEmail = Config::inst()->get('Email', 'admin_email');
-
-		$approved = $this->Approved;
-
-		$subject = "TutorIowa approval confirmation";
-		$body = "Congratulations, you have been approved as a tutor on Tutor Iowa. You now have full access to edit your profile. Please check out <a href='http://tutor.uiowa.edu/for-tutors'>For Tutors</a> to learn how to effectively utilize tags and efficiently use the website, or refer to the <a href='http://www.youtube.com/watch?v=oQyJIiGs7qU&feature=youtu.be'>Private Tutor Training video</a><br>
-     	If you have any questions please email tutoriowa@uiowa.edu.<br>
-     	Best,<br>
-     	The Tutor Iowa Team";
-
-		$emailHolder = EmailHolder::get()->first();
-		$body = $emailHolder->RegistrationConfirm;
-
-		$email = new Email();
-		$email->setTo($this->Email);
-		$email->setFrom($adminEmail);
-		$email->setSubject($subject);
-		$email->setBody($body);
-
-		if (SS_ENVIRONMENT_TYPE == "live") {
-			$email->send();
-		}
-
 	}
 
 }
