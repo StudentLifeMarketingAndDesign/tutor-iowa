@@ -321,17 +321,29 @@ class TutorPage_Controller extends Page_Controller {
 
 			$tagsLabel = '<p>Read the <a href="for-tutors/">For Tutors page</a> to learn more about tags and promoting yourself on Tutor Iowa!</p>';
 			$changePassLabel = '<p><a href="Security/ChangePassword" class="button small radius">Reset your password</a></p>';
+			$HTMLEditorButtons = array(
+				'btnGrp-design',
+				'btnGrp-lists',
+			);
+
+			$bioField = new TrumbowygHTMLEditorField('Content', 'Biography');
+			$bioField->setButtons($HTMLEditorButtons);
+
+			$availabilityField = new TrumbowygHTMLEditorField('Hours', 'Availability');
+			$availabilityField->setButtons($HTMLEditorButtons);
+
 			$fields = new FieldList(
 				/* UNCOMMENT TO ENABLE COVER/PROFILE IMAGE EDITING */
 				//$pendingCoverImage,
 				//$pendingProfileImage,
 				/* UNCOMMENT TO ENABLE COVER/PROFILE IMAGE EDITING */
+
 				new TextField('FirstName', '<span>*</span> First Name'),
 				new TextField('Surname', '<span>*</span> Last Name'),
 				new EmailField('Email', '<span>*</span> Email Address'),
 				new LiteralField('ChangePassword', $changePassLabel),
-				new TrumbowygHTMLEditorField('Content', 'Biography'),
-				new TrumbowygHTMLEditorField('Hours', 'Availability'),
+				$bioField,
+				$availabilityField,
 				new DateField('StartDate', 'Date you would like to start tutoring'),
 				new DateField('EndDate', 'Date you expect to stop tutoring'),
 				new TextField('PhoneNo', 'Phone number'),
