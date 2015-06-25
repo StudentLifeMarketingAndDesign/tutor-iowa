@@ -22,7 +22,6 @@ textarea{ height: auto; min-height: 50px; }
 @media only screen{
  .columns{ position: relative; padding-left: 0.78125rem; padding-right: 0.78125rem; float: left; }
 .small-6{ width: 50%; }
-.small-9{ width: 75%; }
 .small-12{ width: 100%; }
 }
 @media only screen and (min-width: 40.063em){
@@ -35,6 +34,7 @@ textarea{ height: auto; min-height: 50px; }
 .large-3{ width: 25%; }
 .large-4{ width: 33.3333333333%; }
 .large-5{ width: 41.6666666667%; }
+.large-6{ width: 50%; }
 .large-9{ width: 75%; }
 .large-12{ width: 100%; }
 }
@@ -229,9 +229,13 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .side-nav h3 span{ padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; }
 .side-nav .announcements.small .announcement-card{ padding-top: 10px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; }
 .side-nav .resource-card-list.small .resource-card{ padding-top: 10px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; }
+.footer .logo-container{ padding-bottom: 10px; }
 .footer p, .footer li{ font-size: 0.75rem; }
 .footer a{ color: rgb(238, 238, 238); }
-.footer-logo img{ display: block; margin-top: -20px; max-width: 300px; }
+.footer-logo img{ max-width: 300px; }
+@media only screen and (min-width: 40.063em){
+.footer-logo.arc-logo img{ max-width: 75px; }
+}
 .border-list{ list-style-type: none; list-style-position: initial; list-style-image: initial; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; }
 @media only screen and (min-width: 40.063em){
 .border-list{ border-left-width: 1px; border-left-style: solid; border-left-color: rgb(0, 0, 0); }

@@ -105,12 +105,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "a66f93a541c2214b4865161426b077e2b7d951de"
+                "reference": "e420b539e8d7b38b7c6f3f99dccc0386bd3dfe41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/9e5aafc2ab85aed4a38a839283bd5eb803995402",
-                "reference": "a66f93a541c2214b4865161426b077e2b7d951de",
+                "url": "https://api.github.com/repos/composer/installers/zipball/e420b539e8d7b38b7c6f3f99dccc0386bd3dfe41",
+                "reference": "e420b539e8d7b38b7c6f3f99dccc0386bd3dfe41",
                 "shasum": ""
             },
             "replace": {
@@ -192,7 +192,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2015-04-21 19:54:55"
+            "time": "2015-06-13 15:30:38"
         },
         {
             "name": "i-lateral/silverstripe-trumbowyg-htmleditor",
@@ -243,12 +243,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events.git",
-                "reference": "13f2e61e8db79567d08b9c886bff7e6c0eb8aec6"
+                "reference": "b865276c063b6310b03b707e8eba1fa170b61260"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/13f2e61e8db79567d08b9c886bff7e6c0eb8aec6",
-                "reference": "13f2e61e8db79567d08b9c886bff7e6c0eb8aec6",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/ac-json-events/zipball/b865276c063b6310b03b707e8eba1fa170b61260",
+                "reference": "b865276c063b6310b03b707e8eba1fa170b61260",
                 "shasum": ""
             },
             "require": {
@@ -267,7 +267,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
-            "time": "2015-06-09 14:29:57"
+            "time": "2015-06-19 16:52:06"
         },
         {
             "name": "md/division-bar",
@@ -553,12 +553,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-mathspamprotection.git",
-                "reference": "5fcbe627421aa0122efc96c3be898e1ee2d5eccd"
+                "reference": "c7b0e8741ecf08b5dd80f8f818c65a1b79ac1f1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-mathspamprotection/zipball/5fcbe627421aa0122efc96c3be898e1ee2d5eccd",
-                "reference": "5fcbe627421aa0122efc96c3be898e1ee2d5eccd",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-mathspamprotection/zipball/c7b0e8741ecf08b5dd80f8f818c65a1b79ac1f1f",
+                "reference": "c7b0e8741ecf08b5dd80f8f818c65a1b79ac1f1f",
                 "shasum": ""
             },
             "require": {
@@ -578,7 +578,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2015-01-27 20:11:23"
+            "time": "2015-06-13 15:11:06"
         },
         {
             "name": "silverstripe/recaptcha",

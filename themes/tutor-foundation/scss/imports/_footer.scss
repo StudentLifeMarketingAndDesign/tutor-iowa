@@ -12,6 +12,9 @@
 	position: relative;
 	line-height: 1.6;
 }
+.footer .logo-container{
+	padding-bottom: 10px;
+}
 .footer h1, .footer h2, .footer h3, .footer h4, .footer h5 {
 	color: #eee;
 	font-size: rem-calc(15);
@@ -26,10 +29,25 @@
 .footer a {
 	color: #eee;
 }
-.footer-logo img {
-	display: block;
-	margin-top: -20px;
-	max-width: 300px;
+.footer{
+	.group-summary a{
+		text-decoration: underline;
+	}
+}
+.footer-logo {
+
+	img {
+		//display: block;
+		//margin-top: -20px;
+		max-width: 300px;
+		padding-bottom: 10px;
+	}
+	&.arc-logo img{
+		max-width: 50px;
+		@media #{$medium-up} {
+			max-width: 75px;
+		}
+	}
 }
 .border-list {
 	list-style: none;

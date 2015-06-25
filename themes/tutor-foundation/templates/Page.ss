@@ -36,7 +36,7 @@
 	</header>
 
 	$Layout
-	 <a id="feedback-btn" href="feedback" data-reveal-id="feedback-form-modal"></a>
+	 <a id="feedback-btn" href="feedback" data-reveal-id="feedback-form-modal"><span class="visuallyhidden">Feedback</span></a>
 
 	<% include Footer %>
 

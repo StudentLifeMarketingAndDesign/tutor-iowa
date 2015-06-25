@@ -7205,6 +7205,9 @@ ul.side-nav {
   position: relative;
   line-height: 1.6; }
 
+.footer .logo-container {
+  padding-bottom: 10px; }
+
 .footer h1, .footer h2, .footer h3, .footer h4, .footer h5 {
   color: #eee;
   font-size: 0.9375rem;
@@ -7219,10 +7222,17 @@ ul.side-nav {
 .footer a {
   color: #eee; }
 
+.footer .group-summary a {
+  text-decoration: underline; }
+
 .footer-logo img {
-  display: block;
-  margin-top: -20px;
-  max-width: 300px; }
+  max-width: 300px;
+  padding-bottom: 10px; }
+.footer-logo.arc-logo img {
+  max-width: 50px; }
+  @media only screen and (min-width:40.063em) {
+    .footer-logo.arc-logo img {
+      max-width: 75px; } }
 
 .border-list {
   list-style: none;
