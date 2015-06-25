@@ -1,5 +1,7 @@
 @import "settings";
 @import "foundation";
+@import "../../division-bar/scss/_uiowa-bar-foundation.scss";
+@import "footer";
 
 // Or selectively include components
 // @import
@@ -83,10 +85,12 @@ h1, h2 {
     //margin-top: -100px;
     background: $body-bg;
     //border: 5px dashed #000;
-    .details p, ul {
-        font-size: rem-calc(26);
+    .details p,.details ul {
+        @media #{$large-up} {
+            font-size: rem-calc(26);
+        }
     }
     @media #{$large-up} {
-        padding: $column-gutter;
+        padding-top: $column-gutter;
     }
 }

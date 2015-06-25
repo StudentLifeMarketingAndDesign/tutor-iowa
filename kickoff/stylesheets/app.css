@@ -9439,12 +9439,697 @@ th.hide-for-touch {
     display: none !important;
   }
 }
-/* line 41, ../scss/app.scss */
+/* Resets */
+/* line 2, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-topbar input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/* line 9, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-topbar input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* 2 */
+  box-sizing: border-box;
+}
+
+/* line 18, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-topbar *, .division-topbar *:before, .division-topbar *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 24, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-topbar img {
+  vertical-align: middle;
+  height: auto;
+  max-width: 100%;
+}
+
+/* line 30, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-topbar a {
+  text-decoration: none;
+}
+
+/* line 34, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.lt-ie9 .division-topbar a {
+  width: 240px;
+}
+
+/* line 38, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+
+/* line 43, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 47, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.clearfix {
+  *zoom: 1;
+}
+
+/* ====================================================== */
+/* line 52, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-topbar {
+  background: #222;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  position: relative;
+}
+/* line 58, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-topbar .division-column {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  float: right;
+  float: left;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 58, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .division-topbar .division-column {
+    padding-left: 0;
+    padding-right: 0;
+    float: left;
+  }
+}
+
+/* line 67, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.uiowa, .directory-toggle {
+  line-height: 42px;
+}
+
+/* line 71, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.uiowa {
+  display: block;
+  float: left;
+  opacity: .7;
+  width: 177px;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 71, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .uiowa {
+    margin-left: 0;
+  }
+}
+
+/* line 81, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.uiowa:hover {
+  opacity: 1;
+}
+
+/* Toggles
+========================================================= */
+/* line 88, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.directory-toggle, .search-toggle {
+  border-left: 1px solid #000;
+  -webkit-box-shadow: -1px 0 0 rgba(255, 255, 255, 0.1);
+  -moz-box-shadow: -1px 0 0 rgba(255, 255, 255, 0.1);
+  box-shadow: -1px 0 0 rgba(255, 255, 255, 0.1);
+  display: block;
+  float: right;
+  height: 40px;
+  text-decoration: none;
+  width: 40px;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 88, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .directory-toggle, .search-toggle {
+    border-left: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+/* line 106, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.directory-toggle:hover, .search-toggle:hover {
+  background-color: #111;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.5), -1px 0 0 rgba(255, 255, 255, 0.1);
+  -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.5), -1px 0 0 rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.5), -1px 0 0 rgba(255, 255, 255, 0.1);
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 106, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .directory-toggle:hover, .search-toggle:hover {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background: none;
+  }
+}
+
+/* line 121, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.directory-toggle:after {
+  left: 14px;
+  content: '';
+  border-style: solid;
+  border-width: 8px 6px 0 6px;
+  border-color: #666 transparent transparent transparent;
+  display: inline-block;
+  height: 0px;
+  position: relative;
+  text-decoration: none;
+  width: 0px;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 121, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .directory-toggle:after {
+    left: 4px;
+  }
+}
+/* line 136, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.directory-toggle.active:after {
+  /* flips the arrow upside down when clicked */
+  border-width: 0 5px 6px 5px;
+  border-color: transparent transparent #777 transparent;
+}
+/* line 141, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.directory-toggle img {
+  display: none;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 119, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .directory-toggle {
+    float: right;
+    width: 260px;
+    padding-left: 10px;
+  }
+  /* line 149, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .directory-toggle:hover {
+    text-decoration: none;
+  }
+  /* line 152, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .directory-toggle img {
+    display: inline-block;
+  }
+}
+@media only screen and (min-width: 90.0625em) {
+  /* line 119, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .directory-toggle {
+    padding-left: 19px;
+  }
+}
+
+/* line 165, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.search-toggle {
+  background: url(../../../division-bar/images/division-bar/magnifier-18.png) no-repeat 10px 10px;
+  background-size: 52%;
+  padding: 10px;
+  text-indent: -999em;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 165, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .search-toggle {
+    display: none;
+  }
+}
+
+/* Search
+========================================================= */
+/* line 177, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-search {
+  position: relative;
+  border-top: 1px solid #000;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  display: none;
+  position: relative;
+  left: 0;
+  bottom: 0;
+}
+/* line 187, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-search form {
+  padding: 10px;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 177, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .division-search {
+    border-top: none;
+    display: block !important;
+    position: absolute;
+    right: 13px;
+    bottom: 7px;
+    left: auto;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  /* line 200, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .division-search form {
+    padding: 0;
+  }
+}
+/* line 204, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-search label {
+  /* visually hides the label */
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+/* line 215, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-search form {
+  margin: 0;
+  position: relative;
+}
+/* line 219, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-search input[type="search"].division-search-input {
+  -webkit-appearance: textfield;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #000;
+  color: #222;
+  display: inline-block;
+  font-size: 13px;
+  font-family: arial, verdana, sans-serif;
+  line-height: normal;
+  padding: 5px 0 4px 5px;
+  position: relative;
+  vertical-align: middle;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 4px;
+  margin-bottom: 0;
+  height: auto;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  -webkit-transition: width 0.2s ease, background-color 0.2s ease;
+  -moz-transition: width 0.2s ease, background-color 0.2s ease;
+  transition: width 0.2s ease, background-color 0.2s ease;
+}
+/* line 244, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-search input[type="search"].division-search-input:focus {
+  outline: none;
+  text-shadow: none;
+  width: 180px;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 219, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .division-search input[type="search"].division-search-input {
+    width: 120px;
+  }
+}
+/* line 253, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-search [placeholder]:focus::-webkit-input-placeholder {
+  transition: opacity 0.5s 0.5s ease;
+  opacity: 0;
+}
+/* line 257, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-search .division-search-btn {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* Division Directory
+========================================================= */
+/* Hide the division directory on page load */
+/* line 273, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-directory {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height .6s ease-in-out;
+  -moz-transition: max-height .6s ease-in-out;
+  transition: max-height .6s ease-in-out;
+}
+
+/* show the division directory when toggled */
+/* line 282, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-directory.active {
+  max-height: 800px;
+}
+
+/* line 286, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-menu .directory-link {
+  display: block;
+  position: relative;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 286, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .division-menu .directory-link {
+    display: none;
+  }
+}
+
+/* line 294, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-directory {
+  color: #ddd;
+}
+
+/* line 300, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.dosl-wrapper, .division-menu {
+  float: none;
+  padding: 0;
+  width: 100%;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 300, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .dosl-wrapper, .division-menu {
+    float: left;
+    padding: 10px 0;
+    width: 25%;
+  }
+}
+
+/* line 311, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+a.dosl, p.adr {
+  float: none;
+  width: 100%;
+  font-size: 11px;
+  padding: 10px;
+  padding-bottom: 0;
+  display: block;
+}
+@media only screen and (min-width: 40.0625em) {
+  /* line 311, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  a.dosl, p.adr {
+    float: left;
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 311, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  a.dosl, p.adr {
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: 10px;
+    display: block;
+    width: 100%;
+  }
+}
+
+/* line 334, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.dosl img {
+  max-width: 182px;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 334, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .dosl img {
+    margin-left: 0;
+  }
+}
+
+/* line 341, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.adr a {
+  color: #ddd;
+  text-decoration: underline;
+}
+
+/* line 346, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-menu, .division-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 352, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-menu {
+  border-top: 1px solid #444;
+}
+/* line 354, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-menu .menu-list {
+  float: none;
+  padding-left: 0;
+  width: 100%;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 354, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .division-menu .menu-list {
+    float: left;
+    padding-left: 2.75%;
+    width: 33%;
+  }
+}
+/* line 364, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-menu ul {
+  background: #333;
+}
+/* line 366, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-menu ul a {
+  font-size: 14px;
+  padding-left: 20px;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 366, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .division-menu ul a {
+    font-size: 11px;
+    padding-left: 10px;
+  }
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 364, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .division-menu ul {
+    background: none;
+  }
+}
+/* line 378, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-menu a {
+  border-bottom: 1px solid #444;
+  border-left: none;
+  font-size: 16px;
+  padding: 10px 0;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+  display: block;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 378, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .division-menu a {
+    background: none;
+    border-left: 1px solid #555;
+    border-bottom: 0;
+    color: #e5e5e5;
+    font-size: 11px;
+    padding: 2px 0 2px 10px;
+    position: relative;
+    -webkit-transition: border-color .1s linear;
+    -moz-transition: border-color .1s linear;
+    transition: border-color .1s linear;
+  }
+  /* line 398, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .division-menu a:hover {
+    border-left-color: #ffce39;
+    color: #fff;
+  }
+}
+/* line 404, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-menu > li > a {
+  border-left: none;
+  color: #e5e5e5;
+  letter-spacing: normal;
+  margin-bottom: 0;
+  text-transform: none;
+  padding-left: 10px;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 404, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .division-menu > li > a {
+    padding-left: 0;
+  }
+}
+/* line 415, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-menu .has-subnav > a:after {
+  /* if subnav, add a plus sign */
+  content: '+';
+  display: block;
+  font-size: 22px;
+  padding: 5px 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* line 425, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-menu .has-subnav > a.active:after {
+  content: "-";
+}
+/* line 428, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+.division-menu .division-show-hide {
+  display: none;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 428, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .division-menu .division-show-hide {
+    display: block !important;
+  }
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 352, ../../division-bar/scss/_uiowa-bar-foundation.scss */
+  .division-menu {
+    padding: 25px 0 0;
+    width: 75%;
+  }
+}
+
+/*-------------------------------------------
+    Media Queries
+-------------------------------------------*/
+/* line 4, ../scss/footer.scss */
+.footer {
+  background: #222;
+  border-top: 8px solid #000;
+  -webkit-box-shadow: inset 0 1px 0 #2e2e2e;
+  -moz-box-shadow: inset 0 1px 0 #2e2e2e;
+  box-shadow: inset 0 1px 0 #2e2e2e;
+  color: #eee;
+  padding: 3em 0 1em;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* line 15, ../scss/footer.scss */
+.footer .logo-container {
+  padding-bottom: 10px;
+}
+
+/* line 18, ../scss/footer.scss */
+.footer h1, .footer h2, .footer h3, .footer h4, .footer h5 {
+  color: #eee;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 40.0625em) {
+  /* line 18, ../scss/footer.scss */
+  .footer h1, .footer h2, .footer h3, .footer h4, .footer h5 {
+    font-size: 0.875rem;
+  }
+}
+
+/* line 26, ../scss/footer.scss */
+.footer p, .footer li {
+  font-size: 0.75rem;
+}
+
+/* line 29, ../scss/footer.scss */
+.footer a {
+  color: #eee;
+}
+
+/* line 33, ../scss/footer.scss */
+.footer .group-summary a {
+  text-decoration: underline;
+}
+
+/* line 39, ../scss/footer.scss */
+.footer-logo img {
+  margin-top: -20px;
+  max-width: 300px;
+  padding-bottom: 10px;
+}
+/* line 45, ../scss/footer.scss */
+.footer-logo.asr-logo img {
+  max-width: 160px;
+}
+@media only screen and (min-width: 40.0625em) {
+  /* line 45, ../scss/footer.scss */
+  .footer-logo.asr-logo img {
+    max-width: 100%;
+  }
+}
+
+/* line 52, ../scss/footer.scss */
+.border-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media only screen and (min-width: 40.0625em) {
+  /* line 52, ../scss/footer.scss */
+  .border-list {
+    border-left: 1px solid #000;
+  }
+}
+
+/* line 60, ../scss/footer.scss */
+.border-list:first-child {
+  padding-top: 0;
+}
+
+/* line 63, ../scss/footer.scss */
+.border-list a {
+  display: block;
+  padding: 10px 0;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+/* line 69, ../scss/footer.scss */
+.border-list a:hover {
+  border-left-color: #ffce39;
+}
+@media only screen and (min-width: 40.0625em) {
+  /* line 63, ../scss/footer.scss */
+  .border-list a {
+    border-left: 1px solid #2e2e2e;
+    padding: 5px 0 5px 10px;
+  }
+}
+
+/* line 77, ../scss/footer.scss */
+.footer hr {
+  border-top-color: #000;
+  border-bottom-color: #2e2e2e;
+  margin: .5em 0;
+}
+
+/* line 82, ../scss/footer.scss */
+.footer h4 {
+  color: #eee;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+@media only screen {
+  /* line 82, ../scss/footer.scss */
+  .footer h4 {
+    margin-top: 0;
+  }
+}
+
+/* line 91, ../scss/footer.scss */
+.footer-btn {
+  border: 3px solid #eee;
+  color: #fff;
+  display: block;
+  margin-top: 12px;
+  padding: 5px;
+  text-align: center;
+}
+/* line 98, ../scss/footer.scss */
+.footer-btn:hover {
+  background: #fff;
+  color: #333;
+  text-decoration: none;
+}
+
+/* line 43, ../scss/app.scss */
 h1, h2 {
   text-transform: uppercase;
 }
 
-/* line 45, ../scss/app.scss */
+/* line 47, ../scss/app.scss */
 .header {
   background: #000;
   padding: 20px 0;
@@ -9452,34 +10137,34 @@ h1, h2 {
   color: #FECC31;
   text-transform: uppercase;
 }
-/* line 51, ../scss/app.scss */
+/* line 53, ../scss/app.scss */
 .header p {
   margin-bottom: 5px;
 }
-/* line 54, ../scss/app.scss */
+/* line 56, ../scss/app.scss */
 .header .subheader {
   color: #FECC31;
   margin-top: -5px;
 }
 @media only screen and (min-width: 40.0625em) {
-  /* line 54, ../scss/app.scss */
+  /* line 56, ../scss/app.scss */
   .header .subheader {
     margin-top: -15px;
     text-align: right;
   }
 }
 @media only screen and (min-width: 64.0625em) {
-  /* line 54, ../scss/app.scss */
+  /* line 56, ../scss/app.scss */
   .header .subheader {
     margin-top: -35px;
   }
 }
-/* line 65, ../scss/app.scss */
+/* line 67, ../scss/app.scss */
 .header img {
   text-align: center;
 }
 
-/* line 70, ../scss/app.scss */
+/* line 72, ../scss/app.scss */
 .bg-container {
   background-image: url("../images/hero-image.jpg");
   background-position: 50% 50%;
@@ -9488,22 +10173,24 @@ h1, h2 {
   border-bottom: 7px dashed white;
 }
 
-/* line 78, ../scss/app.scss */
+/* line 80, ../scss/app.scss */
 .button {
   text-transform: uppercase;
 }
 
-/* line 82, ../scss/app.scss */
+/* line 84, ../scss/app.scss */
 .details-container {
   background: #fff;
 }
-/* line 86, ../scss/app.scss */
-.details-container .details p, .details-container ul {
-  font-size: 1.625rem;
+@media only screen and (min-width: 64.0625em) {
+  /* line 88, ../scss/app.scss */
+  .details-container .details p, .details-container .details ul {
+    font-size: 1.625rem;
+  }
 }
 @media only screen and (min-width: 64.0625em) {
-  /* line 82, ../scss/app.scss */
+  /* line 84, ../scss/app.scss */
   .details-container {
-    padding: 1.875rem;
+    padding-top: 1.875rem;
   }
 }
