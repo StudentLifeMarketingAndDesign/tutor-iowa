@@ -47,13 +47,14 @@ h1, h2 {
 .header {
     background: rgba(#000, 0.85);
     padding: 10px 0;
-    @media #{$medium-up} {
-        padding: 20px 0;
-        border-bottom: $gold 7px dashed;
-    }
-    
     color: $gold;
     text-transform: uppercase;
+
+    @media #{$medium-up} {
+        padding: 25px 0;
+        border-bottom: $gold 7px dashed;
+    }
+
     p {
         margin-bottom: 5px;
         @media #{$medium-up} {
@@ -64,11 +65,11 @@ h1, h2 {
         color: $gold;
         margin-top: -5px;
         @media #{$medium-up} {
-            margin-top: -15px;
-            text-align: right;
+
         }
-        @media #{$large-up} {
+        @media #{$xlarge-up} {
             margin-top: -35px;
+            text-align: right;
         }
     }
     img {
@@ -83,7 +84,7 @@ h1, h2 {
     
     background-repeat: no-repeat;
     @media #{$medium-up} {
-        height: 500px;
+        height: 700px;
         border-bottom: 7px dashed white;
     }
 

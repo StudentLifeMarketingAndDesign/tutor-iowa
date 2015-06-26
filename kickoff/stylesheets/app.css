@@ -11309,44 +11309,38 @@ h1, h2 {
 @media only screen and (min-width: 40.0625em) {
   /* line 47, ../scss/app.scss */
   .header {
-    padding: 20px 0;
+    padding: 25px 0;
     border-bottom: #FECC31 7px dashed;
   }
 }
-/* line 57, ../scss/app.scss */
+/* line 58, ../scss/app.scss */
 .header p {
   margin-bottom: 5px;
 }
 @media only screen and (min-width: 40.0625em) {
-  /* line 57, ../scss/app.scss */
+  /* line 58, ../scss/app.scss */
   .header p {
     font-size: 1.3em;
   }
 }
-/* line 63, ../scss/app.scss */
+/* line 64, ../scss/app.scss */
 .header .subheader {
   color: #FECC31;
   margin-top: -5px;
 }
-@media only screen and (min-width: 40.0625em) {
-  /* line 63, ../scss/app.scss */
+@media only screen and (min-width: 90.0625em) {
+  /* line 64, ../scss/app.scss */
   .header .subheader {
-    margin-top: -15px;
+    margin-top: -35px;
     text-align: right;
   }
 }
-@media only screen and (min-width: 64.0625em) {
-  /* line 63, ../scss/app.scss */
-  .header .subheader {
-    margin-top: -35px;
-  }
-}
-/* line 74, ../scss/app.scss */
+/* line 75, ../scss/app.scss */
 .header img {
   text-align: center;
 }
 
-/* line 79, ../scss/app.scss */
+/* line 80, ../scss/app.scss */
 .bg-container {
   background-image: url("../images/hero-image.jpg");
   background-position: 50% 50%;
@@ -11354,82 +11348,82 @@ h1, h2 {
   background-repeat: no-repeat;
 }
 @media only screen and (min-width: 40.0625em) {
-  /* line 79, ../scss/app.scss */
+  /* line 80, ../scss/app.scss */
   .bg-container {
-    height: 500px;
+    height: 700px;
     border-bottom: 7px dashed white;
   }
 }
 @media only screen and (min-width: 64.0625em) {
-  /* line 79, ../scss/app.scss */
+  /* line 80, ../scss/app.scss */
   .bg-container {
     height: 1000px;
     background-size: cover;
   }
 }
 
-/* line 96, ../scss/app.scss */
+/* line 97, ../scss/app.scss */
 .hero-content {
   color: white;
 }
-/* line 99, ../scss/app.scss */
+/* line 100, ../scss/app.scss */
 .hero-content ul li {
   font-size: 48px;
 }
 
-/* line 104, ../scss/app.scss */
+/* line 105, ../scss/app.scss */
 .button {
   text-transform: uppercase;
 }
 
-/* line 108, ../scss/app.scss */
+/* line 109, ../scss/app.scss */
 .details-container {
   background: #fff;
   padding-bottom: 1.875rem;
 }
-/* line 113, ../scss/app.scss */
+/* line 114, ../scss/app.scss */
 .details-container .details p, .details-container .details ul {
   text-align: left;
   font-size: 1.125rem;
 }
 @media only screen and (min-width: 64.0625em) {
-  /* line 113, ../scss/app.scss */
+  /* line 114, ../scss/app.scss */
   .details-container .details p, .details-container .details ul {
     font-size: 1.625rem;
   }
 }
-/* line 120, ../scss/app.scss */
+/* line 121, ../scss/app.scss */
 .details-container .details ul {
   list-style-type: square;
 }
 @media only screen and (min-width: 64.0625em) {
-  /* line 123, ../scss/app.scss */
+  /* line 124, ../scss/app.scss */
   .details-container .details ul li {
     padding: 20px 0;
   }
 }
 @media only screen and (min-width: 64.0625em) {
-  /* line 120, ../scss/app.scss */
+  /* line 121, ../scss/app.scss */
   .details-container .details ul {
     line-height: 1;
   }
 }
 @media only screen and (min-width: 64.0625em) {
-  /* line 108, ../scss/app.scss */
+  /* line 109, ../scss/app.scss */
   .details-container {
     padding-top: 0.9375rem;
     text-align: left;
   }
 }
 
-/* line 139, ../scss/app.scss */
+/* line 140, ../scss/app.scss */
 .extended-details-bg {
   background: #F9F9F9;
   border-top: 7px dashed #adadad;
   padding-top: 1.875rem;
 }
 
-/* line 146, ../scss/app.scss */
+/* line 147, ../scss/app.scss */
 .location-container ul {
   font-size: 16px;
   list-style-type: square;
