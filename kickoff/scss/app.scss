@@ -45,6 +45,7 @@ h1, h2 {
 }
 
 .header {
+    background: #000;
     background: rgba(#000, 0.85);
     padding: 10px 0;
     color: $gold;
@@ -140,6 +141,7 @@ h1, h2 {
 .extended-details-bg{
     background: #F9F9F9;
     border-top: 7px dashed rgb(173, 173, 173);
+    padding-top: 20px;
     padding-top: $column-gutter;
 }
 
