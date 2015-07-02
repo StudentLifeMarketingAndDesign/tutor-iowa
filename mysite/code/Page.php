@@ -37,6 +37,15 @@ class Page extends SiteTree {
 		}
 	}
 
+	public function RandomChildren(){
+		$children = Page::get()->filter(
+			array(
+				"ParentID" => $this->ID
+			)
+		)->sort('RAND()');
+		return $children;
+	}
+
 	public function search($keyword) {
 		$pages = new ArrayList();
 		$news = new ArrayList();

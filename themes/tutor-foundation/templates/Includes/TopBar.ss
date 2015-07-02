@@ -20,9 +20,10 @@
 						<a href="$Link" title="Go to the $Title.ATT">$MenuTitle</a>
 						<% if $Children %>
 						<ul class="dropdown">
-							<% loop $Children %>
+							<% loop $RandomChildren.Limit(5) %>
 							<li class="<% if $LinkingMode == "current" || $LinkingMode == "section" %>active<% end_if %>"><a href="$Link" title="Go to the $Title.ATT">$MenuTitle.LimitCharacters(25)</a></li>
 							<% end_loop %>
+							<li><a href="$Link">See all &rarr;</a></li>
 						</ul>
 						<% end_if %>
 					</li>
