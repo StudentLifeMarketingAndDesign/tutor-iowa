@@ -8,6 +8,6 @@ vendor/autoload.php
 .DS_Store
 assets/
 recaptchaKeys.php
-node_modules
+node_modules/
 .sass-cache
 division-bar/
