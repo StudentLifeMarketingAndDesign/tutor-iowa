@@ -7,8 +7,15 @@
 		"silverstripe/framework": "3.1.13",
 		"silverstripe-themes/simple": "*",
 		"silverstripe/spamprotection": "*",
-		"silverstripe/recaptcha" : "*"
+		"silverstripe/recaptcha" : "*",
+		"md/division-bar": "*"
 	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/StudentLifeMarketingAndDesign/division-bar"
+		}
+	],
 	"config": {
 		"process-timeout": 600	
 	},
