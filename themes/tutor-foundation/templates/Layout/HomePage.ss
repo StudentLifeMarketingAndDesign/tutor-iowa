@@ -1,6 +1,6 @@
  
-<div class="bg-container lazy" data-src="{$ThemeDir}/images/home-bg-1.jpg">
-	
+<%-- <div class="bg-container lazy" data-src="{$ThemeDir}/images/home-bg-1.jpg"> --%>
+<div class="bg-container lazy" data-src="{$ThemeDir}/images/home-bg-{$RandomBackgroundImage}.jpg">
 		
 		<div class="HomePageSearchBg">
 			<span class="tagline">$RandomTagline</span>

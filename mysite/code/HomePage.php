@@ -25,6 +25,12 @@ class HomePage extends Page {
 	static $defaults = array('ProvideComments' => '1',
 	);
 
+	public function RandomBackgroundImage() {
+		$randomNumber = rand(1,4);
+
+		return $randomNumber;
+	}
+
 	public function getCMSFields() {
 
 		$fields = parent::getCMSFields();
