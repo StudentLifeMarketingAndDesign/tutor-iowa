@@ -89,7 +89,12 @@ fieldset{ border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1
 .top-bar-section ul{ padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; height: auto; display: block; font-size: 16px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }
 .top-bar-section ul li{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
 .top-bar-section ul li > a{ display: block; width: 100%; color: rgb(255, 255, 255); padding-top: 12px; padding-right: 0px; padding-bottom: 12px; padding-left: 1.4583333333rem; font-family: proxima-nova-alt-condensed, 'Arial Narrow', sans-serif; font-size: 1.375rem; font-weight: normal; text-transform: uppercase; }
-.top-bar-section ul li.active > a{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); color: rgb(106, 159, 255); background-position: initial initial; background-repeat: initial initial; }
+.top-bar-section .has-dropdown{ position: relative; }
+.top-bar-section .has-dropdown > a::after{ content: ''; display: block; width: 0px; height: 0px; border-top-style: inset; border-right-style: inset; border-bottom-style: inset; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-color: initial; border-top-color: transparent; border-right-color: transparent; border-bottom-color: transparent; border-left-color: rgba(255, 255, 255, 0.398438); border-left-style: solid; margin-right: 1.4583333333rem; margin-top: -4.5px; position: absolute; top: 50%; right: 0px; }
+.top-bar-section .dropdown{ padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; left: 100%; top: 0px; z-index: 99; display: block; position: absolute !important; height: 1px; width: 1px; overflow-x: hidden; overflow-y: hidden; clip: rect(1px 1px 1px 1px); }
+.top-bar-section .dropdown li{ width: 100%; height: auto; }
+.top-bar-section .dropdown li a{ font-weight: normal; padding-top: 8px; padding-right: 1.4583333333rem; padding-bottom: 8px; padding-left: 1.4583333333rem; }
+.top-bar-section .dropdown label{ padding-top: 8px; padding-right: 1.4583333333rem; padding-bottom: 2px; padding-left: 1.4583333333rem; margin-bottom: 0px; text-transform: uppercase; color: rgb(119, 119, 119); font-weight: bold; font-size: 0.625rem; }
 @media only screen and (min-width: 64.063em){
 .top-bar{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); overflow-x: visible; overflow-y: visible; background-position: initial initial; background-repeat: initial initial; }
 .top-bar::before, .top-bar::after{ content: ' '; display: table; }
@@ -102,7 +107,16 @@ fieldset{ border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1
 .top-bar-section ul{ width: auto; height: auto !important; display: inline; }
 .top-bar-section ul li{ float: left; }
 .top-bar-section li:not(.has-form) a:not(.button){ padding-top: 0px; padding-right: 1.4583333333rem; padding-bottom: 0px; padding-left: 1.4583333333rem; line-height: 4.375rem; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
-.top-bar-section li.active:not(.has-form) a:not(.button){ padding-top: 0px; padding-right: 1.4583333333rem; padding-bottom: 0px; padding-left: 1.4583333333rem; line-height: 4.375rem; color: rgb(106, 159, 255); background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
+.top-bar-section .has-dropdown > a{ padding-right: 2.7083333333rem !important; }
+.top-bar-section .has-dropdown > a::after{ content: ''; display: block; width: 0px; height: 0px; border-right-style: inset; border-bottom-style: inset; border-left-style: inset; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-color: initial; border-top-color: rgba(255, 255, 255, 0.398438); border-right-color: transparent; border-bottom-color: transparent; border-left-color: transparent; border-top-style: solid; margin-top: -2.5px; top: 2.1875rem; }
+.top-bar-section .has-dropdown .dropdown li.has-dropdown > a::after{ border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; content: »; top: 1rem; margin-top: -1px; right: 5px; line-height: 1.2; }
+.top-bar-section .dropdown{ left: 0px; top: auto; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; min-width: 100%; background-position: initial initial; background-repeat: initial initial; }
+.top-bar-section .dropdown li a{ color: rgb(255, 255, 255); line-height: 4.375rem; white-space: nowrap; padding-top: 12px; padding-right: 1.4583333333rem; padding-bottom: 12px; padding-left: 1.4583333333rem; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial; }
+.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button){ color: rgb(255, 255, 255); background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial; }
+.top-bar-section .dropdown li label{ white-space: nowrap; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial; }
+.top-bar-section .dropdown li .dropdown{ left: 100%; top: 0px; }
+.top-bar-section .left li .dropdown{ right: auto; left: 0px; }
+.top-bar-section .left li .dropdown li .dropdown{ left: 100%; }
 }
 div, ul, li, h1, h2, h3, h4, form, p{ margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; }
 a{ color: rgb(55, 126, 255); text-decoration: none; line-height: inherit; }
@@ -117,6 +131,7 @@ hr{ border-top-style: solid; border-right-style: solid; border-bottom-style: sol
 strong{ font-weight: bold; line-height: inherit; }
 ul{ font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem; list-style-position: outside; font-family: inherit; }
 ul{ margin-left: 1.1rem; }
+ul li ul{ margin-left: 1.25rem; margin-bottom: 0px; }
 @media only screen and (min-width: 40.063em){
 h1, h2, h3, h4{ line-height: 1.1; }
 h1{ font-size: 2.75rem; }
@@ -144,6 +159,9 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .top-bar h1{ max-width: 18.75rem; }
 }
 .top-bar .name h1 a{ padding-left: 0.78125rem; }
+@media only screen and (min-width: 64.063em){
+.top-bar .top-bar-section .has-dropdown .dropdown li.has-dropdown > a::after{ border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; content: »; top: 1rem; margin-top: 5px; right: 5px; line-height: 1.2; }
+}
 .top-bar .top-bar-section ul li.log-in:not(.has-form) a:not(.button){ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(55, 126, 255); background-position: initial initial; background-repeat: initial initial; }
 .top-bar .top-bar-section ul li.register:not(.has-form) a:not(.button){ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(55, 190, 94); background-position: initial initial; background-repeat: initial initial; }
 @media only screen and (min-width: 64.063em){

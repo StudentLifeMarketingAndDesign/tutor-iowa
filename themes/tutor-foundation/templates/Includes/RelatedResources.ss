@@ -16,7 +16,7 @@
             <li><a href="$Link">$Title</a></li>
         <% end_loop %>
         </ul>
-        <a href="supplemental-instruction/">Learn more about supplemental instruction</a>
+        <a href="find-help/supplemental-instructions/">Learn more about supplemental instruction</a>
     <% end_if %>
     <% if $HelpLabs || $SupplementalInstructions %></p><% end_if %>
     <% if $Tutors %>

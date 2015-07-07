@@ -17,7 +17,8 @@
 		"silverstripe/lumberjack": "dev-master",
 		"i-lateral/silverstripe-trumbowyg-htmleditor": "dev-master",
 		"colymba/gridfield-bulk-editing-tools": "*",
-		"unclecheese/betterbuttons": "1.2.*"
+		"unclecheese/betterbuttons": "1.2.*",
+		"thisisbd/silverstripe-maintenance-mode": "*"
 	},
 	"config": {
 		"process-timeout": 600	

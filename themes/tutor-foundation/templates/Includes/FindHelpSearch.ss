@@ -1,6 +1,6 @@
 	<form action="{$BaseHref}home/SearchForm">
 			<div class="HelpFieldHolder">
-					<label for="textInput" class="visuallyhidden"></label><input type="text" name="Search" class="textInput" placeholder="Please enter a search term here! (chemistry, spanish, literature, Jane Doe, etc.)" value="$Query" /><input type="submit" name="action_results" class="button home-search-submit" value="Search" style="float:right;" />				
+					<label for="textInput" class="visuallyhidden"></label><input type="text" name="Search" class="textInput" placeholder="Enter the course information (i.e. SPAN:1001) or choose a search term below." value="$Query" /><input type="submit" name="action_results" class="button home-search-submit" value="Search" style="float:right;" />				
 			</div>
 
 			
