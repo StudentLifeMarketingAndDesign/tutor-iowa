@@ -585,7 +585,7 @@ $(".unreplied-messages").click(function() {
                             message.data("read", data.DateReadTime);
                             updateDOM(message, "markAsRead");
                         }).fail(function( jqXHR, status, error) {
-                            console.log(status);
+                            //console.log(status);
                         });
                     }
                 });				
@@ -614,8 +614,8 @@ $(".unreplied-messages").click(function() {
                             },
                             "json"
                         ).fail(function(data, status, error) {
-                            console.log(error);
-                            console.log(data);
+                            //console.log(error);
+                            //console.log(data);
                         });                       
                     } else {
                         event.preventDefault();
@@ -641,15 +641,15 @@ $(".unreplied-messages").click(function() {
         var baseHref = getBaseHref();
 
         // dynamically reduce inbox count on header and topbar
-        console.log('updating dom');
+        //console.log('updating dom');
         if (action == "markAsRead") {
             message.addClass("read");
         } else if (action == "markAsDeleted") {
             message.remove();
         } else if (action == "withdrawImage") {
-            console.log(message);
-            console.log(action);
-            console.log($object);
+            //console.log(message);
+            //console.log(action);
+            //console.log($object);
             //$object.remove();
         }
         // dynamically reduce inbox count on header and topbar
@@ -755,9 +755,9 @@ $(".unreplied-messages").click(function() {
     $( document ).ready(function () {
         attachHandlers();
 
-        //Refresh every five seconds if user is logged in (has an inbox)
+        //Refresh every twenty seconds if user is logged in (has an inbox)
         if($("#inbox-link").length > 0 ){
-            setInterval(updateDOM, 5000); 
+            setInterval(updateDOM, 20000); 
         }
     });
 

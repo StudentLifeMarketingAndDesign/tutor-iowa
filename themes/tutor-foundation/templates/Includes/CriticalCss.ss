@@ -350,3 +350,4 @@ form label span{ color: rgb(240, 65, 36); padding-right: 3px; }
 @media only screen and (min-width: 64.063em){
 #feedback-btn{ display: block; background-image: url(../images/feedback-btn.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; position: fixed; width: 50px; height: 196px; top: 45%; right: 0px; z-index: 101; background-position: 50% 100%; background-repeat: initial initial; }
 }
+.visuallyhidden{ border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; clip: rect(0px 0px 0px 0px); height: 1px; margin-top: -1px; margin-right: -1px; margin-bottom: -1px; margin-left: -1px; overflow-x: hidden; overflow-y: hidden; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; position: absolute; width: 1px; }

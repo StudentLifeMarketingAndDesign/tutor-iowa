@@ -5,19 +5,13 @@
 			" data-src="{$ThemeDir}/images/uiowa-dome.png" alt="The University of Iowa"></a>
 			<a href="http://uc.uiowa.edu/student-success/arc" target="_blank" class="hide-print footer-logo arc-logo"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
 			" data-src="{$ThemeDir}/images/footer-arc.png" alt="Academic Resource Center Logo" class="right" /></a>
-			<br />
-			<p class="group-summary"><a href="http://uc.uiowa.edu/student-success/arc" target="_blank">The Academic Resource Center</a> offers free academic support for undergraduates at the University of Iowa. Supplemental Instruction (SI) and tutoring are offered for a variety of courses throughout the year to help you succeed both in and outside the classroom.  All of the sessions are free.  Our SI leaders and tutors have excelled in their subject area and were recommended by instructors to assist you.</a></p>
+
+			<p class="group-summary">
+				Tutor Iowa is an excellent resource to find academic assistance and mentoring for your University of Iowa courses! If you have any questions or are unable to find what you are looking for contact us via:
+				</p>
 			<p>Phone: 319-353-2747<br />
 				Email: <a href="mailto:tutoriowa@uiowa.edu">tutoriowa@uiowa.edu</a><br />
 			</p>
-			<%--<p>$SiteConfig.Address
-				<% if $SiteConfig.PhoneNumber %>
-				<br />Phone: $SiteConfig.PhoneNumber
-				<% end_if %>
-				<% if $SiteConfig.EmailAddress %>
-				<br />Email: <a href="mailto:{$SiteConfig.EmailAddress}">$SiteConfig.EmailAddress</a>
-				<% end_if %>
-			</p>--%>
 
 		</div>
 		<div class="medium-6 large-4 columns">
