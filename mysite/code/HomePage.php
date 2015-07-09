@@ -91,7 +91,7 @@ class HomePage extends Page {
 			"See a tutor, see results.",
 			"Get better grades.",
 			'Excel.',
-			'Peer-to-peer tutoring'
+			'Peer-to-peer tutoring',
 			'Small group tutoring',
 		);
 
