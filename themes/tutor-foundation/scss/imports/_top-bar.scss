@@ -45,8 +45,11 @@
 		z-index: 9999;
 	}
 	.top-bar-section{
-
-
+		@media #{$medium-up}{
+			#memberInfo{
+				font-size: rem-calc(12);
+			}
+		}
 		@media #{$large-up}{
 			.has-dropdown .dropdown li.has-dropdown > a:after {
 			  border: none;
@@ -55,6 +58,7 @@
 			  margin-top: 5px;
 			  right: 5px;
 			  line-height: 1.2;
+			 
 			}
 		}
 		ul li{
