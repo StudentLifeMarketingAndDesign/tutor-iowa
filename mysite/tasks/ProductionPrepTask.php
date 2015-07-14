@@ -11,7 +11,15 @@ class ProductionPrepTask extends BuildTask {
 		$suppHolder = SuppHolder::get()->First();
 		$helpLabs = HelpHolder::get()->First();
 		$findHelp = FindHelpPage::get()->First();
-		$privateTutorsRedirect = new RedirectorPage();
+
+		if(!RedirectorPage::get()->filter(array('Title' => 'Private Tutors'))->First()){
+			$privateTutorsRedirect = new RedirectorPage();
+			echo "<h2>Adding Private Tutor Redirect to Find Help Page</h2>";
+			$privateTutorsRedirect->ParentID = 61;
+			$privateTutorsRedirect->Title = "Private Tutors";
+			$privateTutorsRedirect->LinkToID = 15;
+			$privateTutorsRedirect->doPublish();
+		}
 
 		echo "<h2>Adding Supplement holder to Find Help Page</h2>";
 		$suppHolder->ParentID = 61;
@@ -21,14 +29,16 @@ class ProductionPrepTask extends BuildTask {
 		$helpLabs->ParentID = 61;
 		$helpLabs->doPublish();
 
-		echo "<h2>Adding Private Tutor Redirect to Find Help Page</h2>";
-		$privateTutorsRedirect->ParentID = 61;
-		$privateTutorsRedirect->Title = "Private Tutors";
-		$privateTutorsRedirect->LinkToID = 15;
-		$privateTutorsRedirect->doPublish();
 		
 		
-		
+		$findHelp->ShowInMenus = 0;
+		$findHelp->doPublish();
+
+		echo "<h2>Removed any pages with New Page as the title</h2>";
+		$newPage = Page::get()->filter(array('Title' => 'New Page'))->First();
+		if($newPage){
+			$newPage->delete();
+		}
 
 
 	}
