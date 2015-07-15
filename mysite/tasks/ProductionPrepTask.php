@@ -11,6 +11,8 @@ class ProductionPrepTask extends BuildTask {
 		$suppHolder = SuppHolder::get()->First();
 		$helpLabs = HelpHolder::get()->First();
 		$findHelp = FindHelpPage::get()->First();
+		$feedbackPage = FeedbackPage::get()->First();
+
 
 		if(!RedirectorPage::get()->filter(array('Title' => 'Private Tutors'))->First()){
 			$privateTutorsRedirect = new RedirectorPage();
@@ -31,8 +33,14 @@ class ProductionPrepTask extends BuildTask {
 
 		
 		
-		$findHelp->ShowInMenus = 0;
-		$findHelp->doPublish();
+		$feedbackPage->ShowInMenus = 0;
+		$feedbackPage->doPublish();
+
+		$helpLabs->ShowInMenus = 1;
+		$helpLabs->doPublish();
+
+		$suppHolder->ShowInMenus = 1;
+		$suppHolder->doPublish();
 
 		echo "<h2>Removed any pages with New Page as the title</h2>";
 		$newPage = Page::get()->filter(array('Title' => 'New Page'))->First();
