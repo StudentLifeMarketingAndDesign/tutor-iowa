@@ -54,5 +54,12 @@ class TutorHolder extends Page {
 
 }
 class TutorHolder_Controller extends Page_Controller {
-
+	public function init() {
+		$url = $this->URLSegment;
+		if($url == 'provisional-tutors' || $url == 'inactive-tutors'){
+			$this->redirect('private-tutors');
+		}
+		// RSSFeed::linkToFeed($this->Link() . "rss");
+		 parent::init();
+	}
 }
