@@ -250,7 +250,6 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .footer .logo-container{ padding-bottom: 10px; }
 .footer p, .footer li{ font-size: 0.75rem; }
 .footer a{ color: rgb(238, 238, 238); }
-.footer .group-summary a{ text-decoration: underline; }
 .footer-logo img{ max-width: 300px; padding-bottom: 10px; }
 .footer-logo.arc-logo img{ max-width: 50px; }
 @media only screen and (min-width: 40.063em){

@@ -7039,7 +7039,7 @@ input[type="submit"] {
     z-index: 9999; }
   @media only screen and (min-width: 40.063em) {
     .top-bar .top-bar-section #memberInfo {
-      font-size: 0.75rem; } }
+      font-size: 1rem; } }
   @media only screen and (min-width: 64.063em) {
     .top-bar .top-bar-section .has-dropdown .dropdown li.has-dropdown > a:after {
       border: none;
