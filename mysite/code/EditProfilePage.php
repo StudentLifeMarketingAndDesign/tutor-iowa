@@ -28,6 +28,28 @@ class EditProfilePage_Controller extends Page_Controller {
 		'getSavedSession',
 	);
 
+	public function init(){
+		$Member = Member::CurrentUser();
+		if($Member){
+			$IDMember = $Member->ID;
+			$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
+
+			 if($Tutor){
+			 parent::init();
+			 $this->redirect('private-tutors/'.$Tutor->URLSegment.'/edit');
+			}
+			else{
+				parent::init();
+			}
+		}
+		else{
+			parent::init();
+			$this->redirect('');
+		}
+		
+
+	}
+
 	function EditProfileForm() {
 		$Member = Member::CurrentUser();
 
