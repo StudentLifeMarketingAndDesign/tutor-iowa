@@ -91,8 +91,8 @@ class HomePage extends Page {
 			"See a tutor, see results.",
 			"Get better grades.",
 			'Excel.',
-			'Peer-to-peer tutoring',
-			'Small group tutoring',
+			'Peer-to-peer tutoring.',
+			'Small group tutoring.',
 		);
 
 		$random = array_rand($taglines, 1);
