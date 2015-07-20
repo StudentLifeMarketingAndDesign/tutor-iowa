@@ -23,7 +23,11 @@
 				$Breadcrumbs
 				<article>
 					<div class="row">
+						<% if $approvedProfileImage %>
 						<div class="medium-9 small-9 columns">
+						<% else %>
+						<div class="medium-9 small-12 columns">
+						<% end_if %>
 
 							<% if $Sent %>
 							<div data-alert class="alert-box success">
