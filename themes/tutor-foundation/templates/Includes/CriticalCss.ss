@@ -34,7 +34,6 @@ textarea{ height: auto; min-height: 50px; }
 .large-3{ width: 25%; }
 .large-4{ width: 33.3333333333%; }
 .large-5{ width: 41.6666666667%; }
-.large-6{ width: 50%; }
 .large-9{ width: 75%; }
 .large-12{ width: 100%; }
 }
@@ -89,6 +88,7 @@ fieldset{ border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1
 .top-bar-section ul{ padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; height: auto; display: block; font-size: 16px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }
 .top-bar-section ul li{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
 .top-bar-section ul li > a{ display: block; width: 100%; color: rgb(255, 255, 255); padding-top: 12px; padding-right: 0px; padding-bottom: 12px; padding-left: 1.4583333333rem; font-family: proxima-nova-alt-condensed, 'Arial Narrow', sans-serif; font-size: 1.375rem; font-weight: normal; text-transform: uppercase; }
+.top-bar-section ul li.active > a{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); color: rgb(106, 159, 255); background-position: initial initial; background-repeat: initial initial; }
 .top-bar-section .has-dropdown{ position: relative; }
 .top-bar-section .has-dropdown > a::after{ content: ''; display: block; width: 0px; height: 0px; border-top-style: inset; border-right-style: inset; border-bottom-style: inset; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-color: initial; border-top-color: transparent; border-right-color: transparent; border-bottom-color: transparent; border-left-color: rgba(255, 255, 255, 0.398438); border-left-style: solid; margin-right: 1.4583333333rem; margin-top: -4.5px; position: absolute; top: 50%; right: 0px; }
 .top-bar-section .dropdown{ padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; left: 100%; top: 0px; z-index: 99; display: block; position: absolute !important; height: 1px; width: 1px; overflow-x: hidden; overflow-y: hidden; clip: rect(1px 1px 1px 1px); }
@@ -107,6 +107,7 @@ fieldset{ border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1
 .top-bar-section ul{ width: auto; height: auto !important; display: inline; }
 .top-bar-section ul li{ float: left; }
 .top-bar-section li:not(.has-form) a:not(.button){ padding-top: 0px; padding-right: 1.4583333333rem; padding-bottom: 0px; padding-left: 1.4583333333rem; line-height: 4.375rem; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
+.top-bar-section li.active:not(.has-form) a:not(.button){ padding-top: 0px; padding-right: 1.4583333333rem; padding-bottom: 0px; padding-left: 1.4583333333rem; line-height: 4.375rem; color: rgb(106, 159, 255); background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
 .top-bar-section .has-dropdown > a{ padding-right: 2.7083333333rem !important; }
 .top-bar-section .has-dropdown > a::after{ content: ''; display: block; width: 0px; height: 0px; border-right-style: inset; border-bottom-style: inset; border-left-style: inset; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-color: initial; border-top-color: rgba(255, 255, 255, 0.398438); border-right-color: transparent; border-bottom-color: transparent; border-left-color: transparent; border-top-style: solid; margin-top: -2.5px; top: 2.1875rem; }
 .top-bar-section .has-dropdown .dropdown li.has-dropdown > a::after{ border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; content: »; top: 1rem; margin-top: -1px; right: 5px; line-height: 1.2; }
@@ -250,7 +251,6 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .footer .logo-container{ padding-bottom: 10px; }
 .footer p, .footer li{ font-size: 0.75rem; }
 .footer a{ color: rgb(238, 238, 238); }
-.footer .group-summary a{ text-decoration: underline; }
 .footer-logo img{ max-width: 300px; padding-bottom: 10px; }
 .footer-logo.arc-logo img{ max-width: 50px; }
 @media only screen and (min-width: 40.063em){
@@ -348,6 +348,6 @@ article{ position: relative; z-index: 1000; }
 form label span{ color: rgb(240, 65, 36); padding-right: 3px; }
 #feedback-btn{ display: none; }
 @media only screen and (min-width: 64.063em){
-#feedback-btn{ display: block; background-image: url(../images/feedback-btn.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; position: fixed; width: 50px; height: 196px; top: 45%; right: 0px; z-index: 101; background-position: 50% 100%; background-repeat: initial initial; }
+#feedback-btn{ display: block; background-image: url(../images/feedback-btn.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; position: fixed; width: 40px; height: 120px; top: 45%; right: 0px; z-index: 101; background-size: cover; background-position: 50% 100%; background-repeat: initial initial; }
 }
 .visuallyhidden{ border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; clip: rect(0px 0px 0px 0px); height: 1px; margin-top: -1px; margin-right: -1px; margin-bottom: -1px; margin-left: -1px; overflow-x: hidden; overflow-y: hidden; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; position: absolute; width: 1px; }

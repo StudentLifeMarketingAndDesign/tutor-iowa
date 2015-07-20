@@ -209,11 +209,12 @@ form{
 		display: block;
 		background: url("../images/feedback-btn.gif") bottom;
 		position: fixed;
-		width:50px;
-		height: 196px;
+		width:40px;
+		height: 120px;
 		top:45%;
 		right: 0;
 		z-index: 101;
+		background-size: cover;
 	}
 
 }
