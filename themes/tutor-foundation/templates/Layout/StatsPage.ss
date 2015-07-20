@@ -61,7 +61,7 @@
 					</tr>
 					<% loop $getTopSearchTerms.Sort("SearchCount",DESC).Limit(25) %>
 						<tr>
-							<td>{$Title}</td>
+							<td><a href="home/SearchForm?Search={$Title}" target="_blank">{$Title}</a></td>
 							<td>{$SearchCount}</td>
 						</tr>
 					<% end_loop %>
