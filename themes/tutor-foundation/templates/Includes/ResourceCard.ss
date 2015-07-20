@@ -16,9 +16,9 @@
 		<% end_if %>
 
 		<% if $Description %>
-			$Description.Summary(20)<br />
+			<strong>Description:</strong> $Description.Summary(15)<br />
 		<% else_if $Content %>
-			$Content.Summary(20)
+			<strong>Description:</strong> $Content.Summary(15)
 		<% end_if %>
 		</p>
 	</a>

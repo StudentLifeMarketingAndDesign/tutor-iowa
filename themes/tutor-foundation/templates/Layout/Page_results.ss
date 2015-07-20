@@ -18,7 +18,7 @@
   <div class="row">
     <% if HelpLabs %>
       <div class = "<% if $SupplementalInstructions %>large-6<% else %>large-12<% end_if %> columns">
-        <h2>Help Labs</h2>
+        <h2 class="banner">Help Labs</h2>
         <ul class="resource-card-list large">
           <% loop HelpLabs %>
           <% include ResourceCard %>
@@ -28,7 +28,7 @@
     <% end_if %><%-- end if HelpLabs --%>
     <% if SupplementalInstructions %>
     <div class = "<% if $HelpLabs %>large-6<% else %>large-12<% end_if %> columns">
-      <h2>Supplemental Instruction</h2>
+      <h2 class="banner">Supplemental Instruction</h2>
       <ul class="resource-card-list large">
         <% loop SupplementalInstructions %>
         <% include ResourceCard %>
@@ -41,8 +41,8 @@
   <div class="row">
     <div class="large-12 columns">
       <% if Tutors %>
-      <h2>Tutors</h2>
-      <ul class="tutor-card-list large">
+      <h2 class="banner">Tutors</h2>
+      <ul class="tutor-card-list">
         <% loop Tutors %>
         <% include TutorCard %>
         <% end_loop %>

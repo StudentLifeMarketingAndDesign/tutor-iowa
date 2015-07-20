@@ -6840,11 +6840,11 @@ th.hide-for-touch {
 .banner {
   text-transform: uppercase;
   font-size: 1rem;
-  background: none;
-  color: #3e3e3e;
-  position: relative; }
-  .banner span {
-    padding: 2px; }
+  background: #ebc978;
+  color: #222;
+  border: 1px solid #E4B74C;
+  position: relative;
+  padding: 4px; }
 
 /* buttons and tags */
 input[type="submit"] {
@@ -7094,13 +7094,6 @@ input[type="submit"] {
     content: ' \25CF';
     color: #6a9fff;
     margin-right: 5px; }
-
-body.SearchForm h2 {
-  background: #666666;
-  color: white;
-  text-transform: uppercase;
-  font-size: 1.25rem;
-  padding: 5px 6px; }
 
 .HomePage .bg-container {
   background-color: #333;
@@ -7587,11 +7580,11 @@ ul.side-nav {
   .side-nav h3 {
     text-transform: uppercase;
     font-size: 1rem;
-    background: none;
-    color: #3e3e3e;
-    position: relative; }
-    .side-nav h3 span {
-      padding: 2px; }
+    background: #ebc978;
+    color: #222;
+    border: 1px solid #E4B74C;
+    position: relative;
+    padding: 4px; }
   .side-nav .announcements.small .announcement-card {
     padding: 10px 0; }
   .side-nav .resource-card-list.small .resource-card {
