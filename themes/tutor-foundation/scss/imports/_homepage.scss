@@ -4,6 +4,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         min-height: 500px;
+        background-position: 50% 50%;
         @media #{$medium-up} {
             min-height: 700px;
         }

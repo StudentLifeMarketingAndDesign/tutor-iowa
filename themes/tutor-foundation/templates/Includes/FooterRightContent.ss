@@ -1,1 +1,3 @@
+<p><a href="http://www.uiowa.edu" target="_blank" class="hide-print footer-logo"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
+			" data-src="{$ThemeDir}/images/uiowa-dome.png" alt="The University of Iowa"></a></p>
 <p>Individuals with disabilities are encouraged to attend all University of Iowa events. If you are a person with a disability and require an accommodation in order to participate in this event, please contact Tutor Iowa at 319-353-2747.</p>

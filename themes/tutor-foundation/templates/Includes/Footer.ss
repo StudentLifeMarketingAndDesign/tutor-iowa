@@ -1,13 +1,12 @@
 <footer class="footer clearfix" role="contentinfo">
 	<div class="row logo-container">
 		<div class="medium-6 large-5 columns">
-			<a href="http://www.uiowa.edu" target="_blank" class="hide-print footer-logo"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
-			" data-src="{$ThemeDir}/images/uiowa-dome.png" alt="The University of Iowa"></a>
-			<a href="http://uc.uiowa.edu/student-success/arc" target="_blank" class="hide-print footer-logo arc-logo"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
-			" data-src="{$ThemeDir}/images/footer-arc.png" alt="Academic Resource Center Logo" class="right" /></a>
+
+			<a href="http://uc.uiowa.edu/student-success/" target="_blank" class="hide-print footer-logo"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
+			" data-src="{$ThemeDir}/images/asr-logo.png" alt="Academic Support and Retention" /></a>
 
 			<p class="group-summary">
-				Tutor Iowa is an excellent resource to find academic assistance and mentoring for your University of Iowa courses! If you have any questions or are unable to find what you are looking for contact us via:
+				Academic Support &amp; Retention offers Tutor Iowa as an excellent resource to find academic assistance and mentoring for your University of Iowa courses! If you have any questions or are unable to find what you are looking for contact us via:
 				</p>
 			<p>Phone: 319-353-2747<br />
 				Email: <a href="mailto:tutoriowa@uiowa.edu">tutoriowa@uiowa.edu</a><br />

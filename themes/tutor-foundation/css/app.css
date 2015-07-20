@@ -7106,7 +7106,8 @@ body.SearchForm h2 {
   background-color: #333;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 500px; }
+  min-height: 500px;
+  background-position: 50% 50%; }
   @media only screen and (min-width: 40.063em) {
     .HomePage .bg-container {
       min-height: 700px; } }
@@ -7882,6 +7883,8 @@ ul.side-nav {
     margin-bottom: 0px; }
   .announcements .announcement-card h3 {
     color: #5275a5; }
+  .announcements .announcement-card.card h4 {
+    color: #37be5e; }
 
 /* Resets */
 .division-topbar input[type="submit"] {
