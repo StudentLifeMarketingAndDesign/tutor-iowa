@@ -8,3 +8,9 @@
 		float: none !important;
 	}
 }
+
+.message.validation, .message.error{
+	background: $alert-color;
+	padding: 5px;
+	color: white;
+}

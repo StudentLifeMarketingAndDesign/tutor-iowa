@@ -11,7 +11,7 @@ class StatsPage extends Page {
 		$fields->removeFieldFromTab('Root.Main', "Content");
 		$fields->removeFieldFromTab('Root.Main', "Image");
 		$fields->removeFieldFromTab('Root.Main', "BackgroundImage");
-		$fields->addFieldToTab('Root.Main', $tutorCount = new LiteralField('StatsLinkField', '<a href="stats-page/" target="_blank">Tutor request counts and other statistics can now be found here.</a>'));
+		$fields->addFieldToTab('Root.Main', $tutorCount = new LiteralField('StatsLinkField', '<a href="stats-page/" target="_blank">Tutor request counts and other statistics can now be found here &rarr;</a>'));
 
 		return $fields;
 	}

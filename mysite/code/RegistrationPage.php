@@ -41,7 +41,7 @@ class RegistrationPage_Controller extends Page_Controller {
             new UniversityIDField('UniversityID', '<span>*</span>University ID'),
             new TextField('Major'),
             new TextField('GPA'),
-            new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
+            new TextField('AcademicStatus', 'Status (undergraduate, graduate, faculty, or staff)'),
             //new LiteralField('Terms', $this->Content),
             new CheckboxField('AgreeToConditions', 'Checking this box confirms that you have reviewed our Terms and Conditions above.')
                      

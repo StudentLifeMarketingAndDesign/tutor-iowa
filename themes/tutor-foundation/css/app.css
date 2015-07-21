@@ -7162,6 +7162,11 @@ input[type="submit"] {
   .field.trumbowyghtmleditor .left {
     float: none !important; }
 
+.message.validation, .message.error {
+  background: #f04124;
+  padding: 5px;
+  color: white; }
+
 .TutorPage #FoundationForm_ContactForm {
   position: relative; }
 

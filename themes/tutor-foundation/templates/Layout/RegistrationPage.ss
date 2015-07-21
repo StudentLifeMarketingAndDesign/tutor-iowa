@@ -11,6 +11,14 @@
 					<article class="medium-11 columns end">
 						<% include Breadcrumbs %>
 						<h1>$Title</h1>
+						<% if $RegistrationForm.MessageFromSession %>
+							<span class="message validation">$RegistrationForm.MessageFromSession</span>
+						<% end_if %>
+						<% if $RegistrationForm.ValidationErrorResponse %>
+							<span class="message validation">$RegistrationForm.ValidationErrorResponse</span>
+						<% end_if %>
+						
+						
 						$Content
 						<div class="panel">
 							$RegistrationForm
