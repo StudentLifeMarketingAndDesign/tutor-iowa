@@ -4,10 +4,15 @@ ul.side-nav{
 
 .side-nav{
 	padding-top: 0;
-	background-color: $side-nav-bg;
-	padding: $column-gutter/2;
+
+
+	@media #{$medium-up}{
+
+	}
 
 	@media #{$large-up}{
+		background-color: $side-nav-bg;
+		padding: $column-gutter/2;
 		padding-right: 0;
 
 	}

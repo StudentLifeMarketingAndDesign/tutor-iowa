@@ -7,57 +7,56 @@
 
 
 	<div class="row" data-equalizer>
-		<div class="large-8 columns content" data-equalizer-watch>
+		<div class="large-6 columns content" data-equalizer-watch>
 			<article>
-				<h1>$Title</h1>
 				$Content
 				$Form
 				<h2>Tutor Requests</h2>
 
 				<table style="width:100%">
 					<tr>
-						<th>Tutor requests this year</th>
-						<th>Count</th>
+						<th>Time period</th>
+						<th>Number of requests</th>
 					</tr>
 					<tr>
-						<td>Requests sent yesterday:</td>
+						<td>Requests made since yesterday:</td>
 						<td>{$RequestsSinceYesterday}</td>
 					</tr>
 					<tr>
-						<td>Requests sent in the last week:</td>
+						<td>Requests made in the last week:</td>
 						<td>{$RequestsSinceLastWeek}</td>
 					</tr>
 					<tr>
-						<td>Requests sent in the last month: </td>
+						<td>Requests made in the last month: </td>
 						<td>{$RequestsSinceLastMonth}</td>
 					</tr>
 					<tr>
-						<td>Requests sent in the last 6 months</td>
+						<td>Requests made in the last 6 months</td>
 						<td>{$RequestsSinceLastSemester}</td>
 					</tr>
 					<tr>
-						<td>Requests sent in the last year</td>
+						<td>Requests made in the last year</td>
 						<td>{$RequestsSinceBeginningOfYear}</td>
 					</tr>
 					<tr>
-						<td>Total requests (since January, 2014):</td>
+						<td>Total requests made since January 2014:</td>
 						<td>{$RequestsTotal}</td>
 					</tr>
 				</table>
-				<p><a href="admin/messages" target="_blank">Manage or Export all Messages</a></p>
 				<h3>Quick Links</h3>
 				<ul>
-					<li><a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a426753w61604118p63091529/" target="_blank">Tutor Iowa Google Analytics</a></li>
+					<li><a href="admin/messages" target="_blank">Manage or Export all Tutor Requests in SilverStripe &rarr;</a></li>
+					<li><a href="https://www.google.com/analytics/web/?hl=en#report/visitors-overview/a426753w61604118p63091529/" target="_blank">Tutor Iowa Google Analytics &rarr;</a></li>
 				</ul>
 			</article>
 		</div>
-		<div class="large-4 columns end" data-equalizer-watch>
+		<div class="large-6 columns end" data-equalizer-watch>
 			<div>
 				<h2>Top 25 Most Popular Search Terms</h2>
 				<table style="width:100%">
 					<tr>
-						<th>Title</th>
-						<th>Count</th>
+						<th>Search term</th>
+						<th>Number of searches</th>
 					</tr>
 					<% loop $getTopSearchTerms.Sort("SearchCount",DESC).Limit(25) %>
 						<tr>
