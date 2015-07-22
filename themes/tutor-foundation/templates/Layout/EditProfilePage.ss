@@ -24,6 +24,16 @@
 						    	<p>We have sent a request to the administrator to enable your account.</p>
 						         
 						  	<% else %>
+
+						  		<p>You're logged in but your profile is currently inactive.</p>
+						  		<p>This might be because:</p>
+						  		<ul>
+						  			<li>You've just signed up and haven't been through the Tutor Iowa orientation process yet.</li>
+						  			<li>It's the beginning of a new semester and we haven't activated all profiles yet.</li>
+						  		</ul>
+
+
+						  		<p>If you feel this is an error and would like your profile activated, please let us know by emailing <a href="mailto:tutoriowa@uiowa.edu">tutoriowa@uiowa.edu</a>. Please include your full name.</p>
 						       
 						    <% end_if %>
 						    

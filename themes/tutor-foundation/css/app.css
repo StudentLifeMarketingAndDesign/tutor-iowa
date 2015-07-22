@@ -7269,6 +7269,9 @@ input[type="submit"] {
       padding: 0 8px;
       margin-top: 0; }
 
+.noUnread {
+  display: none; }
+
 .alert-confirm {
   background-color: #f04124;
   border-color: #cf2a0e; }

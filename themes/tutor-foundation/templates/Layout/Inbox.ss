@@ -20,7 +20,6 @@
 								<ul class="button-group">
 									<li><button class="unread-messages small button" >Unread</button></li>
 									<li><button class="all-messages small primary button" >All</button></li>
-									<li><button class="unreplied-messages small button" >Unreplied</button></li>
 								</ul>
 							</div>
 						</div>

@@ -14,10 +14,10 @@
 						<% if $RegistrationForm.MessageFromSession %>
 							<span class="message validation">$RegistrationForm.MessageFromSession</span>
 						<% end_if %>
-						<% if $RegistrationForm.ValidationErrorResponse %>
-							<span class="message validation">$RegistrationForm.ValidationErrorResponse</span>
+						<% if $ValidationErrorResponse %>
+							<span class="message validation">$ValidationErrorResponse</span>
 						<% end_if %>
-						
+
 						
 						$Content
 						<div class="panel">
