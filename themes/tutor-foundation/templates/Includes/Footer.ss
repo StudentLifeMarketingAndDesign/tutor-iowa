@@ -2,7 +2,7 @@
 	<div class="row logo-container">
 		<div class="medium-6 large-5 columns">
 
-			<a href="http://uc.uiowa.edu/student-success/" target="_blank" class="hide-print footer-logo"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
+			<a href="http://uc.uiowa.edu/retention" target="_blank" class="hide-print footer-logo"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
 			" data-src="{$ThemeDir}/images/asr-logo.png" alt="Academic Support and Retention" /></a>
 
 			<p class="group-summary">
