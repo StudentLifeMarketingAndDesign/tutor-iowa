@@ -1,11 +1,11 @@
 @mixin banner(){
 	text-transform: uppercase;
 	font-size: rem-calc(16);
-	background: lighten($gold, 10);
+	//background: lighten($gold, 10);
 	color: #222;
-	border: 1px solid $gold;
+	//border: 1px solid $gold;
 	position: relative;
-	padding: 4px;
+	//padding: 4px;
 }
 
 .banner{

@@ -6840,11 +6840,8 @@ th.hide-for-touch {
 .banner {
   text-transform: uppercase;
   font-size: 1rem;
-  background: #ebc978;
   color: #222;
-  border: 1px solid #E4B74C;
-  position: relative;
-  padding: 4px; }
+  position: relative; }
 
 /* buttons and tags */
 input[type="submit"] {
@@ -7588,11 +7585,8 @@ ul.side-nav {
   .side-nav h3 {
     text-transform: uppercase;
     font-size: 1rem;
-    background: #ebc978;
     color: #222;
-    border: 1px solid #E4B74C;
-    position: relative;
-    padding: 4px; }
+    position: relative; }
   .side-nav .announcements.small .announcement-card {
     padding: 10px 0; }
   .side-nav .resource-card-list.small .resource-card {
@@ -7884,8 +7878,6 @@ ul.side-nav {
     margin-bottom: 0px; }
   .announcements .announcement-card h3 {
     color: #5275a5; }
-  .announcements .announcement-card.card h4 {
-    color: #2c964a; }
 
 /* Resets */
 .division-topbar input[type="submit"] {
@@ -8282,6 +8274,11 @@ a.dosl, p.adr {
   @media only screen and (min-width: 64.063em) {
     .main .content {
       min-height: 600px; } }
+  .main .content table {
+    width: 100%; }
+    @media only screen and (min-width: 40.063em) {
+      .main .content table {
+        width: auto; } }
 
 #search_help p {
   color: white; }

@@ -50,6 +50,14 @@
 			min-height: 600px;
 		}
 
+		table{
+			width: 100%;
+			@media #{$medium-up}{
+				width: auto;
+			}
+
+		}
+
 	}
 }
 

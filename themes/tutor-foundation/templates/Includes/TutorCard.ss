@@ -12,7 +12,7 @@
 			</div>
 			<% end_if %>
 			<div class="<% if $Image %>small-9 columns pull-3<% else %>large-12 columns<% end_if %>">
-				<h4 class="tutor-name" href="$Link">$Title</h4><p>$Content.Summary(20) <strong class="tag tiny">...</strong></p>
+				<h4 class="tutor-name" href="$Link">$Title</h4><p>$Content.Summary(20)
 				<%--<% loop $SplitKeywords.Sort('RAND').Limit(8) %>
 					$Keyword<% if not $Last %>, <% end_if %>
 				<% end_loop %>--%>
