@@ -21,6 +21,7 @@
 						<% loop Menu(1) %>
 						<li><a href="$Link">$MenuTitle</a></li>
 						<% end_loop %>
+						<li><a href="feedback/">Submit Feedback</a></li>
 					</ul>
 				</div>
 				<div class="small-6 columns">
