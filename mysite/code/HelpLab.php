@@ -4,7 +4,7 @@ class HelpLab extends Page {
 		'Name' => 'Text',
 		'Description' => 'HTMLText',
 		'Location' => 'Text',
-		"Hours" => 'Text',
+		"Hours" => 'HTMLText',
 		'Enabled' => 'Boolean',
 		'EndDate' => 'Date',
 		'ExtrnlLink' => 'Text',
@@ -128,8 +128,19 @@ class HelpLab_Controller extends Page_Controller {
 			$tagField = new TagField('Tags', 'Tags');
 			$tagField->setTagTopicClass("SiteTree");
 
+			$HTMLEditorButtons = array(
+				'btnGrp-design',
+				'btnGrp-lists',
+			);
+
+			$bioField = new TrumbowygHTMLEditorField('Description', 'Description');
+			$bioField->setButtons($HTMLEditorButtons);
+			
+			$availabilityField = new TrumbowygHTMLEditorField('Hours', 'Availability');
+			$availabilityField->setButtons($HTMLEditorButtons);
+
 			$fields = new FieldList(
-				new TrumbowygHTMLEditorField('Description'),
+				$bioField,
 				$tagField,
 				new TextField('Location'),
 				//new TextField('Link'),
@@ -139,7 +150,7 @@ class HelpLab_Controller extends Page_Controller {
 				new TextField('PhoneNo', 'Phone Number'),
 				new TextField('ExternalScheduleLink', 'Optional link to the lab\'s schedule on another site'),
 
-				new TextField('Hours', 'Availability')
+				$availabilityField
 			);
 
 			$actions = new FieldList(
