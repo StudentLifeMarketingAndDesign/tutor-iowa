@@ -6,26 +6,33 @@
 	<meta name="viewport" content="width=device-width" />
 	<% if $URLSegment = 'home' %>
 		<title>$SiteConfig.Title - The University of Iowa</title>
+		<meta property="og:title" content="$SiteConfig.Title.ATT" />
 	<% else %>
 		<title>$Title - $SiteConfig.Title - The University of Iowa</title>
+		<meta property="og:title" content="$Title.ATT" />
 	<% end_if %>
 	<meta name="description" content="$Content.ATT" />
 	<%--http://ogp.me/--%>
 	<meta property="og:site_name" content="$SiteConfig.Title.ATT" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="$Title.ATT" />
 	<meta property="og:description" content="$Content.ATT" />
 	<meta property="og:url" content="$AbsoluteLink.ATT" />
 	<% if $Image %>
 	<meta property="og:image" content="<% with $Image.SetSize(500,500) %>$AbsoluteURL.ATT<% end_with %>" />
+		<meta property="og:image:width" content="500" />
+		<meta property="og:image:height" content="500" />
 	<% else %>
 		<meta property="og:image" content="{$BaseHref}/{$ThemeDir}/images/tutor-iowa-logo-fb.png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 	<% end_if %>
 	<style><% include CriticalCss %></style>
 	<% include Favicons %>
 	<%--See [Requirements](http://doc.silverstripe.org/framework/en/reference/requirements) for loading from controller--%>
 	<link rel="stylesheet" href="$ThemeDir/css/app.css" />
 	<script src="$ThemeDir/bower_components/modernizr/modernizr.js"></script>
+	<script src="//use.typekit.net/tvn1igz.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
 </head>
 <body class="$ClassName.ATT $Action.ATT">
 	<% include UiowaBar %>
@@ -58,7 +65,7 @@ else if (window.attachEvent)
 window.attachEvent("onload", downloadJSAtOnload);
 else window.onload = downloadJSAtOnload;
 </script>
-<script src="//use.typekit.net/tvn1igz.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
+
+<% include GoogleAnalytics %>
 </body>
 </html>
