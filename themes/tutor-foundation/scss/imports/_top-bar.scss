@@ -9,7 +9,7 @@
 	@include topBarGradient;
 }
 
-@media only #{$large-up}{
+@media #{$large-up}{
 	.top-bar-section .has-dropdown .dropdown li.has-dropdown > a:after {
 	  border: none;
 	  content: "\00bb";

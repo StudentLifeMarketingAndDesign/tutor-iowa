@@ -32,8 +32,8 @@ textarea{ height: auto; min-height: 50px; }
 @media only screen and (min-width: 64.063em){
  .columns{ position: relative; padding-left: 0.78125rem; padding-right: 0.78125rem; float: left; }
 .large-3{ width: 25%; }
-.large-4{ width: 33.3333333333%; }
-.large-5{ width: 41.6666666667%; }
+.large-4{ width: 33.33333%; }
+.large-5{ width: 41.66667%; }
 .large-6{ width: 50%; }
 .large-9{ width: 75%; }
 .large-12{ width: 100%; }
@@ -79,22 +79,22 @@ fieldset{ border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1
 .top-bar .title-area{ position: relative; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }
 .top-bar .name{ height: 4.375rem; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-size: 16px; }
 .top-bar .name h1{ line-height: 4.375rem; font-size: 1.0625rem; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }
-.top-bar .name h1 a{ font-weight: normal; color: rgb(255, 255, 255); width: 75%; display: block; padding-top: 0px; padding-right: 1.4583333333rem; padding-bottom: 0px; padding-left: 1.4583333333rem; }
+.top-bar .name h1 a{ font-weight: normal; color: rgb(255, 255, 255); width: 75%; display: block; padding-top: 0px; padding-right: 1.45833rem; padding-bottom: 0px; padding-left: 1.45833rem; }
 .top-bar .toggle-topbar{ position: absolute; right: 0px; top: 0px; }
-.top-bar .toggle-topbar a{ color: rgb(255, 255, 255); text-transform: uppercase; font-size: 0.8125rem; font-weight: bold; position: relative; display: block; padding-top: 0px; padding-right: 1.4583333333rem; padding-bottom: 0px; padding-left: 1.4583333333rem; height: 4.375rem; line-height: 4.375rem; }
+.top-bar .toggle-topbar a{ color: rgb(255, 255, 255); text-transform: uppercase; font-size: 0.8125rem; font-weight: bold; position: relative; display: block; padding-top: 0px; padding-right: 1.45833rem; padding-bottom: 0px; padding-left: 1.45833rem; height: 4.375rem; line-height: 4.375rem; }
 .top-bar .toggle-topbar.menu-icon{ top: 50%; margin-top: -16px; }
-.top-bar .toggle-topbar.menu-icon a{ height: 34px; line-height: 33px; padding-top: 0px; padding-right: 3.0208333333rem; padding-bottom: 0px; padding-left: 1.4583333333rem; color: white; position: relative; }
-.top-bar .toggle-topbar.menu-icon a span::after{ content: ''; position: absolute; display: block; height: 0px; top: 50%; margin-top: -8px; right: 1.4583333333rem; box-shadow: white 0px 0px 0px 1px, white 0px 7px 0px 1px, white 0px 14px 0px 1px; width: 16px; }
+.top-bar .toggle-topbar.menu-icon a{ height: 34px; line-height: 33px; padding-top: 0px; padding-right: 3.02083rem; padding-bottom: 0px; padding-left: 1.45833rem; color: rgb(255, 255, 255); position: relative; }
+.top-bar .toggle-topbar.menu-icon a span::after{ content: ''; position: absolute; display: block; height: 0px; top: 50%; margin-top: -8px; right: 1.45833rem; box-shadow: rgb(255, 255, 255) 0px 0px 0px 1px, rgb(255, 255, 255) 0px 7px 0px 1px, rgb(255, 255, 255) 0px 14px 0px 1px; width: 16px; }
 .top-bar-section{ left: 0px; position: relative; width: auto; }
 .top-bar-section ul{ padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; height: auto; display: block; font-size: 16px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }
 .top-bar-section ul li{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
-.top-bar-section ul li > a{ display: block; width: 100%; color: rgb(255, 255, 255); padding-top: 12px; padding-right: 0px; padding-bottom: 12px; padding-left: 1.4583333333rem; font-family: proxima-nova-alt-condensed, 'Arial Narrow', sans-serif; font-size: 1.375rem; font-weight: normal; text-transform: uppercase; }
+.top-bar-section ul li > a{ display: block; width: 100%; color: rgb(255, 255, 255); padding-top: 12px; padding-right: 0px; padding-bottom: 12px; padding-left: 1.45833rem; font-family: proxima-nova-alt-condensed, 'Arial Narrow', sans-serif; font-size: 1.375rem; font-weight: normal; text-transform: uppercase; }
 .top-bar-section .has-dropdown{ position: relative; }
-.top-bar-section .has-dropdown > a::after{ content: ''; display: block; width: 0px; height: 0px; border-top-style: inset; border-right-style: inset; border-bottom-style: inset; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-color: initial; border-top-color: transparent; border-right-color: transparent; border-bottom-color: transparent; border-left-color: rgba(255, 255, 255, 0.398438); border-left-style: solid; margin-right: 1.4583333333rem; margin-top: -4.5px; position: absolute; top: 50%; right: 0px; }
+.top-bar-section .has-dropdown > a::after{ content: ''; display: block; width: 0px; height: 0px; border-top-style: inset; border-right-style: inset; border-bottom-style: inset; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-color: initial; border-top-color: transparent; border-right-color: transparent; border-bottom-color: transparent; border-left-color: rgba(255, 255, 255, 0.398438); border-left-style: solid; margin-right: 1.45833rem; margin-top: -4.5px; position: absolute; top: 50%; right: 0px; }
 .top-bar-section .dropdown{ padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; left: 100%; top: 0px; z-index: 99; display: block; position: absolute !important; height: 1px; width: 1px; overflow-x: hidden; overflow-y: hidden; clip: rect(1px 1px 1px 1px); }
 .top-bar-section .dropdown li{ width: 100%; height: auto; }
-.top-bar-section .dropdown li a{ font-weight: normal; padding-top: 8px; padding-right: 1.4583333333rem; padding-bottom: 8px; padding-left: 1.4583333333rem; }
-.top-bar-section .dropdown label{ padding-top: 8px; padding-right: 1.4583333333rem; padding-bottom: 2px; padding-left: 1.4583333333rem; margin-bottom: 0px; text-transform: uppercase; color: rgb(119, 119, 119); font-weight: bold; font-size: 0.625rem; }
+.top-bar-section .dropdown li a{ font-weight: normal; padding-top: 8px; padding-right: 1.45833rem; padding-bottom: 8px; padding-left: 1.45833rem; }
+.top-bar-section .dropdown label{ padding-top: 8px; padding-right: 1.45833rem; padding-bottom: 2px; padding-left: 1.45833rem; margin-bottom: 0px; text-transform: uppercase; color: rgb(119, 119, 119); font-weight: bold; font-size: 0.625rem; }
 @media only screen and (min-width: 64.063em){
 .top-bar{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); overflow-x: visible; overflow-y: visible; background-position: initial initial; background-repeat: initial initial; }
 .top-bar::before, .top-bar::after{ content: ' '; display: table; }
@@ -106,12 +106,12 @@ fieldset{ border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1
 .top-bar-section{ left: 0px !important; }
 .top-bar-section ul{ width: auto; height: auto !important; display: inline; }
 .top-bar-section ul li{ float: left; }
-.top-bar-section li:not(.has-form) a:not(.button){ padding-top: 0px; padding-right: 1.4583333333rem; padding-bottom: 0px; padding-left: 1.4583333333rem; line-height: 4.375rem; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
-.top-bar-section .has-dropdown > a{ padding-right: 2.7083333333rem !important; }
+.top-bar-section li:not(.has-form) a:not(.button){ padding-top: 0px; padding-right: 1.45833rem; padding-bottom: 0px; padding-left: 1.45833rem; line-height: 4.375rem; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); background-position: initial initial; background-repeat: initial initial; }
+.top-bar-section .has-dropdown > a{ padding-right: 2.70833rem !important; }
 .top-bar-section .has-dropdown > a::after{ content: ''; display: block; width: 0px; height: 0px; border-right-style: inset; border-bottom-style: inset; border-left-style: inset; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-color: initial; border-top-color: rgba(255, 255, 255, 0.398438); border-right-color: transparent; border-bottom-color: transparent; border-left-color: transparent; border-top-style: solid; margin-top: -2.5px; top: 2.1875rem; }
 .top-bar-section .has-dropdown .dropdown li.has-dropdown > a::after{ border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; content: »; top: 1rem; margin-top: -1px; right: 5px; line-height: 1.2; }
 .top-bar-section .dropdown{ left: 0px; top: auto; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; min-width: 100%; background-position: initial initial; background-repeat: initial initial; }
-.top-bar-section .dropdown li a{ color: rgb(255, 255, 255); line-height: 4.375rem; white-space: nowrap; padding-top: 12px; padding-right: 1.4583333333rem; padding-bottom: 12px; padding-left: 1.4583333333rem; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial; }
+.top-bar-section .dropdown li a{ color: rgb(255, 255, 255); line-height: 4.375rem; white-space: nowrap; padding-top: 12px; padding-right: 1.45833rem; padding-bottom: 12px; padding-left: 1.45833rem; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial; }
 .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button){ color: rgb(255, 255, 255); background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial; }
 .top-bar-section .dropdown li label{ white-space: nowrap; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(51, 51, 51); background-position: initial initial; background-repeat: initial initial; }
 .top-bar-section .dropdown li .dropdown{ left: 100%; top: 0px; }
@@ -153,6 +153,9 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .button{ -webkit-transition-property: all; -webkit-transition-duration: 1s; -webkit-transition-timing-function: ease-out; -webkit-transition-delay: initial; background-image: -webkit-linear-gradient(45deg, rgb(55, 126, 255) 0%, rgb(19, 103, 255) 50%, rgb(40, 116, 255) 50.01%, rgb(157, 192, 255)); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: initial initial; background-repeat: initial initial; }
 .tag{ border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; cursor: pointer; font-family: proxima-nova-alt, Arial, sans-serif; font-weight: normal; line-height: normal; margin-top: 0px; margin-right: 0px; margin-left: 0px; position: relative; text-decoration: none; text-align: center; -webkit-appearance: none; border-top-left-radius: 0px 0px; border-top-right-radius: 0px 0px; border-bottom-right-radius: 0px 0px; border-bottom-left-radius: 0px 0px; display: inline-block; padding-top: 0.25rem; padding-right: 0.5rem; padding-bottom: 0.3125rem; padding-left: 0.5rem; background-color: rgb(248, 236, 209); border-top-color: rgb(236, 205, 130); border-right-color: rgb(236, 205, 130); border-bottom-color: rgb(236, 205, 130); border-left-color: rgb(236, 205, 130); color: rgb(51, 51, 51); margin-bottom: 3px; text-transform: uppercase; font-size: 0.6875rem; }
 .contain-to-grid{ background-image: -webkit-linear-gradient(-90deg, rgb(81, 81, 81), rgb(68, 68, 68)); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: initial initial; background-repeat: initial initial; }
+@media only screen and (min-width: 64.063em){
+.top-bar-section .has-dropdown .dropdown li.has-dropdown > a::after{ border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; content: »; top: 1rem; margin-top: 5px; right: 5px; line-height: 1.2; }
+}
 .top-bar{ background-image: -webkit-linear-gradient(-90deg, rgb(81, 81, 81), rgb(68, 68, 68)); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: initial initial; background-repeat: initial initial; }
 .top-bar h1{ max-width: 18.75rem; }
 @media only screen and (min-width: 64.063em){
@@ -176,7 +179,6 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .card{ padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; }
 }
 .card p{ margin-bottom: 0px; }
-.card .tag{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(238, 238, 238); padding-top: 2px; padding-right: 10px; padding-bottom: 2px; padding-left: 10px; background-position: initial initial; background-repeat: initial initial; }
 .card h4{ -webkit-transition-property: all; -webkit-transition-duration: 0.2s; -webkit-transition-timing-function: ease-in-out; -webkit-transition-delay: initial; color: rgb(4, 93, 255); }
 .small li.card{ padding-top: 10px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px; }
 .tutor-card-list{ display: block; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }

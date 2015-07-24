@@ -198,6 +198,10 @@ class Page_Controller extends ContentController {
 			new HiddenField('PageID', 'PageID', $this->ID)
 		);
 
+		if($this->ClassName == "FeedbackPage"){
+			$fields->removeByName("SpecificPage");
+		}
+
 		$actions = new FieldList(
 			new FormAction('SubmitFeedbackForm', 'Submit Feedback')
 		);
