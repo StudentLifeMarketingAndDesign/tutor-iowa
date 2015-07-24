@@ -2,14 +2,14 @@
   <div class="row">
     <div class="large-12 columns">
       <% include BreadcrumbsSearch %>
-      <h1>Search Results</h1>
+      <h1>Search Tutor Iowa</h1>
       <% include FindHelpSearch %>
       <% if Query %>
       <p>Your results for <strong>'{$Query}'</strong></p>
       <% else %>
       <p>Please enter a search term.</p>
       <% end_if %> <%-- end if Query --%>
-      <% if not HasResults %>
+      <% if $Query && not $HasResults %>
         <p>No results for this search term were found.</p>
       <% end_if %>
 
