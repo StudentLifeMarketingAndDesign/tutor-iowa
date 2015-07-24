@@ -4,5 +4,5 @@ After: framework/routes
 ---
 Director:
   rules:
-  	'indbox' : 'InboxController'
+    'indbox' : 'InboxController'
     'inbox//$Action/$ID': 'InboxController'
