@@ -11,7 +11,7 @@
 		<title>$Title - $SiteConfig.Title - The University of Iowa</title>
 		<meta property="og:title" content="$Title.ATT" />
 	<% end_if %>
-	<meta name="description" content="$Content.ATT" />
+	<meta name="description" content="$Content.Summary(100)" />
 	<%--http://ogp.me/--%>
 	<meta property="og:site_name" content="$SiteConfig.Title.ATT" />
 	<meta property="og:type" content="website" />
