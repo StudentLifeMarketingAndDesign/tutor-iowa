@@ -27,11 +27,11 @@ class ProductionPrepTask extends BuildTask {
 		$suppHolder->ParentID = 61;
 		$suppHolder->doPublish();
 
+
+
 		echo "<h2>Adding Help Lab Holder to Find Help Page</h2>";
 		$helpLabs->ParentID = 61;
-		$helpLabs->doPublish();
-
-		
+		$helpLabs->doPublish();		
 		
 		$feedbackPage->ShowInMenus = 0;
 		$feedbackPage->doPublish();
@@ -42,6 +42,18 @@ class ProductionPrepTask extends BuildTask {
 		$suppHolder->ShowInMenus = 1;
 		$suppHolder->doPublish();
 
+		if(!RedirectorPage::get()->filter(array('Title' => 'Search Tutor Iowa'))->First()){
+				echo "<h2>Adding Search Tutor Iowa Redirect to Find Help Page</h2>";
+				$searchTutorRedirect = new RedirectorPage();
+				$searchTutorRedirect->ParentID = 61;
+				$searchTutorRedirect->Title = "Search Tutor Iowa";
+				$searchTutorRedirect->RedirectionType = 'External';
+				$searchTutorRedirect->ExternalURL = "http://tutor.uiowa.edu/home/SearchForm";
+				$searchTutorRedirect->doPublish();
+		}
+		
+
+
 		echo "<h2>Removed any pages with New Page as the title</h2>";
 		$newPage = Page::get()->filter(array('Title' => 'New Page'))->First();
 		if($newPage){
@@ -49,6 +61,22 @@ class ProductionPrepTask extends BuildTask {
 		}
 
 
+
+		echo "<h2>Create Ineligible Tutors Holder</h2>";
+		$this->createIneligibleHolder();
+	}
+
+
+
+	function createIneligibleHolder(){
+		if(!TutorHolder::get()->filter(array('Title' => 'Ineligible Tutors'))->First()){
+			$newPage = new TutorHolder();
+			$newPage->Title ="Ineligible Tutors";
+			$newPage->ShowInMenus = 0;
+			$newPage->write();		
+			$newPage->doPublish();
+			$newPage->writeToStage("Live");
+		}
 	}
 
 	
