@@ -76,7 +76,7 @@ class DisablePage_Controller extends Page_Controller {
 				$email->setSubject($subject);
 				$email->setBody($body);
 
-				print_r($email);
+				//print_r($email);
 				$email->send();
 
 			}
@@ -99,7 +99,7 @@ class DisablePage_Controller extends Page_Controller {
 			$email->setBody($body);
 			$email->send();
 
-			//return $this->redirect($this->Link('?saved=1'));
+			return $this->redirect($this->Link('?saved=1'));
 		} else {
 			$message = "You must be <a href='" . Director::baseURL() . "/Security/login'>logged</a> in to edit your profile!";
 			return $message;
