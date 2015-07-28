@@ -121,7 +121,10 @@
 	    	}
 		}
 		.right{
-			padding-right: $column-gutter/2;
+			padding-right: 0;
+			@media #{$large-up}{
+				padding-right: $column-gutter/2;
+			}
 		}
 	}
 	.title.back a{

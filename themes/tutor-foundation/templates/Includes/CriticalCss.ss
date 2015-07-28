@@ -173,7 +173,10 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 @media only screen and (min-width: 64.063em){
 .top-bar .top-bar-section li:not(.has-form) a:not(.button){ background-image: -webkit-linear-gradient(-90deg, rgb(81, 81, 81), rgb(68, 68, 68)); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: initial initial; background-repeat: initial initial; }
 }
+.top-bar .top-bar-section .right{ padding-right: 0px; }
+@media only screen and (min-width: 64.063em){
 .top-bar .top-bar-section .right{ padding-right: 0.78125rem; }
+}
 .card{ padding-top: 0.78125rem; padding-right: 0px; padding-bottom: 0.78125rem; padding-left: 0px; }
 @media only screen and (min-width: 64.063em){
 .card{ padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; }
