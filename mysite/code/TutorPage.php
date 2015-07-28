@@ -230,10 +230,10 @@ class TutorPage_Controller extends Page_Controller {
 		$email->setSubject($subject);
 		$email->setFrom($adminEmail);
 		$email->replyTo($from);
-		$email->setBody($name . ' has contacted you. Read their message below. You may reply to their message directly by replying to this email. <br />' . $body);
+		$email->setBody($name . ' has contacted you. You may reply to their message directly by <strong>replying to this email.</strong> Their email should automatically be filled into To: field.  <br />  Read their message below: <br /><br />' . $body);
 
 		if (SS_ENVIRONMENT_TYPE == "live") {
-			$email->send();
+			$email->send(); 
 		}
 
 		$message = new Message();
