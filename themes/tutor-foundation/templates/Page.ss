@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width" />
 	<% if $URLSegment = 'home' %>
 		<title>$SiteConfig.Title - The University of Iowa</title>
-		<meta property="og:title" content="$SiteConfig.Title.ATT - The University of Iowa" />
+		<meta property="og:title" content="$SiteConfig.Title.ATT from the University of Iowa" />
 	<% else %>
 		<title>$Title - $SiteConfig.Title - The University of Iowa</title>
 		<meta property="og:title" content="$Title.ATT" />
