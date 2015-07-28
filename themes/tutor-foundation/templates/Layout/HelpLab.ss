@@ -44,6 +44,7 @@
 						<% if $Tags %>
 							<p><% include Tags %></p>
 						<% end_if %>
+						<p><a href="feedback/" data-reveal-id="feedback-form-modal" >Give Feedback About This Lab</a></p>
 					</article>
 				</div>
 				<div class="large-4 columns end" data-equalizer-watch>
