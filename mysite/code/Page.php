@@ -287,7 +287,7 @@ class Page_Controller extends ContentController {
 
 		$email = new Email();
 		$email->setTo($adminEmail);
-		$email->setFrom($userEmail);
+		$email->setFrom($adminEmail);
 		$email->setSubject($subject);
 		$email->setBody($body);
 		$email->send();
