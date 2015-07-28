@@ -30,6 +30,7 @@
 						  		<ul>
 						  			<li>You've just signed up and haven't been through the Tutor Iowa orientation process yet.</li>
 						  			<li>It's the beginning of a new semester and we haven't activated all profiles yet.</li>
+						  			<li>You've requested your account to be disabled.</li>
 						  		</ul>
 
 
