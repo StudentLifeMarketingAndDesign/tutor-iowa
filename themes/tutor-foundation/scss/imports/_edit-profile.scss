@@ -3,7 +3,11 @@
 	#Disable label{
 		color: $alert-color;
 	}
+	.trumbowyghtmleditor textarea{
+		box-shadow: none;
+		-webkit-box-shadow: none;
 
+	}
 	.field.tag{
 
 		width: 100%;
