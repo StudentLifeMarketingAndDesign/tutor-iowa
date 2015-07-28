@@ -16,23 +16,13 @@ SSViewer::set_theme('blackcandy');
 
 // Set the site locale
 i18n::set_locale('en_US');
-
 // enable nested URLs for this site (e.g. page/sub-page/)
 SiteTree::enable_nested_urls();
 
-//Added by Drew
+//Added by Dre
 FulltextSearchable::enable();
 
-//include("recaptchaKeys.php");
-//Director::set_environment_type("live");
-
-//PageComment::enableModeration();
-
-//Validator::set_javascript_validation_handler('none');
-//SpamProtectorManager::set_spam_protector("RecaptchaProtector");
-//error_reporting(E_ALL);
 Object::useCustomClass('MemberLoginForm', 'CustomLoginForm');
-//Object::add_extension('TutorPage', 'TutorPagePublish');
 
 Object::add_extension("Member", "MemberExtension");
 Object::add_extension("TutorPage", "TutorPageExtension");

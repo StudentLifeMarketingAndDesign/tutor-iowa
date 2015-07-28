@@ -6,9 +6,7 @@
 		"silverstripe/cms": "3.1.13",
 		"silverstripe/framework": "3.1.13",
 		"silverstripe-themes/simple": "*",
-		"silverstripe/spamprotection": "*",
-		"silverstripe/mathspamprotection": "dev-master",
-		"silverstripe/recaptcha" : "*",
+		"silverstripe/spamprotection": "1.2.*",
 		"md/division-bar" : "*",
 		"md/ac-json-events" : "*",
 		"rywa/silverstripe-foundation-forms": "dev-master",
@@ -17,10 +15,10 @@
 		"silverstripe/lumberjack": "dev-master",
 		"i-lateral/silverstripe-trumbowyg-htmleditor": "dev-master",
 		"colymba/gridfield-bulk-editing-tools": "*",
-		"unclecheese/betterbuttons": "1.2.*",
-		"silverstripe/recaptcha" : "*",
+		"unclecheese/betterbuttons": "*",
 		"md/division-bar": "*",
-		"thisisbd/silverstripe-maintenance-mode": "*"
+		"thisisbd/silverstripe-maintenance-mode": "*",
+		"undefinedoffset/silverstripe-nocaptcha": "*"
 	},
 	"repositories": [
 		{
