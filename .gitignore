@@ -29,3 +29,8 @@ silverstripe-lumberjack/
 lumberjack/
 gridfield-bulk-editing-tools
 maintenance-mode
+node_modules/
+.sass-cache
+division-bar/
+
+
