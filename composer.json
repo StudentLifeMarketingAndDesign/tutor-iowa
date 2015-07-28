@@ -8,7 +8,8 @@
 		"silverstripe-themes/simple": "*",
 		"silverstripe/spamprotection": "*",
 		"silverstripe/recaptcha" : "*",
-		"md/division-bar": "*"
+		"md/division-bar": "*",
+		"thisisbd/silverstripe-maintenance-mode": "*"
 	},
 	"repositories": [
 		{

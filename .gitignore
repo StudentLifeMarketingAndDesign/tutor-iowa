@@ -11,3 +11,5 @@ recaptchaKeys.php
 node_modules/
 .sass-cache
 division-bar/
+
+maintenance-mode/
