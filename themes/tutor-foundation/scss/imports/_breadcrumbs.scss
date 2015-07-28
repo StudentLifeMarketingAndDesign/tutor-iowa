@@ -2,6 +2,7 @@
 
 .main .breadcrumbs {
     //display: none;
+    padding-right: 0;
    &> *:before {
         //margin: 0 3px;
         @media #{$large-up}{

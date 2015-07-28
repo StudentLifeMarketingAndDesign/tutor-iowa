@@ -1455,8 +1455,8 @@ $crumb-slash: "\25B8";
 // $topbar-menu-link-weight: $font-weight-bold;
  $topbar-menu-link-color: white;
  $topbar-menu-icon-color: white;
- $topbar-menu-link-color-toggled: #eee;
- $topbar-menu-icon-color-toggled: #eee;
+ $topbar-menu-link-color-toggled: $primary-color;
+ $topbar-menu-icon-color-toggled: $primary-color;
 // $topbar-menu-icon-position: $opposite-direction; // Change to $default-float for a left menu icon
 
 // Transitions and breakpoint styles
