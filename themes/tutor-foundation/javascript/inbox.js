@@ -70,8 +70,8 @@
         $(".mark-read").each(function () {
             if ($(this).data("loaded") != 'true') {
                 $(this).data("loaded", "true");
-                $(this).click(function() {
-                    var message = $(this).closest(".inbox-message");
+                $(this).closest(".inbox-message").click(function() {
+                    var message = $(this);
                     var messageID = message.data('id');
                     if (!message.data('read')) {
 

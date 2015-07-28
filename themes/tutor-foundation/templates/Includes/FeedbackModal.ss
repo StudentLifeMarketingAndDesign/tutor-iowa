@@ -1,5 +1,5 @@
 <%--Login Modal--%>
-	<div id="feedback-form-modal" class="reveal-modal large" data-reveal>
+	<div id="feedback-form-modal" class="reveal-modal medium" data-reveal>
 		<div class="row">
 			
 			<div class="large-12 columns">

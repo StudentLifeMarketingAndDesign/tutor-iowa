@@ -72,6 +72,7 @@
 							<hr />
 							<h2>Contact $FirstName</h2>
 							$ContactForm
+							<p><a href="{$getFeedbackLink}" data-reveal-id="feedback-form-modal">Give Feedback About $FirstName</a></p>
 						</div>
 					</div>
 
@@ -79,14 +80,16 @@
 			</div>
 			<div class="large-4 columns end" data-equalizer-watch>
 				 <div class="side-nav">
+				 <% if $currentMemberPage.ID == $ID %>
 				 	<ul class="button-group stack">
-					    <% if $currentMemberPage.ID == $ID %>
+					    
 					        <li><a href="{$Link}edit" class="button success radius">Edit Your Profile</a></li>
-					    <% else %>
-					        <li><a href="{$getFeedbackLink}" class="button radius" data-reveal-id="feedback-form-modal">Give Feedback About $FirstName</a></li>
-					    <% end_if %>
+	
+					      
+					   
 					</ul>
 					<hr>
+					<% end_if %>
                     <% include RelatedResources %>
                     <% include SiteAdmin %>
                 </div>
