@@ -5,7 +5,7 @@
 	<% end_loop %>
 	<li class="announcement-card card last">
 		<a href="news/">
-			<h4>See all announcements</h4>
+			<h4>See all announcements &rarr;</h4>
 		</a>
 	</li>
 
