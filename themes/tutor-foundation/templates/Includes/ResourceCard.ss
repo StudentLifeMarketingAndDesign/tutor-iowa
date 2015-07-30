@@ -3,18 +3,18 @@
 	<a href="$Link">
 		<h4>$Title</h4>
 		<p>
-		<% if ClassName == "HelpLab" %>
-			<% if $Location %>
-				<strong>Location:</strong> $Location <br />
+
+		<% if $Location %>
+			<strong>Location:</strong> $Location <br />
+		<% end_if %>
+		<% if $SessionLeader %>
+			<strong>Led by:</strong> $SessionLeader<br />
+		<% end_if %>		
+		<% if ClassName == "SupplementalInstruction" %>
+			<% if $Schedule %>
+				<strong>Schedule:</strong> $Schedule.Summary(15)<br />
 			<% end_if %>
 		<% end_if %>
-
-		<% if ClassName == "SupplementalInstruction" %>
-			<% if $SessionLeader %>
-				<strong>Led by:</strong> $SessionLeader<br />
-			<% end_if %>		
-		<% end_if %>
-
 		<% if $Description %>
 			<strong>Description:</strong> $Description.Summary(15)<br />
 		<% else_if $Content %>
