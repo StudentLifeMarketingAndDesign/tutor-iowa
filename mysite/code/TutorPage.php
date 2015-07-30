@@ -249,18 +249,6 @@ class TutorPage_Controller extends Page_Controller {
 
 		$message->write();
 
-		$statspage = StatsPage::get()->first();
-		$temp = $statspage->TutorRequestCount;
-		$temp++;
-
-		$statspage->TutorRequestCount = $temp;
-
-		Versioned::reading_stage('stage');
-		$statspage->writeToStage('Stage');
-		$statspage->publish("Stage", "Live");
-		Versioned::reading_stage('Live');
-		$statspage->write();
-
 		return $this->redirect($this->Link('?sent=1'));
 
 	}

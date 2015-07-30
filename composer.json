@@ -18,7 +18,8 @@
 		"unclecheese/betterbuttons": "*",
 		"md/division-bar": "*",
 		"thisisbd/silverstripe-maintenance-mode": "*",
-		"undefinedoffset/silverstripe-nocaptcha": "*"
+		"undefinedoffset/silverstripe-nocaptcha": "*",
+		"jonom/silverstripe-betternavigator": "*"
 	},
 	"repositories": [
 		{

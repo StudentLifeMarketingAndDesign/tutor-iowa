@@ -67,5 +67,6 @@ else window.onload = downloadJSAtOnload;
 </script>
 
 <% include GoogleAnalytics %>
+$BetterNavigator
 </body>
 </html>

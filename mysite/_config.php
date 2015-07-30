@@ -23,8 +23,3 @@ SiteTree::enable_nested_urls();
 FulltextSearchable::enable();
 
 Object::useCustomClass('MemberLoginForm', 'CustomLoginForm');
-
-Object::add_extension("Member", "MemberExtension");
-Object::add_extension("TutorPage", "TutorPageExtension");
-Object::add_extension("SiteTree", "SiteTreeFieldExtension");
-/* ---- */
