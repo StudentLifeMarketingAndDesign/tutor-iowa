@@ -23,3 +23,9 @@ SiteTree::enable_nested_urls();
 FulltextSearchable::enable();
 
 Object::useCustomClass('MemberLoginForm', 'CustomLoginForm');
+
+
+if(Director::isLive()) {
+	Director::forceSSL(array('/^tutor-application/', '/^Security/','/^admin/'));
+}
+
