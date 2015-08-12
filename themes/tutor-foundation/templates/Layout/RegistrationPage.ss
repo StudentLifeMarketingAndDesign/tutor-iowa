@@ -5,10 +5,10 @@
 	<div class="main typography" role="main">
 	
 		<div class="row" data-equalizer>
-			<div class="large-8 columns content" data-equalizer-watch>
+			<div class="col-lg-8  content" data-equalizer-watch>
 				<div class="white-cover"></div>
 				<div class="row">
-					<article class="medium-11 columns end">
+					<article class="col-md-11  end">
 						<% include Breadcrumbs %>
 						<h1>$Title</h1>
 						<% if $RegistrationForm.MessageFromSession %>
@@ -26,7 +26,7 @@
 					</article>
 				</div>
 			</div>
-			<div class="large-4 columns end" data-equalizer-watch>
+			<div class="col-lg-4  end" data-equalizer-watch>
 					<% include SideNav %>
 			</div>
 		

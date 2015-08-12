@@ -1,6 +1,6 @@
 <footer class="footer clearfix" role="contentinfo">
 	<div class="row logo-container">
-		<div class="medium-6 large-5 columns">
+		<div class="col-md-6 col-lg-5 ">
 
 			<a href="http://uc.uiowa.edu/retention" target="_blank" class="hide-print footer-logo"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
 			" data-src="{$ThemeDir}/images/asr-logo.png" alt="Academic Support and Retention" /></a>
@@ -13,9 +13,9 @@
 			</p>
 
 		</div>
-		<div class="medium-6 large-4 columns">
+		<div class="col-md-6 col-lg-4 ">
 			<div class="row">
-				<div class="small-6 columns">
+				<div class="col-sm-6 ">
 					<ul class="border-list">
 						<li><a href="{$BaseHref}">Home</a></li>
 						<% loop Menu(1) %>
@@ -24,7 +24,7 @@
 						<li><a href="feedback/">Submit Feedback</a></li>
 					</ul>
 				</div>
-				<div class="small-6 columns">
+				<div class="col-sm-6 ">
 					<ul class="border-list">
 						<% if $SiteConfig.FacebookLink %>
 						<li><a href="$SiteConfig.FacebookLink" target="_blank"><span class="social-icon">F</span> Facebook</a></li>
@@ -42,12 +42,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="medium-12 large-3 columns">
+		<div class="col-md-12 col-lg-3 ">
 			<% include FooterRightContent %>
 		</div>
 	</div>
 	<div class="row">
-		<div class="small-12 columns">
+		<div class="col-sm-12 ">
 			<hr>
 			<% include CopyrightPrivacyFooter %>
 		</div>

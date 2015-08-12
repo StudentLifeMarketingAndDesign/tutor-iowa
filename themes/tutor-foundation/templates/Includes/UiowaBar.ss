@@ -1,7 +1,7 @@
 <!-- This file overwrites /division-bar/templates/DivisionBar.ss -->
 <div class="division-topbar no-print">
 	<div class="row">
-		<div class="large-12 columns">
+		<div class="col-lg-12 ">
 			<div class="clearfix">
 				<a href="http://www.uiowa.edu/" class="uiowa" target="_blank">
 					<img src="{$BaseHref}/division-bar/images/division-bar/uiowa.png" alt="The University of Iowa" width="177">

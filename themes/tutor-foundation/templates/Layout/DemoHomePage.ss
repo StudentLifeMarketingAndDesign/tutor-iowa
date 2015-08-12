@@ -1,8 +1,8 @@
-<div class="large-12 columns">
+<div class="col-lg-12 ">
 
 	<%--[Orbit](http://foundation.zurb.com/docs/components/orbit.html)--%>
 	<div class="row">
-		<div class="large-9 large-push-3 columns">
+		<div class="col-lg-9 col-lg-push-3 ">
 			<ul class="example-orbit-content" data-orbit>
 				<li data-orbit-slide="headline-1">
 					<div class="panel callout">
@@ -27,7 +27,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="large-3 large-pull-9 columns show-for-large-up">
+		<div class="col-lg-3 col-lg-pull-9  show-for-col-lg-up">
 			<div><a data-orbit-link="headline-1" class="small button">Goto Slide 1</a></div>
 			<div><a data-orbit-link="headline-2" class="small button">Goto Slide 2</a></div>
 			<div><a data-orbit-link="headline-3" class="small button">Goto Slide 3</a></div>
@@ -37,7 +37,7 @@
 	<hr />
 
 	<div class="row">
-		<div class="large-12 columns">
+		<div class="col-lg-12 ">
 			$Content
 			$Form
 		</div>
@@ -46,53 +46,53 @@
 	<hr />
 
 	<div class="row">
-		<div class="large-12 columns">
+		<div class="col-lg-12 ">
 			<div class="row">
-				<div class="large-4 small-6 columns">
+				<div class="col-lg-4 col-sm-6 ">
 					<h4>Upcoming Shows</h4><hr>
 					<div class="row">
-						<div class="large-1 column">
+						<div class="col-lg-1 column">
 							<img src="http://placehold.it/50x50&text=[img]">
 						</div>
-						<div class="large-9 columns">
+						<div class="col-lg-9 ">
 							<h5><a href="#">Venue Name</a></h5>
 							<h6 class="subheader show-for-small">Doors at 00:00pm</h6>
 						</div>
 					</div><hr>
 					<div class="hide-for-small">
 						<div class="row">
-							<div class="large-1 column">
+							<div class="col-lg-1 column">
 								<img src="http://placehold.it/50x50&text=[img]">
 							</div>
 
-							<div class="large-9 columns">
+							<div class="col-lg-9 ">
 								<h5 class="subheader"><a href="#">Venue Name</a></h5>
 							</div>
 						</div><hr>
 						<div class="row">
-							<div class="large-1 column">
+							<div class="col-lg-1 column">
 								<img src="http://placehold.it/50x50&text=[img]">
 							</div>
 
-							<div class="large-9 columns">
+							<div class="col-lg-9 ">
 								<h5 class="subheader"><a href="#">Venue Name</a></h5>
 							</div>
 						</div><hr>
 						<div class="row">
-							<div class="large-1 column">
+							<div class="col-lg-1 column">
 								<img src="http://placehold.it/50x50&text=[img]">
 							</div>
 
-							<div class="large-9 columns">
+							<div class="col-lg-9 ">
 								<h5 class="subheader"><a href="#">Venue Name</a></h5>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="large-4 small-6 columns">
+				<div class="col-lg-4 col-sm-6 ">
 					<img src="$ThemeDir/images/demo/yeti.png" />
 				</div>
-				<div class="large-4 small-12 columns">
+				<div class="col-lg-4 col-sm-12 ">
 					<h4>Blog</h4><hr>
 					<div class="panel">
 						<h5><a href="#">Post Title 1</a></h5>

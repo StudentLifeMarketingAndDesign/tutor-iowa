@@ -2,7 +2,12 @@
 /* import foundation components
 -------------------------------------------*/
 //@import "settings";
-@import "foundation/components/grid";
+
+//@import "foundation/components/grid";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/grid";
+
 /*@import "foundation/components/accordion";*/
 @import "foundation/components/alert-boxes";
 @import "foundation/components/block-grid";

@@ -17,7 +17,7 @@
 	<div class="main typography" role="main">
 	
 		<div class="row" data-equalizer>
-			<div class="large-9 columns content" data-equalizer-watch>
+			<div class="col-lg-9  content" data-equalizer-watch>
 				<div class="white-cover"></div>
 					<article>
 					<hr />
@@ -54,7 +54,7 @@
 					<% end_if %>
 					</article>
 			</div>
-			<div class="large-3 columns end" data-equalizer-watch>
+			<div class="col-lg-3  end" data-equalizer-watch>
 				<div class="side-nav">
 
 					<% include AnnouncementCardList %>	

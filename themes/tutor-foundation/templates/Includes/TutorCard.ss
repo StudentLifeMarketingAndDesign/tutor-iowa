@@ -7,11 +7,11 @@
 	<a href="$Link" class="profile-image">
 		<div class="row">
 			<% if $Image %>
-			<div class="small-3 columns push-9">
+			<div class="col-sm-3  push-9">
 				<img class="b-lazy" src="{$ThemeDir}/images/placeholder.jpg" data-src="http://lorempixel.com/300/300/" data-src-small="http://lorempixel.com/300/300/" />
 			</div>
 			<% end_if %>
-			<div class="<% if $Image %>small-9 columns pull-3<% else %>large-12 columns<% end_if %>">
+			<div class="<% if $Image %>col-sm-9  pull-3<% else %>col-lg-12 <% end_if %>">
 				<h4 class="tutor-name" href="$Link">$Title</h4><p>$Content.Summary(20)
 				<%--<% loop $SplitKeywords.Sort('RAND').Limit(8) %>
 					$Keyword<% if not $Last %>, <% end_if %>

@@ -4,18 +4,18 @@
 	<% loop $Pages %>
 
 			<% if $Last %>
-				<li class="current show-for-medium-up" title="Go to the $Title.ATT">
+				<li class="current show-for-col-md-up" title="Go to the $Title.ATT">
 					<span>
-						<menutitle class="show-for-small-only">$MenuTitle.LimitCharacters(10)</menutitle>
-						<menutitle class="show-for-medium-up">$MenuTitle</menutitle>
+						<menutitle class="show-for-col-sm-only">$MenuTitle.LimitCharacters(10)</menutitle>
+						<menutitle class="show-for-col-md-up">$MenuTitle</menutitle>
 					</span>
 
 				</li>
 			<% else %>
 				<li>
 					<a href="$Link" title="Go to the $Title.ATT">
-						<menutitle class="show-for-small-only">$MenuTitle.LimitCharacters(10)</menutitle>
-						<menutitle class="show-for-medium-up">$MenuTitle</menutitle>
+						<menutitle class="show-for-col-sm-only">$MenuTitle.LimitCharacters(10)</menutitle>
+						<menutitle class="show-for-col-md-up">$MenuTitle</menutitle>
 					</a>
 				</li>
 			<% end_if %>

@@ -18,15 +18,15 @@
 			    	<%-- <img id="profile-cover-photo" src="http://lorempixel.com/1240/600/" /> --%>
 			    <% end_if %>
 			</div>
-			<div class="large-8 columns content" data-equalizer-watch>
+			<div class="col-lg-8  content" data-equalizer-watch>
 				<div class="white-cover"></div>
 				$Breadcrumbs
 				<article>
 					<div class="row">
 						<% if $approvedProfileImage %>
-						<div class="medium-9 small-9 columns">
+						<div class="col-md-9 col-sm-9 ">
 						<% else %>
-						<div class="medium-9 small-12 columns">
+						<div class="col-md-9 col-sm-12 ">
 						<% end_if %>
 
 							<% if $Sent %>
@@ -43,7 +43,7 @@
 								<% if $HourlyRate %><strong>Hourly Rate:</strong> {$HourlyRate}<% end_if %>
 							</p>
 						</div>
-						<div class="medium-3 small-3 columns">
+						<div class="col-md-3 col-sm-3 ">
 
 							<div class="profile-image">
                                 <% if $approvedProfileImage %>
@@ -56,7 +56,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="medium-12 columns">
+						<div class="col-md-12 ">
 							<h2>About $FirstName</h2>
 							<p>$Content</p>
 
@@ -78,7 +78,7 @@
 
 				</article>
 			</div>
-			<div class="large-4 columns end" data-equalizer-watch>
+			<div class="col-lg-4  end" data-equalizer-watch>
 				 <div class="side-nav">
 				 <% if $currentMemberPage.ID == $ID %>
 				 	<ul class="button-group stack">

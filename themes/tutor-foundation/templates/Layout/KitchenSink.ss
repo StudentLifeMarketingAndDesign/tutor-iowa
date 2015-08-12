@@ -1,4 +1,4 @@
-<div class="<% if $Children || $Parent %>large-9 large-push-3<% else %>large-12<% end_if %> columns">
+<div class="<% if $Children || $Parent %>col-lg-9 col-lg-push-3<% else %>col-lg-12<% end_if %> ">
 	<h2>$Title</h2>
 	<h3 class="subheader">This page includes every single Foundation element so that we can make sure things work together smoothly.</h3>
 
@@ -25,7 +25,7 @@
 
 	<hr>
 	<h4 id="block-grid">Block Grid</h4>
-	<ul class="small-block-grid-2 large-block-grid-4">
+	<ul class="col-sm-block-grid-2 col-lg-block-grid-4">
 		<li><img class="th" src="$ThemeDir/images/examples/comet-th.jpg"></li>
 		<li><img class="th" src="$ThemeDir/images/examples/launch-th.jpg"></li>
 		<li><img class="th" src="$ThemeDir/images/examples/space-th.jpg"></li>
@@ -44,13 +44,13 @@
 	<hr>
 	<h4 id="buttons">Buttons</h4>
 	<div class="row">
-		<div class="small-6 large-6 columns">
+		<div class="col-sm-6 col-lg-6 ">
 			<a href="#" class="tiny button">.tiny.button</a><br>
 			<a href="#" class="small button">.small.button</a><br>
 			<a href="#" class="button">.button</a><br>
 			<a href="#" class="button expand">.expand</a><br>
 		</div>
-		<div class="small-6 large-6 columns">
+		<div class="col-sm-6 col-lg-6 ">
 			<a href="#" class="tiny button secondary">.tiny.secondary</a><br>
 			<a href="#" class="small button success radius">.small.success.radius</a><br>
 			<a href="#" class="button alert round disabled">.round.disabled</a><br>
@@ -124,36 +124,36 @@
 		<fieldset>
 			<legend>Fieldset</legend>
 			<div class="row">
-				<div class="large-12 columns">
+				<div class="col-lg-12 ">
 					<label>Input Label</label>
-					<input type="text" placeholder="large-12.columns">
+					<input type="text" placeholder="col-lg-12.">
 				</div>
 			</div>
 			<div class="row">
-				<div class="large-4 columns">
+				<div class="col-lg-4 ">
 					<label>Input Label</label>
-					<input type="text" placeholder="large-4.columns">
+					<input type="text" placeholder="col-lg-4.">
 				</div>
-				<div class="large-4 columns">
+				<div class="col-lg-4 ">
 					<label>Input Label</label>
-					<input type="text" placeholder="large-4.columns">
+					<input type="text" placeholder="col-lg-4.">
 				</div>
-				<div class="large-4 columns">
+				<div class="col-lg-4 ">
 					<div class="row collapse">
 						<label>Input Label</label>
-						<div class="small-9 columns">
-							<input type="text" placeholder="small-9.columns">
+						<div class="col-sm-9 ">
+							<input type="text" placeholder="col-sm-9.">
 						</div>
-						<div class="small-3 columns">
+						<div class="col-sm-3 ">
 							<span class="postfix">.com</span>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="large-12 columns">
+				<div class="col-lg-12 ">
 					<label>Textarea Label</label>
-					<textarea placeholder="small-12.columns"></textarea>
+					<textarea placeholder="col-sm-12."></textarea>
 				</div>
 			</div>
 		</fieldset>
@@ -250,7 +250,7 @@
 	<hr>
 	<h4 id="orbit">Orbit</h4>
 	<div class="row">
-		<div class="large-12 columns">
+		<div class="col-lg-12 ">
 			<ul id="featured1" data-orbit data-options="timer_speed:5000;">
 				<li>
 					<img src="http://foundation.zurb.com/docs/assets/img/examples/satelite-orbit.jpg" />
@@ -291,13 +291,13 @@
 	<hr>
 	<h4 id="panels">Panels</h4>
 	<div class="row">
-		<div class="large-6 columns">
+		<div class="col-lg-6 ">
 			<div class="panel">
 				<h5>This is a regular panel.</h5>
 				<p>It has an easy to override visual style, and is appropriately subdued.</p>
 			</div>
 		</div>
-		<div class="large-6 columns">
+		<div class="col-lg-6 ">
 			<div class="panel callout radius">
 				<h5>This is a callout panel with radiused edges.</h5>
 				<p>It&#39;s a little ostentatious, but useful for important content.</p>
@@ -308,7 +308,7 @@
 	<hr>
 	<h4 id="pricing-tables">Pricing Tables</h4>
 	<div class="row">
-		<div class="large-4 columns">
+		<div class="col-lg-4 ">
 			<ul class="pricing-table">
 				<li class="title">Standard</li>
 				<li class="price">$99.99</li>
@@ -323,9 +323,9 @@
 
 	<hr>
 	<h4 id="progress-bars">Progress Bars</h4>
-	<div class="progress large-6"><span class="meter" style="width: 40%"></span></div>
-	<div class="radius progress success large-8"><span class="meter" style="width: 80%"></span></div>
-	<div class="nice round progress alert large-10"><span class="meter" style="width: 30%"></span></div>
+	<div class="progress col-lg-6"><span class="meter" style="width: 40%"></span></div>
+	<div class="radius progress success col-lg-8"><span class="meter" style="width: 80%"></span></div>
+	<div class="nice round progress alert col-lg-10"><span class="meter" style="width: 30%"></span></div>
 	<div class="nice secondary progress"><span class="meter" style="width: 50%"></span></div>
 
 	<hr>
@@ -449,7 +449,7 @@
 	<hr>
 	<h4 id="side-nav">Side Nav</h4>
 	<div class="row">
-		<div class="large-4 columns end">
+		<div class="col-lg-4  end">
 			<ul class="side-nav">
 				<li class="active"><a href="#">Link 1</a></li>
 				<li><a href="#">Link 2</a></li>
@@ -633,11 +633,11 @@
 	<p class="panel">
 		<strong class="show-for-small">You are on a small screen.</strong>
 		<strong class="show-for-medium">You are on a medium screen.</strong>
-		<strong class="show-for-medium-up">You are on a medium, large or xlarge screen.</strong>
-		<strong class="show-for-medium-down">You are on a medium or small screen.</strong>
+		<strong class="show-for-col-md-up">You are on a medium, large or xlarge screen.</strong>
+		<strong class="show-for-col-md-down">You are on a medium or small screen.</strong>
 		<strong class="show-for-large">You are on a large screen.</strong>
-		<strong class="show-for-large-up">You are on a large or xlarge screen.</strong>
-		<strong class="show-for-large-down">You are on a large, medium or small screen.</strong>
+		<strong class="show-for-col-lg-up">You are on a large or xlarge screen.</strong>
+		<strong class="show-for-col-lg-down">You are on a large, medium or small screen.</strong>
 		<strong class="show-for-xlarge">You are on a xlarge screen.</strong>
 	</p>
 
@@ -646,11 +646,11 @@
 	<p class="panel">
 		<strong class="hide-for-small">You are <em>not</em> on a small screen.</strong>
 		<strong class="hide-for-medium">You are <em>not</em> on a medium screen.</strong>
-		<strong class="hide-for-medium-up">You are <em>not</em> on a medium, large or xlarge screen.</strong>
-		<strong class="hide-for-medium-down">You are <em>not</em> on a medium or small screen.</strong>
+		<strong class="hide-for-col-md-up">You are <em>not</em> on a medium, large or xlarge screen.</strong>
+		<strong class="hide-for-col-md-down">You are <em>not</em> on a medium or small screen.</strong>
 		<strong class="hide-for-large">You are <em>not</em> on a large screen.</strong>
-		<strong class="hide-for-large-up">You are <em>not</em> on a large or xlarge screen.</strong>
-		<strong class="hide-for-large-down">You are <em>not</em> on a large, medium or small screen.</strong>
+		<strong class="hide-for-col-lg-up">You are <em>not</em> on a large or xlarge screen.</strong>
+		<strong class="hide-for-col-lg-down">You are <em>not</em> on a large, medium or small screen.</strong>
 		<strong class="hide-for-xlarge">You are <em>not</em> on a xlarge screen.</strong>
 	</p>
 
@@ -669,7 +669,7 @@
 	</p>
 </div>
 <% if $Children || $Parent %><%--Determine if Side Nav should be rendered, you can change this logic--%>
-<div class="large-3 large-pull-9 columns">
+<div class="col-lg-3 col-lg-pull-9 ">
 	<div class="panel">
 		<% include SideNav %>
 	</div>

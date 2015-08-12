@@ -5,10 +5,10 @@
 	<div class="main typography" role="main">
 	
 		<div class="row" data-equalizer>
-			<div class="large-8 columns content" data-equalizer-watch>
+			<div class="col-lg-8  content" data-equalizer-watch>
 				<div class="white-cover"></div>
 				<div class="row">
-					<article class="large-10 columns">
+					<article class="col-lg-10 ">
 						$Breadcrumbs
 						<h1>$Title</h1>
 						<% include FindHelpSearch %>
@@ -17,7 +17,7 @@
 					</article>
 				</div>
 				<div class="row">
-					<div class="large-12 columns">
+					<div class="col-lg-12 ">
 						<ul class="resource-card-list">
 							<% loop Children %>
 								<% include ResourceCard %>
@@ -26,7 +26,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="large-4 columns end" data-equalizer-watch>
+			<div class="col-lg-4  end" data-equalizer-watch>
 					<% include SideNav %>
 			</div>
 		

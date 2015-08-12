@@ -1,10 +1,10 @@
 <div class="gradient">
 <div class="main typography" role="main">
 	<div class="row" data-equalizer>
-		<div class="large-8 columns" data-equalizer-watch>
+		<div class="col-lg-8 " data-equalizer-watch>
 			<div class="white-cover"></div>
 			<div class="row">
-				<article class="large-10 columns">
+				<article class="col-lg-10 ">
 				$Breadcrumbs
 					<% if $Saved %>
 						<script type="text/javascript">
@@ -18,7 +18,7 @@
 				</article>
 			</div>
 		</div>
-		<div class="large-4 columns end" data-equalizer-watch>
+		<div class="col-lg-4  end" data-equalizer-watch>
 				<% include SideNav %>
 		</div>
 	

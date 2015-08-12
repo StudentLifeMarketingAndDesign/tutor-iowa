@@ -2,11 +2,11 @@
 	<div class="main typography" role="main">
 
 		<div class="row" data-equalizer>
-			<div class="large-8 columns content" >
+			<div class="col-lg-8  content" >
 				<div class="white-cover"></div>
 				<article class="main-article">
 					<div class="row inbox-nav">
-						<div class="medium-3 columns show-for-medium-up">
+						<div class="col-md-3  show-for-col-md-up">
 							<span class="button inbox-head small all-messages <% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>">
 								<% if $CurrentMember.unreadMessageCount > 0 %> 
 									Inbox <span class="inboxCount" data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount">({$CurrentMember.unreadMessageCount})</span>
@@ -15,7 +15,7 @@
 								<% end_if %>
 							</span>
 						</div>
-						<div class="small-12 medium-9 columns">
+						<div class="col-sm-12 col-md-9 ">
 							<div>
 								<ul class="button-group">
 									<li><button class="unread-messages small button" >Unread</button></li>
@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="medium-12" id="main-content">
+						<div class="col-md-12" id="main-content">
 
 							<%-- this panel shows if script doesn't find any unread messages if .unread is clicked --%>
 							<div class='panel callout noUnread'>No unread messages here!</div>
@@ -56,13 +56,13 @@
 							<% if $SiteAdmin %>
 								<h2> Hello Admin </h2>
 								<h3>Pending Profile Image </h3>
-								<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+								<ul class="col-sm-block-grid-1 col-md-block-grid-3 col-lg-block-grid-4">
 									<% loop $pendingProfileImages %>
 										<% include PendingImageCard %>
 									<% end_loop %>
 								</ul>
 								<h3>Pending Cover Images </h3>
-								<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+								<ul class="col-sm-block-grid-1 col-md-block-grid-3 col-lg-block-grid-4">
 									<% loop $pendingCoverImages %>
 										<% include PendingImageCard %>
 									<% end_loop %>
@@ -73,7 +73,7 @@
 				</article>
 			</div>
 
-			<div class="large-4 columns end" >
+			<div class="col-lg-4  end" >
 
 				<aside class="side-nav">
 					<%-- <h2>$CurrentMember.Name, you have $CurrentMember.Messages.ReadDateTime.Count</h2> --%>

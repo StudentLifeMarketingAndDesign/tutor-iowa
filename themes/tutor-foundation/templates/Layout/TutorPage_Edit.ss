@@ -27,7 +27,7 @@
             </div>
             
             	<%-- <div class="update-cover-photo">$EditProfileCoverForm</div> --%>
-            <div class="large-8 columns content" data-equalizer-watch>
+            <div class="col-lg-8  content" data-equalizer-watch>
 
                 <div class="white-cover"></div>
                 $Breadcrumbs
@@ -39,7 +39,7 @@
                 <% end_if %>
                 <article>
                     <div class="row">
-                        <div class="medium-12 columns">  
+                        <div class="col-md-12 ">  
                             <% if $Message %>
                             <p id="{$FormName}_error" class="message $MessageType">$Message</p>
                             <% else %>
@@ -48,7 +48,7 @@
                            	$EditProfileForm
                         </div>
                         <%--/* UNCOMMENT TO ENABLE COVER/PROFILE IMAGE EDITING */ -- %>
-                        <div class="medium-4 small-2 columns">
+                        <div class="col-md-4 col-sm-2 ">
             				<ul class="button-group">
                                 <li><button id="removeCoverPhoto" class="tiny radius alert">Remove Cover Photo</button></li>
                                 <li><button id="repositionCoverPhoto" class="tiny radius secondary">Reposition Cover Photo</button></li>
@@ -66,7 +66,7 @@
                     </div>
                 </article>
             </div>
-            <div class="large-4 columns end" data-equalizer-watch>
+            <div class="col-lg-4  end" data-equalizer-watch>
                 <div class="side-nav">
                 <ul class="button-group stack"><li><a href="$Link" class="button radius" target="_blank">View Your Profile</a></li></ul>
                 </div>

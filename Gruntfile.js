@@ -17,7 +17,8 @@ module.exports = function(grunt) {
         options: {              // Target options
           style: 'compressed',
           loadPath: [
-          '<%=globalConfig.themeDir %>/bower_components/foundation/scss'
+          '<%=globalConfig.themeDir %>/bower_components/foundation/scss',
+          '<%=globalConfig.themeDir %>/bower_components/bootstrap-sass/assets/stylesheets/'
           ]
         }
       }

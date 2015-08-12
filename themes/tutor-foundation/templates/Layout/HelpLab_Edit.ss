@@ -3,7 +3,7 @@
 			
 			<div class="row" data-equalizer>
 				<%--<div class="page-bg" id="labmap"></div>--%>
-				<div class="large-8 columns content" data-equalizer-watch>
+				<div class="col-lg-8  content" data-equalizer-watch>
 					<div class="white-cover"></div>
 					<article>
 						$Breadcrumbs
@@ -18,7 +18,7 @@
 						$HelpEditProfileForm
 					</article>
 				</div>
-				<div class="large-4 columns end" data-equalizer-watch>
+				<div class="col-lg-4  end" data-equalizer-watch>
 					<% include HelpLabSideNav %>
 				</div>
 			

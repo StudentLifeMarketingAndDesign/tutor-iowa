@@ -1,13 +1,13 @@
 <div class="main typography" role="main">
 	<div class="row">
-		<div class="large-12 columns">
+		<div class="col-lg-12 ">
 			$Breadcrumbs
 		</div>
 	</div>
 
 
 	<div class="row" data-equalizer>
-		<div class="large-6 columns content" data-equalizer-watch>
+		<div class="col-lg-6  content" data-equalizer-watch>
 			<article>
 				$Content
 				$Form
@@ -50,7 +50,7 @@
 				</ul>
 			</article>
 		</div>
-		<div class="large-6 columns end" data-equalizer-watch>
+		<div class="col-lg-6  end" data-equalizer-watch>
 			<div>
 				<h2>Top 25 Most Popular Search Terms</h2>
 				<table style="width:100%">
