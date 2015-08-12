@@ -1,5 +1,5 @@
 <div class="gradient">
-	<div class="main typography" role="main" data-equalizer>
+	<div class="main container typography" role="main" data-equalizer>
 			
 			<div class="row"  data-equalizer-watch>
 				<%--<div class="page-bg" id="labmap"></div>--%>

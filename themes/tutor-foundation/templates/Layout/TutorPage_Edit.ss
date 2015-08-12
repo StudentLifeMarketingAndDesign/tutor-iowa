@@ -1,5 +1,5 @@
 <div class="gradient">
-    <div class="main typography" role="main">
+    <div class="main container typography" role="main">
         <% if $IncludeFormTag %>
             <form $AttributesHTML>
         <% end_if %>

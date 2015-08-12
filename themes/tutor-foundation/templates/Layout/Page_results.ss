@@ -1,4 +1,4 @@
-<div class="main typography" role="main">
+<div class="main container typography" role="main">
   <div class="row">
     <div class="col-lg-12 ">
       <% include BreadcrumbsSearch %>

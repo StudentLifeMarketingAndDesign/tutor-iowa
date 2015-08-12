@@ -41,7 +41,7 @@
 	<![endif]-->
 </head>
 <body class="$ClassName.ATT $Action.ATT">
-	<div class="container">
+	
 	<% include UiowaBar %>
 	<header class="header" role="banner">
 		<div class="contain-to-grid">
@@ -53,7 +53,7 @@
 	 <a id="feedback-btn" href="feedback" data-reveal-id="feedback-form-modal"><span class="visuallyhidden">Feedback</span></a>
 
 	<% include Footer %>
-	</div>
+
 	<% include LoginModal %>
 	<% include FeedbackModal %>
 
