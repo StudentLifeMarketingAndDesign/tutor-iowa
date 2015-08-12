@@ -10,8 +10,7 @@
 			</div>
 		</div>
 	</div>
-	
-</div>
+
 <div class="gradient">
 
 	<div class="main typography" role="main">
