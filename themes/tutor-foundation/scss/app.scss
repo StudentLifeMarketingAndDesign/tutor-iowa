@@ -4,16 +4,16 @@
 //@import "settings";
 
 //@import "foundation/components/grid";
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
-@import "bootstrap/grid";
+@import "imports/variables";
+@import "bootstrap";
+
 
 /*@import "foundation/components/accordion";*/
-@import "foundation/components/alert-boxes";
+//@import "foundation/components/alert-boxes";
 @import "foundation/components/block-grid";
-@import "foundation/components/breadcrumbs";
-@import "foundation/components/button-groups";
-@import "foundation/components/buttons";
+//@import "foundation/components/breadcrumbs";
+//@import "foundation/components/button-groups";
+//@import "foundation/components/buttons";
 /*@import "foundation/components/clearing";*/
 /*@import "foundation/components/dropdown";*/
 /*@import "foundation/components/dropdown-buttons";*/
@@ -26,22 +26,22 @@
 /*@import "foundation/components/labels";*/
 /*@import "foundation/components/magellan";*/
 //@import "foundation/components/orbit";
-@import "foundation/components/pagination";
-@import "foundation/components/panels";
+//@import "foundation/components/pagination";
+//@import "foundation/components/panels";
 /*@import "foundation/components/pricing-tables";*/
 /*@import "foundation/components/progress-bars";*/
 /*@import "foundation/components/range-slider";*/
-@import "foundation/components/reveal";
+//@import "foundation/components/reveal";
 @import "foundation/components/side-nav";
-@import "foundation/components/split-buttons";
-@import "foundation/components/sub-nav";
+//@import "foundation/components/split-buttons";
+//@import "foundation/components/sub-nav";
 /*@import "foundation/components/switches";*/
 @import "foundation/components/tables";
 /*@import "foundation/components/tabs";*/
-@import "foundation/components/thumbs";
+//@import "foundation/components/thumbs";
 /*@import "foundation/components/tooltips";*/
-@import "foundation/components/top-bar";
-@import "foundation/components/type";
+//@import "foundation/components/top-bar";
+//@import "foundation/components/type";
 //@import "foundation/components/offcanvas";
 @import "foundation/components/visibility";
 
@@ -72,7 +72,7 @@
 
 
 
-@import "../../../division-bar/scss/_uiowa-bar-foundation.scss";
+@import "../../../division-bar/scss/_division-bar.scss";
 
 
 
@@ -208,7 +208,7 @@
 		background: -o-linear-gradient(left, #ffffff 60%,$side-nav-bg 40%); /* Opera 11.10+ */
 		background: -ms-linear-gradient(left, #ffffff 60%,$side-nav-bg 40%); /* IE10+ */
 		background: linear-gradient(to right, #ffffff 60%,$side-nav-bg 40%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='$side-nav-bg',GradientType=1 ); /* IE6-9 */ 
+		//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='$side-nav-bg',GradientType=1 ); /* IE6-9 */ 
 	}
 }
 .white-cover {

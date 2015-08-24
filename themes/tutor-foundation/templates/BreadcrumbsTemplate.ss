@@ -1,5 +1,5 @@
 <% if $Pages %>
-<ul class="breadcrumbs">
+<ul class="breadcrumb">
 	<% if not $InSection(home) %><li><a href="{$baseUrl}">Home</a></li><% end_if %>
 	<% loop $Pages %>
 

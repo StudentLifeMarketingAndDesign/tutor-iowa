@@ -1,5 +1,5 @@
 <?php
-class InboxController extends Page_Controller {
+class InboxController extends ContentController {
 
 	private static $allowed_actions = array(
 		'index',

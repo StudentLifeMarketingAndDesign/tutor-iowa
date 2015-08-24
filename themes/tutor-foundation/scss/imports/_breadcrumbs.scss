@@ -17,10 +17,8 @@
     margin-bottom: 0;
 
     a {
-        @include button(
-            $bg: $gray,
-            $padding: rem-calc(5)
-        );
+       @extend .btn;
+       background-color: $gray;
         font-family: $header-font-family;
 
     }
@@ -28,11 +26,8 @@
         top: -1px;
     }
     span{
-        @include button(
-            $bg: $body-bg,
-            $padding: rem-calc(5),
-            $disabled: true
-        );
+        @extend .btn;
+        background-color: $body-bg;
         font-family: $header-font-family;
     }
 

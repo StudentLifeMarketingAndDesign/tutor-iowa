@@ -1,13 +1,85 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand"href="{$baseUrl}"><img alt="Tutor Iowa Wordmark" src="{$ThemeDir}/images/logo.png" /></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+	<%-- Main Nav Section --%>
+		<ul class="nav navbar-nav">
+			<% loop Menu(1) %>
+			<li class="<% if $LinkingMode == "current" || $LinkingMode == "section" %>active<% end_if %><% if $Children %>dropdown<% end_if %>">
+				<a href="$Link" <% if $URLSegment == "feedback" %>data-reveal-id="{$URLSegment}-form-modal"<% end_if %> title="Go to the $Title.ATT">$MenuTitle</a>
+				<% if $Children %>
+				<ul class="dropdown-menu">
+					<li><label>$MenuTitle</label></li>
+					<% loop $Children %>
+					<li class="<% if $LinkingMode == "current" || $LinkingMode == "section" %>active<% end_if %><% if $Children %> dropdown<% end_if %>">
+						<a href="$Link" title="Go to the $Title.ATT">$MenuTitle</a>
+						<% if $Children %>
+						<ul class="dropdown-menu">
+							<% loop $RandomChildren.Limit(5) %>
+							<li class="<% if $LinkingMode == "current" || $LinkingMode == "section" %>active<% end_if %>"><a href="$Link" title="Go to the $Title.ATT">$MenuTitle.LimitCharacters(25)</a></li>
+							<% end_loop %>
+							<li><a href="$Link">See all &rarr;</a></li>
+						</ul>
+						<% end_if %>
+					</li>
+					<% end_loop %>
+					<li><a href="$Link">See all &rarr;</a></li>
+				</ul>
+				<% end_if %>
+			</li>
+			<% end_loop %>
+		</ul>
+
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+
+
+
+  </div><!-- /.container-fluid -->
+</nav>
+
+<%--
+
 <nav class="top-bar" role="navigation" data-topbar>
 	<ul class="title-area">
 		<li class="name">
-			<h1><a href="{$baseUrl}"><img alt="Tutor Iowa Wordmark" src="{$ThemeDir}/images/logo.png" /></a></h1>
+
 		</li>
 		<li class="toggle-topbar menu-icon"><a href=""><span></span></a></li>
 	</ul>
 	<section class="top-bar-section">
 
-		<%-- Main Nav Section --%>
+
 		<ul class="left">
 			<% loop Menu(1) %>
 			<li class="<% if $LinkingMode == "current" || $LinkingMode == "section" %>active<% end_if %><% if $Children %> has-dropdown<% end_if %>">
@@ -64,3 +136,5 @@
 		</ul>
 	</section>
 </nav>
+
+--%>

@@ -5,6 +5,18 @@
 	//@include linear-gradient(42deg, #B58234 0%, #D2B545 50%, #D7C04D 50.01%, #FFFFFF);
 }
 
+.navbar-brand{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.navbar-brand img{
+	max-width: 300px;
+}
+
+
+/* Old Foundation Top Bar: */
+
 .contain-to-grid{
 	@include topBarGradient;
 }
