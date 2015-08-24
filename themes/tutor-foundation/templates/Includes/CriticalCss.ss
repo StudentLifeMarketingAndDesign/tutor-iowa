@@ -66,6 +66,9 @@ fieldset{ border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1
 .reveal-modal{ top: 6.25rem; }
 }
 @media only screen and (min-width: 40.063em){
+.reveal-modal.medium{ width: 60%; max-width: 77.5rem; left: 0px; right: 0px; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; }
+}
+@media only screen and (min-width: 40.063em){
 .reveal-modal.large{ width: 70%; max-width: 77.5rem; left: 0px; right: 0px; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; }
 }
 .reveal-modal .close-reveal-modal{ font-size: 2.5rem; line-height: 1; position: absolute; top: 0.625rem; right: 1.375rem; color: rgb(170, 170, 170); font-weight: bold; cursor: pointer; }
@@ -255,6 +258,9 @@ input[type="submit"]{ border-top-style: solid; border-right-style: solid; border
 .footer p, .footer li{ font-size: 0.75rem; }
 .footer a{ color: rgb(238, 238, 238); }
 .footer-logo img{ max-width: 300px; padding-bottom: 10px; }
+@media only screen and (min-width: 64.063em){
+.footer-logo img{ max-width: 100%; }
+}
 .border-list{ list-style-type: none; list-style-position: initial; list-style-image: initial; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; }
 @media only screen and (min-width: 40.063em){
 .border-list{ border-left-width: 1px; border-left-style: solid; border-left-color: rgb(0, 0, 0); }
