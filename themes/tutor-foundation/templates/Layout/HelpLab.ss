@@ -13,9 +13,7 @@
 						<% if $ExternalScheduleLink %>
 							<a href="$ExternalScheduleLink" target="_blank" class="external-link">View full schedule &rarr;</a><br />
 						<% end_if %>
-						<% if $ExtrnlLink %>
-							<a href="$ExtrnlLink" target="_blank">Visit website &rarr;</a>
-						<% end_if %>
+	
 						<p>
 						<% if $Location %>
 						<span><strong>Location:</strong> $Location</span>
@@ -37,6 +35,9 @@
 							<strong>Phone:</strong> $PhoneNo<br />
 						<% else %>
 							<strong>No Phone Listed</strong><br />
+						<% end_if %>
+						<% if $ExtrnlLink %>
+							<a href="$ExtrnlLink" target="_blank">Visit website &rarr;</a>
 						<% end_if %>
 						</p>
 						<% if $Description %>
