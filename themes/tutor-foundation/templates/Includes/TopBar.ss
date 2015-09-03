@@ -58,7 +58,7 @@
 			</li>
 
 			<% else %>
-				<li class="log-in"><a href="Security/login">Log In</a></li>
+				<li class="log-in"><a href="Security/login" data-reveal-id="login-form-modal">Log In</a></li>
 				<li class="register"><a href="register">Become a Tutor</a></li>
 			<% end_if %>
 		</ul>
