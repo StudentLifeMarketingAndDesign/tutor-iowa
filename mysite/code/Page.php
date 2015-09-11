@@ -232,65 +232,34 @@ class Page_Controller extends ContentController {
 
 		$feedback->write();
 
-		if (($data["FirstName"] != '') && ($data["Surname"] != '')) {
-			$firstName = Convert::raw2sql($data['FirstName']);
-			$surname = Convert::raw2sql($data['Surname']);
-			$desiredTutor = TutorPage::get()->filter(array('FirstName' => $firstName,
-				'Surname' => $surname))->First();
-			//print_r($desiredTutor);
-			if ($desiredTutor) {
+		if ($feedback->SpecificPage == "1") {
+			
+			$relatedPage = Page::get_by_id("Page", $feedback->PageID);
 
-				$feedbackItem = new FeedbackItem();
-				$feedbackItem->TutorID = $desiredTutor->ID;
-
-				$feedbackItem->write();
-
-			}
 		}
-
+		
 		$subject = "Feedback submitted";
 
+		//check data for errors
 		$name = Convert::raw2sql($data['Name']);
 		$userEmail = Convert::raw2sql($data['Email']);
 		$feedback = Convert::raw2sql($data['Feedback']);
-		$tutorFirstName = Convert::raw2sql($data['FirstName']);
-		$tutorLastName = Convert::raw2sql($data['Surname']);
 
-		$body = '' . $name . " has submitted feedback. " . "<br><br>Feedback:" . $feedback;
 
-		if (($tutorFirstName != '') || ($tutorLastName != '')) {
-			$body .= '<br><br>' . 'Tutor First Name: ' . $tutorFirstName . '<br><br>' . 'Tutor Last Name :' . $tutorLastName;
-		}
-
-		if (isset($tutorPage)) {
-			if ($tutorPage) {
-				$tutorID = $tutorPage->ID;
-				$body .= "<br><br> View tutor account <a href='" . Director::absoluteBaseURL() . "admin/pages/edit/show/" . $tutorID . "'>here</a/><br><br>";
-			}
-		} elseif (isset($desiredTutor)) {
-			if ($desiredTutor) {
-				$tutorID = $desiredTutor->ID;
-				$body .= "<br><br> View tutor account <a href='" . Director::absoluteBaseURL() . "admin/pages/edit/show/" . $tutorID . "'>here</a/><br><br>";
-			}
+		if (isset($relatedPage)){
+			$body = '' . $name . " has submitted feedback for page " . $relatedPage->Title . ". <br><br>Feedback:" . $feedback;
 		} else {
-			$feedbackPage = FeedbackPage::get()->First();
-			if ($feedbackPage) {
-				$feedbackID = $feedbackPage->ID;
-				$body .= "<br><br>All Tutor Feedback can be viewed in the CMS <a href='" . Director::absoluteBaseURL() . "admin/pages/edit/show/" . $feedbackID . "'>here</a/><br><br>";
-			}
+			$body = '' . $name . " has submitted feedback. " . "<br><br>Feedback:" . $feedback;
 		}
-
-		//"Enable account  <a href='" . Director::absoluteBaseURL() .  "admin/pages/edit/show/" . $Tutor->ID . "'>here</a/><br><br>
-
-		//$headers = "From: Tutor Iowa";
-		//mail($recip->Email, $subject, $body);
 
 		$email = new Email();
 		$email->setTo($adminEmail);
 		$email->setFrom($adminEmail);
 		$email->setSubject($subject);
 		$email->setBody($body);
-		$email->send();
+		if (SS_ENVIRONMENT_TYPE == "live") {
+			$email->send(); 
+		}
 
 		Session::set('Saved', 1);
 
