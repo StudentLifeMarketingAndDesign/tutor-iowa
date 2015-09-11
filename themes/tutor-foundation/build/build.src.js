@@ -283,6 +283,24 @@ $(document).ready(function() {
 // Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation();
 
+jQuery.fn.exists = function(){return this.length > 0;}
+
+$(document).ready(function(){
+
+	//relaunch the Login modal if the login was unsuccessful
+	if ($('#login-form-modal .message.bad').exists()) {
+		
+		$('#login-form-modal').foundation('reveal', 'open');
+	}
+
+	//relaunch the Feedback modal if the form was missing elements
+	if ($('#feedback-form-modal .message.validation, .message.error, .error.required').exists()) {
+		
+		$('#feedback-form-modal').foundation('reveal', 'open');
+	}
+});
+
+
 // trigger for joyride demo in KitchenSink demo
 $('#start-jr').on('click', function() {
 	$(document).foundation('joyride','start');
@@ -385,6 +403,9 @@ $(".unreplied-messages").click(function() {
 		$(this).hide();
 	});	
 });
+
+
+
 (function() {
     /* UNCOMMENT TO ENABLE COVER/PROFILE IMAGE EDITING */
    /* 
