@@ -1,7 +1,7 @@
 <nav class="top-bar" role="navigation" data-topbar>
 	<ul class="title-area">
 		<li class="name">
-			<h1><a href="{$baseUrl}"><img alt="Tutor Iowa Wordmark" src="{$ThemeDir}/images/logo.png" /></a></h1>
+			<h1><a href="{$baseUrl}"><img alt="Tutor Iowa" src="{$ThemeDir}/images/logo.png" /></a></h1>
 		</li>
 		<li class="toggle-topbar menu-icon"><a href=""><span></span></a></li>
 	</ul>
