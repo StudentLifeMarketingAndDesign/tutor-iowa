@@ -6,7 +6,7 @@
 
 					
 
-						<span></span>$MainImage.SetRatioSize(499,216)
+						<span></span>$MainImage.Fit(499,216)
 
 					</div>
 					<div id="splext">
@@ -52,7 +52,7 @@
 											<div class="thumb" style="background-image: 
 											
 											url(<% loop Image %> 
-											<% loop SetRatioSize(135,135) %> $URL <% end_loop %>
+											<% loop Fit(135,135) %> $URL <% end_loop %>
 											<% end_loop %>); background-repeat: no-repeat;">
 											
 
@@ -70,7 +70,7 @@
 													<div class="thumb" style="background-image: 
 													
 													url(<% loop Image %> 
-													<% loop SetRatioSize(135,135) %> $URL <% end_loop %>
+													<% loop Fit(135,135) %> $URL <% end_loop %>
 													<% end_loop %>); background-repeat: no-repeat;">
 													
 		
