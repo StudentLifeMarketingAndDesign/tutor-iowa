@@ -7,7 +7,13 @@
       <% if Query %>
       <p>Your results for <strong>'{$Query}'</strong></p>
       <% else %>
-      <p>Please enter a search term.</p>
+        <div class="row">
+          <div class="large-7 columns large-centered">
+              <% with Page("find-help") %>
+                $Content
+              <% end_with %>
+          </div>
+        </div>
       <% end_if %> <%-- end if Query --%>
       <% if $Query && not $HasResults %>
         <p>No results for this search term were found.</p>

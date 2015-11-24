@@ -8,7 +8,7 @@
 			<div class="large-8 columns content" data-equalizer-watch>
 				<div class="white-cover"></div>
 				<div class="row">
-					<article class="large-10 columns end">
+					<article class="large-10 large-centered columns end">
 						$Breadcrumbs
 						<h1>$Title</h1>
 						$Content
