@@ -1,19 +1,23 @@
 @import "imports/settings";
+
 /* import foundation components
 -------------------------------------------*/
 //@import "settings";
 @import "foundation/components/grid";
+
 /*@import "foundation/components/accordion";*/
 @import "foundation/components/alert-boxes";
 @import "foundation/components/block-grid";
 @import "foundation/components/breadcrumbs";
 @import "foundation/components/button-groups";
 @import "foundation/components/buttons";
+
 /*@import "foundation/components/clearing";*/
 /*@import "foundation/components/dropdown";*/
 /*@import "foundation/components/dropdown-buttons";*/
 //@import "foundation/components/flex-video";
 @import "foundation/components/forms";
+
 //@import "foundation/components/icon-bar";
 //@import "foundation/components/inline-lists";
 /*@import "foundation/components/joyride";*/
@@ -23,6 +27,7 @@
 //@import "foundation/components/orbit";
 @import "foundation/components/pagination";
 @import "foundation/components/panels";
+
 /*@import "foundation/components/pricing-tables";*/
 /*@import "foundation/components/progress-bars";*/
 /*@import "foundation/components/range-slider";*/
@@ -30,16 +35,19 @@
 @import "foundation/components/side-nav";
 @import "foundation/components/split-buttons";
 @import "foundation/components/sub-nav";
+
 /*@import "foundation/components/switches";*/
 @import "foundation/components/tables";
+
 /*@import "foundation/components/tabs";*/
 @import "foundation/components/thumbs";
+
 /*@import "foundation/components/tooltips";*/
 @import "foundation/components/top-bar";
 @import "foundation/components/type";
+
 //@import "foundation/components/offcanvas";
 @import "foundation/components/visibility";
-
 
 @import "imports/mixins/gradient";
 @import "imports/mixins/banner";
@@ -65,18 +73,12 @@
 
 @import "imports/announcement-cards";
 
-
-
 @import "../../../division-bar/scss/_uiowa-bar-foundation.scss";
-
-
-
-
 
 .main {
 	//padding-top: 10px;
 
-	h1{
+	h1 {
 		text-transform: uppercase;
 		border-bottom: 1px solid #ddd;
 		padding-bottom: 5px;
@@ -84,41 +86,38 @@
 		margin-top: 0;
 	}
 
-	.content{
+	.content {
 		min-height: 320px;
-		@media #{$large-up}{
+
+		@media #{$large-up} {
 			min-height: 600px;
 		}
 
-		table{
+		table {
 			width: 100%;
-			@media #{$medium-up}{
+
+			@media #{$medium-up} {
 				width: auto;
 			}
-
 		}
-
 	}
 }
 
-
-#search_help{
-	p{
+#search_help {
+	p {
 		color: white;
 	}
 }
-
-
 
 .main-article {
 	min-height: 400px;
 }
 
-
-.page-bg{
+.page-bg {
 	//min-height: 300px;
 	max-height: 333px;
-    //overflow: 
+
+	//overflow: 
 	//background-image: url('http://lorempixel.com/1240/600/');
 	//background: center center;
 	//background-color: #eee;
@@ -128,54 +127,52 @@
 
 	//background-position-y: -40px;
 	//position: relative;
-
-
 }
-
-
 
 /*! suit-flex-embed v1.4.0 | MIT License | github.com/suitcss */
 
 .FlexEmbed {
-  display: block;
-  //overflow: hidden;
-  position: relative;
+	display: block;
+
+	//overflow: hidden;
+	position: relative;
 }
 
 .FlexEmbed:before {
-  content: "";
-  display: block;
-  width: 100%;
+	content: "";
+	display: block;
+	width: 100%;
 }
 
 .FlexEmbed--3by1:before {
-  padding-bottom: 33.33333%;
+	padding-bottom: 33.33333%;
 }
 
 .FlexEmbed--2by1:before {
-  padding-bottom: 50%;
+	padding-bottom: 50%;
 }
 
 .FlexEmbed--16by9:before {
-  padding-bottom: 56.25%;
+	padding-bottom: 56.25%;
 }
 
 .FlexEmbed--4by3:before {
-  padding-bottom: 75%;
+	padding-bottom: 75%;
 }
 
 .CoverImage {
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 0 auto 1em;
-  max-height: 333px;
-  max-width: 100%;
-  //overflow: hidden;
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: 0 auto 1em;
+	max-height: 333px;
+	max-width: 100%;
+
+	//overflow: hidden;
 }
 
 #profile-cover-photo-move {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .pointer {
@@ -186,7 +183,6 @@
 	//position: absolute;
 	bottom: 3;
 	left: 3;
-	
 }
 
 #labmap {
@@ -196,18 +192,35 @@
 .gradient {
 	background: #ffffff;
 	position: relative;
+
 	@media #{$large-up} {
-		background: -moz-linear-gradient(left, #ffffff 60%, $side-nav-bg 40%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, right top, color-stop(60%,#ffffff), color-stop(40%,$side-nav-bg)); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(left, #ffffff 60%,$side-nav-bg 40%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(left, #ffffff 60%,$side-nav-bg 40%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(left, #ffffff 60%,$side-nav-bg 40%); /* IE10+ */
-		background: linear-gradient(to right, #ffffff 60%,$side-nav-bg 40%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='$side-nav-bg',GradientType=1 ); /* IE6-9 */ 
+		background: -moz-linear-gradient(left, #ffffff 60%, $side-nav-bg 40%);
+
+		/* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right top, color-stop(60%, #ffffff), color-stop(40%, $side-nav-bg));
+
+		/* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(left, #ffffff 60%, $side-nav-bg 40%);
+
+		/* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(left, #ffffff 60%, $side-nav-bg 40%);
+
+		/* Opera 11.10+ */
+		background: -ms-linear-gradient(left, #ffffff 60%, $side-nav-bg 40%);
+
+		/* IE10+ */
+		background: linear-gradient(to right, #ffffff 60%, $side-nav-bg 40%);
+
+		/* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='$side-nav-bg',GradientType=1 );
+
+		/* IE6-9 */
 	}
 }
+
 .white-cover {
 	display: none;
+
 	@media #{$large-up} {
 		background-color: #fff;
 		border-right: 1px solid #ddd;
@@ -217,23 +230,22 @@
 		height: 100%;
 	}
 }
-.cover{
+
+.cover {
 	background: #fff;
 	height: 100%;
 }
 
-
-.profile-image{
+.profile-image {
 	//background: url('../images/stain.png');
 	background-size: cover;
 }
 
-
-.profile-image img{
+.profile-image img {
 	border-radius: 50%;
 }
 
-.tutor-name{
+.tutor-name {
 	text-transform: capitalize;
 }
 
@@ -242,9 +254,9 @@ article {
 	z-index: 1000;
 }
 
-form{
-	label{
-		span{
+form {
+	label {
+		span {
 			color: $alert-color;
 			padding-right: 3px;
 		}
@@ -253,63 +265,64 @@ form{
 
 #feedback-btn {
 	display: none;
+
 	@media #{$large-up} {
 		display: block;
 		background: url("../images/feedback-btn.gif") bottom;
 		position: fixed;
-		width:40px;
+		width: 40px;
 		height: 120px;
-		top:45%;
+		top: 45%;
 		right: 0;
 		z-index: 101;
 		background-size: cover;
 	}
-
 }
 
 #feedback-btn:hover {
-	background-position: top; 
+	background-position: top;
 	cursor: pointer;
 }
 
-
-
 .b-lazy {
-        -webkit-transition: opacity 500ms ease-in-out;
-           -moz-transition: opacity 500ms ease-in-out;
-             -o-transition: opacity 500ms ease-in-out;
-                transition: opacity 500ms ease-in-out;
-                 max-width: 100%;
-                   opacity: 0;
-    }
+	-webkit-transition: opacity 500ms ease-in-out;
+	-moz-transition: opacity 500ms ease-in-out;
+	-o-transition: opacity 500ms ease-in-out;
+	transition: opacity 500ms ease-in-out;
+	max-width: 100%;
+	opacity: 0;
+}
+
 .b-lazy.b-loaded {
-               opacity: 1;
+	opacity: 1;
 }
 
-.HelpFieldHolder{
-	
-}
-
+.HelpFieldHolder {}
 
 .visuallyhidden {
- 	border: 0;
-  	clip: rect(0 0 0 0);
-  	height: 1px;
-  	margin: -1px;
-   	overflow: hidden;
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
 	padding: 0;
 	position: absolute;
- 	width: 1px;
- }
-
- 
-.visuallyhidden.focusable:active,.visuallyhidden.focusable:focus {
- 	clip: auto;
-  	height: auto;
-   	margin: 0; overflow: visible;
-    position: static;
-    width: auto;
+	width: 1px;
 }
 
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+	clip: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	position: static;
+	width: auto;
+}
 
+#BetterNavigator {
+	display: none;
 
+	@media #{$large-up} {
+		display: block;
+	}
+}

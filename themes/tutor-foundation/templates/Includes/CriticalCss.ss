@@ -98,7 +98,7 @@ fieldset{ border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1
 .top-bar-section .dropdown li{ width: 100%; height: auto; }
 .top-bar-section .dropdown li a{ font-weight: normal; padding-top: 8px; padding-right: 1.45833rem; padding-bottom: 8px; padding-left: 1.45833rem; }
 .top-bar-section .dropdown label{ padding-top: 8px; padding-right: 1.45833rem; padding-bottom: 2px; padding-left: 1.45833rem; margin-bottom: 0px; text-transform: uppercase; color: rgb(119, 119, 119); font-weight: bold; font-size: 0.625rem; }
-@media only screen{
+@media only screen and (min-width: 64.063em){
 .top-bar{ background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(68, 68, 68); overflow-x: visible; overflow-y: visible; background-position: initial initial; background-repeat: initial initial; }
 .top-bar::before, .top-bar::after{ content: ' '; display: table; }
 .top-bar::after{ clear: both; }
