@@ -10,13 +10,15 @@
 				<div class="row">
 					<article class="large-10 large-centered columns end">
 						$Breadcrumbs
+						<h1>$Title</h1>
 						$Content
 						$Form
+
 						<% loop Children %>
-						<article>
+					
 							<h2>$Title</h2>
 							$Content
-						</article>
+							<p class="text-right"><small>Last updated: $LastEdited.NiceUS</small></p>
 						<hr />
 						<% end_loop %>
 					</article>

@@ -12,7 +12,7 @@
 		<% end_if %>		
 		<% if ClassName == "SupplementalInstruction" %>
 			<% if $Schedule %>
-				<strong>Schedule:</strong> $Schedule.Summary(15)<br />
+				<strong>Schedule:</strong> $Schedule<br />
 			<% end_if %>
 		<% end_if %>
 		<% if $Description %>

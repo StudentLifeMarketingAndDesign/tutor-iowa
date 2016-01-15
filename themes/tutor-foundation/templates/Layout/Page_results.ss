@@ -3,22 +3,22 @@
     <div class="large-12 columns">
       <% include BreadcrumbsSearch %>
       <h1>Search Tutor Iowa</h1>
-      <% include FindHelpSearch %>
-      <% if Query %>
-      <p>Your results for <strong>'{$Query}'</strong></p>
-      <% else %>
-        <div class="row">
-          <div class="large-7 columns large-centered">
-              <% with Page("find-help") %>
-                $Content
-              <% end_with %>
-          </div>
-        </div>
-      <% end_if %> <%-- end if Query --%>
-      <% if $Query && not $HasResults %>
-        <p>No results for this search term were found.</p>
-      <% end_if %>
 
+      <div class="row">
+        <div class="large-8 large-offset-1 columns">
+          <% include FindHelpSearch %>
+          <% if Query %>
+          <p>Your results for <strong>'{$Query}'</strong></p>
+          <% else %> 
+            <% with Page("find-help") %>
+              $Content
+            <% end_with %>
+          <% end_if %> <%-- end if Query --%>
+          <% if $Query && not $HasResults %>
+            <p>No results for this search term were found.</p>
+          <% end_if %>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
