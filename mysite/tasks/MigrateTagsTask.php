@@ -3,22 +3,22 @@
 class MigrateTagsTask extends BuildTask {
 
 	protected $title = 'Migrate Metakeywords to Tags';
-	protected $description = 'Migrate tags entered in the MetaKeywords field to a field called "Tags" for Tutors and Help Labs.';
+	protected $description = 'Migrate tags entered in the MetaKeywords field to a field called "Tags" for Help Labs ONLY';
 
 	protected $enabled = true;
 
 	function run($request) {
-		$tutors = TutorPage::get();
+		//$supps = SupplementalInstruction::get();
 		$helpLabs = HelpLab::get();
 
-		echo "<h2>Converting Tutors</h2>";
-		$this->convertTags($tutors);
+		//echo "<h2>Converting Supp Instructions</h2>";
+		//$this->convertTags($supps);
 
 		echo "<h2>Converting Help Labs</h2>";
 		$this->convertTags($helpLabs);
 
-		echo "<h2>Cleaning up tutor tags</h2>";
-		$this->removeNamesFromTags($tutors);
+		// echo "<h2>Cleaning up tutor tags</h2>";
+		// $this->removeNamesFromTags($tutors);
 
 	}
 
