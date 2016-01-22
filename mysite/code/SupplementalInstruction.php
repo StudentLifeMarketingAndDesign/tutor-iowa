@@ -23,7 +23,10 @@ class SupplementalInstruction extends Page {
 		$fields = parent::getCMSFields();
 		$fields->removeFieldFromTab('Root.Metadata', "Keywords");
 		$fields->removeFieldFromTab('Root.Main', "Content");
-		$fields->addFieldToTab('Root.Main', new Tagfield("Tags", "Tags"));
+
+		$tagField = new TagField('Tags', 'Tags');
+		$tagField->setTagTopicClass("SiteTree");
+		$fields->addFieldToTab('Root.Main', $tagField);
 		$fields->addFieldToTab('Root.Main', new TextField("Name", "Supplemental Instruction name (can be the same as page name)"));
 		$fields->addFieldToTab('Root.Main', new TextField("Location"));
 		$fields->addFieldToTab('Root.Main', new TextField("Hours"));
