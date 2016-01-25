@@ -49,12 +49,15 @@
 	</header>
 
 	$Layout
-	 <a id="feedback-btn" href="feedback" data-reveal-id="feedback-form-modal"><span class="visuallyhidden">Feedback</span></a>
-
+	<% if $URLSegment != "feedback" %>
+		 <a id="feedback-btn" href="feedback" data-reveal-id="feedback-form-modal"><span class="visuallyhidden">Feedback</span></a>
+		<% end_if %>
 	<% include Footer %>
 
 	<% include LoginModal %>
-	<% include FeedbackModal %>
+	<% if $URLSegment != "feedback" %>
+		<% include FeedbackModal %>
+	<% end_if %>
 
 	<%--See [Requirements](http://doc.silverstripe.org/framework/en/reference/requirements) for loading from controller--%>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
