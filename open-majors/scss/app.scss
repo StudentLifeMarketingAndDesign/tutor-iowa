@@ -1,0 +1,217 @@
+@import "settings";
+@import "../bower_components/foundation/scss/foundation";
+@import "../../division-bar/scss/_uiowa-bar-foundation.scss";
+@import "footer";
+
+// Or selectively include components
+// @import
+//   "foundation/components/accordion",
+//   "foundation/components/alert-boxes",
+//   "foundation/components/block-grid",
+//   "foundation/components/breadcrumbs",
+//   "foundation/components/button-groups",
+//   "foundation/components/buttons",
+//   "foundation/components/clearing",
+//   "foundation/components/dropdown",
+//   "foundation/components/dropdown-buttons",
+//   "foundation/components/flex-video",
+//   "foundation/components/forms",
+//   "foundation/components/grid",
+//   "foundation/components/inline-lists",
+//   "foundation/components/joyride",
+//   "foundation/components/keystrokes",
+//   "foundation/components/labels",
+//   "foundation/components/magellan",
+//   "foundation/components/orbit",
+//   "foundation/components/pagination",
+//   "foundation/components/panels",
+//   "foundation/components/pricing-tables",
+//   "foundation/components/progress-bars",
+//   "foundation/components/reveal",
+//   "foundation/components/side-nav",
+//   "foundation/components/split-buttons",
+//   "foundation/components/sub-nav",
+//   "foundation/components/switches",
+//   "foundation/components/tables",
+//   "foundation/components/tabs",
+//   "foundation/components/thumbs",
+//   "foundation/components/tooltips",
+//   "foundation/components/top-bar",
+//   "foundation/components/type",
+//   "foundation/components/offcanvas",
+//   "foundation/components/visibility";
+h1, h2 {
+    text-transform: uppercase;
+}
+
+body {
+    background-color: $gold;
+}
+
+.header {
+    background: #000;
+    background: rgba(#000, 0.85);
+    padding: 10px 0;
+    color: $gold;
+    text-transform: uppercase;
+
+    @media #{$medium-up} {
+        padding: 20px 0;
+        border-bottom: white 12px dashed;
+    }
+
+    p {
+        margin-bottom: 0px;
+
+        @media #{$medium-up} {
+            font-size: 1.3em;
+        }
+    }
+
+    .subheader {
+        color: $gold;
+        margin-top: -5px;
+
+        @media #{$medium-up} {}
+
+        @media #{$xlarge-up} {
+            margin-top: 15px;
+            text-align: right;
+        }
+    }
+
+    img {
+        text-align: center;
+    }
+}
+
+.bg-container {
+    background-image: url("../images/hero-image.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @media #{$medium-up} {
+        height: 700px;
+        border-bottom: 7px dashed white;
+    }
+
+    @media #{$large-up} {
+        height: 1000px;
+        background-size: cover;
+    }
+}
+
+.hero-content {
+    color: white;
+
+    ul li {
+        font-size: 48px;
+    }
+}
+
+.button {
+    text-transform: uppercase;
+}
+
+
+.details-container {
+    //margin-top: -100px;
+    background: $body-bg;
+    padding-bottom: $column-gutter;
+
+    //border: 5px dashed #000;
+    .details p, .details ul {
+        text-align: left;
+        font-size: rem-calc(18);
+
+        @media #{$large-up} {
+            font-size: rem-calc(26);
+        }
+    }
+
+    .details ul {
+        list-style-type: square;
+
+        li {
+            @media #{$large-up} {
+                padding: 20px 0;
+            }
+        }
+
+        @media #{$large-up} {
+            line-height: 1;
+        }
+    }
+
+    @media #{$large-up} {
+        padding-top: $column-gutter / 2;
+        text-align: left;
+    }
+
+}
+
+.extended-details-bg {
+    background: #F9F9F9;
+    border-top: 12px dashed #3C3624;
+    padding-top: 20px;
+    padding-top: $column-gutter;
+}
+
+// .location-container {
+//     ul {
+//         font-size: 16px;
+//         list-style-type: square;
+//         margin-bottom: 0;
+//     }
+// }
+
+.infobox {
+    background-color: $gold;
+    text-align: center;
+    max-width: 3000px;
+    padding-left: 15px;
+
+    img {
+        width: 100%;
+    }
+
+    h2 {
+        padding: 5px 5px 5px 5px;
+        color: #3C3624;
+
+    }
+    strong {
+        color: #3C3624;
+    }
+
+    p {
+        padding: 5px 5px 5px 5px;
+        margin-top: 5;
+        margin-bottom: 8px;
+        text-align: center;
+        font-size: 24px;
+        // width: 130%;
+    }
+
+    section {
+        border: #222 7px dashed;
+        text-align: center;
+    }
+
+}
+
+
+.register {
+    text-align: center;
+    p {
+        padding: 3px 3px 3px 3px;
+        margin: 3px 3px 3px 3px;
+    }
+
+    h2, h3, h4 {
+    font-weight: bold;
+    color: #3C3624;
+    
+    }
+}

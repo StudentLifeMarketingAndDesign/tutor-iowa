@@ -23,11 +23,8 @@ ErrorDocument 500 /assets/error-500.html
 	RewriteRule ^kickoff$ - [L]
 	RewriteRule ^kickoff/.* - [L] 
 
-	RewriteRule ^kickoff$ - [L]
-	RewriteRule ^kickoff/.* - [L]
-
-	RewriteRule ^kickoff$ - [L]
-	RewriteRule ^kickoff/.* - [L]
+	RewriteRule ^open-majors$ - [L]
+	RewriteRule ^open-majors/.* - [L] 
 
 	RewriteCond %{REQUEST_URI} ^(.*)$
 	RewriteCond %{REQUEST_FILENAME} !-f
