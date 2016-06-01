@@ -23,6 +23,7 @@
 
 
 						<% if $Schedule %>
+						<strong>Schedule:</strong><br />
 						$Schedule
 						<% end_if %>
 
