@@ -57,7 +57,7 @@ body {
 
     @media #{$medium-up} {
         padding: 20px 0;
-        border-bottom: white 12px dashed;
+        border-bottom: 6px white dashed;
     }
 
     p {
@@ -93,7 +93,7 @@ body {
 
     @media #{$medium-up} {
         height: 700px;
-        border-bottom: 7px dashed white;
+        border-bottom: 15px white dashed;
     }
 
     @media #{$large-up} {
@@ -120,7 +120,7 @@ body {
     background: $body-bg;
     padding-bottom: $column-gutter;
 
-    //border: 5px dashed #000;
+    
     .details p, .details ul {
         text-align: left;
         font-size: rem-calc(18);
@@ -153,18 +153,18 @@ body {
 
 .extended-details-bg {
     background: #F9F9F9;
-    border-top: 12px dashed #3C3624;
     padding-top: 20px;
     padding-top: $column-gutter;
+
+    border-top: 10px dashed #3C3624;
+    
+
+    p {
+        font-size: 22px;
+    }
+
 }
 
-// .location-container {
-//     ul {
-//         font-size: 16px;
-//         list-style-type: square;
-//         margin-bottom: 0;
-//     }
-// }
 
 .infobox {
     background-color: $gold;
@@ -190,14 +190,20 @@ body {
         margin-top: 5;
         margin-bottom: 8px;
         text-align: center;
-        font-size: 24px;
+        font-size: 18px;
         // width: 130%;
     }
 
     section {
         border: #222 7px dashed;
         text-align: center;
+        margin-bottom: 6px;
+
     }
+
+    border-top: 6px white dashed;
+
+
 
 }
 
