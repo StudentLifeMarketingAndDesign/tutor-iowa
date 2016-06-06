@@ -11,6 +11,8 @@ class SupplementalInstruction extends Page {
 		'Misc' => 'Text',
 		'EndDate' => 'Date',
 		'Schedule' => 'HTMLText',
+		'WhatToExpect' => 'HTMLText',
+		'HowToPrepare' => 'HTMLText',
 
 	);
 
@@ -33,7 +35,8 @@ class SupplementalInstruction extends Page {
 		$fields->addFieldToTab('Root.Main', new TextField("SessionLeader", "Session Leader"));
 		$fields->addFieldToTab('Root.Main', new TextAreaField("Content", "Describe the supplemental instruction here"));
 		$fields->addFieldToTab('Root.Main', new HTMLEditorField("Schedule", "Schedule"));
-
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField("WhatToExpect", "What to Expect"));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField("HowToPrepare", "How to Prepare"));
 		return $fields;
 
 	}

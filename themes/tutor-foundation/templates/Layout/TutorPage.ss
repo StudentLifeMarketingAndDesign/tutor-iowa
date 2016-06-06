@@ -65,6 +65,13 @@
 								<% include EditProfileButton %>
 							<% end_if %>
 							--%>
+							<% if $WhatToExpect %>
+								<h3> What to Expect: </h3><p>$WhatToExpect</p>
+							<% end_if %>
+							<% if $HowToPrepare %>
+								<h3> How to Prepare: </h3><p>$HowToPrepare</p>
+							<% end_if %>
+						
 							<% if $Tags %>
 								<p><% include Tags %></p>
 							<% end_if %>

@@ -23,6 +23,8 @@ class TutorPage extends Page {
 		'EligibleToTutor' => 'Boolean',
 		'PublishFlag' => 'Boolean',
 		'ApprovalStatus' => "Enum('Provisional, Active, Inactive, Ineligible')",
+		'WhatToExpect' => 'HTMLText',
+		'HowToPrepare' => 'HTMLText',
 	);
 
 	private static $has_one = array(
@@ -148,6 +150,9 @@ class TutorPage extends Page {
 		$fields->addFieldToTab('Root.Main', new TextField("GPA", "GPA"));
 		$fields->addFieldToTab('Root.Main', new TextField("Major"));
 		$fields->addFieldToTab('Root.Main', new TextField("AcademicStatus", "Academic Status"));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField("WhatToExpect", "What to Expect"));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField("HowToPrepare", "How to Prepare"));
+
 
 		$fields->addFieldToTab('Root.Advanced', new DropdownField("MemberID", "Associated User", $membersDropdownSource));
 
