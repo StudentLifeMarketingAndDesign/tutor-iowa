@@ -159,6 +159,8 @@ class HelpLab_Controller extends Page_Controller {
 				//new UploadField('BackgroundImage', 'Background Image'),
 				new TextField('PhoneNo', 'Phone Number'),
 				new TextField('ExternalScheduleLink', 'Optional link to the lab\'s schedule on another site'),
+				new TextareaField('WhatToExpect', 'What to Expect'),
+				new TextareaField('HowToPrepare', 'How to Prepare'),
 
 				$availabilityField
 			);

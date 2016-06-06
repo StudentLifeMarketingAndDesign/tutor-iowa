@@ -345,6 +345,8 @@ class TutorPage_Controller extends Page_Controller {
 				new TextField('PhoneNo', 'Phone number <strong>(will not be shown publicly)</strong>'),
 				new TextField('MeetingPreference', 'Meeting preference (on and/or off-campus)'),
 				new TextField('HourlyRate', 'Hourly rate'),
+				new TextareaField('WhatToExpect', 'What to Expect'),
+				new TextareaField('HowToPrepare', 'How to Prepare'),
 				new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
 				new TextField('GPA', 'GPA <strong>(will not be shown publicly)</strong>'),
 				new UniversityIDField('UniversityID', 'University ID <strong>(will not be shown publicly)</strong>'),
