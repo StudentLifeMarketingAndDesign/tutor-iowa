@@ -1,45 +1,20 @@
 @import "settings";
-@import "../bower_components/foundation/scss/foundation";
+
+//@import "../bower_components/foundation/scss/foundation";
+
+// Or selectively include components
+
+@import "foundation/components/buttons";
+
+@import "foundation/components/grid";
+
+@import "foundation/components/type";
+
+@import "foundation/components/visibility";
+
 @import "../../division-bar/scss/_uiowa-bar-foundation.scss";
 @import "footer";
 
-// Or selectively include components
-// @import
-//   "foundation/components/accordion",
-//   "foundation/components/alert-boxes",
-//   "foundation/components/block-grid",
-//   "foundation/components/breadcrumbs",
-//   "foundation/components/button-groups",
-//   "foundation/components/buttons",
-//   "foundation/components/clearing",
-//   "foundation/components/dropdown",
-//   "foundation/components/dropdown-buttons",
-//   "foundation/components/flex-video",
-//   "foundation/components/forms",
-//   "foundation/components/grid",
-//   "foundation/components/inline-lists",
-//   "foundation/components/joyride",
-//   "foundation/components/keystrokes",
-//   "foundation/components/labels",
-//   "foundation/components/magellan",
-//   "foundation/components/orbit",
-//   "foundation/components/pagination",
-//   "foundation/components/panels",
-//   "foundation/components/pricing-tables",
-//   "foundation/components/progress-bars",
-//   "foundation/components/reveal",
-//   "foundation/components/side-nav",
-//   "foundation/components/split-buttons",
-//   "foundation/components/sub-nav",
-//   "foundation/components/switches",
-//   "foundation/components/tables",
-//   "foundation/components/tabs",
-//   "foundation/components/thumbs",
-//   "foundation/components/tooltips",
-//   "foundation/components/top-bar",
-//   "foundation/components/type",
-//   "foundation/components/offcanvas",
-//   "foundation/components/visibility";
 h1, h2 {
     text-transform: uppercase;
 }
@@ -50,14 +25,14 @@ body {
 
 .header {
     background: #000;
-    background: rgba(#000, 0.85);
     padding: 10px 0;
     color: $gold;
     text-transform: uppercase;
+    border-bottom: 5px white dashed;
 
     @media #{$medium-up} {
         padding: 20px 0;
-        border-bottom: 6px white dashed;
+        border-bottom: 10px white dashed;
     }
 
     p {
@@ -70,13 +45,13 @@ body {
 
     .subheader {
         color: $gold;
-        margin-top: -5px;
+        font-size: 28px;
+        text-align: center;
 
         @media #{$medium-up} {}
 
         @media #{$xlarge-up} {
             margin-top: 15px;
-            text-align: right;
         }
     }
 
@@ -114,13 +89,11 @@ body {
     text-transform: uppercase;
 }
 
-
 .details-container {
     //margin-top: -100px;
     background: $body-bg;
     padding-bottom: $column-gutter;
 
-    
     .details p, .details ul {
         text-align: left;
         font-size: rem-calc(18);
@@ -148,7 +121,6 @@ body {
         padding-top: $column-gutter / 2;
         text-align: left;
     }
-
 }
 
 .extended-details-bg {
@@ -156,21 +128,19 @@ body {
     padding-top: 20px;
     padding-top: $column-gutter;
 
-    border-top: 10px dashed #3C3624;
-    
+    //border-top: 10px dashed #3C3624;
 
     p {
         font-size: 22px;
     }
-
 }
-
 
 .infobox {
     background-color: $gold;
     text-align: center;
-    max-width: 3000px;
-    padding-left: 15px;
+
+    //max-width: 3000px;
+    //padding-left: 15px;
 
     img {
         width: 100%;
@@ -179,45 +149,68 @@ body {
     h2 {
         padding: 5px 5px 5px 5px;
         color: #3C3624;
-
     }
+
     strong {
         color: #3C3624;
     }
 
     p {
-        padding: 5px 5px 5px 5px;
-        margin-top: 5;
-        margin-bottom: 8px;
         text-align: center;
-        font-size: 18px;
+        font-size: 15px;
+
+        @media #{$xlarge-up} {
+            font-size: 18px;
+            padding: 5px 5px 5px 5px;
+            margin-top: 5px;
+            margin-bottom: 8px;
+        }
+
         // width: 130%;
+
     }
 
     section {
-        border: #222 7px dashed;
-        text-align: center;
-        margin-bottom: 6px;
-
+        @media #{$large-up} {
+            border: #222 7px dashed;
+            text-align: center;
+            margin-bottom: 6px;
+        }
     }
 
-    border-top: 6px white dashed;
+    .info-body {
+        h2 {
+            font-size: 24px;
 
+            @media #{$xlarge-up} {
+                font-size: 41px;
+            }
+        }
 
+        padding-top: 10px;
 
+        @media #{$xlarge-up} {
+            padding: 30px 0;
+        }
+    }
+
+    //border-top: 6px white dashed;
 }
 
+.content-body {
+    padding-bottom: 60px;
+}
 
 .register {
     text-align: center;
+
     p {
         padding: 3px 3px 3px 3px;
         margin: 3px 3px 3px 3px;
     }
 
     h2, h3, h4 {
-    font-weight: bold;
-    color: #3C3624;
-    
+        font-weight: bold;
+        color: #3C3624;
     }
 }
