@@ -12,6 +12,8 @@ class HelpLab extends Page {
 		'ContactName' => 'Text',
 		'ContactEmail' => 'Text',
 		'PhoneNo' => 'Text',
+		'WhatToExpect' => 'HTMLText',
+		'HowToPrepare' => 'HTMLText',
 
 	);
 
@@ -48,6 +50,10 @@ class HelpLab extends Page {
 
 		$fields->addFieldToTab('Root.Main', new TextField("PhoneNo", "Phone Number"));
 		$fields->addFieldToTab('Root.Main', new HTMLEditorField("Description", "Description"));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField("WhatToExpect", "What to Expect"));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField("HowToPrepare", "How to Prepare"));
+
+
 
 		$memberArray = DataObject::get('Member', "ID in (select MemberID from Group_Members where GroupID = (select ID from `Group` where title='Content Authors'))");
 
@@ -153,6 +159,8 @@ class HelpLab_Controller extends Page_Controller {
 				//new UploadField('BackgroundImage', 'Background Image'),
 				new TextField('PhoneNo', 'Phone Number'),
 				new TextField('ExternalScheduleLink', 'Optional link to the lab\'s schedule on another site'),
+				new TextareaField('WhatToExpect', 'What to Expect'),
+				new TextareaField('HowToPrepare', 'How to Prepare'),
 
 				$availabilityField
 			);

@@ -18,31 +18,33 @@ class AcademicTipWorksheet extends DataObject {
 		'Categories' => 'AcademicTipCategory'
 	);
 
-
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
+		$fields = new FieldList();
 
-$tagField = TagField::create(
-    'Categories',
-    'Categories',
-    AcademicTipCategory::get(),
-    $this->Categories()
-)->setCanCreate(true);     // new tag DataObjects can be created
 
-		//$tagField = new TagField('Categories', 'Categories');
+		$tagField = TagField::create(
+		    'Categories',
+		    'Categories',
+		    AcademicTipCategory::get(),
+		    $this->Categories()
+		)->setCanCreate(true);     // new tag DataObjects can be created
 
 		$uploadField = new UploadField('Worksheet','Worksheet');
-  
 
-        $fields->addFieldToTab('Root.Main', $uploadField);
-		$fields->addFieldToTab('Root.Main', $tagField);
-		
+		$fields->push(new TextField('Title', 'Title'));
+		$fields->push($uploadField);
+		$fields->push($tagField);
+		$fields->push(new HTMLEditorField('Content', 'Short Description'));
 
 
+		// $fields->push(new UploadField("Image", "Image"));
+		// $fields->push(new TreeDropdownField("AssociatedPageID", "Link to this page", "SiteTree"));
+		// $fields->push(new TextField('ExternalLink', 'Use the external link instead:'));
+		// $fields->push(new HTMLEditorField('Content', 'Content'));
 
 		return $fields;
-
 	}
+
 
 
 
