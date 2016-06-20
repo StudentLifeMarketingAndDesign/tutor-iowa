@@ -126,7 +126,7 @@ h1, h2 {
     }
 
     .details ul {
-        list-style-type: square;
+        list-style-type: none;
 
         li {
             @media #{$large-up} {
