@@ -18,6 +18,12 @@
 							    <div id="panel{$ID}d" class="content active" role="tabpanel" aria-labelledby="panel{$ID}d-heading">
 									<% loop Worksheets %>
 										<h2>$Title</h2>
+										<% if $Content %>
+											$Content
+										<% end_if %>
+										<% if $Worksheet %>
+											<p><a href="$Workshet.URL" class="button medium">Download this worksheet</a></p>
+										<% end_if %>
 									<% end_loop %>
 							    </div>
 							  </li>
