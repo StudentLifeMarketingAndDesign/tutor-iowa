@@ -19,7 +19,6 @@ h1, h2 {
     text-transform: uppercase;
 }
 
-
 .header {
     background: #000;
     padding: 10px 0;
@@ -124,35 +123,76 @@ h1, h2 {
     background: #F9F9F9;
     padding-top: 20px;
     padding-top: $column-gutter;
+}
 
-    p {
-        font-size: 25px;
+.content-push {
+    background: #F9F9F9;
+    padding: 40px;
+
+    @media #{$large-up} {
+        margin-top: -150px;
     }
 
+    @media #{$xxlarge-up} {
+        margin-top: -250px;
+    }
+
+    //box-shadow: 0 3px 3px #333;
 }
 
 .schedule {
     p {
-        font-size: 22px;
+        @media #{$large-up} {
+            font-size: rem-calc(18);
+        }
+
         color: #5D5D5D;
     }
 
     h2 {
         color: #464646;
+
+        @media #{$large-up} {
+            font-size: rem-calc(43);
+        }
     }
 
     h3 {
         color: #464646;
-        // padding-bottom: 5px;
+        margin-bottom: 15px;
+
+        @media #{$large-up} {
+            font-size: rem-calc(33);
+        }
+    }
+
+    .day-header {
+        background: #eee;
+
+        h3 {
+            margin: 0;
+        }
+    }
+
+    .row {
+        padding: 10px 0;
+
+        @media #{$large-up} {}
     }
 
     .time {
-        padding-left: 20px;
+        //padding-left: 20px;
+        text-transform: uppercase;
+        color: #0093c4;
     }
 
-
-
+    .day {
+        @media #{$large-up} {
+            padding: 50px 0;
+        }
+    }
 }
+
 // .infobox {
 //     background-color: $gold;
 //     text-align: center;
@@ -222,6 +262,10 @@ h1, h2 {
 .register {
     text-align: center;
 
+    @media #{$large-up} {
+        margin: 100px 0;
+    }
+
     p {
         padding: 3px 3px 3px 3px;
         margin: 3px 3px 3px 3px;
@@ -231,6 +275,10 @@ h1, h2 {
         font-weight: bold;
         color: #3C3624;
     }
+}
+
+img.hero {
+    width: 100%;
 }
 
 .big-picture {
