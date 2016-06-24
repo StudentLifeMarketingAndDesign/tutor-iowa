@@ -1,6 +1,7 @@
 // Foundation JavaScript
 // Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation({
+
   accordion: {
     // specify the class used for accordion panels
     content_class: 'content',
@@ -10,13 +11,18 @@ $(document).foundation({
     multi_expand: true,
     // allow accordion panels to be closed by clicking on their headers
     // setting to false only closes accordion panels when another is opened
-    toggleable: true
+    toggleable: true,
+
+    callback : function (accordion) {
+       $(document).foundation('equalizer', 'reflow');
+      }
   }
 });
 
 jQuery.fn.exists = function(){return this.length > 0;}
 
 $(document).ready(function(){
+	
 
 	//relaunch the Login modal if the login was unsuccessful
 	if ($('#login-form-modal .message.bad').exists()) {
@@ -29,12 +35,6 @@ $(document).ready(function(){
 		
 		$('#feedback-form-modal').foundation('reveal', 'open');
 	}
-});
-
-
-// trigger for joyride demo in KitchenSink demo
-$('#start-jr').on('click', function() {
-	$(document).foundation('joyride','start');
 });
 
 

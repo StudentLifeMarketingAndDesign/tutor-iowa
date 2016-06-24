@@ -16,7 +16,37 @@ class AcademicTipWorksheetHolder extends Page {
 
 	public function Categories(){
 		$cats = AcademicTipCategory::get();
+
+		$catsWithSheets = new ArrayList();
+
+		foreach($cats as $cat){
+			if($cat->Worksheets()->First()){
+				$catsWithSheets->push($cat);
+			}
+		}
+
 		return $cats;
+	}
+
+	public function RandomWorksheets(){
+		$worksheets = AcademicTipWorksheet::get()->sort('RAND()');
+		return $worksheets;
+	}
+
+	public function UncategorizedWorksheets(){
+		$worksheets = AcademicTipWorksheet::get();
+
+		$uncatWorksheets = new ArrayList();
+
+		foreach($worksheets as $worksheet){
+			if(!($worksheet->Categories()->First())){
+				$uncatWorksheets->push($worksheet);
+			}
+		}
+
+		return $uncatWorksheets;
+
+
 	}
 }
 

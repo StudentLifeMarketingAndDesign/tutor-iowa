@@ -1,27 +1,18 @@
 {
   "name": "tutor-iowa",
-  "version": "2.0.0",
-  "devDependencies": {
+  "version": "2.1.0",
+  "dependencies": {
     "gifsicle": "*",
     "grunt": "*",
     "grunt-contrib-concat": "*",
     "grunt-contrib-imagemin": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
-    "grunt-criticalcss": "^0.5.0",
+    "grunt-criticalcss": "*",
     "grunt-contrib-uglify": "*",
-    "grunt-contrib-sass": "*",
+    "grunt-sass": "*",
     "gifsicle": "*",
     "optipng-bin": "*",
     "jpegtran-bin": "*"
-  },
-  "dependencies": {
-    "gifsicle": "^1.0.2",
-    "grunt-contrib-concat": "^0.5.0",
-    "grunt-contrib-imagemin": "^0.8.1",
-    "grunt-contrib-sass": "*",
-    "grunt-contrib-uglify": "^0.5.1",
-    "jpegtran-bin": "^1.0.1",
-    "optipng-bin": "^1.0.1"
   }
 }

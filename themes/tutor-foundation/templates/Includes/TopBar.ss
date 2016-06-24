@@ -37,9 +37,9 @@
 
 			<ul class="right">
 			<% if $CurrentMember %>
-			<li><a href="inbox" id="inbox-link" class="<% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>">Inbox <% if $CurrentMember.unreadMessageCount > 0 %><span data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount" class="inboxCount  ">({$CurrentMember.unreadMessageCount})</span><% end_if %></a></li>
+			<li><a href="inbox" id="inbox-link" title="Messages" class="<% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>"><i class="fa fa-comments fa-lg" aria-hidden="true"></i><% if $CurrentMember.unreadMessageCount > 0 %><span data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount" class="inboxCount  ">({$CurrentMember.unreadMessageCount})</span><% end_if %></a></li>
 			<li class="has-dropdown">
-				<a href="edit-profile/" id="memberInfo" data-id="$CurrentMember.ID">$CurrentMember.FirstName</a>
+				<a href="edit-profile/" id="memberInfo" title="User Profile" data-id="$CurrentMember.ID"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
 				<ul class="dropdown">
 					<li><a href="edit-profile/">Edit Profile</a></li>
 				<% if $currentMemberPage %>
