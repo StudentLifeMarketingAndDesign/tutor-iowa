@@ -26,7 +26,7 @@ class SupplementalInstruction extends Page {
 		$fields->removeFieldFromTab('Root.Metadata', "Keywords");
 		$fields->removeFieldFromTab('Root.Main', "Content");
 
-		$tagField = new TagField('Tags', 'Tags');
+		$tagField = new TutorTagField('Tags', 'Tags');
 		$tagField->setTagTopicClass("SiteTree");
 		$fields->addFieldToTab('Root.Main', $tagField);
 		$fields->addFieldToTab('Root.Main', new TextField("Name", "Supplemental Instruction name (can be the same as page name)"));

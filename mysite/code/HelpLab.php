@@ -39,7 +39,7 @@ class HelpLab extends Page {
 		$fields->addFieldToTab('Root.Main', new TextAreaField("Location", 'Address(<br />Street <br />City, Zip Code<br />)'));
 		$fields->removeFieldFromTab('Root.Metadata', "Keywords");
 
-			$tagField = new TagField('Tags', 'Tags');
+			$tagField = new TutorTagField('Tags', 'Tags');
 			$tagField->setTagTopicClass("SiteTree");
 
 		$fields->addFieldToTab('Root.Main', $tagField);
@@ -135,7 +135,7 @@ class HelpLab_Controller extends Page_Controller {
 	public function HelpEditProfileForm() {
 		$canUserEdit = $this->canUserEditHelpLab();
 		if ($canUserEdit) {
-			$tagField = new TagField('Tags', 'Tags');
+			$tagField = new TutorTagField('Tags', 'Tags');
 			$tagField->setTagTopicClass("SiteTree");
 
 			$HTMLEditorButtons = array(
