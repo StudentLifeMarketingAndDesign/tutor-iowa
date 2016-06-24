@@ -9,7 +9,7 @@
 		"silverstripe/spamprotection": "1.2.*",
 		"md/division-bar" : "*",
 		"md/ac-json-events" : "*",
-		"rywa/silverstripe-foundation-forms": "dev-master",
+		"rywa/silverstripe-foundation-forms": "1.0.x-dev",
 		"briceburg/silverstripe-pageholder": "*",
 		"silverstripe/tagfield" : "*",
 		"silverstripe/lumberjack": "*",
