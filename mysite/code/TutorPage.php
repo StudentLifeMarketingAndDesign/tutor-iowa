@@ -122,8 +122,8 @@ class TutorPage extends Page {
 		$members = Member::get();
 		$membersDropdownSource = $members->Map('ID', 'Email');
 
-		$tagField = new TutorTagField("Tags", "Tags");
-		$tagField->setTagTopicClass("SiteTree");
+		$tagField = new TextareaField("Tags", "Tags");
+		//$tagField->setTagTopicClass("SiteTree");
 
 		$fields->renameField("Image", "Photo");
 		$fields->removeFieldFromTab('Root.Metadata', "Keywords");
@@ -302,7 +302,7 @@ class TutorPage_Controller extends Page_Controller {
 
 		if ($Member) {
 			$MemberID = $Member->ID;
-			$tagField = new TutorTagField('Tags', 'Tags');
+			$tagField = new TextareaField('Tags', 'Tags');
 			$tagField->setTagTopicClass("SiteTree");
 
 			/* handles uploads for pending photos */
