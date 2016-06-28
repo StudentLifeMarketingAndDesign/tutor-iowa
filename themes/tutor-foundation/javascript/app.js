@@ -21,23 +21,6 @@ $(document).foundation({
 
 jQuery.fn.exists = function(){return this.length > 0;}
 
-$(document).ready(function(){
-	
-
-	//relaunch the Login modal if the login was unsuccessful
-	if ($('#login-form-modal .message.bad').exists()) {
-		
-		$('#login-form-modal').foundation('reveal', 'open');
-	}
-
-	//relaunch the Feedback modal if the form was missing elements
-	if ($('#feedback-form-modal .message.validation, .message.error, .error.required').exists()) {
-		
-		$('#feedback-form-modal').foundation('reveal', 'open');
-	}
-});
-
-
 var bLazy = new Blazy({
 	selector: 'img,.lazy',
     breakpoints: [{
