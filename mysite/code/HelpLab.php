@@ -99,9 +99,23 @@ class HelpLab extends Page {
 
 		return $results;
 	}
+	function getMemberHelpLabs() {
+		$Member = Member::CurrentUser();
+
+		if ($Member) {
+			$IDMember = $Member->ID;
+			//$memberLabs = DataObject::get('HelpLab', "HelpLab_Live.ID in (SELECT DISTINCT HelpLabID from  `HelpLab_Members` where MemberID = $IDMember)");
+			$memberLabs = $Member->HelpLabs();
+			if ($memberLabs) {
+				return $memberLabs;
+
+			}
+		}
+	}
 	public function canUserEditHelpLab() {
 		$helplabs = $this->getMemberHelpLabs();
 		$labID = $this->ID;
+
 		if ($helplabs) {
 			foreach ($helplabs as $lab) {
 				$checkID = $lab->ID;
