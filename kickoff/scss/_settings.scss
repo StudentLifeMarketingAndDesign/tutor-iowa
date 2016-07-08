@@ -55,7 +55,7 @@
 // $rem-base: 16px;
 
 // Allows the use of rem-calc() or lower-bound() in your settings
-@import 'foundation/functions';
+@import "foundation/functions";
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
@@ -63,13 +63,14 @@
 // Since the typical default browser font-size is 16px, that makes the calculation for grid size.
 // If you want your base font-size to be different and not have it affect the grid breakpoints,
 // set $rem-base to $base-font-size and make sure $base-font-size is a px value.
- $base-font-size: 110%;
+$base-font-size: 110%;
 
 // The $base-font-size is 100% while $base-line-height is 150%
 // $base-line-height: 150%;
 
 // We use this to control whether or not CSS classes come through in the gem files.
 $include-html-classes: true;
+
 // $include-print-styles: true;
 $include-html-global-classes: $include-html-classes;
 
@@ -87,8 +88,9 @@ $include-html-global-classes: $include-html-classes;
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // We use these to define default font stacks
- $font-family-sans-serif: "proxima-nova", "Arial Narrow", sans-serif;
- //$font-family-serif: "proxima-nova", sans-serif;
+$font-family-sans-serif: "proxima-nova", "Arial Narrow", sans-serif;
+
+//$font-family-serif: "proxima-nova", sans-serif;
 // $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 
 // We use these to define default font weights
@@ -112,10 +114,12 @@ $include-html-global-classes: $include-html-classes;
 // $charcoal    : #555555;
 // $tuatara     : #444444;
 // $oil         : #333333;
- $jet         : #222222;
+$jet: #222222;
+
 // $black       : #000000;
 $gold: #FECC31;
- $yellow: #ffce39;
+$yellow: #ffce39;
+
 // We use these as default colors throughout
 // $primary-color: #008CBA;
 // $secondary-color: #e7e7e7;
@@ -126,7 +130,8 @@ $gold: #FECC31;
 
 // We use these to control various global styles
 // $body-bg: $gold;
- $body-font-color: $jet;
+$body-font-color: $jet;
+
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
@@ -211,10 +216,12 @@ $gold: #FECC31;
 // $include-html-type-classes: $include-html-classes;
 
 // We use these to control header font styles
- $header-font-family: "proxima-nova-condensed", "Arial Narrow", sans-serif;
+$header-font-family: "proxima-nova-condensed", "Arial Narrow", sans-serif;
+
 // $header-font-weight: $font-weight-normal;
 // $header-font-style: normal;
- $header-font-color: #666;
+$header-font-color: #666;
+
 // $header-line-height: 1.4;
 // $header-top-margin: .2rem;
 // $header-bottom-margin: .5rem;
@@ -394,9 +401,9 @@ $gold: #FECC31;
 
 // We use this to control the maximum number of block grid elements per row
 // $block-grid-elements: 12;
-// $block-grid-default-spacing: rem-calc(20);
+$block-grid-default-spacing: rem-calc(10);
 
- $align-block-grid-to-grid: true;
+//$align-block-grid-to-grid: true;
 // @if $align-block-grid-to-grid {$block-grid-default-spacing: $column-gutter;}
 
 // Enables media queries for block-grid classes. Set to false if writing semantic HTML.
@@ -450,7 +457,8 @@ $gold: #FECC31;
 
 // We use these to control button text styles.
 // $button-font-family: $body-font-family;
- $button-font-color: #333;
+$button-font-color: #333;
+
 // $button-font-color-alt: $oil;
 // $button-font-tny: rem-calc(11);
 // $button-font-sml: rem-calc(13);
@@ -465,7 +473,8 @@ $gold: #FECC31;
 // We use these to control button border styles.
 // $button-border-width: 0;
 // $button-border-style: solid;
- $button-bg-color: $gold;
+$button-bg-color: $gold;
+
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
@@ -575,7 +584,6 @@ $gold: #FECC31;
 
 // Default radius for dropdown.
 // $f-dropdown-radius: $global-radius;
-
 
 // 09. Dropdown Buttons
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -705,7 +713,6 @@ $gold: #FECC31;
 // Select variables
 // $select-bg-color: $ghost;
 // $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%);
-
 
 // 12. Icon Bar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -846,7 +853,6 @@ $gold: #FECC31;
 // Off Canvas Divider Styles
 // $tabbar-left-section-border: solid 1px scale-color($tabbar-bg, $lightness: -50%);
 // $tabbar-right-section-border: $tabbar-left-section-border;
-
 
 // Off Canvas Tab Bar Headers
 // $tabbar-header-color: $white;
@@ -1035,7 +1041,6 @@ $gold: #FECC31;
 // $price-money-weight: $font-weight-normal;
 // $price-money-size: rem-calc(32);
 // $price-money-font-family: $body-font-family;
-
 
 // We use these to control the description styles
 // $price-bg: $white;
@@ -1253,7 +1258,6 @@ $gold: #FECC31;
 // $sub-nav-border-radius: 3px;
 // $sub-nav-font-color-hover: scale-color($sub-nav-font-color, $lightness: -25%);
 
-
 // We use these to control the active item styles
 
 // $sub-nav-active-font-weight: $font-weight-normal;
@@ -1331,7 +1335,6 @@ $gold: #FECC31;
 // $table-layout: auto;
 // $table-display: table-cell;
 // $table-margin-bottom: rem-calc(20);
-
 
 // 31. Tabs
 // - - - - - - - - - - - - - - - - - - - - - - - - -
