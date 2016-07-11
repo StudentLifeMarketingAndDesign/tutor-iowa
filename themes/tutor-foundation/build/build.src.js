@@ -281,31 +281,26 @@ $(document).ready(function() {
 
 // Foundation JavaScript
 // Documentation can be found at: http://foundation.zurb.com/docs
-$(document).foundation();
+$(document).foundation({
+
+  accordion: {
+    // specify the class used for accordion panels
+    content_class: 'content',
+    // specify the class used for active (or open) accordion panels
+    active_class: 'active',
+    // allow multiple accordion panels to be active at the same time
+    multi_expand: true,
+    // allow accordion panels to be closed by clicking on their headers
+    // setting to false only closes accordion panels when another is opened
+    toggleable: true,
+
+    callback : function (accordion) {
+       $(document).foundation('equalizer', 'reflow');
+      }
+  }
+});
 
 jQuery.fn.exists = function(){return this.length > 0;}
-
-$(document).ready(function(){
-
-	//relaunch the Login modal if the login was unsuccessful
-	if ($('#login-form-modal .message.bad').exists()) {
-		
-		$('#login-form-modal').foundation('reveal', 'open');
-	}
-
-	//relaunch the Feedback modal if the form was missing elements
-	if ($('#feedback-form-modal .message.validation, .message.error, .error.required').exists()) {
-		
-		$('#feedback-form-modal').foundation('reveal', 'open');
-	}
-});
-
-
-// trigger for joyride demo in KitchenSink demo
-$('#start-jr').on('click', function() {
-	$(document).foundation('joyride','start');
-});
-
 
 var bLazy = new Blazy({
 	selector: 'img,.lazy',

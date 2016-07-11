@@ -12,6 +12,8 @@ class HelpLab extends Page {
 		'ContactName' => 'Text',
 		'ContactEmail' => 'Text',
 		'PhoneNo' => 'Text',
+		'WhatToExpect' => 'HTMLText',
+		'HowToPrepare' => 'HTMLText',
 
 	);
 
@@ -37,8 +39,8 @@ class HelpLab extends Page {
 		$fields->addFieldToTab('Root.Main', new TextAreaField("Location", 'Address(<br />Street <br />City, Zip Code<br />)'));
 		$fields->removeFieldFromTab('Root.Metadata', "Keywords");
 
-			$tagField = new TagField('Tags', 'Tags');
-			$tagField->setTagTopicClass("SiteTree");
+			$tagField = new TextareaField('Tags', 'Tags');
+
 
 		$fields->addFieldToTab('Root.Main', $tagField);
 		$fields->addFieldToTab('Root.Main', new TextField("ExtrnlLink", "External link to help lab homepage"));
@@ -48,6 +50,10 @@ class HelpLab extends Page {
 
 		$fields->addFieldToTab('Root.Main', new TextField("PhoneNo", "Phone Number"));
 		$fields->addFieldToTab('Root.Main', new HTMLEditorField("Description", "Description"));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField("WhatToExpect", "What to Expect"));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField("HowToPrepare", "How to Prepare"));
+
+
 
 		$memberArray = DataObject::get('Member', "ID in (select MemberID from Group_Members where GroupID = (select ID from `Group` where title='Content Authors'))");
 
@@ -129,7 +135,7 @@ class HelpLab_Controller extends Page_Controller {
 	public function HelpEditProfileForm() {
 		$canUserEdit = $this->canUserEditHelpLab();
 		if ($canUserEdit) {
-			$tagField = new TagField('Tags', 'Tags');
+			$tagField = new TutorTagField('Tags', 'Tags');
 			$tagField->setTagTopicClass("SiteTree");
 
 			$HTMLEditorButtons = array(
@@ -153,6 +159,8 @@ class HelpLab_Controller extends Page_Controller {
 				//new UploadField('BackgroundImage', 'Background Image'),
 				new TextField('PhoneNo', 'Phone Number'),
 				new TextField('ExternalScheduleLink', 'Optional link to the lab\'s schedule on another site'),
+				new TextareaField('WhatToExpect', 'What to Expect'),
+				new TextareaField('HowToPrepare', 'How to Prepare'),
 
 				$availabilityField
 			);

@@ -62,18 +62,7 @@
 	<%--See [Requirements](http://doc.silverstripe.org/framework/en/reference/requirements) for loading from controller--%>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-	<script type="text/javascript">
-function downloadJSAtOnload() {
-  var build = document.createElement("script");
-  build.src = "$ThemeDir/build/build.js";
-  document.body.appendChild(build);
-}
-if (window.addEventListener)
-window.addEventListener("load", downloadJSAtOnload, false);
-else if (window.attachEvent)
-window.attachEvent("onload", downloadJSAtOnload);
-else window.onload = downloadJSAtOnload;
-</script>
+	<script src="{$ThemeDir}/build/build.js"></script>
 
 <% include GoogleAnalytics %>
 $BetterNavigator

@@ -71,7 +71,7 @@ h1, h2 {
         @media #{$medium-up} {}
 
         @media #{$xlarge-up} {
-            margin-top: -35px;
+            //margin-top: -35px;
             text-align: right;
         }
     }
@@ -83,7 +83,7 @@ h1, h2 {
 
 .bg-container {
     background-image: url("../images/hero-image.jpg");
-    background-position: 50% 50%;
+    background-position: 50% 10%;
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -93,7 +93,7 @@ h1, h2 {
     }
 
     @media #{$large-up} {
-        height: 1000px;
+        height: 850px;
         background-size: cover;
     }
 }
@@ -110,23 +110,41 @@ h1, h2 {
     text-transform: uppercase;
 }
 
+.schedule {
+    list-style-type: none;
+    margin: 0;
+}
+
+.home {
+    .details-container {
+        @media #{$large-up} {
+            // margin-top: -100px;
+        }
+    }
+}
+
 .details-container {
-    //margin-top: -100px;
     background: $body-bg;
     padding-bottom: $column-gutter;
+
+    @media #{$large-up} {
+        //margin-top: -100px;
+    }
 
     //border: 5px dashed #000;
     .details p, .details ul {
         text-align: left;
-        font-size: rem-calc(18);
+
+        //font-size: rem-calc(18);
 
         @media #{$large-up} {
-            font-size: rem-calc(26);
+            //font-size: rem-calc(26);
         }
     }
 
     .details ul {
         list-style-type: square;
+        font-size: rem-calc(20);
 
         li {
             @media #{$large-up} {
@@ -150,6 +168,10 @@ h1, h2 {
     border-top: 7px dashed rgb(173, 173, 173);
     padding-top: 20px;
     padding-top: $column-gutter;
+
+    section {
+        padding-bottom: 60px;
+    }
 }
 
 .location-container {

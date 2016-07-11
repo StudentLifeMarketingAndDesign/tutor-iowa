@@ -1,14 +1,15 @@
 <div class="main typography" role="main">
   <div class="row">
-    <div class="large-12 columns">
-      <% include BreadcrumbsSearch %>
-      <h1>Search Tutor Iowa</h1>
-
-      <div class="row">
-        <div class="large-8 large-offset-1 columns">
+        <div class="large-8 large-centered columns">
+          <% include BreadcrumbsSearch %>
+          <h1>Search Tutor Iowa</h1>
           <% include FindHelpSearch %>
+        </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
           <% if Query %>
-          <p>Your results for <strong>'{$Query}'</strong></p>
+          <p>Your search results for <strong>{$Query}</strong>:</p>
           <% else %> 
             <% with Page("find-help") %>
               $Content
@@ -17,10 +18,10 @@
           <% if $Query && not $HasResults %>
             <p>No results for this search term were found.</p>
           <% end_if %>
-        </div>
-      </div>
     </div>
+    <hr />
   </div>
+
   <div class="row">
     <% if HelpLabs %>
       <div class = "<% if $SupplementalInstructions %>large-6<% else %>large-12<% end_if %> columns">

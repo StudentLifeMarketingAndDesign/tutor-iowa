@@ -5,7 +5,7 @@
 //@import "settings";
 @import "foundation/components/grid";
 
-/*@import "foundation/components/accordion";*/
+@import "foundation/components/accordion";
 @import "foundation/components/alert-boxes";
 @import "foundation/components/block-grid";
 @import "foundation/components/breadcrumbs";
@@ -52,6 +52,10 @@
 @import "imports/mixins/gradient";
 @import "imports/mixins/banner";
 
+//font awesome:
+@import "fa/scss/font-awesome";
+
+@import "imports/academic-tips";
 @import "imports/buttons-tags";
 @import "imports/top-bar";
 @import "imports/search-results";

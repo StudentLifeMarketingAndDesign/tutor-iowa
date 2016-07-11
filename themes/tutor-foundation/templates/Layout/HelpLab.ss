@@ -44,6 +44,12 @@
 							<h2>About $Title</h2>
 							<p>$Description</p>
 						<% end_if %>
+						<% if $WhatToExpect %>
+							<h3> What to Expect: </h3><p>$WhatToExpect</p>
+						<% end_if %>
+						<% if $HowToPrepare %>
+							<h3> How to Prepare: </h3><p>$HowToPrepare</p>
+						<% end_if %>
 						$Form
 						<% if $Tags %>
 							<p><% include Tags %></p>

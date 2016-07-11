@@ -23,6 +23,7 @@
 
 
 						<% if $Schedule %>
+						<strong>Schedule:</strong><br />
 						$Schedule
 						<% end_if %>
 
@@ -30,6 +31,12 @@
 						<% if $SessionLeader%>
 							<strong>Session Leader:</strong> $SessionLeader
 							<br />
+						<% end_if %>
+						<% if $WhatToExpect %>
+							<h3> What to Expect: </h3><p>$WhatToExpect</p>
+						<% end_if %>
+						<% if $HowToPrepare %>
+							<h3> How to Prepare: </h3><p>$HowToPrepare</p>
 						<% end_if %>
 						$Form
 						<% if $Tags %>

@@ -23,6 +23,8 @@ class TutorPage extends Page {
 		'EligibleToTutor' => 'Boolean',
 		'PublishFlag' => 'Boolean',
 		'ApprovalStatus' => "Enum('Provisional, Active, Inactive, Ineligible')",
+		'WhatToExpect' => 'HTMLText',
+		'HowToPrepare' => 'HTMLText',
 	);
 
 	private static $has_one = array(
@@ -120,8 +122,8 @@ class TutorPage extends Page {
 		$members = Member::get();
 		$membersDropdownSource = $members->Map('ID', 'Email');
 
-		$tagField = new TagField("Tags", "Tags");
-		$tagField->setTagTopicClass("SiteTree");
+		$tagField = new TextareaField("Tags", "Tags");
+		//$tagField->setTagTopicClass("SiteTree");
 
 		$fields->renameField("Image", "Photo");
 		$fields->removeFieldFromTab('Root.Metadata', "Keywords");
@@ -148,6 +150,9 @@ class TutorPage extends Page {
 		$fields->addFieldToTab('Root.Main', new TextField("GPA", "GPA"));
 		$fields->addFieldToTab('Root.Main', new TextField("Major"));
 		$fields->addFieldToTab('Root.Main', new TextField("AcademicStatus", "Academic Status"));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField("WhatToExpect", "What to Expect"));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField("HowToPrepare", "How to Prepare"));
+
 
 		$fields->addFieldToTab('Root.Advanced', new DropdownField("MemberID", "Associated User", $membersDropdownSource));
 
@@ -297,8 +302,8 @@ class TutorPage_Controller extends Page_Controller {
 
 		if ($Member) {
 			$MemberID = $Member->ID;
-			$tagField = new TagField('Tags', 'Tags');
-			$tagField->setTagTopicClass("SiteTree");
+			$tagField = new TextareaField('Tags', 'Tags');
+			//$tagField->setTagTopicClass("SiteTree");
 
 			/* handles uploads for pending photos */
 
@@ -340,6 +345,8 @@ class TutorPage_Controller extends Page_Controller {
 				new TextField('PhoneNo', 'Phone number <strong>(will not be shown publicly)</strong>'),
 				new TextField('MeetingPreference', 'Meeting preference (on and/or off-campus)'),
 				new TextField('HourlyRate', 'Hourly rate'),
+				// new TextareaField('WhatToExpect', 'What to expect'),
+				// new TextareaField('HowToPrepare', 'How to prepare'),
 				new TextField('AcademicStatus', 'Status (undergrad, grad, faculty, staff)'),
 				new TextField('GPA', 'GPA <strong>(will not be shown publicly)</strong>'),
 				new UniversityIDField('UniversityID', 'University ID <strong>(will not be shown publicly)</strong>'),

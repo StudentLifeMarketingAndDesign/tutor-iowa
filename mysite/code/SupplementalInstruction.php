@@ -11,6 +11,8 @@ class SupplementalInstruction extends Page {
 		'Misc' => 'Text',
 		'EndDate' => 'Date',
 		'Schedule' => 'HTMLText',
+		'WhatToExpect' => 'HTMLText',
+		'HowToPrepare' => 'HTMLText',
 
 	);
 
@@ -24,8 +26,8 @@ class SupplementalInstruction extends Page {
 		$fields->removeFieldFromTab('Root.Metadata', "Keywords");
 		$fields->removeFieldFromTab('Root.Main', "Content");
 
-		$tagField = new TagField('Tags', 'Tags');
-		$tagField->setTagTopicClass("SiteTree");
+		$tagField = new TextareaField('Tags', 'Tags');
+		//$tagField->setTagTopicClass("SiteTree");
 		$fields->addFieldToTab('Root.Main', $tagField);
 		$fields->addFieldToTab('Root.Main', new TextField("Name", "Supplemental Instruction name (can be the same as page name)"));
 		$fields->addFieldToTab('Root.Main', new TextField("Location"));
@@ -33,7 +35,8 @@ class SupplementalInstruction extends Page {
 		$fields->addFieldToTab('Root.Main', new TextField("SessionLeader", "Session Leader"));
 		$fields->addFieldToTab('Root.Main', new TextAreaField("Content", "Describe the supplemental instruction here"));
 		$fields->addFieldToTab('Root.Main', new HTMLEditorField("Schedule", "Schedule"));
-
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField("WhatToExpect", "What to Expect"));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField("HowToPrepare", "How to Prepare"));
 		return $fields;
 
 	}
