@@ -36,12 +36,14 @@
 							<% include ResourceCard %>
 						<% end_with %>
 					</ul>
+					<% if Tutors %>
 					<h3 class="banner">Featured Tutors</h3>
 					<ul class="tutor-card-list large">
 						<% loop RandomTutors.Limit(16) %>
 							<% include TutorCard %>
 						<% end_loop %>
 					</ul>
+					<% end_if %>
 					<% if $RandomTutors.Count <= 4 %> 
 					<h3 class="banner">Featured Campus Resources</h3>
 					<ul class="resource-card-list large">
