@@ -1,47 +1,49 @@
-.resource-card-list {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-
-	@include block-grid($per-row: 1);
-
-	@media #{$large-up} {
-		@include block-grid($per-row: 2);
-	}
-
-	&.small {
-		@include block-grid($per-row: 1);
-	}
-
-	.resource-card {
-		margin-bottom: 0;
-
-		table {
-			max-width: 100% !important;
-		}
-	}
-
-	li {
+.main .content {
+	.resource-card-list {
 		list-style-type: none;
+		margin: 0;
+		padding: 0;
 
-		a {
-			color: $body-font-color;
+		@include block-grid($per-row: 1);
+
+		@media #{$large-up} {
+			@include block-grid($per-row: 2);
 		}
 
-		a.button {
-			color: white;
+		&.small {
+			@include block-grid($per-row: 1);
 		}
 
-		span.button {
-			color: white;
+		.resource-card {
+			margin-bottom: 0;
+
+			table {
+				width: 100% !important;
+			}
 		}
 
-		span {
-			color: $anchor-font-color;
-		}
-	}
+		li {
+			list-style-type: none;
 
-	li img {
-		display: block;
+			a {
+				color: $body-font-color;
+			}
+
+			a.button {
+				color: white;
+			}
+
+			span.button {
+				color: white;
+			}
+
+			span {
+				color: $anchor-font-color;
+			}
+		}
+
+		li img {
+			display: block;
+		}
 	}
 }

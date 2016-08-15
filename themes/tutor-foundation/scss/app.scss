@@ -98,10 +98,10 @@
 		}
 
 		table {
-			width: 100%;
+			width: 100% !important;
 
 			@media #{$medium-up} {
-				width: auto;
+				width: auto !important;
 			}
 		}
 	}
