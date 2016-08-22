@@ -23,7 +23,7 @@
 	
 					<h3 class="banner">Ways to get help</h3>
 					<ul class="resource-card-list">
-						<% with Page("supplemental-instructions") %>
+						<% with Page("supplemental-instruction") %>
 							<% include ResourceCard %>
 						<% end_with %>
 						<% with Page("private-tutors") %>
