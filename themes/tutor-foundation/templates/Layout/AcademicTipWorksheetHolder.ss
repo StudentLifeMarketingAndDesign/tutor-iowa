@@ -18,8 +18,6 @@
 
 							</div>
 						</div>
-
-						<h2>Topics:</h2>
 						<ul class="accordion" data-accordion role="tablist">
 							<li class="accordion-navigation active">
 								<a href="#panel-featured" role="tab" id="panel-featured-heading" aria-controls="panel-featured">Featured&nbsp;<i class="fa fa-caret-down fa-lg"></i> </a>
@@ -43,6 +41,7 @@
 							    </div>
 							  </li>
 							<% end_loop %>
+							<% if $UncategorizedWorksheets %>
 							<li class="accordion-navigation">
 								<a href="#panel-uncatd" role="tab" id="panel-uncatd-heading" aria-controls="panel-uncatd">Uncategorized&nbsp;<i class="fa fa-caret-down fa-lg"></i> </a>
 								<div id="panel-uncatd" class="content" role="tabpanel" aria-labelledby="panel-uncatd-heading">
@@ -53,6 +52,7 @@
 								</ul>
 								</div>
 							</li>
+							<% end_if %>
 						</ul>
 						$Form
 					</article>
