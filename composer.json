@@ -19,7 +19,8 @@
 		"md/division-bar": "*",
 		"thisisbd/silverstripe-maintenance-mode": "*",
 		"undefinedoffset/silverstripe-nocaptcha": "*",
-		"jonom/silverstripe-betternavigator": "*"
+		"jonom/silverstripe-betternavigator": "*",
+		"undefinedoffset/sortablegridfield": "^0.6.2"
 	},
 	"repositories": [
 		{

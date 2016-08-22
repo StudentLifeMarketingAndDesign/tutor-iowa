@@ -4,8 +4,7 @@ class AcademicTipWorksheet extends DataObject {
 
 	private static $db = array(
 		'Title' => 'Text',
-		'Content' => 'HTMLText',
-		
+		'Content' => 'HTMLText'
 		
 	);
 
@@ -17,6 +16,7 @@ class AcademicTipWorksheet extends DataObject {
 	private static $belongs_many_many = array(
 		'Categories' => 'AcademicTipCategory'
 	);
+
 
 	public function getCMSFields() {
 		$fields = new FieldList();
