@@ -36,7 +36,7 @@
 							<% include ResourceCard %>
 						<% end_with %>
 					</ul>
-					<% if Tutors %>
+					<% if RandomTutors %>
 					<h3 class="banner">Featured Tutors</h3>
 					<ul class="tutor-card-list large">
 						<% loop RandomTutors.Limit(16) %>
