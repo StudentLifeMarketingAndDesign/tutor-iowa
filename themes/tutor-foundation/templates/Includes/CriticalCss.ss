@@ -205,6 +205,25 @@ input[type="submit"]{ border: 0px solid rgb(0, 88, 248); cursor: pointer; font-f
 .top-bar .top-bar-section .right{ padding-right: 0.78125rem; }
 }
 .top-bar .title.back a{ background-color: rgb(102, 102, 102); background-position: initial initial; background-repeat: initial initial; }
+.HomePage .bg-container{ background-color: rgb(51, 51, 51); background-size: cover; min-height: 400px; background-position: 50% 50%; background-repeat: no-repeat no-repeat; }
+@media only screen and (min-width: 40.063em){
+.HomePage .bg-container{ min-height: 700px; }
+}
+.HomePage .tagline{ font-size: 2.25rem; line-height: 1em; font-weight: bold; display: block; text-align: center; color: white; padding: 1.5625rem 0px; }
+@media only screen and (min-width: 40.063em){
+.HomePage .tagline{ font-size: 4.5rem; line-height: 0.9em; }
+}
+.HomePage .HomePageSearchBg{ margin: 0px auto; max-width: 600px; }
+@media only screen and (min-width: 40.063em){
+.HomePage .HomePageSearchBg{ padding-top: 12%; padding-bottom: 3%; }
+}
+.HomePage .HomePagePopSearches{ position: relative; text-align: center; margin: 0px auto; background-color: rgba(34, 34, 34, 0.298039); padding: 10px; background-position: initial initial; background-repeat: initial initial; }
+.HomePage .HomeFieldHolder{ overflow: hidden; padding-right: 0.5em; text-align: center; }
+.HomePage .HomeFieldHolder input.textInput{ width: 100%; text-align: center; border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 100px; }
+@media only screen and (min-width: 40.063em){
+.HomePage .HomeFieldHolder input.textInput{ height: 2.3125em; font-size: 1rem; }
+}
+.HomePage .HomeFieldHolder input.button.home-search-submit{ display: inline; width: 40%; }
 .card{ padding: 0.78125rem 0px; }
 @media only screen and (min-width: 64.063em){
 .card{ padding: 0px; }
@@ -212,28 +231,28 @@ input[type="submit"]{ border: 0px solid rgb(0, 88, 248); cursor: pointer; font-f
 .card p{ margin-bottom: 0px; }
 .card h4{ -webkit-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out; color: rgb(4, 93, 255); }
 .small li.card{ padding: 10px 0px; }
-.main .content .resource-card-list{ list-style-type: none; display: block; padding: 0px; margin: 0px; }
-.main .content .resource-card-list::before, .main .content .resource-card-list::after{ content: ' '; display: table; }
-.main .content .resource-card-list::after{ clear: both; }
-.main .content .resource-card-list > li{ display: block; height: auto; float: left; padding: 0px 0.78125rem 1.5625rem; }
-.main .content .resource-card-list > li{ width: 100%; padding: 0px 0.78125rem 1.5625rem; list-style: none; }
-.main .content .resource-card-list > li:nth-of-type(1n){ clear: none; }
-.main .content .resource-card-list > li:nth-of-type(1n+1){ clear: both; }
-.main .content .resource-card-list > li:nth-of-type(1n){ padding-left: 0rem; padding-right: 0rem; }
+.resource-card-list{ list-style-type: none; display: block; padding: 0px; margin: 0px; }
+.resource-card-list::before, .resource-card-list::after{ content: ' '; display: table; }
+.resource-card-list::after{ clear: both; }
+.resource-card-list > li{ display: block; height: auto; float: left; padding: 0px 0.78125rem 1.5625rem; }
+.resource-card-list > li{ width: 100%; padding: 0px 0.78125rem 1.5625rem; list-style: none; }
+.resource-card-list > li:nth-of-type(1n){ clear: none; }
+.resource-card-list > li:nth-of-type(1n+1){ clear: both; }
+.resource-card-list > li:nth-of-type(1n){ padding-left: 0rem; padding-right: 0rem; }
 @media only screen and (min-width: 64.063em){
-.main .content .resource-card-list{ display: block; padding: 0px; margin: 0px; }
-.main .content .resource-card-list::before, .main .content .resource-card-list::after{ content: ' '; display: table; }
-.main .content .resource-card-list::after{ clear: both; }
-.main .content .resource-card-list > li{ display: block; height: auto; float: left; padding: 0px 0.78125rem 1.5625rem; }
-.main .content .resource-card-list > li{ width: 50%; padding: 0px 0.78125rem 1.5625rem; list-style: none; }
-.main .content .resource-card-list > li:nth-of-type(1n){ clear: none; }
-.main .content .resource-card-list > li:nth-of-type(2n+1){ clear: both; }
-.main .content .resource-card-list > li:nth-of-type(2n+1){ padding-left: 0rem; padding-right: 0.78125rem; }
-.main .content .resource-card-list > li:nth-of-type(2n){ padding-left: 0.78125rem; padding-right: 0rem; }
+.resource-card-list{ display: block; padding: 0px; margin: 0px; }
+.resource-card-list::before, .resource-card-list::after{ content: ' '; display: table; }
+.resource-card-list::after{ clear: both; }
+.resource-card-list > li{ display: block; height: auto; float: left; padding: 0px 0.78125rem 1.5625rem; }
+.resource-card-list > li{ width: 50%; padding: 0px 0.78125rem 1.5625rem; list-style: none; }
+.resource-card-list > li:nth-of-type(1n){ clear: none; }
+.resource-card-list > li:nth-of-type(2n+1){ clear: both; }
+.resource-card-list > li:nth-of-type(2n+1){ padding-left: 0rem; padding-right: 0.78125rem; }
+.resource-card-list > li:nth-of-type(2n){ padding-left: 0.78125rem; padding-right: 0rem; }
 }
-.main .content .resource-card-list .resource-card{ margin-bottom: 0px; }
-.main .content .resource-card-list li{ list-style-type: none; }
-.main .content .resource-card-list li a{ color: rgb(34, 34, 34); }
+.resource-card-list .resource-card{ margin-bottom: 0px; list-style-type: none; }
+.resource-card-list li{ list-style-type: none; }
+.resource-card-list li a{ color: rgb(34, 34, 34); }
 .side-nav{ padding-top: 0px; }
 @media only screen and (min-width: 64.063em){
 .side-nav{ background-color: rgb(244, 244, 244); padding: 0.78125rem 0px 0.78125rem 0.78125rem; }
@@ -322,3 +341,7 @@ form label span{ color: rgb(240, 65, 36); padding-right: 3px; }
 #feedback-btn{ display: block; background-image: url(../images/feedback-btn.gif); position: fixed; width: 40px; height: 120px; top: 45%; right: 0px; z-index: 101; background-size: cover; background-position: 50% 100%; background-repeat: initial initial; }
 }
 .visuallyhidden{ border: 0px; clip: rect(0px 0px 0px 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; }
+#BetterNavigator{ display: none; }
+@media only screen and (min-width: 64.063em){
+#BetterNavigator{ display: block; }
+}
