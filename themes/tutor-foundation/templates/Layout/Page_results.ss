@@ -7,7 +7,7 @@
         </div>
   </div>
   <div class="row">
-    <div class="large-12 columns">
+    <div class="<% if $Query %>large-12<% else %>large-8 large-centered<% end_if %> columns">
           <% if Query %>
           <p>Your search results for <strong>{$Query}</strong>:</p>
           <% else %> 
@@ -24,7 +24,7 @@
 
   <div class="row">
     <% if HelpLabs %>
-      <div class = "<% if $SupplementalInstructions %>large-6<% else %>large-12<% end_if %> columns">
+      <div class = "large-12 columns">
         <h2 class="banner">Help Labs</h2>
         <ul class="resource-card-list large">
           <% loop HelpLabs %>
@@ -34,7 +34,7 @@
       </div>
     <% end_if %><%-- end if HelpLabs --%>
     <% if SupplementalInstructions %>
-    <div class = "<% if $HelpLabs %>large-6<% else %>large-12<% end_if %> columns">
+    <div class = "large-12 columns">
       <h2 class="banner">Supplemental Instruction</h2>
       <ul class="resource-card-list large">
         <% loop SupplementalInstructions %>
