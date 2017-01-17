@@ -473,16 +473,16 @@
         },
         {
             "name": "silverstripe/cms",
-            "version": "3.1.20",
+            "version": "3.1.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-cms.git",
-                "reference": "312cfca3cabd06b1bc11fc7226ce0c4931ab0f4f"
+                "reference": "c85701701925909d12d51f480f4a52d8cb933a7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/312cfca3cabd06b1bc11fc7226ce0c4931ab0f4f",
-                "reference": "312cfca3cabd06b1bc11fc7226ce0c4931ab0f4f",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/c85701701925909d12d51f480f4a52d8cb933a7c",
+                "reference": "c85701701925909d12d51f480f4a52d8cb933a7c",
                 "shasum": ""
             },
             "require": {
@@ -516,20 +516,20 @@
                 "cms",
                 "silverstripe"
             ],
-            "time": "2016-08-15 04:31:55"
+            "time": "2016-11-15 11:56:10"
         },
         {
             "name": "silverstripe/framework",
-            "version": "3.1.20",
+            "version": "3.1.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-framework.git",
-                "reference": "6f60d2518bf5265265c00935221a4b17d3c83e99"
+                "reference": "586e5281e0fac726c98d2176b63d3350932a6588"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/6f60d2518bf5265265c00935221a4b17d3c83e99",
-                "reference": "6f60d2518bf5265265c00935221a4b17d3c83e99",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/586e5281e0fac726c98d2176b63d3350932a6588",
+                "reference": "586e5281e0fac726c98d2176b63d3350932a6588",
                 "shasum": ""
             },
             "require": {
@@ -565,7 +565,7 @@
                 "framework",
                 "silverstripe"
             ],
-            "time": "2016-08-15 04:44:36"
+            "time": "2016-11-18 12:17:03"
         },
         {
             "name": "silverstripe/lumberjack",
