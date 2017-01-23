@@ -7,6 +7,10 @@ class SiteTreeFieldExtension extends DataExtension {
 		'Tags' => 'Text',
 	);
 
+	private static $belongs_many_many = array(
+		'Tags' => 'Tag'
+	);
+
 	public function SplitKeywords() {
 		$tags = preg_split("/\s*,\s*/", trim($this->owner->Tags));
 		$results = array();
