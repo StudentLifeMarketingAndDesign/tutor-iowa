@@ -7,7 +7,7 @@ class SiteTreeFieldExtension extends DataExtension {
 		'Tags' => 'Text',
 	);
 
-	private static $belongs_many_many = array(
+	private static $many_many = array(
 		'Tags' => 'Tag'
 	);
 

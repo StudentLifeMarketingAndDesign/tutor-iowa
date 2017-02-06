@@ -28,8 +28,9 @@ class CreateTagsTask extends BuildTask{
                         $t->write();
                     }
                     else{
-                        $t = Tag::get()->filter(array('Title' => $title));
+                        $t = Tag::get()->filter(array('Title' => $title))->First();
                         $t->write();
+                        $page->Tags()->add($t);
                     }
                 }
             }
