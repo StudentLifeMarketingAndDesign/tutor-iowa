@@ -5,8 +5,8 @@ class Tag extends DataObject{
 			"Title" => "Varchar",
 		);
 
-	private static $belongs_many_many = array(
-		'SiteTrees' => 'SiteTreeFieldExtension'
+	private static $many_many = array(
+		'SiteTrees' => 'SiteTree'
 		);
 
 

@@ -22,15 +22,16 @@ class CreateTagsTask extends BuildTask{
                 foreach($titles as $title){
                     $tagTest = Tag::get()->filter(array('Title' => $title))->First();
                     if (!$tagTest) {
-                        echo "<li>test passed";
+                        // echo "<li>test passed";
                         $t = new Tag();
                         $t->Title = $title;
+                        $page->Tags()->add($t);
                         $t->write();
                     }
                     else{
                         $t = Tag::get()->filter(array('Title' => $title))->First();
-                        $t->write();
                         $page->Tags()->add($t);
+                        $t->write();
                     }
                 }
             }
