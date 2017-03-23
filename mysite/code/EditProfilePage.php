@@ -306,7 +306,9 @@ class EditProfilePage_Controller extends Page_Controller {
 				$email->setFrom($adminEmail);
 				$email->setSubject($subject);
 				$email->setBody($body);
-				$email->send();
+				if (SS_ENVIRONMENT_TYPE == "live") {
+					$email->send();
+				}
 
 			}
 
@@ -326,7 +328,9 @@ class EditProfilePage_Controller extends Page_Controller {
 			$email->setFrom($adminEmail);
 			$email->setSubject($subject);
 			$email->setBody($body);
-			$email->send();
+			if (SS_ENVIRONMENT_TYPE == "live") {
+				$email->send();
+			}
 
 			Versioned::reading_stage('Live');
 		}

@@ -199,7 +199,9 @@ class RegistrationPage_Controller extends Page_Controller
         $email->setFrom($adminEmail);
         $email->setSubject($subject);
         $email->setBody($body);
-        $email->send();
+        if (SS_ENVIRONMENT_TYPE == "live") {
+            $email->send();
+        }
         
         $subject = "TutorIowa Application Confirmation";
         
@@ -212,7 +214,9 @@ class RegistrationPage_Controller extends Page_Controller
         $email->setFrom(Email::getAdminEmail());
         $email->setSubject($subject);
         $email->setBody($body);
-        $email->send();
+        if (SS_ENVIRONMENT_TYPE == "live") {
+            $email->send();
+        }
         
         Session::set('Saved', 1);
         

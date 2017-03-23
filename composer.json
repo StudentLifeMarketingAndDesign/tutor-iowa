@@ -15,11 +15,11 @@
 		"silverstripe/lumberjack": "*",
 		"i-lateral/silverstripe-trumbowyg-htmleditor": "dev-master",
 		"colymba/gridfield-bulk-editing-tools": "*",
-		"unclecheese/betterbuttons": "*",
+		"unclecheese/betterbuttons": "1.3.*",
 		"md/division-bar": "*",
 		"thisisbd/silverstripe-maintenance-mode": "*",
 		"undefinedoffset/silverstripe-nocaptcha": "*",
-		"jonom/silverstripe-betternavigator": "*",
+		"jonom/silverstripe-betternavigator": "3.*",
 		"undefinedoffset/sortablegridfield": "^0.6.2"
 	},
 	"repositories": [
