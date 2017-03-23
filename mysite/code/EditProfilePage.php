@@ -63,7 +63,7 @@ class EditProfilePage_Controller extends Page_Controller {
 			//$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");
 			$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
 
-			$tagField = new TutorTagField('Tags', 'Tags');
+			$tagField = new TutorTagField('Tags', 'Tags (separate each tag with a comma and a space, example: Chemistry, Biochemistry)');
 			$tagField->setTagTopicClass("SiteTree");
 
 			$tagsLabel = '<p>Read the <a href="for-tutors/">For Tutors page</a> to learn more about tags and promoting yourself on Tutor Iowa!</p>';

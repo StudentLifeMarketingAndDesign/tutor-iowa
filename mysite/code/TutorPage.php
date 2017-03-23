@@ -302,7 +302,7 @@ class TutorPage_Controller extends Page_Controller {
 
 		if ($Member) {
 			$MemberID = $Member->ID;
-			$tagField = new TextareaField('Tags', 'Tags');
+			$tagField = new TextareaField('Tags', 'Tags (separate each tag with a comma and a space, example: Chemistry, Biochemistry)');
 			//$tagField->setTagTopicClass("SiteTree");
 
 			/* handles uploads for pending photos */
@@ -452,7 +452,11 @@ class TutorPage_Controller extends Page_Controller {
 		$form->saveInto($Tutor);
 		$form->saveInto($Member, $memberFieldList);
 
+		$Tutor->writeToStage('Stage');
+		$Tutor->publish("Stage", "Live");
+		Versioned::reading_stage('Live');
 		$Tutor->write();
+		
 		$Member->write();
 
 		$formDisabled = $formData['Disable'];
