@@ -237,7 +237,7 @@ class TutorPage_Controller extends Page_Controller {
 		$email->replyTo($from);
 		$email->setBody($name . ' has contacted you. 
 		You may reply to their message directly by <strong>replying to this email.</strong> 
-		Their email should automatically be filled into the to field.  <br /><br />
+		Their email should automatically be filled into the To:" field in your email app. If it isn\'t, please email them directly at <strong>'.$from.'.</strong>  <br /><br />
 		Read their message below: <br /><br />' . $body. '<br /><br /><br />'.$name.'<br />'.$from);
 
 		if (SS_ENVIRONMENT_TYPE == "live") {
