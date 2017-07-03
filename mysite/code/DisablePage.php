@@ -66,7 +66,7 @@ class DisablePage_Controller extends Page_Controller {
 				$subject = "User has requested their account be disabled";
 				$body = "User email: " . $userEmail . "
 
-	        	Disable their account  <a href='" . Director::absoluteBaseURL() . "admin/pages/edit/show/" . $Tutor->ID . "'>here</a/>";
+	        	Disable their account by clicking 'Unpublish' <a href='" . Director::absoluteBaseURL() . "admin/pages/edit/show/" . $Tutor->ID . "'>while editing their page here</a/>";
 				//$headers = "From: Tutor Iowa";
 				//mail($recip->Email, $subject, $body);
 
@@ -76,9 +76,9 @@ class DisablePage_Controller extends Page_Controller {
 				$email->setSubject($subject);
 				$email->setBody($body);
 
-				//print_r($email);
-				$email->send();
-
+				if (SS_ENVIRONMENT_TYPE == "live") {
+					$email->send();
+				}
 			}
 
 			//Send the user an email confirming that their account is going to be disabled.
@@ -97,7 +97,9 @@ class DisablePage_Controller extends Page_Controller {
 			$email->setFrom(Email::getAdminEmail());
 			$email->setSubject($subject);
 			$email->setBody($body);
-			$email->send();
+			if (SS_ENVIRONMENT_TYPE == "live") {
+				$email->send();
+			}
 
 			return $this->redirect($this->Link('?saved=1'));
 		} else {

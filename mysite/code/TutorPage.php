@@ -122,9 +122,16 @@ class TutorPage extends Page {
 		$members = Member::get();
 		$membersDropdownSource = $members->Map('ID', 'Email');
 
-		$tagField = new TagField("Tags", "Tags");
+		//$tagField = new TagField("Tags", "Tags");
 		//$tagField->setTagTopicClass("SiteTree");
-
+		$tagField = TagField::create(
+			'Tags',
+			'Tags',
+			Tag::get(),
+			$this->Tags()
+		)
+			->setShouldLazyLoad(true) // tags should be lazy loaded
+			->setCanCreate(true); 
 		$fields->renameField("Image", "Photo");
 		$fields->removeFieldFromTab('Root.Metadata', "Keywords");
 		$fields->removeFieldFromTab('Root.Main', "Content");
@@ -302,7 +309,9 @@ class TutorPage_Controller extends Page_Controller {
 
 		if ($Member) {
 			$MemberID = $Member->ID;
+
 			$tagField = new TagField('Tags', 'Tags');
+
 			//$tagField->setTagTopicClass("SiteTree");
 
 			/* handles uploads for pending photos */
@@ -452,7 +461,11 @@ class TutorPage_Controller extends Page_Controller {
 		$form->saveInto($Tutor);
 		$form->saveInto($Member, $memberFieldList);
 
+		$Tutor->writeToStage('Stage');
+		$Tutor->publish("Stage", "Live");
+		Versioned::reading_stage('Live');
 		$Tutor->write();
+		
 		$Member->write();
 
 		$formDisabled = $formData['Disable'];

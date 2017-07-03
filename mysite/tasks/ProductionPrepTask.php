@@ -5,7 +5,7 @@ class ProductionPrepTask extends BuildTask {
 	protected $title = 'Production Prep Task';
 	protected $description = 'Add HelpLabHolder and SuppHolder to Find Help Page';
 
-	protected $enabled = true;
+	protected $enabled = false;
 
 	function run($request) {
 		$suppHolder = SuppHolder::get()->First();

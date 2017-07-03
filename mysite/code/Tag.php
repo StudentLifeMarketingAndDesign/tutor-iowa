@@ -2,8 +2,8 @@
 
 class Tag extends DataObject{
 	private static $db = array(
-			"Title" => "Varchar",
-		);
+		"Title" => "Varchar",
+	);
 
 	private static $many_many = array(
 		'SiteTrees' => 'SiteTree'

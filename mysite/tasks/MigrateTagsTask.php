@@ -5,7 +5,7 @@ class MigrateTagsTask extends BuildTask {
 	protected $title = 'Migrate Metakeywords to Tags';
 	protected $description = 'Migrate tags entered in the MetaKeywords field to a field called "Tags" for Help Labs ONLY';
 
-	protected $enabled = true;
+	protected $enabled = false;
 
 	function run($request) {
 		//$supps = SupplementalInstruction::get();

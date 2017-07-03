@@ -3,7 +3,7 @@ class EmailAdmins extends BuildTask {
 
 	protected $title = 'Email Administrators about Pending Images for Approval';
 	protected $description = 'Sends a daily email digest with details about Tutor Iowa, primarily to inform them about images pending approval, but can be expanded to include other useful information';
-	protected $enabled = true;
+	protected $enabled = false;
 
 	public function run($request) {
         /* Daily Stats */
