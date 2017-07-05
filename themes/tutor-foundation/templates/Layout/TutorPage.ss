@@ -78,8 +78,13 @@
 							$Form
 							<hr />
 							<h2>Contact $FirstName</h2>
-							$ContactForm
-							<p><a href="{$getFeedbackLink}" data-reveal-id="feedback-form-modal">Give Feedback About $FirstName</a></p>
+
+							<% if $CurrentMember %>
+								$ContactForm
+								<p><a href="{$getFeedbackLink}" data-reveal-id="feedback-form-modal">Give Feedback About $FirstName</a></p>
+							<% else %>
+								<a href="Security/login?BackURL=%2Fprivate-tutors%2F$FirstName-$Surname/" class="button">Log In</a>
+							<% end_if %>
 						</div>
 					</div>
 
