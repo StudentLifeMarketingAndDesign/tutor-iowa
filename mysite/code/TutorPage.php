@@ -222,6 +222,9 @@ class TutorPage_Controller extends Page_Controller {
 
 	public function doContactTutor($data, $form) {
 		if(Member::CurrentMember()){
+			return $this->httpError(404, 'Not Found');
+
+		}
 			$adminEmail = Config::inst()->get('Email', 'admin_email');
 
 			$from = $data["Email"];
@@ -256,10 +259,7 @@ class TutorPage_Controller extends Page_Controller {
 			$message->write();
 
 			return $this->redirect($this->Link('?sent=1'));
-		}
-
-		return $this->httpError(404, 'Not Found');
-
+		
 	}
 
 	public function Sent() {
