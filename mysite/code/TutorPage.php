@@ -221,40 +221,44 @@ class TutorPage_Controller extends Page_Controller {
 	}
 
 	public function doContactTutor($data, $form) {
-		$adminEmail = Config::inst()->get('Email', 'admin_email');
+		if(Member::CurrentMember()){
+			$adminEmail = Config::inst()->get('Email', 'admin_email');
 
-		$from = $data["Email"];
-		$name = $data["Name"];
-		$body = $data["Body"];
+			$from = $data["Email"];
+			$name = $data["Name"];
+			$body = $data["Body"];
 
-		$subject = "[Tutor Iowa] " . $name . " has contacted you.";
+			$subject = "[Tutor Iowa] " . $name . " has contacted you.";
 
-		$email = new Email();
-		$toString = $this->Email;
-		$email->setTo($toString);
-		$email->setSubject($subject);
-		$email->setFrom($adminEmail);
-		$email->replyTo($from);
-		$email->setBody($name . ' has contacted you. 
-		You may reply to their message directly by <strong>replying to this email.</strong> 
-		Their email should automatically be filled into the To:" field in your email app. If it isn\'t, please email them directly at <strong>'.$from.'.</strong>  <br /><br />
-		Read their message below: <br /><br />' . $body. '<br /><br /><br />'.$name.'<br />'.$from);
+			$email = new Email();
+			$toString = $this->Email;
+			$email->setTo($toString);
+			$email->setSubject($subject);
+			$email->setFrom($adminEmail);
+			$email->replyTo($from);
+			$email->setBody($name . ' has contacted you. 
+			You may reply to their message directly by <strong>replying to this email.</strong> 
+			Their email should automatically be filled into the To:" field in your email app. If it isn\'t, please email them directly at <strong>'.$from.'.</strong>  <br /><br />
+			Read their message below: <br /><br />' . $body. '<br /><br /><br />'.$name.'<br />'.$from);
 
-		if (SS_ENVIRONMENT_TYPE == "live") {
-			$email->send(); 
+			if (SS_ENVIRONMENT_TYPE == "live") {
+				$email->send(); 
+			}
+
+			$message = new Message();
+
+			$message->SenderName = $name;
+			$message->SenderEmail = $from;
+			$message->MessageBody = $body;
+			$message->RecipientID = $this->Member()->ID;
+			$message->RecipientName = $this->Member()->FirstName . ' ' . $this->Member()->Surname;
+
+			$message->write();
+
+			return $this->redirect($this->Link('?sent=1'));
 		}
 
-		$message = new Message();
-
-		$message->SenderName = $name;
-		$message->SenderEmail = $from;
-		$message->MessageBody = $body;
-		$message->RecipientID = $this->Member()->ID;
-		$message->RecipientName = $this->Member()->FirstName . ' ' . $this->Member()->Surname;
-
-		$message->write();
-
-		return $this->redirect($this->Link('?sent=1'));
+		return $this->httpError(404, 'Not Found');
 
 	}
 
