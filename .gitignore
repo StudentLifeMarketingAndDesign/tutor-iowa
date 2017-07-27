@@ -2,7 +2,6 @@ cms/
 recaptcha/
 spamprotection/
 framework/
-vendor/composer
 themes/simple
 vendor/autoload.php
 .DS_Store
@@ -38,3 +37,7 @@ betternavigator/
 sortablegridfield/
 reports/
 siteconfig/
+activedirectory/
+multivaluefield/
+queuedjobs/
+/vendor

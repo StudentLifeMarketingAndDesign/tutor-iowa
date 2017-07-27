@@ -20,14 +20,9 @@
 		"thisisbd/silverstripe-maintenance-mode": "*",
 		"undefinedoffset/silverstripe-nocaptcha": "*",
 		"jonom/silverstripe-betternavigator": "3.*",
-		"undefinedoffset/sortablegridfield": "0.6.*"
+		"undefinedoffset/sortablegridfield": "0.6.*",
+		"silverstripe/activedirectory" : "3.*"
 	},
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/StudentLifeMarketingAndDesign/division-bar"
-		}
-	],
 	"config": {
 		"process-timeout": 600	
 	},
@@ -44,6 +39,16 @@
         {
         	"type" : "vcs",
         	"url" : "https://github.com/silverstripe/silverstripe-lumberjack"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory"
+
+        },
+        {
+             "type": "vcs",
+             "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-betternavigator"
         }
+
     ]
 }
