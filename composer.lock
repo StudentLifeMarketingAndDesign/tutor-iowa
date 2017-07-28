@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+    "hash": "4bd0c7de27865fcfddfbfa8ad0b895b9",
     "content-hash": "f12a6a8f11124da4f00ac97c76f03da3",
     "packages": [
         {
@@ -246,7 +247,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2017-04-24T06:37:16+00:00"
+            "time": "2017-04-24 06:37:16"
         },
         {
             "name": "i-lateral/silverstripe-trumbowyg-htmleditor",
@@ -577,7 +578,7 @@
                 "onelogin",
                 "saml"
             ],
-            "time": "2017-07-21T20:16:31+00:00"
+            "time": "2017-07-21 20:16:31"
         },
         {
             "name": "ramsey/array_column",
@@ -622,7 +623,7 @@
                 "array_column",
                 "column"
             ],
-            "time": "2015-03-20T22:07:39+00:00"
+            "time": "2015-03-20 22:07:39"
         },
         {
             "name": "rywa/silverstripe-foundation-forms",
@@ -823,7 +824,7 @@
                 "cms",
                 "silverstripe"
             ],
-            "time": "2017-06-15T11:50:49+00:00"
+            "time": "2017-06-15 11:50:49"
         },
         {
             "name": "silverstripe/framework",
@@ -877,7 +878,7 @@
                 "framework",
                 "silverstripe"
             ],
-            "time": "2017-06-27T11:48:16+00:00"
+            "time": "2017-06-27 11:48:16"
         },
         {
             "name": "silverstripe/lumberjack",
@@ -1135,7 +1136,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2014-03-07T07:38:25+00:00"
+            "time": "2014-03-07 07:38:25"
         },
         {
             "name": "silverstripe/tagfield",
@@ -1310,7 +1311,7 @@
                 "silverstripe",
                 "spamprotection"
             ],
-            "time": "2015-10-01T22:50:02+00:00"
+            "time": "2015-10-01 22:50:02"
         },
         {
             "name": "undefinedoffset/sortablegridfield",
@@ -1350,7 +1351,7 @@
                 "gridfield",
                 "silverstripe"
             ],
-            "time": "2017-04-21T12:32:43+00:00"
+            "time": "2017-04-21 12:32:43"
         },
         {
             "name": "zendframework/zend-authentication",
@@ -1412,7 +1413,7 @@
                 "Authentication",
                 "zf2"
             ],
-            "time": "2016-02-28T15:02:34+00:00"
+            "time": "2016-02-28 15:02:34"
         },
         {
             "name": "zendframework/zend-eventmanager",
@@ -1466,7 +1467,7 @@
                 "events",
                 "zf2"
             ],
-            "time": "2016-02-18T20:53:00+00:00"
+            "time": "2016-02-18 20:53:00"
         },
         {
             "name": "zendframework/zend-ldap",
@@ -1519,7 +1520,7 @@
                 "ldap",
                 "zf2"
             ],
-            "time": "2017-03-06T20:39:12+00:00"
+            "time": "2017-03-06 20:39:12"
         },
         {
             "name": "zendframework/zend-session",
@@ -1585,7 +1586,7 @@
                 "session",
                 "zf2"
             ],
-            "time": "2017-06-19T15:23:03+00:00"
+            "time": "2017-06-19 15:23:03"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -1630,7 +1631,7 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2016-04-12T21:19:36+00:00"
+            "time": "2016-04-12 21:19:36"
         }
     ],
     "packages-dev": [],

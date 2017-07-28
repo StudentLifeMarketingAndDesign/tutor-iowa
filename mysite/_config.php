@@ -22,7 +22,7 @@ SiteTree::enable_nested_urls();
 //Added by Dre
 FulltextSearchable::enable();
 
-Object::useCustomClass('MemberLoginForm', 'CustomLoginForm');
+// Object::useCustomClass('MemberLoginForm', 'CustomLoginForm');
 
 
 if(Director::isLive()) {

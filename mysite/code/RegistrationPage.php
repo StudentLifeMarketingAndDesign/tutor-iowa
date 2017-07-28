@@ -24,7 +24,14 @@ class RegistrationPage_Controller extends Page_Controller
     //Generate the registration form
     public function RegistrationForm() {
         $fields = new FieldList(
-        new TextField('FirstName', '<span>*</span> First Name'), new TextField('Surname', '<span>*</span> Last Name'), new EmailField('Email', '<span>*</span> UIowa Email Address'), new ConfirmedPasswordField('Password', '<span>*</span>Choose a Password'), new UniversityIDField('UniversityID', '<span>*</span>University ID'), new TextField('Major'), new TextField('GPA'), new TextField('AcademicStatus', 'Status (undergraduate, graduate, faculty, or staff)'),
+        new TextField('FirstName', '<span>*</span> First Name'),
+        new TextField('Surname', '<span>*</span> Last Name'),
+        new EmailField('Email', '<span>*</span> UIowa Email Address'),
+        // new ConfirmedPasswordField('Password', '<span>*</span>Choose a Password'),
+        new UniversityIDField('UniversityID', '<span>*</span>University ID'),
+        new TextField('Major'),
+        new TextField('GPA'),
+        new TextField('AcademicStatus', 'Status (undergraduate, graduate, faculty, or staff)'),
         
         //new LiteralField('Terms', $this->Content),
         new CheckboxField('AgreeToConditions', 'Checking this box confirms that you have reviewed our Terms and Conditions above.'));
@@ -36,6 +43,10 @@ class RegistrationPage_Controller extends Page_Controller
         $validator = new RequiredFields('FirstName', 'Surname', 'Email', 'Password', 'UniversityID');
         
         $form = new Form($this, 'RegistrationForm', $fields, $actions, $validator);
+
+        if(Member::CurrentUser()){
+            $form->loadDataFrom(Member::CurrentUser());
+        }
         
         /*We'll disable the spam protection for now and hopefully assume that providing the @uiowa.edu email address will be enough to protect against spam.*/
         
