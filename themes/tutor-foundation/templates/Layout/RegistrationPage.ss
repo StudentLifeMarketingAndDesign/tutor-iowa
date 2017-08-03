@@ -24,7 +24,7 @@
 							<% if $CurrentMember %>
 								$RegistrationForm
 							<% else %>
-								<a href="Security/login?BackURL=%2Fprivate-tutors%2F$FirstName-$Surname/" class="button">Log In</a>
+								<a href="Security/login?BackURL={$Link}" class="button">Log In</a>
 							<% end_if %>
 						</div>
 					</article>

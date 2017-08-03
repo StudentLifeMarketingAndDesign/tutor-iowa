@@ -293,6 +293,29 @@ class Page_Controller extends ContentController {
 		}
 	}
 
+	public function approvedTutor() {
+
+		$currentMember = Member::currentUser();
+
+		if (isset($currentMember->ID)) {
+			$currentMemberID = $currentMember->ID;
+		} else {
+			return false;
+		}
+
+		$tutorPage = TutorPage::get("TutorPage")->where("MemberID = " . $currentMemberID)->First();
+		$tutorParent = $tutorPage->getParent();
+
+		if ($tutorParent->Title == 'Inactive Tutors' || $tutorParent->Title == 'Private Tutors'){
+			if (isset($tutorPage)) {
+				return $tutorPage;
+			}
+		}
+		else{
+			return false;
+		}
+	}
+
 	public function getHelpLab() {
 		if ($this->isHelpLab()) {
 			$HelpLab = YourHelpLabs::get("YourHelpLabs")->First();

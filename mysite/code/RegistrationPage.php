@@ -120,8 +120,8 @@ class RegistrationPage_Controller extends Page_Controller
     function doRegister($data, $form) {
         $adminEmail = Config::inst()->get('Email', 'admin_email');
         
-        //Check for existing member email address, use raw2sql to sanitize email form input
-        if ($member = DataObject::get_one("Member", "`Email` = '" . Convert::raw2sql($data['Email']) . "'")) {
+        //Check for existing tutor email address, use raw2sql to sanitize email form input
+        if ($member = DataObject::get_one("TutorPage", "`Email` = '" . Convert::raw2sql($data['Email']) . "'")) {
             
             //Set error message
             $form->AddErrorMessage('Email', "Sorry, that email address already exists. Please choose another.", 'bad');
@@ -144,19 +144,14 @@ class RegistrationPage_Controller extends Page_Controller
             return $this->redirect($url);;
         }
         
-        //Otherwise create new member and log them in
-        $Member = new Member();
-        $form->saveInto($Member);
-        
-        $Member->write();
-        $Member->login();
+        //Otherwise save member info and create a new Provisional Tutor
+        $Member = Member::currentUser();
         
         Session::clear("Saved");
          //Make sure edit profile works properly
         
         $TutorPage = new TutorPage();
         
-        //$tutorParent = DataObject::get_one('TutorHolder', "Title = 'Provisional Tutors'");
         $tutorParent = TutorHolder::get()->filter(array('Title' => 'Provisional Tutors'))->first();
         $TutorPage->setParent($tutorParent);
          //Sets the tutor holder to hold new tutor pages
@@ -191,9 +186,7 @@ class RegistrationPage_Controller extends Page_Controller
         $TutorPage->publish("Stage", "Live");
         
         $TutorPage->deleteFromStage('Live');
-        
-        //$emailArray = DataObject::get('Member', "ID in (select MemberID from Group_Members where GroupID = (select ID from `Group` where title='Content Authors'))");
-        
+                
         $userEmail = $Member->Email;
          //used in body of email, not really necessary
         
@@ -216,7 +209,6 @@ class RegistrationPage_Controller extends Page_Controller
         
         $subject = "TutorIowa Application Confirmation";
         
-        //$emailHolder = DataObject::get_one("EmailHolder");
         $emailHolder = EmailHolder::get()->first();
         $body = $emailHolder->RegistrationRequest;
         
@@ -232,7 +224,6 @@ class RegistrationPage_Controller extends Page_Controller
         Session::set('Saved', 1);
         
         if ($ProfilePage = EditProfilePage::get()->first())
-         //$ProfilePage = DataObject::get_one('EditProfilePage'))
         {
             return $this->redirect($ProfilePage->Link('?success=1'));
         }
