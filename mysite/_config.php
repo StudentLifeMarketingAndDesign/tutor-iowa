@@ -26,7 +26,7 @@ FulltextSearchable::enable();
 
 
 if(Director::isLive()) {
-	//Director::forceSSL();
+	Director::forceSSL();
 }
 
 Authenticator::set_default_authenticator('SAMLAuthenticator');
