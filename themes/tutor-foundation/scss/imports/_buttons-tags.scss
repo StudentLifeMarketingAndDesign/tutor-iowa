@@ -34,6 +34,10 @@ input[type="submit"]{
 .button--hawkid{
   @include buttonGradient(#FFCD00);
   color: #111;
+
+  &:hover{
+    color: #333;
+  }
 }
 
 .button.darkGray, button.darkGray{
