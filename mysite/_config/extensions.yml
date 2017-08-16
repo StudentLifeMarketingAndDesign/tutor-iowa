@@ -4,6 +4,7 @@ SiteTree:
 Member:
   extensions:
     - MemberExtension
+    - SAMLMemberExtension
 TutorPage:
   extensions:
     - TutorPageExtension
