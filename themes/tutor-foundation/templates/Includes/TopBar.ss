@@ -36,18 +36,20 @@
 		</ul>
 		<ul class="right">
 			<% if $CurrentMember %> <%-- if logged in with hawkID --%>
-				<% if $approvedTutor %> <%-- if has a tutor page --%>
+				<% if $currentMemberPage %> <%-- if has a tutor page --%>
 					<li><a href="inbox" id="inbox-link" title="Messages" class="<% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>">
 					<i class="fa fa-comments fa-lg" aria-hidden="true"></i><% if $CurrentMember.unreadMessageCount > 0 %><span data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount" class="inboxCount  ">({$CurrentMember.unreadMessageCount})</span><% end_if %></a></li>
 					<li class="has-dropdown">
 						<a href="edit-profile/" id="memberInfo" title="User Profile" data-id="$CurrentMember.ID"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
 						<ul class="dropdown">
 							<li><a href="edit-profile/">Edit Profile</a></li>
-							<li><a href="$approvedTutor.Link">View Profile</a></li>
+							<% if $approvedTutor %><li><a href="$approvedTutor.Link">View Profile</a></li><% end_if %>
 						</ul>
 					</li>
-				<% else %> <%-- if does not have a tutor page (i.e. is not a tutor) --%>
+				<% else %> <%-- if does not have a tutor page in Stage or Live (i.e. is not a tutor at all) --%>
+					<% if not $currentMemberPage %>
 					<li class="register"><a href="register">Become a Tutor</a></li>
+					<% end_if %>
 				<% end_if %>
 				<% if MemberHelpLabs %>
 					<li><a href="personal-help-labs/">Edit Help Labs</a></li>

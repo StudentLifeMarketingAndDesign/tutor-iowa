@@ -91,10 +91,10 @@ class TutorPage extends Page {
 		$fields->renameField("Image", "Photo");
 		$fields->removeFieldFromTab('Root.Metadata', "Keywords");
 		$fields->removeFieldFromTab('Root.Main', "Content");
-		$fields->addFieldToTab('Root.Main', new TextField("FirstName", "First name of tutor"));
-		$fields->addFieldToTab('Root.Main', new TextField("Surname", "Last name of tutor"));
+		$fields->addFieldToTab('Root.Main', new ReadonlyField("FirstName", "First name of tutor"));
+		$fields->addFieldToTab('Root.Main', new ReadonlyField("Surname", "Last name of tutor"));
 		$fields->addFieldToTab('Root.Main', new TextField("PhoneNo", "Phone Number"));
-		$fields->addFieldToTab('Root.Main', new TextField("Email"));
+		$fields->addFieldToTab('Root.Main', new ReadonlyField("Email"));
 
 		//$approvalStatusField = DropdownField::create('ApprovalStatus', 'ApprovalStatus', singleton('TutorPage')->dbObject('ApprovalStatus')->enumValues());
 

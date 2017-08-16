@@ -1,7 +1,6 @@
 /* buttons and tags */
 
 @mixin buttonGradient($color){
-
     -webkit-transition: all 1s ease-out;  
     -moz-transition: all 1s ease-out;  
     -o-transition: all 1s ease-out;  
@@ -30,6 +29,11 @@ input[type="submit"]{
 
 .button.success, button.success{
 	@include buttonGradient($success-color);
+}
+
+.button--hawkid{
+  @include buttonGradient(#FFCD00);
+  color: #111;
 }
 
 .button.darkGray, button.darkGray{

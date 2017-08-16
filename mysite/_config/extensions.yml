@@ -10,6 +10,3 @@ TutorPage:
 SiteConfig:
   extensions:
     - CustomSiteConfig
-Controller:
-  extensions:
-    - SS_MinifiedResponseExtension

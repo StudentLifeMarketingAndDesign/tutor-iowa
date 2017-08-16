@@ -19,14 +19,22 @@ class RegistrationPage_Controller extends Page_Controller
 {
     
     //Allow our form as an action
-    public static $allowed_actions = array('RegistrationForm');
+    private static $allowed_actions = array('RegistrationForm');
     
     //Generate the registration form
     public function RegistrationForm() {
+        $currentUser = Member::CurrentUser();
+        if(!$currentUser){
+            return '';
+        }
+
+        //$tutorPageTest = TutorPage::get()->filter(array('MemberID' => $currentUser->ID))->First();
+
+        if($this->currentMemberPage()){
+            return "<p>You've already signed up to be a tutor, but your profile is inactive. If you're having trouble logging in or editing your profile. Please email us at tutoriowa@uiowa.edu.</p>";
+        }
         $fields = new FieldList(
-        new TextField('FirstName', '<span>*</span> First Name'),
-        new TextField('Surname', '<span>*</span> Last Name'),
-        new EmailField('Email', '<span>*</span> UIowa Email Address'),
+        new LiteralField('ContactInfo', '<p>'.$currentUser->Name.', '.$currentUser->Email.'</p>'),
         // new ConfirmedPasswordField('Password', '<span>*</span>Choose a Password'),
         new UniversityIDField('UniversityID', '<span>*</span>University ID'),
         new TextField('Major'),
@@ -59,7 +67,7 @@ class RegistrationPage_Controller extends Page_Controller
     
     //This function sets the default start and end dates (when they intend to stop tutoring) to be the semester the tutor is currently in (or if the semester is over, the upcoming semester).
     
-    function getStartEndDates() {
+    private function getStartEndDates() {
         
         $TodayDate = date("m.d.y");
         
@@ -112,14 +120,18 @@ class RegistrationPage_Controller extends Page_Controller
     }
     
     //Submit the registration form
-    function doRegister($data, $form) {
+    private function doRegister($data, $form) {
+        $currentUser = Member::currentUser();
         $adminEmail = Config::inst()->get('Email', 'admin_email');
-        
-        //Check for existing tutor email address, use raw2sql to sanitize email form input
-        if ($member = DataObject::get_one("TutorPage", "`Email` = '" . Convert::raw2sql($data['Email']) . "'")) {
+
+        if(!$currentUser){
+            return $this->redirect('');
+        }
+        //Check for existing Tutor Page
+        if ($tutorPage = TutorPage::get()->filter(array('MemberID' => $currentUser->Email))) {
             
             //Set error message
-            $form->AddErrorMessage('Email', "Sorry, that email address already exists. Please choose another.", 'bad');
+            $form->AddErrorMessage('Email', "Sorry, we've recorded that you've already signed up for Tutor Iowa. If you feel that you've received this message in error, please email tutoriowa@uiowa.edu.", 'bad');
             
             //$form->sessionMessage('There was a problem with your registration submission.', 'bad');
             //Set form data from submitted values

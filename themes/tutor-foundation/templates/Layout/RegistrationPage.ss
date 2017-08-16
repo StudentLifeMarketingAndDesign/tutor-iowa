@@ -25,7 +25,7 @@
 							<% if $CurrentMember %>
 								$RegistrationForm
 							<% else %>
-								<a href="Security/login?BackURL={$Link}#Form_RegistrationForm" class="button">Log in with your HawkID in order to register</a>
+								<a href="Security/login?BackURL={$Link}#Form_RegistrationForm" class="button button--hawkid">Log in with your HawkID in order to register</a>
 							<% end_if %>
 						</div>
 					</article>

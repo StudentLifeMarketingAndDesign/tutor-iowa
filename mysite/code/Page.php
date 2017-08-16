@@ -12,8 +12,8 @@ class Page extends SiteTree {
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
-		$fields->addFieldToTab("Root.Main", new UploadField("Image", "Image"));
-		$fields->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "BackgroundImage"));
+		// $fields->addFieldToTab("Root.Main", new UploadField("Image", "Image"));
+		// $fields->addFieldToTab("Root.Main", new UploadField("BackgroundImage", "BackgroundImage"));
 		return $fields;
 	}
 	public function Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = false) {
@@ -274,7 +274,7 @@ class Page_Controller extends ContentController {
 		}
 
 	}
-
+	//If current user has page at ALL, published or draft
 	public function currentMemberPage() {
 		$currentMember = Member::currentUser();
 
@@ -284,13 +284,16 @@ class Page_Controller extends ContentController {
 			return false;
 		}
 
-		$tutorPage = TutorPage::get("TutorPage")->where("MemberID = " . $currentMemberID)->First();
-
+		//$tutorPage = TutorPage::get("TutorPage")->where("MemberID = " . $currentMemberID)->First();
+		$tutorPage = Versioned::get_by_stage('TutorPage', 'Stage')->filter(array('ID' => $currentMemberID))->First();
 		if (isset($tutorPage)) {
 			return $tutorPage;
+		}else{
+		$tutorPage = Versioned::get_by_stage('TutorPage', 'Live')->filter(array('ID' => $currentMemberID))->First();
+		return $tutorPage;			
 		}
 	}
-
+	//If current user has a published page
 	public function approvedTutor() {
 
 		$currentMember = Member::currentUser();
@@ -301,23 +304,9 @@ class Page_Controller extends ContentController {
 			return false;
 		}
 
-		$tutorPage = TutorPage::get("TutorPage")->where("MemberID = " . $currentMemberID)->First();
+		$tutorPage = TutorPage::get()->filter(array('MemberID' => $currentMemberID))->First();
 
-		if($tutorPage){
-			$tutorParent = $tutorPage->getParent();
-		}else{
-			return false;
-		}
-		
-
-		if ($tutorParent->Title == 'Inactive Tutors' || $tutorParent->Title == 'Private Tutors'){
-			if (isset($tutorPage)) {
-				return $tutorPage;
-			}
-		}
-		else{
-			return false;
-		}
+		return $tutorPage;
 	}
 
 	public function getHelpLab() {

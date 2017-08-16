@@ -8,8 +8,7 @@ class MemberExtension extends DataExtension {
     private static $has_many = array(
 		"Messages" => "Message"
 	);
-    
-    	
+
     public function unreadMessageCount(){
 	    $member = $this->owner; 
 	    
@@ -23,5 +22,6 @@ class MemberExtension extends DataExtension {
 	   
 	   return $member->Messages()->Count(); 
     }
+
 }
 
