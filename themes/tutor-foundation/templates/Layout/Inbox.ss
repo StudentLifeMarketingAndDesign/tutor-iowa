@@ -53,21 +53,7 @@
 							--%>
 							$Content
 							$Form
-							<% if $SiteAdmin %>
-								<h2> Hello Admin </h2>
-								<h3>Pending Profile Image </h3>
-								<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
-									<% loop $pendingProfileImages %>
-										<% include PendingImageCard %>
-									<% end_loop %>
-								</ul>
-								<h3>Pending Cover Images </h3>
-								<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
-									<% loop $pendingCoverImages %>
-										<% include PendingImageCard %>
-									<% end_loop %>
-								</ul>
-							<% end_if %>
+
 						</div>
 					</div>
 				</article>

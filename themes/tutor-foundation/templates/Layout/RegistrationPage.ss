@@ -21,10 +21,11 @@
 						
 						$Content
 						<div class="panel">
+							<h2>Registration form</h2>
 							<% if $CurrentMember %>
 								$RegistrationForm
 							<% else %>
-								<a href="Security/login?BackURL={$Link}" class="button">Log In</a>
+								<a href="Security/login?BackURL={$Link}#Form_RegistrationForm" class="button">Log in with your HawkID in order to register</a>
 							<% end_if %>
 						</div>
 					</article>

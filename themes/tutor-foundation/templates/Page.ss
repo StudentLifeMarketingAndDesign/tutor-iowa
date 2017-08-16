@@ -54,7 +54,6 @@
 		<% end_if %>
 	<% include Footer %>
 
-	<% include LoginModal %>
 	<% if $URLSegment != "feedback" %>
 		<% include FeedbackModal %>
 	<% end_if %>

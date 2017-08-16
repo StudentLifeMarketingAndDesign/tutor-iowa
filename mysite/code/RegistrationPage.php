@@ -48,11 +48,6 @@ class RegistrationPage_Controller extends Page_Controller
             $form->loadDataFrom(Member::CurrentUser());
         }
         
-        /*We'll disable the spam protection for now and hopefully assume that providing the @uiowa.edu email address will be enough to protect against spam.*/
-        
-        //$protector = SpamProtectorManager::update_form($form, 'Message', null, "Please enter the following words");
-        $form->enableSpamProtection();
-        
         return $form;
     }
     

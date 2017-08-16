@@ -34,30 +34,29 @@
 			</li>
 			<% end_loop %>
 		</ul>
-
-			<ul class="right">
+		<ul class="right">
 			<% if $CurrentMember %> <%-- if logged in with hawkID --%>
-			
 				<% if $approvedTutor %> <%-- if has a tutor page --%>
-					<li><a href="inbox" id="inbox-link" title="Messages" class="<% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>"><i class="fa fa-comments fa-lg" aria-hidden="true"></i><% if $CurrentMember.unreadMessageCount > 0 %><span data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount" class="inboxCount  ">({$CurrentMember.unreadMessageCount})</span><% end_if %></a></li>
+					<li><a href="inbox" id="inbox-link" title="Messages" class="<% if $CurrentMember.unreadMessageCount > 0 %>unread-messages<% end_if %>">
+					<i class="fa fa-comments fa-lg" aria-hidden="true"></i><% if $CurrentMember.unreadMessageCount > 0 %><span data-messagecount="$CurrentMember.allMessageCount" data-unreadcount="$CurrentMember.unreadMessageCount" class="inboxCount  ">({$CurrentMember.unreadMessageCount})</span><% end_if %></a></li>
 					<li class="has-dropdown">
-					<a href="edit-profile/" id="memberInfo" title="User Profile" data-id="$CurrentMember.ID"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
-					<ul class="dropdown">
-					<li><a href="edit-profile/">Edit Profile</a></li>
-					<li><a href="$approvedTutor.Link">View Profile</a></li>
+						<a href="edit-profile/" id="memberInfo" title="User Profile" data-id="$CurrentMember.ID"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
+						<ul class="dropdown">
+							<li><a href="edit-profile/">Edit Profile</a></li>
+							<li><a href="$approvedTutor.Link">View Profile</a></li>
+						</ul>
+					</li>
 				<% else %> <%-- if does not have a tutor page (i.e. is not a tutor) --%>
 					<li class="register"><a href="register">Become a Tutor</a></li>
 				<% end_if %>
-
-						<% if MemberHelpLabs %>
-						<li><a href="personal-help-labs/">Edit Help Labs</a></li>
-						<% end_if %>
-
-					<% if $SiteAdmin %><li><a href="admin/">Admin</a></li><li><a href="stats-page/">Statistics</a></li><% end_if %>
-					<li><a class="alert" href="Security/logout">Logout</a></li>
-				</ul>
-			</li>
-
+				<% if MemberHelpLabs %>
+					<li><a href="personal-help-labs/">Edit Help Labs</a></li>
+				<% end_if %>
+				<% if $SiteAdmin %>
+					<li><a href="admin/">Admin</a></li><li><a href="stats-page/">Statistics</a></li>
+				<% end_if %>
+					<li><a class="alert" href="$LogoutLink">Logout</a></li>
+	
 			<% else %> <%-- if not logged in with hawkID --%>
 				<li class="log-in"><a href="Security/login">Log In</a></li>
 				<li class="register"><a href="register">Become a Tutor</a></li>

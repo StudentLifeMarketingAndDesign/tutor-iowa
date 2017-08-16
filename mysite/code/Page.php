@@ -304,7 +304,13 @@ class Page_Controller extends ContentController {
 		}
 
 		$tutorPage = TutorPage::get("TutorPage")->where("MemberID = " . $currentMemberID)->First();
-		$tutorParent = $tutorPage->getParent();
+
+		if($tutorPage){
+			$tutorParent = $tutorPage->getParent();
+		}else{
+			return false;
+		}
+		
 
 		if ($tutorParent->Title == 'Inactive Tutors' || $tutorParent->Title == 'Private Tutors'){
 			if (isset($tutorPage)) {
@@ -547,7 +553,8 @@ class Page_Controller extends ContentController {
 	}
 
 	function LogoutLink() {
-		return $this->Link('logout');
+		$backURL = '?BackURL=' . urlencode($this->owner->Link());
+		return Controller::join_links(Director::absoluteBaseURL() . Config::inst()->get('Security', 'logout_url'), $backURL);
 	}
 
 	public function SiteAdmin() {
