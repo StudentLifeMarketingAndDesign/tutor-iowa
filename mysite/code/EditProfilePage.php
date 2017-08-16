@@ -34,7 +34,7 @@ class EditProfilePage_Controller extends Page_Controller {
 			$IDMember = $Member->ID;
 			$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
 
-			 if($Tutor){
+			if($Tutor){
 			 parent::init();
 			 $this->redirect('private-tutors/'.$Tutor->URLSegment.'/edit');
 			}

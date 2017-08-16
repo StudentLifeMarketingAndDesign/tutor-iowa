@@ -19,7 +19,7 @@ class RegistrationPage_Controller extends Page_Controller
 {
     
     //Allow our form as an action
-    private static $allowed_actions = array('RegistrationForm');
+    private static $allowed_actions = array('RegistrationForm','doRegister');
     
     //Generate the registration form
     public function RegistrationForm() {
@@ -29,7 +29,7 @@ class RegistrationPage_Controller extends Page_Controller
         }
 
         //$tutorPageTest = TutorPage::get()->filter(array('MemberID' => $currentUser->ID))->First();
-
+     
         if($this->currentMemberPage()){
             return "<p>You've already signed up to be a tutor, but your profile is inactive. If you're having trouble logging in or editing your profile. Please email us at tutoriowa@uiowa.edu.</p>";
         }
@@ -120,7 +120,7 @@ class RegistrationPage_Controller extends Page_Controller
     }
     
     //Submit the registration form
-    private function doRegister($data, $form) {
+    public function doRegister($data, $form) {
         $currentUser = Member::currentUser();
         $adminEmail = Config::inst()->get('Email', 'admin_email');
 
@@ -128,7 +128,7 @@ class RegistrationPage_Controller extends Page_Controller
             return $this->redirect('');
         }
         //Check for existing Tutor Page
-        if ($tutorPage = TutorPage::get()->filter(array('MemberID' => $currentUser->Email))) {
+        if ($this->currentMemberPage()) {
             
             //Set error message
             $form->AddErrorMessage('Email', "Sorry, we've recorded that you've already signed up for Tutor Iowa. If you feel that you've received this message in error, please email tutoriowa@uiowa.edu.", 'bad');

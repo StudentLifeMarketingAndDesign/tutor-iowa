@@ -285,12 +285,12 @@ class Page_Controller extends ContentController {
 		}
 
 		//$tutorPage = TutorPage::get("TutorPage")->where("MemberID = " . $currentMemberID)->First();
-		$tutorPage = Versioned::get_by_stage('TutorPage', 'Stage')->filter(array('ID' => $currentMemberID))->First();
-		if (isset($tutorPage)) {
-			return $tutorPage;
+		$tutorPageStage = Versioned::get_by_stage('TutorPage', 'Stage')->filter(array('ID' => $currentMemberID))->First();
+		if (isset($tutorPageStage)) {
+			return $tutorPageStage;
 		}else{
-		$tutorPage = Versioned::get_by_stage('TutorPage', 'Live')->filter(array('ID' => $currentMemberID))->First();
-		return $tutorPage;			
+			$tutorPageLive = Versioned::get_by_stage('TutorPage', 'Live')->filter(array('ID' => $currentMemberID))->First();
+			return $tutorPageLive;			
 		}
 	}
 	//If current user has a published page
