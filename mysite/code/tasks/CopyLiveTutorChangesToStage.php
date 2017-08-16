@@ -5,7 +5,7 @@ class CopyLiveTutorChangesToStage extends BuildTask {
  
     protected $description = 'Prevents reversion of tutor changes when they are unpublished';
  
-    protected $enabled = true;
+    protected $enabled = false;
  
     function run($request) {
         $tutors = Versioned::get_by_stage('TutorPage', 'Live');
