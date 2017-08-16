@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f12a6a8f11124da4f00ac97c76f03da3",
+    "content-hash": "4f4febe246a7cec21e8b781ac3d7c7b5",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -1270,50 +1270,6 @@
                 "silverstripe"
             ],
             "time": "2017-01-20 08:51:05"
-        },
-        {
-            "name": "undefinedoffset/silverstripe-nocaptcha",
-            "version": "0.1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/UndefinedOffset/silverstripe-nocaptcha.git",
-                "reference": "8e651e8229cba7f69a12f373a76f222b2dde92d3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/UndefinedOffset/silverstripe-nocaptcha/zipball/8e651e8229cba7f69a12f373a76f222b2dde92d3",
-                "reference": "8e651e8229cba7f69a12f373a76f222b2dde92d3",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "*",
-                "silverstripe/framework": "~3.1",
-                "silverstripe/spamprotection": ">=1.2.0"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "nocaptcha"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Ed Chipman",
-                    "homepage": "http://www.edchipman.ca",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A spam protector and form field using the new Google's reCAPTCHA 2 aka No Captcha",
-            "keywords": [
-                "nocaptcha",
-                "recaptcha",
-                "recaptcha2",
-                "silverstripe",
-                "spamprotection"
-            ],
-            "time": "2015-10-01T22:50:02+00:00"
         },
         {
             "name": "undefinedoffset/sortablegridfield",
