@@ -212,8 +212,6 @@ class Page_Controller extends ContentController {
 		//Create form
 		$Form = new FoundationForm($this, 'FeedbackForm', $fields, $actions, $validator);
 
-		//$protector = SpamProtectorManager::update_form($Form, 'Message', null, "Please enter the following words");
-		$Form->enableSpamProtection();
 
 		return $Form;
 
