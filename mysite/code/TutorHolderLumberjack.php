@@ -19,7 +19,7 @@ class TutorHolderLumberjack extends Lumberjack {
 			$pages = SiteTree::get()->filter(array(
 				'ParentID' => $this->owner->ID,
 				'ClassName' => $excluded,
-			))->sort('"SiteTree"."Created" DESC');
+			))->sort('"SiteTree"."Created" ASC');
 
 			$gridField = new GridField(
 				"ChildPages",

@@ -39,7 +39,7 @@ class RegistrationPage_Controller extends Page_Controller
         $fields = new FieldList(
         new LiteralField('ContactInfo', '<p>'.$currentUser->Name.', '.$currentUser->Email.'</p>'),
         // new ConfirmedPasswordField('Password', '<span>*</span>Choose a Password'),
-        new UniversityIDField('UniversityID', '<span>*</span>University ID'),
+        new UniversityIDField('UniversityID', '<span>*</span>University ID (eight digit number)'),
         new TextField('Major'),
         new TextField('GPA'),
         new TextField('AcademicStatus', 'Status (undergraduate, graduate, faculty, or staff)'),
@@ -168,6 +168,9 @@ class RegistrationPage_Controller extends Page_Controller
         
         //Flesh out page info
         $TutorPage->Title = $Member->Name;
+
+        $TutorPage->FirstName = $Member->FirstName;
+        $TutorPage->Surname = $Member->Surname;
         
         //Some or all of these are not necessary
         $TutorPage->MetaTitle = $Member->Name;

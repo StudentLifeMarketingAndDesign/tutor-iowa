@@ -24,7 +24,7 @@ class TutorHolder extends Page {
 
 		$pages = SiteTree::get()->filter(array(
 			'ParentID' => $this->owner->ID,
-		));
+		))->sort('Created DESC');
 
 		$tutorFieldConfig = GridFieldConfig_Lumberjack::create();
 		$tutorFieldConfig->addComponent(new GridFieldBulkManager());
