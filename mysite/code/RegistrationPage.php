@@ -203,7 +203,7 @@ class RegistrationPage_Controller extends Page_Controller
         $userEmail = $Member->Email;
          //used in body of email, not really necessary
         
-        $subject = "TutorIowa Application Notification";
+        $subject = "Tutor Iowa Application Notification";
         $body = "Administrator,<br><br>The following individual has registered to be a tutor on Tutor Iowa:<br><br>" . "Name: " . $Member->FirstName . " " . $Member->Surname . "<br> Email: " . $TutorPage->Email . "<br> University ID: " . $TutorPage->UniversityID . "<br>Major: " . $TutorPage->Major . "          
         <br><br>Confirm user <a href='" . Director::absoluteBaseURL() . "admin/pages/edit/show/" . $TutorPage->ID . "'>here </a/>";
         
@@ -220,7 +220,7 @@ class RegistrationPage_Controller extends Page_Controller
             $email->send();
         }
         
-        $subject = "TutorIowa Application Confirmation";
+        $subject = "Tutor Iowa Application Confirmation";
         
         $emailHolder = EmailHolder::get()->first();
         $body = $emailHolder->RegistrationRequest;

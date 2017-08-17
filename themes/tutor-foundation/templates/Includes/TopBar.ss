@@ -52,7 +52,7 @@
 					<% end_if %>
 				<% end_if %>
 				<% if MemberHelpLabs %>
-					<li><a href="personal-help-labs/">Edit Help Labs</a></li>
+					<li><a href="personal-help-labs/">Labs</a></li>
 				<% end_if %>
 				<% if $SiteAdmin %>
 					<li><a href="admin/">Admin</a></li><li><a href="stats-page/">Statistics</a></li>
