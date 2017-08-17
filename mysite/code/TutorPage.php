@@ -162,7 +162,8 @@ class TutorPage_Controller extends Page_Controller {
 		'ContactForm', 
 		'editProfile', 
 		'EditProfileForm', 
-		'repositionCoverImage'
+		'repositionCoverImage',
+		'contact'
 		//'updateNameFromLdap'
 	);
 
@@ -170,12 +171,22 @@ class TutorPage_Controller extends Page_Controller {
 		'edit//$action' => 'editProfile',
 		'updateNameFromLdap//' => 'updateNameFromLdap'
 	);
+	public function init(){
+		parent::init();
+		// $currentUser = Member::currentUser();
+		// if(!$currentUser){
+		// 	return Security::permissionFailure($this, 'hey');
+		// }
+		
+
+	}
+
 
 	public function ContactForm() {
 
 		//print_r($this->Email);
 		$fields = new FieldList(
-			new TextAreaField('Body', '<span>*</span> Your Message to ' . $this->Member()->FirstName)
+			new TextAreaField('Body', '<span>*</span> Your Message to ' . $this->FirstName)
 		);
 
 		$actions = new FieldList(
@@ -214,6 +225,10 @@ class TutorPage_Controller extends Page_Controller {
 		$adminEmail = Config::inst()->get('Email', 'admin_email');
 
 		$currentUser = Member::CurrentUser();
+
+		if(!$currentUser){
+			return Security::permissionFailure($this, 'hey');
+		}
 
 		$from = $currentUser->Email;
 		$name = $currentUser->FirstName.' '.$currentUser->Surname;

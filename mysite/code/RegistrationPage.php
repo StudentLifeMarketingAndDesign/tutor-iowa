@@ -19,7 +19,10 @@ class RegistrationPage_Controller extends Page_Controller
 {
     
     //Allow our form as an action
-    private static $allowed_actions = array('RegistrationForm','doRegister');
+    private static $allowed_actions = array(
+        'RegistrationForm',
+        'doRegister'
+    );
     
     //Generate the registration form
     public function RegistrationForm() {

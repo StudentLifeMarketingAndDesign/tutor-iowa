@@ -109,7 +109,7 @@ class Page extends SiteTree {
 			return $data;
 		}
 	}
-	function getMemberHelpLabs() {
+	public function getMemberHelpLabs() {
 		$Member = Member::CurrentUser();
 		if ($Member) {
 			$IDMember = $Member->ID;
@@ -140,7 +140,25 @@ class Page_Controller extends ContentController {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array('logout', 'FeedbackForm');
+	private static $allowed_actions = array(
+		'logout', 
+		'FeedbackForm',
+		'hawkCheck'
+	);
+
+	private static $url_handlers = array(
+		'hawkCheck//' => 'hawkCheck'
+	);
+
+	public function hawkCheck(){
+	
+		if(!Member::currentUser()){
+			return Security::permissionFailure($this);
+		}
+		
+		// return $this->renderWith(array('TutorPage', 'Page'));
+		return $this->redirect($this->Link());
+	}
 
 	public function FeedbackForm() {
 
@@ -163,7 +181,7 @@ class Page_Controller extends ContentController {
 		$firstName = '';
 		$surname = '';
 
-		if (Member::currentUserID()) {
+		if (Member::currentUser()) {
 			$member = Member::currentUser();
 			$memberName = $member->FirstName . ' ' . $member->Surname;
 			$memberEmail = $member->Email;
@@ -265,7 +283,7 @@ class Page_Controller extends ContentController {
 
 	}
 
-	function Saved() {
+	public function Saved() {
 		$saved = Session::get('Saved');
 		if ($saved == 1) {
 			return true;
@@ -285,11 +303,12 @@ class Page_Controller extends ContentController {
 		}
 
 		//$tutorPage = TutorPage::get("TutorPage")->where("MemberID = " . $currentMemberID)->First();
-		$tutorPageStage = Versioned::get_by_stage('TutorPage', 'Stage')->filter(array('ID' => $currentMemberID))->First();
+		$tutorPageStage = Versioned::get_by_stage('TutorPage', 'Stage')->filter(array('MemberID' => $currentMemberID))->First();
+		print_r($tutorPageStage);
 		if (isset($tutorPageStage)) {
 			return $tutorPageStage;
 		}else{
-			$tutorPageLive = Versioned::get_by_stage('TutorPage', 'Live')->filter(array('ID' => $currentMemberID))->First();
+			$tutorPageLive = Versioned::get_by_stage('TutorPage', 'Live')->filter(array('MemberID' => $currentMemberID))->First();
 			return $tutorPageLive;			
 		}
 	}
@@ -534,12 +553,12 @@ class Page_Controller extends ContentController {
 
 	//I want logout to redirect to the home page
 
-	function logout() {
+	public function logout() {
 		Security::logout(false);
 		Controller::curr()->redirect("home/");
 	}
 
-	function LogoutLink() {
+	public function LogoutLink() {
 		$backURL = '?BackURL=' . urlencode($this->owner->Link());
 		return Controller::join_links(Director::absoluteBaseURL() . Config::inst()->get('Security', 'logout_url'), $backURL);
 	}
@@ -549,6 +568,8 @@ class Page_Controller extends ContentController {
 			return true;
 		}
 	}
+
+	
 
 	public function LatestNews($num = 5) {
 		$news = ArticlePage::get()->sort('Sort')->limit($num);
