@@ -51,11 +51,22 @@
 					<li class="register"><a href="register">Become a Tutor</a></li>
 					<% end_if %>
 				<% end_if %>
-				<% if MemberHelpLabs %>
-					<li><a href="personal-help-labs/">Labs</a></li>
-				<% end_if %>
-				<% if $SiteAdmin %>
-					<li><a href="admin/">Admin</a></li><li><a href="stats-page/">Statistics</a></li>
+
+				<% if $SiteAdmin || $MemberHelpLabs %>
+					<li class="has-dropdown">
+					<a href="admin/">Admin</a>
+						<ul class="dropdown">
+						<% if $SiteAdmin %>
+							<li><a href="stats-page/">Statistics</a></li>
+							<li><a href="admin/">SilverStripe</a></li>
+						<% end_if %>
+						<% if MemberHelpLabs %>
+							<li><a href="personal-help-labs/">Help Labs</a></li>
+						<% end_if %>
+						</ul>
+					</li>
+					
+
 				<% end_if %>
 					<li><a class="alert" href="$LogoutLink">Logout</a></li>
 	
