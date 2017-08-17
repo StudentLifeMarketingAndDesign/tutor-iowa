@@ -41,7 +41,7 @@ class InboxController extends Page_Controller {
 			);
 			return $this->customise($data)->renderWith(array('Inbox', 'Page'));
 		} else {
-			$this->redirect('security/login');
+			return Security::permissionFailure($this);
 			//echo 'failure';
 		}
 	}

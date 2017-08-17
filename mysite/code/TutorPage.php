@@ -50,7 +50,6 @@ class TutorPage extends Page {
 		'EligibleToTutor' => '1',
 	);
 
-	private static $show_in_sitetree = false;
 	private static $default_sort = 'Surname ASC';
 
 	private static $summary_fields = array(

@@ -45,15 +45,6 @@
 					<% end_if %>
 				<% end_if %>
 
-					<li class="has-dropdown">
-						<a href="edit-profile/" id="memberInfo" title="User Profile" data-id="$CurrentMember.ID"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
-						<ul class="dropdown">
-							<li><a href="edit-profile/">Edit Profile</a></li>
-							<% if $approvedTutor %><li><a href="$approvedTutor.Link">View Profile</a></li><% end_if %>
-							<li><a class="alert" href="$LogoutLink">Logout</a></li>
-						</ul>
-					</li>
-
 				<% if $SiteAdmin || $MemberHelpLabs %>
 					<li class="has-dropdown">
 					<a href="admin/">Admin</a>
@@ -67,10 +58,15 @@
 						<% end_if %>
 						</ul>
 					</li>
-					
-
 				<% end_if %>
-					
+				<li class="has-dropdown">
+					<a href="edit-profile/" id="memberInfo" title="User Profile" data-id="$CurrentMember.ID"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
+					<ul class="dropdown">
+						<li><a href="edit-profile/">Edit Profile</a></li>
+						<% if $approvedTutor %><li><a href="$approvedTutor.Link">View Profile</a></li><% end_if %>
+						<li><a class="alert" href="$LogoutLink">Logout</a></li>
+					</ul>
+				</li>					
 	
 			<% else %> <%-- if not logged in with hawkID --%>
 				<li class="log-in"><a href="Security/login">Log In</a></li>
