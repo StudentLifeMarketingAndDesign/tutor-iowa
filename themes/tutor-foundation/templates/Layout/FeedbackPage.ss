@@ -14,7 +14,11 @@
 					$ClearSession
 					<h1>$Title</h1>
 					$Content
+				<% if $CurrentMember %>
 					$FeedbackForm
+				<% else %>
+					<a href="$Link("hawkcheck")" class="button button--hawkid">Log in with your HawkID to give feedback</a>
+				<% end_if %>
 				</article>
 			</div>
 		</div>
