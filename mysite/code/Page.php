@@ -304,7 +304,7 @@ class Page_Controller extends ContentController {
 
 		//$tutorPage = TutorPage::get("TutorPage")->where("MemberID = " . $currentMemberID)->First();
 		$tutorPageStage = Versioned::get_by_stage('TutorPage', 'Stage')->filter(array('MemberID' => $currentMemberID))->First();
-		print_r($tutorPageStage);
+		//print_r($tutorPageStage);
 		if (isset($tutorPageStage)) {
 			return $tutorPageStage;
 		}else{
