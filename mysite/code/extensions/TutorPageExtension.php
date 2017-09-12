@@ -54,7 +54,7 @@ class TutorPageExtension extends DataExtension {
 		$email->setBody($body);
 
 		if (SS_ENVIRONMENT_TYPE == "live") {
-			$email->send();
+			//$email->send();
 		}
 
 	}
