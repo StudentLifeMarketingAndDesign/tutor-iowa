@@ -39,7 +39,7 @@ class RegistrationPage_Controller extends Page_Controller
         $fields = new FieldList(
         new LiteralField('ContactInfo', '<p>'.$currentUser->Name.', '.$currentUser->Email.'</p>'),
         // new ConfirmedPasswordField('Password', '<span>*</span>Choose a Password'),
-        new UniversityIDField('UniversityID', '<span>*</span>University ID (eight digit number)'),
+        new UniversityIDField('UniversityID', '<span>*</span>University ID'),
         new TextField('Major'),
         new TextField('GPA'),
         new TextField('AcademicStatus', 'Status (undergraduate, graduate, faculty, or staff)'),
@@ -168,9 +168,6 @@ class RegistrationPage_Controller extends Page_Controller
         
         //Flesh out page info
         $TutorPage->Title = $Member->Name;
-
-        $TutorPage->FirstName = $Member->FirstName;
-        $TutorPage->Surname = $Member->Surname;
         
         //Some or all of these are not necessary
         $TutorPage->MetaTitle = $Member->Name;
@@ -203,7 +200,7 @@ class RegistrationPage_Controller extends Page_Controller
         $userEmail = $Member->Email;
          //used in body of email, not really necessary
         
-        $subject = "Tutor Iowa Application Notification";
+        $subject = "TutorIowa Application Notification";
         $body = "Administrator,<br><br>The following individual has registered to be a tutor on Tutor Iowa:<br><br>" . "Name: " . $Member->FirstName . " " . $Member->Surname . "<br> Email: " . $TutorPage->Email . "<br> University ID: " . $TutorPage->UniversityID . "<br>Major: " . $TutorPage->Major . "          
         <br><br>Confirm user <a href='" . Director::absoluteBaseURL() . "admin/pages/edit/show/" . $TutorPage->ID . "'>here </a/>";
         
@@ -220,10 +217,8 @@ class RegistrationPage_Controller extends Page_Controller
             $email->send();
         }
         
-        $subject = "Tutor Iowa Application Confirmation";
-        
-        $emailHolder = EmailHolder::get()->first();
-        $body = $emailHolder->RegistrationRequest;
+        $subject = "TutorIowa Application Confirmation";
+        $body = SiteConfig::current_site_config()->RegistrationRequest;
         
         $email = new Email();
         $email->setTo($Member->Email);
@@ -242,4 +237,3 @@ class RegistrationPage_Controller extends Page_Controller
         }
     }
 }
-

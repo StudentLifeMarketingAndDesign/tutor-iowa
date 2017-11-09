@@ -83,10 +83,7 @@ class DisablePage_Controller extends Page_Controller {
 
 			//Send the user an email confirming that their account is going to be disabled.
 			$subject = "The disabling of your Tutor Iowa page is pending";
-			$body = "We will remove you as a tutor from the Tutor Iowa website as soon as possible.  If you want to enable your account again, you can log in to the Tutor Iowa website and click on the Edit Profile Page at the top of the screen.  That page will have a link to request to enable your account.<br><br>
-
-			    Best, <br>
-			    The Tutor Iowa Team<br>";
+			$body = SiteConfig::current_site_config()->DisableAccountEmail;
 
 			//$emailHolder = DataObject::get_one("EmailHolder");
 			$emailHolder = EmailHolder::get()->First();

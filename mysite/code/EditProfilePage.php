@@ -280,13 +280,11 @@ class EditProfilePage_Controller extends Page_Controller {
 
 			$userEmail = $CurrentMember->Email;
 
-			//$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");
 			$Tutor = TutorPage::get()->filter(array('MemberID' => '$IDMember'))->First();
 			//return Debug::show($IDMember);
 
 			if (!$Tutor) {
 				Versioned::reading_stage('Stage');
-				//$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");
 				$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->First();
 			}
 
@@ -314,15 +312,8 @@ class EditProfilePage_Controller extends Page_Controller {
 
 			$subject = "The enabling of your Tutor Iowa account is pending";
 
-			$body = "You will receive another email once your account has been enabled by one of our administrators.<br><br>
-
-		    Best, <br>
-		    The Tutor Iowa Team<br>";
-
-			//$emailHolder = DataObject::get_one("EmailHolder");
-			$emailHolder = EmailHolder::get()->first();
-			$body = $emailHolder->EnablePage;
-
+			$body = SiteConfig::current_site_config()->PendingAccountEmail;
+			
 			$email = new Email();
 			$email->setTo($CurrentMember->Email);
 			$email->setFrom($adminEmail);
