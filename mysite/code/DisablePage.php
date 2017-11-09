@@ -85,10 +85,6 @@ class DisablePage_Controller extends Page_Controller {
 			$subject = "The disabling of your Tutor Iowa page is pending";
 			$body = SiteConfig::current_site_config()->DisableAccountEmail;
 
-			//$emailHolder = DataObject::get_one("EmailHolder");
-			$emailHolder = EmailHolder::get()->First();
-			$body = $emailHolder->DisablePage;
-
 			$email = new Email();
 			$email->setTo($CurrentMember->Email);
 			$email->setFrom(Email::getAdminEmail());
