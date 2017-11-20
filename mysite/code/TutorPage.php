@@ -260,7 +260,33 @@ class TutorPage_Controller extends Page_Controller {
 
 		$message->write();
 
-		return $this->redirect($this->Link('?sent=1'));
+		//Google Analytics POST request
+		$data = array(
+            'v' => '1',
+            'tid' => '', //unique tracking ID
+            'cid' => '555', //anonymous tracking ID
+            't' => 'event',
+            'ec' => 'Message',
+            'ea' => 'send',
+            'el' => 'Sent message to a tutor'
+        );
+
+        $url = 'https://www.google-analytics.com/collect';
+        $content = http_build_query($data);
+        // echo($content);
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch,CURLOPT_POSTFIELDS, $content);
+        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+        print_r($ch);
+        curl_exec($ch);
+        curl_close($ch);
+
+		// return $this->redirect($this->Link('?sent=1'));
 
 	}
 
