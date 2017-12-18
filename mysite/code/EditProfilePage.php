@@ -31,12 +31,10 @@ class EditProfilePage_Controller extends Page_Controller {
 	public function init(){
 		$Member = Member::CurrentUser();
 		if($Member){
-			$IDMember = $Member->ID;
-			$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
 
-			if($Tutor){
+			if($Member->ApprovalStatus = "Active"){
 			 parent::init();
-			 $this->redirect('private-tutors/'.$Tutor->URLSegment.'/edit');
+			 $this->redirect('private-tutors/'.$Member->URLSegment.'/edit');
 			}
 			else{
 				parent::init();
@@ -58,10 +56,9 @@ class EditProfilePage_Controller extends Page_Controller {
 		if ($Member) {
 			//User shouldn't be able to access EditProfileForm unless they're logged in.  If they're not logged in, provide links so that they can login (or register if need be).
 
-			$IDMember = $Member->ID;
+			// $IDMember = $Member->ID;
 
-			//$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");
-			$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
+			// $Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
 
 			$tagField = new TutorTagField('Tags', 'Tags (separate each tag with a comma and a space, example: Chemistry, Biochemistry)');
 			$tagField->setTagTopicClass("SiteTree");
@@ -115,10 +112,10 @@ class EditProfilePage_Controller extends Page_Controller {
 			//Information must be loaded from both tutor and member because member stores a member/tutor's password
 			$Form->loadDataFrom($Member->data());
 
-			///$Check if user is published yet
-			if ($Tutor instanceof TutorPage) {
-				//Tutor is published
-				$Form->loadDataFrom($Tutor->data());
+			///$Check if user is published yet,
+			if ($Member->ApprovalStatus == 'Active') { //($Tutor instanceof TutorPage)
+				//Member is a published tutor
+				$Form->loadDataFrom($Member->data());
 			} else {
 				//Not published (disabled and unapproved users).  The enable function is at at the bottom and handles sending the emails
 
@@ -168,18 +165,18 @@ class EditProfilePage_Controller extends Page_Controller {
 				//chromephp::log(Session::get('Saved'));
 				//chromephp::log(Session::get_all());
 
-				$IDMember = $CurrentMember->ID;
+				// $IDMember = $CurrentMember->ID;
 
-				$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
+				// $Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
 
-				$form->saveInto($Tutor);
+				$form->saveInto($Member);
 
 				/*Preserve this code, for it works the magic of SilverStripe 3 publishing*/
 				Versioned::reading_stage('stage');
-				$Tutor->writeToStage('Stage');
-				$Tutor->publish("Stage", "Live");
+				$Member->writeToStage('Stage');
+				$Member->publish("Stage", "Live");
 				Versioned::reading_stage('Live');
-				$Tutor->write();
+				$Member->write();
 
 				// Save into the member dataobject.
 				$memberFieldList = array(
@@ -208,7 +205,7 @@ class EditProfilePage_Controller extends Page_Controller {
 				}
 				$ID = 92;
 				//$test = DataObject::get_by_id('TutorPage', $ID);
-				$test = TutorPage::get()->byID($ID);
+				// $test = TutorPage::get()->byID($ID);
 				/*
 				$notSaved = Session::get('ValidationError');
 				Debug::show($notSaved);
@@ -276,16 +273,15 @@ class EditProfilePage_Controller extends Page_Controller {
 		if ($this->request->getVar('enable') == 1) {
 
 			$CurrentMember = Member::CurrentUser();
-			$IDMember = $CurrentMember->ID;
+			// $IDMember = $CurrentMember->ID;
 
 			$userEmail = $CurrentMember->Email;
 
-			$Tutor = TutorPage::get()->filter(array('MemberID' => '$IDMember'))->First();
+			// $Tutor = TutorPage::get()->filter(array('MemberID' => '$IDMember'))->First();
 			//return Debug::show($IDMember);
 
-			if (!$Tutor) {
+			if (!$CurrentMember) {
 				Versioned::reading_stage('Stage');
-				$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->First();
 			}
 
 			foreach ($emailArray as $recip) {

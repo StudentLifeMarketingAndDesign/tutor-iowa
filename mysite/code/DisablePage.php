@@ -52,10 +52,10 @@ class DisablePage_Controller extends Page_Controller {
 
 		if ($CurrentMember) {
 
-			$IDMember = $CurrentMember->ID;
+			// $IDMember = $CurrentMember->ID;
 
 			//$Tutor = DataObject::get_one("TutorPage", "MemberID = $IDMember");
-			$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->First();
+			// $Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->First();
 
 			$userEmail = $CurrentMember->Email;
 			$adminEmail = Config::inst()->get('Email', 'admin_email');
@@ -66,7 +66,7 @@ class DisablePage_Controller extends Page_Controller {
 				$subject = "User has requested their account be disabled";
 				$body = "User email: " . $userEmail . "
 
-	        	Disable their account by clicking 'Unpublish' <a href='" . Director::absoluteBaseURL() . "admin/pages/edit/show/" . $Tutor->ID . "'>while editing their page here</a/>";
+	        	Disable their account by clicking 'Unpublish' <a href='" . Director::absoluteBaseURL() . "admin/pages/edit/show/" . $CurrentMember->ID . "'>while editing their page here</a/>";
 				//$headers = "From: Tutor Iowa";
 				//mail($recip->Email, $subject, $body);
 
@@ -116,11 +116,10 @@ class DisablePage_Controller extends Page_Controller {
 	public function notPublished() {
 
 		$member = Member::CurrentUser();
-		$IDMember = $member->ID;
-		//$TutorPage = DataObject::get_one("TutorPage", "MemberID = $IDMember");
-		$TutorPage = TutorPage::get()->filter(array('MemberID' => $IDMember))->First();
+		// $IDMember = $member->ID;
+		// $TutorPage = TutorPage::get()->filter(array('MemberID' => $IDMember))->First();
 
-		if ($TutorPage instanceof TutorPage) {
+		if ($Member->ApprovalStatus == 'Active') {
 			return false;
 		} else {
 			return true;

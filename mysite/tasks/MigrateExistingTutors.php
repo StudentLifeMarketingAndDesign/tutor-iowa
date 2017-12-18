@@ -8,39 +8,36 @@ class MigrateExistingTutors extends BuildTask {
     protected $enabled = true;
  
     function run($request) {
-        $tutors = TutorPage::get();
+        $tutors = TutorPage::get()->Sort('Title', 'ASC');
         foreach ($tutors as $tutor){
-            $memberPage = $tutor->Member();
-            echo '<li>'.$tutor->Title.' '.$memberPage->Title.'</li>';
+            $member = Member::get()->filter(array('Email' => $tutor->Email))->first();
+            echo '<li>'.$tutor->Title.' '.$member->Email.'</li>';
 
-            $memberPage->Bio = $tutor->Bio;
-            $memberPage->PhoneNo = $tutor->PhoneNo;
-            $memberPage->Hours = $tutor->Hours;
-            $memberPage->FirstName = $tutor->FirstName;
-            $memberPage->Surname = $tutor->Surname;
-            $memberPage->StartDate = $tutor->StartDate;
-            $memberPage->EndDate = $tutor->EndDate;
-            $memberPage->Notes = $tutor->Notes;
-            $memberPage->HourlyRate = $tutor->HourlyRate;
-            $memberPage->MeetingPreference = $tutor->MeetingPreference;
-            $memberPage->AcademicStatus = $tutor->AcademicStatus;
-            $memberPage->UniversityID = $tutor->UniversityID;
-            $memberPage->Major = $tutor->Major;
-            $memberPage->GPA = $tutor->GPA;
-            $memberPage->EligibleToTutor = $tutor->EligibleToTutor;
-            $memberPage->ApprovalStatus = $tutor->ApprovalStatus;
-            // echo '<li>'.$memberPage->ApprovalStatus.'</li>';
-            $memberPage->WhatToExpect = $tutor->WhatToExpect;
-            $memberPage->HowToPrepare = $tutor->HowToPrepare;
-            $memberPage->Status = $tutor->ApprovalStatus;
+            $member->Bio = $tutor->Bio;
+            $member->PhoneNo = $tutor->PhoneNo;
+            $member->Hours = $tutor->Hours;
+            $member->FirstName = $tutor->FirstName;
+            $member->Surname = $tutor->Surname;
+            $member->StartDate = $tutor->StartDate;
+            $member->EndDate = $tutor->EndDate;
+            $member->Notes = $tutor->Notes;
+            $member->HourlyRate = $tutor->HourlyRate;
+            $member->MeetingPreference = $tutor->MeetingPreference;
+            $member->AcademicStatus = $tutor->AcademicStatus;
+            $member->UniversityID = $tutor->UniversityID;
+            $member->Major = $tutor->Major;
+            // echo '<li>'.$member->Major.'</li>';
+            $member->GPA = $tutor->GPA;
+            $member->EligibleToTutor = $tutor->EligibleToTutor;
+            $member->ApprovalStatus = $tutor->ApprovalStatus;
+            // // echo '<li>'.$member->ApprovalStatus.'</li>';
+            $member->WhatToExpect = $tutor->WhatToExpect;
+            $member->HowToPrepare = $tutor->HowToPrepare;
 
-            $memberPage->Messages = $tutor->Messages;
-            $memberPage->FeedbackItems = $tutor->FeedbackItems;
-            
-            $memberPage->AcademicHelp = $tutor->AcademicHelp;
-            $memberPage->HomePage = $tutor->HomePage;
-            // $tutor->delete();
-
+            //write information to database
+            $member->write();
+            //delete associated tutor page
+            $tutor->delete();
         }
 
         

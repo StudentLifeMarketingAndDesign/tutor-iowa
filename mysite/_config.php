@@ -12,7 +12,7 @@ require_once "conf/ConfigureFromEnv.php";
 
 // This line set's the current theme. More themes can be
 // downloaded from http://www.silverstripe.org/themes/
-SSViewer::set_theme('blackcandy');
+SSViewer::set_theme('tutor-foundation');
 
 // Set the site locale
 i18n::set_locale('en_US');

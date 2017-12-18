@@ -54,7 +54,7 @@ class Page extends SiteTree {
 		$keywordFiltered = Convert::raw2sql($keywordHTML);
 		$mode = ' IN BOOLEAN MODE';
 
-		$siteTreeClasses = array('SiteTree', 'TutorPage', 'SupplementalInstruction', 'HelpLab');
+		$siteTreeClasses = array('SiteTree', 'SupplementalInstruction', 'HelpLab');
 		//add in an classes that extend Page or SiteTree
 		$siteTreeMatch = "MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keywordFiltered'$mode)
                     + MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keywordFiltered'$mode)";
@@ -323,7 +323,7 @@ class Page_Controller extends ContentController {
 			return false;
 		}
 
-		$tutorPage = TutorPage::get()->filter(array('MemberID' => $currentMemberID))->First();
+		$tutorPage = Member::get()->filter(array('ID' => $currentMemberID))->First();
 
 		return $tutorPage;
 	}
@@ -587,7 +587,7 @@ class Page_Controller extends ContentController {
 	}
 
 	public function getRandomTutors() {
-		$tutors = TutorPage::get()->sort('RAND()');
+		$tutors = Member::get()->sort('RAND()');
 		return $tutors;
 	}
 }

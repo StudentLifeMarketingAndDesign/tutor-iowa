@@ -64,7 +64,6 @@ class RegistrationPage_Controller extends Page_Controller
     
     public function getEmails() {
         
-        //return DataObject::get("MemberManagement");
         return MemberManagement::get();
     }
     

@@ -4,5 +4,8 @@ After: framework/routes
 ---
 Director:
   rules:
-    'indbox' : 'InboxController'
+    'inbox' : 'InboxController'
     'inbox//$Action/$ID': 'InboxController'
+    'tutor//$Action/$ID': 'TutorController'
+    'contact//$Action/$ID': 'TutorController'
+    'TutorController' : 'TutorController'
