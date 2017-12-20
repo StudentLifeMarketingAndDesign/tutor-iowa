@@ -42,12 +42,15 @@
 </head>
 <body class="$ClassName.ATT $Action.ATT">
 	<% include UiowaBar %>
+
 	<header class="header" role="banner">
 		<div class="contain-to-grid">
 			<% include TopBar %>
 		</div>
 	</header>
-
+	<% if not $RandomTutors %>
+		<p class="top-announcement">Tutor Iowa is currently in the process of approving tutors for the next academic semester. Please check back soon. <a href="tutor-application/">Visit this page if you'd like to apply to be a tutor &rarr;</a></p>
+	<% end_if %>
 	$Layout
 	<% if $URLSegment != "feedback" %>
 		 <a id="feedback-btn" href="feedback" data-reveal-id="feedback-form-modal"><span class="visuallyhidden">Feedback</span></a>
