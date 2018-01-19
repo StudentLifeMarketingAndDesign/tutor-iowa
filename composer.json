@@ -8,6 +8,7 @@
 		"silverstripe-themes/simple": "*",
 		"silverstripe/spamprotection": "1.2.*",
 		"md/division-bar" : "*",
+		"md/division-analytics" : "*",
 		"md/ac-json-events" : "*",
 		"rywa/silverstripe-foundation-forms": "1.0.x-dev",
 		"briceburg/silverstripe-pageholder": "*",

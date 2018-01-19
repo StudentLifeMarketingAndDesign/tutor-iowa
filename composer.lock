@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e1e83b52a2553d86e468f1222d20d029",
+    "content-hash": "4b4969915448188c535e1916a85674c5",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -418,6 +418,33 @@
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events/issues"
             },
             "time": "2017-10-12 21:40:31"
+        },
+        {
+            "name": "md/division-analytics",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/StudentLifeMarketingAndDesign/division-analytics.git",
+                "reference": "096f6fb83a8b947f7a8e5d795f5ea70d7c10b1c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-analytics/zipball/096f6fb83a8b947f7a8e5d795f5ea70d7c10b1c3",
+                "reference": "096f6fb83a8b947f7a8e5d795f5ea70d7c10b1c3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "silverstripe/cms": "3.6.*@stable",
+                "silverstripe/framework": "3.6.*@stable"
+            },
+            "type": "silverstripe-module",
+            "description": "The University of Iowa Division of Student Life Analytics",
+            "support": {
+                "source": "https://github.com/StudentLifeMarketingAndDesign/division-analytics/tree/master",
+                "issues": "https://github.com/StudentLifeMarketingAndDesign/division-analytics/issues"
+            },
+            "time": "2017-10-26 17:44:03"
         },
         {
             "name": "md/division-bar",
