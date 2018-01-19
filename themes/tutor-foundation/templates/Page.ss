@@ -66,7 +66,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 	<script src="{$ThemeDir}/build/build.js"></script>
 
-<% include GoogleAnalytics %>
+$Analytics
 $BetterNavigator
 </body>
 </html>
