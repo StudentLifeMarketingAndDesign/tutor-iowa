@@ -5,19 +5,16 @@ class TutorController extends ContentController{
 
 	private static $allowed_actions = array(
 		'ContactForm', 
-		'ContactyForm', 
 		'editProfile', 
 		'EditProfileForm', 
-		'repositionCoverImage',
-		//'doContactTutor',
-		//'updateNameFromLdap',
+		'updateNameFromLdap',
         'view'
     );
     private static $url_handlers = array(
     	'edit//$action' => 'editProfile',
 		'updateNameFromLdap//' => 'updateNameFromLdap',
         'view//$URLSegment' => 'view',
-        'contact//$action' => 'doContactTutor'
+        'contact//$URLSegment//$action' => 'doContactTutor'
     );
 
     public function init(){
@@ -39,9 +36,9 @@ class TutorController extends ContentController{
 
 	public function ContactForm() {
 
-		if($this->getRequest()->postVars()){
-			return;
-		}
+		// if($this->getRequest()->postVars()){
+		// 	return;
+		// }
 		//print_r($this->get('Page')->toArray());
 		$name = $this->getRequest()->param('URLSegment');
 		$tutor = Member::get()->filter(array('URLSegment' => $name))->First();
@@ -49,23 +46,26 @@ class TutorController extends ContentController{
 		// debug::show($tutor->Link());
 
 		$fields = new FieldList(
-			new TextAreaField('Body', '<span>*</span> Your Message to ' . $tutor->FirstName),
-			new HiddenField('TutorID', 'TutorID', $tutor->ID)
+			$messageLabel = new TextAreaField('Body')
+			//new HiddenField('TutorID', 'TutorID', $tutor->ID)
 		);
 
 		$actions = new FieldList(
-			new FormAction('doContactTutor', 'Send a Message to ' . $tutor->FirstName)
+			$messageAction = new FormAction('doContactTutor')
 		);
 
 		$validator = new RequiredFields('Email');
 		$form = new Form($this, 'ContactForm', $fields, $actions, $validator);
-		return $form;
 
-	}
+		if($tutor){
+			$fields->push(new HiddenField('TutorID', 'TutorID', $tutor->ID));
+			$messageLabel->setTitle('<span>*</span> Your Message to '. $tutor->FirstName);
+			$messageAction->setTitle('Send a Message to '. $tutor->FirstName);
+			//add hidden field, relabel fields and include $tutor here
+		}
 
-	public function ContactyForm(){
-		//print_r($this->getRequest()->postVars());
-		return $this->redirect($this->Link('?sent=1'));
+		return $form;			
+
 	}
 
 	public function updateNameFromLdap(){
@@ -84,23 +84,21 @@ class TutorController extends ContentController{
 
 			$this->write();
 		}
-
 		$currentUser->write();
-
 		//$this->redirect($this->Link().'edit/');
-
 	}
 
 	public function doContactTutor($data, $form) {
-		print_r($data['TutorID']);
+		// print_r($data['TutorID']);
 		$tutor = Member::get()->filter(array('ID' => $data['TutorID']))->First();
-		Debug::show($tutor);
+		// Debug::show($tutor);
 		//debug::show($this->URLSegment); //TutorController
 		$adminEmail = Config::inst()->get('Email', 'admin_email');
 
 		$currentUser = Member::CurrentUser();
+
 		if(!$currentUser){
-			return Security::permissionFailure($this, 'hey');
+			return Security::permissionFailure($this, 'An error on our part has occurred. If you keep seeing this message, please email us at imu-web@uiowa.edu. Sorry for the trouble.');
 		}
 
 		$from = $currentUser->Email;
@@ -109,7 +107,7 @@ class TutorController extends ContentController{
 		$body = $data["Body"];
 		$subject = "[Tutor Iowa] " . $name . " has contacted you.";
 		$email = new Email();
-		$toString = $this->Email;
+		$toString = $tutor->Email;
 
 		$email->setTo($toString);
 		$email->setSubject($subject);
@@ -130,12 +128,13 @@ class TutorController extends ContentController{
 		$message->SenderName = $name;
 		$message->SenderEmail = $from;
 		$message->MessageBody = $body;
-		$message->RecipientID = $this->ID;
-		$message->RecipientName = $this->FirstName . ' ' . $this->Surname;
+		$message->RecipientID = $tutor->ID;
+		$message->SenderID = $member->ID;
+		$message->RecipientName = $tutor->FirstName . ' ' . $tutor->Surname;
 
 		$message->write();
-		
-		return $this->renderWith('TutorController_doContactTutor');
+		return $this->redirectBack();
+		//return $this->renderWith('TutorController_doContactTutor');
 		//return $this->redirect($tutor->Link('?sent=1'));
 
 	}

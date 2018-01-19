@@ -12,7 +12,8 @@ class Message extends DataObject {
    );
    
    private static $has_one = array(
-	   'Recipient' => 'Member'
+	   'Recipient' => 'Member',
+     'Sender' => 'Member'
    );
    
    //private static $searchable_fields = array('ID', 'Feedback', 'Name');

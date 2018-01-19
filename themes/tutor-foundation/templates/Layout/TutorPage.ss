@@ -57,7 +57,7 @@
 					</div>
 					<div class="row">
 						<div class="medium-12 columns">
-							<h2>About $FirstName</h2>
+							<h2>About $Member.FirstName</h2>
 							<p>$Content</p>
 
 							<%--
