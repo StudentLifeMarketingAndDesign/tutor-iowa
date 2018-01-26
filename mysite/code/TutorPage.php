@@ -154,6 +154,13 @@ class TutorPage extends Page {
 		return MemberManagement::get();
 	}
 
+	public function isCertfied(){
+		$tags = $this->Tags;
+		if ($tags->contains("Certified Tutor")){
+			return True;
+		}
+	}
+
 }
 class TutorPage_Controller extends Page_Controller {
 

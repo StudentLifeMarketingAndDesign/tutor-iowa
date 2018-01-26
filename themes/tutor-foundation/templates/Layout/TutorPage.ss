@@ -35,8 +35,13 @@
 							  <a href="#" class="close">&times;</a>
 							</div>
 							<% end_if %>
-							
-							<h1>$Title</h1>
+
+							<% if $isCertified %>
+								<h1>$Title<p class="fa fa-star"></p></h1>
+							<% else %>
+								<h1>$Title</h1>
+							<% end_if %>
+
 							<p><strong>Member Since: </strong> $Created.NiceUS <br />
 							<% if $MeetingPreference %><strong>Meeting Preference: </strong>{$MeetingPreference}<br /><% end_if %>
 								<% if $Hours %><strong>Availability: </strong>{$Hours}<br /><% end_if %>
