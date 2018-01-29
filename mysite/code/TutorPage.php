@@ -154,10 +154,10 @@ class TutorPage extends Page {
 		return MemberManagement::get();
 	}
 
-	public function isCertfied(){
+	public function isCertified(){
 		$tags = $this->Tags;
-		if ($tags->contains("Certified Tutor")){
-			return True;
+		if (strpos($tags, 'Certified Tutor') != false) {
+		    return true;
 		}
 	}
 

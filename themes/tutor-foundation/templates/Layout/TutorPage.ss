@@ -37,7 +37,7 @@
 							<% end_if %>
 
 							<% if $isCertified %>
-								<h1>$Title<p class="fa fa-star"></p></h1>
+								<h1>$Title <p class="fa fa-star"></p></h1>
 							<% else %>
 								<h1>$Title</h1>
 							<% end_if %>
