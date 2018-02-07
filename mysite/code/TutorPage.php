@@ -156,8 +156,10 @@ class TutorPage extends Page {
 
 	public function isCertified(){
 		$tags = $this->Tags;
-		if (strpos($tags, 'Certified Tutor') != false) {
-		    return true;
+		if (strpos($tags, 'Certified Tutor') === false) {
+		    return false;
+		}else{
+			return true;
 		}
 	}
 

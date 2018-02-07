@@ -13,7 +13,7 @@
 			<% end_if %>
 			<div class="<% if $Image %>small-9 columns pull-3<% else %>large-12 columns<% end_if %>">
 				<% if $isCertified %>
-					<h4 class="tutor-name" href="$Link">$Title <p class="isCertified fa fa-star"></p></h4><p>$Content.Summary(20)
+					<h4 class="tutor-name" href="$Link">$Title <p class="isCertified fa fa-star star"></p></h4><p>$Content.Summary(20)
 				<% else %>
 					<h4 class="tutor-name" href="$Link">$Title</h4><p>$Content.Summary(20)
 				<% end_if %>

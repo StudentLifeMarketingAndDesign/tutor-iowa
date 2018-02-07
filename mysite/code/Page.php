@@ -22,6 +22,10 @@ class Page extends SiteTree {
 
 	public function SplitKeywords() {
 		$keywords = $this->Tags;
+		$keywords = str_replace('Certified Tutor', '', $keywords);
+
+
+
 		if ($keywords) {
 			$splitKeywords = explode(',', $keywords);
 		}
@@ -29,9 +33,12 @@ class Page extends SiteTree {
 		if (isset($splitKeywords)) {
 			$keywordsList = new ArrayList();
 			foreach ($splitKeywords as $data) {
-				$do = new DataObject();
-				$do->Keyword = $data;
-				$keywordsList->push($do);
+				if(trim($data) != ''){
+					$do = new DataObject();
+					$do->Keyword = $data;
+					$keywordsList->push($do);					
+				}
+
 			}
 			return $keywordsList;
 		}
@@ -399,8 +406,7 @@ class Page_Controller extends ContentController {
 	 */
 	function results($data, $form, $request) {
 		$keyword = trim($request->requestVar('Search'));
-		$keyword = Convert::raw2sql($keyword);
-		$keywordHTML = htmlentities($keyword, ENT_NOQUOTES, 'UTF-8');
+		// $keywordHTML = htmlentities($keyword, ENT_NOQUOTES, 'UTF-8');
 
 		$this->addSearchTermToLibrary($keyword);
 

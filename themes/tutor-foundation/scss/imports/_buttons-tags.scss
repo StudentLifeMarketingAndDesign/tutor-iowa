@@ -60,6 +60,10 @@ input[type="submit"]{
   font-size: rem-calc(11);
 }
 
+.tag--gold{
+  background: #FFCD00;
+}
+
 .ss-ui-button{
     @include button(
       $padding: $button-tny

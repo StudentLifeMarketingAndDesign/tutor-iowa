@@ -11,23 +11,14 @@
 					}
 				}
 			</style>
-			<div class="page-bg" >
-			    <% if $approvedCoverImage %>
-                     <div id="profile-cover-photo" class="CoverImage FlexEmbed FlexEmbed--3by1" style="background-image:url($ApprovedCoverImage.Link);"></div>
-                <% else %>
-			    	<%-- <img id="profile-cover-photo" src="http://lorempixel.com/1240/600/" /> --%>
-			    <% end_if %>
-			</div>
 			<div class="large-8 columns content" data-equalizer-watch>
 				<div class="white-cover"></div>
 				$Breadcrumbs
 				<article>
 					<div class="row">
-						<% if $approvedProfileImage %>
-						<div class="medium-9 small-9 columns">
-						<% else %>
+
 						<div class="medium-9 small-12 columns">
-						<% end_if %>
+			
 
 							<% if $Sent %>
 							<div data-alert class="alert-box success">
@@ -37,27 +28,18 @@
 							<% end_if %>
 
 							<% if $isCertified %>
-								<h1>$Title <p class="fa fa-star"></p></h1>
+								<h1>$Title <i class="fa fa-star star" aria-hidden="true"></i> </h1>
 							<% else %>
 								<h1>$Title</h1>
 							<% end_if %>
 
-							<p><strong>Member Since: </strong> $Created.NiceUS <br />
+							<p><% if $isCertified %><a href="private-tutors/certified" class="tag tag--gold"><i class="fa fa-star star star--white" aria-hidden="false"></i> Certified Tutor</a><br /><% end_if %><strong>Member Since: </strong> $Created.NiceUS <br />
 							<% if $MeetingPreference %><strong>Meeting Preference: </strong>{$MeetingPreference}<br /><% end_if %>
 								<% if $Hours %><strong>Availability: </strong>{$Hours}<br /><% end_if %>
 								<% if $HourlyRate %><strong>Hourly Rate:</strong> {$HourlyRate}<% end_if %>
 							</p>
 						</div>
 						<div class="medium-3 small-3 columns">
-
-							<div class="profile-image">
-                                <% if $approvedProfileImage %>
-                                    $approvedProfileImage
-                                <% else %>
-                                   
-                                <% end_if %>
-
-							</div>
 						</div>
 					</div>
 					<div class="row">
