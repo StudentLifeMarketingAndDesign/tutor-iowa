@@ -36,13 +36,15 @@
 							<% include ResourceCard %>
 						<% end_with %>
 					</ul>
-					<% if RandomTutors %>
-					<h3 class="banner">Featured Tutors</h3>
+					<% if FeaturedTutors %>
+					<h3 class="banner">Certified Tutors</h3>
+					<p><a href="private-tutors/certified">Learn more about certified tutors &rarr;</a></p>
 					<ul class="tutor-card-list large">
-						<% loop RandomTutors.Limit(16) %>
+						<% loop FeaturedTutors.Limit(16) %>
 							<% include TutorCard %>
 						<% end_loop %>
 					</ul>
+					
 					<% end_if %>
 					<% if $RandomTutors.Count <= 4 %> 
 					<h3 class="banner">Featured Campus Resources</h3>

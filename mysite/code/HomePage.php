@@ -22,7 +22,7 @@ class HomePage extends Page {
 
 	);
 
-	static $defaults = array('ProvideComments' => '1',
+	private static $defaults = array('ProvideComments' => '1',
 	);
 
 	public function RandomBackgroundImage() {
@@ -57,19 +57,6 @@ class HomePage extends Page {
 			$this->HelpLabs(),
 			$featuredConfig1
 		);
-
-		/*** We are not featuring tutors.
-		$featuredConfig2 = GridFieldConfig_RelationEditor::create();
-		$featuredConfig2->getComponentByType('GridFieldDataColumns')->setDisplayFields(array(
-		'Title' => 'Title',
-		));
-
-		$featuredTutorPages = new GridField(
-		'TutorPages',
-		'TutorPage',
-		$this->TutorPages(),
-		$featuredConfig2
-		);*/
 
 		$fields->addFieldToTab("Root.EmailSignups", $NewsletterPerson);
 		$fields->addFieldToTab("Root.FeaturedHelpLabs", $featuredHelpLabs);

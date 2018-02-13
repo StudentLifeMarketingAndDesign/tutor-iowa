@@ -592,6 +592,10 @@ class Page_Controller extends ContentController {
 		return $helpLabs;
 	}
 
+	public function getFeaturedTutors() {
+		$tutors = TutorPage::get()->filter(array('Tags:PartialMatch' => 'Certified Tutor'));
+		return $tutors;
+	}
 	public function getRandomTutors() {
 		$tutors = TutorPage::get()->sort('RAND()');
 		return $tutors;
