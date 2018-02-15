@@ -10,6 +10,10 @@ class FeedbackItem extends DataObject {
    'Email' => 'Varchar',
    'SpecificPage' => 'Boolean'
    );
+
+   private static $default_sort = 'Created DESC';
+
+
    
    private static $has_one = array(
    'Page' => 'Page'
@@ -17,7 +21,7 @@ class FeedbackItem extends DataObject {
    
    private static $searchable_fields = array('ID', 'Feedback', 'Name', 'SpecificPage');
   
-   private static $summary_fields = array('PageID', 'Page.Title', 'Feedback', 'Name', 'SpecificPage', 'Created');
+   private static $summary_fields = array('PageID', 'Page.Title', 'Feedback', 'Name', 'Email', 'SpecificPage', 'Created');
    //No ID, Email address, Feedback, Specific Page, PageID + Page Title see summary_fields docs
    	            
 
