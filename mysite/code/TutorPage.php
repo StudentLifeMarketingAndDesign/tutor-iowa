@@ -74,9 +74,21 @@ class TutorPage extends Page {
 		return $member->Email;
 	}
 
-	/**
-	 * The following 7 functions are from the previous iteration of TutorIowa, and may no longer be neccessary.
-	 */
+	public function getTitle(){
+		$member = $this->Member();
+
+		//Only show surnames when a user is logged in.
+		if( Member::currentUserID() ) {
+		    return $member->FirstName.' '.$member->Surname;
+		} else {
+		   return $member->FirstName;
+		}
+	}
+
+	public function getMenuTitle(){
+		return $this->getTitle();
+	}
+
 	public function getCMSFields() {
 
 		$fields = parent::getCMSFields();
