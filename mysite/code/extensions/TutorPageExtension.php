@@ -9,6 +9,10 @@ class TutorPageExtension extends DataExtension {
 		if (isset($tutorParent->ID)) {
 			$this->owner->setParent($tutorParent);
 		}
+
+		if($this->owner->URLSegment != $this->owner->ID){
+			$this->owner->URLSegment = $this->owner->ID;
+		}
 	}
 
 	public function onBeforeUnpublish() {
