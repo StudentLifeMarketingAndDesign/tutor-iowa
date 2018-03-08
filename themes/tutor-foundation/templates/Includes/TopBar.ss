@@ -69,7 +69,7 @@
 				</li>					
 	
 			<% else %> <%-- if not logged in with hawkID --%>
-				<li class="log-in"><a href="Security/login">Log In</a></li>
+				<li class="log-in"><a href="Security/login">Tutor Log In</a></li>
 				<li class="register"><a href="register">Become a Tutor</a></li>
 			<% end_if %>
 		</ul>
