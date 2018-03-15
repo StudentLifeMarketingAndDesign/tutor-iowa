@@ -81,11 +81,7 @@
 				 <div class="side-nav">
 				 <% if $currentMemberPage.ID == $ID %>
 				 	<ul class="button-group stack">
-					    
-					        <li><a href="{$Link}edit" class="button success radius">Edit Your Profile</a></li>
-	
-					      
-					   
+				        <li><a href="{$Link}edit" class="button success radius">Edit Your Profile</a></li>
 					</ul>
 					<hr>
 					<% end_if %>

@@ -404,19 +404,31 @@ class Page_Controller extends ContentController {
 	 * @param Form $form The form instance that was submitted
 	 * @param SS_HTTPRequest $request Request generated for this action
 	 */
-	function results($data, $form, $request) {
+	public function results($data, $form, $request) {
 		$keyword = trim($request->requestVar('Search'));
-		// $keywordHTML = htmlentities($keyword, ENT_NOQUOTES, 'UTF-8');
+		$keyword = $this->customiseTerm($keyword);
 
 		$this->addSearchTermToLibrary($keyword);
 
 		$data = $this->search($keyword);
-
 		return $this->customise($data)->renderWith(array('Page_results', 'Page'));
+	}
+
+
+	private function customiseTerm($keyword){
+		// TODO: Finish modifiying course searches (delimit by colons, grab the text before colon)
+		$pos = strpos($keyword, ':');
+		if($pos !==false){
+			$keyword = '"'.$keyword.'"';
+		}
+		return $keyword;
 	}
 
 	private function addSearchTermToLibrary($keyword) {
 
+		if($keyword = ''){
+			return;
+		}
 		$term = SearchTerm::get()->filter(array('Title' => $keyword))->First();
 
 		if (isset($term)) {
