@@ -383,7 +383,7 @@ class Page_Controller extends ContentController {
 	}
 
 	public function News($number = 3) {
-		$articles = ArticlePage::get()->sort('Date DESC');
+		$articles = ArticlePage::get()->sort('LastEdited DESC');
 		if ($articles) {
 			return $articles;
 		}
