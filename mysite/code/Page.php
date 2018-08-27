@@ -383,7 +383,7 @@ class Page_Controller extends ContentController {
 	}
 
 	public function News($number = 3) {
-		$articles = ArticlePage::get()->sort('LastEdited DESC');
+		$articles = ArticlePage::get()->limit(1);
 		if ($articles) {
 			return $articles;
 		}
@@ -590,7 +590,7 @@ class Page_Controller extends ContentController {
 	
 
 	public function LatestNews($num = 5) {
-		$news = ArticlePage::get()->sort('Sort')->limit($num);
+		$news = ArticlePage::get()->sort('LastEdited DESC')->limit($num);
 		return $news;
 
 	}
