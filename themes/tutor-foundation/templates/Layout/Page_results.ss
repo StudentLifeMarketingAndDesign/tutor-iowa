@@ -47,6 +47,7 @@
   </div>
   <div class="row">
     <div class="large-12 columns">
+      <% cached 'search', $Query %>
       <% if Tutors %>
       <h2 class="banner">Tutors</h2>
       <ul class="tutor-card-list">
@@ -55,6 +56,7 @@
         <% end_loop %>
       </ul>
       <% end_if %><%-- end if Tutors --%>
+      <% end_cached %>
     </div>
 
   </div>
