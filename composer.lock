@@ -1542,12 +1542,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-eventmanager.git",
-                "reference": "27eb1489df583456fac8c77c95059dde09ff38d8"
+                "reference": "627f3e821fbfd6cebf9cccaa017b7fe7ae13c05b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-eventmanager/zipball/27eb1489df583456fac8c77c95059dde09ff38d8",
-                "reference": "27eb1489df583456fac8c77c95059dde09ff38d8",
+                "url": "https://api.github.com/repos/zendframework/zend-eventmanager/zipball/627f3e821fbfd6cebf9cccaa017b7fe7ae13c05b",
+                "reference": "627f3e821fbfd6cebf9cccaa017b7fe7ae13c05b",
                 "shasum": ""
             },
             "require": {
@@ -1588,7 +1588,7 @@
                 "events",
                 "zf2"
             ],
-            "time": "2018-04-25T15:35:22+00:00"
+            "time": "2019-04-10T14:21:50+00:00"
         },
         {
             "name": "zendframework/zend-ldap",

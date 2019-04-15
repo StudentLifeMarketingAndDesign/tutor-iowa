@@ -5,7 +5,7 @@ framework/
 themes/simple
 vendor/autoload.php
 .DS_Store
-assets/
+/assets/
 recaptchaKeys.php
 .sass-cache
 node_modules
