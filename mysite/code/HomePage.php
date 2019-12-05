@@ -1,4 +1,14 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridFieldDataColumns;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\Control\RSS\RSSFeed;
+
 /**
  * Defines the HomePage page type
  */
@@ -11,7 +21,7 @@ class HomePage extends Page {
 
 	private static $has_one = array(
 
-		"MainImage" => "Image",
+		"MainImage" => Image::class,
 
 	);
 
@@ -36,7 +46,7 @@ class HomePage extends Page {
 		$fields = parent::getCMSFields();
 
 		$config = GridFieldConfig_RelationEditor::create();
-		$config->getComponentByType('GridFieldDataColumns')->setDisplayFields(array(
+		$config->getComponentByType(GridFieldDataColumns::class)->setDisplayFields(array(
 			'EmailAddress' => 'EmailAddress',
 		));
 		$NewsletterPerson = new GridField(
@@ -47,7 +57,7 @@ class HomePage extends Page {
 		);
 
 		$featuredConfig1 = GridFieldConfig_RelationEditor::create();
-		$featuredConfig1->getComponentByType('GridFieldDataColumns')->setDisplayFields(array(
+		$featuredConfig1->getComponentByType(GridFieldDataColumns::class)->setDisplayFields(array(
 			'Title' => 'Title',
 		));
 
@@ -85,11 +95,6 @@ class HomePage extends Page {
 		$random = array_rand($taglines, 1);
 		return $taglines[$random];
 	}
-
-}
-
-class HomePage_Controller extends Page_Controller {
-
 	public function featuredHelpLabs() {
 
 		if ($this->HelpLabs()->First()) {
@@ -104,25 +109,6 @@ class HomePage_Controller extends Page_Controller {
 			return HelpLab::get()->sort("RAND()");
 		}
 
-	}
-
-	public function NewsletterSignedUp() {
-
-		$signedUp = $this->request->getVar('signup');
-		if (intval($signedUp) == 1) {
-
-			return true;
-
-		} else {
-			return false;
-
-		}
-
-	}
-
-	public function init() {
-		RSSFeed::linkToFeed($this->Link() . "rss");
-		parent::init();
 	}
 
 }

@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\Admin\ModelAdmin;
+
 class AcademicTipWorksheetAdmin extends ModelAdmin {
 
 	private static $menu_title = 'Academic Tip Worksheets';

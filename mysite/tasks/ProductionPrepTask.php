@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\CMS\Model\RedirectorPage;
+use SilverStripe\Dev\BuildTask;
+
 class ProductionPrepTask extends BuildTask {
 
 	protected $title = 'Production Prep Task';

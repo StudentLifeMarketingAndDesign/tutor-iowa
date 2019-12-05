@@ -1,16 +1,6 @@
 <div class="gradient">
 	<div class="main typography" role="main">
 		<div class="row" data-equalizer>
-			<style>
-				#profile-cover-photo {
-					background-position: center center;
-				}
-				@media (min-width: 40em) {
-					#profile-cover-photo {
-						background-position-y: {$ApprovedCoverImage.NiceTop()};
-					}
-				}
-			</style>
 			<div class="large-8 columns content" data-equalizer-watch>
 				<div class="white-cover"></div>
 				$Breadcrumbs

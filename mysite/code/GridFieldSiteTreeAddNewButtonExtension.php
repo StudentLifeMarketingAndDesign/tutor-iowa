@@ -1,5 +1,9 @@
 <?php
 
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Core\Injector\Injector;
+use SilverStripe\ORM\DataExtension;
+
 class GridFieldSiteTreeAddNewButtonExtension extends DataExtension {
 
 	public function getAllowedChildren(SiteTree $parent) {

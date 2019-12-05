@@ -1,4 +1,6 @@
 <?php
+
+
 class StudyGroupHolder extends Page {
     private static $db = array(
     );
@@ -14,6 +16,3 @@ class StudyGroupHolder extends Page {
     );
 }
   
-class StudyGroupHolder_Controller extends Page_Controller {
-     
-}

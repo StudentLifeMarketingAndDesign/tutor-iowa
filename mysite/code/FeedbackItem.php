@@ -1,4 +1,7 @@
 <?php
+
+use SilverStripe\ORM\DataObject;
+
 /**
  * Defines the HomePage page type
  */
@@ -27,8 +30,3 @@ class FeedbackItem extends DataObject {
 
 }
  
-class FeedbackItem_Controller extends Page_Controller {
-
-	 
-	 
-}

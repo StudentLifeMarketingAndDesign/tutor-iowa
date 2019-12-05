@@ -1,5 +1,9 @@
 <?php
 
+use SilverStripe\Assets\Image;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+
+
 //test comment
 
 class HelpHolder extends Page {
@@ -14,13 +18,9 @@ class HelpHolder extends Page {
   
    public function getCMSFields() {
         $fields = parent::getCMSFields();
-    	$fields->addFieldToTab("Root.Main", new UploadField("Image", "Image"));
+    	$fields->addFieldToTab("Root.Main", new UploadField(Image::class, Image::class));
     	
     	return $fields;   
    }
 }
  
-class HelpHolder_Controller extends Page_Controller {
-
-  
-}

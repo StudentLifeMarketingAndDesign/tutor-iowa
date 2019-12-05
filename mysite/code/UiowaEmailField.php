@@ -1,4 +1,7 @@
 <?php 
+use SilverStripe\Control\Session;
+use SilverStripe\Forms\EmailField;
+
 class UiowaEmailField extends EmailField 
 //Validation errors don't redirect to the specific field b/c I don't know how to do that with a SilverStripe validation error
 { 

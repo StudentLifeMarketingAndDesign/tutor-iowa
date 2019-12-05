@@ -1,4 +1,13 @@
 <?php
+
+use SilverStripe\View\Requirements;
+use SilverStripe\Control\Director;
+use SilverStripe\Core\Convert;
+use SilverStripe\ORM\DataObjectInterface;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\ORM\DataQuery;
+use SilverStripe\Forms\TextField;
 /**
  * Provides a Formfield for saving a string of tags into either
  * a many_many relationship or a text property.

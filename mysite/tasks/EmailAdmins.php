@@ -1,4 +1,9 @@
 <?php
+
+use SilverStripe\Control\Email\Email;
+use SilverStripe\Security\Member;
+use SilverStripe\View\ArrayData;
+use SilverStripe\Dev\BuildTask;
 class EmailAdmins extends BuildTask {
 
 	protected $title = 'Email Administrators about Pending Images for Approval';

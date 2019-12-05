@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\Dev\BuildTask;
+
 class MigrateTagsTask extends BuildTask {
 
 	protected $title = 'Migrate Metakeywords to Tags';

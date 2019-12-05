@@ -1,4 +1,8 @@
 <?php
+
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\GridField\GridField;
+
 /**
  * Defines the HomePage page type
  */
@@ -20,6 +24,3 @@ class FeedbackPage extends Page {
 
 }
 
-class FeedbackPage_Controller extends Page_Controller {
-
-}

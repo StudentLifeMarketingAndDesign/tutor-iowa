@@ -1,4 +1,5 @@
 <?php
+
 /*
 
 HelpLabHolder is just used for site organization purposes.  If you are looking for the page that shows a help lab editor's help labs, consult YourHelpLabs.ss
@@ -20,6 +21,3 @@ class HelpLabHolder extends Page {
     );
 }
   
-class HelpLabHolder_Controller extends Page_Controller {
-     
-}

@@ -22,6 +22,3 @@ class SuppHolder extends Page {
  
 }
  
-class SuppHolder_Controller extends Page_Controller {
-    
-}

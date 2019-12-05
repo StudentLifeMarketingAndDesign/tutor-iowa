@@ -1,4 +1,6 @@
 <?php
+
+use SilverStripe\Dev\BuildTask;
 class RemoveProvisionalTutorPages extends BuildTask {
  
     protected $title = 'Delete Provisional Tutor Pages if created before June 2017';

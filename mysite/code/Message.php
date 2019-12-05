@@ -1,4 +1,7 @@
 <?php
+
+use SilverStripe\Security\Member;
+use SilverStripe\ORM\DataObject;
 class Message extends DataObject {
   
    private static $db = array(
@@ -6,13 +9,13 @@ class Message extends DataObject {
 	   'SenderName' => 'Varchar',
 	   'MessageBody' => 'Text',
 	   'RecipientName' => 'Text',
-	   'ReadDateTime' => 'SS_Datetime',
-	   'MarkAsDeleted' => 'SS_Datetime',
-	   'RepliedDateTime' => 'SS_Datetime'
+	   'ReadDateTime' => 'Datetime',
+	   'MarkAsDeleted' => 'Datetime',
+	   'RepliedDateTime' => 'Datetime'
    );
    
    private static $has_one = array(
-	   'Recipient' => 'Member'
+	   'Recipient' => Member::class
    );
    
    //private static $searchable_fields = array('ID', 'Feedback', 'Name');
@@ -27,14 +30,5 @@ class Message extends DataObject {
 
    );
    
-   
-   // I believe these functions prevent anybody from editing or creating messages through the CMS
-   public function canEdit($member = null) {
-	   return false;
-   }
-   
-   public function canCreate($member = null) {
-       return false;
-   }
     
 }

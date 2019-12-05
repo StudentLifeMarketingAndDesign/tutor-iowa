@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * Defines the HomePage page type
  */
@@ -15,8 +17,3 @@ class FindHelpPage extends Page {
     );
 }
  
-class FindHelpPage_Controller extends Page_Controller {
-
-	 
-	 
-}

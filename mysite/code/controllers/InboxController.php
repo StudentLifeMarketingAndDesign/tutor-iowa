@@ -1,5 +1,14 @@
 <?php
-class InboxController extends Page_Controller {
+
+use SilverStripe\Security\Member;
+use SilverStripe\Security\Security;
+use SilverStripe\ORM\PaginatedList;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\Core\Convert;
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Control\Email\Email;
+
+class InboxController extends PageController {
 
 	private static $allowed_actions = array(
 		'index',
@@ -110,7 +119,7 @@ class InboxController extends Page_Controller {
 	 * @param SS_HTTPRequest $r
 	 * @return Message|false
 	 */
-	public function markedMessage(SS_HTTPRequest $r) {
+	public function markedMessage(HTTPRequest $r) {
 		$member = Member::currentUser();
 
 		if (isset($member)) {
@@ -138,7 +147,7 @@ class InboxController extends Page_Controller {
 	 * @param SS_HTTPRequest $r
 	 * @return JSON Response
 	 */
-	public function markAsRead(SS_HTTPRequest $r) {
+	public function markAsRead(HTTPRequest $r) {
 		if ($r->isAjax() && $r->isPOST() && $markedMessage = $this->markedMessage($r)) {
 			$markedMessage->ReadDateTime = time();
 			$markedMessage->write();
@@ -159,7 +168,7 @@ class InboxController extends Page_Controller {
 	 * @param SS_HTTPRequest $r
 	 * @return JSON Response
 	 */
-	public function markAsDeleted(SS_HTTPRequest $r) {
+	public function markAsDeleted(HTTPRequest $r) {
 		if ($r->isAjax() && $r->isPOST() && $markedMessage = $this->markedMessage($r)) {
 
 			$this->markAsRead($r);
@@ -185,7 +194,7 @@ class InboxController extends Page_Controller {
 	 * @param SS_HTTPRequest $r
 	 * @return JSON Response
 	 */
-	public function processPendingImage(SS_HTTPRequest $r) {
+	public function processPendingImage(HTTPRequest $r) {
 		if ($r->isAjax() && $r->isPOST()) {
 			$data = $r->postVars();
 			$imageID = isset($data['ImageID']) ? (int) $data['ImageID'] : NULL;

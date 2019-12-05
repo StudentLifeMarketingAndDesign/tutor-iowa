@@ -1,11 +1,14 @@
 <?php
+
+use SilverStripe\Security\Member;
+use SilverStripe\Dev\BuildTask;
 class DeleteOrphanedTutorPages extends BuildTask {
  
     protected $title = 'Delete Tutor Pages if their member no longer exists';
  
     protected $description = '';
  
-    protected $enabled = true;
+    protected $enabled = false;
  
     function run($request) {
         $tutors = TutorPage::get();

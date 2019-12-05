@@ -1,5 +1,10 @@
 <?php
 
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\ORM\ArrayList;
+
+
 class AcademicTipWorksheetHolder extends Page {
 
 	
@@ -48,8 +53,4 @@ class AcademicTipWorksheetHolder extends Page {
 
 
 	}
-}
-
-
-class AcademicTipWorksheetHolder_Controller extends Page_Controller {
 }

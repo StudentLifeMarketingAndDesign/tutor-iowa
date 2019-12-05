@@ -1,4 +1,12 @@
 <?php
+
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Lumberjack\Forms\GridFieldConfig_Lumberjack;
+use Colymba\BulkManager\BulkManager;
+use SilverStripe\Forms\GridField\GridFieldPaginator;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\Tab;
+
 class TutorHolder extends Page {
 	private static $db = array(
 	);
@@ -27,14 +35,14 @@ class TutorHolder extends Page {
 		))->sort('Created DESC');
 
 		$tutorFieldConfig = GridFieldConfig_Lumberjack::create();
-		$tutorFieldConfig->addComponent(new GridFieldBulkManager());
-		$tutorFieldConfig->getComponentByType('GridFieldPaginator')->setItemsPerPage(50);
-		$tutorFieldConfig->getComponentByType('GridFieldBulkManager')->removeBulkAction('bulkEdit');
-		$tutorFieldConfig->getComponentByType('GridFieldBulkManager')->removeBulkAction('delete');
-		$tutorFieldConfig->getComponentByType('GridFieldBulkManager')->removeBulkAction('unLink');
-		$tutorFieldConfig->getComponentByType('GridFieldBulkManager')->addBulkAction('publish', 'Publish', 'GridFieldBulkActionPublishHandler',null);
-		$tutorFieldConfig->getComponentByType('GridFieldBulkManager')->addBulkAction('unPublish', 'Unpublish', 'GridFieldBulkActionUnpublishHandler',null);
-		$tutorFieldConfig->getComponentByType('GridFieldBulkManager')->addBulkAction('markIneligible', 'Mark as Ineligible', 'GridFieldBulkActionMarkIneligibleHandler',null);
+		$tutorFieldConfig->addComponent(new BulkManager());
+		$tutorFieldConfig->getComponentByType(GridFieldPaginator::class)->setItemsPerPage(50);
+		$tutorFieldConfig->getComponentByType(BulkManager::class)->removeBulkAction('bulkEdit');
+		$tutorFieldConfig->getComponentByType(BulkManager::class)->removeBulkAction('delete');
+		$tutorFieldConfig->getComponentByType(BulkManager::class)->removeBulkAction('unLink');
+		$tutorFieldConfig->getComponentByType(BulkManager::class)->addBulkAction('publish', 'Publish', 'GridFieldBulkActionPublishHandler',null);
+		$tutorFieldConfig->getComponentByType(BulkManager::class)->addBulkAction('unPublish', 'Unpublish', 'GridFieldBulkActionUnpublishHandler',null);
+		$tutorFieldConfig->getComponentByType(BulkManager::class)->addBulkAction('markIneligible', 'Mark as Ineligible', 'GridFieldBulkActionMarkIneligibleHandler',null);
 		
 
 		$gridField = new GridField(
@@ -52,14 +60,4 @@ class TutorHolder extends Page {
 
 	}
 
-}
-class TutorHolder_Controller extends Page_Controller {
-	public function init() {
-		$url = $this->URLSegment;
-		if($url == 'provisional-tutors' || $url == 'inactive-tutors'){
-			$this->redirect('private-tutors');
-		}
-		// RSSFeed::linkToFeed($this->Link() . "rss");
-		 parent::init();
-	}
 }

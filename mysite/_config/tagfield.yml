@@ -1,2 +1,2 @@
-TagField:
+SilverStripe\TagField\TagField:
   separator: ', '

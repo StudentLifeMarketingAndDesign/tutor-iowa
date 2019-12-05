@@ -1,12 +1,12 @@
-SiteTree:
+SilverStripe\CMS\Model\SiteTree:
   extensions:
     - SiteTreeFieldExtension
-Member:
+SilverStripe\Security\Member:
   extensions:
     - MemberExtension
 TutorPage:
   extensions:
     - TutorPageExtension
-SiteConfig:
+SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - CustomSiteConfig

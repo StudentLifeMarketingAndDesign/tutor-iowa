@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\TagField\TagField;
+use SilverStripe\ORM\DataObject;
+
 class TagsCollection extends DataObject{
 	private static $db = array(
 			"Title" => "Varchar",

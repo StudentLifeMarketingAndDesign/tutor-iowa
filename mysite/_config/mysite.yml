@@ -1,0 +1,7 @@
+---
+Name: tutor-iowa
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: mysite
+SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
+  default_spam_protector: NocaptchaProtector

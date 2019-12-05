@@ -1,5 +1,13 @@
 <?php
 
+use SilverStripe\Assets\File;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\TagField\TagField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\ORM\DataObject;
+
 class AcademicTipWorksheet extends DataObject {
 
 	private static $db = array(

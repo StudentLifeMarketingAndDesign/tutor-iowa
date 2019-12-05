@@ -1,5 +1,10 @@
 <?php
 
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+
+
 class SupplementalInstruction extends Page {
 
 	private static $db = array(
@@ -40,9 +45,5 @@ class SupplementalInstruction extends Page {
 		return $fields;
 
 	}
-
-}
-
-class SupplementalInstruction_Controller extends Page_Controller {
 
 }

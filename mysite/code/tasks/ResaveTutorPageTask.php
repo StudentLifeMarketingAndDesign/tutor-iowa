@@ -1,11 +1,13 @@
 <?php
 
+use SilverStripe\Dev\BuildTask;
+
 class ResaveTutorPageTask extends BuildTask{
 
 	protected $title = 'Save (and optionally publish) all tutor pages';
 	protected $description = 'Resaves all tutor pages if there needs to be something ran onbeforeWrite()';
 
-	protected $enabled = true;
+	protected $enabled = false;
 
 	public function run($request){
 		echo '<p>Gathering all pages..</p>';

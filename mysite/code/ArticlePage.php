@@ -1,4 +1,6 @@
 <?php
+
+
 class ArticlePage extends Page {
 
  private static $db = array(
@@ -27,6 +29,4 @@ class ArticlePage extends Page {
      
         return $fields;
     }
-}
-class ArticlePage_Controller extends Page_Controller {
 }

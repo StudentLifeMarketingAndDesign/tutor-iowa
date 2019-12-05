@@ -1,4 +1,7 @@
 <?php
+
+use SilverStripe\Forms\TextField;
+
 /**
  * Defines the HomePage page type
  */
@@ -36,7 +39,3 @@ class StudyGroup extends Page {
      } 
 }
  
-class StudyGroup_Controller extends Page_Controller {
-	
-     
-}

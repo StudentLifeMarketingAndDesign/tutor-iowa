@@ -1,5 +1,12 @@
 <?php
 
+use SilverStripe\Forms\FieldList;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Lumberjack\Forms\GridFieldConfig_Lumberjack;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\Tab;
+use SilverStripe\Lumberjack\Model\Lumberjack;
+
 /**
  * This class is responsible for filtering the SiteTree when necessary and also overlaps into
  * filtering only published posts.

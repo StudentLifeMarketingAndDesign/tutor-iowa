@@ -1,4 +1,7 @@
 <?php
+
+use SilverStripe\Versioned\Versioned;
+use SilverStripe\Dev\BuildTask;
 class CopyLiveTutorChangesToStage extends BuildTask {
  
     protected $title = 'Copy Live Tutor Changes To Stage/Draft';

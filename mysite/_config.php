@@ -1,32 +1,16 @@
 <?php
 
-global $project;
-$project = 'mysite';
+use SilverStripe\Security\PasswordValidator;
+use SilverStripe\Security\Member;
+use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
+// remove PasswordValidator for SilverStripe 5.0
+$validator = new PasswordValidator();
 
-global $database;
-$database = 'tutor';
-
-MySQLDatabase::set_connection_charset('utf8');
-// Use _ss_environment.php file for configuration
-require_once "conf/ConfigureFromEnv.php";
-
-// This line set's the current theme. More themes can be
-// downloaded from http://www.silverstripe.org/themes/
-SSViewer::set_theme('blackcandy');
-
-// Set the site locale
-i18n::set_locale('en_US');
-// enable nested URLs for this site (e.g. page/sub-page/)
-SiteTree::enable_nested_urls();
-
-//Added by Dre
-FulltextSearchable::enable();
-
-// Object::useCustomClass('MemberLoginForm', 'CustomLoginForm');
+$validator->minLength(8);
+$validator->checkHistoricalPasswords(6);
+Member::set_password_validator($validator);
 
 
-if(Director::isLive()) {
-	Director::forceSSL();
-}
-Authenticator::unregister('MemberAuthenticator');
-Authenticator::set_default_authenticator('SAMLAuthenticator');
+TinyMCEConfig::get('cms')
+    ->addButtonsToLine(1, 'styleselect')
+    ->setOption('importcss_append', true);

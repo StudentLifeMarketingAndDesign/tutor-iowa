@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\ORM\DataObject;
+
+
 
 //No longer used
 class MemberManagement extends DataObject {
@@ -12,6 +15,3 @@ class MemberManagement extends DataObject {
     
   }
   
-class MemberManagement_Controller extends Page_Controller {
-     
-}

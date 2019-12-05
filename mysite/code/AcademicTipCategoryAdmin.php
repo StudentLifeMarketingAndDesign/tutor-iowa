@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Admin\ModelAdmin;
+
 class AcademicTipCategoryAdmin extends ModelAdmin {
 
 	private static $menu_title = 'Worksheet Categories';

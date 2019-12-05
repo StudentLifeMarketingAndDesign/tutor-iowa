@@ -1,8 +1,9 @@
 ---
-Name: myroutes
-After: framework/routes 
+Name: approutes
+After:
+  - '#rootroutes'
+  - '#coreroutes'
 ---
-Director:
+SilverStripe\Control\Director:
   rules:
-    'indbox' : 'InboxController'
     'inbox//$Action/$ID': 'InboxController'

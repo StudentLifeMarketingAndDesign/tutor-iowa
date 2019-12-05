@@ -1,4 +1,12 @@
 <?php 
+use SilverStripe\Security\Member;
+use SilverStripe\Control\Session;
+use SilverStripe\Versioned\Versioned;
+use SilverStripe\Security\Permission;
+use SilverStripe\Control\Controller;
+use SilverStripe\Control\Director;
+use SilverStripe\Security\MemberAuthenticator\MemberLoginForm;
+
 class CustomLoginForm extends MemberLoginForm {
         
     public function dologin($data) {
