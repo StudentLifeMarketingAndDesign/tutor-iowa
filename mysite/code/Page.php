@@ -106,7 +106,7 @@ class Page extends SiteTree {
 					'Tutors' => $tutors,
 					'SupplementalInstructions' => $SupplementalInstructions,
 					'HelpLabs' => $HelpLabs,
-					'Query' => $keyword,
+					'Query' => $keywordFiltered,
 					'Title' => 'Search Results',
 					'HasResults' => $resultsFound,
 				)
