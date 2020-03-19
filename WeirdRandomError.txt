@@ -1,0 +1,262 @@
+Shows up on homepage randomly, possibly has to do with the "popular tags section":
+
+
+[Warning] count(): Parameter must be an array or an object that implements Countable
+GET /tutor-iowa/
+
+Line 391 in /Users/dustin/Sites/tutor-iowa/mysite/code/PageController.php
+
+Source
+
+382 
+383 		// Apply limiting
+384 		if ($this->Limit > 0) {
+385 			$tagCounts = array_slice($tagCounts, 0, $this->Limit, true);
+386 		}
+387 
+388 		// Calculate buckets of popularities
+389 		$numsizes = count(array_unique($tagCounts)); //Work out the number of different sizes
+390 		$popularities = self::config()->popularities;
+391 
+		$buckets = count($popularities);
+392 		// If there are more frequencies than buckets, divide frequencies into buckets
+393 		if ($numsizes > $buckets) {
+394 			$numsizes = $buckets;
+395 		}
+396 
+397 		// Adjust offset to use central buckets (if using a subset of available buckets)
+Trace
+
+Monolog\ErrorHandler->handleError(2, count(): Parameter must be an array or an object that implements Countable, /Users/dustin/Sites/tutor-iowa/mysite/code/PageController.php, 391, Array) 
+PageController.php:391
+PageController->getTagsCollection() 
+call_user_func_array(Array, Array) 
+ViewableData.php:485
+SilverStripe\View\ViewableData->obj(getTagsCollection, , 1, getTagsCollection) 
+SSViewer_Scope.php:179
+SilverStripe\View\SSViewer_Scope->getObj(getTagsCollection, , 1, ) 
+SSViewer_DataPresenter.php:282
+SilverStripe\View\SSViewer_DataPresenter->getObj(getTagsCollection, , 1, ) 
+SSViewer_Scope.php:217
+SilverStripe\View\SSViewer_Scope->obj(getTagsCollection, , 1, ) 
+SSViewer_DataPresenter.php:269
+SilverStripe\View\SSViewer_DataPresenter->obj(getTagsCollection, , 1) 
+.cachethemes.tutor-foundation.templates.Includes.HomePagePopSearches.ss:19
+include(/private/var/folders/q5/_kn7qvw943979ygpg4vr58qw0000gp/T/silverstripe-cache-php7.2.14-Users-dustin-Sites-tutor-iowa/dustin/.cachethemes.tutor-foundation.templates.Includes.HomePagePopSearches.ss) 
+SSViewer.php:602
+SilverStripe\View\SSViewer->includeGeneratedTemplate(/var/folders/q5/_kn7qvw943979ygpg4vr58qw0000gp/T/silverstripe-cache-php7.2.14-Users-dustin-Sites-tutor-iowa/dustin/.cachethemes.tutor-foundation.templates.Includes.HomePagePopSearches.ss, PageController, Array, Array, SilverStripe\View\SSViewer_DataPresenter) 
+SSViewer.php:674
+SilverStripe\View\SSViewer->process(PageController, Array, SilverStripe\View\SSViewer_DataPresenter) 
+SSViewer.php:764
+SilverStripe\View\SSViewer::execute_template(Array, PageController, Array, SilverStripe\View\SSViewer_DataPresenter, 1) 
+.cachethemes.tutor-foundation.templates.Layout.HomePage.ss:28
+include(/private/var/folders/q5/_kn7qvw943979ygpg4vr58qw0000gp/T/silverstripe-cache-php7.2.14-Users-dustin-Sites-tutor-iowa/dustin/.cachethemes.tutor-foundation.templates.Layout.HomePage.ss) 
+SSViewer.php:602
+SilverStripe\View\SSViewer->includeGeneratedTemplate(/var/folders/q5/_kn7qvw943979ygpg4vr58qw0000gp/T/silverstripe-cache-php7.2.14-Users-dustin-Sites-tutor-iowa/dustin/.cachethemes.tutor-foundation.templates.Layout.HomePage.ss, PageController, , Array, ) 
+SSViewer.php:674
+SilverStripe\View\SSViewer->process(PageController, ) 
+SSViewer.php:668
+SilverStripe\View\SSViewer->SilverStripe\View\{closure}() 
+SSViewer_DataPresenter.php:330
+SilverStripe\View\SSViewer_DataPresenter->processTemplateOverride(Layout, Array) 
+SSViewer_DataPresenter.php:363
+SilverStripe\View\SSViewer_DataPresenter->getValueSource(Layout) 
+SSViewer_DataPresenter.php:165
+SilverStripe\View\SSViewer_DataPresenter->getInjectedValue(Layout, Array) 
+SSViewer_DataPresenter.php:296
+SilverStripe\View\SSViewer_DataPresenter->__call(XML_val, Array) 
+.cachethemes.tutor-foundation.templates.Page.ss:168
+include(/private/var/folders/q5/_kn7qvw943979ygpg4vr58qw0000gp/T/silverstripe-cache-php7.2.14-Users-dustin-Sites-tutor-iowa/dustin/.cachethemes.tutor-foundation.templates.Page.ss) 
+SSViewer.php:602
+SilverStripe\View\SSViewer->includeGeneratedTemplate(/var/folders/q5/_kn7qvw943979ygpg4vr58qw0000gp/T/silverstripe-cache-php7.2.14-Users-dustin-Sites-tutor-iowa/dustin/.cachethemes.tutor-foundation.templates.Page.ss, PageController, , Array, ) 
+SSViewer.php:674
+SilverStripe\View\SSViewer->process(PageController) 
+Controller.php:300
+SilverStripe\Control\Controller->handleAction(SilverStripe\Control\HTTPRequest, index) 
+RequestHandler.php:202
+SilverStripe\Control\RequestHandler->handleRequest(SilverStripe\Control\HTTPRequest) 
+Controller.php:212
+SilverStripe\Control\Controller->handleRequest(SilverStripe\Control\HTTPRequest) 
+ContentController.php:251
+SilverStripe\CMS\Controllers\ContentController->handleRequest(SilverStripe\Control\HTTPRequest) 
+ModelAsController.php:101
+SilverStripe\CMS\Controllers\ModelAsController->handleRequest(SilverStripe\Control\HTTPRequest) 
+RootURLController.php:108
+SilverStripe\CMS\Controllers\RootURLController->handleRequest(SilverStripe\Control\HTTPRequest) 
+Director.php:360
+SilverStripe\Control\Director->SilverStripe\Control\{closure}(SilverStripe\Control\HTTPRequest) 
+VersionedHTTPMiddleware.php:41
+SilverStripe\Versioned\VersionedHTTPMiddleware->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\Director->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+ExecMetricMiddleware.php:20
+SilverStripe\Control\Middleware\ExecMetricMiddleware->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\Director->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+ConfirmationMiddleware.php:254
+SilverStripe\Control\Middleware\ConfirmationMiddleware->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\Director->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+ConfirmationMiddleware.php:254
+SilverStripe\Control\Middleware\ConfirmationMiddleware->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\Director->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+PasswordExpirationMiddleware.php:84
+SilverStripe\Security\PasswordExpirationMiddleware->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\Director->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+BasicAuthMiddleware.php:68
+SilverStripe\Security\BasicAuthMiddleware->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\Director->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+AuthenticationMiddleware.php:61
+SilverStripe\Security\AuthenticationMiddleware->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\Director->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+CanonicalURLMiddleware.php:190
+SilverStripe\Control\Middleware\CanonicalURLMiddleware->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\Director->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+HTTPCacheControlMiddleware.php:42
+SilverStripe\Control\Middleware\HTTPCacheControlMiddleware->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\Director->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+ChangeDetectionMiddleware.php:28
+SilverStripe\Control\Middleware\ChangeDetectionMiddleware->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\Director->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+FlushMiddleware.php:27
+SilverStripe\Control\Middleware\FlushMiddleware->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\Director->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+RequestProcessor.php:66
+SilverStripe\Control\RequestProcessor->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\Director->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+SessionMiddleware.php:20
+SilverStripe\Control\Middleware\SessionMiddleware->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\Director->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+AllowedHostsMiddleware.php:60
+SilverStripe\Control\Middleware\AllowedHostsMiddleware->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\Director->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+TrustedProxyMiddleware.php:176
+SilverStripe\Control\Middleware\TrustedProxyMiddleware->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\Director->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+HTTPMiddlewareAware.php:65
+SilverStripe\Control\Director->callMiddleware(SilverStripe\Control\HTTPRequest, Closure) 
+Director.php:369
+SilverStripe\Control\Director->handleRequest(SilverStripe\Control\HTTPRequest) 
+HTTPApplication.php:117
+SilverStripe\Control\HTTPApplication::SilverStripe\Control\{closure}(SilverStripe\Control\HTTPRequest) 
+call_user_func(Closure, SilverStripe\Control\HTTPRequest) 
+HTTPApplication.php:136
+SilverStripe\Control\HTTPApplication->SilverStripe\Control\{closure}(SilverStripe\Control\HTTPRequest) 
+call_user_func(Closure, SilverStripe\Control\HTTPRequest) 
+ErrorControlChainMiddleware.php:67
+SilverStripe\Core\Startup\ErrorControlChainMiddleware->process(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPMiddlewareAware.php:62
+SilverStripe\Control\HTTPApplication->SilverStripe\Control\Middleware\{closure}(SilverStripe\Control\HTTPRequest) 
+HTTPMiddlewareAware.php:65
+SilverStripe\Control\HTTPApplication->callMiddleware(SilverStripe\Control\HTTPRequest, Closure) 
+HTTPApplication.php:137
+SilverStripe\Control\HTTPApplication->execute(SilverStripe\Control\HTTPRequest, Closure, ) 
+HTTPApplication.php:118
+SilverStripe\Control\HTTPApplication->handle(SilverStripe\Control\HTTPRequest) 
+index.php:26
+ Tutor Iowa Logo
+FIND HELP
+FIND HELP
+PRIVATE TUTORS
+ACADEMIC TIPS WORKSHEETS
+FIND STUDY SPACES & COMPUTER LABS
+HELP LABS
+MATHEMATICS DEPARTMENT
+SCIENCES LIBRARY
+LINKEDIN LEARNING ONLINE ...
+DIVISION OF WORLD LANGUAG...
+ALPHA CHI SIGMA CHEMISTRY...
+SEE ALL →
+SUPPLEMENTAL INSTRUCTION
+ELEMENTARY PSYCHOLOGY (PS...
+FOUNDATIONS OF BIOLOGY (B...
+ORGANIC CHEMISTRY II (CHE...
+COLLEGE ALGEBRA (MATH:100...
+INTRODUCTORY ANIMAL BIOLO...
+SEE ALL →
+WORKSHOPS
+SEARCH TUTOR IOWA
+SEE ALL →
+FOR TUTORS
+ADMIN
+STATISTICS
+SILVERSTRIPE
+HELP LABS
+EDIT PROFILE
+LOGOUT
+Small group tutoring.
+
+STAT:2020 STAT POLI:1700 PHILOSOPHY BIOSTATISTICS SPAN:2300 INTRODUCTION TO READING LITERATURE POLI:1300 POLI:1500 MICRO ECON:1100 CAREER AND MAJOR EXPLORATIONS ECONOMICS MEANING OF LIFE FOREIGN POLICY POLITICAL SCIENCE PHIL:1033 INTRODUCTION TO POLITICAL ANALYSIS ENGR:2110 PRINCIPLES OF MICROECONOMICS POLITICS POLITICAL SCIENCE INTRODUCTION TO AMERICAN FOREIGN POLICY CCP:1300 POLI:1501 INTERNATIONAL RELATIONS INTRO TO POLITICAL THOUGHT AND ACTION
+WAYS TO GET HELP
+
+Supplemental Instruction
+Description: Supplemental Instruction (SI) is a free resource that helps you figure out how to be...
+Private Tutors
+Description: Private Tutors are available to undergraduate students in a variety of courses.
+Help Labs
+Description: Several departments on campus offer academic support including one-on-one consultations, technology services, tutoring, and more.
+Academic Tips Worksheets
+Description: The following Academic Tips Worksheets have been created to provide you with tips, strategies and...
+CERTIFIED TUTORS
+
+Learn more about certified tutors →
+
+Michael Westphal 
+Hello!  I am a fourth year Pre-Med honors student studying Human Physiology.  
+Meredith Nastruz 
+My name is Meredith Nastruz, and I am an honors student studying Neuroscience on the Pre-Medicine Track.
+Jack Mason 
+Hello! I am Jack and I'm a third year here at the University of Iowa.
+Julia Hughes 
+Hi! I am a 4th year in the honors program studying Human Physiology on the Pre-Med track and minoring in...
+Rachel Hulme 
+Hi, my name is Rachel Hulme, and I graduated from the University of Iowa with a BA in biology and...
+Tyler Jackson 
+Hello! I'm Tyler and I am a B. S. : Biology graduate participating in a post-baccalaureate program this year.
+Elias Kovoor 
+Hello I am currently a grad student and I have been the Supplemental Instruction Leader for Principles of Chemistry 2...
+FEATURED CAMPUS RESOURCES
+
+Rita Benton Music Library
+Location: 1451A Voxman Music Building (VOX) 
+Description: The Rita Benton Music Library offers many services to students, both in-person and online.
+Beta Alpha Psi Accounting Tutors
+Description: Beta Alpha Psi Honorary Organization for Accounting Majors provides free tutoring for Financial Accounting and...
+TCOB Academic Support & Tutoring
+Description: Need tutoring or extra help in a class? Take advantage of our tutoring and online...
+Spanish Speaking, Writing, and Conversation Center
+Location: 121 Phillips Hall (PH) 
+Description: Feedback and suggestions on Spanish papers, presentations, and projects.
+Mathematics Tutorial Laboratory
+Location: 125 MacLean Hall (MLH) 
+Description: The Mathematics Tutorial Laboratory is a place for students to get assistance studying for their...
+Feedback
+Academic Support and Retention
+Academic Support & Retention offers Tutor Iowa as an excellent resource to find academic assistance and mentoring for your University of Iowa courses! If you have any questions or are unable to find what you are looking for contact us via:
+
+Phone: 319-335-1497
+Email: tutoriowa@uiowa.edu
+
+Home
+Find Help
+For Tutors
+Submit Feedback
+The University of Iowa
+
+Individuals with disabilities are encouraged to attend all University of Iowa events. If you are a person with a disability and require an accommodation in order to participate in this event, please contact Tutor Iowa at 319-335-1497.
+
+© 2020 The University of Iowa. All Rights Reserved. Privacy Information
+
+ LIVE

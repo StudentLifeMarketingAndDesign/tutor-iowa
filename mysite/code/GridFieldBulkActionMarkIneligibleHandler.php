@@ -4,6 +4,7 @@ use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Core\Convert;
 use SilverStripe\Control\HTTPResponse;
 use Colymba\BulkManager\BulkAction\Handler;
+use Colymba\BulkTools\HTTPBulkToolsResponse;
 /**
  * Bulk action handler for deleting records.
  * 
@@ -13,21 +14,66 @@ use Colymba\BulkManager\BulkAction\Handler;
  */
 class GridFieldBulkActionMarkIneligibleHandler extends Handler
 {	
-	/**
-	 * RequestHandler allowed actions
-	 * @var array
-	 */
-	private static $allowed_actions = array('markIneligible');
+ /**
+     * URL segment used to call this handler
+     * If none given, @BulkManager will fallback to the Unqualified class name
+     * 
+     * @var string
+     */
+    private static $url_segment = 'markIneligible';
 
+    /**
+     * RequestHandler allowed actions.
+     *
+     * @var array
+     */
+    private static $allowed_actions = array('markIneligible');
 
-	/**
-	 * RequestHandler url => action map
-	 * @var array
-	 */
-	private static $url_handlers = array(
-		'markIneligible' => 'markIneligible'
-	);
-	
+    /**
+     * RequestHandler url => action map.
+     *
+     * @var array
+     */
+    private static $url_handlers = array(
+        '' => 'markIneligible',
+    );
+
+    /**
+     * Front-end label for this handler's action
+     * 
+     * @var string
+     */
+    protected $label = 'Mark as ineligible';
+
+    /**
+     * Front-end icon path for this handler's action.
+     * 
+     * @var string
+     */
+    protected $icon = '';
+
+    /**
+     * Extra classes to add to the bulk action button for this handler
+     * Can also be used to set the button font-icon e.g. font-icon-trash
+     * 
+     * @var string
+     */
+    protected $buttonClasses = '';
+    
+    /**
+     * Whether this handler should be called via an XHR from the front-end
+     * 
+     * @var boolean
+     */
+    protected $xhr = true;
+    
+    /**
+     * Set to true is this handler will destroy any data.
+     * A warning and confirmation will be shown on the front-end.
+     * 
+     * @var boolean
+     */
+    protected $destructive = false;
 
 	/**
 	 * Publish
@@ -37,20 +83,17 @@ class GridFieldBulkActionMarkIneligibleHandler extends Handler
 	 */
 	public function markIneligible(HTTPRequest $request)
 	{
-		$ids = array();
-		
-		foreach ( $this->getRecords() as $record )
+		$records = $this->getRecords();
+		$response = new HTTPBulkToolsResponse(true, $this->gridField);
+
+		foreach ( $records as $record )
 		{						
-			array_push($ids, $record->ID);
+
 			$record->EligibleToTutor = 0;
 			$record->write();
+			$response->addSuccessRecord($record);
 		}
 
-		$response = new HTTPResponse(Convert::raw2json(array(
-			'done' => true,
-			'records' => $ids
-		)));
-		$response->addHeader('Content-Type', 'text/json');
 		return $response;	
 	}
 }

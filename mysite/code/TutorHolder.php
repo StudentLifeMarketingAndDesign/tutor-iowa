@@ -15,7 +15,7 @@ class TutorHolder extends Page {
 
 	private static $allowed_children = array('TutorPage');
 
-	private static $icon = 'mysite/cms_icons/amount.png';
+	private static $icon_class = 'font-icon-torsos-all';
 
 	/**
 	 * This sets the title for our gridfield.
@@ -37,12 +37,12 @@ class TutorHolder extends Page {
 		$tutorFieldConfig = GridFieldConfig_Lumberjack::create();
 		$tutorFieldConfig->addComponent(new BulkManager());
 		$tutorFieldConfig->getComponentByType(GridFieldPaginator::class)->setItemsPerPage(50);
-		$tutorFieldConfig->getComponentByType(BulkManager::class)->removeBulkAction('bulkEdit');
-		$tutorFieldConfig->getComponentByType(BulkManager::class)->removeBulkAction('delete');
-		$tutorFieldConfig->getComponentByType(BulkManager::class)->removeBulkAction('unLink');
-		$tutorFieldConfig->getComponentByType(BulkManager::class)->addBulkAction('publish', 'Publish', 'GridFieldBulkActionPublishHandler',null);
-		$tutorFieldConfig->getComponentByType(BulkManager::class)->addBulkAction('unPublish', 'Unpublish', 'GridFieldBulkActionUnpublishHandler',null);
-		$tutorFieldConfig->getComponentByType(BulkManager::class)->addBulkAction('markIneligible', 'Mark as Ineligible', 'GridFieldBulkActionMarkIneligibleHandler',null);
+		$tutorFieldConfig->getComponentByType(BulkManager::class)->removeBulkAction('Colymba\BulkManager\BulkAction\EditHandler');
+		$tutorFieldConfig->getComponentByType(BulkManager::class)->removeBulkAction('Colymba\BulkManager\BulkAction\DeleteHandler');
+		$tutorFieldConfig->getComponentByType(BulkManager::class)->removeBulkAction('Colymba\BulkManager\BulkAction\UnlinkHandler');
+		$tutorFieldConfig->getComponentByType(BulkManager::class)->addBulkAction('Colymba\BulkManager\BulkAction\PublishHandler');
+		$tutorFieldConfig->getComponentByType(BulkManager::class)->addBulkAction('Colymba\BulkManager\BulkAction\UnpublishHandler');
+		$tutorFieldConfig->getComponentByType(BulkManager::class)->addBulkAction( 'GridFieldBulkActionMarkIneligibleHandler');
 		
 
 		$gridField = new GridField(
