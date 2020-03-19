@@ -11,6 +11,24 @@ class MemberExtension extends DataExtension {
 		"Messages" => "Message"
 	);
 
+	public function editProfileLink(){
+		$Member = Member::CurrentUser();
+		if($Member){
+			$IDMember = $Member->ID;
+			$Tutor = TutorPage::get()->filter(array('MemberID' => $IDMember))->first();
+			if($Tutor){
+			 
+			 return 'private-tutors/'.$Tutor->URLSegment.'/edit';
+			}
+			else{
+				return false;
+			}
+		}else{
+			return false;
+		}
+
+	}
+
     public function unreadMessageCount(){
 	    $member = $this->owner; 
 	    
