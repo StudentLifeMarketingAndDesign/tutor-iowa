@@ -9,9 +9,7 @@
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
     "grunt-criticalcss": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-sass": "*",
-    "gifsicle": "*",
+    "grunt-sass": "2.1.0",
     "optipng-bin": "*",
     "jpegtran-bin": "*"
   }

@@ -17,7 +17,7 @@
 		"i-lateral/silverstripe-trumbowyg-htmleditor": "dev-master",
 		"colymba/gridfield-bulk-editing-tools": "*",
 		"unclecheese/betterbuttons": "1.3.*",
-		"md/uiowa-bar": "*",
+		"md/uiowa-bar": "dev-2.x-ss3",
 		"thisisbd/silverstripe-maintenance-mode": "*",
 		"jonom/silverstripe-betternavigator": "3.*",
 		"undefinedoffset/sortablegridfield": "0.6.*",
