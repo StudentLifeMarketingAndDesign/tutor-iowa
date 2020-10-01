@@ -1462,7 +1462,7 @@ $topbar-link-bg-active-hover: none;
 $topbar-link-font-family: $header-font-family;
 $topbar-link-text-transform: uppercase;
 
-// $topbar-link-padding: ($topbar-height / 3);
+$topbar-link-padding: (rem-calc(10));
 $topbar-back-link-size: rem-calc(14);
 
 // $topbar-link-dropdown-padding: rem-calc(20);
