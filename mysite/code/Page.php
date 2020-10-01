@@ -490,7 +490,10 @@ class Page_Controller extends ContentController {
 
 		// Calculate buckets of popularities
 		$numsizes = count(array_unique($tagCounts)); //Work out the number of different sizes
+		$popularities = array();
 		$popularities = self::config()->popularities;
+
+
 		$buckets = count($popularities);
 		// If there are more frequencies than buckets, divide frequencies into buckets
 		if ($numsizes > $buckets) {
