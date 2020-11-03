@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="$ContentLocale.ATT" dir="$i18nScriptDirection.ATT">
 <head>
+	<% include GlobalAnalytics %>
 	<% base_tag %>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
