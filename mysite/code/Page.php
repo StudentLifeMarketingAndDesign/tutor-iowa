@@ -24,8 +24,6 @@ class Page extends SiteTree {
 		$keywords = $this->Tags;
 		$keywords = str_replace('Certified Tutor', '', $keywords);
 
-
-
 		if ($keywords) {
 			$splitKeywords = explode(',', $keywords);
 		}
@@ -33,10 +31,10 @@ class Page extends SiteTree {
 		if (isset($splitKeywords)) {
 			$keywordsList = new ArrayList();
 			foreach ($splitKeywords as $data) {
-				if(trim($data) != ''){
+				if (trim($data) != '') {
 					$do = new DataObject();
 					$do->Keyword = $data;
-					$keywordsList->push($do);					
+					$keywordsList->push($do);
 				}
 
 			}
@@ -44,10 +42,10 @@ class Page extends SiteTree {
 		}
 	}
 
-	public function RandomChildren(){
+	public function RandomChildren() {
 		$children = Page::get()->filter(
 			array(
-				"ParentID" => $this->ID
+				"ParentID" => $this->ID,
 			)
 		)->sort('RAND()');
 		return $children;
@@ -67,9 +65,9 @@ class Page extends SiteTree {
                     + MATCH( Title, MenuTitle, Content, Tags) AGAINST ('$keywordFiltered'$mode)";
 
 		/*
-		 * Standard pages
-		 * SiteTree Classes with the default search MATCH
-		 */
+			 * Standard pages
+			 * SiteTree Classes with the default search MATCH
+		*/
 		foreach ($siteTreeClasses as $c) {
 			$query = DataList::create($c)->where($siteTreeMatch);
 			$query = $query->dataQuery()->query();
@@ -148,21 +146,21 @@ class Page_Controller extends ContentController {
 	 * @var array
 	 */
 	private static $allowed_actions = array(
-		'logout', 
+		'logout',
 		'FeedbackForm',
-		'hawkCheck'
+		'hawkCheck',
 	);
 
 	private static $url_handlers = array(
-		'hawkCheck//' => 'hawkCheck'
+		'hawkCheck//' => 'hawkCheck',
 	);
 
-	public function hawkCheck(){
-	
-		if(!Member::currentUser()){
+	public function hawkCheck() {
+
+		if (!Member::currentUser()) {
 			return Security::permissionFailure($this);
 		}
-		
+
 		// return $this->renderWith(array('TutorPage', 'Page'));
 		return $this->redirect($this->Link());
 	}
@@ -223,7 +221,7 @@ class Page_Controller extends ContentController {
 			new HiddenField('PageID', 'PageID', $this->ID)
 		);
 
-		if($this->ClassName == "FeedbackPage"){
+		if ($this->ClassName == "FeedbackPage") {
 			$fields->removeByName("SpecificPage");
 		}
 
@@ -236,7 +234,6 @@ class Page_Controller extends ContentController {
 
 		//Create form
 		$Form = new FoundationForm($this, 'FeedbackForm', $fields, $actions, $validator);
-
 
 		return $Form;
 
@@ -256,11 +253,11 @@ class Page_Controller extends ContentController {
 		$feedback->write();
 
 		if ($feedback->SpecificPage == "1") {
-			
+
 			$relatedPage = Page::get_by_id("Page", $feedback->PageID);
 
 		}
-		
+
 		$subject = "Feedback submitted";
 
 		//check data for errors
@@ -268,8 +265,7 @@ class Page_Controller extends ContentController {
 		$userEmail = Convert::raw2sql($data['Email']);
 		$feedback = Convert::raw2sql($data['Feedback']);
 
-
-		if (isset($relatedPage)){
+		if (isset($relatedPage)) {
 			$body = '' . $name . " has submitted feedback for page " . $relatedPage->Title . ". <br><br>Feedback:" . $feedback;
 		} else {
 			$body = '' . $name . " has submitted feedback. " . "<br><br>Feedback:" . $feedback;
@@ -281,7 +277,7 @@ class Page_Controller extends ContentController {
 		$email->setSubject($subject);
 		$email->setBody($body);
 		if (SS_ENVIRONMENT_TYPE == "live") {
-			$email->send(); 
+			$email->send();
 		}
 
 		Session::set('Saved', 1);
@@ -314,9 +310,9 @@ class Page_Controller extends ContentController {
 		//print_r($tutorPageStage);
 		if (isset($tutorPageStage)) {
 			return $tutorPageStage;
-		}else{
+		} else {
 			$tutorPageLive = Versioned::get_by_stage('TutorPage', 'Live')->filter(array('MemberID' => $currentMemberID))->First();
-			return $tutorPageLive;			
+			return $tutorPageLive;
 		}
 	}
 	//If current user has a published page
@@ -414,19 +410,18 @@ class Page_Controller extends ContentController {
 		return $this->customise($data)->renderWith(array('Page_results', 'Page'));
 	}
 
-
-	private function customiseTerm($keyword){
+	private function customiseTerm($keyword) {
 		// TODO: Finish modifiying course searches (delimit by colons, grab the text before colon)
 		$pos = strpos($keyword, ':');
-		if($pos !==false){
-			$keyword = '"'.$keyword.'"';
+		if ($pos !== false) {
+			$keyword = '"' . $keyword . '"';
 		}
 		return $keyword;
 	}
 
 	private function addSearchTermToLibrary($keyword) {
 
-		if($keyword = ''){
+		if ($keyword = '') {
 			return;
 		}
 		$term = SearchTerm::get()->filter(array('Title' => $keyword))->First();
@@ -491,8 +486,7 @@ class Page_Controller extends ContentController {
 		// Calculate buckets of popularities
 		$numsizes = count(array_unique($tagCounts)); //Work out the number of different sizes
 		$popularities = array();
-		$popularities = self::config()->popularities;
-
+		//$popularities = self::config()->popularities;
 
 		$buckets = count($popularities);
 		// If there are more frequencies than buckets, divide frequencies into buckets
@@ -501,6 +495,7 @@ class Page_Controller extends ContentController {
 		}
 
 		// Adjust offset to use central buckets (if using a subset of available buckets)
+
 		$offset = round(($buckets - $numsizes) / 2);
 		$output = new ArrayList();
 		foreach ($tagCounts as $tag => $count) {
@@ -513,7 +508,12 @@ class Page_Controller extends ContentController {
 					($count - $minCount) / ($maxCount - $minCount) * ($numsizes - 1)
 				) + $offset;
 			}
-			$class = $popularities[$popularity];
+
+			if ($popularity > 0) {
+				$class = $popularities[$popularity];
+			} else {
+				$class = null;
+			}
 
 			$output->push(new ArrayData(array(
 				"Title" => $tagLabels[$tag]->Keyword,
@@ -589,8 +589,6 @@ class Page_Controller extends ContentController {
 			return true;
 		}
 	}
-
-	
 
 	public function LatestNews($num = 5) {
 		$news = ArticlePage::get()->sort('LastEdited DESC')->limit($num);
