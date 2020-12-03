@@ -24,8 +24,8 @@ class RegistrationPage_Controller extends Page_Controller {
 
 	//Generate the registration form
 	public function RegistrationForm() {
-		//disabled form:
-		return null;
+		//disable form by uncommenting this line:
+		// return null;
 		$currentUser = Member::CurrentUser();
 		if (!$currentUser) {
 			return '';
