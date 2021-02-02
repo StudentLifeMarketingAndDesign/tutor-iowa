@@ -1,10 +1,9 @@
 @mixin banner {
     text-transform: uppercase;
-    font-size: rem-calc(16);
-    background: #eee;
+    font-size: rem-calc(22);
     color: #222;
     position: relative;
-    padding: 3px;
+    padding: 10px 0;
 }
 
 .banner {

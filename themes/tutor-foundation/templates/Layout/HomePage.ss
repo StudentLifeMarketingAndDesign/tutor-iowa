@@ -38,7 +38,7 @@
 					</ul>
 					<% if FeaturedTutors %>
 					<h3 class="banner">Certified Tutors</h3>
-					<p><a href="private-tutors/certified">Learn more about certified tutors &rarr;</a></p>
+					
 					<ul class="tutor-card-list large">
 						<% loop FeaturedTutors.Limit(16) %>
 							<% include TutorCard %>
@@ -54,6 +54,7 @@
 						<% end_loop %>
 					</ul>
 					<% end_if %>
+					<p class="text-center"><a href="private-tutors/certified">Learn more about certified tutors &rarr;</a></p>
 					</article>
 			</div>
 			<div class="large-3 columns end" data-equalizer-watch>
