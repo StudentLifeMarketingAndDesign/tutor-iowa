@@ -54,7 +54,7 @@
 						<% end_loop %>
 					</ul>
 					<% end_if %>
-					<p class="text-center"><a href="private-tutors/certified">Learn more about certified tutors &rarr;</a></p>
+					<p class="text-center lean-more-link"><a href="private-tutors/certified">Learn more about certified tutors &rarr;</a></p>
 					</article>
 			</div>
 			<div class="large-3 columns end" data-equalizer-watch>

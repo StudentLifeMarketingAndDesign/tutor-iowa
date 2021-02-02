@@ -37,7 +37,7 @@
 							<strong>No Phone Listed</strong><br />
 						<% end_if %>
 						<% if $ExtrnlLink %>
-							<a href="$ExtrnlLink" target="_blank">Visit website &rarr;</a>
+							<a href="$ExtrnlLink" class="learn-more-link" target="_blank">Visit website &rarr;</a>
 						<% end_if %>
 						</p>
 						<% if $Description %>

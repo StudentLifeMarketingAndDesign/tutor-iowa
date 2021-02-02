@@ -5,8 +5,8 @@
 		<% include AnnouncementCard %>
 	<% end_loop %>
 	<li class="announcement-card card last">
-		<a href="news/">
-			<h4>See all announcements&nbsp;&rarr;</h4>
+		<a href="news/" class="learn-more-link" style="color: #222">
+			See more&nbsp;&rarr;
 		</a>
 	</li>
 

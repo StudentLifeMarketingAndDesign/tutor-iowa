@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="<% if $SiteConfig.LoginContent %>large-6<% else %>large-12<% end_if %> columns">
 			<h2>Login</h2>
-			<p>Not registered yet? <a href="tutor-application" target="_blank">Learn more about becoming a tutor &rarr;</a></p>
+			<p>Not registered yet? <a href="tutor-application" class="learn-more-link" target="_blank">Learn more about becoming a tutor &rarr;</a></p>
 			$LoginForm
 		</div>
 		<% if $SiteConfig.LoginContent %>

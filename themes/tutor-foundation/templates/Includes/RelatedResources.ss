@@ -7,7 +7,7 @@
             <li><a href="$Link">$Title</a></li>
         <% end_loop %>
         </ul>
-        <p><a href="help-labs/">Learn more about help labs on campus &rarr;</a></p>
+        <p><a href="help-labs/" class="learn-more-link">Learn more about help labs on campus &rarr;</a></p>
     <% end_if %>
     <% if $SupplementalInstructions %>
     <h3 class="banner"><span>Related Supplemental Instruction</span></h3> 
@@ -16,7 +16,7 @@
             <li><a href="$Link">$Title</a></li>
         <% end_loop %>
         </ul>
-        <a href="find-help/supplemental-instructions/">Learn more about supplemental instruction &rarr;</a>
+        <a href="find-help/supplemental-instructions/" class="learn-more-link">Learn more about supplemental instruction &rarr;</a>
     <% end_if %>
     <% if $HelpLabs || $SupplementalInstructions %></p><% end_if %>
     <% if $Tutors %>
