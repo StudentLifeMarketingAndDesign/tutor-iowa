@@ -12,7 +12,7 @@
 
 							<% if $Sent %>
 							<div data-alert class="alert-box success">
-							  Your message to $FirstName has been sent.
+							  Your message to $Title has been sent.
 							  <a href="#" class="close">&times;</a>
 							</div>
 							<% end_if %>
@@ -34,7 +34,7 @@
 					</div>
 					<div class="row">
 						<div class="medium-12 columns">
-							<h2>About $FirstName</h2>
+							<h2>About</h2>
 							<p>$Content</p>
 
 							<%--
@@ -54,11 +54,11 @@
 							<% end_if %>
 							$Form
 							<hr />
-							<h2>Contact $FirstName</h2>
+							<h2>Contact</h2>
 
 							<% if $CurrentMember %>
 								$ContactForm
-								<p><a href="{$getFeedbackLink}" data-reveal-id="feedback-form-modal">Give Feedback About $FirstName</a></p>
+								<p><a href="{$getFeedbackLink}" data-reveal-id="feedback-form-modal">Give Feedback About $Title</a></p>
 							<% else %>
 								<a href="$Link("hawkcheck")" class="button button--hawkid">Log in with your HawkID to contact $FirstName</a>
 							<% end_if %>

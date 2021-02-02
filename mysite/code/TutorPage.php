@@ -68,24 +68,24 @@ class TutorPage extends Page {
 		'Parent.Title',
 	);
 
-	public function getEmail(){
+	public function getEmail() {
 		$member = $this->Member();
 		//print_r($member->Email);
 		return $member->Email;
 	}
 
-	public function getTitle(){
+	public function getTitle() {
 		$member = $this->Member();
 
 		//Only show surnames when a user is logged in.
-		if( Member::currentUserID() ) {
-		    return $member->FirstName.' '.$member->Surname;
+		if (Member::currentUserID()) {
+			return $member->FirstName . ' ' . $member->Surname;
 		} else {
-		   return $member->FirstName;
+			return $member->FirstName;
 		}
 	}
 
-	public function getMenuTitle(){
+	public function getMenuTitle() {
 		return $this->getTitle();
 	}
 
@@ -127,7 +127,6 @@ class TutorPage extends Page {
 		$fields->addFieldToTab('Root.Main', new HTMLEditorField("WhatToExpect", "What to Expect"));
 		$fields->addFieldToTab('Root.Main', new HTMLEditorField("HowToPrepare", "How to Prepare"));
 
-
 		$fields->addFieldToTab('Root.Advanced', new DropdownField("MemberID", "Associated User", $membersDropdownSource));
 
 		$gridFieldConfigFeedbackItems = GridFieldConfig_RecordEditor::create();
@@ -166,11 +165,11 @@ class TutorPage extends Page {
 		return MemberManagement::get();
 	}
 
-	public function isCertified(){
+	public function isCertified() {
 		$tags = $this->Tags;
 		if (strpos($tags, 'Certified Tutor') === false) {
-		    return false;
-		}else{
+			return false;
+		} else {
 			return true;
 		}
 	}
@@ -179,38 +178,36 @@ class TutorPage extends Page {
 class TutorPage_Controller extends Page_Controller {
 
 	private static $allowed_actions = array(
-		'ContactForm', 
-		'editProfile', 
-		'EditProfileForm', 
+		'ContactForm',
+		'editProfile',
+		'EditProfileForm',
 		'repositionCoverImage',
-		'contact'
+		'contact',
 		//'updateNameFromLdap'
 	);
 
 	private static $url_handlers = array(
 		'edit//$action' => 'editProfile',
-		'updateNameFromLdap//' => 'updateNameFromLdap'
+		'updateNameFromLdap//' => 'updateNameFromLdap',
 	);
-	public function init(){
+	public function init() {
 		parent::init();
 		// $currentUser = Member::currentUser();
 		// if(!$currentUser){
 		// 	return Security::permissionFailure($this, 'hey');
 		// }
-		
 
 	}
-
 
 	public function ContactForm() {
 
 		//print_r($this->Email);
 		$fields = new FieldList(
-			new TextAreaField('Body', '<span>*</span> Your Message to ' . $this->FirstName)
+			new TextAreaField('Body', '<span>*</span> Your Message to ' . $this->Title)
 		);
 
 		$actions = new FieldList(
-			new FormAction('doContactTutor', 'Send a Message to ' . $this->FirstName)
+			new FormAction('doContactTutor', 'Send a Message')
 		);
 
 		$validator = new RequiredFields('Email');
@@ -219,13 +216,13 @@ class TutorPage_Controller extends Page_Controller {
 
 	}
 
-	public function updateNameFromLdap(){
+	public function updateNameFromLdap() {
 		$currentUser = Member::CurrentUser();
 		$email = $currentUser->Email;
 
 		$userLookup = $currentUser->lookupUser($email);
 		//print_r($userLookup);
-		if($userLookup){
+		if ($userLookup) {
 			//echo 'user found, updating to '.$userLookup['firstName'].' '.$userLookup['lastName'];
 			$currentUser->FirstName = $userLookup['firstName'];
 			$currentUser->Surname = $userLookup['lastName'];
@@ -246,12 +243,12 @@ class TutorPage_Controller extends Page_Controller {
 
 		$currentUser = Member::CurrentUser();
 
-		if(!$currentUser){
+		if (!$currentUser) {
 			return Security::permissionFailure($this, 'hey');
 		}
 
 		$from = $currentUser->Email;
-		$name = $currentUser->FirstName.' '.$currentUser->Surname;
+		$name = $currentUser->FirstName . ' ' . $currentUser->Surname;
 
 		$body = $data["Body"];
 		$subject = "[Tutor Iowa] " . $name . " has contacted you.";
@@ -262,13 +259,13 @@ class TutorPage_Controller extends Page_Controller {
 		$email->setSubject($subject);
 		$email->setFrom($adminEmail);
 		$email->replyTo($from);
-		$email->setBody($name . ' has contacted you. 
-		You may reply to their message directly by <strong>replying to this email.</strong> 
-		Their email should automatically be filled into the To:" field in your email app. If it isn\'t, please email them directly at <strong>'.$from.'.</strong>  <br /><br />
-		Read their message below: <br /><br />' . $body. '<br /><br /><br />'.$name.'<br />'.$from);
+		$email->setBody($name . ' has contacted you.
+		You may reply to their message directly by <strong>replying to this email.</strong>
+		Their email should automatically be filled into the To:" field in your email app. If it isn\'t, please email them directly at <strong>' . $from . '.</strong>  <br /><br />
+		Read their message below: <br /><br />' . $body . '<br /><br /><br />' . $name . '<br />' . $from);
 
 		if ((SS_ENVIRONMENT_TYPE == "live")) {
-			$email->send(); 
+			$email->send();
 		}
 
 		$message = new Message();
@@ -346,7 +343,7 @@ class TutorPage_Controller extends Page_Controller {
 			$fields = new FieldList(
 
 				// new LiteralField('Name', '<h2>'.$Member->Name.'</h2><p>If your name needs to be updated, <a href="'.$this->Link().'updateNameFromLdap/">click here to update it based on your MyUI preferences</a>.</p>'),
-				new LiteralField('Name', '<h2>'.$Member->Name.'</h2>'),
+				new LiteralField('Name', '<h2>' . $Member->Name . '</h2>'),
 				$bioField,
 				$availabilityField,
 				new DateField('StartDate', 'Date you would like to start tutoring'),
@@ -365,7 +362,6 @@ class TutorPage_Controller extends Page_Controller {
 				//This does not sync with database (database field is 'Disabled')
 				new CheckboxField('Disable', 'Request to disable your page (will no longer be returned as a search result on TutorIowa)')
 			);
-
 
 			$saveAction = new FormAction('SaveProfile', 'Save');
 			$saveAction->addExtraClass('radius');
@@ -402,7 +398,7 @@ class TutorPage_Controller extends Page_Controller {
 		// Save into the member dataobject.
 		$memberFieldList = array(
 			"FirstName",
-			"Surname"
+			"Surname",
 		);
 		$formData = $form->getData();
 
@@ -417,8 +413,7 @@ class TutorPage_Controller extends Page_Controller {
 		$formDisabled = $formData['Disable'];
 		if ($formDisabled) {
 			//If user checked disable page box
-			if ($DisablePage = DisablePage::get()->First())
-			{
+			if ($DisablePage = DisablePage::get()->First()) {
 				$parameter = '?ID=' . $Tutor->ID;
 				return $this->redirect($DisablePage->Link($parameter));
 			}
