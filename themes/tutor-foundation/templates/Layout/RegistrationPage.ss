@@ -21,14 +21,14 @@
 						
 						$Content
 						<%-- form --%>
-						<div class="panel">
+<%-- 						<div class="panel">
 							<h2>Registration form</h2>
 							<% if $CurrentMember %>
 								$RegistrationForm
 							<% else %>
 								<a href="$Link("hawkCheck")" class="button button--hawkid">Log in with your HawkID in order to register</a>
 							<% end_if %>
-						</div>
+						</div> --%>
 					</article>
 				</div>
 			</div>
